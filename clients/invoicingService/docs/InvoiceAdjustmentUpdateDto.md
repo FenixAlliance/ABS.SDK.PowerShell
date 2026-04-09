@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **DiscountAmount** | **Double** |  | [optional] 
 **TotalSurcharge** | **Double** |  | [optional] 
 **TotalDiscount** | **Double** |  | [optional] 
-**Type** | **Int32** |  | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 

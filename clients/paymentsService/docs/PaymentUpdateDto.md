@@ -21,9 +21,9 @@ Name | Type | Description | Notes
 **ReferenceCode** | **String** |  | [optional] 
 **CorrelationCode** | **String** |  | [optional] 
 **LastUpdated** | **System.DateTime** |  | [optional] 
-**OnBehalfOf** | **Int32** |  | [optional] 
-**PaymentType** | **Int32** |  | [optional] 
-**PaymentStatus** | **Int32** |  | [optional] 
+**OnBehalfOf** | **String** |  | [optional] 
+**PaymentType** | **String** |  | [optional] 
+**PaymentStatus** | **String** |  | [optional] 
 **BaseCost** | **Double** |  | [optional] 
 **Signature** | **String** |  | [optional] 
 **SignatureMismatch** | **Boolean** |  | [optional] 
@@ -56,7 +56,7 @@ Name | Type | Description | Notes
 **AccountingEntryId** | **String** |  | [optional] 
 **PaymentGatewayId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **PaymentTokenId** | **String** |  | [optional] 
 **EmisorWalletAccountId** | **String** |  | [optional] 
@@ -119,7 +119,7 @@ $PaymentUpdateDto = Initialize-PSOpenAPIToolsPaymentUpdateDto  -InvoiceId null `
  -AccountingEntryId null `
  -PaymentGatewayId null `
  -BankAccountId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -BankId null `
  -PaymentTokenId null `
  -EmisorWalletAccountId null `

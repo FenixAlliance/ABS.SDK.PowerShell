@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **MarketingAreaId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -39,7 +39,7 @@ $MarketingCampaignUpdateDto = Initialize-PSOpenAPIToolsMarketingCampaignUpdateDt
  -MarketingAreaId null `
  -CurrencyId null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

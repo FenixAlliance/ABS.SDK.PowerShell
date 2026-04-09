@@ -4,34 +4,30 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet**](AntiforgeryApi.md#Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | 
-[**Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet**](AntiforgeryApi.md#Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | 
+[**Get-AndStoreTokens**](AntiforgeryApi.md#Get-AndStoreTokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens
+[**Invoke-IsRequestValidAsync**](AntiforgeryApi.md#Invoke-IsRequestValidAsync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request
 
 
-<a id="Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet"></a>
-# **Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet**
-> void Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet<br>
+<a id="Get-AndStoreTokens"></a>
+# **Get-AndStoreTokens**
+> void Get-AndStoreTokens<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get and store antiforgery tokens
 
+Generates antiforgery tokens and stores them in the current HTTP context.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get and store antiforgery tokens
 try {
-    $Result = Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AndStoreTokens -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2SystemServiceAntiforgeryGetAndStoreTokensGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-AndStoreTokens: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -49,7 +45,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -58,30 +54,26 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet"></a>
-# **Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet**
-> void Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet<br>
+<a id="Invoke-IsRequestValidAsync"></a>
+# **Invoke-IsRequestValidAsync**
+> void Invoke-IsRequestValidAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Validate antiforgery request
 
+Validates whether the current HTTP request contains a valid antiforgery token.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Validate antiforgery request
 try {
-    $Result = Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-IsRequestValidAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2SystemServiceAntiforgeryIsRequestValidGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-IsRequestValidAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -99,7 +91,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

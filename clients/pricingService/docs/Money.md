@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **Double** |  | [optional] 
-**Currency** | [**Currency**](Currency.md) |  | [optional] 
+**Currency** | [**CurrencyId**](CurrencyId.md) |  | [optional] 
 
 ## Examples
 

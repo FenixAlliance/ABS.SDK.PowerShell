@@ -4,35 +4,31 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2ShipmentsServiceShipmentsGet**](ShipmentsApi.md#Invoke-ApiV2ShipmentsServiceShipmentsGet) | **GET** /api/v2/ShipmentsService/Shipments | 
+[**Get-ShipmentsAsync**](ShipmentsApi.md#Get-ShipmentsAsync) | **GET** /api/v2/ShipmentsService/Shipments | Retrieve a list of shipments
 
 
-<a id="Invoke-ApiV2ShipmentsServiceShipmentsGet"></a>
-# **Invoke-ApiV2ShipmentsServiceShipmentsGet**
-> ShipmentDtoListEnvelope Invoke-ApiV2ShipmentsServiceShipmentsGet<br>
+<a id="Get-ShipmentsAsync"></a>
+# **Get-ShipmentsAsync**
+> ShipmentDtoListEnvelope Get-ShipmentsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Retrieve a list of shipments
 
+Retrieves a list of shipments for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Retrieve a list of shipments
 try {
-    $Result = Invoke-ApiV2ShipmentsServiceShipmentsGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ShipmentsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ShipmentsServiceShipmentsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-ShipmentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -51,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

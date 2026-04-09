@@ -22,19 +22,12 @@ Method | HTTP request | Description
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $LicenseFeature = Initialize-LicenseFeature -Key "MyKey" -Value "MyValue"
 $AdditionalAttribute = Initialize-AdditionalAttribute -Key "MyKey" -Value "MyValue"
-$LicenseKeyRequest = Initialize-LicenseKeyRequest -UserId "MyUserId" -TenantId "MyTenantId" -OrderId "MyOrderId" -PaymentId "MyPaymentId" -InvoiceId "MyInvoiceId" -EnrollmentId "MyEnrollmentId" -EntitlementId "MyEntitlementId" -Seats 0 -LicenseType "1" -ExpirationDate (Get-Date) -Features $LicenseFeature -AdditionalAttributes $AdditionalAttribute # LicenseKeyRequest |  (optional)
+$LicenseKeyRequest = Initialize-LicenseKeyRequest -UserId "MyUserId" -TenantId "MyTenantId" -OrderId "MyOrderId" -PaymentId "MyPaymentId" -InvoiceId "MyInvoiceId" -EnrollmentId "MyEnrollmentId" -EntitlementId "MyEntitlementId" -Seats 0 -LicenseType "Trial" -ExpirationDate (Get-Date) -Features $LicenseFeature -AdditionalAttributes $AdditionalAttribute # LicenseKeyRequest |  (optional)
 
 try {
     $Result = Invoke-ApiLicensingLicensesGeneratePost -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LicenseKeyRequest $LicenseKeyRequest
@@ -59,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,13 +73,6 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -115,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,13 +122,6 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -171,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,13 +171,6 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -227,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

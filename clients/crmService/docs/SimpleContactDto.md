@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **QualifiedName** | **String** |  | [optional] [readonly] 
 **TenantId** | **String** |  | [optional] 
-**Type** | **Int32** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**Email** | **String** |  | [optional] 
+**Phone** | **String** |  | [optional] 
 **PublicName** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
@@ -40,6 +42,8 @@ $SimpleContactDto = Initialize-PSOpenAPIToolsSimpleContactDto  -Id null `
  -QualifiedName null `
  -TenantId null `
  -Type null `
+ -Email null `
+ -Phone null `
  -PublicName null `
  -FirstName null `
  -LastName null `

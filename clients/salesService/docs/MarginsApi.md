@@ -4,35 +4,31 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet**](MarginsApi.md#Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | 
+[**Get-QuoteAsync**](MarginsApi.md#Get-QuoteAsync) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID
 
 
-<a id="Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet"></a>
-# **Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet**
-> void Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet<br>
+<a id="Get-QuoteAsync"></a>
+# **Get-QuoteAsync**
+> void Get-QuoteAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MarginId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get margin details by ID
 
+Retrieves the details of a specific sales margin by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $MarginId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get margin details by ID
 try {
-    $Result = Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet -MarginId $MarginId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-QuoteAsync -MarginId $MarginId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2SalesServiceMarginsMarginIdDetailsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-QuoteAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -51,7 +47,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

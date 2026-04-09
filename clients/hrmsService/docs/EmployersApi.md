@@ -4,38 +4,34 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-EmployerAsync**](EmployersApi.md#New-EmployerAsync) | **POST** /api/v2/HrmsService/Employers | 
-[**Invoke-DeleteEmployerAsync**](EmployersApi.md#Invoke-DeleteEmployerAsync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} | 
-[**Get-EmployerByIdAsync**](EmployersApi.md#Get-EmployerByIdAsync) | **GET** /api/v2/HrmsService/Employers/{employerId} | 
-[**Get-EmployersAsync**](EmployersApi.md#Get-EmployersAsync) | **GET** /api/v2/HrmsService/Employers | 
-[**Get-EmployersCountAsync**](EmployersApi.md#Get-EmployersCountAsync) | **GET** /api/v2/HrmsService/Employers/Count | 
-[**Update-EmployerAsync**](EmployersApi.md#Update-EmployerAsync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | 
+[**New-EmployerAsync**](EmployersApi.md#New-EmployerAsync) | **POST** /api/v2/HrmsService/Employers | Create an employer
+[**Invoke-DeleteEmployerAsync**](EmployersApi.md#Invoke-DeleteEmployerAsync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} | Delete an employer
+[**Get-EmployerByIdAsync**](EmployersApi.md#Get-EmployerByIdAsync) | **GET** /api/v2/HrmsService/Employers/{employerId} | Get employer by ID
+[**Get-EmployersAsync**](EmployersApi.md#Get-EmployersAsync) | **GET** /api/v2/HrmsService/Employers | Get employers
+[**Get-EmployersCountAsync**](EmployersApi.md#Get-EmployersCountAsync) | **GET** /api/v2/HrmsService/Employers/Count | Count employers
+[**Update-EmployerAsync**](EmployersApi.md#Update-EmployerAsync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer
 
 
 <a id="New-EmployerAsync"></a>
 # **New-EmployerAsync**
-> void New-EmployerAsync<br>
+> EmptyEnvelope New-EmployerAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmployerProfileCreateDto] <PSCustomObject><br>
 
+Create an employer
 
+Creates a new employer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $EmployerProfileCreateDto = Initialize-EmployerProfileCreateDto -Id "MyId" -Timestamp (Get-Date) # EmployerProfileCreateDto |  (optional)
 
+# Create an employer
 try {
     $Result = New-EmployerAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmployerProfileCreateDto $EmployerProfileCreateDto
 } catch {
@@ -55,11 +51,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,28 +66,24 @@ void (empty response body)
 
 <a id="Invoke-DeleteEmployerAsync"></a>
 # **Invoke-DeleteEmployerAsync**
-> void Invoke-DeleteEmployerAsync<br>
+> EmptyEnvelope Invoke-DeleteEmployerAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmployerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete an employer
 
+Deletes an employer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmployerId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete an employer
 try {
     $Result = Invoke-DeleteEmployerAsync -TenantId $TenantId -EmployerId $EmployerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -111,11 +103,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,22 +124,18 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get employer by ID
 
+Retrieves a specific employer by its identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmployerId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get employer by ID
 try {
     $Result = Get-EmployerByIdAsync -TenantId $TenantId -EmployerId $EmployerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -187,21 +175,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get employers
 
+Retrieves employers for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get employers
 try {
     $Result = Get-EmployersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -224,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -240,21 +224,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Count employers
 
+Counts employers for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Count employers
 try {
     $Result = Get-EmployersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -277,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,30 +268,26 @@ Name | Type | Description  | Notes
 
 <a id="Update-EmployerAsync"></a>
 # **Update-EmployerAsync**
-> void Update-EmployerAsync<br>
+> EmptyEnvelope Update-EmployerAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmployerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <System.Nullable[SystemCollectionsHashtable]><br>
 
+Update an employer
 
+Updates an existing employer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmployerId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $Body = @{ key_example = ... } # SystemCollectionsHashtable |  (optional)
 
+# Update an employer
 try {
     $Result = Update-EmployerAsync -TenantId $TenantId -EmployerId $EmployerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
 } catch {
@@ -332,11 +308,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -4,148 +4,38 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count | 
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsGet**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsGet) | **GET** /api/v2/MarketingService/SocialMediaPosts | 
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsPost**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsPost) | **POST** /api/v2/MarketingService/SocialMediaPosts | 
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete) | **DELETE** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | 
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | 
-[**Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut**](SocialMediaPostsApi.md#Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | 
+[**New-SocialMediaPostAsync**](SocialMediaPostsApi.md#New-SocialMediaPostAsync) | **POST** /api/v2/MarketingService/SocialMediaPosts | Create a social media post
+[**Invoke-DeleteSocialMediaPostAsync**](SocialMediaPostsApi.md#Invoke-DeleteSocialMediaPostAsync) | **DELETE** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Delete a social media post
+[**Get-SocialMediaPostDetailsAsync**](SocialMediaPostsApi.md#Get-SocialMediaPostDetailsAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Get social media post by ID
+[**Get-SocialMediaPostsCountAsync**](SocialMediaPostsApi.md#Get-SocialMediaPostsCountAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count | Get social media posts count
+[**Get-SocialMediaPostsODataAsync**](SocialMediaPostsApi.md#Get-SocialMediaPostsODataAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts | Get social media posts
+[**Update-SocialMediaPostAsync**](SocialMediaPostsApi.md#Update-SocialMediaPostAsync) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Update a social media post
 
 
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet**
-> Int32Envelope Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsGet"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsGet**
-> SocialMediaPostDtoListEnvelope Invoke-ApiV2MarketingServiceSocialMediaPostsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**SocialMediaPostDtoListEnvelope**](SocialMediaPostDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsPost"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsPost**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceSocialMediaPostsPost<br>
+<a id="New-SocialMediaPostAsync"></a>
+# **New-SocialMediaPostAsync**
+> EmptyEnvelope New-SocialMediaPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialMediaPostCreateDto] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Create a social media post
 
+Creates a new social media post for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialMediaPostCreateDto = Initialize-SocialMediaPostCreateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrolmentId "MyEnrolmentId" # SocialMediaPostCreateDto | 
+$SocialMediaPostCreateDto = Initialize-SocialMediaPostCreateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrollmentId "MyEnrollmentId" # SocialMediaPostCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Create a social media post
 try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsPost -TenantId $TenantId -SocialMediaPostCreateDto $SocialMediaPostCreateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = New-SocialMediaPostAsync -TenantId $TenantId -SocialMediaPostCreateDto $SocialMediaPostCreateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-SocialMediaPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -165,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,34 +64,30 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete<br>
+<a id="Invoke-DeleteSocialMediaPostAsync"></a>
+# **Invoke-DeleteSocialMediaPostAsync**
+> EmptyEnvelope Invoke-DeleteSocialMediaPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialmediapostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete a social media post
 
+Deletes a social media post by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialmediapostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete a social media post
 try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete -TenantId $TenantId -SocialmediapostId $SocialmediapostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteSocialMediaPostAsync -TenantId $TenantId -SocialmediapostId $SocialmediapostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteSocialMediaPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -221,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,34 +116,30 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet**
-> SocialMediaPostDtoEnvelope Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet<br>
+<a id="Get-SocialMediaPostDetailsAsync"></a>
+# **Get-SocialMediaPostDetailsAsync**
+> SocialMediaPostDtoEnvelope Get-SocialMediaPostDetailsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialmediapostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get social media post by ID
 
+Retrieves the details of a specific social media post by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialmediapostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get social media post by ID
 try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet -TenantId $TenantId -SocialmediapostId $SocialmediapostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialMediaPostDetailsAsync -TenantId $TenantId -SocialmediapostId $SocialmediapostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-SocialMediaPostDetailsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -277,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -286,36 +168,130 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut"></a>
-# **Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut<br>
+<a id="Get-SocialMediaPostsCountAsync"></a>
+# **Get-SocialMediaPostsCountAsync**
+> Int32Envelope Get-SocialMediaPostsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get social media posts count
+
+Returns the count of social media posts for the specified tenant using OData query options.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get social media posts count
+try {
+    $Result = Get-SocialMediaPostsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-SocialMediaPostsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SocialMediaPostsODataAsync"></a>
+# **Get-SocialMediaPostsODataAsync**
+> SocialMediaPostDtoListEnvelope Get-SocialMediaPostsODataAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get social media posts
+
+Retrieves a collection of social media posts for the specified tenant using OData query options.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get social media posts
+try {
+    $Result = Get-SocialMediaPostsODataAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-SocialMediaPostsODataAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**SocialMediaPostDtoListEnvelope**](SocialMediaPostDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-SocialMediaPostAsync"></a>
+# **Update-SocialMediaPostAsync**
+> EmptyEnvelope Update-SocialMediaPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialmediapostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialMediaPostUpdateDto] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Update a social media post
 
+Updates an existing social media post by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialmediapostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialMediaPostUpdateDto = Initialize-SocialMediaPostUpdateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrolmentId "MyEnrolmentId" # SocialMediaPostUpdateDto | 
+$SocialMediaPostUpdateDto = Initialize-SocialMediaPostUpdateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrollmentId "MyEnrollmentId" # SocialMediaPostUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Update a social media post
 try {
-    $Result = Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut -TenantId $TenantId -SocialmediapostId $SocialmediapostId -SocialMediaPostUpdateDto $SocialMediaPostUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Update-SocialMediaPostAsync -TenantId $TenantId -SocialmediapostId $SocialmediapostId -SocialMediaPostUpdateDto $SocialMediaPostUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-SocialMediaPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -336,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

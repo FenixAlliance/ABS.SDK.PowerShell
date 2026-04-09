@@ -3,12 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
-**TenantId** | **String** |  | [optional] 
-**InvoiceId** | **String** |  | [optional] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **SurchargePercent** | **Double** |  | [optional] 
 **SurchargeAmount** | **Double** |  | [optional] 
@@ -16,7 +13,7 @@ Name | Type | Description | Notes
 **DiscountAmount** | **Double** |  | [optional] 
 **TotalSurcharge** | **Double** |  | [optional] 
 **TotalDiscount** | **Double** |  | [optional] 
-**Type** | **Int32** |  | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,10 +21,7 @@ Name | Type | Description | Notes
 ```powershell
 $InvoiceAdjustmentCreateDto = Initialize-PSOpenAPIToolsInvoiceAdjustmentCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -InvoiceId null `
  -CurrencyId null `
- -EnrollmentId null `
  -Description null `
  -SurchargePercent null `
  -SurchargeAmount null `

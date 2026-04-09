@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **FeaturedImageUrl** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **SocialPostBucketId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,7 +23,7 @@ $SocialMediaPostDto = Initialize-PSOpenAPIToolsSocialMediaPostDto  -Id null `
  -FeaturedImageUrl null `
  -TenantId null `
  -SocialPostBucketId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

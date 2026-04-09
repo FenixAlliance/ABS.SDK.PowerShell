@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $DiscountListDto = Initialize-PSOpenAPIToolsDiscountListDto  -Id null `
  -Name null `
  -CurrencyId null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

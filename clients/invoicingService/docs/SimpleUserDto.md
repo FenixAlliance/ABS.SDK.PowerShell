@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FullName** | **String** |  | [optional] [readonly] 
 **QualifiedName** | **String** |  | [optional] 
 **PublicName** | **String** |  | [optional] 
+**Handler** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **CoverUrl** | **String** |  | [optional] 
@@ -32,6 +33,7 @@ $SimpleUserDto = Initialize-PSOpenAPIToolsSimpleUserDto  -Id null `
  -FullName null `
  -QualifiedName null `
  -PublicName null `
+ -Handler null `
  -LastName null `
  -FirstName null `
  -CoverUrl null `

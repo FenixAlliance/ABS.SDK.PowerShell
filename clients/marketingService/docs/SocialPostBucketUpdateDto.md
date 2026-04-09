@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $SocialPostBucketUpdateDto = Initialize-PSOpenAPIToolsSocialPostBucketUpdateDto  -Name null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

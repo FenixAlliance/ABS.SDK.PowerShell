@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Order** | **Int32** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **DealUnitFlowId** | **String** |  | [optional] 
 **ParentBusinessProcessStageId** | **String** |  | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 $DealUnitFlowStageUpdateDto = Initialize-PSOpenAPIToolsDealUnitFlowStageUpdateDto  -Order null `
  -Name null `
  -Description null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -DealUnitFlowId null `
  -ParentBusinessProcessStageId null
 ```

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $SocialPostBucketDto = Initialize-PSOpenAPIToolsSocialPostBucketDto  -Id null `
  -Timestamp null `
  -Name null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

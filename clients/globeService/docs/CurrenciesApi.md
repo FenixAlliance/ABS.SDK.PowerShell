@@ -4,36 +4,79 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet**](CurrenciesApi.md#Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet) | **GET** /api/v2/GlobeService/Currencies/{currencyId} | 
-[**Invoke-ApiV2GlobeServiceCurrenciesGet**](CurrenciesApi.md#Invoke-ApiV2GlobeServiceCurrenciesGet) | **GET** /api/v2/GlobeService/Currencies | 
+[**Invoke-CountCurrenciesAsync**](CurrenciesApi.md#Invoke-CountCurrenciesAsync) | **GET** /api/v2/GlobeService/Currencies/Count | Count currencies
+[**Get-CurrencyByIdAsync**](CurrenciesApi.md#Get-CurrencyByIdAsync) | **GET** /api/v2/GlobeService/Currencies/{currencyId} | Get currency by ID
+[**Get-EnabledCurrenciesAsync**](CurrenciesApi.md#Get-EnabledCurrenciesAsync) | **GET** /api/v2/GlobeService/Currencies | Get all currencies
 
 
-<a id="Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet"></a>
-# **Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet**
-> CurrencyDtoEnvelope Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet<br>
+<a id="Invoke-CountCurrenciesAsync"></a>
+# **Invoke-CountCurrenciesAsync**
+> Int32Envelope Invoke-CountCurrenciesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Count currencies
+
+Returns the total number of enabled currencies, with optional OData filtering.
+
+### Example
+```powershell
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Count currencies
+try {
+    $Result = Invoke-CountCurrenciesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-CountCurrenciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-CurrencyByIdAsync"></a>
+# **Get-CurrencyByIdAsync**
+> CurrencyDtoEnvelope Get-CurrencyByIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get currency by ID
 
+Retrieves a single currency by its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $CurrencyId = "MyCurrencyId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get currency by ID
 try {
-    $Result = Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrencyByIdAsync -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2GlobeServiceCurrenciesCurrencyIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CurrencyByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -52,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -61,30 +104,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2GlobeServiceCurrenciesGet"></a>
-# **Invoke-ApiV2GlobeServiceCurrenciesGet**
-> CurrencyDtoListEnvelope Invoke-ApiV2GlobeServiceCurrenciesGet<br>
+<a id="Get-EnabledCurrenciesAsync"></a>
+# **Get-EnabledCurrenciesAsync**
+> CurrencyDtoListEnvelope Get-EnabledCurrenciesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get all currencies
 
+Retrieves the list of all enabled currencies with optional OData pagination and filtering.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get all currencies
 try {
-    $Result = Invoke-ApiV2GlobeServiceCurrenciesGet -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-EnabledCurrenciesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2GlobeServiceCurrenciesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-EnabledCurrenciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -102,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

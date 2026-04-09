@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 
 ## Examples
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 $NewsletterUpdateDto = Initialize-PSOpenAPIToolsNewsletterUpdateDto  -Code null `
  -Title null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -Name null
 ```
 

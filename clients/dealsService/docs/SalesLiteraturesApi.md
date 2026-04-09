@@ -4,40 +4,33 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet) | **GET** /api/v2/DealsService/SalesLiteratures/Extended | 
-[**Invoke-ApiV2DealsServiceSalesLiteraturesGet**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesGet) | **GET** /api/v2/DealsService/SalesLiteratures | 
-[**Invoke-ApiV2DealsServiceSalesLiteraturesPost**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesPost) | **POST** /api/v2/DealsService/SalesLiteratures | 
-[**Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | 
-[**Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet) | **GET** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | 
-[**Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut**](SalesLiteraturesApi.md#Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut) | **PUT** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | 
+[**Invoke-CountSalesLiteraturesAsync**](SalesLiteraturesApi.md#Invoke-CountSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures/Count | Get sales literatures count
+[**New-SalesLiteratureAsync**](SalesLiteraturesApi.md#New-SalesLiteratureAsync) | **POST** /api/v2/DealsService/SalesLiteratures | Create a sales literature
+[**Invoke-DeleteSalesLiteratureAsync**](SalesLiteraturesApi.md#Invoke-DeleteSalesLiteratureAsync) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Delete a sales literature
+[**Get-ExtendedSalesLiteraturesAsync**](SalesLiteraturesApi.md#Get-ExtendedSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures/Extended | Get extended sales literatures
+[**Get-SalesLiteratureAsync**](SalesLiteraturesApi.md#Get-SalesLiteratureAsync) | **GET** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
+[**Get-SalesLiteraturesAsync**](SalesLiteraturesApi.md#Get-SalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures | Get sales literatures
+[**Update-SalesLiteratureAsync**](SalesLiteraturesApi.md#Update-SalesLiteratureAsync) | **PUT** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
 
 
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet**
-> ExtendedSalesLiteratureDtoListEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet<br>
+<a id="Invoke-CountSalesLiteraturesAsync"></a>
+# **Invoke-CountSalesLiteraturesAsync**
+> Int32Envelope Invoke-CountSalesLiteraturesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get sales literatures count
 
+Returns the total count of sales literatures for the specified tenant with OData filter support.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get sales literatures count
 try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountSalesLiteraturesAsync -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesExtendedGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-CountSalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -47,16 +40,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
-[**ExtendedSalesLiteratureDtoListEnvelope**](ExtendedSalesLiteratureDtoListEnvelope.md) (PSCustomObject)
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,87 +56,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesGet"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesGet**
-> SalesLiteratureDtoListEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesGet<br>
+<a id="New-SalesLiteratureAsync"></a>
+# **New-SalesLiteratureAsync**
+> EmptyEnvelope New-SalesLiteratureAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**SalesLiteratureDtoListEnvelope**](SalesLiteratureDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesPost"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesPost**
-> EmptyEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureCreateDto] <PSCustomObject><br>
 
+Create a sales literature
 
+Creates a new sales literature for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$SalesLiteratureCreateDto = Initialize-SalesLiteratureCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrolmentId "MyEnrolmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureCreateDto |  (optional)
+$SalesLiteratureCreateDto = Initialize-SalesLiteratureCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureCreateDto |  (optional)
 
+# Create a sales literature
 try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesPost -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SalesLiteratureCreateDto $SalesLiteratureCreateDto
+    $Result = New-SalesLiteratureAsync -TenantId $TenantId -SalesLiteratureCreateDto $SalesLiteratureCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-SalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -155,8 +85,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **SalesLiteratureCreateDto** | [**SalesLiteratureCreateDto**](SalesLiteratureCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -165,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,34 +102,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete**
-> EmptyEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete<br>
+<a id="Invoke-DeleteSalesLiteratureAsync"></a>
+# **Invoke-DeleteSalesLiteratureAsync**
+> EmptyEnvelope Invoke-DeleteSalesLiteratureAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete a sales literature
 
+Deletes an existing sales literature by its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete a sales literature
 try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteSalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteSalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -212,8 +132,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **SalesLiteratureId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -221,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,32 +148,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet**
-> SalesLiteratureDtoEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+<a id="Get-ExtendedSalesLiteraturesAsync"></a>
+# **Get-ExtendedSalesLiteraturesAsync**
+> ExtendedSalesLiteratureDtoListEnvelope Get-ExtendedSalesLiteraturesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 
+Get extended sales literatures
 
+Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
-$SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
+# Get extended sales literatures
 try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet -SalesLiteratureId $SalesLiteratureId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ExtendedSalesLiteraturesAsync -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-ExtendedSalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -264,17 +174,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **SalesLiteratureId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
+ **TenantId** | **String**|  | 
 
 ### Return type
 
-[**SalesLiteratureDtoEnvelope**](SalesLiteratureDtoEnvelope.md) (PSCustomObject)
+[**ExtendedSalesLiteratureDtoListEnvelope**](ExtendedSalesLiteratureDtoListEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -283,36 +191,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut"></a>
-# **Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut**
-> EmptyEnvelope Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut<br>
+<a id="Get-SalesLiteratureAsync"></a>
+# **Get-SalesLiteratureAsync**
+> SalesLiteratureDtoEnvelope Get-SalesLiteratureAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureUpdateDto] <PSCustomObject><br>
 
+Get sales literature by ID
 
+Retrieves a single sales literature by its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$SalesLiteratureUpdateDto = Initialize-SalesLiteratureUpdateDto -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrolmentId "MyEnrolmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureUpdateDto |  (optional)
 
+# Get sales literature by ID
 try {
-    $Result = Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SalesLiteratureUpdateDto $SalesLiteratureUpdateDto
+    $Result = Get-SalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-SalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -323,8 +221,97 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **SalesLiteratureId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**SalesLiteratureDtoEnvelope**](SalesLiteratureDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SalesLiteraturesAsync"></a>
+# **Get-SalesLiteraturesAsync**
+> SalesLiteratureDtoListEnvelope Get-SalesLiteraturesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Get sales literatures
+
+Retrieves a list of sales literatures for the specified tenant with OData query support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get sales literatures
+try {
+    $Result = Get-SalesLiteraturesAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-SalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**SalesLiteratureDtoListEnvelope**](SalesLiteratureDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-SalesLiteratureAsync"></a>
+# **Update-SalesLiteratureAsync**
+> EmptyEnvelope Update-SalesLiteratureAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureUpdateDto] <PSCustomObject><br>
+
+Update a sales literature
+
+Updates an existing sales literature by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SalesLiteratureUpdateDto = Initialize-SalesLiteratureUpdateDto -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureUpdateDto |  (optional)
+
+# Update a sales literature
+try {
+    $Result = Update-SalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -SalesLiteratureUpdateDto $SalesLiteratureUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-SalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SalesLiteratureId** | **String**|  | 
  **SalesLiteratureUpdateDto** | [**SalesLiteratureUpdateDto**](SalesLiteratureUpdateDto.md)|  | [optional] 
 
 ### Return type
@@ -333,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

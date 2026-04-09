@@ -4,35 +4,31 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet**](InventoryApi.md#Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details | 
+[**Get-InventoryDetailsAsync**](InventoryApi.md#Get-InventoryDetailsAsync) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details | Get inventory details for a stock item
 
 
-<a id="Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet"></a>
-# **Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet**
-> void Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet<br>
+<a id="Get-InventoryDetailsAsync"></a>
+# **Get-InventoryDetailsAsync**
+> void Get-InventoryDetailsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StockItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get inventory details for a stock item
 
+Retrieves the inventory details for a specific stock item by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $StockItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get inventory details for a stock item
 try {
-    $Result = Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet -StockItemId $StockItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-InventoryDetailsAsync -StockItemId $StockItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2InventoryServiceInventoryStockItemIdDetailsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-InventoryDetailsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -51,7 +47,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

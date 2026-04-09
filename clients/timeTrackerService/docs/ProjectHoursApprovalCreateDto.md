@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **RequesterContactID** | **String** |  | [optional] 
 **ApproverContactID** | **String** |  | [optional] 
 **ProjectPeriodID** | **String** |  | [optional] 

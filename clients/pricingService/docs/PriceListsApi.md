@@ -4,153 +4,39 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2PricingServicePriceListsCountGet**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsCountGet) | **GET** /api/v2/PricingService/PriceLists/Count | 
-[**Invoke-ApiV2PricingServicePriceListsGet**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsGet) | **GET** /api/v2/PricingService/PriceLists | 
-[**Invoke-ApiV2PricingServicePriceListsPost**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPost) | **POST** /api/v2/PricingService/PriceLists | 
-[**Invoke-ApiV2PricingServicePriceListsPriceListIdDelete**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPriceListIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | 
-[**Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**Invoke-ApiV2PricingServicePriceListsPriceListIdPut**](PriceListsApi.md#Invoke-ApiV2PricingServicePriceListsPriceListIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**Get-PriceListAsync**](PriceListsApi.md#Get-PriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | 
-[**Get-PriceListPriceAsync**](PriceListsApi.md#Get-PriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | 
-[**Get-PriceListPricesAsync**](PriceListsApi.md#Get-PriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | 
+[**New-PriceListAsync**](PriceListsApi.md#New-PriceListAsync) | **POST** /api/v2/PricingService/PriceLists | Creates a new price list
+[**New-PriceListPricesAsync**](PriceListsApi.md#New-PriceListPricesAsync) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry
+[**Invoke-DeletePriceListAsync**](PriceListsApi.md#Invoke-DeletePriceListAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list
+[**Invoke-DeletePriceListPriceAsync**](PriceListsApi.md#Invoke-DeletePriceListPriceAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Deletes a price list entry
+[**Get-PriceListAsync**](PriceListsApi.md#Get-PriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID
+[**Get-PriceListPriceAsync**](PriceListsApi.md#Get-PriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID
+[**Get-PriceListPricesAsync**](PriceListsApi.md#Get-PriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
+[**Get-PriceListsAsync**](PriceListsApi.md#Get-PriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists
+[**Get-PriceListsCountAsync**](PriceListsApi.md#Get-PriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists
+[**Update-PriceListAsync**](PriceListsApi.md#Update-PriceListAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list
+[**Update-PriceListPriceAsync**](PriceListsApi.md#Update-PriceListPriceAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry
 
 
-<a id="Invoke-ApiV2PricingServicePriceListsCountGet"></a>
-# **Invoke-ApiV2PricingServicePriceListsCountGet**
-> Int32Envelope Invoke-ApiV2PricingServicePriceListsCountGet<br>
+<a id="New-PriceListAsync"></a>
+# **New-PriceListAsync**
+> EmptyEnvelope New-PriceListAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2PricingServicePriceListsCountGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2PricingServicePriceListsGet"></a>
-# **Invoke-ApiV2PricingServicePriceListsGet**
-> PriceListDtoListEnvelope Invoke-ApiV2PricingServicePriceListsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2PricingServicePriceListsGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2PricingServicePriceListsPost"></a>
-# **Invoke-ApiV2PricingServicePriceListsPost**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListCreateDto] <PSCustomObject><br>
 
+Creates a new price list
 
+Creates a new price list for the current tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $PriceListCreateDto = Initialize-PriceListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # PriceListCreateDto |  (optional)
 
+# Creates a new price list
 try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPost -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PriceListCreateDto $PriceListCreateDto
+    $Result = New-PriceListAsync -TenantId $TenantId -PriceListCreateDto $PriceListCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-PriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -160,8 +46,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **PriceListCreateDto** | [**PriceListCreateDto**](PriceListCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -170,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -179,92 +63,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2PricingServicePriceListsPriceListIdDelete"></a>
-# **Invoke-ApiV2PricingServicePriceListsPriceListIdDelete**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPriceListIdDelete<br>
+<a id="New-PriceListPricesAsync"></a>
+# **New-PriceListPricesAsync**
+> EmptyEnvelope New-PriceListPricesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPriceListIdDelete -TenantId $TenantId -PriceListId $PriceListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPriceListIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **PriceListId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost"></a>
-# **Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPriceCreateDto] <PSCustomObject><br>
 
+Creates a price list entry
 
+Creates a new price entry in the specified price list.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $ItemPriceCreateDto = Initialize-ItemPriceCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemId "MyItemId" -UnitId "MyUnitId" -TenantId "MyTenantId" -CurrencyId "MyCurrencyId" -PriceListId "MyPriceListId" -UnitGroupId "MyUnitGroupId" -EnrollmentId "MyEnrollmentId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" -Price 0 -Percent 0 # ItemPriceCreateDto |  (optional)
 
+# Creates a price list entry
 try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost -TenantId $TenantId -PriceListId $PriceListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPriceCreateDto $ItemPriceCreateDto
+    $Result = New-PriceListPricesAsync -TenantId $TenantId -PriceListId $PriceListId -ItemPriceCreateDto $ItemPriceCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-PriceListPricesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -275,8 +95,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **ItemPriceCreateDto** | [**ItemPriceCreateDto**](ItemPriceCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -285,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -294,36 +112,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete"></a>
-# **Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete<br>
+<a id="Invoke-DeletePriceListAsync"></a>
+# **Invoke-DeletePriceListAsync**
+> EmptyEnvelope Invoke-DeletePriceListAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Deletes a price list
 
+Deletes the specified price list.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Deletes a price list
 try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeletePriceListAsync -TenantId $TenantId -PriceListId $PriceListId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeletePriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -334,9 +142,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
- **PriceId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -344,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -353,38 +158,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut"></a>
-# **Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut<br>
+<a id="Invoke-DeletePriceListPriceAsync"></a>
+# **Invoke-DeletePriceListPriceAsync**
+> EmptyEnvelope Invoke-DeletePriceListPriceAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPriceUpdateDto] <PSCustomObject><br>
 
+Deletes a price list entry
 
+Deletes the specified price entry from a price list.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemPriceUpdateDto = Initialize-ItemPriceUpdateDto -Price 0 -ItemId "MyItemId" -UnitId "MyUnitId" -Percent 0 -UnitGroupId "MyUnitGroupId" -CurrencyId "MyCurrencyId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" # ItemPriceUpdateDto |  (optional)
 
+# Deletes a price list entry
 try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPriceUpdateDto $ItemPriceUpdateDto
+    $Result = Invoke-DeletePriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPriceListIdPricesPriceIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeletePriceListPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -396,9 +191,6 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
  **PriceId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **ItemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] 
 
 ### Return type
 
@@ -406,70 +198,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2PricingServicePriceListsPriceListIdPut"></a>
-# **Invoke-ApiV2PricingServicePriceListsPriceListIdPut**
-> EmptyEnvelope Invoke-ApiV2PricingServicePriceListsPriceListIdPut<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListUpdateDto] <PSCustomObject><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$PriceListUpdateDto = Initialize-PriceListUpdateDto -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" # PriceListUpdateDto |  (optional)
-
-try {
-    $Result = Invoke-ApiV2PricingServicePriceListsPriceListIdPut -TenantId $TenantId -PriceListId $PriceListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PriceListUpdateDto $PriceListUpdateDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2PricingServicePriceListsPriceListIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **PriceListId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **PriceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -479,27 +212,19 @@ Name | Type | Description  | Notes
 > PriceListDtoEnvelope Get-PriceListAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Gets a price list by ID
 
+Retrieves the details of a price list using its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Gets a price list by ID
 try {
-    $Result = Get-PriceListAsync -TenantId $TenantId -PriceListId $PriceListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PriceListAsync -TenantId $TenantId -PriceListId $PriceListId
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -512,8 +237,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -521,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -536,28 +259,20 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Gets a price list entry by ID
 
+Retrieves a specific price entry from a price list.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Gets a price list entry by ID
 try {
-    $Result = Get-PriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -571,8 +286,6 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
  **PriceId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -580,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -595,28 +308,20 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Retrieves prices in a price list
 
+Gets all price entries for a specific price list with OData support.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Retrieves prices in a price list
 try {
-    $Result = Get-PriceListPricesAsync -TenantId $TenantId -PriceListId $PriceListId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PriceListPricesAsync -TenantId $TenantId -PriceListId $PriceListId -ItemId $ItemId
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListPricesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -630,8 +335,6 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
  **ItemId** | **String**|  | [optional] 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -639,11 +342,198 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-PriceListsAsync"></a>
+# **Get-PriceListsAsync**
+> PriceListDtoListEnvelope Get-PriceListsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves all price lists
+
+Gets all price lists for the current tenant with OData support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves all price lists
+try {
+    $Result = Get-PriceListsAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-PriceListsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-PriceListsCountAsync"></a>
+# **Get-PriceListsCountAsync**
+> Int32Envelope Get-PriceListsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts price lists
+
+Gets the count of price lists for the current tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts price lists
+try {
+    $Result = Get-PriceListsCountAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-PriceListsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-PriceListAsync"></a>
+# **Update-PriceListAsync**
+> EmptyEnvelope Update-PriceListAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListUpdateDto] <PSCustomObject><br>
+
+Updates a price list
+
+Updates the specified price list.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListUpdateDto = Initialize-PriceListUpdateDto -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" # PriceListUpdateDto |  (optional)
+
+# Updates a price list
+try {
+    $Result = Update-PriceListAsync -TenantId $TenantId -PriceListId $PriceListId -PriceListUpdateDto $PriceListUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-PriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PriceListId** | **String**|  | 
+ **PriceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-PriceListPriceAsync"></a>
+# **Update-PriceListPriceAsync**
+> EmptyEnvelope Update-PriceListPriceAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPriceUpdateDto] <PSCustomObject><br>
+
+Updates a price list entry
+
+Updates the specified price entry in a price list.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemPriceUpdateDto = Initialize-ItemPriceUpdateDto -Price 0 -ItemId "MyItemId" -UnitId "MyUnitId" -Percent 0 -UnitGroupId "MyUnitGroupId" -CurrencyId "MyCurrencyId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" # ItemPriceUpdateDto |  (optional)
+
+# Updates a price list entry
+try {
+    $Result = Update-PriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -ItemPriceUpdateDto $ItemPriceUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-PriceListPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PriceListId** | **String**|  | 
+ **PriceId** | **String**|  | 
+ **ItemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

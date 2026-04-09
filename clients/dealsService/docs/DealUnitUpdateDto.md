@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **UserId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -29,6 +27,34 @@ Name | Type | Description | Notes
 **BillingLocationId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **ShippingMethodId** | **String** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**TotalDetail** | **Double** |  | [optional] 
+**TotalDetailCurrencyId** | **String** |  | [optional] 
+**TotalProfit** | **Double** |  | [optional] 
+**TotalProfitCurrencyId** | **String** |  | [optional] 
+**TotalDiscounts** | **Double** |  | [optional] 
+**TotalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalSurcharges** | **Double** |  | [optional] 
+**TotalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalShippingTax** | **Double** |  | [optional] 
+**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
+**TotalShippingCost** | **Double** |  | [optional] 
+**TotalShippingCostCurrencyId** | **String** |  | [optional] 
+**TotalGlobalDiscounts** | **Double** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalGlobalSurcharges** | **Double** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalWithheldTax** | **Double** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | **String** |  | [optional] 
+**TotalTaxBase** | **Double** |  | [optional] 
+**TotalTaxBaseCurrencyId** | **String** |  | [optional] 
+**TotalTaxes** | **Double** |  | [optional] 
+**TotalTaxesCurrencyId** | **String** |  | [optional] 
+**Total** | **Double** |  | [optional] 
+**TotalCurrencyId** | **String** |  | [optional] 
+**CostCalculationMethod** | **String** |  | [optional] 
+**TaxCalculationMethod** | **String** |  | [optional] 
 **Ordered** | **Boolean** |  | [optional] 
 **CartId** | **String** |  | [optional] 
 **DealUnitFeedId** | **String** |  | [optional] 
@@ -45,10 +71,10 @@ Name | Type | Description | Notes
 **DeliveredDate** | **System.DateTime** |  | [optional] 
 **ClosedTimestamp** | **System.DateTime** |  | [optional] 
 **ExpectedCloseDate** | **System.DateTime** |  | [optional] 
-**DealUnitStatus** | **Int32** |  | [optional] 
-**DealUnitPurchaseProcess** | **Int32** |  | [optional] 
-**DealUnitForecastCategory** | **Int32** |  | [optional] 
-**DealUnitAmountsCalculation** | **Int32** |  | [optional] 
+**DealUnitStatus** | **String** |  | [optional] 
+**DealUnitPurchaseProcess** | **String** |  | [optional] 
+**DealUnitForecastCategory** | **String** |  | [optional] 
+**DealUnitAmountsCalculation** | **String** |  | [optional] 
 
 ## Examples
 
@@ -58,8 +84,6 @@ $DealUnitUpdateDto = Initialize-PSOpenAPIToolsDealUnitUpdateDto  -Closed null `
  -Title null `
  -UserId null `
  -TenantId null `
- -ForexRate null `
- -CurrencyId null `
  -PriceListId null `
  -Description null `
  -EnrollmentId null `
@@ -80,6 +104,34 @@ $DealUnitUpdateDto = Initialize-PSOpenAPIToolsDealUnitUpdateDto  -Closed null `
  -BillingLocationId null `
  -ShippingLocationId null `
  -ShippingMethodId null `
+ -ForexRate null `
+ -CurrencyId null `
+ -TotalDetail null `
+ -TotalDetailCurrencyId null `
+ -TotalProfit null `
+ -TotalProfitCurrencyId null `
+ -TotalDiscounts null `
+ -TotalDiscountsCurrencyId null `
+ -TotalSurcharges null `
+ -TotalSurchargesCurrencyId null `
+ -TotalShippingTax null `
+ -TotalShippingTaxCurrencyId null `
+ -TotalShippingCost null `
+ -TotalShippingCostCurrencyId null `
+ -TotalGlobalDiscounts null `
+ -TotalGlobalDiscountsCurrencyId null `
+ -TotalGlobalSurcharges null `
+ -TotalGlobalSurchargesCurrencyId null `
+ -TotalWithheldTax null `
+ -TotalWithheldTaxCurrencyId null `
+ -TotalTaxBase null `
+ -TotalTaxBaseCurrencyId null `
+ -TotalTaxes null `
+ -TotalTaxesCurrencyId null `
+ -Total null `
+ -TotalCurrencyId null `
+ -CostCalculationMethod null `
+ -TaxCalculationMethod null `
  -Ordered null `
  -CartId null `
  -DealUnitFeedId null `

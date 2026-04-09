@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ModifiedDate** | **System.DateTime** |  | [optional] 
 **ExpirationDate** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **SalesLiteratureTypeId** | **String** |  | [optional] 
 
 ## Examples
@@ -26,7 +26,7 @@ $SalesLiteratureCreateDto = Initialize-PSOpenAPIToolsSalesLiteratureCreateDto  -
  -ModifiedDate null `
  -ExpirationDate null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -SalesLiteratureTypeId null
 ```
 

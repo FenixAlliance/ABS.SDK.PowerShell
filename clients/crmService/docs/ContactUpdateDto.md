@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **Int32** |  | 
+**Type** | **String** |  | 
 **Birthday** | **System.DateTime** |  | [optional] 
 **Duns** | **String** |  | [optional] 
 **TaxId** | **String** |  | [optional] 
@@ -18,9 +18,11 @@ Name | Type | Description | Notes
 **JobTitle** | **String** |  | [optional] 
 **CountryId** | **String** |  | [optional] 
 **ParentContactId** | **String** |  | [optional] 
+**AddressLine1** | **String** |  | [optional] 
+**AddressLine2** | **String** |  | [optional] 
+**PostalCode** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
-**PostalCode** | **String** |  | [optional] 
 **StreetLine1** | **String** |  | [optional] 
 **StreetLine2** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -29,20 +31,20 @@ Name | Type | Description | Notes
 **CoverUrl** | **String** |  | [optional] 
 **GithubUsername** | **String** |  | [optional] 
 **InstagramUsername** | **String** |  | [optional] 
+**WebUrl** | **String** |  | [optional] 
 **TwitchUrl** | **String** |  | [optional] 
 **RedditUrl** | **String** |  | [optional] 
 **GitHubUrl** | **String** |  | [optional] 
-**GithubUrl** | **String** |  | [optional] 
 **TikTokUrl** | **String** |  | [optional] 
 **TwitterUrl** | **String** |  | [optional] 
 **YouTubeUrl** | **String** |  | [optional] 
-**WebsiteUrl** | **String** |  | [optional] 
 **FacebookUrl** | **String** |  | [optional] 
 **LinkedInUrl** | **String** |  | [optional] 
 **InstagramUrl** | **String** |  | [optional] 
 **TikTokUsername** | **String** |  | [optional] 
 **StackExchangeUrl** | **String** |  | [optional] 
 **StackOverflowUrl** | **String** |  | [optional] 
+**FaxNumber** | **String** |  | [optional] 
 
 ## Examples
 
@@ -63,9 +65,11 @@ $ContactUpdateDto = Initialize-PSOpenAPIToolsContactUpdateDto  -Type null `
  -JobTitle null `
  -CountryId null `
  -ParentContactId null `
+ -AddressLine1 null `
+ -AddressLine2 null `
+ -PostalCode null `
  -StateId null `
  -CityId null `
- -PostalCode null `
  -StreetLine1 null `
  -StreetLine2 null `
  -CurrencyId null `
@@ -74,20 +78,20 @@ $ContactUpdateDto = Initialize-PSOpenAPIToolsContactUpdateDto  -Type null `
  -CoverUrl null `
  -GithubUsername null `
  -InstagramUsername null `
+ -WebUrl null `
  -TwitchUrl null `
  -RedditUrl null `
  -GitHubUrl null `
- -GithubUrl null `
  -TikTokUrl null `
  -TwitterUrl null `
  -YouTubeUrl null `
- -WebsiteUrl null `
  -FacebookUrl null `
  -LinkedInUrl null `
  -InstagramUrl null `
  -TikTokUsername null `
  -StackExchangeUrl null `
- -StackOverflowUrl null
+ -StackOverflowUrl null `
+ -FaxNumber null
 ```
 
 - Convert the resource to JSON

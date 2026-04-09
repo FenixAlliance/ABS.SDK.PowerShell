@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 $DiscountListUpdateDto = Initialize-PSOpenAPIToolsDiscountListUpdateDto  -Name null `
  -CurrencyId null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **UnitGroupId** | **String** |  | [optional] 
 **PartnerVisible** | **Boolean** |  | [optional] 
 **UnitOfMeasureDependant** | **Boolean** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -33,7 +33,7 @@ $PriceListDto = Initialize-PSOpenAPIToolsPriceListDto  -Id null `
  -UnitGroupId null `
  -PartnerVisible null `
  -UnitOfMeasureDependant null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

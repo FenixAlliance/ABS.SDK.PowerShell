@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FullName** | **String** |  | [optional] [readonly] 
 **QualifiedName** | **String** |  | [optional] 
 **PublicName** | **String** |  | [optional] 
+**Handler** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **CoverUrl** | **String** |  | [optional] 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 **Birthday** | **System.DateTime** |  | [optional] 
 **IdProvider** | **String** |  | [optional] 
 **LanguageId** | **String** |  | [optional] 
-**Gender** | **Int32** |  | [optional] 
+**Gender** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **Email** | **String** |  | [optional] 
@@ -44,11 +45,11 @@ Name | Type | Description | Notes
 **IdentityProvider** | **String** |  | [optional] 
 **PhoneNumberConfirmed** | **Boolean** |  | [optional] 
 **EmailConfirmed** | **Boolean** |  | [optional] 
-**Availability** | **Int32** |  | [optional] 
+**Availability** | **String** |  | [optional] 
 **LockoutEnabled** | **Boolean** |  | [optional] 
 **LockoutEnd** | **System.DateTime** |  | [optional] 
 **EnrollmentsCount** | **Int32** |  | [optional] 
-**SiteTheme** | **Int32** |  | [optional] 
+**SiteTheme** | **String** |  | [optional] 
 
 ## Examples
 
@@ -59,6 +60,7 @@ $UserDto = Initialize-PSOpenAPIToolsUserDto  -Id null `
  -FullName null `
  -QualifiedName null `
  -PublicName null `
+ -Handler null `
  -LastName null `
  -FirstName null `
  -CoverUrl null `

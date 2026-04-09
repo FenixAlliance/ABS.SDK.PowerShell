@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Percent** | **Double** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **DiscountListId** | **String** |  | [optional] 
 **EndQuantity** | **Double** |  | [optional] 
 **BeginQuantity** | **Double** |  | [optional] 
@@ -26,7 +26,7 @@ $DiscountDto = Initialize-PSOpenAPIToolsDiscountDto  -Id null `
  -Percent null `
  -ItemId null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -DiscountListId null `
  -EndQuantity null `
  -BeginQuantity null

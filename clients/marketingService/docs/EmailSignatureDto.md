@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**CodeType** | **String** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
 **Slug** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **HighlightImage** | **String** |  | [optional] 
 **CanonicalUrl** | **String** |  | [optional] 
+**EmitResult** | [**AnyType**](.md) |  | [optional] 
 **SeoTitle** | **String** |  | [optional] 
 **SeoKeyWords** | **String** |  | [optional] 
 **SeoKeyPhrases** | **String** |  | [optional] 
@@ -67,6 +69,7 @@ Name | Type | Description | Notes
 ```powershell
 $EmailSignatureDto = Initialize-PSOpenAPIToolsEmailSignatureDto  -Id null `
  -Timestamp null `
+ -CodeType null `
  -Order null `
  -Slug null `
  -Name null `
@@ -76,6 +79,7 @@ $EmailSignatureDto = Initialize-PSOpenAPIToolsEmailSignatureDto  -Id null `
  -Description null `
  -HighlightImage null `
  -CanonicalUrl null `
+ -EmitResult null `
  -SeoTitle null `
  -SeoKeyWords null `
  -SeoKeyPhrases null `

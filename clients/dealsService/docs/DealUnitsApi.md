@@ -4,95 +4,44 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2DealsServiceDealUnitsCountGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsCountGet) | **GET** /api/v2/DealsService/DealUnits/Count | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Calculate | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId} | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}/Calculate | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost) | **POST** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | 
-[**Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | 
-[**Invoke-ApiV2DealsServiceDealUnitsExtendedGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsExtendedGet) | **GET** /api/v2/DealsService/DealUnits/Extended | 
-[**Invoke-ApiV2DealsServiceDealUnitsGet**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsGet) | **GET** /api/v2/DealsService/DealUnits | 
-[**Invoke-ApiV2DealsServiceDealUnitsPost**](DealUnitsApi.md#Invoke-ApiV2DealsServiceDealUnitsPost) | **POST** /api/v2/DealsService/DealUnits | 
-[**Get-DealUnitAsync**](DealUnitsApi.md#Get-DealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId} | 
+[**Measure-DealUnitAsync**](DealUnitsApi.md#Measure-DealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Calculate | Calculate a deal unit
+[**Measure-DealUnitLineAsync**](DealUnitsApi.md#Measure-DealUnitLineAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}/Calculate | Calculate a deal unit line
+[**New-DealUnitAsync**](DealUnitsApi.md#New-DealUnitAsync) | **POST** /api/v2/DealsService/DealUnits | Create a deal unit
+[**New-GetDealUnitLinesAsync**](DealUnitsApi.md#New-GetDealUnitLinesAsync) | **POST** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | Create a deal unit line
+[**Invoke-DeleteDealUnitAsync**](DealUnitsApi.md#Invoke-DeleteDealUnitAsync) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId} | Delete a deal unit
+[**Invoke-DeleteDealUnitPriceAsync**](DealUnitsApi.md#Invoke-DeleteDealUnitPriceAsync) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Delete a deal unit line
+[**Get-DealUnitAsync**](DealUnitsApi.md#Get-DealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId} | Get deal unit by ID
+[**Get-DealUnitLinesAsync**](DealUnitsApi.md#Get-DealUnitLinesAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | Get deal unit lines
+[**Get-DealUnitLinesCountAsync**](DealUnitsApi.md#Get-DealUnitLinesCountAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count | Get deal unit lines count
+[**Get-DealUnitPriceAsync**](DealUnitsApi.md#Get-DealUnitPriceAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Get a deal unit line by ID
+[**Get-DealUnitsAsync**](DealUnitsApi.md#Get-DealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits | Get deal units
+[**Get-DealUnitsCountAsync**](DealUnitsApi.md#Get-DealUnitsCountAsync) | **GET** /api/v2/DealsService/DealUnits/Count | Get deal units count
+[**Get-ExtendedDealUnitAsync**](DealUnitsApi.md#Get-ExtendedDealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended | Get extended deal unit by ID
+[**Get-ExtendedDealUnitsAsync**](DealUnitsApi.md#Get-ExtendedDealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits/Extended | Get extended deal units
+[**Update-DealUnitAsync**](DealUnitsApi.md#Update-DealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit
+[**Update-DealUnitPriceAsync**](DealUnitsApi.md#Update-DealUnitPriceAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line
 
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsCountGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsCountGet**
-> Int32Envelope Invoke-ApiV2DealsServiceDealUnitsCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsCountGet -TenantId $TenantId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut<br>
+<a id="Measure-DealUnitAsync"></a>
+# **Measure-DealUnitAsync**
+> EmptyEnvelope Measure-DealUnitAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
 
+Calculate a deal unit
 
+Triggers recalculation of totals and derived values for a specific deal unit.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Calculate a deal unit
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut -TenantId $TenantId -DealUnitId $DealUnitId
+    $Result = Measure-DealUnitAsync -TenantId $TenantId -DealUnitId $DealUnitId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdCalculatePut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Measure-DealUnitAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -110,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -119,182 +68,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete -TenantId $TenantId -DealUnitId $DealUnitId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet**
-> ExtendedDealUnitDtoEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet -TenantId $TenantId -DealUnitId $DealUnitId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdExtendedGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
-
-### Return type
-
-[**ExtendedDealUnitDtoEnvelope**](ExtendedDealUnitDtoEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet**
-> Int32Envelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet -TenantId $TenantId -DealUnitId $DealUnitId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut<br>
+<a id="Measure-DealUnitLineAsync"></a>
+# **Measure-DealUnitLineAsync**
+> EmptyEnvelope Measure-DealUnitLineAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
 
+Calculate a deal unit line
 
+Triggers recalculation of totals and derived values for a specific deal unit line.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Calculate a deal unit line
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
+    $Result = Measure-DealUnitLineAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Measure-DealUnitLineAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -313,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,32 +117,27 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete<br>
+<a id="New-DealUnitAsync"></a>
+# **New-DealUnitAsync**
+> EmptyEnvelope New-DealUnitAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitCreateDto] <PSCustomObject><br>
 
+Create a deal unit
 
+Creates a new deal unit for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitLineCreateDto = Initialize-DealUnitLineCreateDto -Closed $false -ItemId "MyItemId" -ItemTitle "MyItemTitle" -ItemShortDescription "MyItemShortDescription" -ItemPrimaryImageUrl "MyItemPrimaryImageUrl" -ShippingPolicyId "MyShippingPolicyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -CurrencyId "MyCurrencyId" -Description "MyDescription" -Quantity 0 -Free $false -FreeReason "MyFreeReason" -FreeReasonCode "MyFreeReasonCode" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -ItemPriceId "MyItemPriceId" -PriceListItemId "MyPriceListItemId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TaxCalculationMethod "Included" -CostCalculationMethod "Automatic" -ForexRatesSnapshot "MyForexRatesSnapshot" -ForexRate 0 -TotalBaseAmountInUsd 0 -TotalProfitInUsd 0 -TotalDetailAmountInUsd 0 -TotalTaxBaseInUsd 0 -TotalDiscountsInUsd 0 -TotalTaxesInUsd 0 -TotalWithheldTaxesInUsd 0 -TotalShippingCostInUsd 0 -TotalShippingTaxesInUsd 0 -TotalWarrantyCostInUsd 0 -TotalReturnCostInUsd 0 -TotalRefundCostInUsd 0 -TotalSurchargesInUsd 0 -TotalAmountInUsd 0 -TotalGlobalDiscountsInUsd 0 -TotalGlobalSurchargesInUsd 0 -CustomGlobalSurchargesAmount 0 -CustomGlobalSurchargesAmountCurrencyId "MyCustomGlobalSurchargesAmountCurrencyId" -CustomGlobalDiscountsAmount 0 -CustomGlobalDiscountsAmountCurrencyId "MyCustomGlobalDiscountsAmountCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -ReturnPolicyId "MyReturnPolicyId" -RefundPolicyId "MyRefundPolicyId" -WarrantyPolicyId "MyWarrantyPolicyId" -ShipmentPolicyId "MyShipmentPolicyId" -ShippingLocationId "MyShippingLocationId" -LocationId "MyLocationId" -QuoteItemRecordId "MyQuoteItemRecordId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -ParentBillingItemRecordId "MyParentBillingItemRecordId" -DealUnitId "MyDealUnitId"
+$DealUnitCreateDto = Initialize-DealUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Closed $false -Title "MyTitle" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -DealUnitFlowId "MyDealUnitFlowId" -DealUnitFlowStageId "MyDealUnitFlowStageId" -PartnerCreated $false -PartnerCollaboration $false -ProposedSolution "MyProposedSolution" -CurrentSituation "MyCurrentSituation" -CustomerNeed "MyCustomerNeed" -WonDate (Get-Date) -LostDate (Get-Date) -ExpiryDate (Get-Date) -DeliveredDate (Get-Date) -ClosedTimestamp (Get-Date) -ExpectedCloseDate (Get-Date) -DealUnitStatus "Open" -DealUnitPurchaseProcess "None" -DealUnitForecastCategory "None" -DealUnitAmountsCalculation "UserProvided" -DealUnitLines $DealUnitLineCreateDto # DealUnitCreateDto |  (optional)
 
+# Create a deal unit
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
+    $Result = New-DealUnitAsync -TenantId $TenantId -DealUnitCreateDto $DealUnitCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-DealUnitAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -357,8 +147,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
- **DealUnitLineId** | **String**|  | 
+ **DealUnitCreateDto** | [**DealUnitCreateDto**](DealUnitCreateDto.md)|  | [optional] 
 
 ### Return type
 
@@ -366,116 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet**
-> DealUnitLineDtoEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
- **DealUnitLineId** | **String**|  | 
-
-### Return type
-
-[**DealUnitLineDtoEnvelope**](DealUnitLineDtoEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineUpdateDto] <PSCustomObject><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitLineUpdateDto = Initialize-DealUnitLineUpdateDto -Closed $false -ItemId "MyItemId" -ItemTitle "MyItemTitle" -ItemShortDescription "MyItemShortDescription" -ItemPrimaryImageUrl "MyItemPrimaryImageUrl" -ShippingPolicyId "MyShippingPolicyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -CurrencyId "MyCurrencyId" -Description "MyDescription" -Quantity 0 -Free $false -FreeReason "MyFreeReason" -FreeReasonCode "MyFreeReasonCode" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -ItemPriceId "MyItemPriceId" -PriceListItemId "MyPriceListItemId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TaxCalculationMethod "0" -CostCalculationMethod "0" -ForexRatesSnapshot "MyForexRatesSnapshot" -ForexRate 0 -TotalBaseAmountInUsd 0 -TotalProfitInUsd 0 -TotalDetailAmountInUsd 0 -TotalTaxBaseInUsd 0 -TotalDiscountsInUsd 0 -TotalTaxesInUsd 0 -TotalWithholdingTaxesInUsd 0 -TotalShippingCostInUsd 0 -TotalShippingTaxesInUsd 0 -TotalWarrantyCostInUsd 0 -TotalReturnCostInUsd 0 -TotalRefundCostInUsd 0 -TotalSurchargesInUsd 0 -TotalAmountInUsd 0 -TotalGlobalDiscountsInUsd 0 -TotalGlobalSurchargesInUsd 0 -CustomGlobalSurchargesAmount 0 -CustomGlobalDiscountsAmount 0 -CustomBaseAmount 0 -CustomDetailAmount 0 -CustomDiscountsAmount 0 -CustomTaxBase 0 -CustomSurchargesAmount 0 -CustomProfitAmount 0 -CustomShippingCostAmount 0 -CustomShippingTaxAmount 0 -CustomTaxAmount 0 -CustomWithholdingTaxAmount 0 -CustomTotalAmount 0 -ReturnPolicyId "MyReturnPolicyId" -RefundPolicyId "MyRefundPolicyId" -WarrantyPolicyId "MyWarrantyPolicyId" -ShipmentPolicyId "MyShipmentPolicyId" -ShippingLocationId "MyShippingLocationId" -LocationId "MyLocationId" -QuoteItemRecordId "MyQuoteItemRecordId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -ParentBillingItemRecordId "MyParentBillingItemRecordId" # DealUnitLineUpdateDto |  (optional)
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId -DealUnitLineUpdateDto $DealUnitLineUpdateDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
- **DealUnitLineId** | **String**|  | 
- **DealUnitLineUpdateDto** | [**DealUnitLineUpdateDto**](DealUnitLineUpdateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -484,85 +164,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet**
-> DealUnitLineDtoListEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet -TenantId $TenantId -DealUnitId $DealUnitId -ItemId $ItemId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitId** | **String**|  | 
- **ItemId** | **String**|  | [optional] 
-
-### Return type
-
-[**DealUnitLineDtoListEnvelope**](DealUnitLineDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost<br>
+<a id="New-GetDealUnitLinesAsync"></a>
+# **New-GetDealUnitLinesAsync**
+> EmptyEnvelope New-GetDealUnitLinesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineCreateDto] <PSCustomObject><br>
 
+Create a deal unit line
 
+Creates a new line within a specific deal unit.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitLineCreateDto = Initialize-DealUnitLineCreateDto -Closed $false -ItemId "MyItemId" -ItemTitle "MyItemTitle" -ItemShortDescription "MyItemShortDescription" -ItemPrimaryImageUrl "MyItemPrimaryImageUrl" -ShippingPolicyId "MyShippingPolicyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -CurrencyId "MyCurrencyId" -Description "MyDescription" -Quantity 0 -Free $false -FreeReason "MyFreeReason" -FreeReasonCode "MyFreeReasonCode" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -ItemPriceId "MyItemPriceId" -PriceListItemId "MyPriceListItemId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TaxCalculationMethod "0" -CostCalculationMethod "0" -ForexRatesSnapshot "MyForexRatesSnapshot" -ForexRate 0 -TotalBaseAmountInUsd 0 -TotalProfitInUsd 0 -TotalDetailAmountInUsd 0 -TotalTaxBaseInUsd 0 -TotalDiscountsInUsd 0 -TotalTaxesInUsd 0 -TotalWithholdingTaxesInUsd 0 -TotalShippingCostInUsd 0 -TotalShippingTaxesInUsd 0 -TotalWarrantyCostInUsd 0 -TotalReturnCostInUsd 0 -TotalRefundCostInUsd 0 -TotalSurchargesInUsd 0 -TotalAmountInUsd 0 -TotalGlobalDiscountsInUsd 0 -TotalGlobalSurchargesInUsd 0 -CustomGlobalSurchargesAmount 0 -CustomGlobalDiscountsAmount 0 -CustomBaseAmount 0 -CustomDetailAmount 0 -CustomDiscountsAmount 0 -CustomTaxBase 0 -CustomSurchargesAmount 0 -CustomProfitAmount 0 -CustomShippingCostAmount 0 -CustomShippingTaxAmount 0 -CustomTaxAmount 0 -CustomWithholdingTaxAmount 0 -CustomTotalAmount 0 -ReturnPolicyId "MyReturnPolicyId" -RefundPolicyId "MyRefundPolicyId" -WarrantyPolicyId "MyWarrantyPolicyId" -ShipmentPolicyId "MyShipmentPolicyId" -ShippingLocationId "MyShippingLocationId" -LocationId "MyLocationId" -QuoteItemRecordId "MyQuoteItemRecordId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -ParentBillingItemRecordId "MyParentBillingItemRecordId" -DealUnitId "MyDealUnitId" # DealUnitLineCreateDto |  (optional)
+$DealUnitLineCreateDto = Initialize-DealUnitLineCreateDto -Closed $false -ItemId "MyItemId" -ItemTitle "MyItemTitle" -ItemShortDescription "MyItemShortDescription" -ItemPrimaryImageUrl "MyItemPrimaryImageUrl" -ShippingPolicyId "MyShippingPolicyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -CurrencyId "MyCurrencyId" -Description "MyDescription" -Quantity 0 -Free $false -FreeReason "MyFreeReason" -FreeReasonCode "MyFreeReasonCode" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -ItemPriceId "MyItemPriceId" -PriceListItemId "MyPriceListItemId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TaxCalculationMethod "Included" -CostCalculationMethod "Automatic" -ForexRatesSnapshot "MyForexRatesSnapshot" -ForexRate 0 -TotalBaseAmountInUsd 0 -TotalProfitInUsd 0 -TotalDetailAmountInUsd 0 -TotalTaxBaseInUsd 0 -TotalDiscountsInUsd 0 -TotalTaxesInUsd 0 -TotalWithheldTaxesInUsd 0 -TotalShippingCostInUsd 0 -TotalShippingTaxesInUsd 0 -TotalWarrantyCostInUsd 0 -TotalReturnCostInUsd 0 -TotalRefundCostInUsd 0 -TotalSurchargesInUsd 0 -TotalAmountInUsd 0 -TotalGlobalDiscountsInUsd 0 -TotalGlobalSurchargesInUsd 0 -CustomGlobalSurchargesAmount 0 -CustomGlobalSurchargesAmountCurrencyId "MyCustomGlobalSurchargesAmountCurrencyId" -CustomGlobalDiscountsAmount 0 -CustomGlobalDiscountsAmountCurrencyId "MyCustomGlobalDiscountsAmountCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -ReturnPolicyId "MyReturnPolicyId" -RefundPolicyId "MyRefundPolicyId" -WarrantyPolicyId "MyWarrantyPolicyId" -ShipmentPolicyId "MyShipmentPolicyId" -ShippingLocationId "MyShippingLocationId" -LocationId "MyLocationId" -QuoteItemRecordId "MyQuoteItemRecordId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -ParentBillingItemRecordId "MyParentBillingItemRecordId" -DealUnitId "MyDealUnitId" # DealUnitLineCreateDto |  (optional)
 
+# Create a deal unit line
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineCreateDto $DealUnitLineCreateDto
+    $Result = New-GetDealUnitLinesAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineCreateDto $DealUnitLineCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdLinesPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-GetDealUnitLinesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -581,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -590,32 +213,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut<br>
+<a id="Invoke-DeleteDealUnitAsync"></a>
+# **Invoke-DeleteDealUnitAsync**
+> EmptyEnvelope Invoke-DeleteDealUnitAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitUpdateDto] <PSCustomObject><br>
 
+Delete a deal unit
 
+Deletes an existing deal unit by its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitUpdateDto = Initialize-DealUnitUpdateDto -Closed $false -Title "MyTitle" -UserId "MyUserId" -TenantId "MyTenantId" -ForexRate 0 -CurrencyId "MyCurrencyId" -PriceListId "MyPriceListId" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -BillingLocationId "MyBillingLocationId" -ShippingLocationId "MyShippingLocationId" -ShippingMethodId "MyShippingMethodId" -Ordered $false -CartId "MyCartId" -DealUnitFeedId "MyDealUnitFeedId" -DealUnitFlowId "MyDealUnitFlowId" -DealUnitFlowStageId "MyDealUnitFlowStageId" -PartnerCreated $false -PartnerCollaboration $false -ProposedSolution "MyProposedSolution" -CurrentSituation "MyCurrentSituation" -CustomerNeed "MyCustomerNeed" -WonDate (Get-Date) -LostDate (Get-Date) -ExpiryDate (Get-Date) -DeliveredDate (Get-Date) -ClosedTimestamp (Get-Date) -ExpectedCloseDate (Get-Date) -DealUnitStatus "0" -DealUnitPurchaseProcess "0" -DealUnitForecastCategory "0" -DealUnitAmountsCalculation "0" # DealUnitUpdateDto |  (optional)
 
+# Delete a deal unit
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitUpdateDto $DealUnitUpdateDto
+    $Result = Invoke-DeleteDealUnitAsync -TenantId $TenantId -DealUnitId $DealUnitId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsDealUnitIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteDealUnitAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -626,7 +243,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DealUnitId** | **String**|  | 
- **DealUnitUpdateDto** | [**DealUnitUpdateDto**](DealUnitUpdateDto.md)|  | [optional] 
 
 ### Return type
 
@@ -634,54 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsExtendedGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsExtendedGet**
-> ExtendedDealUnitDtoListEnvelope Invoke-ApiV2DealsServiceDealUnitsExtendedGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsExtendedGet -TenantId $TenantId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsExtendedGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
-
-### Return type
-
-[**ExtendedDealUnitDtoListEnvelope**](ExtendedDealUnitDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -690,28 +259,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2DealsServiceDealUnitsGet"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsGet**
-> DealUnitDtoListEnvelope Invoke-ApiV2DealsServiceDealUnitsGet<br>
+<a id="Invoke-DeleteDealUnitPriceAsync"></a>
+# **Invoke-DeleteDealUnitPriceAsync**
+> EmptyEnvelope Invoke-DeleteDealUnitPriceAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
 
+Delete a deal unit line
 
+Deletes an existing line from a specific deal unit.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Delete a deal unit line
 try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsGet -TenantId $TenantId
+    $Result = Invoke-DeleteDealUnitPriceAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteDealUnitPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -721,56 +290,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
-
-### Return type
-
-[**DealUnitDtoListEnvelope**](DealUnitDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2DealsServiceDealUnitsPost"></a>
-# **Invoke-ApiV2DealsServiceDealUnitsPost**
-> EmptyEnvelope Invoke-ApiV2DealsServiceDealUnitsPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitCreateDto] <PSCustomObject><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitCreateDto = Initialize-DealUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Closed $false -Title "MyTitle" -UserId "MyUserId" -TenantId "MyTenantId" -PriceListId "MyPriceListId" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -CurrencyId "MyCurrencyId" -ForexRate 0 -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -DealUnitFlowId "MyDealUnitFlowId" -DealUnitFlowStageId "MyDealUnitFlowStageId" -PartnerCreated $false -PartnerCollaboration $false -ProposedSolution "MyProposedSolution" -CurrentSituation "MyCurrentSituation" -CustomerNeed "MyCustomerNeed" -WonDate (Get-Date) -LostDate (Get-Date) -ExpiryDate (Get-Date) -DeliveredDate (Get-Date) -ClosedTimestamp (Get-Date) -ExpectedCloseDate (Get-Date) -DealUnitStatus "0" -DealUnitPurchaseProcess "0" -DealUnitForecastCategory "0" -DealUnitAmountsCalculation "0" # DealUnitCreateDto |  (optional)
-
-try {
-    $Result = Invoke-ApiV2DealsServiceDealUnitsPost -TenantId $TenantId -DealUnitCreateDto $DealUnitCreateDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2DealsServiceDealUnitsPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **DealUnitCreateDto** | [**DealUnitCreateDto**](DealUnitCreateDto.md)|  | [optional] 
+ **DealUnitId** | **String**|  | 
+ **DealUnitLineId** | **String**|  | 
 
 ### Return type
 
@@ -778,11 +299,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -793,20 +314,16 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
 
+Get deal unit by ID
 
+Retrieves a single deal unit by its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Get deal unit by ID
 try {
     $Result = Get-DealUnitAsync -TenantId $TenantId -DealUnitId $DealUnitId
 } catch {
@@ -828,11 +345,431 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-DealUnitLinesAsync"></a>
+# **Get-DealUnitLinesAsync**
+> DealUnitLineDtoListEnvelope Get-DealUnitLinesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
+
+Get deal unit lines
+
+Retrieves a list of lines for a specific deal unit with OData query support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+
+# Get deal unit lines
+try {
+    $Result = Get-DealUnitLinesAsync -TenantId $TenantId -DealUnitId $DealUnitId -ItemId $ItemId
+} catch {
+    Write-Host ("Exception occurred when calling Get-DealUnitLinesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+ **ItemId** | **String**|  | [optional] 
+
+### Return type
+
+[**DealUnitLineDtoListEnvelope**](DealUnitLineDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-DealUnitLinesCountAsync"></a>
+# **Get-DealUnitLinesCountAsync**
+> Int32Envelope Get-DealUnitLinesCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+
+Get deal unit lines count
+
+Returns the total count of lines for a specific deal unit with OData filter support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get deal unit lines count
+try {
+    $Result = Get-DealUnitLinesCountAsync -TenantId $TenantId -DealUnitId $DealUnitId
+} catch {
+    Write-Host ("Exception occurred when calling Get-DealUnitLinesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-DealUnitPriceAsync"></a>
+# **Get-DealUnitPriceAsync**
+> DealUnitLineDtoEnvelope Get-DealUnitPriceAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
+
+Get a deal unit line by ID
+
+Retrieves a single deal unit line by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get a deal unit line by ID
+try {
+    $Result = Get-DealUnitPriceAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId
+} catch {
+    Write-Host ("Exception occurred when calling Get-DealUnitPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+ **DealUnitLineId** | **String**|  | 
+
+### Return type
+
+[**DealUnitLineDtoEnvelope**](DealUnitLineDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-DealUnitsAsync"></a>
+# **Get-DealUnitsAsync**
+> DealUnitDtoListEnvelope Get-DealUnitsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Get deal units
+
+Retrieves a list of deal units for the specified tenant with OData query support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get deal units
+try {
+    $Result = Get-DealUnitsAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-DealUnitsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**DealUnitDtoListEnvelope**](DealUnitDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-DealUnitsCountAsync"></a>
+# **Get-DealUnitsCountAsync**
+> Int32Envelope Get-DealUnitsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Get deal units count
+
+Returns the total count of deal units for the specified tenant with OData filter support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get deal units count
+try {
+    $Result = Get-DealUnitsCountAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-DealUnitsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ExtendedDealUnitAsync"></a>
+# **Get-ExtendedDealUnitAsync**
+> ExtendedDealUnitDtoEnvelope Get-ExtendedDealUnitAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+
+Get extended deal unit by ID
+
+Retrieves a single deal unit with extended details by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get extended deal unit by ID
+try {
+    $Result = Get-ExtendedDealUnitAsync -TenantId $TenantId -DealUnitId $DealUnitId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ExtendedDealUnitAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+
+### Return type
+
+[**ExtendedDealUnitDtoEnvelope**](ExtendedDealUnitDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ExtendedDealUnitsAsync"></a>
+# **Get-ExtendedDealUnitsAsync**
+> ExtendedDealUnitDtoListEnvelope Get-ExtendedDealUnitsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Get extended deal units
+
+Retrieves a list of deal units with extended details for the specified tenant with OData query support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Get extended deal units
+try {
+    $Result = Get-ExtendedDealUnitsAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ExtendedDealUnitsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ExtendedDealUnitDtoListEnvelope**](ExtendedDealUnitDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-DealUnitAsync"></a>
+# **Update-DealUnitAsync**
+> EmptyEnvelope Update-DealUnitAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitUpdateDto] <PSCustomObject><br>
+
+Update a deal unit
+
+Updates an existing deal unit by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitUpdateDto = Initialize-DealUnitUpdateDto -Closed $false -Title "MyTitle" -UserId "MyUserId" -TenantId "MyTenantId" -PriceListId "MyPriceListId" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -BillingLocationId "MyBillingLocationId" -ShippingLocationId "MyShippingLocationId" -ShippingMethodId "MyShippingMethodId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Ordered $false -CartId "MyCartId" -DealUnitFeedId "MyDealUnitFeedId" -DealUnitFlowId "MyDealUnitFlowId" -DealUnitFlowStageId "MyDealUnitFlowStageId" -PartnerCreated $false -PartnerCollaboration $false -ProposedSolution "MyProposedSolution" -CurrentSituation "MyCurrentSituation" -CustomerNeed "MyCustomerNeed" -WonDate (Get-Date) -LostDate (Get-Date) -ExpiryDate (Get-Date) -DeliveredDate (Get-Date) -ClosedTimestamp (Get-Date) -ExpectedCloseDate (Get-Date) -DealUnitStatus "Open" -DealUnitPurchaseProcess "None" -DealUnitForecastCategory "None" -DealUnitAmountsCalculation "UserProvided" # DealUnitUpdateDto |  (optional)
+
+# Update a deal unit
+try {
+    $Result = Update-DealUnitAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitUpdateDto $DealUnitUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-DealUnitAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+ **DealUnitUpdateDto** | [**DealUnitUpdateDto**](DealUnitUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-DealUnitPriceAsync"></a>
+# **Update-DealUnitPriceAsync**
+> EmptyEnvelope Update-DealUnitPriceAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitLineUpdateDto] <PSCustomObject><br>
+
+Update a deal unit line
+
+Updates an existing line within a specific deal unit.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitLineUpdateDto = Initialize-DealUnitLineUpdateDto -Closed $false -ItemId "MyItemId" -ItemTitle "MyItemTitle" -ItemShortDescription "MyItemShortDescription" -ItemPrimaryImageUrl "MyItemPrimaryImageUrl" -ShippingPolicyId "MyShippingPolicyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -CurrencyId "MyCurrencyId" -Description "MyDescription" -Quantity 0 -Free $false -FreeReason "MyFreeReason" -FreeReasonCode "MyFreeReasonCode" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -ItemPriceId "MyItemPriceId" -PriceListItemId "MyPriceListItemId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TaxCalculationMethod "Included" -CostCalculationMethod "Automatic" -ForexRatesSnapshot "MyForexRatesSnapshot" -ForexRate 0 -TotalBaseAmountInUsd 0 -TotalProfitInUsd 0 -TotalDetailAmountInUsd 0 -TotalTaxBaseInUsd 0 -TotalDiscountsInUsd 0 -TotalTaxesInUsd 0 -TotalWithheldTaxesInUsd 0 -TotalShippingCostInUsd 0 -TotalShippingTaxesInUsd 0 -TotalWarrantyCostInUsd 0 -TotalReturnCostInUsd 0 -TotalRefundCostInUsd 0 -TotalSurchargesInUsd 0 -TotalAmountInUsd 0 -TotalGlobalDiscountsInUsd 0 -TotalGlobalSurchargesInUsd 0 -CustomGlobalSurchargesAmount 0 -CustomGlobalSurchargesAmountCurrencyId "MyCustomGlobalSurchargesAmountCurrencyId" -CustomGlobalDiscountsAmount 0 -CustomGlobalDiscountsAmountCurrencyId "MyCustomGlobalDiscountsAmountCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -ReturnPolicyId "MyReturnPolicyId" -RefundPolicyId "MyRefundPolicyId" -WarrantyPolicyId "MyWarrantyPolicyId" -ShipmentPolicyId "MyShipmentPolicyId" -ShippingLocationId "MyShippingLocationId" -LocationId "MyLocationId" -QuoteItemRecordId "MyQuoteItemRecordId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -ParentBillingItemRecordId "MyParentBillingItemRecordId" # DealUnitLineUpdateDto |  (optional)
+
+# Update a deal unit line
+try {
+    $Result = Update-DealUnitPriceAsync -TenantId $TenantId -DealUnitId $DealUnitId -DealUnitLineId $DealUnitLineId -DealUnitLineUpdateDto $DealUnitLineUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-DealUnitPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitId** | **String**|  | 
+ **DealUnitLineId** | **String**|  | 
+ **DealUnitLineUpdateDto** | [**DealUnitLineUpdateDto**](DealUnitLineUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

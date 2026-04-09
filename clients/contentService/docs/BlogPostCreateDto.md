@@ -1,0 +1,45 @@
+# BlogPostCreateDto
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**Title** | **String** |  | [optional] 
+**Code** | **String** |  | [optional] 
+**Published** | **Boolean** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**HtmlContent** | **String** |  | [optional] 
+**FeaturedImageUrl** | **String** |  | [optional] 
+**CodeType** | **String** |  | [optional] 
+**BlogPostCategoryID** | **String** |  | [optional] 
+**WebTemplateID** | **String** |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$BlogPostCreateDto = Initialize-PSOpenAPIToolsBlogPostCreateDto  -Id null `
+ -Timestamp null `
+ -TenantId null `
+ -EnrollmentId null `
+ -Title null `
+ -Code null `
+ -Published null `
+ -Description null `
+ -HtmlContent null `
+ -FeaturedImageUrl null `
+ -CodeType null `
+ -BlogPostCategoryID null `
+ -WebTemplateID null
+```
+
+- Convert the resource to JSON
+```powershell
+$BlogPostCreateDto | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

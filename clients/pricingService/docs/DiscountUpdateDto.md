@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Percent** | **Double** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **DiscountListId** | **String** |  | [optional] 
 
 ## Examples
@@ -22,7 +22,7 @@ $DiscountUpdateDto = Initialize-PSOpenAPIToolsDiscountUpdateDto  -Description nu
  -Percent null `
  -Value null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -DiscountListId null
 ```
 

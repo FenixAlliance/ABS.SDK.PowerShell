@@ -3,11 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
-**ReferralInvoiceId** | **String** |  | [optional] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **ReferencedInvoiceId** | **String** |  | [optional] 
 
 ## Examples
@@ -16,9 +13,6 @@ Name | Type | Description | Notes
 ```powershell
 $InvoiceReferenceCreateDto = Initialize-PSOpenAPIToolsInvoiceReferenceCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -EnrollmentId null `
- -ReferralInvoiceId null `
  -ReferencedInvoiceId null
 ```
 

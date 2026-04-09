@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | 
-**Type** | **Int32** |  | 
+**Type** | **String** |  | 
 **FirstName** | **String** |  | 
 **LastName** | **String** |  | [optional] 
 **Email** | **String** |  | 
@@ -40,11 +40,12 @@ Name | Type | Description | Notes
 **LinkedInUrl** | **String** |  | [optional] 
 **InstagramUrl** | **String** |  | [optional] 
 **GithubUsername** | **String** |  | [optional] 
-**InstagramUsername** | [**AnyType**](.md) |  | [optional] 
-**TikTokUsername** | [**AnyType**](.md) |  | [optional] 
-**StackExchangeUrl** | [**AnyType**](.md) |  | [optional] 
-**StackOverflowUrl** | [**AnyType**](.md) |  | [optional] 
-**ParentContactId** | [**AnyType**](.md) |  | [optional] 
+**InstagramUsername** | **String** |  | [optional] 
+**TikTokUsername** | **String** |  | [optional] 
+**StackExchangeUrl** | **String** |  | [optional] 
+**StackOverflowUrl** | **String** |  | [optional] 
+**ParentContactId** | **String** |  | [optional] 
+**FaxNumber** | **String** |  | [optional] 
 
 ## Examples
 
@@ -91,7 +92,8 @@ $ContactCreateDto = Initialize-PSOpenAPIToolsContactCreateDto  -Id null `
  -TikTokUsername null `
  -StackExchangeUrl null `
  -StackOverflowUrl null `
- -ParentContactId null
+ -ParentContactId null `
+ -FaxNumber null
 ```
 
 - Convert the resource to JSON

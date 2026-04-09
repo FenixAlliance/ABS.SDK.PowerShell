@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Notes** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Author** | **String** |  | [optional] 
@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **ParentFileUploadId** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
-**File** | **System.IO.FileInfo** |  | [optional] 
 **BusinessID** | **String** |  | [optional] 
 **BusinessProfileRecordID** | **String** |  | [optional] 
 **Metadata** | **String** |  | [optional] 
@@ -37,7 +36,6 @@ $SupportRequestAttachmentCreateDto = Initialize-PSOpenAPIToolsSupportRequestAtta
  -ValidResponse null `
  -ParentFileUploadId null `
  -FilePath null `
- -File null `
  -BusinessID null `
  -BusinessProfileRecordID null `
  -Metadata null `

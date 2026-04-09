@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ParentBusinessProcessId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**TenantEnrolmentId** | **String** |  | [optional] 
+**TenantEnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,7 +21,7 @@ $DealUnitFlowCreateDto = Initialize-PSOpenAPIToolsDealUnitFlowCreateDto  -Id nul
  -Description null `
  -ParentBusinessProcessId null `
  -TenantId null `
- -TenantEnrolmentId null
+ -TenantEnrollmentId null
 ```
 
 - Convert the resource to JSON

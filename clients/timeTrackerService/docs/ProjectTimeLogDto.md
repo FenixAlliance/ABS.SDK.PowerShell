@@ -11,8 +11,7 @@ Name | Type | Description | Notes
 **ProjectPeriodId** | **String** |  | [optional] 
 **ResponsibleContactId** | **String** |  | [optional] 
 **CreatorContactId** | **String** |  | [optional] 
-**RecordType** | **Int32** |  | [optional] 
-**TimeStamp** | **System.DateTime** |  | [optional] 
+**RecordType** | **String** |  | [optional] 
 **TimeSpan** | **String** |  | [optional] 
 **LogDate** | **System.DateTime** |  | [optional] 
 **Comments** | **String** |  | [optional] 
@@ -31,8 +30,7 @@ $ProjectTimeLogDto = Initialize-PSOpenAPIToolsProjectTimeLogDto  -Id null `
  -ResponsibleContactId null `
  -CreatorContactId null `
  -RecordType null `
- -TimeStamp null `
- -TimeSpan PT2H30M `
+ -TimeSpan null `
  -LogDate null `
  -Comments null `
  -Type null

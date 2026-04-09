@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **QualifiedName** | **String** |  | [optional] [readonly] 
 **TenantId** | **String** |  | [optional] 
-**Type** | **Int32** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**Email** | **String** |  | [optional] 
+**Phone** | **String** |  | [optional] 
 **PublicName** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
@@ -32,7 +34,6 @@ Name | Type | Description | Notes
 **GithubUsername** | **String** |  | [optional] 
 **Duns** | **String** |  | [optional] 
 **TaxId** | **String** |  | [optional] 
-**Email** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
 **Street** | **String** |  | [optional] 
 **CartId** | **String** |  | [optional] 
@@ -71,6 +72,8 @@ $ContactDto = Initialize-PSOpenAPIToolsContactDto  -Id null `
  -QualifiedName null `
  -TenantId null `
  -Type null `
+ -Email null `
+ -Phone null `
  -PublicName null `
  -FirstName null `
  -LastName null `
@@ -95,7 +98,6 @@ $ContactDto = Initialize-PSOpenAPIToolsContactDto  -Id null `
  -GithubUsername null `
  -Duns null `
  -TaxId null `
- -Email null `
  -About null `
  -Street null `
  -CartId null `

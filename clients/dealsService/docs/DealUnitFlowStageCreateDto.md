@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **DealUnitFlowId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **ParentBusinessProcessStageId** | **String** |  | [optional] 
 
 ## Examples
@@ -24,7 +24,7 @@ $DealUnitFlowStageCreateDto = Initialize-PSOpenAPIToolsDealUnitFlowStageCreateDt
  -DealUnitFlowId null `
  -TenantId null `
  -Description null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -ParentBusinessProcessStageId null
 ```
 

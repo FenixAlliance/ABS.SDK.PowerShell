@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TimeStamp** | **System.DateTime** |  | [optional] 
 **Test** | **Boolean** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
@@ -25,9 +24,9 @@ Name | Type | Description | Notes
 **ReferenceCode** | **String** |  | [optional] 
 **CorrelationCode** | **String** |  | [optional] 
 **LastUpdated** | **System.DateTime** |  | [optional] 
-**OnBehalfOf** | **Int32** |  | [optional] 
-**PaymentType** | **Int32** |  | [optional] 
-**PaymentStatus** | **Int32** |  | [optional] 
+**OnBehalfOf** | **String** |  | [optional] 
+**PaymentType** | **String** |  | [optional] 
+**PaymentStatus** | **String** |  | [optional] 
 **BaseCost** | **Double** |  | [optional] 
 **Signature** | **String** |  | [optional] 
 **SignatureMismatch** | **Boolean** |  | [optional] 
@@ -60,7 +59,7 @@ Name | Type | Description | Notes
 **AccountingEntryId** | **String** |  | [optional] 
 **PaymentGatewayId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **PaymentTokenId** | **String** |  | [optional] 
 
@@ -70,7 +69,6 @@ Name | Type | Description | Notes
 ```powershell
 $PaymentDto = Initialize-PSOpenAPIToolsPaymentDto  -Id null `
  -Timestamp null `
- -TimeStamp null `
  -Test null `
  -InvoiceId null `
  -TenantId null `
@@ -125,7 +123,7 @@ $PaymentDto = Initialize-PSOpenAPIToolsPaymentDto  -Id null `
  -AccountingEntryId null `
  -PaymentGatewayId null `
  -BankAccountId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -BankId null `
  -PaymentTokenId null
 ```

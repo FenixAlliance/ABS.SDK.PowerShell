@@ -3,21 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | **System.DateTime** |  | [optional] 
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**DisplayName** | **String** |  | [optional] [readonly] 
 **UtcOffset** | **String** |  | [optional] 
+**DisplayName** | **String** |  | [optional] [readonly] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TimezoneDto = Initialize-PSOpenAPIToolsTimezoneDto  -Timestamp null `
- -Id null `
+$TimezoneDto = Initialize-PSOpenAPIToolsTimezoneDto  -Id null `
+ -Timestamp null `
  -Name null `
- -DisplayName null `
- -UtcOffset null
+ -UtcOffset null `
+ -DisplayName null
 ```
 
 - Convert the resource to JSON

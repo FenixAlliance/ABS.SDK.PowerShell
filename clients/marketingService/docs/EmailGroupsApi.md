@@ -4,40 +4,38 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2MarketingServiceEmailGroupsCountGet**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsCountGet) | **GET** /api/v2/MarketingService/EmailGroups/Count | 
-[**Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} | 
-[**Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | 
-[**Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} | 
-[**Invoke-ApiV2MarketingServiceEmailGroupsGet**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsGet) | **GET** /api/v2/MarketingService/EmailGroups | 
-[**Invoke-ApiV2MarketingServiceEmailGroupsPost**](EmailGroupsApi.md#Invoke-ApiV2MarketingServiceEmailGroupsPost) | **POST** /api/v2/MarketingService/EmailGroups | 
+[**New-EmailGroupAsync**](EmailGroupsApi.md#New-EmailGroupAsync) | **POST** /api/v2/MarketingService/EmailGroups | Create an email group
+[**Invoke-DeleteEmailGroupAsync**](EmailGroupsApi.md#Invoke-DeleteEmailGroupAsync) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Delete an email group
+[**Get-EmailGroupDetailsAsync**](EmailGroupsApi.md#Get-EmailGroupDetailsAsync) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Get email group by ID
+[**Get-EmailGroupsCountAsync**](EmailGroupsApi.md#Get-EmailGroupsCountAsync) | **GET** /api/v2/MarketingService/EmailGroups/Count | Get email groups count
+[**Get-EmailGroupsODataAsync**](EmailGroupsApi.md#Get-EmailGroupsODataAsync) | **GET** /api/v2/MarketingService/EmailGroups | Get email groups
+[**Update-EmailGroupAsync**](EmailGroupsApi.md#Update-EmailGroupAsync) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Update an email group
 
 
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsCountGet"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsCountGet**
-> Int32Envelope Invoke-ApiV2MarketingServiceEmailGroupsCountGet<br>
+<a id="New-EmailGroupAsync"></a>
+# **New-EmailGroupAsync**
+> EmptyEnvelope New-EmailGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailGroupCreateDto] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Create an email group
 
+Creates a new email group for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EmailGroupCreateDto = Initialize-EmailGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # EmailGroupCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Create an email group
 try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsCountGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = New-EmailGroupAsync -TenantId $TenantId -EmailGroupCreateDto $EmailGroupCreateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-EmailGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -47,52 +45,49 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **EmailGroupCreateDto** | [**EmailGroupCreateDto**](EmailGroupCreateDto.md)|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete<br>
+<a id="Invoke-DeleteEmailGroupAsync"></a>
+# **Invoke-DeleteEmailGroupAsync**
+> EmptyEnvelope Invoke-DeleteEmailGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailgroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete an email group
 
+Deletes an email group by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmailgroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete an email group
 try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete -TenantId $TenantId -EmailgroupId $EmailgroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteEmailGroupAsync -TenantId $TenantId -EmailgroupId $EmailgroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteEmailGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -112,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -121,34 +116,30 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet**
-> EmailGroupDtoEnvelope Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet<br>
+<a id="Get-EmailGroupDetailsAsync"></a>
+# **Get-EmailGroupDetailsAsync**
+> EmailGroupDtoEnvelope Get-EmailGroupDetailsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailgroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get email group by ID
 
+Retrieves the details of a specific email group by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmailgroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get email group by ID
 try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet -TenantId $TenantId -EmailgroupId $EmailgroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-EmailGroupDetailsAsync -TenantId $TenantId -EmailgroupId $EmailgroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-EmailGroupDetailsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -168,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -177,36 +168,130 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut<br>
+<a id="Get-EmailGroupsCountAsync"></a>
+# **Get-EmailGroupsCountAsync**
+> Int32Envelope Get-EmailGroupsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get email groups count
+
+Returns the count of email groups for the specified tenant using OData query options.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get email groups count
+try {
+    $Result = Get-EmailGroupsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-EmailGroupsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-EmailGroupsODataAsync"></a>
+# **Get-EmailGroupsODataAsync**
+> EmailGroupDtoListEnvelope Get-EmailGroupsODataAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get email groups
+
+Retrieves a collection of email groups for the specified tenant using OData query options.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get email groups
+try {
+    $Result = Get-EmailGroupsODataAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-EmailGroupsODataAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmailGroupDtoListEnvelope**](EmailGroupDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-EmailGroupAsync"></a>
+# **Update-EmailGroupAsync**
+> EmptyEnvelope Update-EmailGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailgroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailGroupUpdateDto] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Update an email group
 
+Updates an existing email group by its ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmailgroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$EmailGroupUpdateDto = Initialize-EmailGroupUpdateDto -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrolmentId "MyEnrolmentId" # EmailGroupUpdateDto | 
+$EmailGroupUpdateDto = Initialize-EmailGroupUpdateDto -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # EmailGroupUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Update an email group
 try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut -TenantId $TenantId -EmailgroupId $EmailgroupId -EmailGroupUpdateDto $EmailGroupUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Update-EmailGroupAsync -TenantId $TenantId -EmailgroupId $EmailgroupId -EmailGroupUpdateDto $EmailGroupUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsEmailgroupIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-EmailGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -227,116 +312,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsGet"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsGet**
-> EmailGroupDtoListEnvelope Invoke-ApiV2MarketingServiceEmailGroupsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmailGroupDtoListEnvelope**](EmailGroupDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2MarketingServiceEmailGroupsPost"></a>
-# **Invoke-ApiV2MarketingServiceEmailGroupsPost**
-> EmptyEnvelope Invoke-ApiV2MarketingServiceEmailGroupsPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailGroupCreateDto] <PSCustomObject><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$EmailGroupCreateDto = Initialize-EmailGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrolmentId "MyEnrolmentId" # EmailGroupCreateDto | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2MarketingServiceEmailGroupsPost -TenantId $TenantId -EmailGroupCreateDto $EmailGroupCreateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2MarketingServiceEmailGroupsPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **EmailGroupCreateDto** | [**EmailGroupCreateDto**](EmailGroupCreateDto.md)|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

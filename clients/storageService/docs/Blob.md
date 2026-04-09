@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | **Int32** |  | [optional] 
+**Kind** | **String** |  | [optional] 
 **IsFolder** | **Boolean** |  | [optional] [readonly] 
 **IsFile** | **Boolean** |  | [optional] [readonly] 
 **FolderPath** | **String** |  | [optional] [readonly] 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Enabled** | **Boolean** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 $EmailGroupDto = Initialize-PSOpenAPIToolsEmailGroupDto  -Id null `
  -Timestamp null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -Name null `
  -Description null `
  -Enabled null

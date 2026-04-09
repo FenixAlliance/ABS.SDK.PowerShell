@@ -4,38 +4,34 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-GigAsync**](GigsApi.md#New-GigAsync) | **POST** /api/v2/HrmsService/Gigs | 
-[**Invoke-DeleteGigAsync**](GigsApi.md#Invoke-DeleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | 
-[**Get-GigByIdAsync**](GigsApi.md#Get-GigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | 
-[**Get-GigsAsync**](GigsApi.md#Get-GigsAsync) | **GET** /api/v2/HrmsService/Gigs | 
-[**Get-GigsCountAsync**](GigsApi.md#Get-GigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count | 
-[**Update-GigAsync**](GigsApi.md#Update-GigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | 
+[**New-GigAsync**](GigsApi.md#New-GigAsync) | **POST** /api/v2/HrmsService/Gigs | Create a gig
+[**Invoke-DeleteGigAsync**](GigsApi.md#Invoke-DeleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig
+[**Get-GigByIdAsync**](GigsApi.md#Get-GigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID
+[**Get-GigsAsync**](GigsApi.md#Get-GigsAsync) | **GET** /api/v2/HrmsService/Gigs | Get gigs
+[**Get-GigsCountAsync**](GigsApi.md#Get-GigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count | Count gigs
+[**Update-GigAsync**](GigsApi.md#Update-GigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | Update a gig
 
 
 <a id="New-GigAsync"></a>
 # **New-GigAsync**
-> void New-GigAsync<br>
+> EmptyEnvelope New-GigAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GigCreateDto] <PSCustomObject><br>
 
+Create a gig
 
+Creates a new gig for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$GigCreateDto = Initialize-GigCreateDto -Id "MyId" -Timestamp (Get-Date) # GigCreateDto |  (optional)
+$GigCreateDto = Initialize-GigCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -Budget 0 -Location "MyLocation" -SkillsRequired "MySkillsRequired" # GigCreateDto |  (optional)
 
+# Create a gig
 try {
     $Result = New-GigAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -GigCreateDto $GigCreateDto
 } catch {
@@ -55,11 +51,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,28 +66,24 @@ void (empty response body)
 
 <a id="Invoke-DeleteGigAsync"></a>
 # **Invoke-DeleteGigAsync**
-> void Invoke-DeleteGigAsync<br>
+> EmptyEnvelope Invoke-DeleteGigAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GigId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete a gig
 
+Deletes a gig for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $GigId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete a gig
 try {
     $Result = Invoke-DeleteGigAsync -TenantId $TenantId -GigId $GigId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -111,11 +103,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,22 +124,18 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get gig by ID
 
+Retrieves a specific gig by its identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $GigId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get gig by ID
 try {
     $Result = Get-GigByIdAsync -TenantId $TenantId -GigId $GigId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -187,21 +175,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get gigs
 
+Retrieves gigs for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get gigs
 try {
     $Result = Get-GigsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -224,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -240,21 +224,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Count gigs
 
+Counts gigs for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Count gigs
 try {
     $Result = Get-GigsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -277,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,32 +268,28 @@ Name | Type | Description  | Notes
 
 <a id="Update-GigAsync"></a>
 # **Update-GigAsync**
-> void Update-GigAsync<br>
+> EmptyEnvelope Update-GigAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GigId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <System.Nullable[SystemCollectionsHashtable]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GigUpdateDto] <PSCustomObject><br>
 
+Update a gig
 
+Updates an existing gig for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $GigId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Body = @{ key_example = ... } # SystemCollectionsHashtable |  (optional)
+$GigUpdateDto = Initialize-GigUpdateDto -Title "MyTitle" -Description "MyDescription" -Price 0 -Currency "MyCurrency" -Location "MyLocation" -StartDate (Get-Date) -EndDate (Get-Date) -Category "MyCategory" -Tags "MyTags" # GigUpdateDto |  (optional)
 
+# Update a gig
 try {
-    $Result = Update-GigAsync -TenantId $TenantId -GigId $GigId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
+    $Result = Update-GigAsync -TenantId $TenantId -GigId $GigId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -GigUpdateDto $GigUpdateDto
 } catch {
     Write-Host ("Exception occurred when calling Update-GigAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -328,15 +304,15 @@ Name | Type | Description  | Notes
  **GigId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Body** | **SystemCollectionsHashtable**|  | [optional] 
+ **GigUpdateDto** | [**GigUpdateDto**](GigUpdateDto.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

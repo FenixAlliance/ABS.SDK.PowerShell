@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **UserId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -29,12 +27,37 @@ Name | Type | Description | Notes
 **BillingLocationId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **ShippingMethodId** | **String** |  | [optional] 
-**CartId** | **String** |  | [optional] 
-**Total** | **Double** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**TotalDetail** | **Double** |  | [optional] 
+**TotalDetailCurrencyId** | **String** |  | [optional] 
+**TotalProfit** | **Double** |  | [optional] 
+**TotalProfitCurrencyId** | **String** |  | [optional] 
+**TotalDiscounts** | **Double** |  | [optional] 
+**TotalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalSurcharges** | **Double** |  | [optional] 
+**TotalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalShippingTax** | **Double** |  | [optional] 
+**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
+**TotalShippingCost** | **Double** |  | [optional] 
+**TotalShippingCostCurrencyId** | **String** |  | [optional] 
+**TotalGlobalDiscounts** | **Double** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalGlobalSurcharges** | **Double** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalWithheldTax** | **Double** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | **String** |  | [optional] 
+**TotalTaxBase** | **Double** |  | [optional] 
+**TotalTaxBaseCurrencyId** | **String** |  | [optional] 
 **TotalTaxes** | **Double** |  | [optional] 
-**QuoteStatus** | **Int32** |  | [optional] 
-**FreightTerms** | **Int32** |  | [optional] 
-**CostCalculationMethod** | **Int32** |  | [optional] 
+**TotalTaxesCurrencyId** | **String** |  | [optional] 
+**Total** | **Double** |  | [optional] 
+**TotalCurrencyId** | **String** |  | [optional] 
+**CostCalculationMethod** | **String** |  | [optional] 
+**TaxCalculationMethod** | **String** |  | [optional] 
+**CartId** | **String** |  | [optional] 
+**QuoteStatus** | **String** |  | [optional] 
+**FreightTerms** | **String** |  | [optional] 
 **EffectiveTo** | **System.DateTime** |  | [optional] 
 **EffectiveFrom** | **System.DateTime** |  | [optional] 
 **CustomTaxAmount** | **Double** |  | [optional] 
@@ -55,8 +78,6 @@ $QuoteUpdateDto = Initialize-PSOpenAPIToolsQuoteUpdateDto  -Closed null `
  -Title null `
  -UserId null `
  -TenantId null `
- -ForexRate null `
- -CurrencyId null `
  -PriceListId null `
  -Description null `
  -EnrollmentId null `
@@ -77,12 +98,37 @@ $QuoteUpdateDto = Initialize-PSOpenAPIToolsQuoteUpdateDto  -Closed null `
  -BillingLocationId null `
  -ShippingLocationId null `
  -ShippingMethodId null `
- -CartId null `
- -Total null `
+ -ForexRate null `
+ -CurrencyId null `
+ -TotalDetail null `
+ -TotalDetailCurrencyId null `
+ -TotalProfit null `
+ -TotalProfitCurrencyId null `
+ -TotalDiscounts null `
+ -TotalDiscountsCurrencyId null `
+ -TotalSurcharges null `
+ -TotalSurchargesCurrencyId null `
+ -TotalShippingTax null `
+ -TotalShippingTaxCurrencyId null `
+ -TotalShippingCost null `
+ -TotalShippingCostCurrencyId null `
+ -TotalGlobalDiscounts null `
+ -TotalGlobalDiscountsCurrencyId null `
+ -TotalGlobalSurcharges null `
+ -TotalGlobalSurchargesCurrencyId null `
+ -TotalWithheldTax null `
+ -TotalWithheldTaxCurrencyId null `
+ -TotalTaxBase null `
+ -TotalTaxBaseCurrencyId null `
  -TotalTaxes null `
+ -TotalTaxesCurrencyId null `
+ -Total null `
+ -TotalCurrencyId null `
+ -CostCalculationMethod null `
+ -TaxCalculationMethod null `
+ -CartId null `
  -QuoteStatus null `
  -FreightTerms null `
- -CostCalculationMethod null `
  -EffectiveTo null `
  -EffectiveFrom null `
  -CustomTaxAmount null `

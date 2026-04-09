@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **PeriodStartDate** | **System.DateTime** |  | [optional] 
 **PeriodEndDate** | **System.DateTime** |  | [optional] 
 **ProjectID** | **String** |  | [optional] 

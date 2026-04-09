@@ -3,15 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**AuthorId** | **String** |  | [optional] 
+**Code** | **String** |  | [optional] 
+**Published** | **Boolean** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **HtmlContent** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
+**CodeType** | **String** |  | [optional] 
 **MarketingCampaignId** | **String** |  | [optional] 
 
 ## Examples
@@ -21,12 +23,14 @@ Name | Type | Description | Notes
 $EmailTemplateCreateDto = Initialize-PSOpenAPIToolsEmailTemplateCreateDto  -Id null `
  -Timestamp null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -Title null `
- -AuthorId null `
+ -Code null `
+ -Published null `
  -Description null `
  -HtmlContent null `
  -FeaturedImageUrl null `
+ -CodeType null `
  -MarketingCampaignId null
 ```
 

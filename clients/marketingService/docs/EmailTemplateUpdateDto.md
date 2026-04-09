@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **FacebookImage** | **String** |  | [optional] 
 **FacebookTitle** | **String** |  | [optional] 
 **FacebookDescription** | **String** |  | [optional] 
-**FeaturedImageURL** | **String** |  | [optional] 
+**FeaturedImageUrl** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Namespace** | **String** |  | [optional] 
@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **GeneratedCode** | **String** |  | [optional] 
 **CompilationPath** | **String** |  | [optional] 
 **HtmlContent** | **String** |  | [optional] 
+**CodeType** | **String** |  | [optional] 
 **CSharpContent** | **String** |  | [optional] 
 **RazorContent** | **String** |  | [optional] 
 **CssContent** | **String** |  | [optional] 
@@ -81,7 +82,7 @@ $EmailTemplateUpdateDto = Initialize-PSOpenAPIToolsEmailTemplateUpdateDto  -Orde
  -FacebookImage null `
  -FacebookTitle null `
  -FacebookDescription null `
- -FeaturedImageURL null `
+ -FeaturedImageUrl null `
  -Content null `
  -Code null `
  -Namespace null `
@@ -89,6 +90,7 @@ $EmailTemplateUpdateDto = Initialize-PSOpenAPIToolsEmailTemplateUpdateDto  -Orde
  -GeneratedCode null `
  -CompilationPath null `
  -HtmlContent null `
+ -CodeType null `
  -CSharpContent null `
  -RazorContent null `
  -CssContent null `

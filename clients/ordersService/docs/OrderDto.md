@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **UserId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -28,41 +27,45 @@ Name | Type | Description | Notes
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
 **CustomerNotes** | **String** |  | [optional] 
+**TaxCalculationMethod** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
-**Total** | **Double** |  | [optional] 
-**TotalTaxes** | **Double** |  | [optional] 
-**TotalTaxBase** | **Double** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**TotalDetail** | **Double** |  | [optional] 
+**TotalDetailCurrencyId** | **String** |  | [optional] 
+**TotalProfit** | **Double** |  | [optional] 
+**TotalProfitCurrencyId** | **String** |  | [optional] 
 **TotalDiscounts** | **Double** |  | [optional] 
+**TotalDiscountsCurrencyId** | **String** |  | [optional] 
 **TotalSurcharges** | **Double** |  | [optional] 
+**TotalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalTaxBase** | **Double** |  | [optional] 
+**TotalTaxBaseCurrencyId** | **String** |  | [optional] 
+**TotalTaxes** | **Double** |  | [optional] 
+**TotalTaxesCurrencyId** | **String** |  | [optional] 
+**TotalShippingCost** | **Double** |  | [optional] 
+**TotalShippingCostCurrencyId** | **String** |  | [optional] 
+**TotalShippingTax** | **Double** |  | [optional] 
+**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
+**TotalWithheldTax** | **Double** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | **String** |  | [optional] 
 **TotalGlobalDiscounts** | **Double** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
 **TotalGlobalSurcharges** | **Double** |  | [optional] 
-**TotalTaxesInUsd** | **Double** |  | [optional] 
-**TotalAmountInUsd** | **Double** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**Total** | **Double** |  | [optional] 
+**TotalCurrencyId** | **String** |  | [optional] 
+**TotalDetailInUsd** | **Double** |  | [optional] 
 **TotalProfitInUsd** | **Double** |  | [optional] 
-**TotalTaxBaseInUsd** | **Double** |  | [optional] 
 **TotalDiscountsInUsd** | **Double** |  | [optional] 
 **TotalSurchargesInUsd** | **Double** |  | [optional] 
-**TotalDetailAmountInUsd** | **Double** |  | [optional] 
-**TotalGlobalDiscountsInUsd** | **Double** |  | [optional] 
-**TotalGlobalSurchargesInUsd** | **Double** |  | [optional] 
-**TotalWithholdingTaxesInUsd** | **Double** |  | [optional] 
+**TotalTaxBaseInUsd** | **Double** |  | [optional] 
+**TotalTaxesInUsd** | **Double** |  | [optional] 
+**TotalWithheldTaxesInUsd** | **Double** |  | [optional] 
 **TotalShippingCostInUsd** | **Double** |  | [optional] 
 **TotalShippingTaxesInUsd** | **Double** |  | [optional] 
-**Currency** | [**Currency**](Currency.md) |  | [optional] 
-**TotalInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalTaxAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalTaxBaseAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalDiscountsAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalSurchargesAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalGlobalDiscountsAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalGlobalSurchargesAmountInUsd** | [**Money**](Money.md) |  | [optional] 
-**TotalAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalTaxAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalTaxBaseAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalDiscountsAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalSurchargesAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalGlobalDiscountsAmount** | [**Money**](Money.md) |  | [optional] 
-**TotalGlobalSurchargesAmount** | [**Money**](Money.md) |  | [optional] 
+**TotalGlobalDiscountsInUsd** | **Double** |  | [optional] 
+**TotalGlobalSurchargesInUsd** | **Double** |  | [optional] 
+**TotalInUsd** | **Double** |  | [optional] 
 **OrderLinesCount** | **Int32** |  | [optional] 
 **QuoteId** | **String** |  | [optional] 
 **WalletId** | **String** |  | [optional] 
@@ -72,9 +75,9 @@ Name | Type | Description | Notes
 **BillingLocationId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **QualifiedIdentifier** | **String** |  | [optional] 
-**CostCalculationMethod** | **Int32** |  | [optional] 
-**FreightTerms** | **Int32** |  | [optional] 
-**OrderStatus** | **Int32** |  | [optional] 
+**CostCalculationMethod** | **String** |  | [optional] 
+**FreightTerms** | **String** |  | [optional] 
+**OrderStatus** | **String** |  | [optional] 
 **RequestedDeliveryDate** | **System.DateTime** |  | [optional] 
 **CustomTaxAmount** | **Double** |  | [optional] 
 **CustomTotalAmount** | **Double** |  | [optional] 
@@ -97,7 +100,6 @@ $OrderDto = Initialize-PSOpenAPIToolsOrderDto  -Id null `
  -Title null `
  -UserId null `
  -TenantId null `
- -CurrencyId null `
  -Description null `
  -PriceListId null `
  -EnrollmentId null `
@@ -115,41 +117,45 @@ $OrderDto = Initialize-PSOpenAPIToolsOrderDto  -Id null `
  -StateId null `
  -CityId null `
  -CustomerNotes null `
+ -TaxCalculationMethod null `
  -ForexRate null `
- -Total null `
- -TotalTaxes null `
- -TotalTaxBase null `
+ -CurrencyId null `
+ -TotalDetail null `
+ -TotalDetailCurrencyId null `
+ -TotalProfit null `
+ -TotalProfitCurrencyId null `
  -TotalDiscounts null `
+ -TotalDiscountsCurrencyId null `
  -TotalSurcharges null `
+ -TotalSurchargesCurrencyId null `
+ -TotalTaxBase null `
+ -TotalTaxBaseCurrencyId null `
+ -TotalTaxes null `
+ -TotalTaxesCurrencyId null `
+ -TotalShippingCost null `
+ -TotalShippingCostCurrencyId null `
+ -TotalShippingTax null `
+ -TotalShippingTaxCurrencyId null `
+ -TotalWithheldTax null `
+ -TotalWithheldTaxCurrencyId null `
  -TotalGlobalDiscounts null `
+ -TotalGlobalDiscountsCurrencyId null `
  -TotalGlobalSurcharges null `
- -TotalTaxesInUsd null `
- -TotalAmountInUsd null `
+ -TotalGlobalSurchargesCurrencyId null `
+ -Total null `
+ -TotalCurrencyId null `
+ -TotalDetailInUsd null `
  -TotalProfitInUsd null `
- -TotalTaxBaseInUsd null `
  -TotalDiscountsInUsd null `
  -TotalSurchargesInUsd null `
- -TotalDetailAmountInUsd null `
- -TotalGlobalDiscountsInUsd null `
- -TotalGlobalSurchargesInUsd null `
- -TotalWithholdingTaxesInUsd null `
+ -TotalTaxBaseInUsd null `
+ -TotalTaxesInUsd null `
+ -TotalWithheldTaxesInUsd null `
  -TotalShippingCostInUsd null `
  -TotalShippingTaxesInUsd null `
- -Currency null `
+ -TotalGlobalDiscountsInUsd null `
+ -TotalGlobalSurchargesInUsd null `
  -TotalInUsd null `
- -TotalTaxAmountInUsd null `
- -TotalTaxBaseAmountInUsd null `
- -TotalDiscountsAmountInUsd null `
- -TotalSurchargesAmountInUsd null `
- -TotalGlobalDiscountsAmountInUsd null `
- -TotalGlobalSurchargesAmountInUsd null `
- -TotalAmount null `
- -TotalTaxAmount null `
- -TotalTaxBaseAmount null `
- -TotalDiscountsAmount null `
- -TotalSurchargesAmount null `
- -TotalGlobalDiscountsAmount null `
- -TotalGlobalSurchargesAmount null `
  -OrderLinesCount null `
  -QuoteId null `
  -WalletId null `

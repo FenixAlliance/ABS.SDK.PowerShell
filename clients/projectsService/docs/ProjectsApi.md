@@ -4,160 +4,47 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2ProjectsServiceProjectsCountGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsCountGet) | **GET** /api/v2/ProjectsService/Projects/Count | 
-[**Invoke-ApiV2ProjectsServiceProjectsGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsGet) | **GET** /api/v2/ProjectsService/Projects | 
-[**Invoke-ApiV2ProjectsServiceProjectsPost**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsPost) | **POST** /api/v2/ProjectsService/Projects | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdGet) | **GET** /api/v2/ProjectsService/Projects/{projectId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdPut**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | 
-[**Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet**](ProjectsApi.md#Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | 
+[**New-ProjectAsync**](ProjectsApi.md#New-ProjectAsync) | **POST** /api/v2/ProjectsService/Projects | Creates a new project
+[**New-ProjectPeriodAsync**](ProjectsApi.md#New-ProjectPeriodAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period
+[**New-ProjectTaskAsync**](ProjectsApi.md#New-ProjectTaskAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
+[**Invoke-DeleteProjectAsync**](ProjectsApi.md#Invoke-DeleteProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project
+[**Invoke-DeleteProjectPeriodAsync**](ProjectsApi.md#Invoke-DeleteProjectPeriodAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period
+[**Invoke-DeleteProjectTaskAsync**](ProjectsApi.md#Invoke-DeleteProjectTaskAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
+[**Get-ProjectByIdAsync**](ProjectsApi.md#Get-ProjectByIdAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID
+[**Get-ProjectPeriodsAsync**](ProjectsApi.md#Get-ProjectPeriodsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods
+[**Get-ProjectTaskCategoriesAsync**](ProjectsApi.md#Get-ProjectTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories
+[**Get-ProjectTaskCategoriesCountAsync**](ProjectsApi.md#Get-ProjectTaskCategoriesCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories
+[**Get-ProjectTasksAsync**](ProjectsApi.md#Get-ProjectTasksAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
+[**Get-ProjectTasksCountAsync**](ProjectsApi.md#Get-ProjectTasksCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
+[**Get-ProjectTimeLogsAsync**](ProjectsApi.md#Get-ProjectTimeLogsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
+[**Get-ProjectTimeLogsCountAsync**](ProjectsApi.md#Get-ProjectTimeLogsCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs
+[**Get-ProjectsByTenantIdAsync**](ProjectsApi.md#Get-ProjectsByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects
+[**Get-ProjectsCountByTenantIdAsync**](ProjectsApi.md#Get-ProjectsCountByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects
+[**Update-ProjectAsync**](ProjectsApi.md#Update-ProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project
+[**Update-ProjectPeriodAsync**](ProjectsApi.md#Update-ProjectPeriodAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period
+[**Update-ProjectTaskAsync**](ProjectsApi.md#Update-ProjectTaskAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
 
 
-<a id="Invoke-ApiV2ProjectsServiceProjectsCountGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsCountGet**
-> Int32Envelope Invoke-ApiV2ProjectsServiceProjectsCountGet<br>
+<a id="New-ProjectAsync"></a>
+# **New-ProjectAsync**
+> EmptyEnvelope New-ProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsCountGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsGet**
-> ProjectDtoListEnvelope Invoke-ApiV2ProjectsServiceProjectsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**ProjectDtoListEnvelope**](ProjectDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsPost"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsPost**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectCreateDto] <PSCustomObject><br>
 
+Creates a new project
 
+Creates a new project for the current tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $ProjectCreateDto = Initialize-ProjectCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectCreateDto |  (optional)
 
+# Creates a new project
 try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsPost -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectCreateDto $ProjectCreateDto
+    $Result = New-ProjectAsync -TenantId $TenantId -ProjectCreateDto $ProjectCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-ProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -167,8 +54,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **ProjectCreateDto** | [**ProjectCreateDto**](ProjectCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -177,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -186,148 +71,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete<br>
+<a id="New-ProjectPeriodAsync"></a>
+# **New-ProjectPeriodAsync**
+> EmptyEnvelope New-ProjectPeriodAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdGet**
-> ProjectDtoEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**ProjectDtoEnvelope**](ProjectDtoEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodCreateDto] <PSCustomObject><br>
 
+Creates a project period
 
+Creates a new period for the specified project.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $ProjectPeriodCreateDto = Initialize-ProjectPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -PeriodStartDate (Get-Date) -PeriodEndDate (Get-Date) -ProjectID "MyProjectID" # ProjectPeriodCreateDto |  (optional)
 
+# Creates a project period
 try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectPeriodCreateDto $ProjectPeriodCreateDto
+    $Result = New-ProjectPeriodAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectPeriodCreateDto $ProjectPeriodCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-ProjectPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -338,8 +103,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **ProjectPeriodCreateDto** | [**ProjectPeriodCreateDto**](ProjectPeriodCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -348,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -357,440 +120,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **ProjectPeriodId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodUpdateDto] <PSCustomObject><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$ProjectPeriodUpdateDto = Initialize-ProjectPeriodUpdateDto -PeriodStartDate (Get-Date) -PeriodEndDate (Get-Date) # ProjectPeriodUpdateDto |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectPeriodUpdateDto $ProjectPeriodUpdateDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **ProjectPeriodId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **ProjectPeriodUpdateDto** | [**ProjectPeriodUpdateDto**](ProjectPeriodUpdateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdPut"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdPut**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdPut<br>
+<a id="New-ProjectTaskAsync"></a>
+# **New-ProjectTaskAsync**
+> EmptyEnvelope New-ProjectTaskAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectUpdateDto] <PSCustomObject><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$ProjectUpdateDto = Initialize-ProjectUpdateDto -Title "MyTitle" -Description "MyDescription" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectUpdateDto |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdPut -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectUpdateDto $ProjectUpdateDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **ProjectUpdateDto** | [**ProjectUpdateDto**](ProjectUpdateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet**
-> Int32Envelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet**
-> TaskCategoryDtoListEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet**
-> Int32Envelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet**
-> ProjectTaskDtoListEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskCreateDto] <PSCustomObject><br>
 
+Creates a project task
 
+Creates a new task for the specified project.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $ProjectTaskCreateDto = Initialize-ProjectTaskCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDate (Get-Date) -DueLine (Get-Date) -ProjectID "MyProjectID" # ProjectTaskCreateDto |  (optional)
 
+# Creates a project task
 try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectTaskCreateDto $ProjectTaskCreateDto
+    $Result = New-ProjectTaskAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTaskCreateDto $ProjectTaskCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-ProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -801,8 +152,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **ProjectTaskCreateDto** | [**ProjectTaskCreateDto**](ProjectTaskCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -811,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -820,36 +169,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+<a id="Invoke-DeleteProjectAsync"></a>
+# **Invoke-DeleteProjectAsync**
+> EmptyEnvelope Invoke-DeleteProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 
+Deletes a project
 
+Deletes the specified project.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Deletes a project
 try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete -TenantId $TenantId -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteProjectAsync -ProjectId $ProjectId -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -858,11 +197,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
  **ProjectId** | **String**|  | 
- **ProjectTaskId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
+ **TenantId** | **String**|  | 
 
 ### Return type
 
@@ -870,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -879,38 +215,683 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut**
-> EmptyEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut<br>
+<a id="Invoke-DeleteProjectPeriodAsync"></a>
+# **Invoke-DeleteProjectPeriodAsync**
+> EmptyEnvelope Invoke-DeleteProjectPeriodAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskUpdateDto] <PSCustomObject><br>
 
+Deletes a project period
 
+Deletes the specified period from a project.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
+# Deletes a project period
+try {
+    $Result = Invoke-DeleteProjectPeriodAsync -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-DeleteProjectPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **ProjectPeriodId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-DeleteProjectTaskAsync"></a>
+# **Invoke-DeleteProjectTaskAsync**
+> EmptyEnvelope Invoke-DeleteProjectTaskAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
+
+Deletes a project task
+
+Deletes the specified task from a project.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Deletes a project task
+try {
+    $Result = Invoke-DeleteProjectTaskAsync -TenantId $TenantId -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-DeleteProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ProjectId** | **String**|  | 
+ **ProjectTaskId** | **String**|  | 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectByIdAsync"></a>
+# **Get-ProjectByIdAsync**
+> ProjectDtoEnvelope Get-ProjectByIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Gets a project by ID
+
+Retrieves the details of a project using its unique identifier.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Gets a project by ID
+try {
+    $Result = Get-ProjectByIdAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectDtoEnvelope**](ProjectDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectPeriodsAsync"></a>
+# **Get-ProjectPeriodsAsync**
+> ProjectPeriodDtoListEnvelope Get-ProjectPeriodsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project periods
+
+Gets all periods for a specific project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project periods
+try {
+    $Result = Get-ProjectPeriodsAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectPeriodsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectPeriodDtoListEnvelope**](ProjectPeriodDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTaskCategoriesAsync"></a>
+# **Get-ProjectTaskCategoriesAsync**
+> TaskCategoryDtoListEnvelope Get-ProjectTaskCategoriesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project task categories
+
+Gets all task categories for a specific project with OData support.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project task categories
+try {
+    $Result = Get-ProjectTaskCategoriesAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTaskCategoriesCountAsync"></a>
+# **Get-ProjectTaskCategoriesCountAsync**
+> Int32Envelope Get-ProjectTaskCategoriesCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts project task categories
+
+Gets the count of task categories for a specific project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts project task categories
+try {
+    $Result = Get-ProjectTaskCategoriesCountAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTaskCategoriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTasksAsync"></a>
+# **Get-ProjectTasksAsync**
+> ProjectTaskDtoListEnvelope Get-ProjectTasksAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project tasks
+try {
+    $Result = Get-ProjectTasksAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTasksAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTasksCountAsync"></a>
+# **Get-ProjectTasksCountAsync**
+> Int32Envelope Get-ProjectTasksCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts project tasks
+try {
+    $Result = Get-ProjectTasksCountAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTasksCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTimeLogsAsync"></a>
+# **Get-ProjectTimeLogsAsync**
+> ProjectTimeLogDtoListEnvelope Get-ProjectTimeLogsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project time logs
+try {
+    $Result = Get-ProjectTimeLogsAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTimeLogsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectTimeLogsCountAsync"></a>
+# **Get-ProjectTimeLogsCountAsync**
+> Int32Envelope Get-ProjectTimeLogsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts project time logs
+
+Gets the count of time log entries for a specific project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts project time logs
+try {
+    $Result = Get-ProjectTimeLogsCountAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectTimeLogsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectsByTenantIdAsync"></a>
+# **Get-ProjectsByTenantIdAsync**
+> ProjectDtoListEnvelope Get-ProjectsByTenantIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves all projects
+
+Gets all projects for the current tenant with OData support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves all projects
+try {
+    $Result = Get-ProjectsByTenantIdAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectsByTenantIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectDtoListEnvelope**](ProjectDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ProjectsCountByTenantIdAsync"></a>
+# **Get-ProjectsCountByTenantIdAsync**
+> Int32Envelope Get-ProjectsCountByTenantIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts projects
+
+Gets the count of projects for the current tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts projects
+try {
+    $Result = Get-ProjectsCountByTenantIdAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-ProjectsCountByTenantIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-ProjectAsync"></a>
+# **Update-ProjectAsync**
+> EmptyEnvelope Update-ProjectAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectUpdateDto] <PSCustomObject><br>
+
+Updates a project
+
+Updates the specified project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectUpdateDto = Initialize-ProjectUpdateDto -Title "MyTitle" -Description "MyDescription" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectUpdateDto |  (optional)
+
+# Updates a project
+try {
+    $Result = Update-ProjectAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectUpdateDto $ProjectUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-ProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **ProjectUpdateDto** | [**ProjectUpdateDto**](ProjectUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-ProjectPeriodAsync"></a>
+# **Update-ProjectPeriodAsync**
+> EmptyEnvelope Update-ProjectPeriodAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodUpdateDto] <PSCustomObject><br>
+
+Updates a project period
+
+Updates the specified period for a project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectPeriodUpdateDto = Initialize-ProjectPeriodUpdateDto -PeriodStartDate (Get-Date) -PeriodEndDate (Get-Date) # ProjectPeriodUpdateDto |  (optional)
+
+# Updates a project period
+try {
+    $Result = Update-ProjectPeriodAsync -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -ProjectPeriodUpdateDto $ProjectPeriodUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-ProjectPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **ProjectPeriodId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **ProjectPeriodUpdateDto** | [**ProjectPeriodUpdateDto**](ProjectPeriodUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-ProjectTaskAsync"></a>
+# **Update-ProjectTaskAsync**
+> EmptyEnvelope Update-ProjectTaskAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskUpdateDto] <PSCustomObject><br>
+
+Updates a project task
+
+Updates the specified task in a project.
+
+### Example
+```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $ProjectTaskUpdateDto = Initialize-ProjectTaskUpdateDto -StartDate (Get-Date) -DueLine (Get-Date) # ProjectTaskUpdateDto |  (optional)
 
+# Updates a project task
 try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProjectTaskUpdateDto $ProjectTaskUpdateDto
+    $Result = Update-ProjectTaskAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -ProjectTaskUpdateDto $ProjectTaskUpdateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-ProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -922,8 +903,6 @@ Name | Type | Description  | Notes
  **ProjectId** | **String**|  | 
  **ProjectTaskId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **ProjectTaskUpdateDto** | [**ProjectTaskUpdateDto**](ProjectTaskUpdateDto.md)|  | [optional] 
 
 ### Return type
@@ -932,123 +911,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet**
-> Int32Envelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet"></a>
-# **Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet**
-> ProjectTimeLogDtoListEnvelope Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet -ProjectId $ProjectId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceProjectsProjectIdTimeLogsGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

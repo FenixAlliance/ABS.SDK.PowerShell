@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **BeginQuantity** | **Double** |  | [optional] 
 **EndQuantity** | **Double** |  | [optional] 
 **Percent** | **Double** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **DiscountListId** | **String** |  | [optional] 
 
 ## Examples
@@ -26,7 +26,7 @@ $DiscountCreateDto = Initialize-PSOpenAPIToolsDiscountCreateDto  -Id null `
  -Percent null `
  -Value null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -DiscountListId null
 ```
 

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
 **ItemTitle** | **String** |  | [optional] 
@@ -43,8 +43,8 @@ Name | Type | Description | Notes
 **PriceListItemId** | **String** |  | [optional] 
 **UnitId** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
-**TaxCalculationMethod** | **Int32** |  | [optional] 
-**CostCalculationMethod** | **Int32** |  | [optional] 
+**TaxCalculationMethod** | **String** |  | [optional] 
+**CostCalculationMethod** | **String** |  | [optional] 
 **ForexRatesSnapshot** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **TotalBaseAmountInUsd** | **Double** |  | [optional] 
@@ -53,7 +53,7 @@ Name | Type | Description | Notes
 **TotalTaxBaseInUsd** | **Double** |  | [optional] 
 **TotalDiscountsInUsd** | **Double** |  | [optional] 
 **TotalTaxesInUsd** | **Double** |  | [optional] 
-**TotalWithholdingTaxesInUsd** | **Double** |  | [optional] 
+**TotalWithheldTaxesInUsd** | **Double** |  | [optional] 
 **TotalShippingCostInUsd** | **Double** |  | [optional] 
 **TotalShippingTaxesInUsd** | **Double** |  | [optional] 
 **TotalWarrantyCostInUsd** | **Double** |  | [optional] 
@@ -64,18 +64,33 @@ Name | Type | Description | Notes
 **TotalGlobalDiscountsInUsd** | **Double** |  | [optional] 
 **TotalGlobalSurchargesInUsd** | **Double** |  | [optional] 
 **CustomGlobalSurchargesAmount** | **Double** |  | [optional] 
+**CustomGlobalSurchargesAmountCurrencyId** | **String** |  | [optional] 
 **CustomGlobalDiscountsAmount** | **Double** |  | [optional] 
-**CustomBaseAmount** | **Double** |  | [optional] 
-**CustomDetailAmount** | **Double** |  | [optional] 
-**CustomDiscountsAmount** | **Double** |  | [optional] 
-**CustomTaxBase** | **Double** |  | [optional] 
-**CustomSurchargesAmount** | **Double** |  | [optional] 
-**CustomProfitAmount** | **Double** |  | [optional] 
-**CustomShippingCostAmount** | **Double** |  | [optional] 
-**CustomShippingTaxAmount** | **Double** |  | [optional] 
-**CustomTaxAmount** | **Double** |  | [optional] 
-**CustomWithholdingTaxAmount** | **Double** |  | [optional] 
-**CustomTotalAmount** | **Double** |  | [optional] 
+**CustomGlobalDiscountsAmountCurrencyId** | **String** |  | [optional] 
+**TotalDetail** | **Double** |  | [optional] 
+**TotalDetailCurrencyId** | **String** |  | [optional] 
+**TotalDiscounts** | **Double** |  | [optional] 
+**TotalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalTaxBase** | **Double** |  | [optional] 
+**TotalTaxBaseCurrencyId** | **String** |  | [optional] 
+**TotalSurcharges** | **Double** |  | [optional] 
+**TotalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalProfit** | **Double** |  | [optional] 
+**TotalProfitCurrencyId** | **String** |  | [optional] 
+**TotalShippingCost** | **Double** |  | [optional] 
+**TotalShippingCostCurrencyId** | **String** |  | [optional] 
+**TotalShippingTax** | **Double** |  | [optional] 
+**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
+**TotalTaxes** | **Double** |  | [optional] 
+**TotalTaxesCurrencyId** | **String** |  | [optional] 
+**TotalWithheldTax** | **Double** |  | [optional] 
+**TotalWithheldTaxCurrencyId** | **String** |  | [optional] 
+**TotalGlobalDiscounts** | **Double** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
+**TotalGlobalSurcharges** | **Double** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**Total** | **Double** |  | [optional] 
+**TotalCurrencyId** | **String** |  | [optional] 
 **ReturnPolicyId** | **String** |  | [optional] 
 **RefundPolicyId** | **String** |  | [optional] 
 **WarrantyPolicyId** | **String** |  | [optional] 
@@ -141,7 +156,7 @@ $OrderLineCreateDto = Initialize-PSOpenAPIToolsOrderLineCreateDto  -Id null `
  -TotalTaxBaseInUsd null `
  -TotalDiscountsInUsd null `
  -TotalTaxesInUsd null `
- -TotalWithholdingTaxesInUsd null `
+ -TotalWithheldTaxesInUsd null `
  -TotalShippingCostInUsd null `
  -TotalShippingTaxesInUsd null `
  -TotalWarrantyCostInUsd null `
@@ -152,18 +167,33 @@ $OrderLineCreateDto = Initialize-PSOpenAPIToolsOrderLineCreateDto  -Id null `
  -TotalGlobalDiscountsInUsd null `
  -TotalGlobalSurchargesInUsd null `
  -CustomGlobalSurchargesAmount null `
+ -CustomGlobalSurchargesAmountCurrencyId null `
  -CustomGlobalDiscountsAmount null `
- -CustomBaseAmount null `
- -CustomDetailAmount null `
- -CustomDiscountsAmount null `
- -CustomTaxBase null `
- -CustomSurchargesAmount null `
- -CustomProfitAmount null `
- -CustomShippingCostAmount null `
- -CustomShippingTaxAmount null `
- -CustomTaxAmount null `
- -CustomWithholdingTaxAmount null `
- -CustomTotalAmount null `
+ -CustomGlobalDiscountsAmountCurrencyId null `
+ -TotalDetail null `
+ -TotalDetailCurrencyId null `
+ -TotalDiscounts null `
+ -TotalDiscountsCurrencyId null `
+ -TotalTaxBase null `
+ -TotalTaxBaseCurrencyId null `
+ -TotalSurcharges null `
+ -TotalSurchargesCurrencyId null `
+ -TotalProfit null `
+ -TotalProfitCurrencyId null `
+ -TotalShippingCost null `
+ -TotalShippingCostCurrencyId null `
+ -TotalShippingTax null `
+ -TotalShippingTaxCurrencyId null `
+ -TotalTaxes null `
+ -TotalTaxesCurrencyId null `
+ -TotalWithheldTax null `
+ -TotalWithheldTaxCurrencyId null `
+ -TotalGlobalDiscounts null `
+ -TotalGlobalDiscountsCurrencyId null `
+ -TotalGlobalSurcharges null `
+ -TotalGlobalSurchargesCurrencyId null `
+ -Total null `
+ -TotalCurrencyId null `
  -ReturnPolicyId null `
  -RefundPolicyId null `
  -WarrantyPolicyId null `

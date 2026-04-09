@@ -1,0 +1,31 @@
+# TenantDepartmentDtoEnvelope
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IsSuccess** | **Boolean** |  | [optional] [readonly] 
+**ErrorMessage** | **String** |  | [optional] 
+**CorrelationId** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**ActivityId** | **String** |  | [optional] [readonly] 
+**Result** | [**TenantDepartmentDto**](TenantDepartmentDto.md) |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$TenantDepartmentDtoEnvelope = Initialize-PSOpenAPIToolsTenantDepartmentDtoEnvelope  -IsSuccess null `
+ -ErrorMessage null `
+ -CorrelationId null `
+ -Timestamp null `
+ -ActivityId null `
+ -Result null
+```
+
+- Convert the resource to JSON
+```powershell
+$TenantDepartmentDtoEnvelope | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

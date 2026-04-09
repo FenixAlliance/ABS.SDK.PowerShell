@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DealUnitFlowId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **ParentBusinessProcessStageId** | **String** |  | [optional] 
 
 ## Examples
@@ -24,7 +24,7 @@ $DealUnitFlowStageDto = Initialize-PSOpenAPIToolsDealUnitFlowStageDto  -Id null 
  -DealUnitFlowId null `
  -TenantId null `
  -Description null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -ParentBusinessProcessStageId null
 ```
 

@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TimeSpan** | **String** |  | [optional] 
 **LogDate** | **System.DateTime** |  | [optional] 
 **Comments** | **String** |  | [optional] 
 **ProjectTaskID** | **String** |  | 
 **ProjectPeriodID** | **String** |  | 
-**ProjectTimeLogRecordType** | **Int32** |  | [optional] 
+**ProjectTimeLogRecordType** | **String** |  | [optional] 
 **ProjectID** | **String** |  | [optional] 
 
 ## Examples
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ```powershell
 $ProjectTimeLogCreateDto = Initialize-PSOpenAPIToolsProjectTimeLogCreateDto  -Id null `
  -Timestamp null `
- -TimeSpan PT2H30M `
+ -TimeSpan null `
  -LogDate null `
  -Comments null `
  -ProjectTaskID null `

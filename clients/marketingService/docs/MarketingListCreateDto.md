@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] [readonly] 
-**Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Locked** | **Boolean** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Purpose** | **String** |  | [optional] 
@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **LastUsedOn** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
-**MarketingListType** | **Int32** |  | [optional] 
-**MarketingListTarget** | **Int32** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**MarketingListType** | **String** |  | [optional] 
+**MarketingListTarget** | **String** |  | [optional] 
 
 ## Examples
 
@@ -35,7 +35,7 @@ $MarketingListCreateDto = Initialize-PSOpenAPIToolsMarketingListCreateDto  -Id n
  -LastUsedOn null `
  -CurrencyId null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -MarketingListType null `
  -MarketingListTarget null
 ```

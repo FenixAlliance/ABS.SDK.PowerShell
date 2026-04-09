@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **FullName** | **String** |  | [optional] [readonly] 
 **Description** | **String** |  | [optional] 
-**Type** | **Int32** |  | [optional] 
+**Type** | **String** |  | [optional] 
 **Configuration** | **String** |  | [optional] 
 **Author** | **String** |  | [optional] 
 **AuthorUrl** | **String** |  | [optional] 

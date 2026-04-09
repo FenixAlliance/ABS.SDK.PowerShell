@@ -4,40 +4,36 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet**](RatesApi.md#Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | 
-[**Invoke-ApiV2ForexServiceRatesHistoryGet**](RatesApi.md#Invoke-ApiV2ForexServiceRatesHistoryGet) | **GET** /api/v2/ForexService/Rates/History | 
-[**Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet**](RatesApi.md#Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | 
-[**Invoke-ApiV2ForexServiceRatesLatestGet**](RatesApi.md#Invoke-ApiV2ForexServiceRatesLatestGet) | **GET** /api/v2/ForexService/Rates/Latest | 
+[**Get-HistoricalCurrencyRateAsync**](RatesApi.md#Get-HistoricalCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | Get historical rate for a currency
+[**Get-HistoricalCurrencyRatesAsync**](RatesApi.md#Get-HistoricalCurrencyRatesAsync) | **GET** /api/v2/ForexService/Rates/History | Get historical currency rates
+[**Get-LatestCurrencyRateAsync**](RatesApi.md#Get-LatestCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | Get latest rate for a currency
+[**Get-LatestCurrencyRatesModelAsync**](RatesApi.md#Get-LatestCurrencyRatesModelAsync) | **GET** /api/v2/ForexService/Rates/Latest | Get latest currency rates
 
 
-<a id="Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet"></a>
-# **Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet**
-> ExchangeRateEnvelope Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet<br>
+<a id="Get-HistoricalCurrencyRateAsync"></a>
+# **Get-HistoricalCurrencyRateAsync**
+> ExchangeRateEnvelope Get-HistoricalCurrencyRateAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Date] <System.Nullable[System.DateTime]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get historical rate for a currency
 
+Retrieves the exchange rate for a specific currency as of a specific historical date.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $CurrencyId = "MyCurrencyId" # String | 
 $Date = (Get-Date) # System.DateTime |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get historical rate for a currency
 try {
-    $Result = Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet -CurrencyId $CurrencyId -Date $Date -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-HistoricalCurrencyRateAsync -CurrencyId $CurrencyId -Date $Date -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ForexServiceRatesHistoryCurrencyIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-HistoricalCurrencyRateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -57,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,32 +62,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ForexServiceRatesHistoryGet"></a>
-# **Invoke-ApiV2ForexServiceRatesHistoryGet**
-> ForexRatesDtoEnvelope Invoke-ApiV2ForexServiceRatesHistoryGet<br>
+<a id="Get-HistoricalCurrencyRatesAsync"></a>
+# **Get-HistoricalCurrencyRatesAsync**
+> ForexRatesDtoEnvelope Get-HistoricalCurrencyRatesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Date] <System.Nullable[System.DateTime]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get historical currency rates
 
+Retrieves exchange rates for all supported currencies as of a specific historical date.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $Date = (Get-Date) # System.DateTime |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get historical currency rates
 try {
-    $Result = Invoke-ApiV2ForexServiceRatesHistoryGet -Date $Date -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-HistoricalCurrencyRatesAsync -Date $Date -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ForexServiceRatesHistoryGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-HistoricalCurrencyRatesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -110,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -119,32 +111,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet"></a>
-# **Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet**
-> ExchangeRateEnvelope Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet<br>
+<a id="Get-LatestCurrencyRateAsync"></a>
+# **Get-LatestCurrencyRateAsync**
+> ExchangeRateEnvelope Get-LatestCurrencyRateAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get latest rate for a currency
 
+Retrieves the latest exchange rate for a specific currency by its identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $CurrencyId = "MyCurrencyId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get latest rate for a currency
 try {
-    $Result = Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LatestCurrencyRateAsync -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ForexServiceRatesLatestCurrencyIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-LatestCurrencyRateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -163,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -172,30 +160,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ForexServiceRatesLatestGet"></a>
-# **Invoke-ApiV2ForexServiceRatesLatestGet**
-> ForexRatesDtoEnvelope Invoke-ApiV2ForexServiceRatesLatestGet<br>
+<a id="Get-LatestCurrencyRatesModelAsync"></a>
+# **Get-LatestCurrencyRatesModelAsync**
+> ForexRatesDtoEnvelope Get-LatestCurrencyRatesModelAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get latest currency rates
 
+Retrieves the latest exchange rates for all supported currencies.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get latest currency rates
 try {
-    $Result = Invoke-ApiV2ForexServiceRatesLatestGet -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LatestCurrencyRatesModelAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ForexServiceRatesLatestGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-LatestCurrencyRatesModelAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -213,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

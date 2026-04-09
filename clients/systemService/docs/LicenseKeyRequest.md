@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **EntitlementId** | **String** |  | [optional] 
 **Seats** | **Int32** |  | [optional] 
-**LicenseType** | **Int32** |  | [optional] 
+**LicenseType** | **String** |  | [optional] 
 **ExpirationDate** | **System.DateTime** |  | [optional] 
 **Features** | [**LicenseFeature[]**](LicenseFeature.md) |  | [optional] 
 **AdditionalAttributes** | [**AdditionalAttribute[]**](AdditionalAttribute.md) |  | [optional] 

@@ -1,0 +1,55 @@
+# BankGuaranteeUpdateDto
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Margin** | **Double** |  | [optional] 
+**Charges** | **Double** |  | [optional] 
+**BeneficiaryName** | **String** |  | [optional] 
+**GuaranteeNumber** | **String** |  | [optional] 
+**GuaranteeConditions** | **String** |  | [optional] 
+**FixedDepositNumber** | **Double** |  | [optional] 
+**StartDate** | **System.DateTime** |  | [optional] 
+**EndDate** | **System.DateTime** |  | [optional] 
+**ValidityInDays** | **Int32** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**BankGuaranteeType** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
+**OrderId** | **String** |  | [optional] 
+**BankProfileId** | **String** |  | [optional] 
+**BankAccountId** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$BankGuaranteeUpdateDto = Initialize-PSOpenAPIToolsBankGuaranteeUpdateDto  -Margin null `
+ -Charges null `
+ -BeneficiaryName null `
+ -GuaranteeNumber null `
+ -GuaranteeConditions null `
+ -FixedDepositNumber null `
+ -StartDate null `
+ -EndDate null `
+ -ValidityInDays null `
+ -TenantId null `
+ -BankGuaranteeType null `
+ -EnrollmentId null `
+ -ContactId null `
+ -ProjectId null `
+ -OrderId null `
+ -BankProfileId null `
+ -BankAccountId null `
+ -CurrencyId null
+```
+
+- Convert the resource to JSON
+```powershell
+$BankGuaranteeUpdateDto | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

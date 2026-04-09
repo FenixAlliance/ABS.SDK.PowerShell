@@ -4,38 +4,34 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-JobOfferAsync**](JobOffersApi.md#New-JobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers | 
-[**Invoke-DeleteJobOfferAsync**](JobOffersApi.md#Invoke-DeleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-[**Get-JobOfferByIdAsync**](JobOffersApi.md#Get-JobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-[**Get-JobOffersAsync**](JobOffersApi.md#Get-JobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | 
-[**Get-JobOffersCountAsync**](JobOffersApi.md#Get-JobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | 
-[**Update-JobOfferAsync**](JobOffersApi.md#Update-JobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
+[**New-JobOfferAsync**](JobOffersApi.md#New-JobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer
+[**Invoke-DeleteJobOfferAsync**](JobOffersApi.md#Invoke-DeleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer
+[**Get-JobOfferByIdAsync**](JobOffersApi.md#Get-JobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
+[**Get-JobOffersAsync**](JobOffersApi.md#Get-JobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers
+[**Get-JobOffersCountAsync**](JobOffersApi.md#Get-JobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers
+[**Update-JobOfferAsync**](JobOffersApi.md#Update-JobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
 
 <a id="New-JobOfferAsync"></a>
 # **New-JobOfferAsync**
-> void New-JobOfferAsync<br>
+> EmptyEnvelope New-JobOfferAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferCreateDto] <PSCustomObject><br>
 
+Create a job offer
 
+Creates a new job offer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $JobOfferCreateDto = Initialize-JobOfferCreateDto -Id "MyId" -Timestamp (Get-Date) # JobOfferCreateDto |  (optional)
 
+# Create a job offer
 try {
     $Result = New-JobOfferAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JobOfferCreateDto $JobOfferCreateDto
 } catch {
@@ -55,11 +51,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,28 +66,24 @@ void (empty response body)
 
 <a id="Invoke-DeleteJobOfferAsync"></a>
 # **Invoke-DeleteJobOfferAsync**
-> void Invoke-DeleteJobOfferAsync<br>
+> EmptyEnvelope Invoke-DeleteJobOfferAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Delete a job offer
 
+Deletes a job offer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $JobOfferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Delete a job offer
 try {
     $Result = Invoke-DeleteJobOfferAsync -TenantId $TenantId -JobOfferId $JobOfferId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -111,11 +103,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,22 +124,18 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get job offer by ID
 
+Retrieves a specific job offer by its identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $JobOfferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get job offer by ID
 try {
     $Result = Get-JobOfferByIdAsync -TenantId $TenantId -JobOfferId $JobOfferId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -187,21 +175,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Get job offers
 
+Retrieves job offers for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Get job offers
 try {
     $Result = Get-JobOffersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -224,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -240,21 +224,17 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Count job offers
 
+Counts job offers for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Count job offers
 try {
     $Result = Get-JobOffersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
@@ -277,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,30 +268,26 @@ Name | Type | Description  | Notes
 
 <a id="Update-JobOfferAsync"></a>
 # **Update-JobOfferAsync**
-> void Update-JobOfferAsync<br>
+> EmptyEnvelope Update-JobOfferAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <System.Nullable[SystemCollectionsHashtable]><br>
 
+Update a job offer
 
+Updates an existing job offer for the specified tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $JobOfferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $Body = @{ key_example = ... } # SystemCollectionsHashtable |  (optional)
 
+# Update a job offer
 try {
     $Result = Update-JobOfferAsync -TenantId $TenantId -JobOfferId $JobOfferId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
 } catch {
@@ -332,11 +308,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

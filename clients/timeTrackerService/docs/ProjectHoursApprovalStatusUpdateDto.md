@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalStatus** | **Int32** |  | [optional] 
+**ApprovalStatus** | **String** |  | [optional] 
 **Comments** | **String** |  | [optional] 
 
 ## Examples

@@ -3,25 +3,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | **System.DateTime** |  | [optional] 
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$NewsletterDto = Initialize-PSOpenAPIToolsNewsletterDto  -Timestamp null `
- -Id null `
+$NewsletterDto = Initialize-PSOpenAPIToolsNewsletterDto  -Id null `
+ -Timestamp null `
  -Name null `
  -Code null `
  -Title null `
  -TenantId null `
- -EnrolmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Comments** | **String** |  | [optional] 
 **ProjectTaskID** | **String** |  | [optional] 
 **ProjectPeriodID** | **String** |  | [optional] 
-**ProjectTimeLogRecordType** | **Int32** |  | [optional] 
+**ProjectTimeLogRecordType** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ProjectTimeLogUpdateDto = Initialize-PSOpenAPIToolsProjectTimeLogUpdateDto  -LogDate null `
- -TimeSpan PT2H30M `
+ -TimeSpan null `
  -Comments null `
  -ProjectTaskID null `
  -ProjectPeriodID null `

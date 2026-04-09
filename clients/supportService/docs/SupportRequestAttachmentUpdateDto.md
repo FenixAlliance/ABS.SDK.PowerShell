@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **ParentFileUploadID** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
-**File** | **System.IO.FileInfo** |  | [optional] 
 **ContentType** | **String** |  | [optional] 
 **FileLength** | **Int64** |  | [optional] 
 
@@ -33,7 +32,6 @@ $SupportRequestAttachmentUpdateDto = Initialize-PSOpenAPIToolsSupportRequestAtta
  -ValidResponse null `
  -ParentFileUploadID null `
  -FilePath null `
- -File null `
  -ContentType null `
  -FileLength null
 ```

@@ -4,38 +4,34 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV3ForexServiceExchangeHistoryGet**](ExchangeVApi.md#Invoke-ApiV3ForexServiceExchangeHistoryGet) | **GET** /api/v3/ForexService/Exchange/History | 
-[**Invoke-ApiV3ForexServiceExchangeLatestGet**](ExchangeVApi.md#Invoke-ApiV3ForexServiceExchangeLatestGet) | **GET** /api/v3/ForexService/Exchange/Latest | 
+[**Invoke-ExchangeAmountHistoricalV3Async**](ExchangeVApi.md#Invoke-ExchangeAmountHistoricalV3Async) | **GET** /api/v3/ForexService/Exchange/History | Exchange currency at historical rates (v3)
+[**Invoke-ExchangeAmountV3Async**](ExchangeVApi.md#Invoke-ExchangeAmountV3Async) | **GET** /api/v3/ForexService/Exchange/Latest | Exchange currency at latest rates (v3)
 
 
-<a id="Invoke-ApiV3ForexServiceExchangeHistoryGet"></a>
-# **Invoke-ApiV3ForexServiceExchangeHistoryGet**
-> ExchangeRateEnvelope Invoke-ApiV3ForexServiceExchangeHistoryGet<br>
+<a id="Invoke-ExchangeAmountHistoricalV3Async"></a>
+# **Invoke-ExchangeAmountHistoricalV3Async**
+> ExchangeRateEnvelope Invoke-ExchangeAmountHistoricalV3Async<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Amount] <Double><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceCurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TargetCurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Date] <System.DateTime><br>
 
+Exchange currency at historical rates (v3)
 
+Exchange an amount of money from one currency to another using exchange rates from a specific historical date. Returns the full ExchangeRate details.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $Amount = 1.2 # Double | 
 $SourceCurrencyId = "MySourceCurrencyId" # String | 
 $TargetCurrencyId = "MyTargetCurrencyId" # String | 
 $Date = (Get-Date) # System.DateTime | 
 
+# Exchange currency at historical rates (v3)
 try {
-    $Result = Invoke-ApiV3ForexServiceExchangeHistoryGet -Amount $Amount -SourceCurrencyId $SourceCurrencyId -TargetCurrencyId $TargetCurrencyId -Date $Date
+    $Result = Invoke-ExchangeAmountHistoricalV3Async -Amount $Amount -SourceCurrencyId $SourceCurrencyId -TargetCurrencyId $TargetCurrencyId -Date $Date
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV3ForexServiceExchangeHistoryGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-ExchangeAmountHistoricalV3Async: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -55,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -64,32 +60,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV3ForexServiceExchangeLatestGet"></a>
-# **Invoke-ApiV3ForexServiceExchangeLatestGet**
-> ExchangeRateEnvelope Invoke-ApiV3ForexServiceExchangeLatestGet<br>
+<a id="Invoke-ExchangeAmountV3Async"></a>
+# **Invoke-ExchangeAmountV3Async**
+> ExchangeRateEnvelope Invoke-ExchangeAmountV3Async<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Amount] <Double><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceCurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TargetCurrencyId] <String><br>
 
+Exchange currency at latest rates (v3)
 
+Exchange an amount of money from one currency to another using the latest available exchange rates. Returns the full ExchangeRate details.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $Amount = 1.2 # Double | 
 $SourceCurrencyId = "MySourceCurrencyId" # String | 
 $TargetCurrencyId = "MyTargetCurrencyId" # String | 
 
+# Exchange currency at latest rates (v3)
 try {
-    $Result = Invoke-ApiV3ForexServiceExchangeLatestGet -Amount $Amount -SourceCurrencyId $SourceCurrencyId -TargetCurrencyId $TargetCurrencyId
+    $Result = Invoke-ExchangeAmountV3Async -Amount $Amount -SourceCurrencyId $SourceCurrencyId -TargetCurrencyId $TargetCurrencyId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV3ForexServiceExchangeLatestGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-ExchangeAmountV3Async: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -108,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

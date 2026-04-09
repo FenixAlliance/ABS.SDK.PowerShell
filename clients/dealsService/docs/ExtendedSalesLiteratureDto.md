@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | **System.DateTime** |  | [optional] 
 **ExpirationDate** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **SalesLiteratureTypeId** | **String** |  | [optional] 
 **SalesLiteratureType** | [**SalesLiteratureTypeDto**](SalesLiteratureTypeDto.md) |  | [optional] 
 **Tenant** | [**TenantDto**](TenantDto.md) |  | [optional] 
@@ -28,7 +28,7 @@ $ExtendedSalesLiteratureDto = Initialize-PSOpenAPIToolsExtendedSalesLiteratureDt
  -ModifiedDate null `
  -ExpirationDate null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -SalesLiteratureTypeId null `
  -SalesLiteratureType null `
  -Tenant null

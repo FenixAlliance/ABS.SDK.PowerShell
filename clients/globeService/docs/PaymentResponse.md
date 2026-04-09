@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **PaymentID** | **String** |  | [optional] 
 **Franchise** | **String** |  | [optional] 
 **Signature** | **String** |  | [optional] 
-**PaymentStatus** | **Int32** |  | [optional] 
+**PaymentStatus** | **String** |  | [optional] 
 
 ## Examples
 

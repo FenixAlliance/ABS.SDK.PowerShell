@@ -4,40 +4,33 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesGet**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesGet) | **GET** /api/v2/ProjectsService/TaskCategories | 
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesPost**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesPost) | **POST** /api/v2/ProjectsService/TaskCategories | 
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | 
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | 
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | 
-[**Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**](TaskCategoriesApi.md#Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | 
+[**Invoke-CountTenantTaskCategoriesAsync**](TaskCategoriesApi.md#Invoke-CountTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/Count | Counts task categories
+[**New-TaskCategoryAsync**](TaskCategoriesApi.md#New-TaskCategoryAsync) | **POST** /api/v2/ProjectsService/TaskCategories | Creates a new task category
+[**Invoke-DeleteTaskCategoryAsync**](TaskCategoriesApi.md#Invoke-DeleteTaskCategoryAsync) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Deletes a task category
+[**Get-TaskCategoryByIdAsync**](TaskCategoriesApi.md#Get-TaskCategoryByIdAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID
+[**Get-TaskCategoryTaskTypesAsync**](TaskCategoriesApi.md#Get-TaskCategoryTaskTypesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category
+[**Get-TenantTaskCategoriesAsync**](TaskCategoriesApi.md#Get-TenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories
+[**Update-TaskCategoryAsync**](TaskCategoriesApi.md#Update-TaskCategoryAsync) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category
 
 
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesGet"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesGet**
-> TaskCategoryDtoListEnvelope Invoke-ApiV2ProjectsServiceTaskCategoriesGet<br>
+<a id="Invoke-CountTenantTaskCategoriesAsync"></a>
+# **Invoke-CountTenantTaskCategoriesAsync**
+> Int32Envelope Invoke-CountTenantTaskCategoriesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Counts task categories
 
+Gets the count of task categories for the current tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Counts task categories
 try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesGet -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountTenantTaskCategoriesAsync -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-CountTenantTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -47,16 +40,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
-[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md) (PSCustomObject)
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,34 +56,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesPost"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesPost**
-> TaskCategoryDto Invoke-ApiV2ProjectsServiceTaskCategoriesPost<br>
+<a id="New-TaskCategoryAsync"></a>
+# **New-TaskCategoryAsync**
+> TaskCategoryDto New-TaskCategoryAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryCreateDto] <PSCustomObject><br>
 
+Creates a new task category
 
+Creates a new task category for the current tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $TaskCategoryCreateDto = Initialize-TaskCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" # TaskCategoryCreateDto |  (optional)
 
+# Creates a new task category
 try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesPost -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TaskCategoryCreateDto $TaskCategoryCreateDto
+    $Result = New-TaskCategoryAsync -TenantId $TenantId -TaskCategoryCreateDto $TaskCategoryCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-TaskCategoryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -102,8 +85,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **TaskCategoryCreateDto** | [**TaskCategoryCreateDto**](TaskCategoryCreateDto.md)|  | [optional] 
 
 ### Return type
@@ -112,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -121,34 +102,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**
-> TaskCategoryDto Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete<br>
+<a id="Invoke-DeleteTaskCategoryAsync"></a>
+# **Invoke-DeleteTaskCategoryAsync**
+> TaskCategoryDto Invoke-DeleteTaskCategoryAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Deletes a task category
 
+Deletes the specified task category.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Deletes a task category
 try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete -TaskCategoryId $TaskCategoryId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteTaskCategoryAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteTaskCategoryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -159,8 +132,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TaskCategoryId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -168,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -177,34 +148,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**
-> TaskCategoryDto Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet<br>
+<a id="Get-TaskCategoryByIdAsync"></a>
+# **Get-TaskCategoryByIdAsync**
+> TaskCategoryDto Get-TaskCategoryByIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
+Gets a task category by ID
 
+Retrieves the details of a task category using its unique identifier.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 
+# Gets a task category by ID
 try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet -TaskCategoryId $TaskCategoryId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TaskCategoryByIdAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-TaskCategoryByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -215,8 +178,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TaskCategoryId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -224,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -233,36 +194,117 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**
-> TaskCategoryDto Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut<br>
+<a id="Get-TaskCategoryTaskTypesAsync"></a>
+# **Get-TaskCategoryTaskTypesAsync**
+> TaskCategoryDto Get-TaskCategoryTaskTypesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Retrieves task types for a category
+
+Gets all task types belonging to the specified task category.
+
+### Example
+```powershell
+$TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves task types for a category
+try {
+    $Result = Get-TaskCategoryTaskTypesAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-TaskCategoryTaskTypesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TaskCategoryId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**TaskCategoryDto**](TaskCategoryDto.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-TenantTaskCategoriesAsync"></a>
+# **Get-TenantTaskCategoriesAsync**
+> TaskCategoryDtoListEnvelope Get-TenantTaskCategoriesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves all task categories
+
+Gets all task categories for the current tenant with OData support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves all task categories
+try {
+    $Result = Get-TenantTaskCategoriesAsync -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-TenantTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-TaskCategoryAsync"></a>
+# **Update-TaskCategoryAsync**
+> TaskCategoryDto Update-TaskCategoryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryUpdateDto] <PSCustomObject><br>
 
+Updates a task category
 
+Updates the specified task category.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
 $TaskCategoryUpdateDto = Initialize-TaskCategoryUpdateDto -Title "MyTitle" # TaskCategoryUpdateDto |  (optional)
 
+# Updates a task category
 try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut -TaskCategoryId $TaskCategoryId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TaskCategoryUpdateDto $TaskCategoryUpdateDto
+    $Result = Update-TaskCategoryAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId -TaskCategoryUpdateDto $TaskCategoryUpdateDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-TaskCategoryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -273,8 +315,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TaskCategoryId** | **String**|  | 
  **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
  **TaskCategoryUpdateDto** | [**TaskCategoryUpdateDto**](TaskCategoryUpdateDto.md)|  | [optional] 
 
 ### Return type
@@ -283,67 +323,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet"></a>
-# **Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**
-> TaskCategoryDto Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
-$TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-try {
-    $Result = Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet -TaskCategoryId $TaskCategoryId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ApiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TaskCategoryId** | **String**|  | 
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**TaskCategoryDto**](TaskCategoryDto.md) (PSCustomObject)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **ImageUrl** | **String** |  | [optional] 
-**StateID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
+**StateId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
 **Latitude** | **String** |  | [optional] 
 **Longitude** | **String** |  | [optional] 
 
@@ -20,8 +20,8 @@ $CityDto = Initialize-PSOpenAPIToolsCityDto  -Id null `
  -Timestamp null `
  -Name null `
  -ImageUrl null `
- -StateID null `
- -CountryID null `
+ -StateId null `
+ -CountryId null `
  -Latitude null `
  -Longitude null
 ```

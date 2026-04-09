@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-AdminPreviewTenantEmail**](TenantsApi.md#Invoke-AdminPreviewTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user.
+[**Invoke-AdminSendTenantEmail**](TenantsApi.md#Invoke-AdminSendTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user.
 [**New-Tenant**](TenantsApi.md#New-Tenant) | **POST** /api/v2/SystemService/Tenants | Create a new tenant.
 [**Invoke-DeleteTenant**](TenantsApi.md#Invoke-DeleteTenant) | **DELETE** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID.
 [**Get-AllExtendedTenants**](TenantsApi.md#Get-AllExtendedTenants) | **GET** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance.
@@ -13,6 +15,110 @@ Method | HTTP request | Description
 [**Get-TenantsCount**](TenantsApi.md#Get-TenantsCount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
 [**Update-Tenant**](TenantsApi.md#Update-Tenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
 
+
+<a id="Invoke-AdminPreviewTenantEmail"></a>
+# **Invoke-AdminPreviewTenantEmail**
+> void Invoke-AdminPreviewTenantEmail<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailDispatchRequest] <PSCustomObject><br>
+
+Preview the rendered email for a user.
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$EmailDispatchRequest = Initialize-EmailDispatchRequest -Title "MyTitle" -Message "MyMessage" -ButtonLink "MyButtonLink" -ButtonText "MyButtonText" -AlertMessage "MyAlertMessage" -AlertType "None" -Culture "MyCulture" -UiCulture "MyUiCulture" -Recipients "MyRecipients" -ContactIds "MyContactIds" -TenantIds "MyTenantIds" -UserIds "MyUserIds" -TemplateUrl "MyTemplateUrl" -EmailTemplateId "MyEmailTemplateId" # EmailDispatchRequest |  (optional)
+
+# Preview the rendered email for a user.
+try {
+    $Result = Invoke-AdminPreviewTenantEmail -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmailDispatchRequest $EmailDispatchRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-AdminPreviewTenantEmail: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **EmailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-AdminSendTenantEmail"></a>
+# **Invoke-AdminSendTenantEmail**
+> void Invoke-AdminSendTenantEmail<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailDispatchRequest] <PSCustomObject><br>
+
+Send an email to a user.
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$EmailDispatchRequest = Initialize-EmailDispatchRequest -Title "MyTitle" -Message "MyMessage" -ButtonLink "MyButtonLink" -ButtonText "MyButtonText" -AlertMessage "MyAlertMessage" -AlertType "None" -Culture "MyCulture" -UiCulture "MyUiCulture" -Recipients "MyRecipients" -ContactIds "MyContactIds" -TenantIds "MyTenantIds" -UserIds "MyUserIds" -TemplateUrl "MyTemplateUrl" -EmailTemplateId "MyEmailTemplateId" # EmailDispatchRequest |  (optional)
+
+# Send an email to a user.
+try {
+    $Result = Invoke-AdminSendTenantEmail -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmailDispatchRequest $EmailDispatchRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-AdminSendTenantEmail: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **EmailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-Tenant"></a>
 # **New-Tenant**
@@ -27,16 +133,9 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantCreateDto = Initialize-TenantCreateDto -Id "MyId" -Timestamp (Get-Date) -Duns "MyDuns" -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -About "MyAbout" -Handler "MyHandler" -CurrencyId "MyCurrencyId" -LanguageId "MyLanguageId" -TimezoneId "MyTimezoneId" -CityId "MyCityId" -StateId "MyStateId" -CountryId "MyCountryId" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" # TenantCreateDto |  (optional)
+$TenantCreateDto = Initialize-TenantCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -Handler "MyHandler" -About "MyAbout" -Slogan "MySlogan" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -LanguageId "MyLanguageId" -TimezoneId "MyTimezoneId" -BusinessTypeId "MyBusinessTypeId" -BusinessSegmentId "MyBusinessSegmentId" -BusinessIndustryId "MyBusinessIndustryId" -BusinessSizeId "MyBusinessSizeId" # TenantCreateDto |  (optional)
 
 # Create a new tenant.
 try {
@@ -61,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,13 +182,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -117,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,13 +230,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -170,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -191,13 +276,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -223,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -244,13 +322,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -276,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,13 +369,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -332,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -353,13 +417,6 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -385,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,17 +465,10 @@ This action is only available for global administrators.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure API key authorization: Bearer
-$Configuration.ApiKey.Authorization = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.Authorization = "Bearer"
-
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantUpdateDto = Initialize-TenantUpdateDto -Name "MyName" -Duns "MyDuns" -Slogan "MySlogan" -LegalName "MyLegalName" -Phone "MyPhone" -WebUrl "MyWebUrl" -TwitterUsername "MyTwitterUsername" -FacebookUrl "MyFacebookUrl" -TwitterUrl "MyTwitterUrl" -GitHubUrl "MyGitHubUrl" -LinkedInUrl "MyLinkedInUrl" -InstagramUrl "MyInstagramUrl" -YouTubeUrl "MyYouTubeUrl" -WhatsAppNumber "MyWhatsAppNumber" -SupportPhoneNumber "MySupportPhoneNumber" -TaxId "MyTaxId" -About "MyAbout" -CurrencyId "MyCurrencyId" -TimezoneId "MyTimezoneId" -LanguageId "MyLanguageId" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -Email "MyEmail" # TenantUpdateDto |  (optional)
+$TenantUpdateDto = Initialize-TenantUpdateDto -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -About "MyAbout" -Slogan "MySlogan" -Handler "MyHandler" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -TwitterUsername "MyTwitterUsername" -FacebookUrl "MyFacebookUrl" -TwitterUrl "MyTwitterUrl" -GitHubUrl "MyGitHubUrl" -LinkedInUrl "MyLinkedInUrl" -InstagramUrl "MyInstagramUrl" -YouTubeUrl "MyYouTubeUrl" -WhatsAppNumber "MyWhatsAppNumber" -SupportPhoneNumber "MySupportPhoneNumber" -CountryId "MyCountryId" -TimezoneId "MyTimezoneId" -LanguageId "MyLanguageId" -StateId "MyStateId" -CityId "MyCityId" # TenantUpdateDto |  (optional)
 
 # Update a specific tenant by ID.
 try {
@@ -444,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

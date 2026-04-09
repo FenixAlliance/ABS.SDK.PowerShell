@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **LastUsedOn** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**EnrolmentId** | **String** |  | [optional] 
-**MarketingListType** | **Int32** |  | [optional] 
-**MarketingListTarget** | **Int32** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**MarketingListType** | **String** |  | [optional] 
+**MarketingListTarget** | **String** |  | [optional] 
 
 ## Examples
 
@@ -31,7 +31,7 @@ $MarketingListUpdateDto = Initialize-PSOpenAPIToolsMarketingListUpdateDto  -Lock
  -LastUsedOn null `
  -CurrencyId null `
  -TenantId null `
- -EnrolmentId null `
+ -EnrollmentId null `
  -MarketingListType null `
  -MarketingListTarget null
 ```
