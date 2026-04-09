@@ -4,7 +4,7 @@
     ABS CLI - Alliance Business Suite Command-Line Interface
 .DESCRIPTION
     CLI entry point for the ABS PowerShell SDK. Provides unified access to all
-    22 ABS service modules with authentication, configuration, and dynamic
+    37 ABS service modules with authentication, configuration, and dynamic
     function invocation.
 .NOTES
     Designed for compilation to EXE via PS2EXE.
@@ -112,14 +112,49 @@ if (-not $Script:BundledMode) {
 
 #region Configuration
 
+try { Add-Type -AssemblyName System.Security -ErrorAction SilentlyContinue } catch {}
+
+function Protect-Token {
+    param([string]$PlainText)
+    if (-not $PlainText) { return $null }
+    if ($env:OS -notmatch 'Windows') { return $PlainText }
+    try {
+        $bytes = [System.Text.Encoding]::UTF8.GetBytes($PlainText)
+        $encrypted = [System.Security.Cryptography.ProtectedData]::Protect(
+            $bytes, $null, [System.Security.Cryptography.DataProtectionScope]::CurrentUser)
+        return [Convert]::ToBase64String($encrypted)
+    }
+    catch {
+        return $PlainText
+    }
+}
+
+function Unprotect-Token {
+    param([string]$EncryptedText)
+    if (-not $EncryptedText) { return $null }
+    if ($env:OS -notmatch 'Windows') { return $EncryptedText }
+    try {
+        $bytes = [Convert]::FromBase64String($EncryptedText)
+        $decrypted = [System.Security.Cryptography.ProtectedData]::Unprotect(
+            $bytes, $null, [System.Security.Cryptography.DataProtectionScope]::CurrentUser)
+        return [System.Text.Encoding]::UTF8.GetString($decrypted)
+    }
+    catch {
+        # Legacy plaintext token or cross-machine token — return as-is
+        return $EncryptedText
+    }
+}
+
 function Read-CliConfig {
     if (Test-Path $Script:ConfigFile) {
         try {
             $json = Get-Content -Path $Script:ConfigFile -Raw | ConvertFrom-Json
             return @{
-                baseUrl     = if ($json.baseUrl) { $json.baseUrl } else { $Script:DefaultBaseUrl }
-                accessToken = if ($json.accessToken) { $json.accessToken } else { $null }
-                tenantId    = if ($json.tenantId) { $json.tenantId } else { $null }
+                baseUrl      = if ($json.baseUrl) { $json.baseUrl } else { $Script:DefaultBaseUrl }
+                accessToken  = Unprotect-Token -EncryptedText $json.accessToken
+                refreshToken = Unprotect-Token -EncryptedText $json.refreshToken
+                tokenExpiry  = if ($json.tokenExpiry) { $json.tokenExpiry } else { $null }
+                tenantId     = if ($json.tenantId) { $json.tenantId } else { $null }
             }
         }
         catch {
@@ -127,9 +162,11 @@ function Read-CliConfig {
         }
     }
     return @{
-        baseUrl     = $Script:DefaultBaseUrl
-        accessToken = $null
-        tenantId    = $null
+        baseUrl      = $Script:DefaultBaseUrl
+        accessToken  = $null
+        refreshToken = $null
+        tokenExpiry  = $null
+        tenantId     = $null
     }
 }
 
@@ -141,9 +178,11 @@ function Save-CliConfig {
         New-Item -ItemType Directory -Path $Script:ConfigDir -Force | Out-Null
     }
     $payload = [ordered]@{
-        baseUrl     = $Config['baseUrl']
-        accessToken = $Config['accessToken']
-        tenantId    = $Config['tenantId']
+        baseUrl      = $Config['baseUrl']
+        accessToken  = Protect-Token -PlainText $Config['accessToken']
+        refreshToken = Protect-Token -PlainText $Config['refreshToken']
+        tokenExpiry  = $Config['tokenExpiry']
+        tenantId     = $Config['tenantId']
     }
     $payload | ConvertTo-Json -Depth 4 | Set-Content -Path $Script:ConfigFile -Encoding UTF8 -Force
 }
@@ -688,9 +727,15 @@ function Invoke-Login {
         }
     }
 
-    if (-not $email -or -not $password) {
-        Write-Host 'Usage: absuite login --email <email> --password <password> [--base-url <url>]' -ForegroundColor Yellow
+    if (-not $email) {
+        Write-Host 'Usage: absuite login --email <email> [--password <password>] [--base-url <url>]' -ForegroundColor Yellow
         return
+    }
+
+    if (-not $password) {
+        $securePass = Read-Host 'Password' -AsSecureString
+        $password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
+            [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass))
     }
 
     # Apply base URL if provided
@@ -741,6 +786,12 @@ function Invoke-Login {
 
         # Persist token
         $config['accessToken'] = $token
+        $config['refreshToken'] = $refreshToken
+        if ($expiresIn) {
+            $config['tokenExpiry'] = [DateTime]::UtcNow.AddSeconds($expiresIn).ToString('o')
+        } else {
+            $config['tokenExpiry'] = $null
+        }
         Save-CliConfig -Config $config
 
         Write-Host 'Login successful. Token cached.' -ForegroundColor Green
@@ -952,9 +1003,7 @@ function Show-FunctionHelp {
 
     Write-Host 'Parameters:' -ForegroundColor Cyan
     $params = $cmd.Parameters
-    $skip = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction',
-              'ErrorVariable','WarningVariable','InformationVariable','OutVariable',
-              'OutBuffer','PipelineVariable','WithHttpInfo','ReturnType')
+    $skip = $Script:CmdletBindingParameters + @('WithHttpInfo','ReturnType')
     $dtoSchemas = @{}  # collect PSCustomObject schemas to display after params
     foreach ($p in ($params.GetEnumerator() | Sort-Object Key)) {
         if ($p.Key -in $skip) { continue }
@@ -1044,6 +1093,17 @@ function Invoke-ServiceFunction {
         return
     }
 
+    # Check token expiry
+    if ($config['tokenExpiry']) {
+        try {
+            if ([DateTime]::Parse($config['tokenExpiry']).ToUniversalTime() -lt [DateTime]::UtcNow) {
+                Write-Host "Access token expired. Run 'absuite login' to re-authenticate." -ForegroundColor Yellow
+                return
+            }
+        }
+        catch { <# non-parseable expiry — proceed anyway #> }
+    }
+
     try {
         . Import-ServiceModule -ServiceFolder $ServiceFolder -TargetFunction $FunctionName
     }
@@ -1078,10 +1138,17 @@ function Invoke-ServiceFunction {
             else {
                 $i++
                 $value = $FunctionArgs[$i]
-                # Try to parse as number or boolean
+                # Type-aware coercion: inspect target parameter type when possible
+                $targetType = $null
+                if ($cmd -and $cmd.Parameters.ContainsKey($paramName)) {
+                    $targetType = $cmd.Parameters[$paramName].ParameterType
+                }
                 if ($value -eq 'true')       { $splatParams[$paramName] = $true }
                 elseif ($value -eq 'false')   { $splatParams[$paramName] = $false }
-                elseif ($value -match '^\d+$') { $splatParams[$paramName] = [int]$value }
+                elseif ($targetType -and $targetType -eq [int])    { $splatParams[$paramName] = [int]$value }
+                elseif ($targetType -and $targetType -eq [long])   { $splatParams[$paramName] = [long]$value }
+                elseif ($targetType -and $targetType -eq [double]) { $splatParams[$paramName] = [double]$value }
+                elseif ($targetType -and $targetType -eq [decimal]) { $splatParams[$paramName] = [decimal]$value }
                 else                          { $splatParams[$paramName] = $value }
             }
         }
@@ -1298,6 +1365,12 @@ function Main {
     param([string[]]$CliArgs)
 
     $Script:CliStopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+
+    # Version
+    if ($CliArgs.Count -gt 0 -and $CliArgs[0] -match '^-{1,2}version$') {
+        Write-Host "absuite v$Script:CliVersion"
+        return
+    }
 
     # No args or help
     if (-not $CliArgs -or $CliArgs.Count -eq 0 -or $CliArgs[0] -match '^(-{0,2}help|-h|-\?)$') {

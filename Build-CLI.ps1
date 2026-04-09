@@ -3,7 +3,7 @@
     Builds a self-contained absuite.exe — no external clients/ folder needed.
 
 .DESCRIPTION
-    1. Concatenates all 22 service client .ps1 files into one big script.
+    1. Concatenates all service client .ps1 files into one big script.
     2. Generates an alias index embedded as a PowerShell hashtable literal.
     3. Appends the CLI logic from abs-cli.ps1 (with BundledMode = $true).
     4. Compiles the bundled script to a 64-bit EXE via PS2EXE.
@@ -73,23 +73,19 @@ foreach ($fnName in @('ConvertTo-KebabCase', 'ConvertTo-PathAlias', 'ConvertTo-C
     }
 }
 
-# Shared API files to exclude from non-system services
-$sharedApiFileNames = @('CompletionsApi.ps1', 'FenixAllianceABPWebApi.ps1', 'FenixAlliancePortalsWebsiteApi.ps1')
+# Source constants from abs-cli.ps1 to avoid duplication
+if ($cliSource -match '(?ms)\$Script:SharedApiFileNames\s*=\s*@\([^)]+\)') {
+    Invoke-Expression ($Matches[0] -replace '\$Script:', '$')
+    $sharedApiFileNames = $SharedApiFileNames
+} else {
+    Write-Error "Could not extract SharedApiFileNames from abs-cli.ps1"; return
+}
 
-$serviceMap = @{
-    'accounting'='accountingService'; 'assets'='assetsService'; 'cart'='cartService'
-    'catalog'='catalogService'; 'content'='contentService'; 'crm'='crmService'
-    'deals'='dealsService'; 'email'='emailTemplates'; 'forex'='forexService'
-    'globe'='globeService'; 'hrms'='hrmsService'; 'identity'='identityService'
-    'inventory'='inventoryService'; 'invoicing'='invoicingService'; 'learning'='learningService'
-    'locations'='locationsService'; 'logistics'='logisticsService'; 'marketing'='marketingService'
-    'marketplace'='marketplaceService'; 'orders'='ordersService'; 'payments'='paymentsService'
-    'pricing'='pricingService'; 'projects'='projectsService'; 'quotes'='quotesService'
-    'sales'='salesService'; 'security'='securityService'; 'services'='servicesService'
-    'shipments'='shipmentsService'; 'social'='socialService'; 'storage'='storageService'
-    'subscriptions'='subscriptionsService'; 'support'='supportService'; 'system'='systemService'
-    'tenants'='tenantsService'; 'timetracker'='timeTrackerService'; 'users'='usersService'
-    'wallets'='walletsService'
+if ($cliSource -match '(?ms)\$Script:ServiceMap\s*=\s*@\{.+?^\}') {
+    Invoke-Expression ($Matches[0] -replace '\$Script:', '$')
+    $serviceMap = $ServiceMap
+} else {
+    Write-Error "Could not extract ServiceMap from abs-cli.ps1"; return
 }
 
 # Build the index as a PowerShell hashtable literal string + description index
