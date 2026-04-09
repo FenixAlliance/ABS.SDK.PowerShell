@@ -7,161 +7,65 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'SocialPostsApi' {
-    Context 'Invoke-ApiV2SocialServiceSocialPostsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsCountGet -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-SocialPostAsync' {
+        It 'Test New-SocialPostAsync' {
+            #$TestResult = New-SocialPostAsync -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsGet -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-SocialPostAttachmentAsync' {
+        It 'Test New-SocialPostAttachmentAsync' {
+            #$TestResult = New-SocialPostAttachmentAsync -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostAttachmentCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsPost' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsPost' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsPost -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCreateDto "TEST_VALUE"
+    Context 'New-SocialPostCommentAsync' {
+        It 'Test New-SocialPostCommentAsync' {
+            #$TestResult = New-SocialPostCommentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCommentCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdDelete' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdDelete' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdDelete -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -AttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-SocialPostReactionAsync' {
+        It 'Test New-SocialPostReactionAsync' {
+            #$TestResult = New-SocialPostReactionAsync -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialReactionCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdPut' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdPut' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsAttachmentIdPut -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -AttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostAttachmentUpdateDto "TEST_VALUE"
+    Context 'Invoke-DeleteSocialPostAsync' {
+        It 'Test Invoke-DeleteSocialPostAsync' {
+            #$TestResult = Invoke-DeleteSocialPostAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsCountGet -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteSocialPostAttachmentAsync' {
+        It 'Test Invoke-DeleteSocialPostAttachmentAsync' {
+            #$TestResult = Invoke-DeleteSocialPostAttachmentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -AttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsGet -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteSocialPostCommentAsync' {
+        It 'Test Invoke-DeleteSocialPostCommentAsync' {
+            #$TestResult = Invoke-DeleteSocialPostCommentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -CommentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsPost' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsPost' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdAttachmentsPost -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostAttachmentCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdDelete' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdDelete' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdDelete -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -CommentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdPut' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdPut' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCommentIdPut -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -CommentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCommentUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsCountGet -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsGet -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsPost' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsPost' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdCommentsPost -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCommentCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdDelete' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdDelete' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdDelete -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdPut' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdPut' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdPut -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsCountGet -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsGet -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsPost' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsPost' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsPost -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialReactionCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdDelete' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdDelete' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdDelete -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ReactionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdPut' {
-        It 'Test Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdPut' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialPostsSocialPostIdReactionsReactionIdPut -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ReactionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialReactionUpdateDto "TEST_VALUE"
+    Context 'Invoke-DeleteSocialPostReactionAsync' {
+        It 'Test Invoke-DeleteSocialPostReactionAsync' {
+            #$TestResult = Invoke-DeleteSocialPostReactionAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ReactionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -183,6 +87,22 @@ Describe -tag 'PSOpenAPITools' -name 'SocialPostsApi' {
         }
     }
 
+    Context 'Get-SocialPostAttachmentsAsync' {
+        It 'Test Get-SocialPostAttachmentsAsync' {
+            #$TestResult = Get-SocialPostAttachmentsAsync -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostAttachmentsCountAsync' {
+        It 'Test Get-SocialPostAttachmentsCountAsync' {
+            #$TestResult = Get-SocialPostAttachmentsCountAsync -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SocialPostCommentAsync' {
         It 'Test Get-SocialPostCommentAsync' {
             #$TestResult = Get-SocialPostCommentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -CommentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
@@ -191,9 +111,89 @@ Describe -tag 'PSOpenAPITools' -name 'SocialPostsApi' {
         }
     }
 
+    Context 'Get-SocialPostCommentsAsync' {
+        It 'Test Get-SocialPostCommentsAsync' {
+            #$TestResult = Get-SocialPostCommentsAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostCommentsCountAsync' {
+        It 'Test Get-SocialPostCommentsCountAsync' {
+            #$TestResult = Get-SocialPostCommentsCountAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SocialPostReactionAsync' {
         It 'Test Get-SocialPostReactionAsync' {
             #$TestResult = Get-SocialPostReactionAsync -SocialPostId "TEST_VALUE" -ReactionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostReactionsAsync' {
+        It 'Test Get-SocialPostReactionsAsync' {
+            #$TestResult = Get-SocialPostReactionsAsync -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostReactionsCountAsync' {
+        It 'Test Get-SocialPostReactionsCountAsync' {
+            #$TestResult = Get-SocialPostReactionsCountAsync -SocialPostId "TEST_VALUE" -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostsAsync' {
+        It 'Test Get-SocialPostsAsync' {
+            #$TestResult = Get-SocialPostsAsync -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SocialPostsCountAsync' {
+        It 'Test Get-SocialPostsCountAsync' {
+            #$TestResult = Get-SocialPostsCountAsync -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SocialPostAsync' {
+        It 'Test Update-SocialPostAsync' {
+            #$TestResult = Update-SocialPostAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SocialPostAttachmentAsync' {
+        It 'Test Update-SocialPostAttachmentAsync' {
+            #$TestResult = Update-SocialPostAttachmentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -AttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostAttachmentUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SocialPostCommentAsync' {
+        It 'Test Update-SocialPostCommentAsync' {
+            #$TestResult = Update-SocialPostCommentAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -CommentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialPostCommentUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SocialPostReactionAsync' {
+        It 'Test Update-SocialPostReactionAsync' {
+            #$TestResult = Update-SocialPostReactionAsync -SocialProfileId "TEST_VALUE" -SocialPostId "TEST_VALUE" -ReactionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialReactionUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

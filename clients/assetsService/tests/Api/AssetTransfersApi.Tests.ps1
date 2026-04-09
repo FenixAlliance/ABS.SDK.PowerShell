@@ -7,49 +7,49 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'AssetTransfersApi' {
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersCountGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersCountGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersCountGet -TenantId "TEST_VALUE"
+    Context 'New-AssetTransferAsync' {
+        It 'Test New-AssetTransferAsync' {
+            #$TestResult = New-AssetTransferAsync -TenantId "TEST_VALUE" -AssetTransferCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersGet -TenantId "TEST_VALUE"
+    Context 'Invoke-DeleteAssetTransferAsync' {
+        It 'Test Invoke-DeleteAssetTransferAsync' {
+            #$TestResult = Invoke-DeleteAssetTransferAsync -TenantId "TEST_VALUE" -TransferId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersPost' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersPost' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersPost -TenantId "TEST_VALUE" -AssetTransferCreateDto "TEST_VALUE"
+    Context 'Get-AssetTransferAsync' {
+        It 'Test Get-AssetTransferAsync' {
+            #$TestResult = Get-AssetTransferAsync -TenantId "TEST_VALUE" -TransferId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersTransferIdDelete' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersTransferIdDelete' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersTransferIdDelete -TenantId "TEST_VALUE" -TransferId "TEST_VALUE"
+    Context 'Get-AssetTransfersAsync' {
+        It 'Test Get-AssetTransfersAsync' {
+            #$TestResult = Get-AssetTransfersAsync -TenantId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersTransferIdGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersTransferIdGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersTransferIdGet -TenantId "TEST_VALUE" -TransferId "TEST_VALUE"
+    Context 'Get-AssetTransfersCountAsync' {
+        It 'Test Get-AssetTransfersCountAsync' {
+            #$TestResult = Get-AssetTransfersCountAsync -TenantId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2AssetsServiceAssetTransfersTransferIdPut' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetTransfersTransferIdPut' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetTransfersTransferIdPut -TenantId "TEST_VALUE" -TransferId "TEST_VALUE" -AssetTransferUpdateDto "TEST_VALUE"
+    Context 'Update-AssetTransferAsync' {
+        It 'Test Update-AssetTransferAsync' {
+            #$TestResult = Update-AssetTransferAsync -TenantId "TEST_VALUE" -TransferId "TEST_VALUE" -AssetTransferUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -7,9 +7,9 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'ResourceApi' {
-    Context 'Invoke-ApiV2IdentityServiceResourceMessageGet' {
-        It 'Test Invoke-ApiV2IdentityServiceResourceMessageGet' {
-            #$TestResult = Invoke-ApiV2IdentityServiceResourceMessageGet -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-Message' {
+        It 'Test Get-Message' {
+            #$TestResult = Get-Message -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

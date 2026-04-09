@@ -7,57 +7,57 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'OAuthApi' {
-    Context 'Invoke-ApiV2OAuthApplicationIdKeysGet' {
-        It 'Test Invoke-ApiV2OAuthApplicationIdKeysGet' {
-            #$TestResult = Invoke-ApiV2OAuthApplicationIdKeysGet -ApplicationId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-CheckPasswordSignInAsync' {
+        It 'Test Invoke-CheckPasswordSignInAsync' {
+            #$TestResult = Invoke-CheckPasswordSignInAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthPermissionsGet' {
-        It 'Test Invoke-ApiV2OAuthPermissionsGet' {
-            #$TestResult = Invoke-ApiV2OAuthPermissionsGet -TenantId "TEST_VALUE" -UserId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-' {
+        It 'Test Get-' {
+            #$TestResult = Get- -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthSignInGet' {
-        It 'Test Invoke-ApiV2OAuthSignInGet' {
-            #$TestResult = Invoke-ApiV2OAuthSignInGet -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-JwKs' {
+        It 'Test Get-JwKs' {
+            #$TestResult = Get-JwKs -ApplicationId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthSignInPost' {
-        It 'Test Invoke-ApiV2OAuthSignInPost' {
-            #$TestResult = Invoke-ApiV2OAuthSignInPost -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SigninModel "TEST_VALUE"
+    Context 'Get-OpenIdConfiguration' {
+        It 'Test Get-OpenIdConfiguration' {
+            #$TestResult = Get-OpenIdConfiguration -TenantId "TEST_VALUE" -ApplicationId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthTenantIdApplicationIdWellKnownOpenIdConfigurationGet' {
-        It 'Test Invoke-ApiV2OAuthTenantIdApplicationIdWellKnownOpenIdConfigurationGet' {
-            #$TestResult = Invoke-ApiV2OAuthTenantIdApplicationIdWellKnownOpenIdConfigurationGet -TenantId "TEST_VALUE" -ApplicationId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-Permissions' {
+        It 'Test Get-Permissions' {
+            #$TestResult = Get-Permissions -TenantId "TEST_VALUE" -UserId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthTokenPost' {
-        It 'Test Invoke-ApiV2OAuthTokenPost' {
-            #$TestResult = Invoke-ApiV2OAuthTokenPost -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -OAuthTokenRequest "TEST_VALUE"
+    Context 'Invoke-PasswordSignInAsync' {
+        It 'Test Invoke-PasswordSignInAsync' {
+            #$TestResult = Invoke-PasswordSignInAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SigninModel "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2OAuthWhoAmIGet' {
-        It 'Test Invoke-ApiV2OAuthWhoAmIGet' {
-            #$TestResult = Invoke-ApiV2OAuthWhoAmIGet -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-Token' {
+        It 'Test Invoke-Token' {
+            #$TestResult = Invoke-Token -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -OAuthTokenRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

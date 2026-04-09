@@ -7,89 +7,89 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'RecordsApi' {
-    Context 'Invoke-ApiV2CartServiceRecordsAddItemPost' {
-        It 'Test Invoke-ApiV2CartServiceRecordsAddItemPost' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsAddItemPost -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Add-ItemToCart' {
+        It 'Test Add-ItemToCart' {
+            #$TestResult = Add-ItemToCart -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsCartIdGet' {
-        It 'Test Invoke-ApiV2CartServiceRecordsCartIdGet' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsCartIdGet -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Add-ProductToCartAsync' {
+        It 'Test Add-ProductToCartAsync' {
+            #$TestResult = Add-ProductToCartAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemCartRecordCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsClearCartPost' {
-        It 'Test Invoke-ApiV2CartServiceRecordsClearCartPost' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsClearCartPost -CartID "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Clear-CartAsync' {
+        It 'Test Clear-CartAsync' {
+            #$TestResult = Clear-CartAsync -CartID "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsDelete' {
-        It 'Test Invoke-ApiV2CartServiceRecordsDelete' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsDelete -CartId "TEST_VALUE" -ProductId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DecreaseItemCartRecord' {
+        It 'Test Invoke-DecreaseItemCartRecord' {
+            #$TestResult = Invoke-DecreaseItemCartRecord -RecordId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsIsInCartGet' {
-        It 'Test Invoke-ApiV2CartServiceRecordsIsInCartGet' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsIsInCartGet -ItemID "TEST_VALUE" -CartID "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-ItemCartRecord' {
+        It 'Test Get-ItemCartRecord' {
+            #$TestResult = Get-ItemCartRecord -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsPost' {
-        It 'Test Invoke-ApiV2CartServiceRecordsPost' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsPost -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemCartRecordCreateDto "TEST_VALUE"
+    Context 'Get-ItemsInCartAsync' {
+        It 'Test Get-ItemsInCartAsync' {
+            #$TestResult = Get-ItemsInCartAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsRecordIdDecreasePut' {
-        It 'Test Invoke-ApiV2CartServiceRecordsRecordIdDecreasePut' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsRecordIdDecreasePut -RecordId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'ConvertTo-creaseItemCartRecord' {
+        It 'Test ConvertTo-creaseItemCartRecord' {
+            #$TestResult = ConvertTo-creaseItemCartRecord -RecordId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsRecordIdDelete' {
-        It 'Test Invoke-ApiV2CartServiceRecordsRecordIdDelete' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsRecordIdDelete -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-IsItemAlreadyInCart' {
+        It 'Test Invoke-IsItemAlreadyInCart' {
+            #$TestResult = Invoke-IsItemAlreadyInCart -ItemID "TEST_VALUE" -CartID "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsRecordIdDetailsGet' {
-        It 'Test Invoke-ApiV2CartServiceRecordsRecordIdDetailsGet' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsRecordIdDetailsGet -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Remove-ProductFromCartByParams' {
+        It 'Test Remove-ProductFromCartByParams' {
+            #$TestResult = Remove-ProductFromCartByParams -CartId "TEST_VALUE" -ProductId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsRecordIdIncreasePut' {
-        It 'Test Invoke-ApiV2CartServiceRecordsRecordIdIncreasePut' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsRecordIdIncreasePut -RecordId "TEST_VALUE" -Quantity "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Remove-ProductFromCartByRecordId' {
+        It 'Test Remove-ProductFromCartByRecordId' {
+            #$TestResult = Remove-ProductFromCartByRecordId -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceRecordsRecordIdPut' {
-        It 'Test Invoke-ApiV2CartServiceRecordsRecordIdPut' {
-            #$TestResult = Invoke-ApiV2CartServiceRecordsRecordIdPut -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemCartRecordUpdateDto "TEST_VALUE"
+    Context 'Update-ItemCartRecord' {
+        It 'Test Update-ItemCartRecord' {
+            #$TestResult = Update-ItemCartRecord -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemCartRecordUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

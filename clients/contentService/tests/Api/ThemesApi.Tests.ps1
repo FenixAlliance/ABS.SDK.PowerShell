@@ -7,9 +7,9 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'ThemesApi' {
-    Context 'Invoke-ApiV2ContentServiceThemesUpdateGet' {
-        It 'Test Invoke-ApiV2ContentServiceThemesUpdateGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceThemesUpdateGet -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-LatestCurrencyRatesModelAsync' {
+        It 'Test Get-LatestCurrencyRatesModelAsync' {
+            #$TestResult = Get-LatestCurrencyRatesModelAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

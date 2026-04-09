@@ -7,198 +7,6 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'AssetsApi' {
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsCountGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsCountGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsCountGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsPost' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsPost' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsPost -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetDepreciationRecordCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdDelete' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdDelete' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdDelete -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdPut' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdPut' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdDepreciationRecordsRecordIdPut -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE" -AssetDepreciationRecordUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsCountGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsCountGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsCountGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsPost' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsPost' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsPost -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetRepairCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdDelete' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdDelete' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdDelete -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdPut' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdPut' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdRepairsRepairIdPut -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE" -AssetRepairUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersCountGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersCountGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersCountGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersPost' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersPost' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersPost -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetTransferCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdDelete' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdDelete' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdDelete -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdPut' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdPut' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdTransfersTransferIdPut -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE" -AssetTransferUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdDelete' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdDelete' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdDelete -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdPut' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdPut' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsAmendIdPut -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE" -AssetValueAmendUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsCountGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsCountGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsCountGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsGet' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsGet' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsGet -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsPost' {
-        It 'Test Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsPost' {
-            #$TestResult = Invoke-ApiV2AssetsServiceAssetsAssetIdValueAmendsPost -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetValueAmendCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-Asset' {
         It 'Test New-Asset' {
             #$TestResult = New-Asset -TenantId "TEST_VALUE" -AssetCreateDto "TEST_VALUE"
@@ -215,6 +23,38 @@ Describe -tag 'PSOpenAPITools' -name 'AssetsApi' {
         }
     }
 
+    Context 'New-AssetDepreciationRecord' {
+        It 'Test New-AssetDepreciationRecord' {
+            #$TestResult = New-AssetDepreciationRecord -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetDepreciationRecordCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-AssetRepair' {
+        It 'Test New-AssetRepair' {
+            #$TestResult = New-AssetRepair -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetRepairCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-AssetTransfer' {
+        It 'Test New-AssetTransfer' {
+            #$TestResult = New-AssetTransfer -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetTransferCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-AssetValueAmend' {
+        It 'Test New-AssetValueAmend' {
+            #$TestResult = New-AssetValueAmend -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AssetValueAmendCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Invoke-DeleteAsset' {
         It 'Test Invoke-DeleteAsset' {
             #$TestResult = Invoke-DeleteAsset -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
@@ -226,6 +66,38 @@ Describe -tag 'PSOpenAPITools' -name 'AssetsApi' {
     Context 'Invoke-DeleteAssetAssetCategory' {
         It 'Test Invoke-DeleteAssetAssetCategory' {
             #$TestResult = Invoke-DeleteAssetAssetCategory -TenantId "TEST_VALUE" -CategoryId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-DeleteAssetDepreciationRecord' {
+        It 'Test Invoke-DeleteAssetDepreciationRecord' {
+            #$TestResult = Invoke-DeleteAssetDepreciationRecord -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-DeleteAssetRepair' {
+        It 'Test Invoke-DeleteAssetRepair' {
+            #$TestResult = Invoke-DeleteAssetRepair -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-DeleteAssetTransfer' {
+        It 'Test Invoke-DeleteAssetTransfer' {
+            #$TestResult = Invoke-DeleteAssetTransfer -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-DeleteAssetValueAmend' {
+        It 'Test Invoke-DeleteAssetValueAmend' {
+            #$TestResult = Invoke-DeleteAssetValueAmend -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -263,6 +135,102 @@ Describe -tag 'PSOpenAPITools' -name 'AssetsApi' {
         }
     }
 
+    Context 'Get-AssetDepreciationRecord' {
+        It 'Test Get-AssetDepreciationRecord' {
+            #$TestResult = Get-AssetDepreciationRecord -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetDepreciationRecords' {
+        It 'Test Get-AssetDepreciationRecords' {
+            #$TestResult = Get-AssetDepreciationRecords -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetDepreciationRecordsCount' {
+        It 'Test Get-AssetDepreciationRecordsCount' {
+            #$TestResult = Get-AssetDepreciationRecordsCount -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetRepair' {
+        It 'Test Get-AssetRepair' {
+            #$TestResult = Get-AssetRepair -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetRepairs' {
+        It 'Test Get-AssetRepairs' {
+            #$TestResult = Get-AssetRepairs -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetRepairsCount' {
+        It 'Test Get-AssetRepairsCount' {
+            #$TestResult = Get-AssetRepairsCount -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetTransfer' {
+        It 'Test Get-AssetTransfer' {
+            #$TestResult = Get-AssetTransfer -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetTransfers' {
+        It 'Test Get-AssetTransfers' {
+            #$TestResult = Get-AssetTransfers -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetTransfersCount' {
+        It 'Test Get-AssetTransfersCount' {
+            #$TestResult = Get-AssetTransfersCount -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetValueAmend' {
+        It 'Test Get-AssetValueAmend' {
+            #$TestResult = Get-AssetValueAmend -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetValueAmends' {
+        It 'Test Get-AssetValueAmends' {
+            #$TestResult = Get-AssetValueAmends -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AssetValueAmendsCount' {
+        It 'Test Get-AssetValueAmendsCount' {
+            #$TestResult = Get-AssetValueAmendsCount -TenantId "TEST_VALUE" -AssetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-Assets' {
         It 'Test Get-Assets' {
             #$TestResult = Get-Assets -TenantId "TEST_VALUE"
@@ -290,6 +258,38 @@ Describe -tag 'PSOpenAPITools' -name 'AssetsApi' {
     Context 'Update-AssetAssetCategory' {
         It 'Test Update-AssetAssetCategory' {
             #$TestResult = Update-AssetAssetCategory -TenantId "TEST_VALUE" -CategoryId "TEST_VALUE" -AssetCategoryUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AssetDepreciationRecord' {
+        It 'Test Update-AssetDepreciationRecord' {
+            #$TestResult = Update-AssetDepreciationRecord -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RecordId "TEST_VALUE" -AssetDepreciationRecordUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AssetRepair' {
+        It 'Test Update-AssetRepair' {
+            #$TestResult = Update-AssetRepair -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -RepairId "TEST_VALUE" -AssetRepairUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AssetTransfer' {
+        It 'Test Update-AssetTransfer' {
+            #$TestResult = Update-AssetTransfer -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -TransferId "TEST_VALUE" -AssetTransferUpdateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AssetValueAmend' {
+        It 'Test Update-AssetValueAmend' {
+            #$TestResult = Update-AssetValueAmend -TenantId "TEST_VALUE" -AssetId "TEST_VALUE" -AmendId "TEST_VALUE" -AssetValueAmendUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

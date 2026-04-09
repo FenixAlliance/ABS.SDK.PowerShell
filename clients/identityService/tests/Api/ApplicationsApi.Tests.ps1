@@ -7,41 +7,41 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'ApplicationsApi' {
-    Context 'Invoke-ApiV2ApplicationsAppIdGet' {
-        It 'Test Invoke-ApiV2ApplicationsAppIdGet' {
-            #$TestResult = Invoke-ApiV2ApplicationsAppIdGet -AppId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-Application' {
+        It 'Test Get-Application' {
+            #$TestResult = Get-Application -AppId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ApplicationsAppIdGrantedPermissionsGet' {
-        It 'Test Invoke-ApiV2ApplicationsAppIdGrantedPermissionsGet' {
-            #$TestResult = Invoke-ApiV2ApplicationsAppIdGrantedPermissionsGet -AppId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-GrantedEnrollmentPermissions' {
+        It 'Test Get-GrantedEnrollmentPermissions' {
+            #$TestResult = Get-GrantedEnrollmentPermissions -AppId "TEST_VALUE" -SecurityRoleId "TEST_VALUE" -EnrollmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ApplicationsAppIdGrantedRolesGet' {
-        It 'Test Invoke-ApiV2ApplicationsAppIdGrantedRolesGet' {
-            #$TestResult = Invoke-ApiV2ApplicationsAppIdGrantedRolesGet -AppId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-GrantedTenantPermissions' {
+        It 'Test Get-GrantedTenantPermissions' {
+            #$TestResult = Get-GrantedTenantPermissions -AppId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ApplicationsAppIdGrantedRolesSecurityRoleIdGrantedPermissionsGet' {
-        It 'Test Invoke-ApiV2ApplicationsAppIdGrantedRolesSecurityRoleIdGrantedPermissionsGet' {
-            #$TestResult = Invoke-ApiV2ApplicationsAppIdGrantedRolesSecurityRoleIdGrantedPermissionsGet -AppId "TEST_VALUE" -SecurityRoleId "TEST_VALUE" -EnrollmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-GrantedTenantRoles' {
+        It 'Test Get-GrantedTenantRoles' {
+            #$TestResult = Get-GrantedTenantRoles -AppId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ApplicationsAppIdRequiredPermissionsGet' {
-        It 'Test Invoke-ApiV2ApplicationsAppIdRequiredPermissionsGet' {
-            #$TestResult = Invoke-ApiV2ApplicationsAppIdRequiredPermissionsGet -AppId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-RequiredPermissions' {
+        It 'Test Get-RequiredPermissions' {
+            #$TestResult = Get-RequiredPermissions -AppId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

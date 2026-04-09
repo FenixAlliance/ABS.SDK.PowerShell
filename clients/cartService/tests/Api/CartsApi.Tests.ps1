@@ -15,9 +15,9 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
-    Context 'Add-ItemToCompareTableAsync' {
-        It 'Test Add-ItemToCompareTableAsync' {
-            #$TestResult = Add-ItemToCompareTableAsync -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Add-ItemToCartCompareTable' {
+        It 'Test Add-ItemToCartCompareTable' {
+            #$TestResult = Add-ItemToCartCompareTable -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -31,9 +31,17 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
-    Context 'Clear-CartAsync' {
-        It 'Test Clear-CartAsync' {
-            #$TestResult = Clear-CartAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-CartWishListExistsHead' {
+        It 'Test Invoke-CartWishListExistsHead' {
+            #$TestResult = Invoke-CartWishListExistsHead -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Clear-CartRecords' {
+        It 'Test Clear-CartRecords' {
+            #$TestResult = Clear-CartRecords -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -63,17 +71,17 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
-    Context 'Invoke-DeleteWishList' {
-        It 'Test Invoke-DeleteWishList' {
-            #$TestResult = Invoke-DeleteWishList -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteCartWishList' {
+        It 'Test Invoke-DeleteCartWishList' {
+            #$TestResult = Invoke-DeleteCartWishList -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-DeleteWishListRecord' {
-        It 'Test Invoke-DeleteWishListRecord' {
-            #$TestResult = Invoke-DeleteWishListRecord -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteCartWishListRecord' {
+        It 'Test Invoke-DeleteCartWishListRecord' {
+            #$TestResult = Invoke-DeleteCartWishListRecord -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -95,6 +103,22 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
+    Context 'Get-CartCompareRecord' {
+        It 'Test Get-CartCompareRecord' {
+            #$TestResult = Get-CartCompareRecord -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-CartCompareRecords' {
+        It 'Test Get-CartCompareRecords' {
+            #$TestResult = Get-CartCompareRecords -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-CartCountryAsync' {
         It 'Test Get-CartCountryAsync' {
             #$TestResult = Get-CartCountryAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
@@ -106,6 +130,14 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
     Context 'Get-CartCurrencyAsync' {
         It 'Test Get-CartCurrencyAsync' {
             #$TestResult = Get-CartCurrencyAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-CartItems' {
+        It 'Test Get-CartItems' {
+            #$TestResult = Get-CartItems -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -127,9 +159,17 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
-    Context 'Get-CartWishListDetailsAsync' {
-        It 'Test Get-CartWishListDetailsAsync' {
-            #$TestResult = Get-CartWishListDetailsAsync -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-CartWishList' {
+        It 'Test Get-CartWishList' {
+            #$TestResult = Get-CartWishList -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-CartWishListDetails' {
+        It 'Test Get-CartWishListDetails' {
+            #$TestResult = Get-CartWishListDetails -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -143,9 +183,9 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
         }
     }
 
-    Context 'Get-CartWishListItemsAsync' {
-        It 'Test Get-CartWishListItemsAsync' {
-            #$TestResult = Get-CartWishListItemsAsync -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-CartWishListItems' {
+        It 'Test Get-CartWishListItems' {
+            #$TestResult = Get-CartWishListItems -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -154,30 +194,6 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
     Context 'Get-GuestCartAsync' {
         It 'Test Get-GuestCartAsync' {
             #$TestResult = Get-GuestCartAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-ItemToCompareRecord' {
-        It 'Test Get-ItemToCompareRecord' {
-            #$TestResult = Get-ItemToCompareRecord -CartId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-ItemToCompareRecords' {
-        It 'Test Get-ItemToCompareRecords' {
-            #$TestResult = Get-ItemToCompareRecords -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-ItemsInCartAsync' {
-        It 'Test Get-ItemsInCartAsync' {
-            #$TestResult = Get-ItemsInCartAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -194,14 +210,6 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
     Context 'Get-UserCart' {
         It 'Test Get-UserCart' {
             #$TestResult = Get-UserCart -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-WishListAsync' {
-        It 'Test Get-WishListAsync' {
-            #$TestResult = Get-WishListAsync -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -330,14 +338,6 @@ Describe -tag 'PSOpenAPITools' -name 'CartsApi' {
     Context 'Invoke-WishListExistsAsync' {
         It 'Test Invoke-WishListExistsAsync' {
             #$TestResult = Invoke-WishListExistsAsync -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-WishListExistsHeadAsync' {
-        It 'Test Invoke-WishListExistsHeadAsync' {
-            #$TestResult = Invoke-WishListExistsHeadAsync -CartId "TEST_VALUE" -WishListId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -7,97 +7,97 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'UnitGroupsApi' {
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsCountGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsCountGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsCountGet -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-UnitAsync' {
+        It 'Test New-UnitAsync' {
+            #$TestResult = New-UnitAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsGet -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-UnitGroupAsync' {
+        It 'Test New-UnitGroupAsync' {
+            #$TestResult = New-UnitGroupAsync -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitGroupCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsPost' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsPost' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsPost -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitGroupCreateDto "TEST_VALUE"
+    Context 'Invoke-DeleteUnitAsync' {
+        It 'Test Invoke-DeleteUnitAsync' {
+            #$TestResult = Invoke-DeleteUnitAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdDelete' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdDelete' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdDelete -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteUnitGroupAsync' {
+        It 'Test Invoke-DeleteUnitGroupAsync' {
+            #$TestResult = Invoke-DeleteUnitGroupAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdGet -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-UnitAsync' {
+        It 'Test Get-UnitAsync' {
+            #$TestResult = Get-UnitAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdPut' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdPut' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdPut -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitGroupUpdateDto "TEST_VALUE"
+    Context 'Get-UnitGroupAsync' {
+        It 'Test Get-UnitGroupAsync' {
+            #$TestResult = Get-UnitGroupAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsCountGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsCountGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsCountGet -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-UnitGroupsAsync' {
+        It 'Test Get-UnitGroupsAsync' {
+            #$TestResult = Get-UnitGroupsAsync -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsGet -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-UnitGroupsCountAsync' {
+        It 'Test Get-UnitGroupsCountAsync' {
+            #$TestResult = Get-UnitGroupsCountAsync -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsPost' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsPost' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsPost -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitCreateDto "TEST_VALUE"
+    Context 'Get-UnitsAsync' {
+        It 'Test Get-UnitsAsync' {
+            #$TestResult = Get-UnitsAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdDelete' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdDelete' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdDelete -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-UnitsCountAsync' {
+        It 'Test Get-UnitsCountAsync' {
+            #$TestResult = Get-UnitsCountAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdGet' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdGet' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdGet -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Update-UnitAsync' {
+        It 'Test Update-UnitAsync' {
+            #$TestResult = Update-UnitAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdPut' {
-        It 'Test Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdPut' {
-            #$TestResult = Invoke-ApiV2TenantsServiceUnitGroupsUnitGroupIdUnitsUnitIdPut -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -UnitId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitUpdateDto "TEST_VALUE"
+    Context 'Update-UnitGroupAsync' {
+        It 'Test Update-UnitGroupAsync' {
+            #$TestResult = Update-UnitGroupAsync -TenantId "TEST_VALUE" -UnitGroupId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -UnitGroupUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

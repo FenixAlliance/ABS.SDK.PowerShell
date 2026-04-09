@@ -7,153 +7,153 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'BlogPostsApi' {
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdDelete' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdDelete' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdDelete -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CategoryId "TEST_VALUE"
+    Context 'New-BlogPostAsync' {
+        It 'Test New-BlogPostAsync' {
+            #$TestResult = New-BlogPostAsync -TenantId "TEST_VALUE" -BlogPostCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesCategoryIdPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CategoryId "TEST_VALUE"
+    Context 'New-CategoryForBlogPostAsync' {
+        It 'Test New-CategoryForBlogPostAsync' {
+            #$TestResult = New-CategoryForBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostCategoryCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesGet -BlogPostId "TEST_VALUE"
+    Context 'New-CommentForBlogPostAsync' {
+        It 'Test New-CommentForBlogPostAsync' {
+            #$TestResult = New-CommentForBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostCommentCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCategoriesPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostCategoryCreateDto "TEST_VALUE"
+    Context 'New-TagForBlogPostAsync' {
+        It 'Test New-TagForBlogPostAsync' {
+            #$TestResult = New-TagForBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostTagCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdDelete' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdDelete' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdDelete -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CommentId "TEST_VALUE"
+    Context 'Invoke-DeleteBlogPostAsync' {
+        It 'Test Invoke-DeleteBlogPostAsync' {
+            #$TestResult = Invoke-DeleteBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdRepliesGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdRepliesGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdRepliesGet -CommentId "TEST_VALUE" -BlogPostId "TEST_VALUE"
+    Context 'Invoke-DeleteCommentFromBlogPostAsync' {
+        It 'Test Invoke-DeleteCommentFromBlogPostAsync' {
+            #$TestResult = Invoke-DeleteCommentFromBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CommentId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdReplyPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdReplyPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsCommentIdReplyPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CommentId "TEST_VALUE" -BlogPostCommentCreateDto "TEST_VALUE"
+    Context 'Get-BlogPostByIdAsync' {
+        It 'Test Get-BlogPostByIdAsync' {
+            #$TestResult = Get-BlogPostByIdAsync -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsGet -BlogPostId "TEST_VALUE"
+    Context 'Get-BlogPostsAsync' {
+        It 'Test Get-BlogPostsAsync' {
+            #$TestResult = Get-BlogPostsAsync -TenantId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdCommentsPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostCommentCreateDto "TEST_VALUE"
+    Context 'Get-BlogPostsCountAsync' {
+        It 'Test Get-BlogPostsCountAsync' {
+            #$TestResult = Get-BlogPostsCountAsync -TenantId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdDelete' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdDelete' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdDelete -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE"
+    Context 'Get-CategoriesForBlogPostAsync' {
+        It 'Test Get-CategoriesForBlogPostAsync' {
+            #$TestResult = Get-CategoriesForBlogPostAsync -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdGet -BlogPostId "TEST_VALUE"
+    Context 'Get-CommentsForBlogPostAsync' {
+        It 'Test Get-CommentsForBlogPostAsync' {
+            #$TestResult = Get-CommentsForBlogPostAsync -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdPut' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdPut' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdPut -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostUpdateDto "TEST_VALUE"
+    Context 'Get-RepliesForCommentAsync' {
+        It 'Test Get-RepliesForCommentAsync' {
+            #$TestResult = Get-RepliesForCommentAsync -CommentId "TEST_VALUE" -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsGet -BlogPostId "TEST_VALUE"
+    Context 'Get-TagsForBlogPostAsync' {
+        It 'Test Get-TagsForBlogPostAsync' {
+            #$TestResult = Get-TagsForBlogPostAsync -BlogPostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostTagCreateDto "TEST_VALUE"
+    Context 'Invoke-RelateCategoryToBlogPostAsync' {
+        It 'Test Invoke-RelateCategoryToBlogPostAsync' {
+            #$TestResult = Invoke-RelateCategoryToBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CategoryId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdDelete' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdDelete' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdDelete -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -TagId "TEST_VALUE"
+    Context 'Invoke-RelateTagToBlogPostAsync' {
+        It 'Test Invoke-RelateTagToBlogPostAsync' {
+            #$TestResult = Invoke-RelateTagToBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -TagId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsBlogPostIdTagsTagIdPost -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -TagId "TEST_VALUE"
+    Context 'Invoke-ReplyToCommentAsync' {
+        It 'Test Invoke-ReplyToCommentAsync' {
+            #$TestResult = Invoke-ReplyToCommentAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CommentId "TEST_VALUE" -BlogPostCommentCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsCountGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsCountGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsCountGet -TenantId "TEST_VALUE"
+    Context 'Invoke-UnrelateCategoryFromBlogPostAsync' {
+        It 'Test Invoke-UnrelateCategoryFromBlogPostAsync' {
+            #$TestResult = Invoke-UnrelateCategoryFromBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -CategoryId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsGet' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsGet' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsGet -TenantId "TEST_VALUE"
+    Context 'Invoke-UnrelateTagFromBlogPostAsync' {
+        It 'Test Invoke-UnrelateTagFromBlogPostAsync' {
+            #$TestResult = Invoke-UnrelateTagFromBlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -TagId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2ContentServiceBlogPostsPost' {
-        It 'Test Invoke-ApiV2ContentServiceBlogPostsPost' {
-            #$TestResult = Invoke-ApiV2ContentServiceBlogPostsPost -TenantId "TEST_VALUE" -BlogPostCreateDto "TEST_VALUE"
+    Context 'Update-BlogPostAsync' {
+        It 'Test Update-BlogPostAsync' {
+            #$TestResult = Update-BlogPostAsync -TenantId "TEST_VALUE" -BlogPostId "TEST_VALUE" -BlogPostUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

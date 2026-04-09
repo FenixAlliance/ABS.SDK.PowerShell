@@ -7,9 +7,9 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'CheckerApi' {
-    Context 'Invoke-ApiV2AuthCheckerIsAuthenticatedGet' {
-        It 'Test Invoke-ApiV2AuthCheckerIsAuthenticatedGet' {
-            #$TestResult = Invoke-ApiV2AuthCheckerIsAuthenticatedGet -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-IsAuthenticated' {
+        It 'Test Invoke-IsAuthenticated' {
+            #$TestResult = Invoke-IsAuthenticated -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -7,65 +7,25 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'SocialFeedsApi' {
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsCountGet -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'New-FeedPostAsync' {
+        It 'Test New-FeedPostAsync' {
+            #$TestResult = New-FeedPostAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialFeedPostCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsGet -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Invoke-DeleteFeedPostAsync' {
+        It 'Test Invoke-DeleteFeedPostAsync' {
+            #$TestResult = Invoke-DeleteFeedPostAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -FeedPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdGet -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsCountGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsCountGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsCountGet -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdDelete' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdDelete' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdDelete -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -FeedPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdPut' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdPut' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsFeedPostIdPut -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -FeedPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialFeedPostUpdateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsGet' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsGet' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsGet -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsPost' {
-        It 'Test Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsPost' {
-            #$TestResult = Invoke-ApiV2SocialServiceSocialFeedsSocialFeedIdPostsPost -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialFeedPostCreateDto "TEST_VALUE"
+    Context 'Get-FeedNotifications' {
+        It 'Test Get-FeedNotifications' {
+            #$TestResult = Get-FeedNotifications -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -74,6 +34,46 @@ Describe -tag 'PSOpenAPITools' -name 'SocialFeedsApi' {
     Context 'Get-FeedPostAsync' {
         It 'Test Get-FeedPostAsync' {
             #$TestResult = Get-FeedPostAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -FeedPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-FeedPostsAsync' {
+        It 'Test Get-FeedPostsAsync' {
+            #$TestResult = Get-FeedPostsAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-FeedPostsCountAsync' {
+        It 'Test Get-FeedPostsCountAsync' {
+            #$TestResult = Get-FeedPostsCountAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-NotificationAsync' {
+        It 'Test Get-NotificationAsync' {
+            #$TestResult = Get-NotificationAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-NotificationsCountAsync' {
+        It 'Test Get-NotificationsCountAsync' {
+            #$TestResult = Get-NotificationsCountAsync -SocialProfileId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-FeedPostAsync' {
+        It 'Test Update-FeedPostAsync' {
+            #$TestResult = Update-FeedPostAsync -SocialProfileId "TEST_VALUE" -SocialFeedId "TEST_VALUE" -FeedPostId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -SocialFeedPostUpdateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

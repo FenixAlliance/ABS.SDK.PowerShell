@@ -7,33 +7,33 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'CompareApi' {
-    Context 'Invoke-ApiV2CartServiceCompareCartIdGet' {
-        It 'Test Invoke-ApiV2CartServiceCompareCartIdGet' {
-            #$TestResult = Invoke-ApiV2CartServiceCompareCartIdGet -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Add-ItemToCompareTableAsync' {
+        It 'Test Add-ItemToCompareTableAsync' {
+            #$TestResult = Add-ItemToCompareTableAsync -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -AddProductToCompareRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceComparePost' {
-        It 'Test Invoke-ApiV2CartServiceComparePost' {
-            #$TestResult = Invoke-ApiV2CartServiceComparePost -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -AddProductToCompareRequest "TEST_VALUE"
+    Context 'Get-ItemToCompareRecord' {
+        It 'Test Get-ItemToCompareRecord' {
+            #$TestResult = Get-ItemToCompareRecord -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceCompareRecordIdDelete' {
-        It 'Test Invoke-ApiV2CartServiceCompareRecordIdDelete' {
-            #$TestResult = Invoke-ApiV2CartServiceCompareRecordIdDelete -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Get-ItemToCompareRecords' {
+        It 'Test Get-ItemToCompareRecords' {
+            #$TestResult = Get-ItemToCompareRecords -CartId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ApiV2CartServiceCompareRecordIdDetailsGet' {
-        It 'Test Invoke-ApiV2CartServiceCompareRecordIdDetailsGet' {
-            #$TestResult = Invoke-ApiV2CartServiceCompareRecordIdDetailsGet -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+    Context 'Remove-ItemFromCompareTable' {
+        It 'Test Remove-ItemFromCompareTable' {
+            #$TestResult = Remove-ItemFromCompareTable -RecordId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

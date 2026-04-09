@@ -7,470 +7,6 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdGet -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttachmentsItemAttachmentIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemAttachmentCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdDelete -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdGet -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdAttributeOptionsItemAttributeOptionIdPost -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdBrandsGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdBrandsGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdBrandsGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdGet -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdBrandsItemBrandIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdCategoriesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdCategoriesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdCategoriesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdGet -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdCategoriesItemCategoryIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdGet -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdGoogleCategoriesItemGoogleCategoryIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdGet -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesItemImageIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdImagesPrimaryPost -ItemId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -Data "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdDelete -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdGet -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdPriceRulesItemPriceRuleIdPost -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdQuestionsGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdQuestionsGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdQuestionsGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemQuestionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdQuestionsItemQuestionIdGet -ItemId "TEST_VALUE" -ItemQuestionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdQuestionsPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdQuestionsPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdQuestionsPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemQuestionRecordCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdGet -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdRefundPoliciesItemRefundPolicyIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdGet -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReturnPoliciesItemReturnPolicyIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReviewsGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReviewsGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReviewsGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReviewId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReviewsItemReviewIdGet -ItemId "TEST_VALUE" -ItemReviewId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdReviewsPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdReviewsPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdReviewsPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemReviewRecordCreateDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdGet -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdShippingPoliciesItemShippingPolicyIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdGet -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdTaxPoliciesItemTaxPolicyIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesGet -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdDelete' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdDelete' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdDelete -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdGet' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdGet' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdGet -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdPost' {
-        It 'Test Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdPost' {
-            #$TestResult = Invoke-ApiV2CatalogServiceItemsItemIdWarrantyPoliciesItemWarrantyPolicyIdPost -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Invoke-CountStockItemTagsByItemId' {
         It 'Test Invoke-CountStockItemTagsByItemId' {
             #$TestResult = Invoke-CountStockItemTagsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
@@ -511,9 +47,209 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
         }
     }
 
+    Context 'Get-ProductPrimaryImageAsync' {
+        It 'Test Get-ProductPrimaryImageAsync' {
+            #$TestResult = Get-ProductPrimaryImageAsync -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemAttachmentById' {
+        It 'Test Get-StockItemAttachmentById' {
+            #$TestResult = Get-StockItemAttachmentById -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemAttachmentsByItemId' {
+        It 'Test Get-StockItemAttachmentsByItemId' {
+            #$TestResult = Get-StockItemAttachmentsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemAttributeOptionById' {
+        It 'Test Get-StockItemAttributeOptionById' {
+            #$TestResult = Get-StockItemAttributeOptionById -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemAttributeOptionsByItemId' {
+        It 'Test Get-StockItemAttributeOptionsByItemId' {
+            #$TestResult = Get-StockItemAttributeOptionsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemBrandById' {
+        It 'Test Get-StockItemBrandById' {
+            #$TestResult = Get-StockItemBrandById -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemBrandsByItemId' {
+        It 'Test Get-StockItemBrandsByItemId' {
+            #$TestResult = Get-StockItemBrandsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-StockItemById' {
         It 'Test Get-StockItemById' {
             #$TestResult = Get-StockItemById -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemCategoriesByItemId' {
+        It 'Test Get-StockItemCategoriesByItemId' {
+            #$TestResult = Get-StockItemCategoriesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemCategoryById' {
+        It 'Test Get-StockItemCategoryById' {
+            #$TestResult = Get-StockItemCategoryById -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemGoogleCategoriesByItemId' {
+        It 'Test Get-StockItemGoogleCategoriesByItemId' {
+            #$TestResult = Get-StockItemGoogleCategoriesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemGoogleCategoryById' {
+        It 'Test Get-StockItemGoogleCategoryById' {
+            #$TestResult = Get-StockItemGoogleCategoryById -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemImageById' {
+        It 'Test Get-StockItemImageById' {
+            #$TestResult = Get-StockItemImageById -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemImagesByItemId' {
+        It 'Test Get-StockItemImagesByItemId' {
+            #$TestResult = Get-StockItemImagesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemPriceRuleById' {
+        It 'Test Get-StockItemPriceRuleById' {
+            #$TestResult = Get-StockItemPriceRuleById -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemPriceRulesByItemId' {
+        It 'Test Get-StockItemPriceRulesByItemId' {
+            #$TestResult = Get-StockItemPriceRulesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemQuestionById' {
+        It 'Test Get-StockItemQuestionById' {
+            #$TestResult = Get-StockItemQuestionById -ItemId "TEST_VALUE" -ItemQuestionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemQuestionsByItemId' {
+        It 'Test Get-StockItemQuestionsByItemId' {
+            #$TestResult = Get-StockItemQuestionsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemRefundPoliciesByItemId' {
+        It 'Test Get-StockItemRefundPoliciesByItemId' {
+            #$TestResult = Get-StockItemRefundPoliciesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemRefundPolicyById' {
+        It 'Test Get-StockItemRefundPolicyById' {
+            #$TestResult = Get-StockItemRefundPolicyById -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemReturnPoliciesByItemId' {
+        It 'Test Get-StockItemReturnPoliciesByItemId' {
+            #$TestResult = Get-StockItemReturnPoliciesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemReturnPolicyById' {
+        It 'Test Get-StockItemReturnPolicyById' {
+            #$TestResult = Get-StockItemReturnPolicyById -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemReviewById' {
+        It 'Test Get-StockItemReviewById' {
+            #$TestResult = Get-StockItemReviewById -ItemId "TEST_VALUE" -ItemReviewId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemReviewsByItemId' {
+        It 'Test Get-StockItemReviewsByItemId' {
+            #$TestResult = Get-StockItemReviewsByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemShippingPoliciesByItemId' {
+        It 'Test Get-StockItemShippingPoliciesByItemId' {
+            #$TestResult = Get-StockItemShippingPoliciesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemShippingPolicyById' {
+        It 'Test Get-StockItemShippingPolicyById' {
+            #$TestResult = Get-StockItemShippingPolicyById -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -535,6 +271,22 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
         }
     }
 
+    Context 'Get-StockItemTaxPoliciesByItemId' {
+        It 'Test Get-StockItemTaxPoliciesByItemId' {
+            #$TestResult = Get-StockItemTaxPoliciesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemTaxPolicyById' {
+        It 'Test Get-StockItemTaxPolicyById' {
+            #$TestResult = Get-StockItemTaxPolicyById -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-StockItemTypeById' {
         It 'Test Get-StockItemTypeById' {
             #$TestResult = Get-StockItemTypeById -ItemId "TEST_VALUE" -ItemTypeId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
@@ -546,6 +298,22 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
     Context 'Get-StockItemTypesByItemId' {
         It 'Test Get-StockItemTypesByItemId' {
             #$TestResult = Get-StockItemTypesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemWarrantyPoliciesByItemId' {
+        It 'Test Get-StockItemWarrantyPoliciesByItemId' {
+            #$TestResult = Get-StockItemWarrantyPoliciesByItemId -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-StockItemWarrantyPolicyById' {
+        It 'Test Get-StockItemWarrantyPolicyById' {
+            #$TestResult = Get-StockItemWarrantyPolicyById -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -575,9 +343,113 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
         }
     }
 
+    Context 'Invoke-RelateAttachmentToStockItem' {
+        It 'Test Invoke-RelateAttachmentToStockItem' {
+            #$TestResult = Invoke-RelateAttachmentToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemAttachmentCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateAttributeOptionToStockItem' {
+        It 'Test Invoke-RelateAttributeOptionToStockItem' {
+            #$TestResult = Invoke-RelateAttributeOptionToStockItem -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateBrandToStockItem' {
+        It 'Test Invoke-RelateBrandToStockItem' {
+            #$TestResult = Invoke-RelateBrandToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateCategoryToStockItem' {
+        It 'Test Invoke-RelateCategoryToStockItem' {
+            #$TestResult = Invoke-RelateCategoryToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateGoogleCategoryToStockItem' {
+        It 'Test Invoke-RelateGoogleCategoryToStockItem' {
+            #$TestResult = Invoke-RelateGoogleCategoryToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateImageToStockItem' {
+        It 'Test Invoke-RelateImageToStockItem' {
+            #$TestResult = Invoke-RelateImageToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelatePriceRuleToStockItem' {
+        It 'Test Invoke-RelatePriceRuleToStockItem' {
+            #$TestResult = Invoke-RelatePriceRuleToStockItem -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateQuestionToStockItem' {
+        It 'Test Invoke-RelateQuestionToStockItem' {
+            #$TestResult = Invoke-RelateQuestionToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemQuestionRecordCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateRefundPolicyToStockItem' {
+        It 'Test Invoke-RelateRefundPolicyToStockItem' {
+            #$TestResult = Invoke-RelateRefundPolicyToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateReturnPolicyToStockItem' {
+        It 'Test Invoke-RelateReturnPolicyToStockItem' {
+            #$TestResult = Invoke-RelateReturnPolicyToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateReviewToStockItem' {
+        It 'Test Invoke-RelateReviewToStockItem' {
+            #$TestResult = Invoke-RelateReviewToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -ItemReviewRecordCreateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateShippingPolicyToStockItem' {
+        It 'Test Invoke-RelateShippingPolicyToStockItem' {
+            #$TestResult = Invoke-RelateShippingPolicyToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Invoke-RelateTagToStockItem' {
         It 'Test Invoke-RelateTagToStockItem' {
             #$TestResult = Invoke-RelateTagToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTagId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-RelateTaxPolicyToStockItem' {
+        It 'Test Invoke-RelateTaxPolicyToStockItem' {
+            #$TestResult = Invoke-RelateTaxPolicyToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -591,6 +463,110 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
         }
     }
 
+    Context 'Invoke-RelateWarrantyPolicyToStockItem' {
+        It 'Test Invoke-RelateWarrantyPolicyToStockItem' {
+            #$TestResult = Invoke-RelateWarrantyPolicyToStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-AttachmentFromStockItem' {
+        It 'Test Remove-AttachmentFromStockItem' {
+            #$TestResult = Remove-AttachmentFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemAttachmentId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-AttributeOptionFromStockItem' {
+        It 'Test Remove-AttributeOptionFromStockItem' {
+            #$TestResult = Remove-AttributeOptionFromStockItem -ItemId "TEST_VALUE" -ItemAttributeOptionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BrandFromStockItem' {
+        It 'Test Remove-BrandFromStockItem' {
+            #$TestResult = Remove-BrandFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemBrandId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-CategoryFromStockItem' {
+        It 'Test Remove-CategoryFromStockItem' {
+            #$TestResult = Remove-CategoryFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-GoogleCategoryFromStockItem' {
+        It 'Test Remove-GoogleCategoryFromStockItem' {
+            #$TestResult = Remove-GoogleCategoryFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemGoogleCategoryId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-ImageFromStockItem' {
+        It 'Test Remove-ImageFromStockItem' {
+            #$TestResult = Remove-ImageFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemImageId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-PriceRuleFromStockItem' {
+        It 'Test Remove-PriceRuleFromStockItem' {
+            #$TestResult = Remove-PriceRuleFromStockItem -ItemId "TEST_VALUE" -ItemPriceRuleId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-QuestionFromStockItem' {
+        It 'Test Remove-QuestionFromStockItem' {
+            #$TestResult = Remove-QuestionFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemQuestionId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-RefundPolicyFromStockItem' {
+        It 'Test Remove-RefundPolicyFromStockItem' {
+            #$TestResult = Remove-RefundPolicyFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemRefundPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-ReturnPolicyFromStockItem' {
+        It 'Test Remove-ReturnPolicyFromStockItem' {
+            #$TestResult = Remove-ReturnPolicyFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReturnPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-ReviewFromStockItem' {
+        It 'Test Remove-ReviewFromStockItem' {
+            #$TestResult = Remove-ReviewFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemReviewId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-ShippingPolicyFromStockItem' {
+        It 'Test Remove-ShippingPolicyFromStockItem' {
+            #$TestResult = Remove-ShippingPolicyFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemShippingPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-TagFromStockItem' {
         It 'Test Remove-TagFromStockItem' {
             #$TestResult = Remove-TagFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTagId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
@@ -599,9 +575,33 @@ Describe -tag 'PSOpenAPITools' -name 'ItemsApi' {
         }
     }
 
+    Context 'Remove-TaxPolicyFromStockItem' {
+        It 'Test Remove-TaxPolicyFromStockItem' {
+            #$TestResult = Remove-TaxPolicyFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTaxPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-TypeFromStockItem' {
         It 'Test Remove-TypeFromStockItem' {
             #$TestResult = Remove-TypeFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemTypeId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-WarrantyPolicyFromStockItem' {
+        It 'Test Remove-WarrantyPolicyFromStockItem' {
+            #$TestResult = Remove-WarrantyPolicyFromStockItem -TenantId "TEST_VALUE" -ItemId "TEST_VALUE" -ItemWarrantyPolicyId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-ProductPrimaryImageAsync' {
+        It 'Test Update-ProductPrimaryImageAsync' {
+            #$TestResult = Update-ProductPrimaryImageAsync -ItemId "TEST_VALUE" -TenantId "TEST_VALUE" -ApiVersion "TEST_VALUE" -XApiVersion "TEST_VALUE" -Data "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
