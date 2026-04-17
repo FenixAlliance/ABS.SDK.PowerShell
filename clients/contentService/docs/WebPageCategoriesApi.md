@@ -4,12 +4,62 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-CountWebPageCategoriesAsync**](WebPageCategoriesApi.md#Invoke-CountWebPageCategoriesAsync) | **GET** /api/v2/ContentService/WebPageCategories/Count | Count web page categories
 [**New-WebPageCategoryAsync**](WebPageCategoriesApi.md#New-WebPageCategoryAsync) | **POST** /api/v2/ContentService/WebPageCategories | Create a web page category
 [**Invoke-DeleteWebPageCategoryAsync**](WebPageCategoriesApi.md#Invoke-DeleteWebPageCategoryAsync) | **DELETE** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Delete a web page category
 [**Get-WebPageCategoriesAsync**](WebPageCategoriesApi.md#Get-WebPageCategoriesAsync) | **GET** /api/v2/ContentService/WebPageCategories | Get web page categories
 [**Get-WebPageCategoryByIdAsync**](WebPageCategoriesApi.md#Get-WebPageCategoryByIdAsync) | **GET** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Get web page category by ID
 [**Update-WebPageCategoryAsync**](WebPageCategoriesApi.md#Update-WebPageCategoryAsync) | **PUT** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Update a web page category
 
+
+<a id="Invoke-CountWebPageCategoriesAsync"></a>
+# **Invoke-CountWebPageCategoriesAsync**
+> Int32Envelope Invoke-CountWebPageCategoriesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Count web page categories
+
+Counts all web page categories for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Count web page categories
+try {
+    $Result = Invoke-CountWebPageCategoriesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-CountWebPageCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-WebPageCategoryAsync"></a>
 # **New-WebPageCategoryAsync**

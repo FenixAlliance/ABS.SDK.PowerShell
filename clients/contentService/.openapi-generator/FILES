@@ -154,6 +154,7 @@ docs/WebPagesApi.md
 docs/WebPortalCreateDto.md
 docs/WebPortalDto.md
 docs/WebPortalDtoEnvelope.md
+docs/WebPortalDtoListEnvelope.md
 docs/WebPortalUpdateDto.md
 docs/WebTemplateCreateDto.md
 docs/WebTemplateDto.md
@@ -316,6 +317,7 @@ src/PSOpenAPITools/Model/WebPageUpdateDto.ps1
 src/PSOpenAPITools/Model/WebPortalCreateDto.ps1
 src/PSOpenAPITools/Model/WebPortalDto.ps1
 src/PSOpenAPITools/Model/WebPortalDtoEnvelope.ps1
+src/PSOpenAPITools/Model/WebPortalDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/WebPortalUpdateDto.ps1
 src/PSOpenAPITools/Model/WebTemplateCreateDto.ps1
 src/PSOpenAPITools/Model/WebTemplateDto.ps1
@@ -329,3 +331,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Model/WebPortalDtoListEnvelope.Tests.ps1

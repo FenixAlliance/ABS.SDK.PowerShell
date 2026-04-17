@@ -4,12 +4,62 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-CountBlogPostTagsAsync**](BlogPostTagsApi.md#Invoke-CountBlogPostTagsAsync) | **GET** /api/v2/ContentService/BlogPostTags/Count | Count blog post tags
 [**New-BlogPostTagAsync**](BlogPostTagsApi.md#New-BlogPostTagAsync) | **POST** /api/v2/ContentService/BlogPostTags | Create a blog post tag
 [**Invoke-DeleteBlogPostTagAsync**](BlogPostTagsApi.md#Invoke-DeleteBlogPostTagAsync) | **DELETE** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Delete a blog post tag
 [**Get-BlogPostTagByIdAsync**](BlogPostTagsApi.md#Get-BlogPostTagByIdAsync) | **GET** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Get blog post tag by ID
 [**Get-BlogPostTagsAsync**](BlogPostTagsApi.md#Get-BlogPostTagsAsync) | **GET** /api/v2/ContentService/BlogPostTags | Get blog post tags
 [**Update-BlogPostTagAsync**](BlogPostTagsApi.md#Update-BlogPostTagAsync) | **PUT** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Update a blog post tag
 
+
+<a id="Invoke-CountBlogPostTagsAsync"></a>
+# **Invoke-CountBlogPostTagsAsync**
+> Int32Envelope Invoke-CountBlogPostTagsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Count blog post tags
+
+Counts all blog post tags for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Count blog post tags
+try {
+    $Result = Invoke-CountBlogPostTagsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-CountBlogPostTagsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-BlogPostTagAsync"></a>
 # **New-BlogPostTagAsync**
