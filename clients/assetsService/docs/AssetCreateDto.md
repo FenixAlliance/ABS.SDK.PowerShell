@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **AssetClass** | **String** |  | [optional] 
@@ -32,8 +30,6 @@ Name | Type | Description | Notes
 ```powershell
 $AssetCreateDto = Initialize-PSOpenAPIToolsAssetCreateDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
  -Name null `
  -Description null `
  -AssetClass null `

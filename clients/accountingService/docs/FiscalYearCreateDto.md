@@ -8,10 +8,9 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
+**FiscalAuthorityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,10 +21,9 @@ $FiscalYearCreateDto = Initialize-PSOpenAPIToolsFiscalYearCreateDto  -Id null `
  -Name null `
  -Description null `
  -Closed null `
- -TenantId null `
- -EnrollmentId null `
  -EndDate null `
- -StartDate null
+ -StartDate null `
+ -FiscalAuthorityId null
 ```
 
 - Convert the resource to JSON

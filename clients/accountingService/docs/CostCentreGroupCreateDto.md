@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **ParentCostCentresGroupId** | **String** |  | [optional] 
 
 ## Examples
@@ -20,7 +19,6 @@ $CostCentreGroupCreateDto = Initialize-PSOpenAPIToolsCostCentreGroupCreateDto  -
  -Name null `
  -Description null `
  -Disabled null `
- -TenantId null `
  -ParentCostCentresGroupId null
 ```
 

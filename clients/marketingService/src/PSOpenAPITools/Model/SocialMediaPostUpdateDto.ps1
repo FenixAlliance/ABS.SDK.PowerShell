@@ -21,11 +21,7 @@ No description available.
 No description available.
 .PARAMETER FeaturedImageUrl
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER SocialPostBucketId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -46,13 +42,7 @@ function Initialize-SocialMediaPostUpdateDto {
         ${FeaturedImageUrl},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SocialPostBucketId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${SocialPostBucketId}
     )
 
     Process {
@@ -67,14 +57,6 @@ function Initialize-SocialMediaPostUpdateDto {
             throw "invalid value for 'Title', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$SocialPostBucketId -and $SocialPostBucketId.length -gt 36) {
             throw "invalid value for 'SocialPostBucketId', the character length must be smaller than or equal to 36."
         }
@@ -83,22 +65,12 @@ function Initialize-SocialMediaPostUpdateDto {
             throw "invalid value for 'SocialPostBucketId', the character length must be great than or equal to 0."
         }
 
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "content" = ${Content}
             "featuredImageUrl" = ${FeaturedImageUrl}
-            "tenantId" = ${TenantId}
             "socialPostBucketId" = ${SocialPostBucketId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -136,7 +108,7 @@ function ConvertFrom-JsonToSocialMediaPostUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialMediaPostUpdateDto
-        $AllProperties = ("title", "content", "featuredImageUrl", "tenantId", "socialPostBucketId", "enrollmentId")
+        $AllProperties = ("title", "content", "featuredImageUrl", "socialPostBucketId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -161,31 +133,17 @@ function ConvertFrom-JsonToSocialMediaPostUpdateDto {
             $FeaturedImageUrl = $JsonParameters.PSobject.Properties["featuredImageUrl"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialPostBucketId"))) { #optional property not found
             $SocialPostBucketId = $null
         } else {
             $SocialPostBucketId = $JsonParameters.PSobject.Properties["socialPostBucketId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "content" = ${Content}
             "featuredImageUrl" = ${FeaturedImageUrl}
-            "tenantId" = ${TenantId}
             "socialPostBucketId" = ${SocialPostBucketId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

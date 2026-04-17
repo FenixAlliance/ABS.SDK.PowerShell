@@ -78,7 +78,7 @@ Creates a new blog post category for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # BlogPostCategoryCreateDto |  (optional)
+$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # BlogPostCategoryCreateDto |  (optional)
 
 # Create a blog post category
 try {

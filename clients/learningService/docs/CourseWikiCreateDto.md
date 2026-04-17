@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
@@ -21,7 +20,6 @@ $CourseWikiCreateDto = Initialize-PSOpenAPIToolsCourseWikiCreateDto  -Id null `
  -Title null `
  -Description null `
  -CourseID null `
- -BusinessID null `
  -CourseUnitID null `
  -ReleaseDateTime null
 ```

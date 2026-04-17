@@ -29,10 +29,6 @@ No description available.
 No description available.
 .PARAMETER ExpirationDate
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER SalesLiteratureTypeId
 No description available.
 .OUTPUTS
@@ -66,12 +62,6 @@ function Initialize-SalesLiteratureCreateDto {
         ${ExpirationDate},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${SalesLiteratureTypeId}
     )
 
@@ -103,22 +93,6 @@ function Initialize-SalesLiteratureCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 36) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 36."
-        }
-
         if (!$SalesLiteratureTypeId -and $SalesLiteratureTypeId.length -gt 36) {
             throw "invalid value for 'SalesLiteratureTypeId', the character length must be smaller than or equal to 36."
         }
@@ -136,8 +110,6 @@ function Initialize-SalesLiteratureCreateDto {
             "description" = ${Description}
             "modifiedDate" = ${ModifiedDate}
             "expirationDate" = ${ExpirationDate}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "salesLiteratureTypeId" = ${SalesLiteratureTypeId}
         }
 
@@ -176,7 +148,7 @@ function ConvertFrom-JsonToSalesLiteratureCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SalesLiteratureCreateDto
-        $AllProperties = ("id", "timestamp", "title", "content", "description", "modifiedDate", "expirationDate", "tenantId", "enrollmentId", "salesLiteratureTypeId")
+        $AllProperties = ("id", "timestamp", "title", "content", "description", "modifiedDate", "expirationDate", "salesLiteratureTypeId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -225,18 +197,6 @@ function ConvertFrom-JsonToSalesLiteratureCreateDto {
             $ExpirationDate = $JsonParameters.PSobject.Properties["expirationDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "salesLiteratureTypeId"))) { #optional property not found
             $SalesLiteratureTypeId = $null
         } else {
@@ -251,8 +211,6 @@ function ConvertFrom-JsonToSalesLiteratureCreateDto {
             "description" = ${Description}
             "modifiedDate" = ${ModifiedDate}
             "expirationDate" = ${ExpirationDate}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "salesLiteratureTypeId" = ${SalesLiteratureTypeId}
         }
 

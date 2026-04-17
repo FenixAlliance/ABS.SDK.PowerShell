@@ -5,17 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FiscalResponsibilityId** | **String** |  | [optional] 
 **BillingProfileId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $FiscalResponsibilityRecordUpdateDto = Initialize-PSOpenAPIToolsFiscalResponsibilityRecordUpdateDto  -FiscalResponsibilityId null `
- -BillingProfileId null `
- -TenantId null `
- -EnrollmentId null
+ -BillingProfileId null
 ```
 
 - Convert the resource to JSON

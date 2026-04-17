@@ -29,7 +29,7 @@ Create a new tenant team record
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamRecordCreateDto = Initialize-TenantTeamRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" # TenantTeamRecordCreateDto |  (optional)
+$TenantTeamRecordCreateDto = Initialize-TenantTeamRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessTeamID "MyBusinessTeamID" # TenantTeamRecordCreateDto |  (optional)
 
 # Create a new tenant team record
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantTeamRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamRecordUpdateDto = Initialize-TenantTeamRecordUpdateDto -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" # TenantTeamRecordUpdateDto |  (optional)
+$TenantTeamRecordUpdateDto = Initialize-TenantTeamRecordUpdateDto -BusinessTeamID "MyBusinessTeamID" # TenantTeamRecordUpdateDto |  (optional)
 
 # Update a tenant team record
 try {

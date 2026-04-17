@@ -29,7 +29,7 @@ Creates a new course library for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseLibraryCreateDto = Initialize-CourseLibraryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -BusinessID "MyBusinessID" -ReleaseDateTime (Get-Date) # CourseLibraryCreateDto |  (optional)
+$CourseLibraryCreateDto = Initialize-CourseLibraryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -ReleaseDateTime (Get-Date) # CourseLibraryCreateDto |  (optional)
 
 # Create a course library
 try {

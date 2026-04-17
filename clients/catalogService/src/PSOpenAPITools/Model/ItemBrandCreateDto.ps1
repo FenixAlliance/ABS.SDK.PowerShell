@@ -31,8 +31,6 @@ No description available.
 No description available.
 .PARAMETER Trending
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 ItemBrandCreateDto<PSCustomObject>
@@ -64,10 +62,7 @@ function Initialize-ItemBrandCreateDto {
         ${Featured},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Trending},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${Trending}
     )
 
     Process {
@@ -102,18 +97,6 @@ function Initialize-ItemBrandCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -124,7 +107,6 @@ function Initialize-ItemBrandCreateDto {
             "websiteURL" = ${WebsiteURL}
             "featured" = ${Featured}
             "trending" = ${Trending}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -162,7 +144,7 @@ function ConvertFrom-JsonToItemBrandCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemBrandCreateDto
-        $AllProperties = ("id", "timestamp", "code", "name", "description", "websiteURL", "featured", "trending", "businessID")
+        $AllProperties = ("id", "timestamp", "code", "name", "description", "websiteURL", "featured", "trending")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -177,12 +159,6 @@ function ConvertFrom-JsonToItemBrandCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -236,7 +212,6 @@ function ConvertFrom-JsonToItemBrandCreateDto {
             "websiteURL" = ${WebsiteURL}
             "featured" = ${Featured}
             "trending" = ${Trending}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

@@ -29,7 +29,7 @@ Creates a new fiscal identification type for a fiscal authority.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalIdentificationTypeCreateDto = Initialize-FiscalIdentificationTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalIdentificationTypeCreateDto |  (optional)
+$FiscalIdentificationTypeCreateDto = Initialize-FiscalIdentificationTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalIdentificationTypeCreateDto |  (optional)
 
 # Create a fiscal identification type
 try {
@@ -288,7 +288,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $IdentificationTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalIdentificationTypeUpdateDto = Initialize-FiscalIdentificationTypeUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalIdentificationTypeUpdateDto |  (optional)
+$FiscalIdentificationTypeUpdateDto = Initialize-FiscalIdentificationTypeUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalIdentificationTypeUpdateDto |  (optional)
 
 # Update a fiscal identification type
 try {

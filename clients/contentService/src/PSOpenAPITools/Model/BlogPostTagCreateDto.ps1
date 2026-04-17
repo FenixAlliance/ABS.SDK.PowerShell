@@ -45,10 +45,6 @@ No description available.
 No description available.
 .PARAMETER WebPortalID
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 BlogPostTagCreateDto<PSCustomObject>
@@ -101,13 +97,7 @@ function Initialize-BlogPostTagCreateDto {
         ${Image},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebPortalID},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${WebPortalID}
     )
 
     Process {
@@ -131,8 +121,6 @@ function Initialize-BlogPostTagCreateDto {
             "imageURL" = ${ImageURL}
             "image" = ${Image}
             "webPortalID" = ${WebPortalID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -170,7 +158,7 @@ function ConvertFrom-JsonToBlogPostTagCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BlogPostTagCreateDto
-        $AllProperties = ("id", "timestamp", "slug", "type", "title", "description", "seoTitle", "metaDescription", "cornerstoneContent", "allowSerachEngines", "seoKeyPhrases", "canonicalUrl", "imageURL", "image", "webPortalID", "businessID", "businessProfileRecordID")
+        $AllProperties = ("id", "timestamp", "slug", "type", "title", "description", "seoTitle", "metaDescription", "cornerstoneContent", "allowSerachEngines", "seoKeyPhrases", "canonicalUrl", "imageURL", "image", "webPortalID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -267,18 +255,6 @@ function ConvertFrom-JsonToBlogPostTagCreateDto {
             $WebPortalID = $JsonParameters.PSobject.Properties["webPortalID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -295,8 +271,6 @@ function ConvertFrom-JsonToBlogPostTagCreateDto {
             "imageURL" = ${ImageURL}
             "image" = ${Image}
             "webPortalID" = ${WebPortalID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

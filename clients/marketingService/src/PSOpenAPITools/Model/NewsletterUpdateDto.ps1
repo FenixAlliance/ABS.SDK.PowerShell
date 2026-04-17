@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Title
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER Name
 No description available.
 .OUTPUTS
@@ -41,12 +37,6 @@ function Initialize-NewsletterUpdateDto {
         ${Title},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name}
     )
 
@@ -58,8 +48,6 @@ function Initialize-NewsletterUpdateDto {
         $PSO = [PSCustomObject]@{
             "code" = ${Code}
             "title" = ${Title}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "name" = ${Name}
         }
 
@@ -98,7 +86,7 @@ function ConvertFrom-JsonToNewsletterUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in NewsletterUpdateDto
-        $AllProperties = ("code", "title", "tenantId", "enrollmentId", "name")
+        $AllProperties = ("code", "title", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -117,18 +105,6 @@ function ConvertFrom-JsonToNewsletterUpdateDto {
             $Title = $JsonParameters.PSobject.Properties["title"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
@@ -138,8 +114,6 @@ function ConvertFrom-JsonToNewsletterUpdateDto {
         $PSO = [PSCustomObject]@{
             "code" = ${Code}
             "title" = ${Title}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "name" = ${Name}
         }
 

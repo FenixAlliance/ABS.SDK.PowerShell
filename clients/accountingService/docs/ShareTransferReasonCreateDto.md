@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +15,7 @@ Name | Type | Description | Notes
 $ShareTransferReasonCreateDto = Initialize-PSOpenAPIToolsShareTransferReasonCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -Description null `
- -EnrollmentId null `
- -TenantId null
+ -Description null
 ```
 
 - Convert the resource to JSON

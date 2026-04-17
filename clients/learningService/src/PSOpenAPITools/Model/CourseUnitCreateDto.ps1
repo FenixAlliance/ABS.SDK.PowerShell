@@ -29,8 +29,6 @@ No description available.
 No description available.
 .PARAMETER CourseSectionID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER CourseContentGroupID
 No description available.
 .PARAMETER ReleaseDateTime
@@ -66,11 +64,8 @@ function Initialize-CourseUnitCreateDto {
         ${CourseSectionID},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CourseContentGroupID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ReleaseDateTime}
     )
@@ -103,14 +98,6 @@ function Initialize-CourseUnitCreateDto {
             throw "invalid value for 'CourseSectionID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -120,7 +107,6 @@ function Initialize-CourseUnitCreateDto {
             "content" = ${Content}
             "courseID" = ${CourseID}
             "courseSectionID" = ${CourseSectionID}
-            "businessID" = ${BusinessID}
             "courseContentGroupID" = ${CourseContentGroupID}
             "releaseDateTime" = ${ReleaseDateTime}
         }
@@ -160,7 +146,7 @@ function ConvertFrom-JsonToCourseUnitCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseUnitCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "content", "courseID", "courseSectionID", "businessID", "courseContentGroupID", "releaseDateTime")
+        $AllProperties = ("id", "timestamp", "title", "description", "content", "courseID", "courseSectionID", "courseContentGroupID", "releaseDateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,12 +173,6 @@ function ConvertFrom-JsonToCourseUnitCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseSectionID' missing."
         } else {
             $CourseSectionID = $JsonParameters.PSobject.Properties["courseSectionID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -239,7 +219,6 @@ function ConvertFrom-JsonToCourseUnitCreateDto {
             "content" = ${Content}
             "courseID" = ${CourseID}
             "courseSectionID" = ${CourseSectionID}
-            "businessID" = ${BusinessID}
             "courseContentGroupID" = ${CourseContentGroupID}
             "releaseDateTime" = ${ReleaseDateTime}
         }

@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER ParentBusinessProcessId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER TenantEnrollmentId
 No description available.
 .OUTPUTS
@@ -43,9 +41,6 @@ function Initialize-DealUnitFlowUpdateDto {
         [String]
         ${ParentBusinessProcessId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TenantEnrollmentId}
     )
@@ -78,14 +73,6 @@ function Initialize-DealUnitFlowUpdateDto {
             throw "invalid value for 'ParentBusinessProcessId', the character length must be great than or equal to 36."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 36) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 36."
-        }
-
         if (!$TenantEnrollmentId -and $TenantEnrollmentId.length -gt 36) {
             throw "invalid value for 'TenantEnrollmentId', the character length must be smaller than or equal to 36."
         }
@@ -99,7 +86,6 @@ function Initialize-DealUnitFlowUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "parentBusinessProcessId" = ${ParentBusinessProcessId}
-            "tenantId" = ${TenantId}
             "tenantEnrollmentId" = ${TenantEnrollmentId}
         }
 
@@ -138,7 +124,7 @@ function ConvertFrom-JsonToDealUnitFlowUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DealUnitFlowUpdateDto
-        $AllProperties = ("name", "description", "parentBusinessProcessId", "tenantId", "tenantEnrollmentId")
+        $AllProperties = ("name", "description", "parentBusinessProcessId", "tenantEnrollmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -163,12 +149,6 @@ function ConvertFrom-JsonToDealUnitFlowUpdateDto {
             $ParentBusinessProcessId = $JsonParameters.PSobject.Properties["parentBusinessProcessId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantEnrollmentId"))) { #optional property not found
             $TenantEnrollmentId = $null
         } else {
@@ -179,7 +159,6 @@ function ConvertFrom-JsonToDealUnitFlowUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "parentBusinessProcessId" = ${ParentBusinessProcessId}
-            "tenantId" = ${TenantId}
             "tenantEnrollmentId" = ${TenantEnrollmentId}
         }
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Icon** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **HideFromStudents** | **Boolean** |  | [optional] 
 
@@ -23,7 +22,6 @@ $CourseSectionCreateDto = Initialize-PSOpenAPIToolsCourseSectionCreateDto  -Id n
  -Icon null `
  -Description null `
  -CourseID null `
- -BusinessID null `
  -ReleaseDateTime null `
  -HideFromStudents null
 ```

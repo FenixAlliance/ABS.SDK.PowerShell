@@ -25,8 +25,6 @@ No description available.
 No description available.
 .PARAMETER CourseID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER CourseUnitID
 No description available.
 .PARAMETER ReleaseDateTime
@@ -56,11 +54,8 @@ function Initialize-CourseWikiCreateDto {
         ${CourseID},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CourseUnitID},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ReleaseDateTime}
     )
@@ -85,14 +80,6 @@ function Initialize-CourseWikiCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -100,7 +87,6 @@ function Initialize-CourseWikiCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "courseUnitID" = ${CourseUnitID}
             "releaseDateTime" = ${ReleaseDateTime}
         }
@@ -140,7 +126,7 @@ function ConvertFrom-JsonToCourseWikiCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseWikiCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "courseID", "businessID", "courseUnitID", "releaseDateTime")
+        $AllProperties = ("id", "timestamp", "title", "description", "courseID", "courseUnitID", "releaseDateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -161,12 +147,6 @@ function ConvertFrom-JsonToCourseWikiCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -205,7 +185,6 @@ function ConvertFrom-JsonToCourseWikiCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "courseUnitID" = ${CourseUnitID}
             "releaseDateTime" = ${ReleaseDateTime}
         }

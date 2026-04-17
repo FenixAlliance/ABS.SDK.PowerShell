@@ -202,7 +202,7 @@ Creates a new security permission for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SecurityPermissionCreateDto = Initialize-SecurityPermissionCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -Description "MyDescription" # SecurityPermissionCreateDto | 
+$SecurityPermissionCreateDto = Initialize-SecurityPermissionCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # SecurityPermissionCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

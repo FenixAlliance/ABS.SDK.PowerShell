@@ -3,23 +3,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **SocialPostBucketId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SocialMediaPostCreateDto = Initialize-PSOpenAPIToolsSocialMediaPostCreateDto  -Title null `
+$SocialMediaPostCreateDto = Initialize-PSOpenAPIToolsSocialMediaPostCreateDto  -Id null `
+ -Timestamp null `
+ -Title null `
  -Content null `
  -FeaturedImageUrl null `
- -TenantId null `
- -SocialPostBucketId null `
- -EnrollmentId null
+ -SocialPostBucketId null
 ```
 
 - Convert the resource to JSON

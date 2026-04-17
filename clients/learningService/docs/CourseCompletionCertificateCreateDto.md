@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **StudentProfileID** | **String** |  | 
 **CourseEnrollmentID** | **String** |  | 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **CourseCompletionCertificateTemplateID** | **String** |  | [optional] 
 **CourseID** | **String** |  | [optional] 
 
@@ -20,8 +18,6 @@ $CourseCompletionCertificateCreateDto = Initialize-PSOpenAPIToolsCourseCompletio
  -Timestamp null `
  -StudentProfileID null `
  -CourseEnrollmentID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -CourseCompletionCertificateTemplateID null `
  -CourseID null
 ```

@@ -29,7 +29,7 @@ Creates a new fiscal responsibility for a fiscal authority.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalResponsibilityCreateDto = Initialize-FiscalResponsibilityCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalResponsibilityCreateDto |  (optional)
+$FiscalResponsibilityCreateDto = Initialize-FiscalResponsibilityCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalResponsibilityCreateDto |  (optional)
 
 # Create a fiscal responsibility
 try {
@@ -291,7 +291,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalResponsibilityUpdateDto = Initialize-FiscalResponsibilityUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalResponsibilityUpdateDto |  (optional)
+$FiscalResponsibilityUpdateDto = Initialize-FiscalResponsibilityUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalResponsibilityUpdateDto |  (optional)
 
 # Update a fiscal responsibility
 try {

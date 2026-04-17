@@ -28,7 +28,7 @@ Creates a new item tag for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemTagCreateDto = Initialize-ItemTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -BusinessID "MyBusinessID" # ItemTagCreateDto |  (optional)
+$ItemTagCreateDto = Initialize-ItemTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" # ItemTagCreateDto |  (optional)
 
 # Create a new item tag
 try {

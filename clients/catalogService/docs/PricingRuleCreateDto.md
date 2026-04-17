@@ -26,8 +26,6 @@ Name | Type | Description | Notes
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
 **CityID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -55,9 +53,7 @@ $PricingRuleCreateDto = Initialize-PSOpenAPIToolsPricingRuleCreateDto  -Id null 
  -CountryStateID null `
  -CustomState null `
  -CustomCity null `
- -CityID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -CityID null
 ```
 
 - Convert the resource to JSON

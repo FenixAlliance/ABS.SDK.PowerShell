@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Enabled** | **Boolean** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $EmailGroupCreateDto = Initialize-PSOpenAPIToolsEmailGroupCreateDto  -Id null `
  -Timestamp null `
  -Name null `
  -Description null `
- -Enabled null `
- -TenantId null `
- -EnrollmentId null
+ -Enabled null
 ```
 
 - Convert the resource to JSON

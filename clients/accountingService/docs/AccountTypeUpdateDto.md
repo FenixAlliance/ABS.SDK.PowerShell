@@ -5,17 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccountTypeUpdateDto = Initialize-PSOpenAPIToolsAccountTypeUpdateDto  -Name null `
- -Description null `
- -TenantId null `
- -EnrollmentId null
+ -Description null
 ```
 
 - Convert the resource to JSON

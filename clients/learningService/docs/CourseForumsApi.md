@@ -29,7 +29,7 @@ Creates a new course forum for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseForumCreateDto = Initialize-CourseForumCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -BusinessID "MyBusinessID" # CourseForumCreateDto |  (optional)
+$CourseForumCreateDto = Initialize-CourseForumCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" # CourseForumCreateDto |  (optional)
 
 # Create a course forum
 try {

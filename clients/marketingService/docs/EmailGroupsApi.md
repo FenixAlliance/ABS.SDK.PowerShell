@@ -27,7 +27,7 @@ Creates a new email group for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$EmailGroupCreateDto = Initialize-EmailGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # EmailGroupCreateDto | 
+$EmailGroupCreateDto = Initialize-EmailGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Enabled $false # EmailGroupCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing email group by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EmailgroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$EmailGroupUpdateDto = Initialize-EmailGroupUpdateDto -Name "MyName" -Description "MyDescription" -Enabled $false -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # EmailGroupUpdateDto | 
+$EmailGroupUpdateDto = Initialize-EmailGroupUpdateDto -Name "MyName" -Description "MyDescription" -Enabled $false # EmailGroupUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

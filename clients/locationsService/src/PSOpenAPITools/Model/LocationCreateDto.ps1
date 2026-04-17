@@ -43,8 +43,6 @@ No description available.
 No description available.
 .PARAMETER CountryId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Longitude
 No description available.
 .PARAMETER Latitude
@@ -114,33 +112,30 @@ function Initialize-LocationCreateDto {
         [String]
         ${CountryId},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Longitude},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Latitude},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsRoutable},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsGlobalPrimary},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsCountryPrimary},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CanGenerateLabels},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDefaultSenderAddress},
-        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDefaultReturnAddress},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDefaultSuppingLocation}
     )
@@ -165,7 +160,6 @@ function Initialize-LocationCreateDto {
             "stateId" = ${StateId}
             "postalCode" = ${PostalCode}
             "countryId" = ${CountryId}
-            "tenantId" = ${TenantId}
             "longitude" = ${Longitude}
             "latitude" = ${Latitude}
             "isRoutable" = ${IsRoutable}
@@ -212,7 +206,7 @@ function ConvertFrom-JsonToLocationCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationCreateDto
-        $AllProperties = ("id", "timestamp", "title", "email", "phone", "fax", "address1", "address2", "address3", "unit", "cityId", "stateId", "postalCode", "countryId", "tenantId", "longitude", "latitude", "isRoutable", "isGlobalPrimary", "isCountryPrimary", "canGenerateLabels", "isDefaultSenderAddress", "isDefaultReturnAddress", "isDefaultSuppingLocation")
+        $AllProperties = ("id", "timestamp", "title", "email", "phone", "fax", "address1", "address2", "address3", "unit", "cityId", "stateId", "postalCode", "countryId", "longitude", "latitude", "isRoutable", "isGlobalPrimary", "isCountryPrimary", "canGenerateLabels", "isDefaultSenderAddress", "isDefaultReturnAddress", "isDefaultSuppingLocation")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -303,12 +297,6 @@ function ConvertFrom-JsonToLocationCreateDto {
             $CountryId = $JsonParameters.PSobject.Properties["countryId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "longitude"))) { #optional property not found
             $Longitude = $null
         } else {
@@ -378,7 +366,6 @@ function ConvertFrom-JsonToLocationCreateDto {
             "stateId" = ${StateId}
             "postalCode" = ${PostalCode}
             "countryId" = ${CountryId}
-            "tenantId" = ${TenantId}
             "longitude" = ${Longitude}
             "latitude" = ${Latitude}
             "isRoutable" = ${IsRoutable}

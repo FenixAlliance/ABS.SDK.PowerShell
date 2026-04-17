@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **EmisorWalletId** | **String** |  | [optional] 
 **ReceiverWalletId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -58,7 +57,6 @@ Name | Type | Description | Notes
 **AccountingEntryId** | **String** |  | [optional] 
 **PaymentGatewayId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **PaymentTokenId** | **String** |  | [optional] 
 **EmisorWalletAccountId** | **String** |  | [optional] 
@@ -71,7 +69,6 @@ Name | Type | Description | Notes
 $PaymentCreateDto = Initialize-PSOpenAPIToolsPaymentCreateDto  -Id null `
  -Timestamp null `
  -InvoiceId null `
- -TenantId null `
  -EmisorWalletId null `
  -ReceiverWalletId null `
  -CurrencyId null `
@@ -123,7 +120,6 @@ $PaymentCreateDto = Initialize-PSOpenAPIToolsPaymentCreateDto  -Id null `
  -AccountingEntryId null `
  -PaymentGatewayId null `
  -BankAccountId null `
- -EnrollmentId null `
  -BankId null `
  -PaymentTokenId null `
  -EmisorWalletAccountId null `

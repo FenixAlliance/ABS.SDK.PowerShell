@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **EndQuantity** | **Double** |  | [optional] 
 **Percent** | **Double** |  | [optional] 
 **Value** | **Double** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DiscountListId** | **String** |  | [optional] 
 
 ## Examples
@@ -25,8 +23,6 @@ $DiscountCreateDto = Initialize-PSOpenAPIToolsDiscountCreateDto  -Id null `
  -EndQuantity null `
  -Percent null `
  -Value null `
- -TenantId null `
- -EnrollmentId null `
  -DiscountListId null
 ```
 

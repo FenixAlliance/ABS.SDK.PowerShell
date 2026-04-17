@@ -29,7 +29,7 @@ Creates a new course page for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CoursePageCreateDto = Initialize-CoursePageCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Slug "MySlug" -CourseID "MyCourseID" -BusinessID "MyBusinessID" # CoursePageCreateDto |  (optional)
+$CoursePageCreateDto = Initialize-CoursePageCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Slug "MySlug" -CourseID "MyCourseID" # CoursePageCreateDto |  (optional)
 
 # Create a new course page
 try {

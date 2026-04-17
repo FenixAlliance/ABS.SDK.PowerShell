@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **ValidFrom** | **System.DateTime** |  | 
 **ValidTo** | **System.DateTime** |  | 
 **FiscalAuthorityId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DocumentType** | **String** |  | [optional] 
 
 ## Examples
@@ -35,8 +33,6 @@ $InvoiceEnumerationRangeCreateDto = Initialize-PSOpenAPIToolsInvoiceEnumerationR
  -ValidFrom null `
  -ValidTo null `
  -FiscalAuthorityId null `
- -TenantId null `
- -EnrollmentId null `
  -DocumentType null
 ```
 

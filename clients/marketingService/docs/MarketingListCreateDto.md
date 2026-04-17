@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **ModifiedOn** | **System.DateTime** |  | [optional] 
 **LastUsedOn** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **MarketingListType** | **String** |  | [optional] 
 **MarketingListTarget** | **String** |  | [optional] 
 
@@ -34,8 +32,6 @@ $MarketingListCreateDto = Initialize-PSOpenAPIToolsMarketingListCreateDto  -Id n
  -ModifiedOn null `
  -LastUsedOn null `
  -CurrencyId null `
- -TenantId null `
- -EnrollmentId null `
  -MarketingListType null `
  -MarketingListTarget null
 ```

@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
-**TenantId** | **String** |  | 
 **Description** | **String** |  | [optional] 
 
 ## Examples
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 $SecurityRoleCreateDto = Initialize-PSOpenAPIToolsSecurityRoleCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -TenantId null `
  -Description null
 ```
 

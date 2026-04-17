@@ -29,7 +29,7 @@ Creates a new course unit for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseUnitCreateDto = Initialize-CourseUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseID "MyCourseID" -CourseSectionID "MyCourseSectionID" -BusinessID "MyBusinessID" -CourseContentGroupID "MyCourseContentGroupID" -ReleaseDateTime (Get-Date) # CourseUnitCreateDto |  (optional)
+$CourseUnitCreateDto = Initialize-CourseUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseID "MyCourseID" -CourseSectionID "MyCourseSectionID" -CourseContentGroupID "MyCourseContentGroupID" -ReleaseDateTime (Get-Date) # CourseUnitCreateDto |  (optional)
 
 # Create a new course unit
 try {

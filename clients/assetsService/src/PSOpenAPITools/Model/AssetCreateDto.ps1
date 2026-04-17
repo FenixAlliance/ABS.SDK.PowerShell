@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER BusinessId
-No description available.
-.PARAMETER BusinessProfileRecordId
-No description available.
 .PARAMETER Name
 No description available.
 .PARAMETER Description
@@ -75,64 +71,58 @@ function Initialize-AssetCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessId},
+        ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Fixed", "Stock")]
         [String]
         ${AssetClass},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Business", "Organization", "Contact", "Supplier")]
         [String]
         ${AssetOwner},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsExistingAsset},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CalculateDepreciation},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AllowMonthlyDepreciation},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${OpeningDepreciation},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${PurchaseDate},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${PurchasePrice},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ItemId},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AssetCategoryId},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PurchaseInvoiceId},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PurchaseReceiptId},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AssetLocationId},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ContactId},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrganizationDepartmentId}
     )
@@ -145,8 +135,6 @@ function Initialize-AssetCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessId" = ${BusinessId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "name" = ${Name}
             "description" = ${Description}
             "assetClass" = ${AssetClass}
@@ -202,7 +190,7 @@ function ConvertFrom-JsonToAssetCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AssetCreateDto
-        $AllProperties = ("id", "timestamp", "businessId", "businessProfileRecordId", "name", "description", "assetClass", "assetOwner", "isExistingAsset", "calculateDepreciation", "allowMonthlyDepreciation", "openingDepreciation", "purchaseDate", "purchasePrice", "currencyId", "itemId", "assetCategoryId", "purchaseInvoiceId", "purchaseReceiptId", "assetLocationId", "contactId", "organizationDepartmentId")
+        $AllProperties = ("id", "timestamp", "name", "description", "assetClass", "assetOwner", "isExistingAsset", "calculateDepreciation", "allowMonthlyDepreciation", "openingDepreciation", "purchaseDate", "purchasePrice", "currencyId", "itemId", "assetCategoryId", "purchaseInvoiceId", "purchaseReceiptId", "assetLocationId", "contactId", "organizationDepartmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -219,18 +207,6 @@ function ConvertFrom-JsonToAssetCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessId"))) { #optional property not found
-            $BusinessId = $null
-        } else {
-            $BusinessId = $JsonParameters.PSobject.Properties["businessId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordId"))) { #optional property not found
-            $BusinessProfileRecordId = $null
-        } else {
-            $BusinessProfileRecordId = $JsonParameters.PSobject.Properties["businessProfileRecordId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -344,8 +320,6 @@ function ConvertFrom-JsonToAssetCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessId" = ${BusinessId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "name" = ${Name}
             "description" = ${Description}
             "assetClass" = ${AssetClass}

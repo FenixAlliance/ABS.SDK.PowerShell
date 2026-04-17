@@ -29,7 +29,7 @@ Creates a new account group.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountGroupCreateDto = Initialize-AccountGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ParentAccountGroupId "MyParentAccountGroupId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountGroupCreateDto |  (optional)
+$AccountGroupCreateDto = Initialize-AccountGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ParentAccountGroupId "MyParentAccountGroupId" # AccountGroupCreateDto |  (optional)
 
 # Creates a new account group
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountGroupUpdateDto = Initialize-AccountGroupUpdateDto -Title "MyTitle" -Description "MyDescription" -ParentAccountGroupId "MyParentAccountGroupId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountGroupUpdateDto |  (optional)
+$AccountGroupUpdateDto = Initialize-AccountGroupUpdateDto -Title "MyTitle" -Description "MyDescription" -ParentAccountGroupId "MyParentAccountGroupId" # AccountGroupUpdateDto |  (optional)
 
 # Updates an existing account group
 try {

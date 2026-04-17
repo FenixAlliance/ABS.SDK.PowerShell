@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ParentTerritoryID** | **String** |  | [optional] 
@@ -17,8 +15,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTerritoryCreateDto = Initialize-PSOpenAPIToolsTenantTerritoryCreateDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -Name null `
  -Description null `
  -ParentTerritoryID null

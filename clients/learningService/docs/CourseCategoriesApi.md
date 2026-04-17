@@ -29,7 +29,7 @@ Creates a new course category for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCategoryCreateDto = Initialize-CourseCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ImageURL "MyImageURL" -IsFeatured $false -BusinessID "MyBusinessID" # CourseCategoryCreateDto |  (optional)
+$CourseCategoryCreateDto = Initialize-CourseCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ImageURL "MyImageURL" -IsFeatured $false # CourseCategoryCreateDto |  (optional)
 
 # Create a new course category
 try {

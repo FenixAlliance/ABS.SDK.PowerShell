@@ -27,7 +27,7 @@ Creates a new social post bucket for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialPostBucketCreateDto = Initialize-SocialPostBucketCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # SocialPostBucketCreateDto | 
+$SocialPostBucketCreateDto = Initialize-SocialPostBucketCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" # SocialPostBucketCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing social post bucket by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialpostbucketId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialPostBucketUpdateDto = Initialize-SocialPostBucketUpdateDto -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # SocialPostBucketUpdateDto | 
+$SocialPostBucketUpdateDto = Initialize-SocialPostBucketUpdateDto -Name "MyName" # SocialPostBucketUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Instructions** | **String** |  | [optional] 
 **Points** | **Double** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
 **CourseCohortID** | **String** |  | [optional] 
 **CourseAssignmentTypeID** | **String** |  | [optional] 
@@ -29,7 +28,6 @@ $CourseAssignmentCreateDto = Initialize-PSOpenAPIToolsCourseAssignmentCreateDto 
  -Instructions null `
  -Points null `
  -CourseID null `
- -BusinessID null `
  -CourseUnitID null `
  -CourseCohortID null `
  -CourseAssignmentTypeID null `

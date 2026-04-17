@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **BusinessTeamID** | **String** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
 
@@ -12,9 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantTeamContactEnrollmentUpdateDto = Initialize-PSOpenAPIToolsTenantTeamContactEnrollmentUpdateDto  -BusinessID null `
- -BusinessProfileRecordID null `
- -BusinessTeamID null `
+$TenantTeamContactEnrollmentUpdateDto = Initialize-PSOpenAPIToolsTenantTeamContactEnrollmentUpdateDto  -BusinessTeamID null `
  -ContactID null
 ```
 

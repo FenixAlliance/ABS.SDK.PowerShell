@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **AvatarURL** | **String** |  | [optional] 
@@ -20,8 +18,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamUpdateDto = Initialize-PSOpenAPIToolsTenantTeamUpdateDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -Name null `
  -Description null `
  -AvatarURL null `

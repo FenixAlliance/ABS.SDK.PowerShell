@@ -29,7 +29,7 @@ Creates a new ledger type for the current tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$LedgerTypeCreateDto = Initialize-LedgerTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LedgerClass "Assets" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # LedgerTypeCreateDto |  (optional)
+$LedgerTypeCreateDto = Initialize-LedgerTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LedgerClass "Assets" # LedgerTypeCreateDto |  (optional)
 
 # Creates a new ledger type
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LedgerTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$LedgerTypeUpdateDto = Initialize-LedgerTypeUpdateDto -Name "MyName" -LedgerClass "Assets" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # LedgerTypeUpdateDto |  (optional)
+$LedgerTypeUpdateDto = Initialize-LedgerTypeUpdateDto -Name "MyName" -LedgerClass "Assets" # LedgerTypeUpdateDto |  (optional)
 
 # Updates a ledger type
 try {

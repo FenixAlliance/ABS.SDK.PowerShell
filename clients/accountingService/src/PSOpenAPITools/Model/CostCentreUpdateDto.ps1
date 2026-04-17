@@ -23,8 +23,6 @@ No description available.
 No description available.
 .PARAMETER CostCentreType
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER CostCentresGroupId
 No description available.
 .PARAMETER ParentCostCentreId
@@ -52,11 +50,8 @@ function Initialize-CostCentreUpdateDto {
         ${CostCentreType},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CostCentresGroupId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentCostCentreId}
     )
@@ -81,14 +76,6 @@ function Initialize-CostCentreUpdateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$CostCentresGroupId -and $CostCentresGroupId.length -gt 36) {
             throw "invalid value for 'CostCentresGroupId', the character length must be smaller than or equal to 36."
         }
@@ -111,7 +98,6 @@ function Initialize-CostCentreUpdateDto {
             "disabled" = ${Disabled}
             "description" = ${Description}
             "costCentreType" = ${CostCentreType}
-            "tenantId" = ${TenantId}
             "costCentresGroupId" = ${CostCentresGroupId}
             "parentCostCentreId" = ${ParentCostCentreId}
         }
@@ -151,7 +137,7 @@ function ConvertFrom-JsonToCostCentreUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CostCentreUpdateDto
-        $AllProperties = ("name", "disabled", "description", "costCentreType", "tenantId", "costCentresGroupId", "parentCostCentreId")
+        $AllProperties = ("name", "disabled", "description", "costCentreType", "costCentresGroupId", "parentCostCentreId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -182,12 +168,6 @@ function ConvertFrom-JsonToCostCentreUpdateDto {
             $CostCentreType = $JsonParameters.PSobject.Properties["costCentreType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "costCentresGroupId"))) { #optional property not found
             $CostCentresGroupId = $null
         } else {
@@ -205,7 +185,6 @@ function ConvertFrom-JsonToCostCentreUpdateDto {
             "disabled" = ${Disabled}
             "description" = ${Description}
             "costCentreType" = ${CostCentreType}
-            "tenantId" = ${TenantId}
             "costCentresGroupId" = ${CostCentresGroupId}
             "parentCostCentreId" = ${ParentCostCentreId}
         }

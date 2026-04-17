@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Amount** | **Double** |  | [optional] 
 **Date** | **System.DateTime** |  | [optional] 
@@ -18,9 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountingEntryUpdateDto = Initialize-PSOpenAPIToolsAccountingEntryUpdateDto  -TenantId null `
- -EnrollmentId null `
- -Description null `
+$AccountingEntryUpdateDto = Initialize-PSOpenAPIToolsAccountingEntryUpdateDto  -Description null `
  -Amount null `
  -Date null `
  -CurrencyId null `

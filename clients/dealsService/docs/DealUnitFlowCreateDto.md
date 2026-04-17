@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ParentBusinessProcessId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**TenantEnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $DealUnitFlowCreateDto = Initialize-PSOpenAPIToolsDealUnitFlowCreateDto  -Id nul
  -Timestamp null `
  -Name null `
  -Description null `
- -ParentBusinessProcessId null `
- -TenantId null `
- -TenantEnrollmentId null
+ -ParentBusinessProcessId null
 ```
 
 - Convert the resource to JSON

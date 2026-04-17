@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**UserId** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **IndividualId** | **String** |  | [optional] 
@@ -21,9 +22,6 @@ Name | Type | Description | Notes
 **CountryId** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
-**BillingLocationId** | **String** |  | [optional] 
-**ShippingLocationId** | **String** |  | [optional] 
-**ShippingMethodId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
@@ -33,33 +31,30 @@ Name | Type | Description | Notes
 **TotalDiscountsCurrencyId** | **String** |  | [optional] 
 **TotalSurcharges** | **Double** |  | [optional] 
 **TotalSurchargesCurrencyId** | **String** |  | [optional] 
-**TotalShippingTax** | **Double** |  | [optional] 
-**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
 **TotalShippingCost** | **Double** |  | [optional] 
 **TotalShippingCostCurrencyId** | **String** |  | [optional] 
-**TotalGlobalDiscounts** | **Double** |  | [optional] 
-**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
-**TotalGlobalSurcharges** | **Double** |  | [optional] 
-**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalShippingTax** | **Double** |  | [optional] 
+**TotalShippingTaxCurrencyId** | **String** |  | [optional] 
 **TotalWithheldTax** | **Double** |  | [optional] 
 **TotalWithheldTaxCurrencyId** | **String** |  | [optional] 
 **TotalTaxBase** | **Double** |  | [optional] 
 **TotalTaxBaseCurrencyId** | **String** |  | [optional] 
 **TotalTaxes** | **Double** |  | [optional] 
 **TotalTaxesCurrencyId** | **String** |  | [optional] 
+**TotalGlobalSurcharges** | **Double** |  | [optional] 
+**TotalGlobalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalGlobalDiscounts** | **Double** |  | [optional] 
+**TotalGlobalDiscountsCurrencyId** | **String** |  | [optional] 
 **Total** | **Double** |  | [optional] 
 **TotalCurrencyId** | **String** |  | [optional] 
 **CostCalculationMethod** | **String** |  | [optional] 
 **TaxCalculationMethod** | **String** |  | [optional] 
 **PaymentId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **TotalAmount** | **Double** |  | [optional] 
 **TotalAmountInUSD** | **Double** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
-**AccountHolderId** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **ReceiptType** | **String** |  | [optional] 
 **OrderId** | **String** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
@@ -68,8 +63,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Title null `
- -UserId null `
+$ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Id null `
+ -Timestamp null `
+ -Title null `
  -PriceListId null `
  -Description null `
  -IndividualId null `
@@ -86,9 +82,6 @@ $ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Title null `
  -CountryId null `
  -StateId null `
  -CityId null `
- -BillingLocationId null `
- -ShippingLocationId null `
- -ShippingMethodId null `
  -CurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `
@@ -98,33 +91,30 @@ $ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Title null `
  -TotalDiscountsCurrencyId null `
  -TotalSurcharges null `
  -TotalSurchargesCurrencyId null `
- -TotalShippingTax null `
- -TotalShippingTaxCurrencyId null `
  -TotalShippingCost null `
  -TotalShippingCostCurrencyId null `
- -TotalGlobalDiscounts null `
- -TotalGlobalDiscountsCurrencyId null `
- -TotalGlobalSurcharges null `
- -TotalGlobalSurchargesCurrencyId null `
+ -TotalShippingTax null `
+ -TotalShippingTaxCurrencyId null `
  -TotalWithheldTax null `
  -TotalWithheldTaxCurrencyId null `
  -TotalTaxBase null `
  -TotalTaxBaseCurrencyId null `
  -TotalTaxes null `
  -TotalTaxesCurrencyId null `
+ -TotalGlobalSurcharges null `
+ -TotalGlobalSurchargesCurrencyId null `
+ -TotalGlobalDiscounts null `
+ -TotalGlobalDiscountsCurrencyId null `
  -Total null `
  -TotalCurrencyId null `
  -CostCalculationMethod null `
  -TaxCalculationMethod null `
  -PaymentId null `
- -TenantId null `
  -ForexRate null `
  -TotalAmount null `
  -TotalAmountInUSD null `
  -Closed null `
- -AccountHolderId null `
  -ContactId null `
- -EnrollmentId null `
  -ReceiptType null `
  -OrderId null `
  -InvoiceId null

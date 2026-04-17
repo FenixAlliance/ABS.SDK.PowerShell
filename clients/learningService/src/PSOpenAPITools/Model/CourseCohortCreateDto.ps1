@@ -23,8 +23,6 @@ No description available.
 No description available.
 .PARAMETER CourseID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER StartDateTime
 No description available.
 .PARAMETER EndDateTime
@@ -54,18 +52,15 @@ function Initialize-CourseCohortCreateDto {
         [String]
         ${CourseID},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${StartDateTime},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${EndDateTime},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ExpectedStartDateTime},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ExpectedEndDateTime}
     )
@@ -90,21 +85,12 @@ function Initialize-CourseCohortCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "startDateTime" = ${StartDateTime}
             "endDateTime" = ${EndDateTime}
             "expectedStartDateTime" = ${ExpectedStartDateTime}
@@ -146,7 +132,7 @@ function ConvertFrom-JsonToCourseCohortCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseCohortCreateDto
-        $AllProperties = ("id", "timestamp", "name", "courseID", "businessID", "startDateTime", "endDateTime", "expectedStartDateTime", "expectedEndDateTime")
+        $AllProperties = ("id", "timestamp", "name", "courseID", "startDateTime", "endDateTime", "expectedStartDateTime", "expectedEndDateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -167,12 +153,6 @@ function ConvertFrom-JsonToCourseCohortCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -216,7 +196,6 @@ function ConvertFrom-JsonToCourseCohortCreateDto {
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "startDateTime" = ${StartDateTime}
             "endDateTime" = ${EndDateTime}
             "expectedStartDateTime" = ${ExpectedStartDateTime}

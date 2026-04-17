@@ -29,8 +29,6 @@ No description available.
 No description available.
 .PARAMETER CourseID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER CourseUnitID
 No description available.
 .PARAMETER CourseCohortID
@@ -74,23 +72,20 @@ function Initialize-CourseAssignmentCreateDto {
         ${CourseID},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${CourseUnitID},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CourseUnitID},
+        ${CourseCohortID},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CourseCohortID},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CourseAssignmentTypeID},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DueDateTime},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AsignToAllCohorts},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Resources}
     )
@@ -115,14 +110,6 @@ function Initialize-CourseAssignmentCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -132,7 +119,6 @@ function Initialize-CourseAssignmentCreateDto {
             "instructions" = ${Instructions}
             "points" = ${Points}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "courseUnitID" = ${CourseUnitID}
             "courseCohortID" = ${CourseCohortID}
             "courseAssignmentTypeID" = ${CourseAssignmentTypeID}
@@ -176,7 +162,7 @@ function ConvertFrom-JsonToCourseAssignmentCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseAssignmentCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "instructions", "points", "courseID", "businessID", "courseUnitID", "courseCohortID", "courseAssignmentTypeID", "dueDateTime", "asignToAllCohorts", "resources")
+        $AllProperties = ("id", "timestamp", "title", "description", "instructions", "points", "courseID", "courseUnitID", "courseCohortID", "courseAssignmentTypeID", "dueDateTime", "asignToAllCohorts", "resources")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -197,12 +183,6 @@ function ConvertFrom-JsonToCourseAssignmentCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -279,7 +259,6 @@ function ConvertFrom-JsonToCourseAssignmentCreateDto {
             "instructions" = ${Instructions}
             "points" = ${Points}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "courseUnitID" = ${CourseUnitID}
             "courseCohortID" = ${CourseCohortID}
             "courseAssignmentTypeID" = ${CourseAssignmentTypeID}

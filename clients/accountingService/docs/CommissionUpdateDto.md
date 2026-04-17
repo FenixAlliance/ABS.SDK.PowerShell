@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **AddedPercent** | **Double** |  | [optional] 
 **AddedAmount** | **Double** |  | [optional] 
 **TaxComission** | **Double** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **SalaryId** | **String** |  | [optional] 
 **EmisorWalletAccountId** | **String** |  | [optional] 
 **ReceiverWalletAccountId** | **String** |  | [optional] 
@@ -27,8 +25,6 @@ $CommissionUpdateDto = Initialize-PSOpenAPIToolsCommissionUpdateDto  -Title null
  -AddedPercent null `
  -AddedAmount null `
  -TaxComission null `
- -TenantId null `
- -EnrollmentId null `
  -SalaryId null `
  -EmisorWalletAccountId null `
  -ReceiverWalletAccountId null `

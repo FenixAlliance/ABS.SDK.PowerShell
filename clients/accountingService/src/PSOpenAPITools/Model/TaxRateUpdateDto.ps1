@@ -43,8 +43,6 @@ No description available.
 No description available.
 .PARAMETER FiscalYearId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER CountryId
 No description available.
 .PARAMETER TaxClassId
@@ -52,8 +50,6 @@ No description available.
 .PARAMETER CurrencyId
 No description available.
 .PARAMETER TaxPolicyId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -107,22 +103,16 @@ function Initialize-TaxRateUpdateDto {
         ${FiscalYearId},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${CountryId},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CountryId},
+        ${TaxClassId},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TaxClassId},
+        ${CurrencyId},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TaxPolicyId},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${TaxPolicyId}
     )
 
     Process {
@@ -169,14 +159,6 @@ function Initialize-TaxRateUpdateDto {
             throw "invalid value for 'FiscalYearId', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$TaxClassId -and $TaxClassId.length -gt 36) {
             throw "invalid value for 'TaxClassId', the character length must be smaller than or equal to 36."
         }
@@ -191,14 +173,6 @@ function Initialize-TaxRateUpdateDto {
 
         if (!$TaxPolicyId -and $TaxPolicyId.length -lt 0) {
             throw "invalid value for 'TaxPolicyId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
         }
 
 
@@ -217,12 +191,10 @@ function Initialize-TaxRateUpdateDto {
             "cumulativeTransactionThreshold" = ${CumulativeTransactionThreshold}
             "fiscalAuthorityId" = ${FiscalAuthorityId}
             "fiscalYearId" = ${FiscalYearId}
-            "tenantId" = ${TenantId}
             "countryId" = ${CountryId}
             "taxClassId" = ${TaxClassId}
             "currencyId" = ${CurrencyId}
             "taxPolicyId" = ${TaxPolicyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -260,7 +232,7 @@ function ConvertFrom-JsonToTaxRateUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaxRateUpdateDto
-        $AllProperties = ("name", "rate", "value", "um", "unitId", "unitGroupId", "priority", "compound", "shipping", "withholding", "singleTransactionThreshold", "cumulativeTransactionThreshold", "fiscalAuthorityId", "fiscalYearId", "tenantId", "countryId", "taxClassId", "currencyId", "taxPolicyId", "enrollmentId")
+        $AllProperties = ("name", "rate", "value", "um", "unitId", "unitGroupId", "priority", "compound", "shipping", "withholding", "singleTransactionThreshold", "cumulativeTransactionThreshold", "fiscalAuthorityId", "fiscalYearId", "countryId", "taxClassId", "currencyId", "taxPolicyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -351,12 +323,6 @@ function ConvertFrom-JsonToTaxRateUpdateDto {
             $FiscalYearId = $JsonParameters.PSobject.Properties["fiscalYearId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "countryId"))) { #optional property not found
             $CountryId = $null
         } else {
@@ -381,12 +347,6 @@ function ConvertFrom-JsonToTaxRateUpdateDto {
             $TaxPolicyId = $JsonParameters.PSobject.Properties["taxPolicyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "rate" = ${Rate}
@@ -402,12 +362,10 @@ function ConvertFrom-JsonToTaxRateUpdateDto {
             "cumulativeTransactionThreshold" = ${CumulativeTransactionThreshold}
             "fiscalAuthorityId" = ${FiscalAuthorityId}
             "fiscalYearId" = ${FiscalYearId}
-            "tenantId" = ${TenantId}
             "countryId" = ${CountryId}
             "taxClassId" = ${TaxClassId}
             "currencyId" = ${CurrencyId}
             "taxPolicyId" = ${TaxPolicyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

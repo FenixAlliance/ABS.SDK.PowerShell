@@ -43,8 +43,6 @@ No description available.
 No description available.
 .PARAMETER WebPortalID
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 WebPageTagCreateDto<PSCustomObject>
@@ -94,10 +92,7 @@ function Initialize-WebPageTagCreateDto {
         ${Image},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebPortalID},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${WebPortalID}
     )
 
     Process {
@@ -120,7 +115,6 @@ function Initialize-WebPageTagCreateDto {
             "imageURL" = ${ImageURL}
             "image" = ${Image}
             "webPortalID" = ${WebPortalID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -158,7 +152,7 @@ function ConvertFrom-JsonToWebPageTagCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WebPageTagCreateDto
-        $AllProperties = ("id", "timestamp", "slug", "title", "description", "seoTitle", "metaDescription", "cornerstoneContent", "allowSerachEngines", "seoKeyPhrases", "canonicalUrl", "imageURL", "image", "webPortalID", "businessProfileRecordID")
+        $AllProperties = ("id", "timestamp", "slug", "title", "description", "seoTitle", "metaDescription", "cornerstoneContent", "allowSerachEngines", "seoKeyPhrases", "canonicalUrl", "imageURL", "image", "webPortalID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -249,12 +243,6 @@ function ConvertFrom-JsonToWebPageTagCreateDto {
             $WebPortalID = $JsonParameters.PSobject.Properties["webPortalID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -270,7 +258,6 @@ function ConvertFrom-JsonToWebPageTagCreateDto {
             "imageURL" = ${ImageURL}
             "image" = ${Image}
             "webPortalID" = ${WebPortalID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

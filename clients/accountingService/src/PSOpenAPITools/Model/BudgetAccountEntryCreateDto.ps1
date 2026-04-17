@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER Description
 No description available.
 .PARAMETER Date
@@ -57,36 +53,30 @@ function Initialize-BudgetAccountEntryCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Date},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Amount},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DebitAccountId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CreditAccountId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JournalEntryId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("None", "Debit", "Credit")]
         [String]
         ${AccountingEntryType},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BudgetId}
     )
@@ -94,22 +84,6 @@ function Initialize-BudgetAccountEntryCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => BudgetAccountEntryCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 36) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 36."
-        }
 
         if ($null -eq $Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
@@ -143,8 +117,6 @@ function Initialize-BudgetAccountEntryCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "description" = ${Description}
             "date" = ${Date}
             "amount" = ${Amount}
@@ -191,7 +163,7 @@ function ConvertFrom-JsonToBudgetAccountEntryCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BudgetAccountEntryCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "description", "date", "amount", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType", "budgetId")
+        $AllProperties = ("id", "timestamp", "description", "date", "amount", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType", "budgetId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -224,18 +196,6 @@ function ConvertFrom-JsonToBudgetAccountEntryCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
@@ -283,8 +243,6 @@ function ConvertFrom-JsonToBudgetAccountEntryCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "description" = ${Description}
             "date" = ${Date}
             "amount" = ${Amount}

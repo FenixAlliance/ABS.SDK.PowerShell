@@ -29,7 +29,7 @@ Create a new tenant unit
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantUnitCreateDto = Initialize-TenantUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Name "MyName" -Description "MyDescription" -Disabled $false -BusinessUnitQualifiedName "MyBusinessUnitQualifiedName" -CountryID "MyCountryID" -OrganizationProfileID "MyOrganizationProfileID" -ParentBusinessUnitID "MyParentBusinessUnitID" # TenantUnitCreateDto |  (optional)
+$TenantUnitCreateDto = Initialize-TenantUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -BusinessUnitQualifiedName "MyBusinessUnitQualifiedName" -CountryID "MyCountryID" -OrganizationProfileID "MyOrganizationProfileID" -ParentBusinessUnitID "MyParentBusinessUnitID" # TenantUnitCreateDto |  (optional)
 
 # Create a new tenant unit
 try {

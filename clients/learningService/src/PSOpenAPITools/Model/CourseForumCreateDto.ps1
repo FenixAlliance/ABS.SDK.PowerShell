@@ -25,8 +25,6 @@ No description available.
 No description available.
 .PARAMETER CourseID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 CourseForumCreateDto<PSCustomObject>
@@ -49,10 +47,7 @@ function Initialize-CourseForumCreateDto {
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CourseID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${CourseID}
     )
 
     Process {
@@ -75,14 +70,6 @@ function Initialize-CourseForumCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -90,7 +77,6 @@ function Initialize-CourseForumCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -128,7 +114,7 @@ function ConvertFrom-JsonToCourseForumCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseForumCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "courseID", "businessID")
+        $AllProperties = ("id", "timestamp", "title", "description", "courseID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -149,12 +135,6 @@ function ConvertFrom-JsonToCourseForumCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -181,7 +161,6 @@ function ConvertFrom-JsonToCourseForumCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

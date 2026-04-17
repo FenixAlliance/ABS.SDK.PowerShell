@@ -28,7 +28,7 @@ Creates a new item question for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemQuestionCreateDto = Initialize-ItemQuestionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileID "MySocialProfileID" -BusinessID "MyBusinessID" -ItemID "MyItemID" # ItemQuestionCreateDto |  (optional)
+$ItemQuestionCreateDto = Initialize-ItemQuestionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileID "MySocialProfileID" -ItemID "MyItemID" # ItemQuestionCreateDto |  (optional)
 
 # Create a new item question
 try {

@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
 **ItemTitle** | **String** |  | [optional] 
 **ItemShortDescription** | **String** |  | [optional] 
 **ItemPrimaryImageUrl** | **String** |  | [optional] 
 **ShippingPolicyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Quantity** | **Double** |  | [optional] 
@@ -67,14 +67,14 @@ Name | Type | Description | Notes
 **CustomGlobalDiscountsAmountCurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
-**TotalProfit** | **Double** |  | [optional] 
-**TotalProfitCurrencyId** | **String** |  | [optional] 
 **TotalDiscounts** | **Double** |  | [optional] 
 **TotalDiscountsCurrencyId** | **String** |  | [optional] 
-**TotalSurcharges** | **Double** |  | [optional] 
-**TotalSurchargesCurrencyId** | **String** |  | [optional] 
 **TotalTaxBase** | **Double** |  | [optional] 
 **TotalTaxBaseCurrencyId** | **String** |  | [optional] 
+**TotalSurcharges** | **Double** |  | [optional] 
+**TotalSurchargesCurrencyId** | **String** |  | [optional] 
+**TotalProfit** | **Double** |  | [optional] 
+**TotalProfitCurrencyId** | **String** |  | [optional] 
 **TotalShippingCost** | **Double** |  | [optional] 
 **TotalShippingCostCurrencyId** | **String** |  | [optional] 
 **TotalShippingTax** | **Double** |  | [optional] 
@@ -96,7 +96,6 @@ Name | Type | Description | Notes
 **ShippingLocationId** | **String** |  | [optional] 
 **LocationId** | **String** |  | [optional] 
 **QuoteItemRecordId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
 **ParentBillingItemRecordId** | **String** |  | [optional] 
 **DealUnitId** | **String** |  | [optional] 
 
@@ -104,14 +103,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DealUnitLineCreateDto = Initialize-PSOpenAPIToolsDealUnitLineCreateDto  -Closed null `
+$DealUnitLineCreateDto = Initialize-PSOpenAPIToolsDealUnitLineCreateDto  -Id null `
+ -Timestamp null `
+ -Closed null `
  -ItemId null `
  -ItemTitle null `
  -ItemShortDescription null `
  -ItemPrimaryImageUrl null `
  -ShippingPolicyId null `
- -TenantId null `
- -EnrollmentId null `
  -CurrencyId null `
  -Description null `
  -Quantity null `
@@ -168,14 +167,14 @@ $DealUnitLineCreateDto = Initialize-PSOpenAPIToolsDealUnitLineCreateDto  -Closed
  -CustomGlobalDiscountsAmountCurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `
- -TotalProfit null `
- -TotalProfitCurrencyId null `
  -TotalDiscounts null `
  -TotalDiscountsCurrencyId null `
- -TotalSurcharges null `
- -TotalSurchargesCurrencyId null `
  -TotalTaxBase null `
  -TotalTaxBaseCurrencyId null `
+ -TotalSurcharges null `
+ -TotalSurchargesCurrencyId null `
+ -TotalProfit null `
+ -TotalProfitCurrencyId null `
  -TotalShippingCost null `
  -TotalShippingCostCurrencyId null `
  -TotalShippingTax null `
@@ -197,7 +196,6 @@ $DealUnitLineCreateDto = Initialize-PSOpenAPIToolsDealUnitLineCreateDto  -Closed
  -ShippingLocationId null `
  -LocationId null `
  -QuoteItemRecordId null `
- -BusinessProfileRecordId null `
  -ParentBillingItemRecordId null `
  -DealUnitId null
 ```

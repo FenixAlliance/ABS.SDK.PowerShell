@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **AvatarURL** | **String** |  | [optional] 
@@ -12,7 +14,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SocialGroupCreateDto = Initialize-PSOpenAPIToolsSocialGroupCreateDto  -Name null `
+$SocialGroupCreateDto = Initialize-PSOpenAPIToolsSocialGroupCreateDto  -Id null `
+ -Timestamp null `
+ -Name null `
  -Title null `
  -AvatarURL null `
  -SocialProfileID null

@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **NewShareHolderId** | **String** |  | [optional] 
 **FormerShareHolderId** | **String** |  | [optional] 
 **ShareTransferReasonId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $ShareTransferUpdateDto = Initialize-PSOpenAPIToolsShareTransferUpdateDto  -Desc
  -Value null `
  -NewShareHolderId null `
  -FormerShareHolderId null `
- -ShareTransferReasonId null `
- -EnrollmentId null `
- -TenantId null
+ -ShareTransferReasonId null
 ```
 
 - Convert the resource to JSON

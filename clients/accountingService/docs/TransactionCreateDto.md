@@ -16,8 +16,6 @@ Name | Type | Description | Notes
 **UnitId** | **String** |  | [optional] 
 **TransactionCategoryId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -35,9 +33,7 @@ $TransactionCreateDto = Initialize-PSOpenAPIToolsTransactionCreateDto  -Id null 
  -UnitGroupId null `
  -UnitId null `
  -TransactionCategoryId null `
- -CurrencyId null `
- -TenantId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

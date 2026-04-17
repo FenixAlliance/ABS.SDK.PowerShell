@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **ItemID** | **String** |  | [optional] 
 **IsItemMozaicBG** | **Boolean** |  | [optional] 
 **MD5Hash** | **String** |  | [optional] 
@@ -23,7 +21,6 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **SocialProfileID** | **String** |  | [optional] 
 **ParentFileUploadID** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -31,8 +28,6 @@ Name | Type | Description | Notes
 ```powershell
 $ItemImageCreateDto = Initialize-PSOpenAPIToolsItemImageCreateDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -ItemID null `
  -IsItemMozaicBG null `
  -MD5Hash null `
@@ -48,8 +43,7 @@ $ItemImageCreateDto = Initialize-PSOpenAPIToolsItemImageCreateDto  -Id null `
  -FileLength null `
  -ValidResponse null `
  -SocialProfileID null `
- -ParentFileUploadID null `
- -AccountHolderID null
+ -ParentFileUploadID null
 ```
 
 - Convert the resource to JSON

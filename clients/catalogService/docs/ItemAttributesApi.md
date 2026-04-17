@@ -78,7 +78,7 @@ Creates a new item attribute for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemAttributeCreateDto = Initialize-ItemAttributeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -BusinessID "MyBusinessID" # ItemAttributeCreateDto |  (optional)
+$ItemAttributeCreateDto = Initialize-ItemAttributeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # ItemAttributeCreateDto |  (optional)
 
 # Create a new item attribute
 try {

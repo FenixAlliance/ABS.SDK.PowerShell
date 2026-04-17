@@ -29,7 +29,7 @@ Creates a new fiscal year entry for a tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalYearCreateDto = Initialize-FiscalYearCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Closed $false -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -EndDate (Get-Date) -StartDate (Get-Date) # FiscalYearCreateDto |  (optional)
+$FiscalYearCreateDto = Initialize-FiscalYearCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Closed $false -EndDate (Get-Date) -StartDate (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalYearCreateDto |  (optional)
 
 # Create fiscal year
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalYearUpdateDto = Initialize-FiscalYearUpdateDto -Name "MyName" -Description "MyDescription" -Closed $false -EndDate (Get-Date) -StartDate (Get-Date) # FiscalYearUpdateDto |  (optional)
+$FiscalYearUpdateDto = Initialize-FiscalYearUpdateDto -Name "MyName" -Description "MyDescription" -Closed $false -EndDate (Get-Date) -StartDate (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalYearUpdateDto |  (optional)
 
 # Update fiscal year
 try {

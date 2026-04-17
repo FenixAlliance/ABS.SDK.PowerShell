@@ -47,7 +47,7 @@ Creates a new share class.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareClassCreateDto = Initialize-ShareClassCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Value $false -Description "MyDescription" -ForexRates "MyForexRates" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # ShareClassCreateDto |  (optional)
+$ShareClassCreateDto = Initialize-ShareClassCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Value $false -Description "MyDescription" -ForexRates "MyForexRates" -CurrencyId "MyCurrencyId" # ShareClassCreateDto |  (optional)
 
 # Creates a new share class
 try {
@@ -99,7 +99,7 @@ Creates a new share issuance.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareIssuanceCreateDto = Initialize-ShareIssuanceCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -UnitPrice 0 -Quantity 0 -CurrencyId "MyCurrencyId" # ShareIssuanceCreateDto |  (optional)
+$ShareIssuanceCreateDto = Initialize-ShareIssuanceCreateDto -Id "MyId" -Timestamp (Get-Date) -UnitPrice 0 -Quantity 0 -CurrencyId "MyCurrencyId" # ShareIssuanceCreateDto |  (optional)
 
 # Creates a new share issuance
 try {
@@ -151,7 +151,7 @@ Creates a new share transfer.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareTransferCreateDto = Initialize-ShareTransferCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Value 0 -NewShareHolderId "MyNewShareHolderId" -FormerShareHolderId "MyFormerShareHolderId" -ShareTransferReasonId "MyShareTransferReasonId" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # ShareTransferCreateDto |  (optional)
+$ShareTransferCreateDto = Initialize-ShareTransferCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Value 0 -NewShareHolderId "MyNewShareHolderId" -FormerShareHolderId "MyFormerShareHolderId" -ShareTransferReasonId "MyShareTransferReasonId" # ShareTransferCreateDto |  (optional)
 
 # Creates a new share transfer
 try {
@@ -203,7 +203,7 @@ Creates a new share transfer reason.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareTransferReasonCreateDto = Initialize-ShareTransferReasonCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # ShareTransferReasonCreateDto |  (optional)
+$ShareTransferReasonCreateDto = Initialize-ShareTransferReasonCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # ShareTransferReasonCreateDto |  (optional)
 
 # Creates a new share transfer reason
 try {
@@ -1065,7 +1065,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ShareClassId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareClassUpdateDto = Initialize-ShareClassUpdateDto -Name "MyName" -Value $false -Description "MyDescription" -ForexRates "MyForexRates" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # ShareClassUpdateDto |  (optional)
+$ShareClassUpdateDto = Initialize-ShareClassUpdateDto -Name "MyName" -Value $false -Description "MyDescription" -ForexRates "MyForexRates" -CurrencyId "MyCurrencyId" # ShareClassUpdateDto |  (optional)
 
 # Updates an existing share class
 try {
@@ -1120,7 +1120,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $IssuanceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareIssuanceUpdateDto = Initialize-ShareIssuanceUpdateDto -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -UnitPrice 0 -Quantity 0 -CurrencyId "MyCurrencyId" # ShareIssuanceUpdateDto |  (optional)
+$ShareIssuanceUpdateDto = Initialize-ShareIssuanceUpdateDto -UnitPrice 0 -Quantity 0 -CurrencyId "MyCurrencyId" # ShareIssuanceUpdateDto |  (optional)
 
 # Updates an existing share issuance
 try {
@@ -1175,7 +1175,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TransferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareTransferUpdateDto = Initialize-ShareTransferUpdateDto -Description "MyDescription" -Value 0 -NewShareHolderId "MyNewShareHolderId" -FormerShareHolderId "MyFormerShareHolderId" -ShareTransferReasonId "MyShareTransferReasonId" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # ShareTransferUpdateDto |  (optional)
+$ShareTransferUpdateDto = Initialize-ShareTransferUpdateDto -Description "MyDescription" -Value 0 -NewShareHolderId "MyNewShareHolderId" -FormerShareHolderId "MyFormerShareHolderId" -ShareTransferReasonId "MyShareTransferReasonId" # ShareTransferUpdateDto |  (optional)
 
 # Updates an existing share transfer
 try {
@@ -1230,7 +1230,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ReasonId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShareTransferReasonUpdateDto = Initialize-ShareTransferReasonUpdateDto -Name "MyName" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # ShareTransferReasonUpdateDto |  (optional)
+$ShareTransferReasonUpdateDto = Initialize-ShareTransferReasonUpdateDto -Name "MyName" -Description "MyDescription" # ShareTransferReasonUpdateDto |  (optional)
 
 # Updates an existing share transfer reason
 try {

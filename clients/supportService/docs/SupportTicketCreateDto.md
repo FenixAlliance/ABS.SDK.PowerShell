@@ -6,10 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **SupportTicketTypeID** | **String** |  | [optional] 
 **SupportEntitlementID** | **String** |  | [optional] 
 **SupportPriorityID** | **String** |  | [optional] 
@@ -21,10 +18,7 @@ Name | Type | Description | Notes
 $SupportTicketCreateDto = Initialize-PSOpenAPIToolsSupportTicketCreateDto  -Id null `
  -Timestamp null `
  -Description null `
- -AccountHolderID null `
  -ContactID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -SupportTicketTypeID null `
  -SupportEntitlementID null `
  -SupportPriorityID null

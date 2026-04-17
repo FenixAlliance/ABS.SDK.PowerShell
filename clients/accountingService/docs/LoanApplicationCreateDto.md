@@ -5,17 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $LoanApplicationCreateDto = Initialize-PSOpenAPIToolsLoanApplicationCreateDto  -Id null `
- -Timestamp null `
- -TenantId null `
- -EnrollmentId null
+ -Timestamp null
 ```
 
 - Convert the resource to JSON

@@ -78,7 +78,7 @@ Creates a new item category for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemCategoryCreateDto = Initialize-ItemCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ImageURL "MyImageURL" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -ParentItemCategoryID "MyParentItemCategoryID" # ItemCategoryCreateDto |  (optional)
+$ItemCategoryCreateDto = Initialize-ItemCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ImageURL "MyImageURL" -ParentItemCategoryID "MyParentItemCategoryID" # ItemCategoryCreateDto |  (optional)
 
 # Create a new item category
 try {

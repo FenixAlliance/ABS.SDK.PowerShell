@@ -29,7 +29,7 @@ Creates a new payment mode for the current tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PaymentModeCreateDto = Initialize-PaymentModeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # PaymentModeCreateDto |  (optional)
+$PaymentModeCreateDto = Initialize-PaymentModeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # PaymentModeCreateDto |  (optional)
 
 # Creates a new payment mode
 try {

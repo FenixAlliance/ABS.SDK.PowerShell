@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Code** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **FiscalAuthorityId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $FiscalResponsibilityUpdateDto = Initialize-PSOpenAPIToolsFiscalResponsibilityUpdateDto  -Code null `
  -Name null `
- -FiscalAuthorityId null `
- -TenantId null `
- -EnrollmentId null
+ -FiscalAuthorityId null
 ```
 
 - Convert the resource to JSON

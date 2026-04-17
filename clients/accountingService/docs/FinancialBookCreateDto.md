@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
-**TenantID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,8 +15,7 @@ Name | Type | Description | Notes
 $FinancialBookCreateDto = Initialize-PSOpenAPIToolsFinancialBookCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -Description null `
- -TenantID null
+ -Description null
 ```
 
 - Convert the resource to JSON

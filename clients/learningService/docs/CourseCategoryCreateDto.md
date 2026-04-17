@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **IsFeatured** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -20,8 +19,7 @@ $CourseCategoryCreateDto = Initialize-PSOpenAPIToolsCourseCategoryCreateDto  -Id
  -Title null `
  -Description null `
  -ImageURL null `
- -IsFeatured null `
- -BusinessID null
+ -IsFeatured null
 ```
 
 - Convert the resource to JSON

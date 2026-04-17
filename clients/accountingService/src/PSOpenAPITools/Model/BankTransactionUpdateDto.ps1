@@ -37,10 +37,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER BankProfileId
 No description available.
 .PARAMETER BankAccountId
@@ -88,14 +84,8 @@ function Initialize-BankTransactionUpdateDto {
         ${CurrencyId},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${BankProfileId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankAccountId}
     )
@@ -144,22 +134,6 @@ function Initialize-BankTransactionUpdateDto {
             throw "invalid value for 'TransactionCategoryId', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
         if (!$BankProfileId -and $BankProfileId.length -gt 36) {
             throw "invalid value for 'BankProfileId', the character length must be smaller than or equal to 36."
         }
@@ -189,8 +163,6 @@ function Initialize-BankTransactionUpdateDto {
             "unitId" = ${UnitId}
             "transactionCategoryId" = ${TransactionCategoryId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "bankProfileId" = ${BankProfileId}
             "bankAccountId" = ${BankAccountId}
         }
@@ -230,7 +202,7 @@ function ConvertFrom-JsonToBankTransactionUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BankTransactionUpdateDto
-        $AllProperties = ("description", "price", "quantity", "externalDescription", "basisQuantity", "basisAmount", "percent", "unitGroupId", "unitId", "transactionCategoryId", "currencyId", "tenantId", "enrollmentId", "bankProfileId", "bankAccountId")
+        $AllProperties = ("description", "price", "quantity", "externalDescription", "basisQuantity", "basisAmount", "percent", "unitGroupId", "unitId", "transactionCategoryId", "currencyId", "bankProfileId", "bankAccountId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -303,18 +275,6 @@ function ConvertFrom-JsonToBankTransactionUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "bankProfileId"))) { #optional property not found
             $BankProfileId = $null
         } else {
@@ -339,8 +299,6 @@ function ConvertFrom-JsonToBankTransactionUpdateDto {
             "unitId" = ${UnitId}
             "transactionCategoryId" = ${TransactionCategoryId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "bankProfileId" = ${BankProfileId}
             "bankAccountId" = ${BankAccountId}
         }

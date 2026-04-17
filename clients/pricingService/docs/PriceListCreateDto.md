@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **CurrencyId** | **String** |  | [optional] 
 **UnitId** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,9 +25,7 @@ $PriceListCreateDto = Initialize-PSOpenAPIToolsPriceListCreateDto  -Id null `
  -EndDate null `
  -CurrencyId null `
  -UnitId null `
- -UnitGroupId null `
- -TenantId null `
- -EnrollmentId null
+ -UnitGroupId null
 ```
 
 - Convert the resource to JSON

@@ -15,10 +15,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER BusinessTeamID
 No description available.
 .OUTPUTS
@@ -31,12 +27,6 @@ function Initialize-TenantTeamRecordUpdateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${BusinessTeamID}
     )
 
@@ -46,8 +36,6 @@ function Initialize-TenantTeamRecordUpdateDto {
 
 
         $PSO = [PSCustomObject]@{
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessTeamID" = ${BusinessTeamID}
         }
 
@@ -86,23 +74,11 @@ function ConvertFrom-JsonToTenantTeamRecordUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantTeamRecordUpdateDto
-        $AllProperties = ("businessID", "businessProfileRecordID", "businessTeamID")
+        $AllProperties = ("businessTeamID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessTeamID"))) { #optional property not found
@@ -112,8 +88,6 @@ function ConvertFrom-JsonToTenantTeamRecordUpdateDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessTeamID" = ${BusinessTeamID}
         }
 

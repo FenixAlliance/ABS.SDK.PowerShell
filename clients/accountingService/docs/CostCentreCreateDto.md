@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Disabled** | **Boolean** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **CostCentreType** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **CostCentresGroupId** | **String** |  | [optional] 
 **ParentCostCentreId** | **String** |  | [optional] 
 
@@ -23,7 +22,6 @@ $CostCentreCreateDto = Initialize-PSOpenAPIToolsCostCentreCreateDto  -Id null `
  -Disabled null `
  -Description null `
  -CostCentreType null `
- -TenantId null `
  -CostCentresGroupId null `
  -ParentCostCentreId null
 ```

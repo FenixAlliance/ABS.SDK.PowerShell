@@ -29,7 +29,7 @@ Creates a new course wiki for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseWikiCreateDto = Initialize-CourseWikiCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -BusinessID "MyBusinessID" -CourseUnitID "MyCourseUnitID" -ReleaseDateTime (Get-Date) # CourseWikiCreateDto |  (optional)
+$CourseWikiCreateDto = Initialize-CourseWikiCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -ReleaseDateTime (Get-Date) # CourseWikiCreateDto |  (optional)
 
 # Create a new course wiki
 try {

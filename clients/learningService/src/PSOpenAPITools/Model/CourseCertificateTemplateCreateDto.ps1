@@ -21,13 +21,9 @@ No description available.
 No description available.
 .PARAMETER CourseID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER WebPortalID
 No description available.
 .PARAMETER WebsiteThemeID
-No description available.
-.PARAMETER BusinessProfileRecordID
 No description available.
 .PARAMETER SocialProfileID
 No description available.
@@ -54,23 +50,17 @@ function Initialize-CourseCertificateTemplateCreateDto {
         ${CourseID},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${WebPortalID},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebPortalID},
+        ${WebsiteThemeID},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebsiteThemeID},
+        ${SocialProfileID},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SocialProfileID},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ParentWebContentID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentWebContentVersionID}
     )
@@ -91,27 +81,13 @@ function Initialize-CourseCertificateTemplateCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 36."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "webPortalID" = ${WebPortalID}
             "websiteThemeID" = ${WebsiteThemeID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "socialProfileID" = ${SocialProfileID}
             "parentWebContentID" = ${ParentWebContentID}
             "parentWebContentVersionID" = ${ParentWebContentVersionID}
@@ -152,7 +128,7 @@ function ConvertFrom-JsonToCourseCertificateTemplateCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseCertificateTemplateCreateDto
-        $AllProperties = ("id", "timestamp", "courseID", "businessID", "webPortalID", "websiteThemeID", "businessProfileRecordID", "socialProfileID", "parentWebContentID", "parentWebContentVersionID")
+        $AllProperties = ("id", "timestamp", "courseID", "webPortalID", "websiteThemeID", "socialProfileID", "parentWebContentID", "parentWebContentVersionID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -167,12 +143,6 @@ function ConvertFrom-JsonToCourseCertificateTemplateCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -199,12 +169,6 @@ function ConvertFrom-JsonToCourseCertificateTemplateCreateDto {
             $WebsiteThemeID = $JsonParameters.PSobject.Properties["websiteThemeID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileID"))) { #optional property not found
             $SocialProfileID = $null
         } else {
@@ -227,10 +191,8 @@ function ConvertFrom-JsonToCourseCertificateTemplateCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "courseID" = ${CourseID}
-            "businessID" = ${BusinessID}
             "webPortalID" = ${WebPortalID}
             "websiteThemeID" = ${WebsiteThemeID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "socialProfileID" = ${SocialProfileID}
             "parentWebContentID" = ${ParentWebContentID}
             "parentWebContentVersionID" = ${ParentWebContentVersionID}

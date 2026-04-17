@@ -19,8 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Type
 No description available.
 .PARAMETER FirstName
@@ -116,128 +114,125 @@ function Initialize-ContactCreateDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Individual", "Organization")]
         [String]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FirstName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LastName},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TaxId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PrimaryContactId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${QualifiedName},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${About},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CountryId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StateId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CityId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${MobilePhone},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BusinessPhone},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [ValidatePattern("^[\w\s-]{3,10}$")]
         [String]
         ${PostalCode},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Duns},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JobTitle},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${WebUrl},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LanguageId},
-        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TimezoneId},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Birthday},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StreetLine1},
-        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StreetLine2},
-        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${GitHubUrl},
-        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TwitchUrl},
-        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RedditUrl},
-        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TikTokUrl},
-        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${WebsiteUrl},
-        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TwitterUrl},
-        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FacebookUrl},
-        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${YouTubeUrl},
-        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LinkedInUrl},
-        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${InstagramUrl},
-        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${GithubUsername},
-        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${InstagramUsername},
-        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TikTokUsername},
-        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StackExchangeUrl},
-        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StackOverflowUrl},
-        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentContactId},
-        [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FaxNumber}
     )
@@ -245,14 +240,6 @@ function Initialize-ContactCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => ContactCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $TenantId) {
-            throw "invalid value for 'TenantId', 'TenantId' cannot be null."
-        }
-
-        if ($TenantId.length -lt 1) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 1."
-        }
 
         if ($null -eq $Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
@@ -322,7 +309,6 @@ function Initialize-ContactCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "type" = ${Type}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}
@@ -400,7 +386,7 @@ function ConvertFrom-JsonToContactCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ContactCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "type", "firstName", "lastName", "email", "taxId", "primaryContactId", "qualifiedName", "about", "countryId", "stateId", "cityId", "mobilePhone", "businessPhone", "postalCode", "duns", "jobTitle", "webUrl", "currencyId", "languageId", "timezoneId", "birthday", "streetLine1", "streetLine2", "gitHubUrl", "twitchUrl", "redditUrl", "tikTokUrl", "websiteUrl", "twitterUrl", "facebookUrl", "youTubeUrl", "linkedInUrl", "instagramUrl", "githubUsername", "instagramUsername", "tikTokUsername", "stackExchangeUrl", "stackOverflowUrl", "parentContactId", "faxNumber")
+        $AllProperties = ("id", "timestamp", "type", "firstName", "lastName", "email", "taxId", "primaryContactId", "qualifiedName", "about", "countryId", "stateId", "cityId", "mobilePhone", "businessPhone", "postalCode", "duns", "jobTitle", "webUrl", "currencyId", "languageId", "timezoneId", "birthday", "streetLine1", "streetLine2", "gitHubUrl", "twitchUrl", "redditUrl", "tikTokUrl", "websiteUrl", "twitterUrl", "facebookUrl", "youTubeUrl", "linkedInUrl", "instagramUrl", "githubUsername", "instagramUsername", "tikTokUsername", "stackExchangeUrl", "stackOverflowUrl", "parentContactId", "faxNumber")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -408,13 +394,7 @@ function ConvertFrom-JsonToContactCreateDto {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'tenantId' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'tenantId' missing."
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
@@ -672,7 +652,6 @@ function ConvertFrom-JsonToContactCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "type" = ${Type}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Content** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
 **CourseSectionID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **CourseContentGroupID** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
@@ -25,7 +24,6 @@ $CourseUnitCreateDto = Initialize-PSOpenAPIToolsCourseUnitCreateDto  -Id null `
  -Content null `
  -CourseID null `
  -CourseSectionID null `
- -BusinessID null `
  -CourseContentGroupID null `
  -ReleaseDateTime null
 ```

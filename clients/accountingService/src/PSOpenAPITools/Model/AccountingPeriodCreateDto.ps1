@@ -21,10 +21,6 @@ No description available.
 No description available.
 .PARAMETER Name
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER DateStart
 No description available.
 .PARAMETER DateEnd
@@ -47,15 +43,9 @@ function Initialize-AccountingPeriodCreateDto {
         [String]
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DateStart},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DateEnd}
     )
@@ -72,29 +62,11 @@ function Initialize-AccountingPeriodCreateDto {
             throw "invalid value for 'Name', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "dateStart" = ${DateStart}
             "dateEnd" = ${DateEnd}
         }
@@ -134,7 +106,7 @@ function ConvertFrom-JsonToAccountingPeriodCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountingPeriodCreateDto
-        $AllProperties = ("id", "timestamp", "name", "tenantId", "enrollmentId", "dateStart", "dateEnd")
+        $AllProperties = ("id", "timestamp", "name", "dateStart", "dateEnd")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -159,18 +131,6 @@ function ConvertFrom-JsonToAccountingPeriodCreateDto {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateStart"))) { #optional property not found
             $DateStart = $null
         } else {
@@ -187,8 +147,6 @@ function ConvertFrom-JsonToAccountingPeriodCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "dateStart" = ${DateStart}
             "dateEnd" = ${DateEnd}
         }

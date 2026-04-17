@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **StartDateTime** | **System.DateTime** |  | [optional] 
 **EndDateTime** | **System.DateTime** |  | [optional] 
 **ExpectedStartDateTime** | **System.DateTime** |  | [optional] 
@@ -21,7 +20,6 @@ $CourseCohortCreateDto = Initialize-PSOpenAPIToolsCourseCohortCreateDto  -Id nul
  -Timestamp null `
  -Name null `
  -CourseID null `
- -BusinessID null `
  -StartDateTime null `
  -EndDateTime null `
  -ExpectedStartDateTime null `

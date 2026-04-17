@@ -19,8 +19,6 @@ No description available.
 No description available.
 .PARAMETER ParentBusinessIndustryID
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 TenantIndustryUpdateDto<PSCustomObject>
@@ -34,10 +32,7 @@ function Initialize-TenantIndustryUpdateDto {
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ParentBusinessIndustryID},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${ParentBusinessIndustryID}
     )
 
     Process {
@@ -48,7 +43,6 @@ function Initialize-TenantIndustryUpdateDto {
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "parentBusinessIndustryID" = ${ParentBusinessIndustryID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -86,7 +80,7 @@ function ConvertFrom-JsonToTenantIndustryUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantIndustryUpdateDto
-        $AllProperties = ("name", "parentBusinessIndustryID", "businessProfileRecordID")
+        $AllProperties = ("name", "parentBusinessIndustryID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -105,16 +99,9 @@ function ConvertFrom-JsonToTenantIndustryUpdateDto {
             $ParentBusinessIndustryID = $JsonParameters.PSobject.Properties["parentBusinessIndustryID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "parentBusinessIndustryID" = ${ParentBusinessIndustryID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

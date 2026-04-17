@@ -25,8 +25,6 @@ No description available.
 No description available.
 .PARAMETER StudentProfileID
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER CourseCompletionCertificateID
 No description available.
 .OUTPUTS
@@ -54,9 +52,6 @@ function Initialize-CourseEnrollmentCreateDto {
         ${StudentProfileID},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CourseCompletionCertificateID}
     )
 
@@ -71,7 +66,6 @@ function Initialize-CourseEnrollmentCreateDto {
             "courseID" = ${CourseID}
             "courseCohortID" = ${CourseCohortID}
             "studentProfileID" = ${StudentProfileID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "courseCompletionCertificateID" = ${CourseCompletionCertificateID}
         }
 
@@ -110,7 +104,7 @@ function ConvertFrom-JsonToCourseEnrollmentCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseEnrollmentCreateDto
-        $AllProperties = ("id", "timestamp", "courseID", "courseCohortID", "studentProfileID", "businessProfileRecordID", "courseCompletionCertificateID")
+        $AllProperties = ("id", "timestamp", "courseID", "courseCohortID", "studentProfileID", "courseCompletionCertificateID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,12 +141,6 @@ function ConvertFrom-JsonToCourseEnrollmentCreateDto {
             $StudentProfileID = $JsonParameters.PSobject.Properties["studentProfileID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "courseCompletionCertificateID"))) { #optional property not found
             $CourseCompletionCertificateID = $null
         } else {
@@ -165,7 +153,6 @@ function ConvertFrom-JsonToCourseEnrollmentCreateDto {
             "courseID" = ${CourseID}
             "courseCohortID" = ${CourseCohortID}
             "studentProfileID" = ${StudentProfileID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "courseCompletionCertificateID" = ${CourseCompletionCertificateID}
         }
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **OverallScore** | **Double** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
 **CourseGradingRubricID** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
@@ -24,7 +23,6 @@ $CourseProblemSetCreateDto = Initialize-PSOpenAPIToolsCourseProblemSetCreateDto 
  -Description null `
  -OverallScore null `
  -CourseID null `
- -BusinessID null `
  -CourseUnitID null `
  -CourseGradingRubricID null `
  -ReleaseDateTime null

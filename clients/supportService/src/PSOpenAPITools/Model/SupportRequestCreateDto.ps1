@@ -27,15 +27,9 @@ No description available.
 No description available.
 .PARAMETER ApprovedTimestamp
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER SupportEntitlementID
 No description available.
 .PARAMETER ContactID
-No description available.
-.PARAMETER AccountHolderID
 No description available.
 .OUTPUTS
 
@@ -65,19 +59,10 @@ function Initialize-SupportRequestCreateDto {
         ${ApprovedTimestamp},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${SupportEntitlementID},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SupportEntitlementID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ContactID},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountHolderID}
+        ${ContactID}
     )
 
     Process {
@@ -112,11 +97,8 @@ function Initialize-SupportRequestCreateDto {
             "description" = ${Description}
             "approved" = ${Approved}
             "approvedTimestamp" = ${ApprovedTimestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "supportEntitlementID" = ${SupportEntitlementID}
             "contactID" = ${ContactID}
-            "accountHolderID" = ${AccountHolderID}
         }
 
 
@@ -154,7 +136,7 @@ function ConvertFrom-JsonToSupportRequestCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SupportRequestCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "approved", "approvedTimestamp", "businessID", "businessProfileRecordID", "supportEntitlementID", "contactID", "accountHolderID")
+        $AllProperties = ("id", "timestamp", "title", "description", "approved", "approvedTimestamp", "supportEntitlementID", "contactID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -201,18 +183,6 @@ function ConvertFrom-JsonToSupportRequestCreateDto {
             $ApprovedTimestamp = $JsonParameters.PSobject.Properties["approvedTimestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "supportEntitlementID"))) { #optional property not found
             $SupportEntitlementID = $null
         } else {
@@ -225,12 +195,6 @@ function ConvertFrom-JsonToSupportRequestCreateDto {
             $ContactID = $JsonParameters.PSobject.Properties["contactID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountHolderID"))) { #optional property not found
-            $AccountHolderID = $null
-        } else {
-            $AccountHolderID = $JsonParameters.PSobject.Properties["accountHolderID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -238,11 +202,8 @@ function ConvertFrom-JsonToSupportRequestCreateDto {
             "description" = ${Description}
             "approved" = ${Approved}
             "approvedTimestamp" = ${ApprovedTimestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "supportEntitlementID" = ${SupportEntitlementID}
             "contactID" = ${ContactID}
-            "accountHolderID" = ${AccountHolderID}
         }
 
         return $PSO

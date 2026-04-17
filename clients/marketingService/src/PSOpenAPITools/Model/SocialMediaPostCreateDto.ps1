@@ -15,17 +15,17 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER Title
 No description available.
 .PARAMETER Content
 No description available.
 .PARAMETER FeaturedImageUrl
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER SocialPostBucketId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -37,22 +37,22 @@ function Initialize-SocialMediaPostCreateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Title},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Content},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FeaturedImageUrl},
+        ${Title},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${Content},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SocialPostBucketId},
+        ${FeaturedImageUrl},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId}
+        ${SocialPostBucketId}
     )
 
     Process {
@@ -67,14 +67,6 @@ function Initialize-SocialMediaPostCreateDto {
             throw "invalid value for 'Title', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$SocialPostBucketId -and $SocialPostBucketId.length -gt 36) {
             throw "invalid value for 'SocialPostBucketId', the character length must be smaller than or equal to 36."
         }
@@ -83,22 +75,14 @@ function Initialize-SocialMediaPostCreateDto {
             throw "invalid value for 'SocialPostBucketId', the character length must be great than or equal to 0."
         }
 
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "title" = ${Title}
             "content" = ${Content}
             "featuredImageUrl" = ${FeaturedImageUrl}
-            "tenantId" = ${TenantId}
             "socialPostBucketId" = ${SocialPostBucketId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -136,11 +120,23 @@ function ConvertFrom-JsonToSocialMediaPostCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialMediaPostCreateDto
-        $AllProperties = ("title", "content", "featuredImageUrl", "tenantId", "socialPostBucketId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "title", "content", "featuredImageUrl", "socialPostBucketId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) { #optional property not found
@@ -161,31 +157,19 @@ function ConvertFrom-JsonToSocialMediaPostCreateDto {
             $FeaturedImageUrl = $JsonParameters.PSobject.Properties["featuredImageUrl"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialPostBucketId"))) { #optional property not found
             $SocialPostBucketId = $null
         } else {
             $SocialPostBucketId = $JsonParameters.PSobject.Properties["socialPostBucketId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "title" = ${Title}
             "content" = ${Content}
             "featuredImageUrl" = ${FeaturedImageUrl}
-            "tenantId" = ${TenantId}
             "socialPostBucketId" = ${SocialPostBucketId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

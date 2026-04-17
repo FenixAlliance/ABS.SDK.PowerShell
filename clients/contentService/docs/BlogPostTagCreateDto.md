@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **ImageURL** | **String** |  | [optional] 
 **Image** | **String** |  | [optional] 
 **WebPortalID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -39,9 +37,7 @@ $BlogPostTagCreateDto = Initialize-PSOpenAPIToolsBlogPostTagCreateDto  -Id null 
  -CanonicalUrl null `
  -ImageURL null `
  -Image null `
- -WebPortalID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -WebPortalID null
 ```
 
 - Convert the resource to JSON

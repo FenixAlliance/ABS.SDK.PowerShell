@@ -55,7 +55,7 @@ Creates a new asset for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetCreateDto = Initialize-AssetCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessId "MyBusinessId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -Name "MyName" -Description "MyDescription" -AssetClass "Fixed" -AssetOwner "Business" -IsExistingAsset $false -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -ItemId "MyItemId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetCreateDto |  (optional)
+$AssetCreateDto = Initialize-AssetCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AssetClass "Fixed" -AssetOwner "Business" -IsExistingAsset $false -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -ItemId "MyItemId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetCreateDto |  (optional)
 
 # Creates a new asset
 try {
@@ -101,7 +101,7 @@ Creates a new asset category for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetCategoryCreateDto = Initialize-AssetCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessId "MyBusinessId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -Name "MyName" -Description "MyDescription" # AssetCategoryCreateDto |  (optional)
+$AssetCategoryCreateDto = Initialize-AssetCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # AssetCategoryCreateDto |  (optional)
 
 # Creates a new asset category
 try {
@@ -149,7 +149,7 @@ Creates a new depreciation record for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetDepreciationRecordCreateDto = Initialize-AssetDepreciationRecordCreateDto -AssetId "MyAssetId" -AssetDepreciationPolicyId "MyAssetDepreciationPolicyId" -DepreciationAmount 0 -AccumulatedDepreciation 0 -BookValue 0 -DepreciationDate (Get-Date) -Year 0 -Month 0 # AssetDepreciationRecordCreateDto |  (optional)
+$AssetDepreciationRecordCreateDto = Initialize-AssetDepreciationRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -AssetId "MyAssetId" -AssetDepreciationPolicyId "MyAssetDepreciationPolicyId" -DepreciationAmount 0 -AccumulatedDepreciation 0 -BookValue 0 -DepreciationDate (Get-Date) -Year 0 -Month 0 # AssetDepreciationRecordCreateDto |  (optional)
 
 # Creates a new depreciation record for an asset
 try {
@@ -247,7 +247,7 @@ Creates a new transfer record for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetTransferCreateDto = Initialize-AssetTransferCreateDto -AssetId "MyAssetId" -IsRootTransfer $false -SerialList "MySerialList" -Quantity "MyQuantity" -Serial "MySerial" -PreviousAssetTransferId "MyPreviousAssetTransferId" -SourceLocationId "MySourceLocationId" -DestinationLocationId "MyDestinationLocationId" -SourceContactId "MySourceContactId" -DestinationContactId "MyDestinationContactId" -SourceDepartmentId "MySourceDepartmentId" -DestinationDepartmentId "MyDestinationDepartmentId" # AssetTransferCreateDto |  (optional)
+$AssetTransferCreateDto = Initialize-AssetTransferCreateDto -Id "MyId" -Timestamp (Get-Date) -AssetId "MyAssetId" -IsRootTransfer $false -SerialList "MySerialList" -Quantity "MyQuantity" -Serial "MySerial" -PreviousAssetTransferId "MyPreviousAssetTransferId" -SourceLocationId "MySourceLocationId" -DestinationLocationId "MyDestinationLocationId" -SourceContactId "MySourceContactId" -DestinationContactId "MyDestinationContactId" -SourceDepartmentId "MySourceDepartmentId" -DestinationDepartmentId "MyDestinationDepartmentId" # AssetTransferCreateDto |  (optional)
 
 # Creates a new transfer for an asset
 try {

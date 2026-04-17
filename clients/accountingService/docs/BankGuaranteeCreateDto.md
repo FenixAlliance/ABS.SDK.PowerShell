@@ -14,9 +14,7 @@ Name | Type | Description | Notes
 **StartDate** | **System.DateTime** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **ValidityInDays** | **Int32** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **BankGuaranteeType** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
 **ProjectId** | **String** |  | [optional] 
 **OrderId** | **String** |  | [optional] 
@@ -39,9 +37,7 @@ $BankGuaranteeCreateDto = Initialize-PSOpenAPIToolsBankGuaranteeCreateDto  -Id n
  -StartDate null `
  -EndDate null `
  -ValidityInDays null `
- -TenantId null `
  -BankGuaranteeType null `
- -EnrollmentId null `
  -ContactId null `
  -ProjectId null `
  -OrderId null `

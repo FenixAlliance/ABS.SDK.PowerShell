@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **GoogleCategoryTaxonomy** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
 **ItemCategoryID** | **String** |  | 
 **ItemGoogleCategoryID** | **String** |  | [optional] 
 
@@ -25,7 +24,6 @@ $ItemTypeCreateDto = Initialize-PSOpenAPIToolsItemTypeCreateDto  -Id null `
  -Description null `
  -ImageURL null `
  -GoogleCategoryTaxonomy null `
- -BusinessID null `
  -ItemCategoryID null `
  -ItemGoogleCategoryID null
 ```

@@ -33,10 +33,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER MarketingListType
 No description available.
 .PARAMETER MarketingListTarget
@@ -77,16 +73,10 @@ function Initialize-MarketingListUpdateDto {
         [String]
         ${CurrencyId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Static", "Dynamic")]
         [String]
         ${MarketingListType},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Individual", "Organization", "Lead")]
         [String]
         ${MarketingListTarget}
@@ -107,8 +97,6 @@ function Initialize-MarketingListUpdateDto {
             "modifiedOn" = ${ModifiedOn}
             "lastUsedOn" = ${LastUsedOn}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "marketingListType" = ${MarketingListType}
             "marketingListTarget" = ${MarketingListTarget}
         }
@@ -148,7 +136,7 @@ function ConvertFrom-JsonToMarketingListUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MarketingListUpdateDto
-        $AllProperties = ("locked", "name", "purpose", "description", "source", "cost", "modifiedOn", "lastUsedOn", "currencyId", "tenantId", "enrollmentId", "marketingListType", "marketingListTarget")
+        $AllProperties = ("locked", "name", "purpose", "description", "source", "cost", "modifiedOn", "lastUsedOn", "currencyId", "marketingListType", "marketingListTarget")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -209,18 +197,6 @@ function ConvertFrom-JsonToMarketingListUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "marketingListType"))) { #optional property not found
             $MarketingListType = $null
         } else {
@@ -243,8 +219,6 @@ function ConvertFrom-JsonToMarketingListUpdateDto {
             "modifiedOn" = ${ModifiedOn}
             "lastUsedOn" = ${LastUsedOn}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "marketingListType" = ${MarketingListType}
             "marketingListTarget" = ${MarketingListTarget}
         }

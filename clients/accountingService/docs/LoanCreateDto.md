@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **IsCompundInterestRate** | **Boolean** |  | [optional] 
 **LoanTypeId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,9 +25,7 @@ $LoanCreateDto = Initialize-PSOpenAPIToolsLoanCreateDto  -Id null `
  -InterestRate null `
  -IsCompundInterestRate null `
  -LoanTypeId null `
- -CurrencyId null `
- -TenantId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

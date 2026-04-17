@@ -34,7 +34,7 @@ Creates a new support ticket for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketCreateDto = Initialize-SupportTicketCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -AccountHolderID "MyAccountHolderID" -ContactID "MyContactID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketCreateDto |  (optional)
+$SupportTicketCreateDto = Initialize-SupportTicketCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -ContactID "MyContactID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketCreateDto |  (optional)
 
 # Create a new support ticket
 try {
@@ -568,7 +568,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportTicketId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketUpdateDto = Initialize-SupportTicketUpdateDto -Description "MyDescription" -AccountHolderID "MyAccountHolderID" -ContactID "MyContactID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketUpdateDto |  (optional)
+$SupportTicketUpdateDto = Initialize-SupportTicketUpdateDto -Description "MyDescription" -ContactID "MyContactID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketUpdateDto |  (optional)
 
 # Update a support ticket
 try {

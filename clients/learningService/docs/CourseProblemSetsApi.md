@@ -29,7 +29,7 @@ Creates a new course problem set for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseProblemSetCreateDto = Initialize-CourseProblemSetCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseID "MyCourseID" -BusinessID "MyBusinessID" -CourseUnitID "MyCourseUnitID" -CourseGradingRubricID "MyCourseGradingRubricID" -ReleaseDateTime (Get-Date) # CourseProblemSetCreateDto |  (optional)
+$CourseProblemSetCreateDto = Initialize-CourseProblemSetCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -CourseGradingRubricID "MyCourseGradingRubricID" -ReleaseDateTime (Get-Date) # CourseProblemSetCreateDto |  (optional)
 
 # Create a new course problem set
 try {

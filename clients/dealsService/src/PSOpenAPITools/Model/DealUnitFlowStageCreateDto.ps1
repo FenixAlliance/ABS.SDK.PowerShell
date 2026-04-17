@@ -25,11 +25,7 @@ No description available.
 No description available.
 .PARAMETER DealUnitFlowId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Description
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER ParentBusinessProcessStageId
 No description available.
@@ -58,14 +54,8 @@ function Initialize-DealUnitFlowStageCreateDto {
         ${DealUnitFlowId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentBusinessProcessStageId}
     )
@@ -81,9 +71,7 @@ function Initialize-DealUnitFlowStageCreateDto {
             "order" = ${Order}
             "name" = ${Name}
             "dealUnitFlowId" = ${DealUnitFlowId}
-            "tenantId" = ${TenantId}
             "description" = ${Description}
-            "enrollmentId" = ${EnrollmentId}
             "parentBusinessProcessStageId" = ${ParentBusinessProcessStageId}
         }
 
@@ -122,7 +110,7 @@ function ConvertFrom-JsonToDealUnitFlowStageCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DealUnitFlowStageCreateDto
-        $AllProperties = ("id", "timestamp", "order", "name", "dealUnitFlowId", "tenantId", "description", "enrollmentId", "parentBusinessProcessStageId")
+        $AllProperties = ("id", "timestamp", "order", "name", "dealUnitFlowId", "description", "parentBusinessProcessStageId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -159,22 +147,10 @@ function ConvertFrom-JsonToDealUnitFlowStageCreateDto {
             $DealUnitFlowId = $JsonParameters.PSobject.Properties["dealUnitFlowId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentBusinessProcessStageId"))) { #optional property not found
@@ -189,9 +165,7 @@ function ConvertFrom-JsonToDealUnitFlowStageCreateDto {
             "order" = ${Order}
             "name" = ${Name}
             "dealUnitFlowId" = ${DealUnitFlowId}
-            "tenantId" = ${TenantId}
             "description" = ${Description}
-            "enrollmentId" = ${EnrollmentId}
             "parentBusinessProcessStageId" = ${ParentBusinessProcessStageId}
         }
 

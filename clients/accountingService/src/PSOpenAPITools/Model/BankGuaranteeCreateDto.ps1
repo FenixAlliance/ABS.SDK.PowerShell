@@ -37,11 +37,7 @@ No description available.
 No description available.
 .PARAMETER ValidityInDays
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER BankGuaranteeType
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER ContactId
 No description available.
@@ -97,31 +93,25 @@ function Initialize-BankGuaranteeCreateDto {
         [System.Nullable[Int32]]
         ${ValidityInDays},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Receiving", "Providing")]
         [String]
         ${BankGuaranteeType},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ContactId},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProjectId},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderId},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankProfileId},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankAccountId},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId}
     )
@@ -129,22 +119,6 @@ function Initialize-BankGuaranteeCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => BankGuaranteeCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
 
         if (!$ContactId -and $ContactId.length -gt 36) {
             throw "invalid value for 'ContactId', the character length must be smaller than or equal to 36."
@@ -199,9 +173,7 @@ function Initialize-BankGuaranteeCreateDto {
             "startDate" = ${StartDate}
             "endDate" = ${EndDate}
             "validityInDays" = ${ValidityInDays}
-            "tenantId" = ${TenantId}
             "bankGuaranteeType" = ${BankGuaranteeType}
-            "enrollmentId" = ${EnrollmentId}
             "contactId" = ${ContactId}
             "projectId" = ${ProjectId}
             "orderId" = ${OrderId}
@@ -245,7 +217,7 @@ function ConvertFrom-JsonToBankGuaranteeCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BankGuaranteeCreateDto
-        $AllProperties = ("id", "timestamp", "margin", "charges", "beneficiaryName", "guaranteeNumber", "guaranteeConditions", "fixedDepositNumber", "startDate", "endDate", "validityInDays", "tenantId", "bankGuaranteeType", "enrollmentId", "contactId", "projectId", "orderId", "bankProfileId", "bankAccountId", "currencyId")
+        $AllProperties = ("id", "timestamp", "margin", "charges", "beneficiaryName", "guaranteeNumber", "guaranteeConditions", "fixedDepositNumber", "startDate", "endDate", "validityInDays", "bankGuaranteeType", "contactId", "projectId", "orderId", "bankProfileId", "bankAccountId", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -318,22 +290,10 @@ function ConvertFrom-JsonToBankGuaranteeCreateDto {
             $ValidityInDays = $JsonParameters.PSobject.Properties["validityInDays"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "bankGuaranteeType"))) { #optional property not found
             $BankGuaranteeType = $null
         } else {
             $BankGuaranteeType = $JsonParameters.PSobject.Properties["bankGuaranteeType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactId"))) { #optional property not found
@@ -384,9 +344,7 @@ function ConvertFrom-JsonToBankGuaranteeCreateDto {
             "startDate" = ${StartDate}
             "endDate" = ${EndDate}
             "validityInDays" = ${ValidityInDays}
-            "tenantId" = ${TenantId}
             "bankGuaranteeType" = ${BankGuaranteeType}
-            "enrollmentId" = ${EnrollmentId}
             "contactId" = ${ContactId}
             "projectId" = ${ProjectId}
             "orderId" = ${OrderId}

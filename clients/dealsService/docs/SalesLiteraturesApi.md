@@ -69,7 +69,7 @@ Creates a new sales literature for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SalesLiteratureCreateDto = Initialize-SalesLiteratureCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureCreateDto |  (optional)
+$SalesLiteratureCreateDto = Initialize-SalesLiteratureCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureCreateDto |  (optional)
 
 # Create a sales literature
 try {
@@ -295,7 +295,7 @@ Updates an existing sales literature by its unique identifier.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SalesLiteratureUpdateDto = Initialize-SalesLiteratureUpdateDto -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureUpdateDto |  (optional)
+$SalesLiteratureUpdateDto = Initialize-SalesLiteratureUpdateDto -Title "MyTitle" -Content "MyContent" -Description "MyDescription" -ModifiedDate (Get-Date) -ExpirationDate (Get-Date) -SalesLiteratureTypeId "MySalesLiteratureTypeId" # SalesLiteratureUpdateDto |  (optional)
 
 # Update a sales literature
 try {

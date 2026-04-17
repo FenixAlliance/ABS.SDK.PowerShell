@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **ExpectedResponsePercent** | **Double** |  | [optional] 
 **MarketingAreaId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -41,9 +39,7 @@ $MarketingCampaignCreateDto = Initialize-PSOpenAPIToolsMarketingCampaignCreateDt
  -MiscCost null `
  -ExpectedResponsePercent null `
  -MarketingAreaId null `
- -CurrencyId null `
- -TenantId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

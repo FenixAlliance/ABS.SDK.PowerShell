@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,8 +15,7 @@ Name | Type | Description | Notes
 $SupportTicketTypeCreateDto = Initialize-PSOpenAPIToolsSupportTicketTypeCreateDto  -Id null `
  -Timestamp null `
  -Title null `
- -Description null `
- -BusinessID null
+ -Description null
 ```
 
 - Convert the resource to JSON

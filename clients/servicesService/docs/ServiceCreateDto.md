@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **Pattern** | **String** |  | [optional] 
 **Features** | **String** |  | [optional] 
 **Material** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **Permalink** | **String** |  | [optional] 
 **BrandName** | **String** |  | [optional] 
 **Variations** | **String** |  | [optional] 
@@ -202,7 +201,6 @@ $ServiceCreateDto = Initialize-PSOpenAPIToolsServiceCreateDto  -Id null `
  -Pattern null `
  -Features null `
  -Material null `
- -TenantId null `
  -Permalink null `
  -BrandName null `
  -Variations null `

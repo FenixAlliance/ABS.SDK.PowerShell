@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Disabled
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER OrganizationProfileID
 No description available.
 .PARAMETER ParentDepartmentID
@@ -46,11 +44,8 @@ function Initialize-TenantDepartmentUpdateDto {
         ${Disabled},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${OrganizationProfileID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentDepartmentID}
     )
@@ -64,7 +59,6 @@ function Initialize-TenantDepartmentUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "disabled" = ${Disabled}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "organizationProfileID" = ${OrganizationProfileID}
             "parentDepartmentID" = ${ParentDepartmentID}
         }
@@ -104,7 +98,7 @@ function ConvertFrom-JsonToTenantDepartmentUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantDepartmentUpdateDto
-        $AllProperties = ("name", "description", "disabled", "businessProfileRecordID", "organizationProfileID", "parentDepartmentID")
+        $AllProperties = ("name", "description", "disabled", "organizationProfileID", "parentDepartmentID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,12 +123,6 @@ function ConvertFrom-JsonToTenantDepartmentUpdateDto {
             $Disabled = $JsonParameters.PSobject.Properties["disabled"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "organizationProfileID"))) { #optional property not found
             $OrganizationProfileID = $null
         } else {
@@ -151,7 +139,6 @@ function ConvertFrom-JsonToTenantDepartmentUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "disabled" = ${Disabled}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "organizationProfileID" = ${OrganizationProfileID}
             "parentDepartmentID" = ${ParentDepartmentID}
         }

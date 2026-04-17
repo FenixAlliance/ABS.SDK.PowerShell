@@ -61,10 +61,6 @@ No description available.
 No description available.
 .PARAMETER CityID
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 PricingRuleCreateDto<PSCustomObject>
@@ -141,13 +137,7 @@ function Initialize-PricingRuleCreateDto {
         ${CustomCity},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CityID},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${CityID}
     )
 
     Process {
@@ -179,8 +169,6 @@ function Initialize-PricingRuleCreateDto {
             "customState" = ${CustomState}
             "customCity" = ${CustomCity}
             "cityID" = ${CityID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -218,7 +206,7 @@ function ConvertFrom-JsonToPricingRuleCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PricingRuleCreateDto
-        $AllProperties = ("id", "timestamp", "code", "title", "description", "isFree", "reduce", "isEnabled", "isDefault", "allowInternational", "hours", "days", "weeks", "months", "years", "value", "percentage", "currencyID", "countryID", "countryStateID", "customState", "customCity", "cityID", "businessID", "businessProfileRecordID")
+        $AllProperties = ("id", "timestamp", "code", "title", "description", "isFree", "reduce", "isEnabled", "isDefault", "allowInternational", "hours", "days", "weeks", "months", "years", "value", "percentage", "currencyID", "countryID", "countryStateID", "customState", "customCity", "cityID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -363,18 +351,6 @@ function ConvertFrom-JsonToPricingRuleCreateDto {
             $CityID = $JsonParameters.PSobject.Properties["cityID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -399,8 +375,6 @@ function ConvertFrom-JsonToPricingRuleCreateDto {
             "customState" = ${CustomState}
             "customCity" = ${CustomCity}
             "cityID" = ${CityID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

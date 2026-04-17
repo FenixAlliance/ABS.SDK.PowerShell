@@ -29,7 +29,7 @@ Creates a new payment term for the current tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PaymentTermCreateDto = Initialize-PaymentTermCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -IsTemplate $false -Percentage 0 -CreditDays 0 -CreditWeeks 0 -CreditMonths 0 -CreditYears 0 -PaymentModeID "MyPaymentModeID" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # PaymentTermCreateDto |  (optional)
+$PaymentTermCreateDto = Initialize-PaymentTermCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -IsTemplate $false -Percentage 0 -CreditDays 0 -CreditWeeks 0 -CreditMonths 0 -CreditYears 0 -PaymentModeID "MyPaymentModeID" # PaymentTermCreateDto |  (optional)
 
 # Creates a new payment term
 try {

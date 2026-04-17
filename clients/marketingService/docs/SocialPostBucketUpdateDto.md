@@ -4,16 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SocialPostBucketUpdateDto = Initialize-PSOpenAPIToolsSocialPostBucketUpdateDto  -Name null `
- -TenantId null `
- -EnrollmentId null
+$SocialPostBucketUpdateDto = Initialize-PSOpenAPIToolsSocialPostBucketUpdateDto  -Name null
 ```
 
 - Convert the resource to JSON

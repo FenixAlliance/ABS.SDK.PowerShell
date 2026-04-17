@@ -31,7 +31,7 @@ Creates a new deal unit flow for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitFlowCreateDto = Initialize-DealUnitFlowCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" -TenantId "MyTenantId" -TenantEnrollmentId "MyTenantEnrollmentId" # DealUnitFlowCreateDto |  (optional)
+$DealUnitFlowCreateDto = Initialize-DealUnitFlowCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" # DealUnitFlowCreateDto |  (optional)
 
 # Create a deal unit flow
 try {
@@ -79,7 +79,7 @@ Creates a new stage within a specific deal unit flow.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitFlowStageCreateDto = Initialize-DealUnitFlowStageCreateDto -Id "MyId" -Timestamp (Get-Date) -Order 0 -Name "MyName" -DealUnitFlowId "MyDealUnitFlowId" -TenantId "MyTenantId" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -ParentBusinessProcessStageId "MyParentBusinessProcessStageId" # DealUnitFlowStageCreateDto |  (optional)
+$DealUnitFlowStageCreateDto = Initialize-DealUnitFlowStageCreateDto -Id "MyId" -Timestamp (Get-Date) -Order 0 -Name "MyName" -DealUnitFlowId "MyDealUnitFlowId" -Description "MyDescription" -ParentBusinessProcessStageId "MyParentBusinessProcessStageId" # DealUnitFlowStageCreateDto |  (optional)
 
 # Create a deal unit flow stage
 try {
@@ -496,7 +496,7 @@ Updates an existing deal unit flow by its unique identifier.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitFlowUpdateDto = Initialize-DealUnitFlowUpdateDto -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" -TenantId "MyTenantId" -TenantEnrollmentId "MyTenantEnrollmentId" # DealUnitFlowUpdateDto |  (optional)
+$DealUnitFlowUpdateDto = Initialize-DealUnitFlowUpdateDto -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" -TenantEnrollmentId "MyTenantEnrollmentId" # DealUnitFlowUpdateDto |  (optional)
 
 # Update a deal unit flow
 try {
@@ -547,7 +547,7 @@ Updates an existing stage within a specific deal unit flow.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowStageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitFlowStageUpdateDto = Initialize-DealUnitFlowStageUpdateDto -Order 0 -Name "MyName" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -DealUnitFlowId "MyDealUnitFlowId" -ParentBusinessProcessStageId "MyParentBusinessProcessStageId" # DealUnitFlowStageUpdateDto |  (optional)
+$DealUnitFlowStageUpdateDto = Initialize-DealUnitFlowStageUpdateDto -Order 0 -Name "MyName" -Description "MyDescription" -DealUnitFlowId "MyDealUnitFlowId" -ParentBusinessProcessStageId "MyParentBusinessProcessStageId" # DealUnitFlowStageUpdateDto |  (optional)
 
 # Update a deal unit flow stage
 try {

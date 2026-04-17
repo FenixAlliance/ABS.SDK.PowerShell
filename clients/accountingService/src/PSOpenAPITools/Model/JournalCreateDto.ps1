@@ -25,10 +25,6 @@ No description available.
 No description available.
 .PARAMETER DateTime
 No description available.
-.PARAMETER TenantID
-No description available.
-.PARAMETER EnrollmentID
-No description available.
 .PARAMETER ParentJournalID
 No description available.
 .PARAMETER JournalTypeID
@@ -60,17 +56,11 @@ function Initialize-JournalCreateDto {
         ${DateTime},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantID},
+        ${ParentJournalID},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentID},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ParentJournalID},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${JournalTypeID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LedgerID}
     )
@@ -97,22 +87,6 @@ function Initialize-JournalCreateDto {
 
         if (!$Description -and $Description.length -lt 1) {
             throw "invalid value for 'Description', the character length must be great than or equal to 1."
-        }
-
-        if (!$TenantID -and $TenantID.length -gt 36) {
-            throw "invalid value for 'TenantID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantID -and $TenantID.length -lt 0) {
-            throw "invalid value for 'TenantID', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentID -and $EnrollmentID.length -gt 36) {
-            throw "invalid value for 'EnrollmentID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentID -and $EnrollmentID.length -lt 0) {
-            throw "invalid value for 'EnrollmentID', the character length must be great than or equal to 0."
         }
 
         if (!$ParentJournalID -and $ParentJournalID.length -gt 36) {
@@ -146,8 +120,6 @@ function Initialize-JournalCreateDto {
             "name" = ${Name}
             "description" = ${Description}
             "dateTime" = ${DateTime}
-            "tenantID" = ${TenantID}
-            "enrollmentID" = ${EnrollmentID}
             "parentJournalID" = ${ParentJournalID}
             "journalTypeID" = ${JournalTypeID}
             "ledgerID" = ${LedgerID}
@@ -188,7 +160,7 @@ function ConvertFrom-JsonToJournalCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "dateTime", "tenantID", "enrollmentID", "parentJournalID", "journalTypeID", "ledgerID")
+        $AllProperties = ("id", "timestamp", "name", "description", "dateTime", "parentJournalID", "journalTypeID", "ledgerID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -229,18 +201,6 @@ function ConvertFrom-JsonToJournalCreateDto {
             $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantID"))) { #optional property not found
-            $TenantID = $null
-        } else {
-            $TenantID = $JsonParameters.PSobject.Properties["tenantID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentID"))) { #optional property not found
-            $EnrollmentID = $null
-        } else {
-            $EnrollmentID = $JsonParameters.PSobject.Properties["enrollmentID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentJournalID"))) { #optional property not found
             $ParentJournalID = $null
         } else {
@@ -265,8 +225,6 @@ function ConvertFrom-JsonToJournalCreateDto {
             "name" = ${Name}
             "description" = ${Description}
             "dateTime" = ${DateTime}
-            "tenantID" = ${TenantID}
-            "enrollmentID" = ${EnrollmentID}
             "parentJournalID" = ${ParentJournalID}
             "journalTypeID" = ${JournalTypeID}
             "ledgerID" = ${LedgerID}

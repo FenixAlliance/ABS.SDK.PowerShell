@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **CompanyName** | **String** |  | [optional] 
@@ -47,7 +46,6 @@ Name | Type | Description | Notes
 **UserId** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **IndividualId** | **String** |  | [optional] 
 **OrganizationId** | **String** |  | [optional] 
 **TotalAmountInUsd** | **Double** |  | [optional] 
@@ -66,8 +64,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -TenantId null `
- -FirstName null `
+$OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -FirstName null `
  -LastName null `
  -CompanyName null `
  -BillingEmail null `
@@ -110,7 +107,6 @@ $OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -TenantId null `
  -UserId null `
  -ForexRate null `
  -CurrencyId null `
- -EnrollmentId null `
  -IndividualId null `
  -OrganizationId null `
  -TotalAmountInUsd null `

@@ -25,13 +25,11 @@ No description available.
 No description available.
 .PARAMETER Closed
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER EndDate
 No description available.
 .PARAMETER StartDate
+No description available.
+.PARAMETER FiscalAuthorityId
 No description available.
 .OUTPUTS
 
@@ -57,17 +55,14 @@ function Initialize-FiscalYearCreateDto {
         [System.Nullable[Boolean]]
         ${Closed},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${EndDate},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${StartDate}
+        ${StartDate},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FiscalAuthorityId}
     )
 
     Process {
@@ -81,10 +76,9 @@ function Initialize-FiscalYearCreateDto {
             "name" = ${Name}
             "description" = ${Description}
             "closed" = ${Closed}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "endDate" = ${EndDate}
             "startDate" = ${StartDate}
+            "fiscalAuthorityId" = ${FiscalAuthorityId}
         }
 
 
@@ -122,7 +116,7 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in FiscalYearCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "closed", "tenantId", "enrollmentId", "endDate", "startDate")
+        $AllProperties = ("id", "timestamp", "name", "description", "closed", "endDate", "startDate", "fiscalAuthorityId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -159,18 +153,6 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
             $Closed = $JsonParameters.PSobject.Properties["closed"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "endDate"))) { #optional property not found
             $EndDate = $null
         } else {
@@ -183,16 +165,21 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
             $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalAuthorityId"))) { #optional property not found
+            $FiscalAuthorityId = $null
+        } else {
+            $FiscalAuthorityId = $JsonParameters.PSobject.Properties["fiscalAuthorityId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
             "closed" = ${Closed}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "endDate" = ${EndDate}
             "startDate" = ${StartDate}
+            "fiscalAuthorityId" = ${FiscalAuthorityId}
         }
 
         return $PSO

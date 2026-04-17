@@ -31,7 +31,7 @@ Creates a new discount list for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountListCreateDto = Initialize-DiscountListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # DiscountListCreateDto |  (optional)
+$DiscountListCreateDto = Initialize-DiscountListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CurrencyId "MyCurrencyId" # DiscountListCreateDto |  (optional)
 
 # Creates a new discount list
 try {
@@ -79,7 +79,7 @@ Creates a new discount entry in the specified discount list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountCreateDto = Initialize-DiscountCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DiscountListId "MyDiscountListId" # DiscountCreateDto |  (optional)
+$DiscountCreateDto = Initialize-DiscountCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -DiscountListId "MyDiscountListId" # DiscountCreateDto |  (optional)
 
 # Creates a discount list entry
 try {
@@ -496,7 +496,7 @@ Updates the specified discount list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountListUpdateDto = Initialize-DiscountListUpdateDto -Name "MyName" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # DiscountListUpdateDto |  (optional)
+$DiscountListUpdateDto = Initialize-DiscountListUpdateDto -Name "MyName" -CurrencyId "MyCurrencyId" # DiscountListUpdateDto |  (optional)
 
 # Updates a discount list
 try {
@@ -547,7 +547,7 @@ Updates the specified discount entry in a discount list.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListEntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountUpdateDto = Initialize-DiscountUpdateDto -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DiscountListId "MyDiscountListId" # DiscountUpdateDto |  (optional)
+$DiscountUpdateDto = Initialize-DiscountUpdateDto -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -DiscountListId "MyDiscountListId" # DiscountUpdateDto |  (optional)
 
 # Updates a discount list entry
 try {

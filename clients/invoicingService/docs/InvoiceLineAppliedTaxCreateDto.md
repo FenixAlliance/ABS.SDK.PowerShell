@@ -5,10 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,10 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $InvoiceLineAppliedTaxCreateDto = Initialize-PSOpenAPIToolsInvoiceLineAppliedTaxCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
  -InvoiceId null `
- -TaxPolicyId null `
- -EnrollmentId null
+ -TaxPolicyId null
 ```
 
 - Convert the resource to JSON

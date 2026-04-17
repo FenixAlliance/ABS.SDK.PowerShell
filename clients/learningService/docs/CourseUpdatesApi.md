@@ -29,7 +29,7 @@ Creates a new course update for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseNewsCreateDto = Initialize-CourseNewsCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseID "MyCourseID" -BusinessID "MyBusinessID" # CourseNewsCreateDto |  (optional)
+$CourseNewsCreateDto = Initialize-CourseNewsCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseID "MyCourseID" # CourseNewsCreateDto |  (optional)
 
 # Create a new course update
 try {

@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER Title
 No description available.
 .PARAMETER Code
@@ -55,33 +51,27 @@ function Initialize-EmailTemplateCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${Title},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Title},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Code},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Published},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${HtmlContent},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FeaturedImageUrl},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
         [String]
         ${CodeType},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${MarketingCampaignId}
     )
@@ -102,8 +92,6 @@ function Initialize-EmailTemplateCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "title" = ${Title}
             "code" = ${Code}
             "published" = ${Published}
@@ -149,7 +137,7 @@ function ConvertFrom-JsonToEmailTemplateCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EmailTemplateCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "title", "code", "published", "description", "htmlContent", "featuredImageUrl", "codeType", "marketingCampaignId")
+        $AllProperties = ("id", "timestamp", "title", "code", "published", "description", "htmlContent", "featuredImageUrl", "codeType", "marketingCampaignId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -166,18 +154,6 @@ function ConvertFrom-JsonToEmailTemplateCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) { #optional property not found
@@ -231,8 +207,6 @@ function ConvertFrom-JsonToEmailTemplateCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "title" = ${Title}
             "code" = ${Code}
             "published" = ${Published}

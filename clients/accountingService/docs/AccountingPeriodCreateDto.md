@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DateStart** | **System.DateTime** |  | [optional] 
 **DateEnd** | **System.DateTime** |  | [optional] 
 
@@ -18,8 +16,6 @@ Name | Type | Description | Notes
 $AccountingPeriodCreateDto = Initialize-PSOpenAPIToolsAccountingPeriodCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -TenantId null `
- -EnrollmentId null `
  -DateStart null `
  -DateEnd null
 ```

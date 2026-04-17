@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **FromDate** | **System.DateTime** |  | [optional] 
 **ToDate** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **FiscalYearId** | **String** |  | [optional] 
 
 ## Examples
@@ -21,8 +19,6 @@ $FiscalPeriodCreateDto = Initialize-PSOpenAPIToolsFiscalPeriodCreateDto  -Id nul
  -Name null `
  -FromDate null `
  -ToDate null `
- -TenantId null `
- -EnrollmentId null `
  -FiscalYearId null
 ```
 

@@ -91,17 +91,11 @@ No description available.
 No description available.
 .PARAMETER Data9Label
 No description available.
-.PARAMETER AccountHolderID
-No description available.
 .PARAMETER IndividualID
 No description available.
 .PARAMETER OrganizationID
 No description available.
 .PARAMETER ReceiverBusinessID
-No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
 No description available.
 .PARAMETER PaymentTokenID
 No description available.
@@ -233,29 +227,20 @@ function Initialize-SupportEntitlementUpdateDto {
         ${Data9Label},
         [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountHolderID},
+        ${IndividualID},
         [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${IndividualID},
+        ${OrganizationID},
         [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${OrganizationID},
+        ${ReceiverBusinessID},
         [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ReceiverBusinessID},
+        ${PaymentTokenID},
         [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${PaymentTokenID},
-        [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${WalletAccountID},
-        [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SecurityCertificateID}
     )
@@ -304,12 +289,9 @@ function Initialize-SupportEntitlementUpdateDto {
             "data8Label" = ${Data8Label}
             "data9" = ${Data9}
             "data9Label" = ${Data9Label}
-            "accountHolderID" = ${AccountHolderID}
             "individualID" = ${IndividualID}
             "organizationID" = ${OrganizationID}
             "receiverBusinessID" = ${ReceiverBusinessID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "paymentTokenID" = ${PaymentTokenID}
             "walletAccountID" = ${WalletAccountID}
             "securityCertificateID" = ${SecurityCertificateID}
@@ -350,7 +332,7 @@ function ConvertFrom-JsonToSupportEntitlementUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SupportEntitlementUpdateDto
-        $AllProperties = ("title", "description", "endDateTime", "nextInvoiceDateTime", "code", "signature", "quantity", "repetitions", "chargeAttempts", "freeTrialInDays", "gracePeriodInDays", "customRenewalPeriod", "enableAutomaticRenew", "enableProRateBilling", "enableUsageThreshold", "enableAutomaticDisable", "enableAutomaticPayments", "usageThreshold", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "accountHolderID", "individualID", "organizationID", "receiverBusinessID", "businessID", "businessProfileRecordID", "paymentTokenID", "walletAccountID", "securityCertificateID")
+        $AllProperties = ("title", "description", "endDateTime", "nextInvoiceDateTime", "code", "signature", "quantity", "repetitions", "chargeAttempts", "freeTrialInDays", "gracePeriodInDays", "customRenewalPeriod", "enableAutomaticRenew", "enableProRateBilling", "enableUsageThreshold", "enableAutomaticDisable", "enableAutomaticPayments", "usageThreshold", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "individualID", "organizationID", "receiverBusinessID", "paymentTokenID", "walletAccountID", "securityCertificateID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -585,12 +567,6 @@ function ConvertFrom-JsonToSupportEntitlementUpdateDto {
             $Data9Label = $JsonParameters.PSobject.Properties["data9Label"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountHolderID"))) { #optional property not found
-            $AccountHolderID = $null
-        } else {
-            $AccountHolderID = $JsonParameters.PSobject.Properties["accountHolderID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "individualID"))) { #optional property not found
             $IndividualID = $null
         } else {
@@ -607,18 +583,6 @@ function ConvertFrom-JsonToSupportEntitlementUpdateDto {
             $ReceiverBusinessID = $null
         } else {
             $ReceiverBusinessID = $JsonParameters.PSobject.Properties["receiverBusinessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "paymentTokenID"))) { #optional property not found
@@ -678,12 +642,9 @@ function ConvertFrom-JsonToSupportEntitlementUpdateDto {
             "data8Label" = ${Data8Label}
             "data9" = ${Data9}
             "data9Label" = ${Data9Label}
-            "accountHolderID" = ${AccountHolderID}
             "individualID" = ${IndividualID}
             "organizationID" = ${OrganizationID}
             "receiverBusinessID" = ${ReceiverBusinessID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "paymentTokenID" = ${PaymentTokenID}
             "walletAccountID" = ${WalletAccountID}
             "securityCertificateID" = ${SecurityCertificateID}

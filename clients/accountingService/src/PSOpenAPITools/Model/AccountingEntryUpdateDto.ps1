@@ -15,10 +15,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER Description
 No description available.
 .PARAMETER Amount
@@ -45,32 +41,26 @@ function Initialize-AccountingEntryUpdateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Amount},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Date},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DebitAccountId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CreditAccountId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JournalEntryId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("None", "Debit", "Credit")]
         [String]
         ${AccountingEntryType}
@@ -79,22 +69,6 @@ function Initialize-AccountingEntryUpdateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => AccountingEntryUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 36) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 36."
-        }
 
         if (!$Description -and $Description.length -gt 1000) {
             throw "invalid value for 'Description', the character length must be smaller than or equal to 1000."
@@ -130,8 +104,6 @@ function Initialize-AccountingEntryUpdateDto {
 
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "description" = ${Description}
             "amount" = ${Amount}
             "date" = ${Date}
@@ -177,23 +149,11 @@ function ConvertFrom-JsonToAccountingEntryUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountingEntryUpdateDto
-        $AllProperties = ("tenantId", "enrollmentId", "description", "amount", "date", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType")
+        $AllProperties = ("description", "amount", "date", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -245,8 +205,6 @@ function ConvertFrom-JsonToAccountingEntryUpdateDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "description" = ${Description}
             "amount" = ${Amount}
             "date" = ${Date}

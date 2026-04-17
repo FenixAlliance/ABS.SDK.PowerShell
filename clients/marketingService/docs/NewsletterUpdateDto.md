@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 
 ## Examples
@@ -15,8 +13,6 @@ Name | Type | Description | Notes
 ```powershell
 $NewsletterUpdateDto = Initialize-PSOpenAPIToolsNewsletterUpdateDto  -Code null `
  -Title null `
- -TenantId null `
- -EnrollmentId null `
  -Name null
 ```
 

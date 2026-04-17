@@ -29,7 +29,7 @@ Creates a new support request attachment for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportRequestAttachmentCreateDto = Initialize-SupportRequestAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Metadata "MyMetadata" -SupportRequestID "MySupportRequestID" # SupportRequestAttachmentCreateDto |  (optional)
+$SupportRequestAttachmentCreateDto = Initialize-SupportRequestAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -Metadata "MyMetadata" -SupportRequestID "MySupportRequestID" # SupportRequestAttachmentCreateDto |  (optional)
 
 # Create a new support request attachment
 try {

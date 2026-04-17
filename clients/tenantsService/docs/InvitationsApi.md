@@ -330,7 +330,7 @@ Send an invitation to a user to join a tenant
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantInvitationCreateDto = Initialize-TenantInvitationCreateDto -Id "MyId" -Timestamp (Get-Date) -UserEmail "MyUserEmail" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # TenantInvitationCreateDto |  (optional)
+$TenantInvitationCreateDto = Initialize-TenantInvitationCreateDto -Id "MyId" -Timestamp (Get-Date) -UserEmail "MyUserEmail" # TenantInvitationCreateDto |  (optional)
 
 # Send an invitation to a user to join a tenant
 try {

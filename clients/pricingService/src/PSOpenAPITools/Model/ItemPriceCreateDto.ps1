@@ -23,15 +23,11 @@ No description available.
 No description available.
 .PARAMETER UnitId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER CurrencyId
 No description available.
 .PARAMETER PriceListId
 No description available.
 .PARAMETER UnitGroupId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER DiscountListId
 No description available.
@@ -63,29 +59,23 @@ function Initialize-ItemPriceCreateDto {
         ${UnitId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${CurrencyId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${PriceListId},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PriceListId},
+        ${UnitGroupId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${UnitGroupId},
+        ${DiscountListId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DiscountListId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${RoundingPolicyId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Price},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Percent}
     )
@@ -108,11 +98,9 @@ function Initialize-ItemPriceCreateDto {
             "timestamp" = ${Timestamp}
             "itemId" = ${ItemId}
             "unitId" = ${UnitId}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
             "priceListId" = ${PriceListId}
             "unitGroupId" = ${UnitGroupId}
-            "enrollmentId" = ${EnrollmentId}
             "discountListId" = ${DiscountListId}
             "roundingPolicyId" = ${RoundingPolicyId}
             "price" = ${Price}
@@ -154,7 +142,7 @@ function ConvertFrom-JsonToItemPriceCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemPriceCreateDto
-        $AllProperties = ("id", "timestamp", "itemId", "unitId", "tenantId", "currencyId", "priceListId", "unitGroupId", "enrollmentId", "discountListId", "roundingPolicyId", "price", "percent")
+        $AllProperties = ("id", "timestamp", "itemId", "unitId", "currencyId", "priceListId", "unitGroupId", "discountListId", "roundingPolicyId", "price", "percent")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -189,12 +177,6 @@ function ConvertFrom-JsonToItemPriceCreateDto {
             $UnitId = $JsonParameters.PSobject.Properties["unitId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) { #optional property not found
             $CurrencyId = $null
         } else {
@@ -211,12 +193,6 @@ function ConvertFrom-JsonToItemPriceCreateDto {
             $UnitGroupId = $null
         } else {
             $UnitGroupId = $JsonParameters.PSobject.Properties["unitGroupId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "discountListId"))) { #optional property not found
@@ -248,11 +224,9 @@ function ConvertFrom-JsonToItemPriceCreateDto {
             "timestamp" = ${Timestamp}
             "itemId" = ${ItemId}
             "unitId" = ${UnitId}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
             "priceListId" = ${PriceListId}
             "unitGroupId" = ${UnitGroupId}
-            "enrollmentId" = ${EnrollmentId}
             "discountListId" = ${DiscountListId}
             "roundingPolicyId" = ${RoundingPolicyId}
             "price" = ${Price}

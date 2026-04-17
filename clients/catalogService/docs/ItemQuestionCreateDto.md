@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **NeedsRevision** | **Boolean** |  | 
 **Question** | **String** |  | 
 **SocialProfileID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
 **ItemID** | **String** |  | 
 
 ## Examples
@@ -22,7 +21,6 @@ $ItemQuestionCreateDto = Initialize-PSOpenAPIToolsItemQuestionCreateDto  -Id nul
  -NeedsRevision null `
  -Question null `
  -SocialProfileID null `
- -BusinessID null `
  -ItemID null
 ```
 

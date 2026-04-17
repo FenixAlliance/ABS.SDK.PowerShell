@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -18,8 +17,7 @@ $CourseForumCreateDto = Initialize-PSOpenAPIToolsCourseForumCreateDto  -Id null 
  -Timestamp null `
  -Title null `
  -Description null `
- -CourseID null `
- -BusinessID null
+ -CourseID null
 ```
 
 - Convert the resource to JSON

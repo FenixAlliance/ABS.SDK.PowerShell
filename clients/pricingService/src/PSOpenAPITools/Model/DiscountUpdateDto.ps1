@@ -25,10 +25,6 @@ No description available.
 No description available.
 .PARAMETER Value
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER DiscountListId
 No description available.
 .OUTPUTS
@@ -56,34 +52,12 @@ function Initialize-DiscountUpdateDto {
         ${Value},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${DiscountListId}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => DiscountUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
 
         if (!$DiscountListId -and $DiscountListId.length -gt 36) {
             throw "invalid value for 'DiscountListId', the character length must be smaller than or equal to 36."
@@ -100,8 +74,6 @@ function Initialize-DiscountUpdateDto {
             "endQuantity" = ${EndQuantity}
             "percent" = ${Percent}
             "value" = ${Value}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "discountListId" = ${DiscountListId}
         }
 
@@ -140,7 +112,7 @@ function ConvertFrom-JsonToDiscountUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DiscountUpdateDto
-        $AllProperties = ("description", "beginQuantity", "endQuantity", "percent", "value", "tenantId", "enrollmentId", "discountListId")
+        $AllProperties = ("description", "beginQuantity", "endQuantity", "percent", "value", "discountListId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -177,18 +149,6 @@ function ConvertFrom-JsonToDiscountUpdateDto {
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "discountListId"))) { #optional property not found
             $DiscountListId = $null
         } else {
@@ -201,8 +161,6 @@ function ConvertFrom-JsonToDiscountUpdateDto {
             "endQuantity" = ${EndQuantity}
             "percent" = ${Percent}
             "value" = ${Value}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "discountListId" = ${DiscountListId}
         }
 

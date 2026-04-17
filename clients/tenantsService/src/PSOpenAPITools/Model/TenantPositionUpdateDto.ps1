@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Type
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 TenantPositionUpdateDto<PSCustomObject>
@@ -39,10 +37,7 @@ function Initialize-TenantPositionUpdateDto {
         ${Description},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${Type}
     )
 
     Process {
@@ -54,7 +49,6 @@ function Initialize-TenantPositionUpdateDto {
             "title" = ${Title}
             "description" = ${Description}
             "type" = ${Type}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -92,7 +86,7 @@ function ConvertFrom-JsonToTenantPositionUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantPositionUpdateDto
-        $AllProperties = ("title", "description", "type", "businessProfileRecordID")
+        $AllProperties = ("title", "description", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -117,17 +111,10 @@ function ConvertFrom-JsonToTenantPositionUpdateDto {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "description" = ${Description}
             "type" = ${Type}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

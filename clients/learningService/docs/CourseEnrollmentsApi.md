@@ -30,7 +30,7 @@ Creates a new course enrollment for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseEnrollmentCreateDto = Initialize-CourseEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -CourseCohortID "MyCourseCohortID" -StudentProfileID "MyStudentProfileID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -CourseCompletionCertificateID "MyCourseCompletionCertificateID" # CourseEnrollmentCreateDto |  (optional)
+$CourseEnrollmentCreateDto = Initialize-CourseEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -CourseCohortID "MyCourseCohortID" -StudentProfileID "MyStudentProfileID" -CourseCompletionCertificateID "MyCourseCompletionCertificateID" # CourseEnrollmentCreateDto |  (optional)
 
 # Create a new course enrollment
 try {

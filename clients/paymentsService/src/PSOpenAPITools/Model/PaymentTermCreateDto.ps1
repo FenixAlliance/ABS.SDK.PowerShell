@@ -37,10 +37,6 @@ No description available.
 No description available.
 .PARAMETER PaymentModeID
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 PaymentTermCreateDto<PSCustomObject>
@@ -81,13 +77,7 @@ function Initialize-PaymentTermCreateDto {
         ${CreditYears},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PaymentModeID},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${PaymentModeID}
     )
 
     Process {
@@ -122,22 +112,6 @@ function Initialize-PaymentTermCreateDto {
             throw "invalid value for 'PaymentModeID', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -151,8 +125,6 @@ function Initialize-PaymentTermCreateDto {
             "creditMonths" = ${CreditMonths}
             "creditYears" = ${CreditYears}
             "paymentModeID" = ${PaymentModeID}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -190,7 +162,7 @@ function ConvertFrom-JsonToPaymentTermCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PaymentTermCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "isTemplate", "percentage", "creditDays", "creditWeeks", "creditMonths", "creditYears", "paymentModeID", "tenantId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "name", "description", "isTemplate", "percentage", "creditDays", "creditWeeks", "creditMonths", "creditYears", "paymentModeID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -267,18 +239,6 @@ function ConvertFrom-JsonToPaymentTermCreateDto {
             $PaymentModeID = $JsonParameters.PSobject.Properties["paymentModeID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -291,8 +251,6 @@ function ConvertFrom-JsonToPaymentTermCreateDto {
             "creditMonths" = ${CreditMonths}
             "creditYears" = ${CreditYears}
             "paymentModeID" = ${PaymentModeID}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -22,7 +21,6 @@ $CourseLibraryCreateDto = Initialize-PSOpenAPIToolsCourseLibraryCreateDto  -Id n
  -Description null `
  -CourseID null `
  -CourseUnitID null `
- -BusinessID null `
  -ReleaseDateTime null
 ```
 

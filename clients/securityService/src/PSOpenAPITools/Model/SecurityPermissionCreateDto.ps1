@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Name
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Description
 No description available.
 .OUTPUTS
@@ -44,9 +42,6 @@ function Initialize-SecurityPermissionCreateDto {
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description}
     )
 
@@ -62,14 +57,6 @@ function Initialize-SecurityPermissionCreateDto {
             throw "invalid value for 'Name', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $TenantId) {
-            throw "invalid value for 'TenantId', 'TenantId' cannot be null."
-        }
-
-        if ($TenantId.length -lt 1) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 1."
-        }
-
         if (!$Description -and $Description.length -gt 500) {
             throw "invalid value for 'Description', the character length must be smaller than or equal to 500."
         }
@@ -79,7 +66,6 @@ function Initialize-SecurityPermissionCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
             "description" = ${Description}
         }
 
@@ -118,7 +104,7 @@ function ConvertFrom-JsonToSecurityPermissionCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SecurityPermissionCreateDto
-        $AllProperties = ("id", "timestamp", "name", "tenantId", "description")
+        $AllProperties = ("id", "timestamp", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,12 +119,6 @@ function ConvertFrom-JsonToSecurityPermissionCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'tenantId' missing."
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -163,7 +143,6 @@ function ConvertFrom-JsonToSecurityPermissionCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
             "description" = ${Description}
         }
 

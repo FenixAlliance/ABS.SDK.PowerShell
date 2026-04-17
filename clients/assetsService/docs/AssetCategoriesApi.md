@@ -25,7 +25,7 @@ Creates a new asset category for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetCategoryCreateDto = Initialize-AssetCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessId "MyBusinessId" -BusinessProfileRecordId "MyBusinessProfileRecordId" -Name "MyName" -Description "MyDescription" # AssetCategoryCreateDto |  (optional)
+$AssetCategoryCreateDto = Initialize-AssetCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # AssetCategoryCreateDto |  (optional)
 
 # Creates a new asset category
 try {

@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $NewsletterCreateDto = Initialize-PSOpenAPIToolsNewsletterCreateDto  -Id null `
  -Timestamp null `
  -Name null `
  -Code null `
- -Title null `
- -TenantId null `
- -EnrollmentId null
+ -Title null
 ```
 
 - Convert the resource to JSON

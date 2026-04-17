@@ -15,6 +15,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER Name
 No description available.
 .PARAMETER Title
@@ -33,14 +37,20 @@ function Initialize-SocialGroupCreateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Title},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AvatarURL},
+        ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Title},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AvatarURL},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SocialProfileID}
     )
@@ -51,6 +61,8 @@ function Initialize-SocialGroupCreateDto {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "name" = ${Name}
             "title" = ${Title}
             "avatarURL" = ${AvatarURL}
@@ -92,11 +104,23 @@ function ConvertFrom-JsonToSocialGroupCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialGroupCreateDto
-        $AllProperties = ("name", "title", "avatarURL", "socialProfileID")
+        $AllProperties = ("id", "timestamp", "name", "title", "avatarURL", "socialProfileID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -124,6 +148,8 @@ function ConvertFrom-JsonToSocialGroupCreateDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "name" = ${Name}
             "title" = ${Title}
             "avatarURL" = ${AvatarURL}

@@ -29,7 +29,7 @@ Creates a new accounting period.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingPeriodCreateDto = Initialize-AccountingPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DateStart (Get-Date) -DateEnd (Get-Date) # AccountingPeriodCreateDto |  (optional)
+$AccountingPeriodCreateDto = Initialize-AccountingPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -DateStart (Get-Date) -DateEnd (Get-Date) # AccountingPeriodCreateDto |  (optional)
 
 # Creates a new accounting period
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountingPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingPeriodUpdateDto = Initialize-AccountingPeriodUpdateDto -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DateStart (Get-Date) -DateEnd (Get-Date) # AccountingPeriodUpdateDto |  (optional)
+$AccountingPeriodUpdateDto = Initialize-AccountingPeriodUpdateDto -Name "MyName" -DateStart (Get-Date) -DateEnd (Get-Date) # AccountingPeriodUpdateDto |  (optional)
 
 # Updates an existing accounting period
 try {

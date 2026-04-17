@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ParentAccountGroupId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $AccountGroupCreateDto = Initialize-PSOpenAPIToolsAccountGroupCreateDto  -Id nul
  -Timestamp null `
  -Title null `
  -Description null `
- -ParentAccountGroupId null `
- -TenantId null `
- -EnrollmentId null
+ -ParentAccountGroupId null
 ```
 
 - Convert the resource to JSON

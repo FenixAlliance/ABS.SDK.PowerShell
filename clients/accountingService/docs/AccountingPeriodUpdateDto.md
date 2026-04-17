@@ -4,8 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DateStart** | **System.DateTime** |  | [optional] 
 **DateEnd** | **System.DateTime** |  | [optional] 
 
@@ -14,8 +12,6 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AccountingPeriodUpdateDto = Initialize-PSOpenAPIToolsAccountingPeriodUpdateDto  -Name null `
- -TenantId null `
- -EnrollmentId null `
  -DateStart null `
  -DateEnd null
 ```

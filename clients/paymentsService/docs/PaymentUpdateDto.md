@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InvoiceId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **EmisorWalletId** | **String** |  | [optional] 
 **ReceiverWalletId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -56,7 +55,6 @@ Name | Type | Description | Notes
 **AccountingEntryId** | **String** |  | [optional] 
 **PaymentGatewayId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **PaymentTokenId** | **String** |  | [optional] 
 **EmisorWalletAccountId** | **String** |  | [optional] 
@@ -67,7 +65,6 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $PaymentUpdateDto = Initialize-PSOpenAPIToolsPaymentUpdateDto  -InvoiceId null `
- -TenantId null `
  -EmisorWalletId null `
  -ReceiverWalletId null `
  -CurrencyId null `
@@ -119,7 +116,6 @@ $PaymentUpdateDto = Initialize-PSOpenAPIToolsPaymentUpdateDto  -InvoiceId null `
  -AccountingEntryId null `
  -PaymentGatewayId null `
  -BankAccountId null `
- -EnrollmentId null `
  -BankId null `
  -PaymentTokenId null `
  -EmisorWalletAccountId null `

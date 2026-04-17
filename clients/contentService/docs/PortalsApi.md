@@ -35,7 +35,7 @@ Create a new web portal
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPortalCreateDto = Initialize-WebPortalCreateDto -Id "MyId" -Timestamp (Get-Date) -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -BusinessID "MyBusinessID" -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalCreateDto |  (optional)
+$WebPortalCreateDto = Initialize-WebPortalCreateDto -Id "MyId" -Timestamp (Get-Date) -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalCreateDto |  (optional)
 
 # Create a new web portal
 try {
@@ -576,7 +576,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPortalUpdateDto = Initialize-WebPortalUpdateDto -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalUpdateDto |  (optional)
+$WebPortalUpdateDto = Initialize-WebPortalUpdateDto -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalUpdateDto |  (optional)
 
 # Update an existing web portal
 try {

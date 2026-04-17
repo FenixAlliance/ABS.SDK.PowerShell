@@ -27,7 +27,7 @@ Creates a new marketing list for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$MarketingListCreateDto = Initialize-MarketingListCreateDto -Id "MyId" -Timestamp (Get-Date) -Locked $false -Name "MyName" -Purpose "MyPurpose" -Description "MyDescription" -Source "MySource" -Cost 0 -ModifiedOn (Get-Date) -LastUsedOn (Get-Date) -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -MarketingListType "Static" -MarketingListTarget "Individual" # MarketingListCreateDto | 
+$MarketingListCreateDto = Initialize-MarketingListCreateDto -Id "MyId" -Timestamp (Get-Date) -Locked $false -Name "MyName" -Purpose "MyPurpose" -Description "MyDescription" -Source "MySource" -Cost 0 -ModifiedOn (Get-Date) -LastUsedOn (Get-Date) -CurrencyId "MyCurrencyId" -MarketingListType "Static" -MarketingListTarget "Individual" # MarketingListCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing marketing list by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $MarketinglistId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$MarketingListUpdateDto = Initialize-MarketingListUpdateDto -Locked $false -Name "MyName" -Purpose "MyPurpose" -Description "MyDescription" -Source "MySource" -Cost 0 -ModifiedOn (Get-Date) -LastUsedOn (Get-Date) -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -MarketingListType "Static" -MarketingListTarget "Individual" # MarketingListUpdateDto | 
+$MarketingListUpdateDto = Initialize-MarketingListUpdateDto -Locked $false -Name "MyName" -Purpose "MyPurpose" -Description "MyDescription" -Source "MySource" -Cost 0 -ModifiedOn (Get-Date) -LastUsedOn (Get-Date) -CurrencyId "MyCurrencyId" -MarketingListType "Static" -MarketingListTarget "Individual" # MarketingListUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

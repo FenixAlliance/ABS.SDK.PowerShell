@@ -27,10 +27,6 @@ No description available.
 No description available.
 .PARAMETER TaxComission
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER SalaryId
 No description available.
 .PARAMETER EmisorWalletAccountId
@@ -71,26 +67,20 @@ function Initialize-PaymentCommissionUpdateDto {
         ${TaxComission},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${SalaryId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${EmisorWalletAccountId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SalaryId},
+        ${ReceiverWalletAccountId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EmisorWalletAccountId},
+        ${EmisorContactId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ReceiverWalletAccountId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EmisorContactId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ReceiverContactId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PaymentId}
     )
@@ -113,22 +103,6 @@ function Initialize-PaymentCommissionUpdateDto {
 
         if (!$Description -and $Description.length -lt 0) {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
-        }
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
         }
 
         if (!$SalaryId -and $SalaryId.length -gt 36) {
@@ -187,8 +161,6 @@ function Initialize-PaymentCommissionUpdateDto {
             "addedPercent" = ${AddedPercent}
             "addedAmount" = ${AddedAmount}
             "taxComission" = ${TaxComission}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "salaryId" = ${SalaryId}
             "emisorWalletAccountId" = ${EmisorWalletAccountId}
             "receiverWalletAccountId" = ${ReceiverWalletAccountId}
@@ -232,7 +204,7 @@ function ConvertFrom-JsonToPaymentCommissionUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PaymentCommissionUpdateDto
-        $AllProperties = ("title", "description", "baseAmount", "addedPercent", "addedAmount", "taxComission", "tenantId", "enrollmentId", "salaryId", "emisorWalletAccountId", "receiverWalletAccountId", "emisorContactId", "receiverContactId", "paymentId")
+        $AllProperties = ("title", "description", "baseAmount", "addedPercent", "addedAmount", "taxComission", "salaryId", "emisorWalletAccountId", "receiverWalletAccountId", "emisorContactId", "receiverContactId", "paymentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -273,18 +245,6 @@ function ConvertFrom-JsonToPaymentCommissionUpdateDto {
             $TaxComission = $null
         } else {
             $TaxComission = $JsonParameters.PSobject.Properties["taxComission"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "salaryId"))) { #optional property not found
@@ -330,8 +290,6 @@ function ConvertFrom-JsonToPaymentCommissionUpdateDto {
             "addedPercent" = ${AddedPercent}
             "addedAmount" = ${AddedAmount}
             "taxComission" = ${TaxComission}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "salaryId" = ${SalaryId}
             "emisorWalletAccountId" = ${EmisorWalletAccountId}
             "receiverWalletAccountId" = ${ReceiverWalletAccountId}

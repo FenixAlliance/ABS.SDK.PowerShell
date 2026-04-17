@@ -4,9 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **SupportTicketTypeID** | **String** |  | [optional] 
 **SupportEntitlementID** | **String** |  | [optional] 
 **SupportPriorityID** | **String** |  | [optional] 
@@ -16,9 +14,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SupportTicketUpdateDto = Initialize-PSOpenAPIToolsSupportTicketUpdateDto  -Description null `
- -AccountHolderID null `
  -ContactID null `
- -BusinessProfileRecordID null `
  -SupportTicketTypeID null `
  -SupportEntitlementID null `
  -SupportPriorityID null

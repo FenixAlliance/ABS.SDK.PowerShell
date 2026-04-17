@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ModifiedDate** | **System.DateTime** |  | [optional] 
 **ExpirationDate** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **SalesLiteratureTypeId** | **String** |  | [optional] 
 
 ## Examples
@@ -21,8 +19,6 @@ $SalesLiteratureUpdateDto = Initialize-PSOpenAPIToolsSalesLiteratureUpdateDto  -
  -Description null `
  -ModifiedDate null `
  -ExpirationDate null `
- -TenantId null `
- -EnrollmentId null `
  -SalesLiteratureTypeId null
 ```
 

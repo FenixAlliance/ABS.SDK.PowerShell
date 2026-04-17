@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **CourseID** | **String** |  | [optional] 
 **CourseCohortID** | **String** |  | [optional] 
 **StudentProfileID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **CourseCompletionCertificateID** | **String** |  | [optional] 
 
 ## Examples
@@ -20,7 +19,6 @@ $CourseEnrollmentCreateDto = Initialize-PSOpenAPIToolsCourseEnrollmentCreateDto 
  -CourseID null `
  -CourseCohortID null `
  -StudentProfileID null `
- -BusinessProfileRecordID null `
  -CourseCompletionCertificateID null
 ```
 

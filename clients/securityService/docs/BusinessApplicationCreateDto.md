@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **ContactEmail** | **String** |  | [optional] 
 **PrivacyPolicyURL** | **String** |  | [optional] 
 **TermsAndConditionsURL** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **RequireHttps** | **Boolean** |  | [optional] 
 **RequireAppSecret** | **Boolean** |  | [optional] 
 **EnableClientOauthLogin** | **Boolean** |  | [optional] 
@@ -62,8 +60,6 @@ $BusinessApplicationCreateDto = Initialize-PSOpenAPIToolsBusinessApplicationCrea
  -ContactEmail null `
  -PrivacyPolicyURL null `
  -TermsAndConditionsURL null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -RequireHttps null `
  -RequireAppSecret null `
  -EnableClientOauthLogin null `

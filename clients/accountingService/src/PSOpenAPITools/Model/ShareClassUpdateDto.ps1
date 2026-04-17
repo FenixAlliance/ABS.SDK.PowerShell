@@ -25,10 +25,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 ShareClassUpdateDto<PSCustomObject>
@@ -51,13 +47,7 @@ function Initialize-ShareClassUpdateDto {
         ${ForexRates},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${CurrencyId}
     )
 
     Process {
@@ -80,22 +70,6 @@ function Initialize-ShareClassUpdateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
@@ -103,8 +77,6 @@ function Initialize-ShareClassUpdateDto {
             "description" = ${Description}
             "forexRates" = ${ForexRates}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -142,7 +114,7 @@ function ConvertFrom-JsonToShareClassUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ShareClassUpdateDto
-        $AllProperties = ("name", "value", "description", "forexRates", "currencyId", "tenantId", "enrollmentId")
+        $AllProperties = ("name", "value", "description", "forexRates", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -179,26 +151,12 @@ function ConvertFrom-JsonToShareClassUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "value" = ${Value}
             "description" = ${Description}
             "forexRates" = ${ForexRates}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

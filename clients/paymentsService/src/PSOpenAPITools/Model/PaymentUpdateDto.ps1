@@ -17,8 +17,6 @@ No description available.
 
 .PARAMETER InvoiceId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER EmisorWalletId
 No description available.
 .PARAMETER ReceiverWalletId
@@ -121,8 +119,6 @@ No description available.
 No description available.
 .PARAMETER BankAccountId
 No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER BankId
 No description available.
 .PARAMETER PaymentTokenId
@@ -144,176 +140,170 @@ function Initialize-PaymentUpdateDto {
         ${InvoiceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${EmisorWalletId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EmisorWalletId},
+        ${ReceiverWalletId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ReceiverWalletId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CurrencyId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${ForexRate},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalCost},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalTaxes},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Closed},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarData},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DataLabel},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Data1},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Data1Label},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Response},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Authorization},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReferenceCode},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CorrelationCode},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastUpdated},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Self", "Tenant", "Individual", "Organization")]
         [String]
         ${OnBehalfOf},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Paid", "Received", "Internal")]
         [String]
         ${PaymentType},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Unset", "Accepted", "Rejected", "OnHold", "Failed", "Reversed", "Retained", "Initialized", "Expired", "Abandoned", "Cancelled", "AcceptedRetained")]
         [String]
         ${PaymentStatus},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${BaseCost},
-        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Signature},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${SignatureMismatch},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsExternal},
-        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${MarkedForRevision},
-        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ForexRatesSnapshot},
-        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OfficialId},
-        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${OfficialIdExpeditionDate},
-        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FiscalIdentificationTypeId},
-        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BillingAddress},
-        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Phone},
-        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Cellphone},
-        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Department},
-        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${City},
-        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CountryId},
-        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LocationId},
-        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EntitlementId},
-        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${AntiFraudScore},
-        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CallRecordURL},
-        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Called},
-        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Verified},
-        [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PayerPictureTimestamp},
-        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PayerPicture},
-        [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentificationPictureTimestamp},
-        [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentificationPicture},
-        [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentificationBackPicture},
-        [Parameter(Position = 47, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentificationBackPictureTimestamp},
-        [Parameter(Position = 48, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 47, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IpLookupId},
-        [Parameter(Position = 49, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 48, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderId},
-        [Parameter(Position = 50, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 49, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountingEntryId},
-        [Parameter(Position = 51, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 50, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PaymentGatewayId},
-        [Parameter(Position = 52, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 51, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankAccountId},
-        [Parameter(Position = 53, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 54, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 52, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankId},
-        [Parameter(Position = 55, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 53, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PaymentTokenId},
-        [Parameter(Position = 56, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 54, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmisorWalletAccountId},
-        [Parameter(Position = 57, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 55, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReceiverWalletAccountId}
     )
@@ -328,14 +318,6 @@ function Initialize-PaymentUpdateDto {
 
         if (!$InvoiceId -and $InvoiceId.length -lt 0) {
             throw "invalid value for 'InvoiceId', the character length must be great than or equal to 0."
-        }
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
         }
 
         if (!$EmisorWalletId -and $EmisorWalletId.length -gt 36) {
@@ -418,14 +400,6 @@ function Initialize-PaymentUpdateDto {
             throw "invalid value for 'BankAccountId', the character length must be great than or equal to 0."
         }
 
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
         if (!$BankId -and $BankId.length -gt 36) {
             throw "invalid value for 'BankId', the character length must be smaller than or equal to 36."
         }
@@ -461,7 +435,6 @@ function Initialize-PaymentUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "invoiceId" = ${InvoiceId}
-            "tenantId" = ${TenantId}
             "emisorWalletId" = ${EmisorWalletId}
             "receiverWalletId" = ${ReceiverWalletId}
             "currencyId" = ${CurrencyId}
@@ -513,7 +486,6 @@ function Initialize-PaymentUpdateDto {
             "accountingEntryId" = ${AccountingEntryId}
             "paymentGatewayId" = ${PaymentGatewayId}
             "bankAccountId" = ${BankAccountId}
-            "enrollmentId" = ${EnrollmentId}
             "bankId" = ${BankId}
             "paymentTokenId" = ${PaymentTokenId}
             "emisorWalletAccountId" = ${EmisorWalletAccountId}
@@ -555,7 +527,7 @@ function ConvertFrom-JsonToPaymentUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PaymentUpdateDto
-        $AllProperties = ("invoiceId", "tenantId", "emisorWalletId", "receiverWalletId", "currencyId", "forexRate", "totalCost", "totalTaxes", "closed", "data", "dataLabel", "data1", "data1Label", "response", "authorization", "referenceCode", "correlationCode", "lastUpdated", "onBehalfOf", "paymentType", "paymentStatus", "baseCost", "signature", "signatureMismatch", "isExternal", "markedForRevision", "forexRatesSnapshot", "officialId", "officialIdExpeditionDate", "fiscalIdentificationTypeId", "billingAddress", "phone", "cellphone", "department", "city", "countryId", "locationId", "entitlementId", "antiFraudScore", "callRecordURL", "called", "verified", "payerPictureTimestamp", "payerPicture", "identificationPictureTimestamp", "identificationPicture", "identificationBackPicture", "identificationBackPictureTimestamp", "ipLookupId", "orderId", "accountingEntryId", "paymentGatewayId", "bankAccountId", "enrollmentId", "bankId", "paymentTokenId", "emisorWalletAccountId", "receiverWalletAccountId")
+        $AllProperties = ("invoiceId", "emisorWalletId", "receiverWalletId", "currencyId", "forexRate", "totalCost", "totalTaxes", "closed", "data", "dataLabel", "data1", "data1Label", "response", "authorization", "referenceCode", "correlationCode", "lastUpdated", "onBehalfOf", "paymentType", "paymentStatus", "baseCost", "signature", "signatureMismatch", "isExternal", "markedForRevision", "forexRatesSnapshot", "officialId", "officialIdExpeditionDate", "fiscalIdentificationTypeId", "billingAddress", "phone", "cellphone", "department", "city", "countryId", "locationId", "entitlementId", "antiFraudScore", "callRecordURL", "called", "verified", "payerPictureTimestamp", "payerPicture", "identificationPictureTimestamp", "identificationPicture", "identificationBackPicture", "identificationBackPictureTimestamp", "ipLookupId", "orderId", "accountingEntryId", "paymentGatewayId", "bankAccountId", "bankId", "paymentTokenId", "emisorWalletAccountId", "receiverWalletAccountId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -566,12 +538,6 @@ function ConvertFrom-JsonToPaymentUpdateDto {
             $InvoiceId = $null
         } else {
             $InvoiceId = $JsonParameters.PSobject.Properties["invoiceId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "emisorWalletId"))) { #optional property not found
@@ -880,12 +846,6 @@ function ConvertFrom-JsonToPaymentUpdateDto {
             $BankAccountId = $JsonParameters.PSobject.Properties["bankAccountId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "bankId"))) { #optional property not found
             $BankId = $null
         } else {
@@ -912,7 +872,6 @@ function ConvertFrom-JsonToPaymentUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "invoiceId" = ${InvoiceId}
-            "tenantId" = ${TenantId}
             "emisorWalletId" = ${EmisorWalletId}
             "receiverWalletId" = ${ReceiverWalletId}
             "currencyId" = ${CurrencyId}
@@ -964,7 +923,6 @@ function ConvertFrom-JsonToPaymentUpdateDto {
             "accountingEntryId" = ${AccountingEntryId}
             "paymentGatewayId" = ${PaymentGatewayId}
             "bankAccountId" = ${BankAccountId}
-            "enrollmentId" = ${EnrollmentId}
             "bankId" = ${BankId}
             "paymentTokenId" = ${PaymentTokenId}
             "emisorWalletAccountId" = ${EmisorWalletAccountId}

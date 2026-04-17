@@ -29,7 +29,7 @@ Creates a new fiscal responsibility record for a fiscal responsibility.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalResponsibilityRecordCreateDto = Initialize-FiscalResponsibilityRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -FiscalResponsibilityId "MyFiscalResponsibilityId" -BillingProfileId "MyBillingProfileId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalResponsibilityRecordCreateDto |  (optional)
+$FiscalResponsibilityRecordCreateDto = Initialize-FiscalResponsibilityRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -FiscalResponsibilityId "MyFiscalResponsibilityId" -BillingProfileId "MyBillingProfileId" # FiscalResponsibilityRecordCreateDto |  (optional)
 
 # Create a fiscal responsibility record
 try {
@@ -303,7 +303,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $FiscalResponsibilityRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalResponsibilityRecordUpdateDto = Initialize-FiscalResponsibilityRecordUpdateDto -FiscalResponsibilityId "MyFiscalResponsibilityId" -BillingProfileId "MyBillingProfileId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalResponsibilityRecordUpdateDto |  (optional)
+$FiscalResponsibilityRecordUpdateDto = Initialize-FiscalResponsibilityRecordUpdateDto -FiscalResponsibilityId "MyFiscalResponsibilityId" -BillingProfileId "MyBillingProfileId" # FiscalResponsibilityRecordUpdateDto |  (optional)
 
 # Update a fiscal responsibility record
 try {

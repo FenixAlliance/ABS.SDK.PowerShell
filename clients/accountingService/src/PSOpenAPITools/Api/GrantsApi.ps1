@@ -588,7 +588,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER GrantUpdateDto
+.PARAMETER Body
 No description available.
 
 .PARAMETER ReturnType
@@ -619,8 +619,8 @@ function Update-GrantAsync {
         [String]
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${GrantUpdateDto},
+        [System.Nullable[SystemCollectionsHashtable]]
+        ${Body},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -672,7 +672,7 @@ function Update-GrantAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = $GrantUpdateDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Body | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `

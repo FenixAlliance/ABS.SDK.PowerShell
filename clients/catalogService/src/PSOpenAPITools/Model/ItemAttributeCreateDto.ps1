@@ -23,8 +23,6 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 ItemAttributeCreateDto<PSCustomObject>
@@ -44,10 +42,7 @@ function Initialize-ItemAttributeCreateDto {
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${Description}
     )
 
     Process {
@@ -74,25 +69,12 @@ function Initialize-ItemAttributeCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -130,7 +112,7 @@ function ConvertFrom-JsonToItemAttributeCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemAttributeCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "businessID")
+        $AllProperties = ("id", "timestamp", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -145,12 +127,6 @@ function ConvertFrom-JsonToItemAttributeCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -176,7 +152,6 @@ function ConvertFrom-JsonToItemAttributeCreateDto {
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

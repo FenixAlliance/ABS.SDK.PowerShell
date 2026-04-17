@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER CourseEnrollmentID
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER CourseCompletionCertificateTemplateID
 No description available.
 .PARAMETER CourseID
@@ -43,14 +39,8 @@ function Initialize-CourseCompletionCertificateUpdateDto {
         ${CourseEnrollmentID},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${CourseCompletionCertificateTemplateID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CourseID}
     )
@@ -63,8 +53,6 @@ function Initialize-CourseCompletionCertificateUpdateDto {
         $PSO = [PSCustomObject]@{
             "studentProfileID" = ${StudentProfileID}
             "courseEnrollmentID" = ${CourseEnrollmentID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "courseCompletionCertificateTemplateID" = ${CourseCompletionCertificateTemplateID}
             "courseID" = ${CourseID}
         }
@@ -104,7 +92,7 @@ function ConvertFrom-JsonToCourseCompletionCertificateUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseCompletionCertificateUpdateDto
-        $AllProperties = ("studentProfileID", "courseEnrollmentID", "businessID", "businessProfileRecordID", "courseCompletionCertificateTemplateID", "courseID")
+        $AllProperties = ("studentProfileID", "courseEnrollmentID", "courseCompletionCertificateTemplateID", "courseID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,18 +111,6 @@ function ConvertFrom-JsonToCourseCompletionCertificateUpdateDto {
             $CourseEnrollmentID = $JsonParameters.PSobject.Properties["courseEnrollmentID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "courseCompletionCertificateTemplateID"))) { #optional property not found
             $CourseCompletionCertificateTemplateID = $null
         } else {
@@ -150,8 +126,6 @@ function ConvertFrom-JsonToCourseCompletionCertificateUpdateDto {
         $PSO = [PSCustomObject]@{
             "studentProfileID" = ${StudentProfileID}
             "courseEnrollmentID" = ${CourseEnrollmentID}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "courseCompletionCertificateTemplateID" = ${CourseCompletionCertificateTemplateID}
             "courseID" = ${CourseID}
         }

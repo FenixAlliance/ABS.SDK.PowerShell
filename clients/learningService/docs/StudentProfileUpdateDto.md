@@ -31,9 +31,7 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -67,9 +65,7 @@ $StudentProfileUpdateDto = Initialize-PSOpenAPIToolsStudentProfileUpdateDto  -Id
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
- -BusinessID null `
- -ContactID null `
- -BusinessProfileRecordID null
+ -ContactID null
 ```
 
 - Convert the resource to JSON

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Content** | **String** |  | [optional] 
 **CourseID** | **String** |  | 
 **CourseWikiID** | **String** |  | 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -22,8 +21,7 @@ $CourseArticleCreateDto = Initialize-PSOpenAPIToolsCourseArticleCreateDto  -Id n
  -Description null `
  -Content null `
  -CourseID null `
- -CourseWikiID null `
- -BusinessID null
+ -CourseWikiID null
 ```
 
 - Convert the resource to JSON

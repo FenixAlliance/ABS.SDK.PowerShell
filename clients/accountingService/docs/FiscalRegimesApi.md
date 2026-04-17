@@ -29,7 +29,7 @@ Creates a new fiscal regime for a fiscal authority.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalRegimeCreateDto = Initialize-FiscalRegimeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalRegimeCreateDto |  (optional)
+$FiscalRegimeCreateDto = Initialize-FiscalRegimeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalRegimeCreateDto |  (optional)
 
 # Create a fiscal regime
 try {
@@ -291,7 +291,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $RegimeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalRegimeUpdateDto = Initialize-FiscalRegimeUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # FiscalRegimeUpdateDto |  (optional)
+$FiscalRegimeUpdateDto = Initialize-FiscalRegimeUpdateDto -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalRegimeUpdateDto |  (optional)
 
 # Update a fiscal regime
 try {

@@ -29,7 +29,7 @@ Create a new tenant team contact enrollment
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamContactEnrollmentCreateDto = Initialize-TenantTeamContactEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" -ContactID "MyContactID" # TenantTeamContactEnrollmentCreateDto |  (optional)
+$TenantTeamContactEnrollmentCreateDto = Initialize-TenantTeamContactEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessTeamID "MyBusinessTeamID" -ContactID "MyContactID" # TenantTeamContactEnrollmentCreateDto |  (optional)
 
 # Create a new tenant team contact enrollment
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantTeamContactEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamContactEnrollmentUpdateDto = Initialize-TenantTeamContactEnrollmentUpdateDto -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" -ContactID "MyContactID" # TenantTeamContactEnrollmentUpdateDto |  (optional)
+$TenantTeamContactEnrollmentUpdateDto = Initialize-TenantTeamContactEnrollmentUpdateDto -BusinessTeamID "MyBusinessTeamID" -ContactID "MyContactID" # TenantTeamContactEnrollmentUpdateDto |  (optional)
 
 # Update a tenant team contact enrollment
 try {

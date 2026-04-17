@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **AssetId** | **String** |  | [optional] 
 **IsRootTransfer** | **Boolean** |  | [optional] 
 **SerialList** | **String** |  | [optional] 
@@ -20,7 +22,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AssetTransferCreateDto = Initialize-PSOpenAPIToolsAssetTransferCreateDto  -AssetId null `
+$AssetTransferCreateDto = Initialize-PSOpenAPIToolsAssetTransferCreateDto  -Id null `
+ -Timestamp null `
+ -AssetId null `
  -IsRootTransfer null `
  -SerialList null `
  -Quantity null `

@@ -29,7 +29,7 @@ Creates a new invoice enumeration range for a fiscal authority.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$InvoiceEnumerationRangeCreateDto = Initialize-InvoiceEnumerationRangeCreateDto -Id "MyId" -Timestamp (Get-Date) -Prefix "MyPrefix" -Suffix "MySuffix" -Identifier "MyIdentifier" -QualifiedName "MyQualifiedName" -CurrentNumeration 0 -NumerationFrom 0 -NumerationTo 0 -ValidFrom (Get-Date) -ValidTo (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DocumentType "Standard" # InvoiceEnumerationRangeCreateDto |  (optional)
+$InvoiceEnumerationRangeCreateDto = Initialize-InvoiceEnumerationRangeCreateDto -Id "MyId" -Timestamp (Get-Date) -Prefix "MyPrefix" -Suffix "MySuffix" -Identifier "MyIdentifier" -QualifiedName "MyQualifiedName" -CurrentNumeration 0 -NumerationFrom 0 -NumerationTo 0 -ValidFrom (Get-Date) -ValidTo (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" -DocumentType "Standard" # InvoiceEnumerationRangeCreateDto |  (optional)
 
 # Create an invoice enumeration range
 try {
@@ -291,7 +291,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $EnumerationRangeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$InvoiceEnumerationRangeUpdateDto = Initialize-InvoiceEnumerationRangeUpdateDto -Prefix "MyPrefix" -Suffix "MySuffix" -Identifier "MyIdentifier" -QualifiedName "MyQualifiedName" -CurrentNumeration 0 -NumerationFrom 0 -NumerationTo 0 -ValidFrom (Get-Date) -ValidTo (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -DocumentType "Standard" # InvoiceEnumerationRangeUpdateDto |  (optional)
+$InvoiceEnumerationRangeUpdateDto = Initialize-InvoiceEnumerationRangeUpdateDto -Prefix "MyPrefix" -Suffix "MySuffix" -Identifier "MyIdentifier" -QualifiedName "MyQualifiedName" -CurrentNumeration 0 -NumerationFrom 0 -NumerationTo 0 -ValidFrom (Get-Date) -ValidTo (Get-Date) -FiscalAuthorityId "MyFiscalAuthorityId" -DocumentType "Standard" # InvoiceEnumerationRangeUpdateDto |  (optional)
 
 # Update an invoice enumeration range
 try {

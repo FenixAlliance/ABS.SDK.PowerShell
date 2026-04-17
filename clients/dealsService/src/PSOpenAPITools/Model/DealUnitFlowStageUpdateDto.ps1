@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER DealUnitFlowId
 No description available.
 .PARAMETER ParentBusinessProcessStageId
@@ -46,11 +44,8 @@ function Initialize-DealUnitFlowStageUpdateDto {
         ${Description},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${DealUnitFlowId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentBusinessProcessStageId}
     )
@@ -64,7 +59,6 @@ function Initialize-DealUnitFlowStageUpdateDto {
             "order" = ${Order}
             "name" = ${Name}
             "description" = ${Description}
-            "enrollmentId" = ${EnrollmentId}
             "dealUnitFlowId" = ${DealUnitFlowId}
             "parentBusinessProcessStageId" = ${ParentBusinessProcessStageId}
         }
@@ -104,7 +98,7 @@ function ConvertFrom-JsonToDealUnitFlowStageUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DealUnitFlowStageUpdateDto
-        $AllProperties = ("order", "name", "description", "enrollmentId", "dealUnitFlowId", "parentBusinessProcessStageId")
+        $AllProperties = ("order", "name", "description", "dealUnitFlowId", "parentBusinessProcessStageId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,12 +123,6 @@ function ConvertFrom-JsonToDealUnitFlowStageUpdateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "dealUnitFlowId"))) { #optional property not found
             $DealUnitFlowId = $null
         } else {
@@ -151,7 +139,6 @@ function ConvertFrom-JsonToDealUnitFlowStageUpdateDto {
             "order" = ${Order}
             "name" = ${Name}
             "description" = ${Description}
-            "enrollmentId" = ${EnrollmentId}
             "dealUnitFlowId" = ${DealUnitFlowId}
             "parentBusinessProcessStageId" = ${ParentBusinessProcessStageId}
         }

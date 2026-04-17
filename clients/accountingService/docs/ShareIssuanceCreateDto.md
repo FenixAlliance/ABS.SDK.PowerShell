@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **UnitPrice** | **Int32** |  | [optional] 
 **Quantity** | **Int32** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -17,8 +15,6 @@ Name | Type | Description | Notes
 ```powershell
 $ShareIssuanceCreateDto = Initialize-PSOpenAPIToolsShareIssuanceCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -EnrollmentId null `
  -UnitPrice null `
  -Quantity null `
  -CurrencyId null

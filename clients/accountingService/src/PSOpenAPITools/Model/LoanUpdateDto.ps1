@@ -29,8 +29,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 LoanUpdateDto<PSCustomObject>
@@ -59,10 +57,7 @@ function Initialize-LoanUpdateDto {
         ${LoanTypeId},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${CurrencyId}
     )
 
     Process {
@@ -78,7 +73,6 @@ function Initialize-LoanUpdateDto {
             "isCompundInterestRate" = ${IsCompundInterestRate}
             "loanTypeId" = ${LoanTypeId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -116,7 +110,7 @@ function ConvertFrom-JsonToLoanUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LoanUpdateDto
-        $AllProperties = ("loanTimestamp", "paymentDeadline", "value", "interestRate", "isCompundInterestRate", "loanTypeId", "currencyId", "enrollmentId")
+        $AllProperties = ("loanTimestamp", "paymentDeadline", "value", "interestRate", "isCompundInterestRate", "loanTypeId", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -165,12 +159,6 @@ function ConvertFrom-JsonToLoanUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "loanTimestamp" = ${LoanTimestamp}
             "paymentDeadline" = ${PaymentDeadline}
@@ -179,7 +167,6 @@ function ConvertFrom-JsonToLoanUpdateDto {
             "isCompundInterestRate" = ${IsCompundInterestRate}
             "loanTypeId" = ${LoanTypeId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

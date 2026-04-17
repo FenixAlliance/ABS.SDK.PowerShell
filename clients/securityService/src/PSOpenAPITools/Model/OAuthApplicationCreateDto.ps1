@@ -15,6 +15,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER DisplayName
 No description available.
 .PARAMETER ClientId
@@ -33,10 +37,6 @@ No description available.
 No description available.
 .PARAMETER Logo
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .OUTPUTS
 
 OAuthApplicationCreateDto<PSCustomObject>
@@ -47,37 +47,37 @@ function Initialize-OAuthApplicationCreateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DisplayName},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ClientId},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ClientSecret},
+        ${DisplayName},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConsentType},
+        ${ClientId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Permissions},
+        ${ClientSecret},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Requirements},
+        ${ConsentType},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${RedirectUris},
+        ${Permissions},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PostLogoutRedirectUris},
+        ${Requirements},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Logo},
+        ${RedirectUris},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${PostLogoutRedirectUris},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID}
+        ${Logo}
     )
 
     Process {
@@ -94,6 +94,8 @@ function Initialize-OAuthApplicationCreateDto {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "displayName" = ${DisplayName}
             "clientId" = ${ClientId}
             "clientSecret" = ${ClientSecret}
@@ -103,8 +105,6 @@ function Initialize-OAuthApplicationCreateDto {
             "redirectUris" = ${RedirectUris}
             "postLogoutRedirectUris" = ${PostLogoutRedirectUris}
             "logo" = ${Logo}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -142,7 +142,7 @@ function ConvertFrom-JsonToOAuthApplicationCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in OAuthApplicationCreateDto
-        $AllProperties = ("displayName", "clientId", "clientSecret", "consentType", "permissions", "requirements", "redirectUris", "postLogoutRedirectUris", "logo", "businessID", "businessProfileRecordID")
+        $AllProperties = ("id", "timestamp", "displayName", "clientId", "clientSecret", "consentType", "permissions", "requirements", "redirectUris", "postLogoutRedirectUris", "logo")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -157,6 +157,18 @@ function ConvertFrom-JsonToOAuthApplicationCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'displayName' missing."
         } else {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "clientId"))) { #optional property not found
@@ -207,19 +219,9 @@ function ConvertFrom-JsonToOAuthApplicationCreateDto {
             $Logo = $JsonParameters.PSobject.Properties["logo"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "displayName" = ${DisplayName}
             "clientId" = ${ClientId}
             "clientSecret" = ${ClientSecret}
@@ -229,8 +231,6 @@ function ConvertFrom-JsonToOAuthApplicationCreateDto {
             "redirectUris" = ${RedirectUris}
             "postLogoutRedirectUris" = ${PostLogoutRedirectUris}
             "logo" = ${Logo}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

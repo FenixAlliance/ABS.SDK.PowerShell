@@ -79,8 +79,6 @@ No description available.
 No description available.
 .PARAMETER Material
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Permalink
 No description available.
 .PARAMETER BrandName
@@ -441,386 +439,383 @@ function Initialize-CatalogItemCreateDto {
         ${Material},
         [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${Permalink},
         [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Permalink},
+        ${BrandName},
         [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BrandName},
+        ${Variations},
         [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Variations},
+        ${Categories},
         [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Categories},
+        ${LanguageId},
         [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${LanguageId},
+        ${ItemTypeId},
         [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ItemTypeId},
+        ${CategoryId},
         [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CategoryId},
+        ${CurrencyId},
         [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${UnitGroupId},
         [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${UnitGroupId},
+        ${Description},
         [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Ingredients},
         [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Ingredients},
+        ${SupplierCode},
         [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SupplierCode},
+        ${ShipsToRules},
         [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ShipsToRules},
+        ${ParentItemId},
         [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ParentItemId},
+        ${PurchaseNote},
         [Parameter(Position = 47, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PurchaseNote},
+        ${TariffHeading},
         [Parameter(Position = 48, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TariffHeading},
+        ${MozaicCoverURL},
         [Parameter(Position = 49, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${MozaicCoverURL},
+        ${YoutubeVideoId},
         [Parameter(Position = 50, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${YoutubeVideoId},
+        ${NutritionFacts},
         [Parameter(Position = 51, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NutritionFacts},
+        ${PackageContent},
         [Parameter(Position = 52, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PackageContent},
+        ${PrimaryImageUrl},
         [Parameter(Position = 53, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PrimaryImageUrl},
+        ${GoogleCategories},
         [Parameter(Position = 54, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${GoogleCategories},
+        ${ShortDescription},
         [Parameter(Position = 55, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ShortDescription},
+        ${SupplierProfileId},
         [Parameter(Position = 56, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SupplierProfileId},
+        ${ShippingCountryId},
         [Parameter(Position = 57, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ShippingCountryId},
+        ${SystemRequirements},
         [Parameter(Position = 58, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SystemRequirements},
+        ${CustomTaxDescription},
         [Parameter(Position = 59, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CustomTaxDescription},
+        ${PageCoverBackgroundUrl},
         [Parameter(Position = 60, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PageCoverBackgroundUrl},
+        ${OfficialDescriptionUrl},
         [Parameter(Position = 61, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${OfficialDescriptionUrl},
+        ${RecentlyViewedRecordId},
         [Parameter(Position = 62, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${RecentlyViewedRecordId},
+        ${PrimaryGoogleCategoryId},
         [Parameter(Position = 63, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PrimaryGoogleCategoryId},
+        ${SupportedOperatingSystem},
         [Parameter(Position = 64, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SupportedOperatingSystem},
-        [Parameter(Position = 65, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${PrimaryGoogleCategoryName},
-        [Parameter(Position = 66, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 65, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Hot},
-        [Parameter(Position = 67, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 66, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${OnSale},
-        [Parameter(Position = 68, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 67, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Auction},
-        [Parameter(Position = 69, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 68, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Deleted},
-        [Parameter(Position = 70, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 69, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Digital},
-        [Parameter(Position = 71, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 70, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${PreSale},
-        [Parameter(Position = 72, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 71, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Taxable},
-        [Parameter(Position = 73, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 72, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${InStock},
-        [Parameter(Position = 74, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 73, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Trending},
-        [Parameter(Position = 75, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 74, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Featured},
-        [Parameter(Position = 76, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 75, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${LowStock},
-        [Parameter(Position = 77, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 76, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Published},
-        [Parameter(Position = 78, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 77, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ByRequest},
-        [Parameter(Position = 79, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 78, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${OnDiscount},
-        [Parameter(Position = 80, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 79, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDailyDeal},
-        [Parameter(Position = 81, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 80, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsNewArrival},
-        [Parameter(Position = 82, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 81, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsWeeklyDeal},
-        [Parameter(Position = 83, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 82, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsBestSeller},
-        [Parameter(Position = 84, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 83, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsMonthlyDeal},
-        [Parameter(Position = 85, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 84, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${HasVariations},
-        [Parameter(Position = 86, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 85, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsFixedDiscount},
-        [Parameter(Position = 87, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 86, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ManageInventory},
-        [Parameter(Position = 88, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 87, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDealersChoice},
-        [Parameter(Position = 89, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 88, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsOfficialChoice},
-        [Parameter(Position = 90, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 89, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ValidPrimaryImage},
-        [Parameter(Position = 91, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 90, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDeadlineDiscount},
-        [Parameter(Position = 92, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 91, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${TaxIncludedInPrice},
-        [Parameter(Position = 93, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 92, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayShowcaseTab},
-        [Parameter(Position = 94, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 93, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsProductOfTheWeek},
-        [Parameter(Position = 95, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 94, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsProductOfTheMonth},
-        [Parameter(Position = 96, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 95, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsPercentageDiscount},
-        [Parameter(Position = 97, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 96, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayOnGlobalMozaic},
-        [Parameter(Position = 98, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 97, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayOnBrandsMozaic},
-        [Parameter(Position = 99, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 98, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisableDefaultPolicies},
-        [Parameter(Position = 100, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 99, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayOnCategoryMozaic},
-        [Parameter(Position = 101, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 100, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayDescriptionEditor},
-        [Parameter(Position = 102, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 101, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayShortDescriptionEditor},
-        [Parameter(Position = 103, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 102, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayOnBannerMarketingRotation},
-        [Parameter(Position = 104, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 103, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ViewsCount},
-        [Parameter(Position = 105, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 104, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ReviewsCount},
-        [Parameter(Position = 106, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 105, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PackagedQuantity},
-        [Parameter(Position = 107, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 106, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Recurrency},
-        [Parameter(Position = 108, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 107, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${CurrentStock},
-        [Parameter(Position = 109, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 108, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${CustomTaxValue},
-        [Parameter(Position = 110, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 109, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Width},
-        [Parameter(Position = 111, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 110, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Weight},
-        [Parameter(Position = 112, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 111, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Length},
-        [Parameter(Position = 113, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 112, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Height},
-        [Parameter(Position = 114, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 113, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalTax},
-        [Parameter(Position = 115, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 114, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${FinalPrice},
-        [Parameter(Position = 116, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 115, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${ReviewsAvg},
-        [Parameter(Position = 117, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 116, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${PaymentCost},
-        [Parameter(Position = 118, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 117, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${RegularPrice},
-        [Parameter(Position = 119, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 118, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${DiscountPrice},
-        [Parameter(Position = 120, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 119, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${DiscountAmount},
-        [Parameter(Position = 121, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 120, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${DiscountPercentage},
-        [Parameter(Position = 122, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 121, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedTaxesInUsd},
-        [Parameter(Position = 123, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 122, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${CustomTaxPercentage},
-        [Parameter(Position = 124, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 123, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedProfitInUsd},
-        [Parameter(Position = 125, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 124, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedBasePriceInUsd},
-        [Parameter(Position = 126, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 125, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedDiscountsInUsd},
-        [Parameter(Position = 127, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 126, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedSurchargesInUsd},
-        [Parameter(Position = 128, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 127, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedPaymentTaxInUsd},
-        [Parameter(Position = 129, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 128, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedTotalPriceInUsd},
-        [Parameter(Position = 130, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 129, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedPaymentCostInUsd},
-        [Parameter(Position = 131, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 130, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedDealSavingsInUsd},
-        [Parameter(Position = 132, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 131, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedRegularPriceInUsd},
-        [Parameter(Position = 133, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 132, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedTaxBasePriceInUsd},
-        [Parameter(Position = 134, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 133, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedWitholdingTaxesInUsd},
-        [Parameter(Position = 135, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 134, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedWithholdingTaxesInUsd},
-        [Parameter(Position = 136, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 135, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedDefaultShippingTaxInUsd},
-        [Parameter(Position = 137, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 136, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${EstimatedDefaultShippingCostInUsd},
-        [Parameter(Position = 138, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 137, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${AuctionEnd},
-        [Parameter(Position = 139, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 138, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ReleaseDate},
-        [Parameter(Position = 140, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 139, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${AuctionStart},
-        [Parameter(Position = 141, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 140, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${PublishedDate},
-        [Parameter(Position = 142, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 141, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DiscountDeadLine},
-        [Parameter(Position = 143, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 142, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DeadlineDiscountDueDate},
-        [Parameter(Position = 144, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 143, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DeadlineDiscountFromDate},
-        [Parameter(Position = 145, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 144, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastFixedPricesUpdateDateTime},
-        [Parameter(Position = 146, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 145, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedTags},
-        [Parameter(Position = 147, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 146, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedTypes},
-        [Parameter(Position = 148, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 147, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedBrands},
-        [Parameter(Position = 149, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 148, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedCategories},
-        [Parameter(Position = 150, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 149, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedTaxPolicies},
-        [Parameter(Position = 151, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 150, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedPricingRules},
-        [Parameter(Position = 152, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 151, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedRefundPolicies},
-        [Parameter(Position = 153, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 152, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedReturnPolicies},
-        [Parameter(Position = 154, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 153, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedPricingPolicies},
-        [Parameter(Position = 155, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 154, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedWarrantyPolicies},
-        [Parameter(Position = 156, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 155, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedShipmentPolicies},
-        [Parameter(Position = 157, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 156, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedGoogleCategories},
-        [Parameter(Position = 158, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 157, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedAttributesOptions},
-        [Parameter(Position = 159, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 158, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SelectedSellingMarginPolicies}
     )
@@ -863,7 +858,6 @@ function Initialize-CatalogItemCreateDto {
             "pattern" = ${Pattern}
             "features" = ${Features}
             "material" = ${Material}
-            "tenantId" = ${TenantId}
             "permalink" = ${Permalink}
             "brandName" = ${BrandName}
             "variations" = ${Variations}
@@ -1028,7 +1022,7 @@ function ConvertFrom-JsonToCatalogItemCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CatalogItemCreateDto
-        $AllProperties = ("id", "timestamp", "sku", "upc", "ean", "mpn", "isbn", "asin", "gtin", "skUs", "upCs", "eaNs", "part", "name", "type", "mpNs", "isbNs", "asiNs", "gtiNs", "model", "title", "color", "unspsc", "unitId", "series", "barcode", "unspsCs", "summary", "brandId", "pattern", "features", "material", "tenantId", "permalink", "brandName", "variations", "categories", "languageId", "itemTypeId", "categoryId", "currencyId", "unitGroupId", "description", "ingredients", "supplierCode", "shipsToRules", "parentItemId", "purchaseNote", "tariffHeading", "mozaicCoverURL", "youtubeVideoId", "nutritionFacts", "packageContent", "primaryImageUrl", "googleCategories", "shortDescription", "supplierProfileId", "shippingCountryId", "systemRequirements", "customTaxDescription", "pageCoverBackgroundUrl", "officialDescriptionUrl", "recentlyViewedRecordId", "primaryGoogleCategoryId", "supportedOperatingSystem", "primaryGoogleCategoryName", "hot", "onSale", "auction", "deleted", "digital", "preSale", "taxable", "inStock", "trending", "featured", "lowStock", "published", "byRequest", "onDiscount", "isDailyDeal", "isNewArrival", "isWeeklyDeal", "isBestSeller", "isMonthlyDeal", "hasVariations", "isFixedDiscount", "manageInventory", "isDealersChoice", "isOfficialChoice", "validPrimaryImage", "isDeadlineDiscount", "taxIncludedInPrice", "displayShowcaseTab", "isProductOfTheWeek", "isProductOfTheMonth", "isPercentageDiscount", "displayOnGlobalMozaic", "displayOnBrandsMozaic", "disableDefaultPolicies", "displayOnCategoryMozaic", "displayDescriptionEditor", "displayShortDescriptionEditor", "displayOnBannerMarketingRotation", "viewsCount", "reviewsCount", "packagedQuantity", "recurrency", "currentStock", "customTaxValue", "width", "weight", "length", "height", "totalTax", "finalPrice", "reviewsAvg", "paymentCost", "regularPrice", "discountPrice", "discountAmount", "discountPercentage", "estimatedTaxesInUsd", "customTaxPercentage", "estimatedProfitInUsd", "estimatedBasePriceInUsd", "estimatedDiscountsInUsd", "estimatedSurchargesInUsd", "estimatedPaymentTaxInUsd", "estimatedTotalPriceInUsd", "estimatedPaymentCostInUsd", "estimatedDealSavingsInUsd", "estimatedRegularPriceInUsd", "estimatedTaxBasePriceInUsd", "estimatedWitholdingTaxesInUsd", "estimatedWithholdingTaxesInUsd", "estimatedDefaultShippingTaxInUsd", "estimatedDefaultShippingCostInUsd", "auctionEnd", "releaseDate", "auctionStart", "publishedDate", "discountDeadLine", "deadlineDiscountDueDate", "deadlineDiscountFromDate", "lastFixedPricesUpdateDateTime", "selectedTags", "selectedTypes", "selectedBrands", "selectedCategories", "selectedTaxPolicies", "selectedPricingRules", "selectedRefundPolicies", "selectedReturnPolicies", "selectedPricingPolicies", "selectedWarrantyPolicies", "selectedShipmentPolicies", "selectedGoogleCategories", "selectedAttributesOptions", "selectedSellingMarginPolicies")
+        $AllProperties = ("id", "timestamp", "sku", "upc", "ean", "mpn", "isbn", "asin", "gtin", "skUs", "upCs", "eaNs", "part", "name", "type", "mpNs", "isbNs", "asiNs", "gtiNs", "model", "title", "color", "unspsc", "unitId", "series", "barcode", "unspsCs", "summary", "brandId", "pattern", "features", "material", "permalink", "brandName", "variations", "categories", "languageId", "itemTypeId", "categoryId", "currencyId", "unitGroupId", "description", "ingredients", "supplierCode", "shipsToRules", "parentItemId", "purchaseNote", "tariffHeading", "mozaicCoverURL", "youtubeVideoId", "nutritionFacts", "packageContent", "primaryImageUrl", "googleCategories", "shortDescription", "supplierProfileId", "shippingCountryId", "systemRequirements", "customTaxDescription", "pageCoverBackgroundUrl", "officialDescriptionUrl", "recentlyViewedRecordId", "primaryGoogleCategoryId", "supportedOperatingSystem", "primaryGoogleCategoryName", "hot", "onSale", "auction", "deleted", "digital", "preSale", "taxable", "inStock", "trending", "featured", "lowStock", "published", "byRequest", "onDiscount", "isDailyDeal", "isNewArrival", "isWeeklyDeal", "isBestSeller", "isMonthlyDeal", "hasVariations", "isFixedDiscount", "manageInventory", "isDealersChoice", "isOfficialChoice", "validPrimaryImage", "isDeadlineDiscount", "taxIncludedInPrice", "displayShowcaseTab", "isProductOfTheWeek", "isProductOfTheMonth", "isPercentageDiscount", "displayOnGlobalMozaic", "displayOnBrandsMozaic", "disableDefaultPolicies", "displayOnCategoryMozaic", "displayDescriptionEditor", "displayShortDescriptionEditor", "displayOnBannerMarketingRotation", "viewsCount", "reviewsCount", "packagedQuantity", "recurrency", "currentStock", "customTaxValue", "width", "weight", "length", "height", "totalTax", "finalPrice", "reviewsAvg", "paymentCost", "regularPrice", "discountPrice", "discountAmount", "discountPercentage", "estimatedTaxesInUsd", "customTaxPercentage", "estimatedProfitInUsd", "estimatedBasePriceInUsd", "estimatedDiscountsInUsd", "estimatedSurchargesInUsd", "estimatedPaymentTaxInUsd", "estimatedTotalPriceInUsd", "estimatedPaymentCostInUsd", "estimatedDealSavingsInUsd", "estimatedRegularPriceInUsd", "estimatedTaxBasePriceInUsd", "estimatedWitholdingTaxesInUsd", "estimatedWithholdingTaxesInUsd", "estimatedDefaultShippingTaxInUsd", "estimatedDefaultShippingCostInUsd", "auctionEnd", "releaseDate", "auctionStart", "publishedDate", "discountDeadLine", "deadlineDiscountDueDate", "deadlineDiscountFromDate", "lastFixedPricesUpdateDateTime", "selectedTags", "selectedTypes", "selectedBrands", "selectedCategories", "selectedTaxPolicies", "selectedPricingRules", "selectedRefundPolicies", "selectedReturnPolicies", "selectedPricingPolicies", "selectedWarrantyPolicies", "selectedShipmentPolicies", "selectedGoogleCategories", "selectedAttributesOptions", "selectedSellingMarginPolicies")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -1225,12 +1219,6 @@ function ConvertFrom-JsonToCatalogItemCreateDto {
             $Material = $null
         } else {
             $Material = $JsonParameters.PSobject.Properties["material"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "permalink"))) { #optional property not found
@@ -2028,7 +2016,6 @@ function ConvertFrom-JsonToCatalogItemCreateDto {
             "pattern" = ${Pattern}
             "features" = ${Features}
             "material" = ${Material}
-            "tenantId" = ${TenantId}
             "permalink" = ${Permalink}
             "brandName" = ${BrandName}
             "variations" = ${Variations}

@@ -78,7 +78,7 @@ Creates a new web content for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebContentCreateDto = Initialize-WebContentCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" # WebContentCreateDto |  (optional)
+$WebContentCreateDto = Initialize-WebContentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" # WebContentCreateDto |  (optional)
 
 # Create a web content
 try {

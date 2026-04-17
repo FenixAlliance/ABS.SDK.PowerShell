@@ -27,7 +27,7 @@ Creates a new email signature for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$EmailSignatureCreateDto = Initialize-EmailSignatureCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" # EmailSignatureCreateDto | 
+$EmailSignatureCreateDto = Initialize-EmailSignatureCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" # EmailSignatureCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

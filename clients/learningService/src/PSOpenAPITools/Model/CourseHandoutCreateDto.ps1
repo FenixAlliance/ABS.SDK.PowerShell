@@ -33,8 +33,6 @@ No description available.
 No description available.
 .PARAMETER CourseUnitID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 CourseHandoutCreateDto<PSCustomObject>
@@ -69,10 +67,7 @@ function Initialize-CourseHandoutCreateDto {
         ${CourseID},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CourseUnitID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${CourseUnitID}
     )
 
     Process {
@@ -95,14 +90,6 @@ function Initialize-CourseHandoutCreateDto {
             throw "invalid value for 'CourseID', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -114,7 +101,6 @@ function Initialize-CourseHandoutCreateDto {
             "releaseDateTime" = ${ReleaseDateTime}
             "courseID" = ${CourseID}
             "courseUnitID" = ${CourseUnitID}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -152,7 +138,7 @@ function ConvertFrom-JsonToCourseHandoutCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseHandoutCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "content", "url", "releaseDateTime", "courseID", "courseUnitID", "businessID")
+        $AllProperties = ("id", "timestamp", "name", "description", "content", "url", "releaseDateTime", "courseID", "courseUnitID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -173,12 +159,6 @@ function ConvertFrom-JsonToCourseHandoutCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'courseID' missing."
         } else {
             $CourseID = $JsonParameters.PSobject.Properties["courseID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -233,7 +213,6 @@ function ConvertFrom-JsonToCourseHandoutCreateDto {
             "releaseDateTime" = ${ReleaseDateTime}
             "courseID" = ${CourseID}
             "courseUnitID" = ${CourseUnitID}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

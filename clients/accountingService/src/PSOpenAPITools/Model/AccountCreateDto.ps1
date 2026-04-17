@@ -31,11 +31,7 @@ No description available.
 No description available.
 .PARAMETER Prefix
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER CurrencyId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER AccountTypeId
 No description available.
@@ -77,20 +73,14 @@ function Initialize-AccountCreateDto {
         ${Prefix},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${CurrencyId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${AccountTypeId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountTypeId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ParentAccountId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
         ${AccountCategory}
@@ -130,9 +120,7 @@ function Initialize-AccountCreateDto {
             "code" = ${Code}
             "path" = ${Path}
             "prefix" = ${Prefix}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
@@ -173,7 +161,7 @@ function ConvertFrom-JsonToAccountCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountCreateDto
-        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "tenantId", "currencyId", "enrollmentId", "accountTypeId", "parentAccountId", "accountCategory")
+        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "currencyId", "accountTypeId", "parentAccountId", "accountCategory")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -244,18 +232,6 @@ function ConvertFrom-JsonToAccountCreateDto {
             $Prefix = $JsonParameters.PSobject.Properties["prefix"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountTypeId"))) { #optional property not found
             $AccountTypeId = $null
         } else {
@@ -277,9 +253,7 @@ function ConvertFrom-JsonToAccountCreateDto {
             "code" = ${Code}
             "path" = ${Path}
             "prefix" = ${Prefix}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}

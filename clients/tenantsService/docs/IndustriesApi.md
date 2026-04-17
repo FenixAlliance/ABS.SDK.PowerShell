@@ -29,7 +29,7 @@ Create a new tenant industry
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantIndustryCreateDto = Initialize-TenantIndustryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # TenantIndustryCreateDto |  (optional)
+$TenantIndustryCreateDto = Initialize-TenantIndustryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" # TenantIndustryCreateDto |  (optional)
 
 # Create a new tenant industry
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantIndustryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantIndustryUpdateDto = Initialize-TenantIndustryUpdateDto -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # TenantIndustryUpdateDto |  (optional)
+$TenantIndustryUpdateDto = Initialize-TenantIndustryUpdateDto -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" # TenantIndustryUpdateDto |  (optional)
 
 # Update a tenant industry
 try {

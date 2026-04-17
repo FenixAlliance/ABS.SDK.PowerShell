@@ -31,7 +31,7 @@ Create a new location.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -TenantId "MyTenantId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
+$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
 
 # Create Location
 try {
@@ -77,7 +77,7 @@ Create a new location for a specific wallet.
 ### Example
 ```powershell
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -TenantId "MyTenantId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
+$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
 
 # Create Wallet Location
 try {
@@ -481,7 +481,7 @@ Update a specific location by ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -TenantId "MyTenantId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
+$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
 
 # Update Location
 try {
@@ -530,7 +530,7 @@ Update a specific location of a wallet.
 ```powershell
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -TenantId "MyTenantId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
+$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
 
 # Update Wallet Location
 try {

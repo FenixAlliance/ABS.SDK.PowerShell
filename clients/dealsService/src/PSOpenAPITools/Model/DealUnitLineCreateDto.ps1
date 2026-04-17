@@ -15,6 +15,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER Closed
 No description available.
 .PARAMETER ItemId
@@ -26,10 +30,6 @@ No description available.
 .PARAMETER ItemPrimaryImageUrl
 No description available.
 .PARAMETER ShippingPolicyId
-No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER CurrencyId
 No description available.
@@ -143,21 +143,21 @@ No description available.
 No description available.
 .PARAMETER TotalDetailCurrencyId
 No description available.
-.PARAMETER TotalProfit
-No description available.
-.PARAMETER TotalProfitCurrencyId
-No description available.
 .PARAMETER TotalDiscounts
 No description available.
 .PARAMETER TotalDiscountsCurrencyId
+No description available.
+.PARAMETER TotalTaxBase
+No description available.
+.PARAMETER TotalTaxBaseCurrencyId
 No description available.
 .PARAMETER TotalSurcharges
 No description available.
 .PARAMETER TotalSurchargesCurrencyId
 No description available.
-.PARAMETER TotalTaxBase
+.PARAMETER TotalProfit
 No description available.
-.PARAMETER TotalTaxBaseCurrencyId
+.PARAMETER TotalProfitCurrencyId
 No description available.
 .PARAMETER TotalShippingCost
 No description available.
@@ -201,8 +201,6 @@ No description available.
 No description available.
 .PARAMETER QuoteItemRecordId
 No description available.
-.PARAMETER BusinessProfileRecordId
-No description available.
 .PARAMETER ParentBillingItemRecordId
 No description available.
 .PARAMETER DealUnitId
@@ -216,29 +214,29 @@ function Initialize-DealUnitLineCreateDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Closed},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ItemId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ItemTitle},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ItemShortDescription},
+        ${ItemId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ItemPrimaryImageUrl},
+        ${ItemTitle},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ShippingPolicyId},
+        ${ItemShortDescription},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${ItemPrimaryImageUrl},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${ShippingPolicyId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
@@ -411,16 +409,16 @@ function Initialize-DealUnitLineCreateDto {
         ${TotalDetailCurrencyId},
         [Parameter(Position = 64, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${TotalProfit},
+        ${TotalDiscounts},
         [Parameter(Position = 65, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TotalProfitCurrencyId},
+        ${TotalDiscountsCurrencyId},
         [Parameter(Position = 66, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${TotalDiscounts},
+        ${TotalTaxBase},
         [Parameter(Position = 67, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TotalDiscountsCurrencyId},
+        ${TotalTaxBaseCurrencyId},
         [Parameter(Position = 68, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalSurcharges},
@@ -429,10 +427,10 @@ function Initialize-DealUnitLineCreateDto {
         ${TotalSurchargesCurrencyId},
         [Parameter(Position = 70, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${TotalTaxBase},
+        ${TotalProfit},
         [Parameter(Position = 71, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TotalTaxBaseCurrencyId},
+        ${TotalProfitCurrencyId},
         [Parameter(Position = 72, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalShippingCost},
@@ -498,11 +496,8 @@ function Initialize-DealUnitLineCreateDto {
         ${QuoteItemRecordId},
         [Parameter(Position = 93, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordId},
-        [Parameter(Position = 94, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ParentBillingItemRecordId},
-        [Parameter(Position = 95, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 94, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DealUnitId}
     )
@@ -513,14 +508,14 @@ function Initialize-DealUnitLineCreateDto {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "closed" = ${Closed}
             "itemId" = ${ItemId}
             "itemTitle" = ${ItemTitle}
             "itemShortDescription" = ${ItemShortDescription}
             "itemPrimaryImageUrl" = ${ItemPrimaryImageUrl}
             "shippingPolicyId" = ${ShippingPolicyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "currencyId" = ${CurrencyId}
             "description" = ${Description}
             "quantity" = ${Quantity}
@@ -577,14 +572,14 @@ function Initialize-DealUnitLineCreateDto {
             "customGlobalDiscountsAmountCurrencyId" = ${CustomGlobalDiscountsAmountCurrencyId}
             "totalDetail" = ${TotalDetail}
             "totalDetailCurrencyId" = ${TotalDetailCurrencyId}
-            "totalProfit" = ${TotalProfit}
-            "totalProfitCurrencyId" = ${TotalProfitCurrencyId}
             "totalDiscounts" = ${TotalDiscounts}
             "totalDiscountsCurrencyId" = ${TotalDiscountsCurrencyId}
-            "totalSurcharges" = ${TotalSurcharges}
-            "totalSurchargesCurrencyId" = ${TotalSurchargesCurrencyId}
             "totalTaxBase" = ${TotalTaxBase}
             "totalTaxBaseCurrencyId" = ${TotalTaxBaseCurrencyId}
+            "totalSurcharges" = ${TotalSurcharges}
+            "totalSurchargesCurrencyId" = ${TotalSurchargesCurrencyId}
+            "totalProfit" = ${TotalProfit}
+            "totalProfitCurrencyId" = ${TotalProfitCurrencyId}
             "totalShippingCost" = ${TotalShippingCost}
             "totalShippingCostCurrencyId" = ${TotalShippingCostCurrencyId}
             "totalShippingTax" = ${TotalShippingTax}
@@ -606,7 +601,6 @@ function Initialize-DealUnitLineCreateDto {
             "shippingLocationId" = ${ShippingLocationId}
             "locationId" = ${LocationId}
             "quoteItemRecordId" = ${QuoteItemRecordId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "parentBillingItemRecordId" = ${ParentBillingItemRecordId}
             "dealUnitId" = ${DealUnitId}
         }
@@ -646,11 +640,23 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DealUnitLineCreateDto
-        $AllProperties = ("closed", "itemId", "itemTitle", "itemShortDescription", "itemPrimaryImageUrl", "shippingPolicyId", "tenantId", "enrollmentId", "currencyId", "description", "quantity", "free", "freeReason", "freeReasonCode", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "itemPriceId", "priceListItemId", "unitId", "unitGroupId", "taxCalculationMethod", "costCalculationMethod", "forexRatesSnapshot", "forexRate", "totalBaseAmountInUsd", "totalProfitInUsd", "totalDetailAmountInUsd", "totalTaxBaseInUsd", "totalDiscountsInUsd", "totalTaxesInUsd", "totalWithheldTaxesInUsd", "totalShippingCostInUsd", "totalShippingTaxesInUsd", "totalWarrantyCostInUsd", "totalReturnCostInUsd", "totalRefundCostInUsd", "totalSurchargesInUsd", "totalAmountInUsd", "totalGlobalDiscountsInUsd", "totalGlobalSurchargesInUsd", "customGlobalSurchargesAmount", "customGlobalSurchargesAmountCurrencyId", "customGlobalDiscountsAmount", "customGlobalDiscountsAmountCurrencyId", "totalDetail", "totalDetailCurrencyId", "totalProfit", "totalProfitCurrencyId", "totalDiscounts", "totalDiscountsCurrencyId", "totalSurcharges", "totalSurchargesCurrencyId", "totalTaxBase", "totalTaxBaseCurrencyId", "totalShippingCost", "totalShippingCostCurrencyId", "totalShippingTax", "totalShippingTaxCurrencyId", "totalTaxes", "totalTaxesCurrencyId", "totalWithheldTax", "totalWithheldTaxCurrencyId", "totalGlobalDiscounts", "totalGlobalDiscountsCurrencyId", "totalGlobalSurcharges", "totalGlobalSurchargesCurrencyId", "total", "totalCurrencyId", "returnPolicyId", "refundPolicyId", "warrantyPolicyId", "shipmentPolicyId", "shippingLocationId", "locationId", "quoteItemRecordId", "businessProfileRecordId", "parentBillingItemRecordId", "dealUnitId")
+        $AllProperties = ("id", "timestamp", "closed", "itemId", "itemTitle", "itemShortDescription", "itemPrimaryImageUrl", "shippingPolicyId", "currencyId", "description", "quantity", "free", "freeReason", "freeReasonCode", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "itemPriceId", "priceListItemId", "unitId", "unitGroupId", "taxCalculationMethod", "costCalculationMethod", "forexRatesSnapshot", "forexRate", "totalBaseAmountInUsd", "totalProfitInUsd", "totalDetailAmountInUsd", "totalTaxBaseInUsd", "totalDiscountsInUsd", "totalTaxesInUsd", "totalWithheldTaxesInUsd", "totalShippingCostInUsd", "totalShippingTaxesInUsd", "totalWarrantyCostInUsd", "totalReturnCostInUsd", "totalRefundCostInUsd", "totalSurchargesInUsd", "totalAmountInUsd", "totalGlobalDiscountsInUsd", "totalGlobalSurchargesInUsd", "customGlobalSurchargesAmount", "customGlobalSurchargesAmountCurrencyId", "customGlobalDiscountsAmount", "customGlobalDiscountsAmountCurrencyId", "totalDetail", "totalDetailCurrencyId", "totalDiscounts", "totalDiscountsCurrencyId", "totalTaxBase", "totalTaxBaseCurrencyId", "totalSurcharges", "totalSurchargesCurrencyId", "totalProfit", "totalProfitCurrencyId", "totalShippingCost", "totalShippingCostCurrencyId", "totalShippingTax", "totalShippingTaxCurrencyId", "totalTaxes", "totalTaxesCurrencyId", "totalWithheldTax", "totalWithheldTaxCurrencyId", "totalGlobalDiscounts", "totalGlobalDiscountsCurrencyId", "totalGlobalSurcharges", "totalGlobalSurchargesCurrencyId", "total", "totalCurrencyId", "returnPolicyId", "refundPolicyId", "warrantyPolicyId", "shipmentPolicyId", "shippingLocationId", "locationId", "quoteItemRecordId", "parentBillingItemRecordId", "dealUnitId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "closed"))) { #optional property not found
@@ -687,18 +693,6 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             $ShippingPolicyId = $null
         } else {
             $ShippingPolicyId = $JsonParameters.PSobject.Properties["shippingPolicyId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) { #optional property not found
@@ -1037,18 +1031,6 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             $TotalDetailCurrencyId = $JsonParameters.PSobject.Properties["totalDetailCurrencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalProfit"))) { #optional property not found
-            $TotalProfit = $null
-        } else {
-            $TotalProfit = $JsonParameters.PSobject.Properties["totalProfit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalProfitCurrencyId"))) { #optional property not found
-            $TotalProfitCurrencyId = $null
-        } else {
-            $TotalProfitCurrencyId = $JsonParameters.PSobject.Properties["totalProfitCurrencyId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalDiscounts"))) { #optional property not found
             $TotalDiscounts = $null
         } else {
@@ -1059,6 +1041,18 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             $TotalDiscountsCurrencyId = $null
         } else {
             $TotalDiscountsCurrencyId = $JsonParameters.PSobject.Properties["totalDiscountsCurrencyId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalTaxBase"))) { #optional property not found
+            $TotalTaxBase = $null
+        } else {
+            $TotalTaxBase = $JsonParameters.PSobject.Properties["totalTaxBase"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalTaxBaseCurrencyId"))) { #optional property not found
+            $TotalTaxBaseCurrencyId = $null
+        } else {
+            $TotalTaxBaseCurrencyId = $JsonParameters.PSobject.Properties["totalTaxBaseCurrencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalSurcharges"))) { #optional property not found
@@ -1073,16 +1067,16 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             $TotalSurchargesCurrencyId = $JsonParameters.PSobject.Properties["totalSurchargesCurrencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalTaxBase"))) { #optional property not found
-            $TotalTaxBase = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalProfit"))) { #optional property not found
+            $TotalProfit = $null
         } else {
-            $TotalTaxBase = $JsonParameters.PSobject.Properties["totalTaxBase"].value
+            $TotalProfit = $JsonParameters.PSobject.Properties["totalProfit"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalTaxBaseCurrencyId"))) { #optional property not found
-            $TotalTaxBaseCurrencyId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalProfitCurrencyId"))) { #optional property not found
+            $TotalProfitCurrencyId = $null
         } else {
-            $TotalTaxBaseCurrencyId = $JsonParameters.PSobject.Properties["totalTaxBaseCurrencyId"].value
+            $TotalProfitCurrencyId = $JsonParameters.PSobject.Properties["totalProfitCurrencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalShippingCost"))) { #optional property not found
@@ -1211,12 +1205,6 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             $QuoteItemRecordId = $JsonParameters.PSobject.Properties["quoteItemRecordId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordId"))) { #optional property not found
-            $BusinessProfileRecordId = $null
-        } else {
-            $BusinessProfileRecordId = $JsonParameters.PSobject.Properties["businessProfileRecordId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentBillingItemRecordId"))) { #optional property not found
             $ParentBillingItemRecordId = $null
         } else {
@@ -1230,14 +1218,14 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "closed" = ${Closed}
             "itemId" = ${ItemId}
             "itemTitle" = ${ItemTitle}
             "itemShortDescription" = ${ItemShortDescription}
             "itemPrimaryImageUrl" = ${ItemPrimaryImageUrl}
             "shippingPolicyId" = ${ShippingPolicyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "currencyId" = ${CurrencyId}
             "description" = ${Description}
             "quantity" = ${Quantity}
@@ -1294,14 +1282,14 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             "customGlobalDiscountsAmountCurrencyId" = ${CustomGlobalDiscountsAmountCurrencyId}
             "totalDetail" = ${TotalDetail}
             "totalDetailCurrencyId" = ${TotalDetailCurrencyId}
-            "totalProfit" = ${TotalProfit}
-            "totalProfitCurrencyId" = ${TotalProfitCurrencyId}
             "totalDiscounts" = ${TotalDiscounts}
             "totalDiscountsCurrencyId" = ${TotalDiscountsCurrencyId}
-            "totalSurcharges" = ${TotalSurcharges}
-            "totalSurchargesCurrencyId" = ${TotalSurchargesCurrencyId}
             "totalTaxBase" = ${TotalTaxBase}
             "totalTaxBaseCurrencyId" = ${TotalTaxBaseCurrencyId}
+            "totalSurcharges" = ${TotalSurcharges}
+            "totalSurchargesCurrencyId" = ${TotalSurchargesCurrencyId}
+            "totalProfit" = ${TotalProfit}
+            "totalProfitCurrencyId" = ${TotalProfitCurrencyId}
             "totalShippingCost" = ${TotalShippingCost}
             "totalShippingCostCurrencyId" = ${TotalShippingCostCurrencyId}
             "totalShippingTax" = ${TotalShippingTax}
@@ -1323,7 +1311,6 @@ function ConvertFrom-JsonToDealUnitLineCreateDto {
             "shippingLocationId" = ${ShippingLocationId}
             "locationId" = ${LocationId}
             "quoteItemRecordId" = ${QuoteItemRecordId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "parentBillingItemRecordId" = ${ParentBillingItemRecordId}
             "dealUnitId" = ${DealUnitId}
         }

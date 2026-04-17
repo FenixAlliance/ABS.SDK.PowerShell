@@ -5,15 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **ParentBusinessIndustryID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $TenantIndustryUpdateDto = Initialize-PSOpenAPIToolsTenantIndustryUpdateDto  -Name null `
- -ParentBusinessIndustryID null `
- -BusinessProfileRecordID null
+ -ParentBusinessIndustryID null
 ```
 
 - Convert the resource to JSON

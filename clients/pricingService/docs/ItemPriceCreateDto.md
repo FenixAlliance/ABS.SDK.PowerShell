@@ -7,11 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **ItemId** | **String** |  | 
 **UnitId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DiscountListId** | **String** |  | [optional] 
 **RoundingPolicyId** | **String** |  | [optional] 
 **Price** | **Double** |  | [optional] 
@@ -25,11 +23,9 @@ $ItemPriceCreateDto = Initialize-PSOpenAPIToolsItemPriceCreateDto  -Id null `
  -Timestamp null `
  -ItemId null `
  -UnitId null `
- -TenantId null `
  -CurrencyId null `
  -PriceListId null `
  -UnitGroupId null `
- -EnrollmentId null `
  -DiscountListId null `
  -RoundingPolicyId null `
  -Price null `

@@ -61,10 +61,6 @@ No description available.
 No description available.
 .PARAMETER CityId
 No description available.
-.PARAMETER EnrollmentId
-No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER Zero
 No description available.
 .PARAMETER Reduced
@@ -151,21 +147,15 @@ function Initialize-TaxPolicyCreateDto {
         [String]
         ${CityId},
         [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Zero},
-        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Reduced},
-        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Withholding},
-        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FiscalAuthorityId}
     )
@@ -206,22 +196,6 @@ function Initialize-TaxPolicyCreateDto {
             throw "invalid value for 'CityId', the character length must be great than or equal to 0."
         }
 
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$FiscalAuthorityId -and $FiscalAuthorityId.length -gt 36) {
             throw "invalid value for 'FiscalAuthorityId', the character length must be smaller than or equal to 36."
         }
@@ -255,8 +229,6 @@ function Initialize-TaxPolicyCreateDto {
             "customState" = ${CustomState}
             "customCity" = ${CustomCity}
             "cityId" = ${CityId}
-            "enrollmentId" = ${EnrollmentId}
-            "tenantId" = ${TenantId}
             "zero" = ${Zero}
             "reduced" = ${Reduced}
             "withholding" = ${Withholding}
@@ -298,7 +270,7 @@ function ConvertFrom-JsonToTaxPolicyCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaxPolicyCreateDto
-        $AllProperties = ("id", "timestamp", "code", "title", "description", "isFree", "reduce", "isEnabled", "isDefault", "allowInternational", "hours", "days", "weeks", "months", "years", "value", "percentage", "currencyId", "countryId", "countryStateId", "customState", "customCity", "cityId", "enrollmentId", "tenantId", "zero", "reduced", "withholding", "fiscalAuthorityId")
+        $AllProperties = ("id", "timestamp", "code", "title", "description", "isFree", "reduce", "isEnabled", "isDefault", "allowInternational", "hours", "days", "weeks", "months", "years", "value", "percentage", "currencyId", "countryId", "countryStateId", "customState", "customCity", "cityId", "zero", "reduced", "withholding", "fiscalAuthorityId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -443,18 +415,6 @@ function ConvertFrom-JsonToTaxPolicyCreateDto {
             $CityId = $JsonParameters.PSobject.Properties["cityId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "zero"))) { #optional property not found
             $Zero = $null
         } else {
@@ -503,8 +463,6 @@ function ConvertFrom-JsonToTaxPolicyCreateDto {
             "customState" = ${CustomState}
             "customCity" = ${CustomCity}
             "cityId" = ${CityId}
-            "enrollmentId" = ${EnrollmentId}
-            "tenantId" = ${TenantId}
             "zero" = ${Zero}
             "reduced" = ${Reduced}
             "withholding" = ${Withholding}

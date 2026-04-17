@@ -45,10 +45,6 @@ No description available.
 No description available.
 .PARAMETER TermsAndConditionsURL
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER RequireHttps
 No description available.
 .PARAMETER RequireAppSecret
@@ -147,75 +143,69 @@ function Initialize-BusinessApplicationCreateDto {
         [String]
         ${TermsAndConditionsURL},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequireHttps},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequireAppSecret},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EnableClientOauthLogin},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EnableWebOAuthLogin},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EnableDeviceOAuthLogin},
-        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AllowAccessToSuiteSettings},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequireWebOAuthReauthentication},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequireTwoFactorReauthorization},
-        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EnableEmbeddedBrowserOAuthLogin},
-        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${UseStrictModeForRedirectURIs},
-        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CountryRestricted},
-        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaUIEngine},
-        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaStaticFilesRootPath},
-        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaRelativeAppPath},
-        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaNpmStartScript},
-        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaNpmPublishScript},
-        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaRelativeSourcePath},
-        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaRelativeOutputPath},
-        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${UseProxyToSpaDevelopmentServer},
-        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SpaDevelopmentServerUri},
-        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EnableGitRepoManagement},
-        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${GitRepoUrl}
     )
@@ -249,8 +239,6 @@ function Initialize-BusinessApplicationCreateDto {
             "contactEmail" = ${ContactEmail}
             "privacyPolicyURL" = ${PrivacyPolicyURL}
             "termsAndConditionsURL" = ${TermsAndConditionsURL}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "requireHttps" = ${RequireHttps}
             "requireAppSecret" = ${RequireAppSecret}
             "enableClientOauthLogin" = ${EnableClientOauthLogin}
@@ -310,7 +298,7 @@ function ConvertFrom-JsonToBusinessApplicationCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BusinessApplicationCreateDto
-        $AllProperties = ("id", "timestamp", "name", "namespace", "displayName", "avatarURL", "websiteUrl", "isMultiTenant", "isVerified", "isDisabled", "isSinglePageApplication", "isNativeOrDesktopApp", "contactEmail", "privacyPolicyURL", "termsAndConditionsURL", "businessID", "businessProfileRecordID", "requireHttps", "requireAppSecret", "enableClientOauthLogin", "enableWebOAuthLogin", "enableDeviceOAuthLogin", "allowAccessToSuiteSettings", "requireWebOAuthReauthentication", "requireTwoFactorReauthorization", "enableEmbeddedBrowserOAuthLogin", "useStrictModeForRedirectURIs", "countryRestricted", "spaUIEngine", "spaStaticFilesRootPath", "spaRelativeAppPath", "spaNpmStartScript", "spaNpmPublishScript", "spaRelativeSourcePath", "spaRelativeOutputPath", "useProxyToSpaDevelopmentServer", "spaDevelopmentServerUri", "enableGitRepoManagement", "gitRepoUrl")
+        $AllProperties = ("id", "timestamp", "name", "namespace", "displayName", "avatarURL", "websiteUrl", "isMultiTenant", "isVerified", "isDisabled", "isSinglePageApplication", "isNativeOrDesktopApp", "contactEmail", "privacyPolicyURL", "termsAndConditionsURL", "requireHttps", "requireAppSecret", "enableClientOauthLogin", "enableWebOAuthLogin", "enableDeviceOAuthLogin", "allowAccessToSuiteSettings", "requireWebOAuthReauthentication", "requireTwoFactorReauthorization", "enableEmbeddedBrowserOAuthLogin", "useStrictModeForRedirectURIs", "countryRestricted", "spaUIEngine", "spaStaticFilesRootPath", "spaRelativeAppPath", "spaNpmStartScript", "spaNpmPublishScript", "spaRelativeSourcePath", "spaRelativeOutputPath", "useProxyToSpaDevelopmentServer", "spaDevelopmentServerUri", "enableGitRepoManagement", "gitRepoUrl")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -409,18 +397,6 @@ function ConvertFrom-JsonToBusinessApplicationCreateDto {
             $TermsAndConditionsURL = $null
         } else {
             $TermsAndConditionsURL = $JsonParameters.PSobject.Properties["termsAndConditionsURL"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requireHttps"))) { #optional property not found
@@ -571,8 +547,6 @@ function ConvertFrom-JsonToBusinessApplicationCreateDto {
             "contactEmail" = ${ContactEmail}
             "privacyPolicyURL" = ${PrivacyPolicyURL}
             "termsAndConditionsURL" = ${TermsAndConditionsURL}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "requireHttps" = ${RequireHttps}
             "requireAppSecret" = ${RequireAppSecret}
             "enableClientOauthLogin" = ${EnableClientOauthLogin}

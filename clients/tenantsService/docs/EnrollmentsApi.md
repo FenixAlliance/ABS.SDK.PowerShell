@@ -31,7 +31,7 @@ Create a new tenant enrollment
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantEnrollmentCreateDto = Initialize-TenantEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -UserId "MyUserId" # TenantEnrollmentCreateDto |  (optional)
+$TenantEnrollmentCreateDto = Initialize-TenantEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -UserId "MyUserId" # TenantEnrollmentCreateDto |  (optional)
 
 # Create a new tenant enrollment
 try {

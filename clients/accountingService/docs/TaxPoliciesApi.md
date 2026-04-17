@@ -43,7 +43,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AppliedTaxPolicyRecordCreateDto = Initialize-AppliedTaxPolicyRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -TaxPolicyId "MyTaxPolicyId" -InvoiceId "MyInvoiceId" -ItemId "MyItemId" -TaxAmountInUSD 0 -TaxBaseAmountInUSD 0 # AppliedTaxPolicyRecordCreateDto |  (optional)
+$AppliedTaxPolicyRecordCreateDto = Initialize-AppliedTaxPolicyRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -TaxPolicyId "MyTaxPolicyId" -InvoiceId "MyInvoiceId" -ItemId "MyItemId" -TaxAmountInUSD 0 -TaxBaseAmountInUSD 0 # AppliedTaxPolicyRecordCreateDto |  (optional)
 
 # Create an applied tax policy record
 try {
@@ -151,7 +151,7 @@ Creates a new tax policy for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxPolicyCreateDto = Initialize-TaxPolicyCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyCreateDto |  (optional)
+$TaxPolicyCreateDto = Initialize-TaxPolicyCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyCreateDto |  (optional)
 
 # Create a tax policy
 try {
@@ -837,7 +837,7 @@ $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AppliedTaxPolicyRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AppliedTaxPolicyRecordUpdateDto = Initialize-AppliedTaxPolicyRecordUpdateDto -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -TaxPolicyId "MyTaxPolicyId" -InvoiceId "MyInvoiceId" -ItemId "MyItemId" -TaxAmountInUSD 0 -TaxBaseAmountInUSD 0 # AppliedTaxPolicyRecordUpdateDto |  (optional)
+$AppliedTaxPolicyRecordUpdateDto = Initialize-AppliedTaxPolicyRecordUpdateDto -TaxPolicyId "MyTaxPolicyId" -InvoiceId "MyInvoiceId" -ItemId "MyItemId" -TaxAmountInUSD 0 -TaxBaseAmountInUSD 0 # AppliedTaxPolicyRecordUpdateDto |  (optional)
 
 # Update an applied tax policy record
 try {
@@ -951,7 +951,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $Id = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxPolicyUpdateDto = Initialize-TaxPolicyUpdateDto -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyUpdateDto |  (optional)
+$TaxPolicyUpdateDto = Initialize-TaxPolicyUpdateDto -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyUpdateDto |  (optional)
 
 # Update a tax policy
 try {

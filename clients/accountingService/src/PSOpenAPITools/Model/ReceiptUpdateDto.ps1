@@ -17,8 +17,6 @@ No description available.
 
 .PARAMETER PaymentId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER ForexRate
 No description available.
 .PARAMETER TotalAmount
@@ -29,11 +27,7 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER AccountHolderId
-No description available.
 .PARAMETER ContactId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER OrderId
 No description available.
@@ -51,36 +45,27 @@ function Initialize-ReceiptUpdateDto {
         [String]
         ${PaymentId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${ForexRate},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalAmount},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalAmountInUsd},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Closed},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountHolderId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ContactId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${InvoiceId}
     )
@@ -92,15 +77,12 @@ function Initialize-ReceiptUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "paymentId" = ${PaymentId}
-            "tenantId" = ${TenantId}
             "forexRate" = ${ForexRate}
             "totalAmount" = ${TotalAmount}
             "totalAmountInUsd" = ${TotalAmountInUsd}
             "closed" = ${Closed}
             "currencyId" = ${CurrencyId}
-            "accountHolderId" = ${AccountHolderId}
             "contactId" = ${ContactId}
-            "enrollmentId" = ${EnrollmentId}
             "orderId" = ${OrderId}
             "invoiceId" = ${InvoiceId}
         }
@@ -140,7 +122,7 @@ function ConvertFrom-JsonToReceiptUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ReceiptUpdateDto
-        $AllProperties = ("paymentId", "tenantId", "forexRate", "totalAmount", "totalAmountInUsd", "closed", "currencyId", "accountHolderId", "contactId", "enrollmentId", "orderId", "invoiceId")
+        $AllProperties = ("paymentId", "forexRate", "totalAmount", "totalAmountInUsd", "closed", "currencyId", "contactId", "orderId", "invoiceId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -151,12 +133,6 @@ function ConvertFrom-JsonToReceiptUpdateDto {
             $PaymentId = $null
         } else {
             $PaymentId = $JsonParameters.PSobject.Properties["paymentId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRate"))) { #optional property not found
@@ -189,22 +165,10 @@ function ConvertFrom-JsonToReceiptUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountHolderId"))) { #optional property not found
-            $AccountHolderId = $null
-        } else {
-            $AccountHolderId = $JsonParameters.PSobject.Properties["accountHolderId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactId"))) { #optional property not found
             $ContactId = $null
         } else {
             $ContactId = $JsonParameters.PSobject.Properties["contactId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "orderId"))) { #optional property not found
@@ -221,15 +185,12 @@ function ConvertFrom-JsonToReceiptUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "paymentId" = ${PaymentId}
-            "tenantId" = ${TenantId}
             "forexRate" = ${ForexRate}
             "totalAmount" = ${TotalAmount}
             "totalAmountInUsd" = ${TotalAmountInUsd}
             "closed" = ${Closed}
             "currencyId" = ${CurrencyId}
-            "accountHolderId" = ${AccountHolderId}
             "contactId" = ${ContactId}
-            "enrollmentId" = ${EnrollmentId}
             "orderId" = ${OrderId}
             "invoiceId" = ${InvoiceId}
         }

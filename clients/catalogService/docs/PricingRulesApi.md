@@ -28,7 +28,7 @@ Creates a new pricing rule for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PricingRuleCreateDto = Initialize-PricingRuleCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyID "MyCurrencyID" -CountryID "MyCountryID" -CountryStateID "MyCountryStateID" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityID "MyCityID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # PricingRuleCreateDto |  (optional)
+$PricingRuleCreateDto = Initialize-PricingRuleCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyID "MyCurrencyID" -CountryID "MyCountryID" -CountryStateID "MyCountryStateID" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityID "MyCityID" # PricingRuleCreateDto |  (optional)
 
 # Create a new pricing rule
 try {

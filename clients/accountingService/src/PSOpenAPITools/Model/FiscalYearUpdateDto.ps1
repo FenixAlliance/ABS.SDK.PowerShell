@@ -25,6 +25,8 @@ No description available.
 No description available.
 .PARAMETER StartDate
 No description available.
+.PARAMETER FiscalAuthorityId
+No description available.
 .OUTPUTS
 
 FiscalYearUpdateDto<PSCustomObject>
@@ -47,7 +49,10 @@ function Initialize-FiscalYearUpdateDto {
         ${EndDate},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${StartDate}
+        ${StartDate},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FiscalAuthorityId}
     )
 
     Process {
@@ -61,6 +66,7 @@ function Initialize-FiscalYearUpdateDto {
             "closed" = ${Closed}
             "endDate" = ${EndDate}
             "startDate" = ${StartDate}
+            "fiscalAuthorityId" = ${FiscalAuthorityId}
         }
 
 
@@ -98,7 +104,7 @@ function ConvertFrom-JsonToFiscalYearUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in FiscalYearUpdateDto
-        $AllProperties = ("name", "description", "closed", "endDate", "startDate")
+        $AllProperties = ("name", "description", "closed", "endDate", "startDate", "fiscalAuthorityId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,12 +141,19 @@ function ConvertFrom-JsonToFiscalYearUpdateDto {
             $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalAuthorityId"))) { #optional property not found
+            $FiscalAuthorityId = $null
+        } else {
+            $FiscalAuthorityId = $JsonParameters.PSobject.Properties["fiscalAuthorityId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "description" = ${Description}
             "closed" = ${Closed}
             "endDate" = ${EndDate}
             "startDate" = ${StartDate}
+            "fiscalAuthorityId" = ${FiscalAuthorityId}
         }
 
         return $PSO

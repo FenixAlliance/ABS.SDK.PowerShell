@@ -54,7 +54,6 @@ Name | Type | Description | Notes
 **Material** | **String** |  | [optional] 
 **OnDiscount** | **Boolean** |  | [optional] 
 **TotalTax** | **Double** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **Permalink** | **String** |  | [optional] 
 **BrandName** | **String** |  | [optional] 
 **ReviewsCount** | **Int32** |  | [optional] 
@@ -79,7 +78,6 @@ Name | Type | Description | Notes
 **CustomTaxValue** | **Double** |  | [optional] 
 **HasVariations** | **Boolean** |  | [optional] 
 **QuestionsCount** | **Int32** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **SupplierCode** | **String** |  | [optional] 
 **AuctionEnd** | **System.DateTime** |  | [optional] 
 **PurchaseNote** | **String** |  | [optional] 
@@ -231,7 +229,6 @@ $CatalogItemUpdateDto = Initialize-PSOpenAPIToolsCatalogItemUpdateDto  -Hot null
  -Material null `
  -OnDiscount null `
  -TotalTax null `
- -TenantId null `
  -Permalink null `
  -BrandName null `
  -ReviewsCount null `
@@ -256,7 +253,6 @@ $CatalogItemUpdateDto = Initialize-PSOpenAPIToolsCatalogItemUpdateDto  -Hot null
  -CustomTaxValue null `
  -HasVariations null `
  -QuestionsCount null `
- -EnrollmentId null `
  -SupplierCode null `
  -AuctionEnd null `
  -PurchaseNote null `

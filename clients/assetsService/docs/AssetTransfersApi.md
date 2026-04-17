@@ -25,7 +25,7 @@ Creates a new asset transfer for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetTransferCreateDto = Initialize-AssetTransferCreateDto -AssetId "MyAssetId" -IsRootTransfer $false -SerialList "MySerialList" -Quantity "MyQuantity" -Serial "MySerial" -PreviousAssetTransferId "MyPreviousAssetTransferId" -SourceLocationId "MySourceLocationId" -DestinationLocationId "MyDestinationLocationId" -SourceContactId "MySourceContactId" -DestinationContactId "MyDestinationContactId" -SourceDepartmentId "MySourceDepartmentId" -DestinationDepartmentId "MyDestinationDepartmentId" # AssetTransferCreateDto |  (optional)
+$AssetTransferCreateDto = Initialize-AssetTransferCreateDto -Id "MyId" -Timestamp (Get-Date) -AssetId "MyAssetId" -IsRootTransfer $false -SerialList "MySerialList" -Quantity "MyQuantity" -Serial "MySerial" -PreviousAssetTransferId "MyPreviousAssetTransferId" -SourceLocationId "MySourceLocationId" -DestinationLocationId "MyDestinationLocationId" -SourceContactId "MySourceContactId" -DestinationContactId "MyDestinationContactId" -SourceDepartmentId "MySourceDepartmentId" -DestinationDepartmentId "MyDestinationDepartmentId" # AssetTransferCreateDto |  (optional)
 
 # Creates a new asset transfer
 try {

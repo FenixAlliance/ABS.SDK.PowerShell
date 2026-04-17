@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Enabled** | **Boolean** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $EmailGroupUpdateDto = Initialize-PSOpenAPIToolsEmailGroupUpdateDto  -Name null `
  -Description null `
- -Enabled null `
- -TenantId null `
- -EnrollmentId null
+ -Enabled null
 ```
 
 - Convert the resource to JSON

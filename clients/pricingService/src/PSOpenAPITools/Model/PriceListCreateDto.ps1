@@ -33,10 +33,6 @@ No description available.
 No description available.
 .PARAMETER UnitGroupId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 PriceListCreateDto<PSCustomObject>
@@ -72,13 +68,7 @@ function Initialize-PriceListCreateDto {
         ${UnitId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${UnitGroupId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${UnitGroupId}
     )
 
     Process {
@@ -112,8 +102,6 @@ function Initialize-PriceListCreateDto {
             "currencyId" = ${CurrencyId}
             "unitId" = ${UnitId}
             "unitGroupId" = ${UnitGroupId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -151,7 +139,7 @@ function ConvertFrom-JsonToPriceListCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PriceListCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "startDate", "endDate", "currencyId", "unitId", "unitGroupId", "tenantId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "name", "description", "startDate", "endDate", "currencyId", "unitId", "unitGroupId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -216,18 +204,6 @@ function ConvertFrom-JsonToPriceListCreateDto {
             $UnitGroupId = $JsonParameters.PSobject.Properties["unitGroupId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -238,8 +214,6 @@ function ConvertFrom-JsonToPriceListCreateDto {
             "currencyId" = ${CurrencyId}
             "unitId" = ${UnitId}
             "unitGroupId" = ${UnitGroupId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

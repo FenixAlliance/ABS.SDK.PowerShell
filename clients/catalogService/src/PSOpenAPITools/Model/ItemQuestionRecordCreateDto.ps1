@@ -27,8 +27,6 @@ No description available.
 No description available.
 .PARAMETER SocialProfileID
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 ItemQuestionRecordCreateDto<PSCustomObject>
@@ -54,10 +52,7 @@ function Initialize-ItemQuestionRecordCreateDto {
         ${Question},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SocialProfileID},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${SocialProfileID}
     )
 
     Process {
@@ -100,18 +95,6 @@ function Initialize-ItemQuestionRecordCreateDto {
             throw "invalid value for 'SocialProfileID', the character length must be great than or equal to 36."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -120,7 +103,6 @@ function Initialize-ItemQuestionRecordCreateDto {
             "needsRevision" = ${NeedsRevision}
             "question" = ${Question}
             "socialProfileID" = ${SocialProfileID}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -158,7 +140,7 @@ function ConvertFrom-JsonToItemQuestionRecordCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemQuestionRecordCreateDto
-        $AllProperties = ("id", "timestamp", "title", "needsRevision", "question", "socialProfileID", "businessID")
+        $AllProperties = ("id", "timestamp", "title", "needsRevision", "question", "socialProfileID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,12 +169,6 @@ function ConvertFrom-JsonToItemQuestionRecordCreateDto {
             $Question = $JsonParameters.PSobject.Properties["question"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
@@ -218,7 +194,6 @@ function ConvertFrom-JsonToItemQuestionRecordCreateDto {
             "needsRevision" = ${NeedsRevision}
             "question" = ${Question}
             "socialProfileID" = ${SocialProfileID}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

@@ -38,7 +38,7 @@ Creates a new blog post for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCreateDto = Initialize-BlogPostCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -BlogPostCategoryID "MyBlogPostCategoryID" -WebTemplateID "MyWebTemplateID" # BlogPostCreateDto |  (optional)
+$BlogPostCreateDto = Initialize-BlogPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -BlogPostCategoryID "MyBlogPostCategoryID" -WebTemplateID "MyWebTemplateID" # BlogPostCreateDto |  (optional)
 
 # Create a new blog post
 try {
@@ -86,7 +86,7 @@ Creates a new category and relates it to a specific blog post.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # BlogPostCategoryCreateDto |  (optional)
+$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # BlogPostCategoryCreateDto |  (optional)
 
 # Create a category for a blog post
 try {
@@ -184,7 +184,7 @@ Creates a new tag and relates it to a specific blog post.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostTagCreateDto = Initialize-BlogPostTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # BlogPostTagCreateDto |  (optional)
+$BlogPostTagCreateDto = Initialize-BlogPostTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # BlogPostTagCreateDto |  (optional)
 
 # Create a tag for a blog post
 try {

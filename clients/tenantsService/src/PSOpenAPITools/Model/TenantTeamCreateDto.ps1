@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER Name
 No description available.
 .PARAMETER Description
@@ -51,26 +47,20 @@ function Initialize-TenantTeamCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
+        ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${AvatarURL},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsPublic},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BusinessUnitID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrganizationProfileID}
     )
@@ -78,26 +68,6 @@ function Initialize-TenantTeamCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => TenantTeamCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -gt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -lt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be great than or equal to 36."
-        }
 
         if (!$Name -and $Name.length -gt 255) {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 255."
@@ -135,8 +105,6 @@ function Initialize-TenantTeamCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "name" = ${Name}
             "description" = ${Description}
             "avatarURL" = ${AvatarURL}
@@ -180,21 +148,11 @@ function ConvertFrom-JsonToTenantTeamCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantTeamCreateDto
-        $AllProperties = ("id", "timestamp", "businessID", "businessProfileRecordID", "name", "description", "avatarURL", "isPublic", "businessUnitID", "organizationProfileID")
+        $AllProperties = ("id", "timestamp", "name", "description", "avatarURL", "isPublic", "businessUnitID", "organizationProfileID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'businessID' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -207,12 +165,6 @@ function ConvertFrom-JsonToTenantTeamCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -254,8 +206,6 @@ function ConvertFrom-JsonToTenantTeamCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "name" = ${Name}
             "description" = ${Description}
             "avatarURL" = ${AvatarURL}

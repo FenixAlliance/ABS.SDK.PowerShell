@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContactId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **TaxId** | **String** |  | [optional] 
 **Phone** | **String** |  | [optional] 
 **Email** | **String** |  | [optional] 
@@ -30,7 +29,6 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $BillingProfileUpdateDto = Initialize-PSOpenAPIToolsBillingProfileUpdateDto  -ContactId null `
- -TenantId null `
  -TaxId null `
  -Phone null `
  -Email null `

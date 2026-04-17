@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **WebsiteURL** | **String** |  | [optional] 
 **Featured** | **Boolean** |  | [optional] 
 **Trending** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -24,8 +23,7 @@ $ItemBrandCreateDto = Initialize-PSOpenAPIToolsItemBrandCreateDto  -Id null `
  -Description null `
  -WebsiteURL null `
  -Featured null `
- -Trending null `
- -BusinessID null
+ -Trending null
 ```
 
 - Convert the resource to JSON

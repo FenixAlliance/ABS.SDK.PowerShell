@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Name
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER FiscalYearId
 No description available.
 .PARAMETER CostCentreId
@@ -46,11 +44,8 @@ function Initialize-CostCentreBudgetCreateDto {
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${FiscalYearId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CostCentreId}
     )
@@ -72,7 +67,6 @@ function Initialize-CostCentreBudgetCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
             "fiscalYearId" = ${FiscalYearId}
             "costCentreId" = ${CostCentreId}
         }
@@ -112,7 +106,7 @@ function ConvertFrom-JsonToCostCentreBudgetCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CostCentreBudgetCreateDto
-        $AllProperties = ("id", "timestamp", "name", "tenantId", "fiscalYearId", "costCentreId")
+        $AllProperties = ("id", "timestamp", "name", "fiscalYearId", "costCentreId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -137,12 +131,6 @@ function ConvertFrom-JsonToCostCentreBudgetCreateDto {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalYearId"))) { #optional property not found
             $FiscalYearId = $null
         } else {
@@ -159,7 +147,6 @@ function ConvertFrom-JsonToCostCentreBudgetCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
-            "tenantId" = ${TenantId}
             "fiscalYearId" = ${FiscalYearId}
             "costCentreId" = ${CostCentreId}
         }

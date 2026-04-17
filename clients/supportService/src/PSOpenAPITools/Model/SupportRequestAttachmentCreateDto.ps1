@@ -39,10 +39,6 @@ No description available.
 No description available.
 .PARAMETER FilePath
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER Metadata
 No description available.
 .PARAMETER SupportRequestID
@@ -93,14 +89,8 @@ function Initialize-SupportRequestAttachmentCreateDto {
         ${FilePath},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Metadata},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SupportRequestID}
     )
@@ -108,22 +98,6 @@ function Initialize-SupportRequestAttachmentCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => SupportRequestAttachmentCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$BusinessID -and $BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessID -and $BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -gt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -lt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be great than or equal to 36."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -139,8 +113,6 @@ function Initialize-SupportRequestAttachmentCreateDto {
             "validResponse" = ${ValidResponse}
             "parentFileUploadId" = ${ParentFileUploadId}
             "filePath" = ${FilePath}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "metadata" = ${Metadata}
             "supportRequestID" = ${SupportRequestID}
         }
@@ -180,7 +152,7 @@ function ConvertFrom-JsonToSupportRequestAttachmentCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SupportRequestAttachmentCreateDto
-        $AllProperties = ("id", "timestamp", "notes", "title", "author", "isFolder", "fileName", "abstract", "keyWords", "validResponse", "parentFileUploadId", "filePath", "businessID", "businessProfileRecordID", "metadata", "supportRequestID")
+        $AllProperties = ("id", "timestamp", "notes", "title", "author", "isFolder", "fileName", "abstract", "keyWords", "validResponse", "parentFileUploadId", "filePath", "metadata", "supportRequestID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -259,18 +231,6 @@ function ConvertFrom-JsonToSupportRequestAttachmentCreateDto {
             $FilePath = $JsonParameters.PSobject.Properties["filePath"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "metadata"))) { #optional property not found
             $Metadata = $null
         } else {
@@ -296,8 +256,6 @@ function ConvertFrom-JsonToSupportRequestAttachmentCreateDto {
             "validResponse" = ${ValidResponse}
             "parentFileUploadId" = ${ParentFileUploadId}
             "filePath" = ${FilePath}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "metadata" = ${Metadata}
             "supportRequestID" = ${SupportRequestID}
         }

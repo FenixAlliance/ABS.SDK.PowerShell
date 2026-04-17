@@ -27,7 +27,7 @@ Creates a new social media post for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialMediaPostCreateDto = Initialize-SocialMediaPostCreateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrollmentId "MyEnrollmentId" # SocialMediaPostCreateDto | 
+$SocialMediaPostCreateDto = Initialize-SocialMediaPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -SocialPostBucketId "MySocialPostBucketId" # SocialMediaPostCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing social media post by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialmediapostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SocialMediaPostUpdateDto = Initialize-SocialMediaPostUpdateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -TenantId "MyTenantId" -SocialPostBucketId "MySocialPostBucketId" -EnrollmentId "MyEnrollmentId" # SocialMediaPostUpdateDto | 
+$SocialMediaPostUpdateDto = Initialize-SocialMediaPostUpdateDto -Title "MyTitle" -Content "MyContent" -FeaturedImageUrl "MyFeaturedImageUrl" -SocialPostBucketId "MySocialPostBucketId" # SocialMediaPostUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

@@ -6,9 +6,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **SocialPostBucketId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +15,7 @@ Name | Type | Description | Notes
 $SocialMediaPostUpdateDto = Initialize-PSOpenAPIToolsSocialMediaPostUpdateDto  -Title null `
  -Content null `
  -FeaturedImageUrl null `
- -TenantId null `
- -SocialPostBucketId null `
- -EnrollmentId null
+ -SocialPostBucketId null
 ```
 
 - Convert the resource to JSON

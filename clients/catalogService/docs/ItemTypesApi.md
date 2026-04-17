@@ -78,7 +78,7 @@ Creates a new item type for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemTypeCreateDto = Initialize-ItemTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -PluralTitle "MyPluralTitle" -SingularTitle "MySingularTitle" -Description "MyDescription" -ImageURL "MyImageURL" -GoogleCategoryTaxonomy "MyGoogleCategoryTaxonomy" -BusinessID "MyBusinessID" -ItemCategoryID "MyItemCategoryID" -ItemGoogleCategoryID "MyItemGoogleCategoryID" # ItemTypeCreateDto |  (optional)
+$ItemTypeCreateDto = Initialize-ItemTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -PluralTitle "MyPluralTitle" -SingularTitle "MySingularTitle" -Description "MyDescription" -ImageURL "MyImageURL" -GoogleCategoryTaxonomy "MyGoogleCategoryTaxonomy" -ItemCategoryID "MyItemCategoryID" -ItemGoogleCategoryID "MyItemGoogleCategoryID" # ItemTypeCreateDto |  (optional)
 
 # Create a new item type
 try {

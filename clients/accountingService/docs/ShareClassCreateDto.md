@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ForexRates** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,9 +21,7 @@ $ShareClassCreateDto = Initialize-PSOpenAPIToolsShareClassCreateDto  -Id null `
  -Value null `
  -Description null `
  -ForexRates null `
- -CurrencyId null `
- -TenantId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

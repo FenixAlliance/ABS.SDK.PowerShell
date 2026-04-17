@@ -29,7 +29,7 @@ Adds a new journal type to the tenant's catalog.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalTypeCreateDto = Initialize-JournalTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # JournalTypeCreateDto |  (optional)
+$JournalTypeCreateDto = Initialize-JournalTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" # JournalTypeCreateDto |  (optional)
 
 # Creates a new journal type
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalTypeUpdateDto = Initialize-JournalTypeUpdateDto -Name "MyName" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # JournalTypeUpdateDto |  (optional)
+$JournalTypeUpdateDto = Initialize-JournalTypeUpdateDto -Name "MyName" # JournalTypeUpdateDto |  (optional)
 
 # Updates an existing journal type
 try {

@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | 
-**BusinessProfileRecordID** | **String** |  | 
 **BusinessTeamID** | **String** |  | 
 **ContactID** | **String** |  | 
 
@@ -16,8 +14,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamContactEnrollmentCreateDto = Initialize-PSOpenAPIToolsTenantTeamContactEnrollmentCreateDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -BusinessTeamID null `
  -ContactID null
 ```

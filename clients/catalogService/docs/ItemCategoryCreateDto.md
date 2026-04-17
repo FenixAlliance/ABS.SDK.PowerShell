@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **ParentItemCategoryID** | **String** |  | [optional] 
 
 ## Examples
@@ -21,8 +19,6 @@ $ItemCategoryCreateDto = Initialize-PSOpenAPIToolsItemCategoryCreateDto  -Id nul
  -Title null `
  -Description null `
  -ImageURL null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -ParentItemCategoryID null
 ```
 

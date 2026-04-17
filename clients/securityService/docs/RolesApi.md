@@ -202,7 +202,7 @@ Creates a new security role for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$SecurityRoleCreateDto = Initialize-SecurityRoleCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -Description "MyDescription" # SecurityRoleCreateDto | 
+$SecurityRoleCreateDto = Initialize-SecurityRoleCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # SecurityRoleCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

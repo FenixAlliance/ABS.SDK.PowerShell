@@ -17,12 +17,10 @@ Name | Type | Description | Notes
 **CumulativeTransactionThreshold** | **Double** |  | [optional] 
 **FiscalAuthorityId** | **String** |  | [optional] 
 **FiscalYearId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **CountryId** | **String** |  | [optional] 
 **TaxClassId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -42,12 +40,10 @@ $TaxRateUpdateDto = Initialize-PSOpenAPIToolsTaxRateUpdateDto  -Name null `
  -CumulativeTransactionThreshold null `
  -FiscalAuthorityId null `
  -FiscalYearId null `
- -TenantId null `
  -CountryId null `
  -TaxClassId null `
  -CurrencyId null `
- -TaxPolicyId null `
- -EnrollmentId null
+ -TaxPolicyId null
 ```
 
 - Convert the resource to JSON

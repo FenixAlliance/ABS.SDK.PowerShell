@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **UnitId** | **String** |  | [optional] 
 **TransactionCategoryId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **BankProfileId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
 
@@ -34,8 +32,6 @@ $BankTransactionUpdateDto = Initialize-PSOpenAPIToolsBankTransactionUpdateDto  -
  -UnitId null `
  -TransactionCategoryId null `
  -CurrencyId null `
- -TenantId null `
- -EnrollmentId null `
  -BankProfileId null `
  -BankAccountId null
 ```

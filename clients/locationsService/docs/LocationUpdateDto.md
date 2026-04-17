@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **StateId** | **String** |  | [optional] 
 **PostalCode** | **String** |  | [optional] 
 **CountryId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **Longitude** | **Double** |  | [optional] 
 **Latitude** | **Double** |  | [optional] 
 **IsRoutable** | **Boolean** |  | [optional] 
@@ -42,7 +41,6 @@ $LocationUpdateDto = Initialize-PSOpenAPIToolsLocationUpdateDto  -Title null `
  -StateId null `
  -PostalCode null `
  -CountryId null `
- -TenantId null `
  -Longitude null `
  -Latitude null `
  -IsRoutable null `

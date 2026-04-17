@@ -19,8 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER UserId
 No description available.
 .OUTPUTS
@@ -39,9 +37,6 @@ function Initialize-TenantEnrollmentCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${UserId}
     )
 
@@ -53,7 +48,6 @@ function Initialize-TenantEnrollmentCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "userId" = ${UserId}
         }
 
@@ -92,7 +86,7 @@ function ConvertFrom-JsonToTenantEnrollmentCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantEnrollmentCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "userId")
+        $AllProperties = ("id", "timestamp", "userId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -111,12 +105,6 @@ function ConvertFrom-JsonToTenantEnrollmentCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "userId"))) { #optional property not found
             $UserId = $null
         } else {
@@ -126,7 +114,6 @@ function ConvertFrom-JsonToTenantEnrollmentCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "userId" = ${UserId}
         }
 

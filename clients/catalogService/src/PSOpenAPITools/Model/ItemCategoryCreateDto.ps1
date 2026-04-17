@@ -25,10 +25,6 @@ No description available.
 No description available.
 .PARAMETER ImageURL
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER ParentItemCategoryID
 No description available.
 .OUTPUTS
@@ -55,12 +51,6 @@ function Initialize-ItemCategoryCreateDto {
         [String]
         ${ImageURL},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentItemCategoryID}
     )
@@ -89,26 +79,6 @@ function Initialize-ItemCategoryCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -gt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -lt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be great than or equal to 36."
-        }
-
         if (!$ParentItemCategoryID -and $ParentItemCategoryID.length -gt 36) {
             throw "invalid value for 'ParentItemCategoryID', the character length must be smaller than or equal to 36."
         }
@@ -124,8 +94,6 @@ function Initialize-ItemCategoryCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "imageURL" = ${ImageURL}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "parentItemCategoryID" = ${ParentItemCategoryID}
         }
 
@@ -164,7 +132,7 @@ function ConvertFrom-JsonToItemCategoryCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemCategoryCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "imageURL", "businessID", "businessProfileRecordID", "parentItemCategoryID")
+        $AllProperties = ("id", "timestamp", "title", "description", "imageURL", "parentItemCategoryID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -179,12 +147,6 @@ function ConvertFrom-JsonToItemCategoryCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'title' missing."
         } else {
             $Title = $JsonParameters.PSobject.Properties["title"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -211,12 +173,6 @@ function ConvertFrom-JsonToItemCategoryCreateDto {
             $ImageURL = $JsonParameters.PSobject.Properties["imageURL"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentItemCategoryID"))) { #optional property not found
             $ParentItemCategoryID = $null
         } else {
@@ -229,8 +185,6 @@ function ConvertFrom-JsonToItemCategoryCreateDto {
             "title" = ${Title}
             "description" = ${Description}
             "imageURL" = ${ImageURL}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "parentItemCategoryID" = ${ParentItemCategoryID}
         }
 

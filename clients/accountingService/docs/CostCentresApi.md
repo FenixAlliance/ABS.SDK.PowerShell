@@ -38,7 +38,7 @@ Creates a new cost centre.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CostCentreCreateDto = Initialize-CostCentreCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Disabled $false -Description "MyDescription" -CostCentreType "Service" -TenantId "MyTenantId" -CostCentresGroupId "MyCostCentresGroupId" -ParentCostCentreId "MyParentCostCentreId" # CostCentreCreateDto | 
+$CostCentreCreateDto = Initialize-CostCentreCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Disabled $false -Description "MyDescription" -CostCentreType "Service" -CostCentresGroupId "MyCostCentresGroupId" -ParentCostCentreId "MyParentCostCentreId" # CostCentreCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -90,7 +90,7 @@ Creates a new cost centre budget.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CostCentreBudgetCreateDto = Initialize-CostCentreBudgetCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -TenantId "MyTenantId" -FiscalYearId "MyFiscalYearId" -CostCentreId "MyCostCentreId" # CostCentreBudgetCreateDto | 
+$CostCentreBudgetCreateDto = Initialize-CostCentreBudgetCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -FiscalYearId "MyFiscalYearId" -CostCentreId "MyCostCentreId" # CostCentreBudgetCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -142,7 +142,7 @@ Creates a new cost centre group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CostCentreGroupCreateDto = Initialize-CostCentreGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -TenantId "MyTenantId" -ParentCostCentresGroupId "MyParentCostCentresGroupId" # CostCentreGroupCreateDto | 
+$CostCentreGroupCreateDto = Initialize-CostCentreGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -ParentCostCentresGroupId "MyParentCostCentresGroupId" # CostCentreGroupCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -753,7 +753,7 @@ Updates an existing cost centre.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CostCentreId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CostCentreUpdateDto = Initialize-CostCentreUpdateDto -Name "MyName" -Disabled $false -Description "MyDescription" -CostCentreType "Service" -TenantId "MyTenantId" -CostCentresGroupId "MyCostCentresGroupId" -ParentCostCentreId "MyParentCostCentreId" # CostCentreUpdateDto | 
+$CostCentreUpdateDto = Initialize-CostCentreUpdateDto -Name "MyName" -Disabled $false -Description "MyDescription" -CostCentreType "Service" -CostCentresGroupId "MyCostCentresGroupId" -ParentCostCentreId "MyParentCostCentreId" # CostCentreUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -863,7 +863,7 @@ Updates an existing cost centre group.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $GroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CostCentreGroupUpdateDto = Initialize-CostCentreGroupUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -TenantId "MyTenantId" -ParentCostCentresGroupId "MyParentCostCentresGroupId" # CostCentreGroupUpdateDto | 
+$CostCentreGroupUpdateDto = Initialize-CostCentreGroupUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -ParentCostCentresGroupId "MyParentCostCentresGroupId" # CostCentreGroupUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

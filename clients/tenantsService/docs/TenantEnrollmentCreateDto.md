@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **UserId** | **String** |  | [optional] 
 
 ## Examples
@@ -14,7 +13,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantEnrollmentCreateDto = Initialize-PSOpenAPIToolsTenantEnrollmentCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
  -UserId null
 ```
 

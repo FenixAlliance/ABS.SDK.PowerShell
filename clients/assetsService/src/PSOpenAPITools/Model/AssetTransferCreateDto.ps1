@@ -15,6 +15,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER AssetId
 No description available.
 .PARAMETER IsRootTransfer
@@ -49,38 +53,44 @@ function Initialize-AssetTransferCreateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AssetId},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${IsRootTransfer},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SerialList},
+        ${AssetId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Quantity},
+        [System.Nullable[Boolean]]
+        ${IsRootTransfer},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Serial},
+        ${SerialList},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PreviousAssetTransferId},
+        ${Quantity},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceLocationId},
+        ${Serial},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DestinationLocationId},
+        ${PreviousAssetTransferId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceContactId},
+        ${SourceLocationId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DestinationContactId},
+        ${DestinationLocationId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceDepartmentId},
+        ${SourceContactId},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DestinationContactId},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceDepartmentId},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DestinationDepartmentId}
     )
@@ -91,6 +101,8 @@ function Initialize-AssetTransferCreateDto {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "assetId" = ${AssetId}
             "isRootTransfer" = ${IsRootTransfer}
             "serialList" = ${SerialList}
@@ -140,11 +152,23 @@ function ConvertFrom-JsonToAssetTransferCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AssetTransferCreateDto
-        $AllProperties = ("assetId", "isRootTransfer", "serialList", "quantity", "serial", "previousAssetTransferId", "sourceLocationId", "destinationLocationId", "sourceContactId", "destinationContactId", "sourceDepartmentId", "destinationDepartmentId")
+        $AllProperties = ("id", "timestamp", "assetId", "isRootTransfer", "serialList", "quantity", "serial", "previousAssetTransferId", "sourceLocationId", "destinationLocationId", "sourceContactId", "destinationContactId", "sourceDepartmentId", "destinationDepartmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "assetId"))) { #optional property not found
@@ -220,6 +244,8 @@ function ConvertFrom-JsonToAssetTransferCreateDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "assetId" = ${AssetId}
             "isRootTransfer" = ${IsRootTransfer}
             "serialList" = ${SerialList}

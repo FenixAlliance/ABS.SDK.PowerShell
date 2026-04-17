@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER TaxPolicyId
 No description available.
 .PARAMETER InvoiceId
@@ -49,23 +45,17 @@ function Initialize-AppliedTaxPolicyRecordCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${TaxPolicyId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${InvoiceId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TaxPolicyId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${InvoiceId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ItemId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TaxAmountInUSD},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TaxBaseAmountInUSD}
     )
@@ -73,22 +63,6 @@ function Initialize-AppliedTaxPolicyRecordCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => AppliedTaxPolicyRecordCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
 
         if (!$TaxPolicyId -and $TaxPolicyId.length -gt 36) {
             throw "invalid value for 'TaxPolicyId', the character length must be smaller than or equal to 36."
@@ -118,8 +92,6 @@ function Initialize-AppliedTaxPolicyRecordCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "taxPolicyId" = ${TaxPolicyId}
             "invoiceId" = ${InvoiceId}
             "itemId" = ${ItemId}
@@ -162,7 +134,7 @@ function ConvertFrom-JsonToAppliedTaxPolicyRecordCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AppliedTaxPolicyRecordCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "taxPolicyId", "invoiceId", "itemId", "taxAmountInUSD", "taxBaseAmountInUSD")
+        $AllProperties = ("id", "timestamp", "taxPolicyId", "invoiceId", "itemId", "taxAmountInUSD", "taxBaseAmountInUSD")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -179,18 +151,6 @@ function ConvertFrom-JsonToAppliedTaxPolicyRecordCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "taxPolicyId"))) { #optional property not found
@@ -226,8 +186,6 @@ function ConvertFrom-JsonToAppliedTaxPolicyRecordCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "taxPolicyId" = ${TaxPolicyId}
             "invoiceId" = ${InvoiceId}
             "itemId" = ${ItemId}

@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 
@@ -16,8 +14,6 @@ Name | Type | Description | Notes
 ```powershell
 $AssetCategoryCreateDto = Initialize-PSOpenAPIToolsAssetCategoryCreateDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
  -Name null `
  -Description null
 ```

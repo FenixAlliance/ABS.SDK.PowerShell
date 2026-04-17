@@ -3,17 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **BusinessTeamID** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TenantTeamRecordUpdateDto = Initialize-PSOpenAPIToolsTenantTeamRecordUpdateDto  -BusinessID null `
- -BusinessProfileRecordID null `
- -BusinessTeamID null
+$TenantTeamRecordUpdateDto = Initialize-PSOpenAPIToolsTenantTeamRecordUpdateDto  -BusinessTeamID null
 ```
 
 - Convert the resource to JSON

@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StudentProfileID** | **String** |  | [optional] 
 **CourseEnrollmentID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **CourseCompletionCertificateTemplateID** | **String** |  | [optional] 
 **CourseID** | **String** |  | [optional] 
 
@@ -16,8 +14,6 @@ Name | Type | Description | Notes
 ```powershell
 $CourseCompletionCertificateUpdateDto = Initialize-PSOpenAPIToolsCourseCompletionCertificateUpdateDto  -StudentProfileID null `
  -CourseEnrollmentID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -CourseCompletionCertificateTemplateID null `
  -CourseID null
 ```

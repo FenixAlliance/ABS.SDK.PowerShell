@@ -33,7 +33,7 @@ Creates a new course certificate for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCompletionCertificateCreateDto = Initialize-CourseCompletionCertificateCreateDto -Id "MyId" -Timestamp (Get-Date) -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateCreateDto |  (optional)
+$CourseCompletionCertificateCreateDto = Initialize-CourseCompletionCertificateCreateDto -Id "MyId" -Timestamp (Get-Date) -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateCreateDto |  (optional)
 
 # Create a course certificate
 try {
@@ -85,7 +85,7 @@ Creates a new course certificate template for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCertificateTemplateCreateDto = Initialize-CourseCertificateTemplateCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -BusinessID "MyBusinessID" -WebPortalID "MyWebPortalID" -WebsiteThemeID "MyWebsiteThemeID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -SocialProfileID "MySocialProfileID" -ParentWebContentID "MyParentWebContentID" -ParentWebContentVersionID "MyParentWebContentVersionID" # CourseCertificateTemplateCreateDto |  (optional)
+$CourseCertificateTemplateCreateDto = Initialize-CourseCertificateTemplateCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -WebPortalID "MyWebPortalID" -WebsiteThemeID "MyWebsiteThemeID" -SocialProfileID "MySocialProfileID" -ParentWebContentID "MyParentWebContentID" -ParentWebContentVersionID "MyParentWebContentVersionID" # CourseCertificateTemplateCreateDto |  (optional)
 
 # Create a certificate template
 try {
@@ -494,7 +494,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseCertificateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCompletionCertificateUpdateDto = Initialize-CourseCompletionCertificateUpdateDto -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateUpdateDto |  (optional)
+$CourseCompletionCertificateUpdateDto = Initialize-CourseCompletionCertificateUpdateDto -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateUpdateDto |  (optional)
 
 # Update a course certificate
 try {

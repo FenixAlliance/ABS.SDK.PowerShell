@@ -29,7 +29,7 @@ Creates a new course cohort for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCohortCreateDto = Initialize-CourseCohortCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseID "MyCourseID" -BusinessID "MyBusinessID" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -ExpectedStartDateTime (Get-Date) -ExpectedEndDateTime (Get-Date) # CourseCohortCreateDto |  (optional)
+$CourseCohortCreateDto = Initialize-CourseCohortCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseID "MyCourseID" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -ExpectedStartDateTime (Get-Date) -ExpectedEndDateTime (Get-Date) # CourseCohortCreateDto |  (optional)
 
 # Create a new course cohort
 try {

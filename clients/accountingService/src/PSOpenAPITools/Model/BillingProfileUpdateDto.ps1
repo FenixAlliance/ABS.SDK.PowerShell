@@ -17,8 +17,6 @@ No description available.
 
 .PARAMETER ContactId
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER TaxId
 No description available.
 .PARAMETER Phone
@@ -70,62 +68,59 @@ function Initialize-BillingProfileUpdateDto {
         ${ContactId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${TaxId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TaxId},
+        ${Phone},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Phone},
+        ${Email},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Email},
+        ${Address},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Address},
+        ${Address1},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Address1},
+        ${Address2},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Address2},
+        ${PostalCode},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PostalCode},
+        ${BusinessName},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessName},
+        ${CommercialName},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CommercialName},
+        ${Ticker},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Ticker},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Duns},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsPublicCompany},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsFactaCustomer},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CountryId},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StateId},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CityId},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FiscalIdentificationTypeId},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FiscalAuthorityId},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FiscalRegimeId}
     )
@@ -137,7 +132,6 @@ function Initialize-BillingProfileUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "contactId" = ${ContactId}
-            "tenantId" = ${TenantId}
             "taxId" = ${TaxId}
             "phone" = ${Phone}
             "email" = ${Email}
@@ -194,7 +188,7 @@ function ConvertFrom-JsonToBillingProfileUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BillingProfileUpdateDto
-        $AllProperties = ("contactId", "tenantId", "taxId", "phone", "email", "address", "address1", "address2", "postalCode", "businessName", "commercialName", "ticker", "duns", "isPublicCompany", "isFactaCustomer", "countryId", "stateId", "cityId", "fiscalIdentificationTypeId", "fiscalAuthorityId", "fiscalRegimeId")
+        $AllProperties = ("contactId", "taxId", "phone", "email", "address", "address1", "address2", "postalCode", "businessName", "commercialName", "ticker", "duns", "isPublicCompany", "isFactaCustomer", "countryId", "stateId", "cityId", "fiscalIdentificationTypeId", "fiscalAuthorityId", "fiscalRegimeId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -205,12 +199,6 @@ function ConvertFrom-JsonToBillingProfileUpdateDto {
             $ContactId = $null
         } else {
             $ContactId = $JsonParameters.PSobject.Properties["contactId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "taxId"))) { #optional property not found
@@ -329,7 +317,6 @@ function ConvertFrom-JsonToBillingProfileUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "contactId" = ${ContactId}
-            "tenantId" = ${TenantId}
             "taxId" = ${TaxId}
             "phone" = ${Phone}
             "email" = ${Email}

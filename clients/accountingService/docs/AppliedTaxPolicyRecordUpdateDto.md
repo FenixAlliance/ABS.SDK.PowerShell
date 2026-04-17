@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AppliedTaxPolicyRecordUpdateDto = Initialize-PSOpenAPIToolsAppliedTaxPolicyRecordUpdateDto  -TenantId null `
- -EnrollmentId null `
- -TaxPolicyId null `
+$AppliedTaxPolicyRecordUpdateDto = Initialize-PSOpenAPIToolsAppliedTaxPolicyRecordUpdateDto  -TaxPolicyId null `
  -InvoiceId null `
  -ItemId null `
  -TaxAmountInUSD null `

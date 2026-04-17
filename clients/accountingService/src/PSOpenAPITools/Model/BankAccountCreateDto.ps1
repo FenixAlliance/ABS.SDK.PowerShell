@@ -31,11 +31,7 @@ No description available.
 No description available.
 .PARAMETER Prefix
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER CurrencyId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .PARAMETER AccountTypeId
 No description available.
@@ -91,42 +87,36 @@ function Initialize-BankAccountCreateDto {
         ${Prefix},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${CurrencyId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${AccountTypeId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountTypeId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ParentAccountId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
         ${AccountCategory},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Iban},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Swift},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BranchCode},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankAccountNumber},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${QualifiedName},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankId},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BankProfileId}
     )
@@ -181,9 +171,7 @@ function Initialize-BankAccountCreateDto {
             "code" = ${Code}
             "path" = ${Path}
             "prefix" = ${Prefix}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
@@ -231,7 +219,7 @@ function ConvertFrom-JsonToBankAccountCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BankAccountCreateDto
-        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "tenantId", "currencyId", "enrollmentId", "accountTypeId", "parentAccountId", "accountCategory", "iban", "swift", "branchCode", "bankAccountNumber", "qualifiedName", "bankId", "bankProfileId")
+        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "currencyId", "accountTypeId", "parentAccountId", "accountCategory", "iban", "swift", "branchCode", "bankAccountNumber", "qualifiedName", "bankId", "bankProfileId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -302,18 +290,6 @@ function ConvertFrom-JsonToBankAccountCreateDto {
             $Prefix = $JsonParameters.PSobject.Properties["prefix"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountTypeId"))) { #optional property not found
             $AccountTypeId = $null
         } else {
@@ -377,9 +353,7 @@ function ConvertFrom-JsonToBankAccountCreateDto {
             "code" = ${Code}
             "path" = ${Path}
             "prefix" = ${Prefix}
-            "tenantId" = ${TenantId}
             "currencyId" = ${CurrencyId}
-            "enrollmentId" = ${EnrollmentId}
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}

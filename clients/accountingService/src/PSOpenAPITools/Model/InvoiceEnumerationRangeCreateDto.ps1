@@ -39,10 +39,6 @@ No description available.
 No description available.
 .PARAMETER FiscalAuthorityId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER DocumentType
 No description available.
 .OUTPUTS
@@ -90,12 +86,6 @@ function Initialize-InvoiceEnumerationRangeCreateDto {
         [String]
         ${FiscalAuthorityId},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Standard", "DebitNote", "CreditNote")]
         [String]
         ${DocumentType}
@@ -127,8 +117,6 @@ function Initialize-InvoiceEnumerationRangeCreateDto {
             "validFrom" = ${ValidFrom}
             "validTo" = ${ValidTo}
             "fiscalAuthorityId" = ${FiscalAuthorityId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "documentType" = ${DocumentType}
         }
 
@@ -167,7 +155,7 @@ function ConvertFrom-JsonToInvoiceEnumerationRangeCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in InvoiceEnumerationRangeCreateDto
-        $AllProperties = ("id", "timestamp", "prefix", "suffix", "identifier", "qualifiedName", "currentNumeration", "numerationFrom", "numerationTo", "validFrom", "validTo", "fiscalAuthorityId", "tenantId", "enrollmentId", "documentType")
+        $AllProperties = ("id", "timestamp", "prefix", "suffix", "identifier", "qualifiedName", "currentNumeration", "numerationFrom", "numerationTo", "validFrom", "validTo", "fiscalAuthorityId", "documentType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -250,18 +238,6 @@ function ConvertFrom-JsonToInvoiceEnumerationRangeCreateDto {
             $FiscalAuthorityId = $JsonParameters.PSobject.Properties["fiscalAuthorityId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "documentType"))) { #optional property not found
             $DocumentType = $null
         } else {
@@ -281,8 +257,6 @@ function ConvertFrom-JsonToInvoiceEnumerationRangeCreateDto {
             "validFrom" = ${ValidFrom}
             "validTo" = ${ValidTo}
             "fiscalAuthorityId" = ${FiscalAuthorityId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "documentType" = ${DocumentType}
         }
 

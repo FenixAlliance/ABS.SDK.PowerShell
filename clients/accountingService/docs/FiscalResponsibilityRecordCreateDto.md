@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **FiscalResponsibilityId** | **String** |  | [optional] 
 **BillingProfileId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +15,7 @@ Name | Type | Description | Notes
 $FiscalResponsibilityRecordCreateDto = Initialize-PSOpenAPIToolsFiscalResponsibilityRecordCreateDto  -Id null `
  -Timestamp null `
  -FiscalResponsibilityId null `
- -BillingProfileId null `
- -TenantId null `
- -EnrollmentId null
+ -BillingProfileId null
 ```
 
 - Convert the resource to JSON

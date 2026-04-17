@@ -5,15 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $FinancialBookUpdateDto = Initialize-PSOpenAPIToolsFinancialBookUpdateDto  -Name null `
- -Description null `
- -TenantId null
+ -Description null
 ```
 
 - Convert the resource to JSON

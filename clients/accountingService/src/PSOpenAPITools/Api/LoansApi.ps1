@@ -1151,7 +1151,7 @@ No description available.
 .PARAMETER ApplicationId
 No description available.
 
-.PARAMETER LoanApplicationUpdateDto
+.PARAMETER Body
 No description available.
 
 .PARAMETER ApiVersion
@@ -1182,8 +1182,8 @@ function Update-LoanApplicationAsync {
         [String]
         ${ApplicationId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${LoanApplicationUpdateDto},
+        [SystemCollectionsHashtable]
+        ${Body},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
@@ -1241,11 +1241,11 @@ function Update-LoanApplicationAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        if (!$LoanApplicationUpdateDto) {
-            throw "Error! The required parameter `LoanApplicationUpdateDto` missing when calling updateLoanApplicationAsync."
+        if (!$Body) {
+            throw "Error! The required parameter `Body` missing when calling updateLoanApplicationAsync."
         }
 
-        $LocalVarBodyParameter = $LoanApplicationUpdateDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Body | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `

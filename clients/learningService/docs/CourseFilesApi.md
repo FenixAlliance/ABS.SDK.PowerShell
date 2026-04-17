@@ -29,7 +29,7 @@ Creates a new course file for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseFileCreateDto = Initialize-CourseFileCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -FileName "MyFileName" -FileUploadURL "MyFileUploadURL" -ContentType "MyContentType" -FileLength 0 -CourseID "MyCourseID" -BusinessID "MyBusinessID" # CourseFileCreateDto |  (optional)
+$CourseFileCreateDto = Initialize-CourseFileCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -FileName "MyFileName" -FileUploadURL "MyFileUploadURL" -ContentType "MyContentType" -FileLength 0 -CourseID "MyCourseID" # CourseFileCreateDto |  (optional)
 
 # Create a new course file
 try {

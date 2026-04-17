@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +15,7 @@ Name | Type | Description | Notes
 $AccountTypeCreateDto = Initialize-PSOpenAPIToolsAccountTypeCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -Description null `
- -TenantId null `
- -EnrollmentId null
+ -Description null
 ```
 
 - Convert the resource to JSON

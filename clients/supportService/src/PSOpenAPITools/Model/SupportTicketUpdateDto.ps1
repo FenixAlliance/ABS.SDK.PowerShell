@@ -17,11 +17,7 @@ No description available.
 
 .PARAMETER Description
 No description available.
-.PARAMETER AccountHolderID
-No description available.
 .PARAMETER ContactID
-No description available.
-.PARAMETER BusinessProfileRecordID
 No description available.
 .PARAMETER SupportTicketTypeID
 No description available.
@@ -42,20 +38,14 @@ function Initialize-SupportTicketUpdateDto {
         ${Description},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountHolderID},
+        ${ContactID},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ContactID},
+        ${SupportTicketTypeID},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SupportTicketTypeID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${SupportEntitlementID},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SupportPriorityID}
     )
@@ -67,9 +57,7 @@ function Initialize-SupportTicketUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "description" = ${Description}
-            "accountHolderID" = ${AccountHolderID}
             "contactID" = ${ContactID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "supportTicketTypeID" = ${SupportTicketTypeID}
             "supportEntitlementID" = ${SupportEntitlementID}
             "supportPriorityID" = ${SupportPriorityID}
@@ -110,7 +98,7 @@ function ConvertFrom-JsonToSupportTicketUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SupportTicketUpdateDto
-        $AllProperties = ("description", "accountHolderID", "contactID", "businessProfileRecordID", "supportTicketTypeID", "supportEntitlementID", "supportPriorityID")
+        $AllProperties = ("description", "contactID", "supportTicketTypeID", "supportEntitlementID", "supportPriorityID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,22 +111,10 @@ function ConvertFrom-JsonToSupportTicketUpdateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountHolderID"))) { #optional property not found
-            $AccountHolderID = $null
-        } else {
-            $AccountHolderID = $JsonParameters.PSobject.Properties["accountHolderID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactID"))) { #optional property not found
             $ContactID = $null
         } else {
             $ContactID = $JsonParameters.PSobject.Properties["contactID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "supportTicketTypeID"))) { #optional property not found
@@ -161,9 +137,7 @@ function ConvertFrom-JsonToSupportTicketUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "description" = ${Description}
-            "accountHolderID" = ${AccountHolderID}
             "contactID" = ${ContactID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "supportTicketTypeID" = ${SupportTicketTypeID}
             "supportEntitlementID" = ${SupportEntitlementID}
             "supportPriorityID" = ${SupportPriorityID}

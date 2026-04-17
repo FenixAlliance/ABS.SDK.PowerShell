@@ -5,17 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $DiscountListUpdateDto = Initialize-PSOpenAPIToolsDiscountListUpdateDto  -Name null `
- -CurrencyId null `
- -TenantId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

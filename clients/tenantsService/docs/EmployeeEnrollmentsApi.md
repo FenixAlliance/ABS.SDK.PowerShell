@@ -29,7 +29,7 @@ Create a new tenant employee enrollment
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamEmployeeEnrollmentCreateDto = Initialize-TenantTeamEmployeeEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" -EmployeeProfileID "MyEmployeeProfileID" # TenantTeamEmployeeEnrollmentCreateDto |  (optional)
+$TenantTeamEmployeeEnrollmentCreateDto = Initialize-TenantTeamEmployeeEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessTeamID "MyBusinessTeamID" -EmployeeProfileID "MyEmployeeProfileID" # TenantTeamEmployeeEnrollmentCreateDto |  (optional)
 
 # Create a new tenant employee enrollment
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantEmployeeEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamEmployeeEnrollmentUpdateDto = Initialize-TenantTeamEmployeeEnrollmentUpdateDto -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -BusinessTeamID "MyBusinessTeamID" -EmployeeProfileID "MyEmployeeProfileID" # TenantTeamEmployeeEnrollmentUpdateDto |  (optional)
+$TenantTeamEmployeeEnrollmentUpdateDto = Initialize-TenantTeamEmployeeEnrollmentUpdateDto -BusinessTeamID "MyBusinessTeamID" -EmployeeProfileID "MyEmployeeProfileID" # TenantTeamEmployeeEnrollmentUpdateDto |  (optional)
 
 # Update a tenant employee enrollment
 try {

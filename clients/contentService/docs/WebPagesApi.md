@@ -86,7 +86,7 @@ Creates a new web page for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPageCreateDto = Initialize-WebPageCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -WebTemplateID "MyWebTemplateID" # WebPageCreateDto |  (optional)
+$WebPageCreateDto = Initialize-WebPageCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Code "MyCode" -Published $false -Description "MyDescription" -HtmlContent "MyHtmlContent" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -WebTemplateID "MyWebTemplateID" # WebPageCreateDto |  (optional)
 
 # Create a web page
 try {
@@ -140,7 +140,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $WebPageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPageCategoryCreateDto = Initialize-WebPageCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # WebPageCategoryCreateDto |  (optional)
+$WebPageCategoryCreateDto = Initialize-WebPageCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # WebPageCategoryCreateDto |  (optional)
 
 # Create a web page category relation
 try {
@@ -195,7 +195,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $WebPageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPageTagCreateDto = Initialize-WebPageTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # WebPageTagCreateDto |  (optional)
+$WebPageTagCreateDto = Initialize-WebPageTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # WebPageTagCreateDto |  (optional)
 
 # Create a web page tag relation
 try {

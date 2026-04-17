@@ -33,7 +33,7 @@ Creates a new loan application.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LoanApplicationCreateDto = Initialize-LoanApplicationCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # LoanApplicationCreateDto | 
+$LoanApplicationCreateDto = Initialize-LoanApplicationCreateDto -Id "MyId" -Timestamp (Get-Date) # LoanApplicationCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -85,7 +85,7 @@ Creates a new loan for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LoanCreateDto = Initialize-LoanCreateDto -Id "MyId" -Timestamp (Get-Date) -LoanTimestamp (Get-Date) -PaymentDeadline (Get-Date) -Value 0 -InterestRate 0 -IsCompundInterestRate $false -LoanTypeId "MyLoanTypeId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # LoanCreateDto | 
+$LoanCreateDto = Initialize-LoanCreateDto -Id "MyId" -Timestamp (Get-Date) -LoanTimestamp (Get-Date) -PaymentDeadline (Get-Date) -Value 0 -InterestRate 0 -IsCompundInterestRate $false -LoanTypeId "MyLoanTypeId" -CurrencyId "MyCurrencyId" # LoanCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -531,7 +531,7 @@ No authorization required
 > EmptyEnvelope Update-LoanApplicationAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApplicationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanApplicationUpdateDto] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <SystemCollectionsHashtable><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -543,13 +543,13 @@ Updates the specified loan application.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApplicationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LoanApplicationUpdateDto = Initialize-LoanApplicationUpdateDto -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # LoanApplicationUpdateDto | 
+$Body = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Updates a loan application
 try {
-    $Result = Update-LoanApplicationAsync -TenantId $TenantId -ApplicationId $ApplicationId -LoanApplicationUpdateDto $LoanApplicationUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Update-LoanApplicationAsync -TenantId $TenantId -ApplicationId $ApplicationId -Body $Body -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Update-LoanApplicationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **ApplicationId** | **String**|  | 
- **LoanApplicationUpdateDto** | [**LoanApplicationUpdateDto**](LoanApplicationUpdateDto.md)|  | 
+ **Body** | **SystemCollectionsHashtable**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -598,7 +598,7 @@ Updates the specified loan.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LoanId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LoanUpdateDto = Initialize-LoanUpdateDto -LoanTimestamp (Get-Date) -PaymentDeadline (Get-Date) -Value 0 -InterestRate 0 -IsCompundInterestRate $false -LoanTypeId "MyLoanTypeId" -CurrencyId "MyCurrencyId" -EnrollmentId "MyEnrollmentId" # LoanUpdateDto | 
+$LoanUpdateDto = Initialize-LoanUpdateDto -LoanTimestamp (Get-Date) -PaymentDeadline (Get-Date) -Value 0 -InterestRate 0 -IsCompundInterestRate $false -LoanTypeId "MyLoanTypeId" -CurrencyId "MyCurrencyId" # LoanUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

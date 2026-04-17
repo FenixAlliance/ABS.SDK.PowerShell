@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
@@ -19,8 +17,6 @@ Name | Type | Description | Notes
 ```powershell
 $AppliedTaxPolicyRecordCreateDto = Initialize-PSOpenAPIToolsAppliedTaxPolicyRecordCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -EnrollmentId null `
  -TaxPolicyId null `
  -InvoiceId null `
  -ItemId null `

@@ -3,18 +3,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
 **SupportEntitlementID** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SupportTicketPriorityCreateDto = Initialize-PSOpenAPIToolsSupportTicketPriorityCreateDto  -Title null `
+$SupportTicketPriorityCreateDto = Initialize-PSOpenAPIToolsSupportTicketPriorityCreateDto  -Id null `
+ -Timestamp null `
+ -Title null `
  -Description null `
- -BusinessID null `
  -SupportEntitlementID null
 ```
 

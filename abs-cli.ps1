@@ -940,6 +940,56 @@ function Show-ServiceCommands {
     Write-Host "       absuite $ServiceName <FunctionName> [--param value ...]  (original name also works)" -ForegroundColor DarkGray
 }
 
+function Show-DtoSchema {
+    param(
+        [string]$DtoName,
+        $DtoCmd,
+        [string[]]$Skip,
+        [string]$Indent = '  ',
+        [hashtable]$TypeOverrides = @{}
+    )
+    $dtoParams = $DtoCmd.Parameters
+    foreach ($dp in ($dtoParams.GetEnumerator() | Sort-Object { ($_.Value.Attributes | Where-Object { $_ -is [System.Management.Automation.ParameterAttribute] } | Select-Object -First 1).Position })) {
+        if ($dp.Key -in $Skip) { continue }
+        $dtoType = $dp.Value.ParameterType
+        $typeLabel = $null
+        if ($TypeOverrides.ContainsKey($dp.Key)) {
+            $typeLabel = $TypeOverrides[$dp.Key]
+        }
+        if (-not $typeLabel) {
+            # Unwrap Nullable<T> to show the inner type
+            if ($dtoType.IsGenericType) {
+                try {
+                    $genDef = $dtoType.GetGenericTypeDefinition()
+                    if ($genDef.FullName -like 'System.Nullable*') {
+                        $args = $dtoType.GetGenericArguments()
+                        if ($args -and $args.Count -gt 0) {
+                            $typeLabel = "$($args[0].Name)?"
+                        }
+                    }
+                } catch {}
+            }
+            if (-not $typeLabel -and $dtoType.FullName -like '*Nullable*') {
+                # Fallback: extract inner type from FullName like System.Nullable`1[[System.DateTime...]]
+                if ($dtoType.FullName -match 'Nullable.*\[\[System\.(\w+)') {
+                    $typeLabel = "$($Matches[1])?"
+                } elseif ($dtoType.FullName -match 'Nullable.*\[\[(\w+)') {
+                    $typeLabel = "$($Matches[1])?"
+                }
+            }
+            if (-not $typeLabel) {
+                if ($dtoType.Name -eq 'PSCustomObject' -or $dtoType.Name -eq 'PSObject') {
+                    $typeLabel = $dp.Key  # nested DTO — show its name
+                } else {
+                    $typeLabel = $dtoType.Name
+                }
+            }
+        }
+        Write-Host "$Indent.$($dp.Key)" -NoNewline -ForegroundColor White
+        Write-Host "  <$typeLabel>" -ForegroundColor DarkGray
+    }
+}
+
 function Show-FunctionHelp {
     param(
         [string]$ServiceName,
@@ -1031,41 +1081,7 @@ function Show-FunctionHelp {
         Write-Host 'Object schemas:' -ForegroundColor Cyan
         foreach ($entry in $dtoSchemas.GetEnumerator()) {
             Write-Host "  $($entry.Key):" -ForegroundColor Yellow
-            $dtoParams = $entry.Value.Parameters
-            foreach ($dp in ($dtoParams.GetEnumerator() | Sort-Object { ($_.Value.Attributes | Where-Object { $_ -is [System.Management.Automation.ParameterAttribute] } | Select-Object -First 1).Position })) {
-                if ($dp.Key -in $skip) { continue }
-                $dtoType = $dp.Value.ParameterType
-                # Unwrap Nullable<T> to show the inner type
-                $typeLabel = $null
-                if ($dtoType.IsGenericType) {
-                    try {
-                        $genDef = $dtoType.GetGenericTypeDefinition()
-                        if ($genDef.FullName -like 'System.Nullable*') {
-                            $args = $dtoType.GetGenericArguments()
-                            if ($args -and $args.Count -gt 0) {
-                                $typeLabel = "$($args[0].Name)?"
-                            }
-                        }
-                    } catch {}
-                }
-                if (-not $typeLabel -and $dtoType.FullName -like '*Nullable*') {
-                    # Fallback: extract inner type from FullName like System.Nullable`1[[System.DateTime...]]
-                    if ($dtoType.FullName -match 'Nullable.*\[\[System\.(\w+)') {
-                        $typeLabel = "$($Matches[1])?"
-                    } elseif ($dtoType.FullName -match 'Nullable.*\[\[(\w+)') {
-                        $typeLabel = "$($Matches[1])?"
-                    }
-                }
-                if (-not $typeLabel) {
-                    if ($dtoType.Name -eq 'PSCustomObject' -or $dtoType.Name -eq 'PSObject') {
-                        $typeLabel = $dp.Key  # nested DTO — show its name
-                    } else {
-                        $typeLabel = $dtoType.Name
-                    }
-                }
-                Write-Host "    .$($dp.Key)" -NoNewline -ForegroundColor White
-                Write-Host "  <$typeLabel>" -ForegroundColor DarkGray
-            }
+            Show-DtoSchema -DtoName $entry.Key -DtoCmd $entry.Value -Skip $skip -Indent '    '
             Write-Host ''
         }
     }
@@ -1073,6 +1089,49 @@ function Show-FunctionHelp {
     Write-Host '  --ReturnType <string>   MIME type: application/json or application/xml' -ForegroundColor DarkGray
     Write-Host '  --WithHttpInfo          Return full HTTP response (status, headers, body)' -ForegroundColor DarkGray
     Write-Host ''
+
+    # --- Returns section: show output type schema ---
+    $returnType = ''
+    if ($cmd.Definition -match '-ReturnType\s+"([^"]+)"') {
+        $returnType = $Matches[1]
+    }
+    if ($returnType -and $returnType -ne 'EmptyEnvelope') {
+        $envelopeInitFn = "Initialize-$returnType"
+        $envelopeCmd = Get-Command -Name $envelopeInitFn -ErrorAction SilentlyContinue
+        if ($envelopeCmd) {
+            # Resolve inner DTO name from envelope type
+            $innerDtoName = ''
+            $isList = $false
+            if ($returnType -match '^(.+)ListEnvelope$') {
+                $innerDtoName = $Matches[1]
+                $isList = $true
+            } elseif ($returnType -match '^(.+)Envelope$') {
+                $innerDtoName = $Matches[1]
+            }
+
+            # Build type overrides for the Result property
+            $typeOverrides = @{}
+            $innerDtoCmd = $null
+            if ($innerDtoName) {
+                $innerInitFn = "Initialize-$innerDtoName"
+                $innerDtoCmd = Get-Command -Name $innerInitFn -ErrorAction SilentlyContinue
+                $suffix = if ($isList) { '[]' } else { '' }
+                $typeOverrides['Result'] = "$innerDtoName$suffix"
+            }
+
+            Write-Host 'Returns: ' -NoNewline -ForegroundColor Cyan
+            Write-Host $returnType -ForegroundColor Yellow
+            Show-DtoSchema -DtoName $returnType -DtoCmd $envelopeCmd -Skip $skip -Indent '  ' -TypeOverrides $typeOverrides
+            Write-Host ''
+
+            # Show inner DTO schema if it resolves to a complex type
+            if ($innerDtoCmd) {
+                Write-Host "  $($innerDtoName):" -ForegroundColor Yellow
+                Show-DtoSchema -DtoName $innerDtoName -DtoCmd $innerDtoCmd -Skip $skip -Indent '    '
+                Write-Host ''
+            }
+        }
+    }
 }
 
 function Invoke-ServiceFunction {

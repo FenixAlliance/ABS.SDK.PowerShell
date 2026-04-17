@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **TaxId** | **String** |  | 
 **Phone** | **String** |  | 
 **Email** | **String** |  | 
@@ -34,7 +33,6 @@ Name | Type | Description | Notes
 $BillingProfileCreateDto = Initialize-PSOpenAPIToolsBillingProfileCreateDto  -Id null `
  -Timestamp null `
  -ContactId null `
- -TenantId null `
  -TaxId null `
  -Phone null `
  -Email null `

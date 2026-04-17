@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Published** | **Boolean** |  | [optional] 
@@ -22,8 +20,6 @@ Name | Type | Description | Notes
 ```powershell
 $EmailTemplateCreateDto = Initialize-PSOpenAPIToolsEmailTemplateCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -EnrollmentId null `
  -Title null `
  -Code null `
  -Published null `

@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **ItemShortDescription** | **String** |  | [optional] 
 **ItemPrimaryImageUrl** | **String** |  | [optional] 
 **ShippingPolicyId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Quantity** | **Double** |  | [optional] 
@@ -98,7 +96,6 @@ Name | Type | Description | Notes
 **ShippingLocationId** | **String** |  | [optional] 
 **LocationId** | **String** |  | [optional] 
 **QuoteItemRecordId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
 **ParentBillingItemRecordId** | **String** |  | [optional] 
 **QuoteId** | **String** |  | [optional] 
 
@@ -114,8 +111,6 @@ $QuoteLineCreateDto = Initialize-PSOpenAPIToolsQuoteLineCreateDto  -Id null `
  -ItemShortDescription null `
  -ItemPrimaryImageUrl null `
  -ShippingPolicyId null `
- -TenantId null `
- -EnrollmentId null `
  -CurrencyId null `
  -Description null `
  -Quantity null `
@@ -201,7 +196,6 @@ $QuoteLineCreateDto = Initialize-PSOpenAPIToolsQuoteLineCreateDto  -Id null `
  -ShippingLocationId null `
  -LocationId null `
  -QuoteItemRecordId null `
- -BusinessProfileRecordId null `
  -ParentBillingItemRecordId null `
  -QuoteId null
 ```

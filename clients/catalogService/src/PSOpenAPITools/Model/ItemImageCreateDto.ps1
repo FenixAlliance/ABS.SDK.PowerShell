@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER BusinessID
-No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER ItemID
 No description available.
 .PARAMETER IsItemMozaicBG
@@ -55,8 +51,6 @@ No description available.
 No description available.
 .PARAMETER ParentFileUploadID
 No description available.
-.PARAMETER AccountHolderID
-No description available.
 .OUTPUTS
 
 ItemImageCreateDto<PSCustomObject>
@@ -73,86 +67,57 @@ function Initialize-ItemImageCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${ItemID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsItemMozaicBG},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${MD5Hash},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Metadata},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FileUploadURL},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FileName},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Title},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Abstract},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Author},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${KeyWords},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Notes},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ContentType},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${FileLength},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ValidResponse},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SocialProfileID},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ParentFileUploadID},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountHolderID}
+        ${ParentFileUploadID}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => ItemImageCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if ($BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -gt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessProfileRecordID -and $BusinessProfileRecordID.length -lt 36) {
-            throw "invalid value for 'BusinessProfileRecordID', the character length must be great than or equal to 36."
-        }
 
         if (!$ItemID -and $ItemID.length -gt 36) {
             throw "invalid value for 'ItemID', the character length must be smaller than or equal to 36."
@@ -262,20 +227,10 @@ function Initialize-ItemImageCreateDto {
             throw "invalid value for 'ParentFileUploadID', the character length must be great than or equal to 36."
         }
 
-        if (!$AccountHolderID -and $AccountHolderID.length -gt 36) {
-            throw "invalid value for 'AccountHolderID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$AccountHolderID -and $AccountHolderID.length -lt 36) {
-            throw "invalid value for 'AccountHolderID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "itemID" = ${ItemID}
             "isItemMozaicBG" = ${IsItemMozaicBG}
             "mD5Hash" = ${MD5Hash}
@@ -292,7 +247,6 @@ function Initialize-ItemImageCreateDto {
             "validResponse" = ${ValidResponse}
             "socialProfileID" = ${SocialProfileID}
             "parentFileUploadID" = ${ParentFileUploadID}
-            "accountHolderID" = ${AccountHolderID}
         }
 
 
@@ -330,7 +284,7 @@ function ConvertFrom-JsonToItemImageCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemImageCreateDto
-        $AllProperties = ("id", "timestamp", "businessID", "businessProfileRecordID", "itemID", "isItemMozaicBG", "mD5Hash", "metadata", "fileUploadURL", "fileName", "title", "abstract", "author", "keyWords", "notes", "contentType", "fileLength", "validResponse", "socialProfileID", "parentFileUploadID", "accountHolderID")
+        $AllProperties = ("id", "timestamp", "itemID", "isItemMozaicBG", "mD5Hash", "metadata", "fileUploadURL", "fileName", "title", "abstract", "author", "keyWords", "notes", "contentType", "fileLength", "validResponse", "socialProfileID", "parentFileUploadID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -338,13 +292,7 @@ function ConvertFrom-JsonToItemImageCreateDto {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'businessID' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'fileName' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "fileName"))) {
@@ -363,12 +311,6 @@ function ConvertFrom-JsonToItemImageCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "itemID"))) { #optional property not found
@@ -461,17 +403,9 @@ function ConvertFrom-JsonToItemImageCreateDto {
             $ParentFileUploadID = $JsonParameters.PSobject.Properties["parentFileUploadID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountHolderID"))) { #optional property not found
-            $AccountHolderID = $null
-        } else {
-            $AccountHolderID = $JsonParameters.PSobject.Properties["accountHolderID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessID" = ${BusinessID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "itemID" = ${ItemID}
             "isItemMozaicBG" = ${IsItemMozaicBG}
             "mD5Hash" = ${MD5Hash}
@@ -488,7 +422,6 @@ function ConvertFrom-JsonToItemImageCreateDto {
             "validResponse" = ${ValidResponse}
             "socialProfileID" = ${SocialProfileID}
             "parentFileUploadID" = ${ParentFileUploadID}
-            "accountHolderID" = ${AccountHolderID}
         }
 
         return $PSO

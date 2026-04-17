@@ -19,10 +19,6 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER BusinessId
-No description available.
-.PARAMETER BusinessProfileRecordId
-No description available.
 .PARAMETER Name
 No description available.
 .PARAMETER Description
@@ -43,14 +39,8 @@ function Initialize-AssetTypeCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -63,8 +53,6 @@ function Initialize-AssetTypeCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessId" = ${BusinessId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "name" = ${Name}
             "description" = ${Description}
         }
@@ -104,7 +92,7 @@ function ConvertFrom-JsonToAssetTypeCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AssetTypeCreateDto
-        $AllProperties = ("id", "timestamp", "businessId", "businessProfileRecordId", "name", "description")
+        $AllProperties = ("id", "timestamp", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,18 +111,6 @@ function ConvertFrom-JsonToAssetTypeCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessId"))) { #optional property not found
-            $BusinessId = $null
-        } else {
-            $BusinessId = $JsonParameters.PSobject.Properties["businessId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordId"))) { #optional property not found
-            $BusinessProfileRecordId = $null
-        } else {
-            $BusinessProfileRecordId = $JsonParameters.PSobject.Properties["businessProfileRecordId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
@@ -150,8 +126,6 @@ function ConvertFrom-JsonToAssetTypeCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "businessId" = ${BusinessId}
-            "businessProfileRecordId" = ${BusinessProfileRecordId}
             "name" = ${Name}
             "description" = ${Description}
         }

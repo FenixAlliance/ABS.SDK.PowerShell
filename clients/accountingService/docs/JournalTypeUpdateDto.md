@@ -4,16 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$JournalTypeUpdateDto = Initialize-PSOpenAPIToolsJournalTypeUpdateDto  -Name null `
- -TenantId null `
- -EnrollmentId null
+$JournalTypeUpdateDto = Initialize-PSOpenAPIToolsJournalTypeUpdateDto  -Name null
 ```
 
 - Convert the resource to JSON

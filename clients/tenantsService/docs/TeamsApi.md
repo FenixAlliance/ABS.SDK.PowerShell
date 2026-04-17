@@ -29,7 +29,7 @@ Create a new tenant team
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamCreateDto = Initialize-TenantTeamCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamCreateDto |  (optional)
+$TenantTeamCreateDto = Initialize-TenantTeamCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamCreateDto |  (optional)
 
 # Create a new tenant team
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantTeamId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamUpdateDto = Initialize-TenantTeamUpdateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamUpdateDto |  (optional)
+$TenantTeamUpdateDto = Initialize-TenantTeamUpdateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamUpdateDto |  (optional)
 
 # Update a tenant team
 try {

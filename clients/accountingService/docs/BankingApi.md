@@ -101,7 +101,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -TenantId "MyTenantId" -CurrencyId "MyCurrencyId" -EnrollmentId "MyEnrollmentId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountCreateDto |  (optional)
+$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountCreateDto |  (optional)
 
 # Creates a new bank account
 try {
@@ -156,7 +156,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankGuaranteeCreateDto = Initialize-BankGuaranteeCreateDto -Id "MyId" -Timestamp (Get-Date) -Margin 0 -Charges 0 -BeneficiaryName "MyBeneficiaryName" -GuaranteeNumber "MyGuaranteeNumber" -GuaranteeConditions "MyGuaranteeConditions" -FixedDepositNumber 0 -StartDate (Get-Date) -EndDate (Get-Date) -ValidityInDays 0 -TenantId "MyTenantId" -BankGuaranteeType "Receiving" -EnrollmentId "MyEnrollmentId" -ContactId "MyContactId" -ProjectId "MyProjectId" -OrderId "MyOrderId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" -CurrencyId "MyCurrencyId" # BankGuaranteeCreateDto |  (optional)
+$BankGuaranteeCreateDto = Initialize-BankGuaranteeCreateDto -Id "MyId" -Timestamp (Get-Date) -Margin 0 -Charges 0 -BeneficiaryName "MyBeneficiaryName" -GuaranteeNumber "MyGuaranteeNumber" -GuaranteeConditions "MyGuaranteeConditions" -FixedDepositNumber 0 -StartDate (Get-Date) -EndDate (Get-Date) -ValidityInDays 0 -BankGuaranteeType "Receiving" -ContactId "MyContactId" -ProjectId "MyProjectId" -OrderId "MyOrderId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" -CurrencyId "MyCurrencyId" # BankGuaranteeCreateDto |  (optional)
 
 # Creates a new bank guarantee
 try {
@@ -1225,7 +1225,7 @@ $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $GuaranteeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankGuaranteeUpdateDto = Initialize-BankGuaranteeUpdateDto -Margin 0 -Charges 0 -BeneficiaryName "MyBeneficiaryName" -GuaranteeNumber "MyGuaranteeNumber" -GuaranteeConditions "MyGuaranteeConditions" -FixedDepositNumber 0 -StartDate (Get-Date) -EndDate (Get-Date) -ValidityInDays 0 -TenantId "MyTenantId" -BankGuaranteeType "Receiving" -EnrollmentId "MyEnrollmentId" -ContactId "MyContactId" -ProjectId "MyProjectId" -OrderId "MyOrderId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" -CurrencyId "MyCurrencyId" # BankGuaranteeUpdateDto |  (optional)
+$BankGuaranteeUpdateDto = Initialize-BankGuaranteeUpdateDto -Margin 0 -Charges 0 -BeneficiaryName "MyBeneficiaryName" -GuaranteeNumber "MyGuaranteeNumber" -GuaranteeConditions "MyGuaranteeConditions" -FixedDepositNumber 0 -StartDate (Get-Date) -EndDate (Get-Date) -ValidityInDays 0 -BankGuaranteeType "Receiving" -ContactId "MyContactId" -ProjectId "MyProjectId" -OrderId "MyOrderId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" -CurrencyId "MyCurrencyId" # BankGuaranteeUpdateDto |  (optional)
 
 # Updates a bank guarantee
 try {
@@ -1283,7 +1283,7 @@ $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TransactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankTransactionUpdateDto = Initialize-BankTransactionUpdateDto -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" # BankTransactionUpdateDto |  (optional)
+$BankTransactionUpdateDto = Initialize-BankTransactionUpdateDto -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" # BankTransactionUpdateDto |  (optional)
 
 # Updates a bank transaction
 try {

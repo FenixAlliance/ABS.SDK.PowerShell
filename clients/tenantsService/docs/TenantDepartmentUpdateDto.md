@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **OrganizationProfileID** | **String** |  | [optional] 
 **ParentDepartmentID** | **String** |  | [optional] 
 
@@ -17,7 +16,6 @@ Name | Type | Description | Notes
 $TenantDepartmentUpdateDto = Initialize-PSOpenAPIToolsTenantDepartmentUpdateDto  -Name null `
  -Description null `
  -Disabled null `
- -BusinessProfileRecordID null `
  -OrganizationProfileID null `
  -ParentDepartmentID null
 ```

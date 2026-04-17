@@ -28,7 +28,7 @@ Creates a new web page tag for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPageTagCreateDto = Initialize-WebPageTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # WebPageTagCreateDto |  (optional)
+$WebPageTagCreateDto = Initialize-WebPageTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # WebPageTagCreateDto |  (optional)
 
 # Create a web page tag
 try {

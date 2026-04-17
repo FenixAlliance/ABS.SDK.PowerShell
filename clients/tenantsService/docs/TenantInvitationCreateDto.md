@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **UserEmail** | **String** |  | 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $TenantInvitationCreateDto = Initialize-PSOpenAPIToolsTenantInvitationCreateDto  -Id null `
  -Timestamp null `
- -UserEmail null `
- -TenantId null `
- -EnrollmentId null
+ -UserEmail null
 ```
 
 - Convert the resource to JSON

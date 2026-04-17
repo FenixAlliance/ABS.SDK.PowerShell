@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **AssetId** | **String** |  | [optional] 
 **AssetDepreciationPolicyId** | **String** |  | [optional] 
 **DepreciationAmount** | **Double** |  | [optional] 
@@ -16,7 +18,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AssetDepreciationRecordCreateDto = Initialize-PSOpenAPIToolsAssetDepreciationRecordCreateDto  -AssetId null `
+$AssetDepreciationRecordCreateDto = Initialize-PSOpenAPIToolsAssetDepreciationRecordCreateDto  -Id null `
+ -Timestamp null `
+ -AssetId null `
  -AssetDepreciationPolicyId null `
  -DepreciationAmount null `
  -AccumulatedDepreciation null `

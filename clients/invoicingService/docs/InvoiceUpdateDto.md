@@ -6,10 +6,8 @@ Name | Type | Description | Notes
 **Closed** | **Boolean** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **UserId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **IndividualId** | **String** |  | [optional] 
 **PaymentTermId** | **String** |  | [optional] 
 **OrganizationId** | **String** |  | [optional] 
@@ -84,10 +82,8 @@ Name | Type | Description | Notes
 $InvoiceUpdateDto = Initialize-PSOpenAPIToolsInvoiceUpdateDto  -Closed null `
  -Title null `
  -UserId null `
- -TenantId null `
  -PriceListId null `
  -Description null `
- -EnrollmentId null `
  -IndividualId null `
  -PaymentTermId null `
  -OrganizationId null `

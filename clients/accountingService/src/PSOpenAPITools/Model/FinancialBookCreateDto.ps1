@@ -23,8 +23,6 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER TenantID
-No description available.
 .OUTPUTS
 
 FinancialBookCreateDto<PSCustomObject>
@@ -44,10 +42,7 @@ function Initialize-FinancialBookCreateDto {
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantID}
+        ${Description}
     )
 
     Process {
@@ -74,21 +69,12 @@ function Initialize-FinancialBookCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantID -and $TenantID.length -gt 36) {
-            throw "invalid value for 'TenantID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantID -and $TenantID.length -lt 0) {
-            throw "invalid value for 'TenantID', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
-            "tenantID" = ${TenantID}
         }
 
 
@@ -126,7 +112,7 @@ function ConvertFrom-JsonToFinancialBookCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in FinancialBookCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "tenantID")
+        $AllProperties = ("id", "timestamp", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -161,18 +147,11 @@ function ConvertFrom-JsonToFinancialBookCreateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantID"))) { #optional property not found
-            $TenantID = $null
-        } else {
-            $TenantID = $JsonParameters.PSobject.Properties["tenantID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
-            "tenantID" = ${TenantID}
         }
 
         return $PSO

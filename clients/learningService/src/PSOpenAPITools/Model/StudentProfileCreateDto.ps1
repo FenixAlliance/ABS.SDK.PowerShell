@@ -71,11 +71,7 @@ No description available.
 No description available.
 .PARAMETER Data9Label
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER ContactID
-No description available.
-.PARAMETER BusinessProfileRecordID
 No description available.
 .OUTPUTS
 
@@ -171,13 +167,7 @@ function Initialize-StudentProfileCreateDto {
         ${Data9Label},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
-        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ContactID},
-        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID}
+        ${ContactID}
     )
 
     Process {
@@ -214,9 +204,7 @@ function Initialize-StudentProfileCreateDto {
             "data8Label" = ${Data8Label}
             "data9" = ${Data9}
             "data9Label" = ${Data9Label}
-            "businessID" = ${BusinessID}
             "contactID" = ${ContactID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
 
@@ -254,7 +242,7 @@ function ConvertFrom-JsonToStudentProfileCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in StudentProfileCreateDto
-        $AllProperties = ("id", "timestamp", "about", "verified", "submitted", "avatarUrl", "qualifiedName", "verificationTimestamp", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "businessID", "contactID", "businessProfileRecordID")
+        $AllProperties = ("id", "timestamp", "about", "verified", "submitted", "avatarUrl", "qualifiedName", "verificationTimestamp", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label", "contactID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -429,22 +417,10 @@ function ConvertFrom-JsonToStudentProfileCreateDto {
             $Data9Label = $JsonParameters.PSobject.Properties["data9Label"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactID"))) { #optional property not found
             $ContactID = $null
         } else {
             $ContactID = $JsonParameters.PSobject.Properties["contactID"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -476,9 +452,7 @@ function ConvertFrom-JsonToStudentProfileCreateDto {
             "data8Label" = ${Data8Label}
             "data9" = ${Data9}
             "data9Label" = ${Data9Label}
-            "businessID" = ${BusinessID}
             "contactID" = ${ContactID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
         }
 
         return $PSO

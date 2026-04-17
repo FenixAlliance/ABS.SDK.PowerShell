@@ -27,8 +27,6 @@ No description available.
 No description available.
 .PARAMETER IsFeatured
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 CourseCategoryCreateDto<PSCustomObject>
@@ -54,10 +52,7 @@ function Initialize-CourseCategoryCreateDto {
         ${ImageURL},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsFeatured},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${IsFeatured}
     )
 
     Process {
@@ -72,14 +67,6 @@ function Initialize-CourseCategoryCreateDto {
             throw "invalid value for 'Title', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $BusinessID) {
-            throw "invalid value for 'BusinessID', 'BusinessID' cannot be null."
-        }
-
-        if ($BusinessID.length -lt 1) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -88,7 +75,6 @@ function Initialize-CourseCategoryCreateDto {
             "description" = ${Description}
             "imageURL" = ${ImageURL}
             "isFeatured" = ${IsFeatured}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -126,7 +112,7 @@ function ConvertFrom-JsonToCourseCategoryCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CourseCategoryCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "imageURL", "isFeatured", "businessID")
+        $AllProperties = ("id", "timestamp", "title", "description", "imageURL", "isFeatured")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -141,12 +127,6 @@ function ConvertFrom-JsonToCourseCategoryCreateDto {
             throw "Error! JSON cannot be serialized due to the required property 'title' missing."
         } else {
             $Title = $JsonParameters.PSobject.Properties["title"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessID' missing."
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -186,7 +166,6 @@ function ConvertFrom-JsonToCourseCategoryCreateDto {
             "description" = ${Description}
             "imageURL" = ${ImageURL}
             "isFeatured" = ${IsFeatured}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

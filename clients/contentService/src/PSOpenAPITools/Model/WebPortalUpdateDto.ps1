@@ -29,8 +29,6 @@ No description available.
 No description available.
 .PARAMETER BusinessDomainID
 No description available.
-.PARAMETER BusinessProfileRecordID
-No description available.
 .PARAMETER BusinessPortalApplicationID
 No description available.
 .OUTPUTS
@@ -64,9 +62,6 @@ function Initialize-WebPortalUpdateDto {
         ${BusinessDomainID},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${BusinessPortalApplicationID}
     )
 
@@ -83,7 +78,6 @@ function Initialize-WebPortalUpdateDto {
             "description" = ${Description}
             "websiteThemeID" = ${WebsiteThemeID}
             "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessPortalApplicationID" = ${BusinessPortalApplicationID}
         }
 
@@ -122,7 +116,7 @@ function ConvertFrom-JsonToWebPortalUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WebPortalUpdateDto
-        $AllProperties = ("root", "title", "domain", "disabled", "description", "websiteThemeID", "businessDomainID", "businessProfileRecordID", "businessPortalApplicationID")
+        $AllProperties = ("root", "title", "domain", "disabled", "description", "websiteThemeID", "businessDomainID", "businessPortalApplicationID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -171,12 +165,6 @@ function ConvertFrom-JsonToWebPortalUpdateDto {
             $BusinessDomainID = $JsonParameters.PSobject.Properties["businessDomainID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessPortalApplicationID"))) { #optional property not found
             $BusinessPortalApplicationID = $null
         } else {
@@ -191,7 +179,6 @@ function ConvertFrom-JsonToWebPortalUpdateDto {
             "description" = ${Description}
             "websiteThemeID" = ${WebsiteThemeID}
             "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessPortalApplicationID" = ${BusinessPortalApplicationID}
         }
 

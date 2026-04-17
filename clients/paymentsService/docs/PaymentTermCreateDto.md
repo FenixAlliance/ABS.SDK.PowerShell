@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **CreditMonths** | **Double** |  | [optional] 
 **CreditYears** | **Double** |  | [optional] 
 **PaymentModeID** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -31,9 +29,7 @@ $PaymentTermCreateDto = Initialize-PSOpenAPIToolsPaymentTermCreateDto  -Id null 
  -CreditWeeks null `
  -CreditMonths null `
  -CreditYears null `
- -PaymentModeID null `
- -TenantId null `
- -EnrollmentId null
+ -PaymentModeID null
 ```
 
 - Convert the resource to JSON

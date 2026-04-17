@@ -33,10 +33,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 LoanCreateDto<PSCustomObject>
@@ -71,13 +67,7 @@ function Initialize-LoanCreateDto {
         ${LoanTypeId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${CurrencyId}
     )
 
     Process {
@@ -95,8 +85,6 @@ function Initialize-LoanCreateDto {
             "isCompundInterestRate" = ${IsCompundInterestRate}
             "loanTypeId" = ${LoanTypeId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -134,7 +122,7 @@ function ConvertFrom-JsonToLoanCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LoanCreateDto
-        $AllProperties = ("id", "timestamp", "loanTimestamp", "paymentDeadline", "value", "interestRate", "isCompundInterestRate", "loanTypeId", "currencyId", "tenantId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "loanTimestamp", "paymentDeadline", "value", "interestRate", "isCompundInterestRate", "loanTypeId", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -195,18 +183,6 @@ function ConvertFrom-JsonToLoanCreateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -217,8 +193,6 @@ function ConvertFrom-JsonToLoanCreateDto {
             "isCompundInterestRate" = ${IsCompundInterestRate}
             "loanTypeId" = ${LoanTypeId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

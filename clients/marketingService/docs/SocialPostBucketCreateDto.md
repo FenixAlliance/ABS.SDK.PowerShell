@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $SocialPostBucketCreateDto = Initialize-PSOpenAPIToolsSocialPostBucketCreateDto  -Id null `
  -Timestamp null `
- -Name null `
- -TenantId null `
- -EnrollmentId null
+ -Name null
 ```
 
 - Convert the resource to JSON

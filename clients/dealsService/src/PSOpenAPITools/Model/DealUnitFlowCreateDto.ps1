@@ -25,10 +25,6 @@ No description available.
 No description available.
 .PARAMETER ParentBusinessProcessId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER TenantEnrollmentId
-No description available.
 .OUTPUTS
 
 DealUnitFlowCreateDto<PSCustomObject>
@@ -51,13 +47,7 @@ function Initialize-DealUnitFlowCreateDto {
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ParentBusinessProcessId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantEnrollmentId}
+        ${ParentBusinessProcessId}
     )
 
     Process {
@@ -88,22 +78,6 @@ function Initialize-DealUnitFlowCreateDto {
             throw "invalid value for 'ParentBusinessProcessId', the character length must be great than or equal to 36."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 36) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 36."
-        }
-
-        if (!$TenantEnrollmentId -and $TenantEnrollmentId.length -gt 36) {
-            throw "invalid value for 'TenantEnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantEnrollmentId -and $TenantEnrollmentId.length -lt 36) {
-            throw "invalid value for 'TenantEnrollmentId', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -111,8 +85,6 @@ function Initialize-DealUnitFlowCreateDto {
             "name" = ${Name}
             "description" = ${Description}
             "parentBusinessProcessId" = ${ParentBusinessProcessId}
-            "tenantId" = ${TenantId}
-            "tenantEnrollmentId" = ${TenantEnrollmentId}
         }
 
 
@@ -150,7 +122,7 @@ function ConvertFrom-JsonToDealUnitFlowCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in DealUnitFlowCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "parentBusinessProcessId", "tenantId", "tenantEnrollmentId")
+        $AllProperties = ("id", "timestamp", "name", "description", "parentBusinessProcessId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,26 +159,12 @@ function ConvertFrom-JsonToDealUnitFlowCreateDto {
             $ParentBusinessProcessId = $JsonParameters.PSobject.Properties["parentBusinessProcessId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantEnrollmentId"))) { #optional property not found
-            $TenantEnrollmentId = $null
-        } else {
-            $TenantEnrollmentId = $JsonParameters.PSobject.Properties["tenantEnrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "description" = ${Description}
             "parentBusinessProcessId" = ${ParentBusinessProcessId}
-            "tenantId" = ${TenantId}
-            "tenantEnrollmentId" = ${TenantEnrollmentId}
         }
 
         return $PSO

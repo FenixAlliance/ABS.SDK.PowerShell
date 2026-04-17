@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **CourseID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -26,8 +25,7 @@ $CourseHandoutCreateDto = Initialize-PSOpenAPIToolsCourseHandoutCreateDto  -Id n
  -Url null `
  -ReleaseDateTime null `
  -CourseID null `
- -CourseUnitID null `
- -BusinessID null
+ -CourseUnitID null
 ```
 
 - Convert the resource to JSON

@@ -29,10 +29,6 @@ No description available.
 No description available.
 .PARAMETER ShareTransferReasonId
 No description available.
-.PARAMETER EnrollmentId
-No description available.
-.PARAMETER TenantId
-No description available.
 .OUTPUTS
 
 ShareTransferCreateDto<PSCustomObject>
@@ -61,13 +57,7 @@ function Initialize-ShareTransferCreateDto {
         ${FormerShareHolderId},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ShareTransferReasonId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId}
+        ${ShareTransferReasonId}
     )
 
     Process {
@@ -106,22 +96,6 @@ function Initialize-ShareTransferCreateDto {
             throw "invalid value for 'ShareTransferReasonId', the character length must be great than or equal to 0."
         }
 
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -131,8 +105,6 @@ function Initialize-ShareTransferCreateDto {
             "newShareHolderId" = ${NewShareHolderId}
             "formerShareHolderId" = ${FormerShareHolderId}
             "shareTransferReasonId" = ${ShareTransferReasonId}
-            "enrollmentId" = ${EnrollmentId}
-            "tenantId" = ${TenantId}
         }
 
 
@@ -170,7 +142,7 @@ function ConvertFrom-JsonToShareTransferCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ShareTransferCreateDto
-        $AllProperties = ("id", "timestamp", "description", "value", "newShareHolderId", "formerShareHolderId", "shareTransferReasonId", "enrollmentId", "tenantId")
+        $AllProperties = ("id", "timestamp", "description", "value", "newShareHolderId", "formerShareHolderId", "shareTransferReasonId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -219,18 +191,6 @@ function ConvertFrom-JsonToShareTransferCreateDto {
             $ShareTransferReasonId = $JsonParameters.PSobject.Properties["shareTransferReasonId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -239,8 +199,6 @@ function ConvertFrom-JsonToShareTransferCreateDto {
             "newShareHolderId" = ${NewShareHolderId}
             "formerShareHolderId" = ${FormerShareHolderId}
             "shareTransferReasonId" = ${ShareTransferReasonId}
-            "enrollmentId" = ${EnrollmentId}
-            "tenantId" = ${TenantId}
         }
 
         return $PSO

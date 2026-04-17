@@ -41,12 +41,9 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
 **IndividualID** | **String** |  | [optional] 
 **OrganizationID** | **String** |  | [optional] 
 **ReceiverBusinessID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **PaymentTokenID** | **String** |  | [optional] 
 **WalletAccountID** | **String** |  | [optional] 
 **SecurityCertificateID** | **String** |  | [optional] 
@@ -93,12 +90,9 @@ $SupportEntitlementUpdateDto = Initialize-PSOpenAPIToolsSupportEntitlementUpdate
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
- -AccountHolderID null `
  -IndividualID null `
  -OrganizationID null `
  -ReceiverBusinessID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -PaymentTokenID null `
  -WalletAccountID null `
  -SecurityCertificateID null

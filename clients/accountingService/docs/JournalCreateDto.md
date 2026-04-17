@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **DateTime** | **System.DateTime** |  | [optional] 
-**TenantID** | **String** |  | [optional] 
-**EnrollmentID** | **String** |  | [optional] 
 **ParentJournalID** | **String** |  | [optional] 
 **JournalTypeID** | **String** |  | [optional] 
 **LedgerID** | **String** |  | [optional] 
@@ -23,8 +21,6 @@ $JournalCreateDto = Initialize-PSOpenAPIToolsJournalCreateDto  -Id null `
  -Name null `
  -Description null `
  -DateTime null `
- -TenantID null `
- -EnrollmentID null `
  -ParentJournalID null `
  -JournalTypeID null `
  -LedgerID null

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **IsCompundInterestRate** | **Boolean** |  | [optional] 
 **LoanTypeId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,8 +21,7 @@ $LoanUpdateDto = Initialize-PSOpenAPIToolsLoanUpdateDto  -LoanTimestamp null `
  -InterestRate null `
  -IsCompundInterestRate null `
  -LoanTypeId null `
- -CurrencyId null `
- -EnrollmentId null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

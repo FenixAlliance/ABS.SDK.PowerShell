@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **WebsiteThemeID** | **String** |  | [optional] 
 **BusinessDomainID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **BusinessPortalApplicationID** | **String** |  | [optional] 
 
 ## Examples
@@ -24,7 +23,6 @@ $WebPortalUpdateDto = Initialize-PSOpenAPIToolsWebPortalUpdateDto  -Root null `
  -Description null `
  -WebsiteThemeID null `
  -BusinessDomainID null `
- -BusinessProfileRecordID null `
  -BusinessPortalApplicationID null
 ```
 

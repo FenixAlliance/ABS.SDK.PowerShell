@@ -29,7 +29,7 @@ Creates a new fiscal period associated with a fiscal year.
 $TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalPeriodCreateDto = Initialize-FiscalPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -FromDate (Get-Date) -ToDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -FiscalYearId "MyFiscalYearId" # FiscalPeriodCreateDto |  (optional)
+$FiscalPeriodCreateDto = Initialize-FiscalPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -FromDate (Get-Date) -ToDate (Get-Date) -FiscalYearId "MyFiscalYearId" # FiscalPeriodCreateDto |  (optional)
 
 # Create a fiscal period
 try {
@@ -306,7 +306,7 @@ $TenantId = @{ key_example = ... } # SystemCollectionsHashtable |
 $FiscalPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$FiscalPeriodUpdateDto = Initialize-FiscalPeriodUpdateDto -Name "MyName" -FromDate (Get-Date) -ToDate (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -FiscalYearId "MyFiscalYearId" # FiscalPeriodUpdateDto |  (optional)
+$FiscalPeriodUpdateDto = Initialize-FiscalPeriodUpdateDto -Name "MyName" -FromDate (Get-Date) -ToDate (Get-Date) -FiscalYearId "MyFiscalYearId" # FiscalPeriodUpdateDto |  (optional)
 
 # Update a fiscal period
 try {

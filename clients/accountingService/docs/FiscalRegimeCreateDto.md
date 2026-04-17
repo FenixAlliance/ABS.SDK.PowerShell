@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Code** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **FiscalAuthorityId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +17,7 @@ $FiscalRegimeCreateDto = Initialize-PSOpenAPIToolsFiscalRegimeCreateDto  -Id nul
  -Timestamp null `
  -Code null `
  -Name null `
- -FiscalAuthorityId null `
- -TenantId null `
- -EnrollmentId null
+ -FiscalAuthorityId null
 ```
 
 - Convert the resource to JSON

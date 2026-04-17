@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
 **LedgerClass** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +15,7 @@ Name | Type | Description | Notes
 $LedgerTypeCreateDto = Initialize-PSOpenAPIToolsLedgerTypeCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -LedgerClass null `
- -TenantId null `
- -EnrollmentId null
+ -LedgerClass null
 ```
 
 - Convert the resource to JSON

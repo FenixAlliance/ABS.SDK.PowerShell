@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | 
 **Type** | **String** |  | 
 **FirstName** | **String** |  | 
 **LastName** | **String** |  | [optional] 
@@ -53,7 +52,6 @@ Name | Type | Description | Notes
 ```powershell
 $ContactCreateDto = Initialize-PSOpenAPIToolsContactCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
  -Type null `
  -FirstName null `
  -LastName null `

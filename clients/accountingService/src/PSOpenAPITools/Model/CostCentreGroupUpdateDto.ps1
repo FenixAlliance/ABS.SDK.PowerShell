@@ -21,8 +21,6 @@ No description available.
 No description available.
 .PARAMETER Disabled
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER ParentCostCentresGroupId
 No description available.
 .OUTPUTS
@@ -43,9 +41,6 @@ function Initialize-CostCentreGroupUpdateDto {
         [System.Nullable[Boolean]]
         ${Disabled},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentCostCentresGroupId}
     )
@@ -70,14 +65,6 @@ function Initialize-CostCentreGroupUpdateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
         if (!$ParentCostCentresGroupId -and $ParentCostCentresGroupId.length -gt 36) {
             throw "invalid value for 'ParentCostCentresGroupId', the character length must be smaller than or equal to 36."
         }
@@ -91,7 +78,6 @@ function Initialize-CostCentreGroupUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "disabled" = ${Disabled}
-            "tenantId" = ${TenantId}
             "parentCostCentresGroupId" = ${ParentCostCentresGroupId}
         }
 
@@ -130,7 +116,7 @@ function ConvertFrom-JsonToCostCentreGroupUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CostCentreGroupUpdateDto
-        $AllProperties = ("name", "description", "disabled", "tenantId", "parentCostCentresGroupId")
+        $AllProperties = ("name", "description", "disabled", "parentCostCentresGroupId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -155,12 +141,6 @@ function ConvertFrom-JsonToCostCentreGroupUpdateDto {
             $Disabled = $JsonParameters.PSobject.Properties["disabled"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentCostCentresGroupId"))) { #optional property not found
             $ParentCostCentresGroupId = $null
         } else {
@@ -171,7 +151,6 @@ function ConvertFrom-JsonToCostCentreGroupUpdateDto {
             "name" = ${Name}
             "description" = ${Description}
             "disabled" = ${Disabled}
-            "tenantId" = ${TenantId}
             "parentCostCentresGroupId" = ${ParentCostCentresGroupId}
         }
 

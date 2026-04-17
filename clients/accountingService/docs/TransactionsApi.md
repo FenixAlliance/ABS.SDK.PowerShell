@@ -35,7 +35,7 @@ Creates a new transaction for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TransactionCreateDto = Initialize-TransactionCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # TransactionCreateDto |  (optional)
+$TransactionCreateDto = Initialize-TransactionCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" # TransactionCreateDto |  (optional)
 
 # Create a transaction
 try {
@@ -87,7 +87,7 @@ Creates a new transaction category for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TransactionCategoryCreateDto = Initialize-TransactionCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # TransactionCategoryCreateDto |  (optional)
+$TransactionCategoryCreateDto = Initialize-TransactionCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # TransactionCategoryCreateDto |  (optional)
 
 # Create a transaction category
 try {
@@ -545,7 +545,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TransactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TransactionUpdateDto = Initialize-TransactionUpdateDto -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # TransactionUpdateDto |  (optional)
+$TransactionUpdateDto = Initialize-TransactionUpdateDto -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" # TransactionUpdateDto |  (optional)
 
 # Update a transaction
 try {
@@ -600,7 +600,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TransactionCategoryUpdateDto = Initialize-TransactionCategoryUpdateDto -Name "MyName" -Description "MyDescription" -EnrollmentId "MyEnrollmentId" -TenantId "MyTenantId" # TransactionCategoryUpdateDto |  (optional)
+$TransactionCategoryUpdateDto = Initialize-TransactionCategoryUpdateDto -Name "MyName" -Description "MyDescription" # TransactionCategoryUpdateDto |  (optional)
 
 # Update a transaction category
 try {

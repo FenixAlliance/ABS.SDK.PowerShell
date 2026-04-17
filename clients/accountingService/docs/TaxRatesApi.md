@@ -29,7 +29,7 @@ Creates a new tax rate for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxRateCreateDto = Initialize-TaxRateCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Rate 0 -Value 0 -Um "MyUm" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -Priority 0 -Compound $false -Shipping $false -Withholding $false -SingleTransactionThreshold 0 -CumulativeTransactionThreshold 0 -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalYearId "MyFiscalYearId" -TenantId "MyTenantId" -CountryId "MyCountryId" -TaxClassId "MyTaxClassId" -CurrencyId "MyCurrencyId" -TaxPolicyId "MyTaxPolicyId" -EnrollmentId "MyEnrollmentId" # TaxRateCreateDto |  (optional)
+$TaxRateCreateDto = Initialize-TaxRateCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Rate 0 -Value 0 -Um "MyUm" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -Priority 0 -Compound $false -Shipping $false -Withholding $false -SingleTransactionThreshold 0 -CumulativeTransactionThreshold 0 -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalYearId "MyFiscalYearId" -CountryId "MyCountryId" -TaxClassId "MyTaxClassId" -CurrencyId "MyCurrencyId" -TaxPolicyId "MyTaxPolicyId" # TaxRateCreateDto |  (optional)
 
 # Create a tax rate
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $Id = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxRateUpdateDto = Initialize-TaxRateUpdateDto -Name "MyName" -Rate 0 -Value 0 -Um "MyUm" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -Priority 0 -Compound $false -Shipping $false -Withholding $false -SingleTransactionThreshold 0 -CumulativeTransactionThreshold 0 -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalYearId "MyFiscalYearId" -TenantId "MyTenantId" -CountryId "MyCountryId" -TaxClassId "MyTaxClassId" -CurrencyId "MyCurrencyId" -TaxPolicyId "MyTaxPolicyId" -EnrollmentId "MyEnrollmentId" # TaxRateUpdateDto |  (optional)
+$TaxRateUpdateDto = Initialize-TaxRateUpdateDto -Name "MyName" -Rate 0 -Value 0 -Um "MyUm" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -Priority 0 -Compound $false -Shipping $false -Withholding $false -SingleTransactionThreshold 0 -CumulativeTransactionThreshold 0 -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalYearId "MyFiscalYearId" -CountryId "MyCountryId" -TaxClassId "MyTaxClassId" -CurrencyId "MyCurrencyId" -TaxPolicyId "MyTaxPolicyId" # TaxRateUpdateDto |  (optional)
 
 # Update a tax rate
 try {

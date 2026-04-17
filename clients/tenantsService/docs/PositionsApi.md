@@ -29,7 +29,7 @@ Create a new tenant position
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantPositionCreateDto = Initialize-TenantPositionCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Title "MyTitle" -Description "MyDescription" # TenantPositionCreateDto |  (optional)
+$TenantPositionCreateDto = Initialize-TenantPositionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" # TenantPositionCreateDto |  (optional)
 
 # Create a new tenant position
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantPositionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantPositionUpdateDto = Initialize-TenantPositionUpdateDto -Title "MyTitle" -Description "MyDescription" -Type "MyType" -BusinessProfileRecordID "MyBusinessProfileRecordID" # TenantPositionUpdateDto |  (optional)
+$TenantPositionUpdateDto = Initialize-TenantPositionUpdateDto -Title "MyTitle" -Description "MyDescription" -Type "MyType" # TenantPositionUpdateDto |  (optional)
 
 # Update a tenant position
 try {

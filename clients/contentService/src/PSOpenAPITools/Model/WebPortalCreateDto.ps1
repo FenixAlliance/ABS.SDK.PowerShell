@@ -27,15 +27,11 @@ No description available.
 No description available.
 .PARAMETER Disabled
 No description available.
-.PARAMETER BusinessID
-No description available.
 .PARAMETER Description
 No description available.
 .PARAMETER WebsiteThemeID
 No description available.
 .PARAMETER BusinessDomainID
-No description available.
-.PARAMETER BusinessProfileRecordID
 No description available.
 .PARAMETER BusinessPortalApplicationID
 No description available.
@@ -67,20 +63,14 @@ function Initialize-WebPortalCreateDto {
         ${Disabled},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessID},
+        ${Description},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${WebsiteThemeID},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebsiteThemeID},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${BusinessDomainID},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessProfileRecordID},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BusinessPortalApplicationID}
     )
@@ -97,11 +87,9 @@ function Initialize-WebPortalCreateDto {
             "title" = ${Title}
             "domain" = ${Domain}
             "disabled" = ${Disabled}
-            "businessID" = ${BusinessID}
             "description" = ${Description}
             "websiteThemeID" = ${WebsiteThemeID}
             "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessPortalApplicationID" = ${BusinessPortalApplicationID}
         }
 
@@ -140,7 +128,7 @@ function ConvertFrom-JsonToWebPortalCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WebPortalCreateDto
-        $AllProperties = ("id", "timestamp", "root", "title", "domain", "disabled", "businessID", "description", "websiteThemeID", "businessDomainID", "businessProfileRecordID", "businessPortalApplicationID")
+        $AllProperties = ("id", "timestamp", "root", "title", "domain", "disabled", "description", "websiteThemeID", "businessDomainID", "businessPortalApplicationID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -183,12 +171,6 @@ function ConvertFrom-JsonToWebPortalCreateDto {
             $Disabled = $JsonParameters.PSobject.Properties["disabled"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -207,12 +189,6 @@ function ConvertFrom-JsonToWebPortalCreateDto {
             $BusinessDomainID = $JsonParameters.PSobject.Properties["businessDomainID"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
-        } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessPortalApplicationID"))) { #optional property not found
             $BusinessPortalApplicationID = $null
         } else {
@@ -226,11 +202,9 @@ function ConvertFrom-JsonToWebPortalCreateDto {
             "title" = ${Title}
             "domain" = ${Domain}
             "disabled" = ${Disabled}
-            "businessID" = ${BusinessID}
             "description" = ${Description}
             "websiteThemeID" = ${WebsiteThemeID}
             "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
             "businessPortalApplicationID" = ${BusinessPortalApplicationID}
         }
 

@@ -30,7 +30,7 @@ Creates a new price list for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceListCreateDto = Initialize-PriceListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # PriceListCreateDto |  (optional)
+$PriceListCreateDto = Initialize-PriceListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" # PriceListCreateDto |  (optional)
 
 # Creates a new price list
 try {
@@ -78,7 +78,7 @@ Creates a new price entry in the specified price list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ItemPriceCreateDto = Initialize-ItemPriceCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemId "MyItemId" -UnitId "MyUnitId" -TenantId "MyTenantId" -CurrencyId "MyCurrencyId" -PriceListId "MyPriceListId" -UnitGroupId "MyUnitGroupId" -EnrollmentId "MyEnrollmentId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" -Price 0 -Percent 0 # ItemPriceCreateDto |  (optional)
+$ItemPriceCreateDto = Initialize-ItemPriceCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemId "MyItemId" -UnitId "MyUnitId" -CurrencyId "MyCurrencyId" -PriceListId "MyPriceListId" -UnitGroupId "MyUnitGroupId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" -Price 0 -Percent 0 # ItemPriceCreateDto |  (optional)
 
 # Creates a price list entry
 try {

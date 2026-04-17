@@ -29,7 +29,7 @@ Creates a new course section for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseSectionCreateDto = Initialize-CourseSectionCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Icon "MyIcon" -Description "MyDescription" -CourseID "MyCourseID" -BusinessID "MyBusinessID" -ReleaseDateTime (Get-Date) -HideFromStudents $false # CourseSectionCreateDto |  (optional)
+$CourseSectionCreateDto = Initialize-CourseSectionCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Icon "MyIcon" -Description "MyDescription" -CourseID "MyCourseID" -ReleaseDateTime (Get-Date) -HideFromStudents $false # CourseSectionCreateDto |  (optional)
 
 # Create a new course section
 try {

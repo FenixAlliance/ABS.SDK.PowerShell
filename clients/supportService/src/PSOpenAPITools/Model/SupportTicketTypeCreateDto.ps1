@@ -23,8 +23,6 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER BusinessID
-No description available.
 .OUTPUTS
 
 SupportTicketTypeCreateDto<PSCustomObject>
@@ -44,10 +42,7 @@ function Initialize-SupportTicketTypeCreateDto {
         ${Title},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BusinessID}
+        ${Description}
     )
 
     Process {
@@ -70,21 +65,12 @@ function Initialize-SupportTicketTypeCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if (!$BusinessID -and $BusinessID.length -gt 36) {
-            throw "invalid value for 'BusinessID', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BusinessID -and $BusinessID.length -lt 36) {
-            throw "invalid value for 'BusinessID', the character length must be great than or equal to 36."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
             "description" = ${Description}
-            "businessID" = ${BusinessID}
         }
 
 
@@ -122,7 +108,7 @@ function ConvertFrom-JsonToSupportTicketTypeCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SupportTicketTypeCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "businessID")
+        $AllProperties = ("id", "timestamp", "title", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -153,18 +139,11 @@ function ConvertFrom-JsonToSupportTicketTypeCreateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessID"))) { #optional property not found
-            $BusinessID = $null
-        } else {
-            $BusinessID = $JsonParameters.PSobject.Properties["businessID"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
             "description" = ${Description}
-            "businessID" = ${BusinessID}
         }
 
         return $PSO

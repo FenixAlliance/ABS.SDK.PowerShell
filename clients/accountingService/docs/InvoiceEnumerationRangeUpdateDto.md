@@ -13,8 +13,6 @@ Name | Type | Description | Notes
 **ValidFrom** | **System.DateTime** |  | [optional] 
 **ValidTo** | **System.DateTime** |  | [optional] 
 **FiscalAuthorityId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **DocumentType** | **String** |  | [optional] 
 
 ## Examples
@@ -31,8 +29,6 @@ $InvoiceEnumerationRangeUpdateDto = Initialize-PSOpenAPIToolsInvoiceEnumerationR
  -ValidFrom null `
  -ValidTo null `
  -FiscalAuthorityId null `
- -TenantId null `
- -EnrollmentId null `
  -DocumentType null
 ```
 

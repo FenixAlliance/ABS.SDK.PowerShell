@@ -43,10 +43,6 @@ No description available.
 No description available.
 .PARAMETER CurrencyId
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 MarketingCampaignUpdateDto<PSCustomObject>
@@ -96,13 +92,7 @@ function Initialize-MarketingCampaignUpdateDto {
         ${MarketingAreaId},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${CurrencyId}
     )
 
     Process {
@@ -125,8 +115,6 @@ function Initialize-MarketingCampaignUpdateDto {
             "expectedResponsePercent" = ${ExpectedResponsePercent}
             "marketingAreaId" = ${MarketingAreaId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -164,7 +152,7 @@ function ConvertFrom-JsonToMarketingCampaignUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MarketingCampaignUpdateDto
-        $AllProperties = ("name", "offer", "active", "proposedStart", "proposedEnd", "actualStart", "actualEnd", "code", "allocatedBudget", "activityCost", "miscCost", "expectedResponsePercent", "marketingAreaId", "currencyId", "tenantId", "enrollmentId")
+        $AllProperties = ("name", "offer", "active", "proposedStart", "proposedEnd", "actualStart", "actualEnd", "code", "allocatedBudget", "activityCost", "miscCost", "expectedResponsePercent", "marketingAreaId", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -255,18 +243,6 @@ function ConvertFrom-JsonToMarketingCampaignUpdateDto {
             $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "offer" = ${Offer}
@@ -282,8 +258,6 @@ function ConvertFrom-JsonToMarketingCampaignUpdateDto {
             "expectedResponsePercent" = ${ExpectedResponsePercent}
             "marketingAreaId" = ${MarketingAreaId}
             "currencyId" = ${CurrencyId}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

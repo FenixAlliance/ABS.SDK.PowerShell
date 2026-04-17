@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **DisplayName** | **String** |  | 
 **ClientId** | **String** |  | [optional] 
 **ClientSecret** | **String** |  | [optional] 
@@ -12,14 +14,14 @@ Name | Type | Description | Notes
 **RedirectUris** | **String** |  | [optional] 
 **PostLogoutRedirectUris** | **String** |  | [optional] 
 **Logo** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$OAuthApplicationCreateDto = Initialize-PSOpenAPIToolsOAuthApplicationCreateDto  -DisplayName null `
+$OAuthApplicationCreateDto = Initialize-PSOpenAPIToolsOAuthApplicationCreateDto  -Id null `
+ -Timestamp null `
+ -DisplayName null `
  -ClientId null `
  -ClientSecret null `
  -ConsentType null `
@@ -27,9 +29,7 @@ $OAuthApplicationCreateDto = Initialize-PSOpenAPIToolsOAuthApplicationCreateDto 
  -Requirements null `
  -RedirectUris null `
  -PostLogoutRedirectUris null `
- -Logo null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -Logo null
 ```
 
 - Convert the resource to JSON

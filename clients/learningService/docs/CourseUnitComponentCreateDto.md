@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Content** | **String** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **CourseUnitID** | **String** |  | [optional] 
 
 ## Examples
@@ -24,7 +23,6 @@ $CourseUnitComponentCreateDto = Initialize-PSOpenAPIToolsCourseUnitComponentCrea
  -Content null `
  -Order null `
  -CourseID null `
- -BusinessID null `
  -CourseUnitID null
 ```
 

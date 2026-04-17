@@ -8,9 +8,7 @@ Name | Type | Description | Notes
 **Order** | **Int32** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **DealUnitFlowId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **ParentBusinessProcessStageId** | **String** |  | [optional] 
 
 ## Examples
@@ -22,9 +20,7 @@ $DealUnitFlowStageCreateDto = Initialize-PSOpenAPIToolsDealUnitFlowStageCreateDt
  -Order null `
  -Name null `
  -DealUnitFlowId null `
- -TenantId null `
  -Description null `
- -EnrollmentId null `
  -ParentBusinessProcessStageId null
 ```
 

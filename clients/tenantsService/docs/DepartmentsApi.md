@@ -29,7 +29,7 @@ Create a new tenant department
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantDepartmentCreateDto = Initialize-TenantDepartmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentCreateDto |  (optional)
+$TenantDepartmentCreateDto = Initialize-TenantDepartmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentCreateDto |  (optional)
 
 # Create a new tenant department
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantDepartmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantDepartmentUpdateDto = Initialize-TenantDepartmentUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -BusinessProfileRecordID "MyBusinessProfileRecordID" -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentUpdateDto |  (optional)
+$TenantDepartmentUpdateDto = Initialize-TenantDepartmentUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentUpdateDto |  (optional)
 
 # Update a tenant department
 try {

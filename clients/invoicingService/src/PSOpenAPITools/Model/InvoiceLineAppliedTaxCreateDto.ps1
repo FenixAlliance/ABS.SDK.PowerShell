@@ -19,13 +19,9 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER TenantId
-No description available.
 .PARAMETER InvoiceId
 No description available.
 .PARAMETER TaxPolicyId
-No description available.
-.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -43,16 +39,10 @@ function Initialize-InvoiceLineAppliedTaxCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${InvoiceId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${InvoiceId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TaxPolicyId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${TaxPolicyId}
     )
 
     Process {
@@ -63,10 +53,8 @@ function Initialize-InvoiceLineAppliedTaxCreateDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "invoiceId" = ${InvoiceId}
             "taxPolicyId" = ${TaxPolicyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -104,7 +92,7 @@ function ConvertFrom-JsonToInvoiceLineAppliedTaxCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in InvoiceLineAppliedTaxCreateDto
-        $AllProperties = ("id", "timestamp", "tenantId", "invoiceId", "taxPolicyId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "invoiceId", "taxPolicyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,12 +111,6 @@ function ConvertFrom-JsonToInvoiceLineAppliedTaxCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "invoiceId"))) { #optional property not found
             $InvoiceId = $null
         } else {
@@ -141,19 +123,11 @@ function ConvertFrom-JsonToInvoiceLineAppliedTaxCreateDto {
             $TaxPolicyId = $JsonParameters.PSobject.Properties["taxPolicyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "invoiceId" = ${InvoiceId}
             "taxPolicyId" = ${TaxPolicyId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

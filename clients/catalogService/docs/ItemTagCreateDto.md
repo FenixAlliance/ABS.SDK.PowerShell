@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -16,8 +15,7 @@ Name | Type | Description | Notes
 $ItemTagCreateDto = Initialize-PSOpenAPIToolsItemTagCreateDto  -Id null `
  -Timestamp null `
  -Title null `
- -Description null `
- -BusinessID null
+ -Description null
 ```
 
 - Convert the resource to JSON

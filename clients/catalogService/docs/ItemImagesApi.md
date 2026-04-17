@@ -28,7 +28,7 @@ Creates a new item image for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemImageCreateDto = Initialize-ItemImageCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessID "MyBusinessID" -BusinessProfileRecordID "MyBusinessProfileRecordID" -ItemID "MyItemID" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -SocialProfileID "MySocialProfileID" -ParentFileUploadID "MyParentFileUploadID" -AccountHolderID "MyAccountHolderID" # ItemImageCreateDto |  (optional)
+$ItemImageCreateDto = Initialize-ItemImageCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemID "MyItemID" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -SocialProfileID "MySocialProfileID" -ParentFileUploadID "MyParentFileUploadID" # ItemImageCreateDto |  (optional)
 
 # Create a new item image
 try {

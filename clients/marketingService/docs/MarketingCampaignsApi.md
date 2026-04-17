@@ -27,7 +27,7 @@ Creates a new marketing campaign for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$MarketingCampaignCreateDto = Initialize-MarketingCampaignCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Offer "MyOffer" -Active $false -ProposedStart (Get-Date) -ProposedEnd (Get-Date) -ActualStart (Get-Date) -ActualEnd (Get-Date) -Code "MyCode" -AllocatedBudget 0 -ActivityCost 0 -MiscCost 0 -ExpectedResponsePercent 0 -MarketingAreaId "MyMarketingAreaId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # MarketingCampaignCreateDto | 
+$MarketingCampaignCreateDto = Initialize-MarketingCampaignCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Offer "MyOffer" -Active $false -ProposedStart (Get-Date) -ProposedEnd (Get-Date) -ActualStart (Get-Date) -ActualEnd (Get-Date) -Code "MyCode" -AllocatedBudget 0 -ActivityCost 0 -MiscCost 0 -ExpectedResponsePercent 0 -MarketingAreaId "MyMarketingAreaId" -CurrencyId "MyCurrencyId" # MarketingCampaignCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing marketing campaign by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $MarketingcampaignId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$MarketingCampaignUpdateDto = Initialize-MarketingCampaignUpdateDto -Name "MyName" -Offer "MyOffer" -Active $false -ProposedStart (Get-Date) -ProposedEnd (Get-Date) -ActualStart (Get-Date) -ActualEnd (Get-Date) -Code "MyCode" -AllocatedBudget 0 -ActivityCost 0 -MiscCost 0 -ExpectedResponsePercent 0 -MarketingAreaId "MyMarketingAreaId" -CurrencyId "MyCurrencyId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # MarketingCampaignUpdateDto | 
+$MarketingCampaignUpdateDto = Initialize-MarketingCampaignUpdateDto -Name "MyName" -Offer "MyOffer" -Active $false -ProposedStart (Get-Date) -ProposedEnd (Get-Date) -ActualStart (Get-Date) -ActualEnd (Get-Date) -Code "MyCode" -AllocatedBudget 0 -ActivityCost 0 -MiscCost 0 -ExpectedResponsePercent 0 -MarketingAreaId "MyMarketingAreaId" -CurrencyId "MyCurrencyId" # MarketingCampaignUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

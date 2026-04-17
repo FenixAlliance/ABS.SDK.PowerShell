@@ -4,15 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **TotalAmount** | **Double** |  | [optional] 
 **TotalAmountInUsd** | **Double** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**AccountHolderId** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **OrderId** | **String** |  | [optional] 
 **InvoiceId** | **String** |  | [optional] 
 
@@ -21,15 +18,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ReceiptUpdateDto = Initialize-PSOpenAPIToolsReceiptUpdateDto  -PaymentId null `
- -TenantId null `
  -ForexRate null `
  -TotalAmount null `
  -TotalAmountInUsd null `
  -Closed null `
  -CurrencyId null `
- -AccountHolderId null `
  -ContactId null `
- -EnrollmentId null `
  -OrderId null `
  -InvoiceId null
 ```

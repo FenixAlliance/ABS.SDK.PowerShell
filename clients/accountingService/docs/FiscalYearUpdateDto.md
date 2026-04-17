@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Closed** | **Boolean** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
+**FiscalAuthorityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +18,8 @@ $FiscalYearUpdateDto = Initialize-PSOpenAPIToolsFiscalYearUpdateDto  -Name null 
  -Description null `
  -Closed null `
  -EndDate null `
- -StartDate null
+ -StartDate null `
+ -FiscalAuthorityId null
 ```
 
 - Convert the resource to JSON

@@ -29,7 +29,7 @@ Creates a new support ticket priority for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketPriorityCreateDto = Initialize-SupportTicketPriorityCreateDto -Title "MyTitle" -Description "MyDescription" -BusinessID "MyBusinessID" -SupportEntitlementID "MySupportEntitlementID" # SupportTicketPriorityCreateDto |  (optional)
+$SupportTicketPriorityCreateDto = Initialize-SupportTicketPriorityCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -SupportEntitlementID "MySupportEntitlementID" # SupportTicketPriorityCreateDto |  (optional)
 
 # Create a new support ticket priority
 try {

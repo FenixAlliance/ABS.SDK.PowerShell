@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **FiscalYearId** | **String** |  | [optional] 
 **CostCentreId** | **String** |  | [optional] 
 
@@ -17,7 +16,6 @@ Name | Type | Description | Notes
 $CostCentreBudgetCreateDto = Initialize-PSOpenAPIToolsCostCentreBudgetCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -TenantId null `
  -FiscalYearId null `
  -CostCentreId null
 ```

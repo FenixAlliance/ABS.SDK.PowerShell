@@ -9,11 +9,9 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Domain** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **WebsiteThemeID** | **String** |  | [optional] 
 **BusinessDomainID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **BusinessPortalApplicationID** | **String** |  | [optional] 
 
 ## Examples
@@ -26,11 +24,9 @@ $WebPortalCreateDto = Initialize-PSOpenAPIToolsWebPortalCreateDto  -Id null `
  -Title null `
  -Domain null `
  -Disabled null `
- -BusinessID null `
  -Description null `
  -WebsiteThemeID null `
  -BusinessDomainID null `
- -BusinessProfileRecordID null `
  -BusinessPortalApplicationID null
 ```
 

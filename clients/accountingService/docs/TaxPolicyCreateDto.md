@@ -26,8 +26,6 @@ Name | Type | Description | Notes
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **Zero** | **Boolean** |  | [optional] 
 **Reduced** | **Boolean** |  | [optional] 
 **Withholding** | **Boolean** |  | [optional] 
@@ -60,8 +58,6 @@ $TaxPolicyCreateDto = Initialize-PSOpenAPIToolsTaxPolicyCreateDto  -Id null `
  -CustomState null `
  -CustomCity null `
  -CityId null `
- -EnrollmentId null `
- -TenantId null `
  -Zero null `
  -Reduced null `
  -Withholding null `

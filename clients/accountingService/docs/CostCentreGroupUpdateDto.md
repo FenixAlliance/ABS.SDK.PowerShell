@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **ParentCostCentresGroupId** | **String** |  | [optional] 
 
 ## Examples
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 $CostCentreGroupUpdateDto = Initialize-PSOpenAPIToolsCostCentreGroupUpdateDto  -Name null `
  -Description null `
  -Disabled null `
- -TenantId null `
  -ParentCostCentresGroupId null
 ```
 

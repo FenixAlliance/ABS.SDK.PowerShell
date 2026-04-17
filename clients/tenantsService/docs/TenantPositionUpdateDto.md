@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Type** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -14,8 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $TenantPositionUpdateDto = Initialize-PSOpenAPIToolsTenantPositionUpdateDto  -Title null `
  -Description null `
- -Type null `
- -BusinessProfileRecordID null
+ -Type null
 ```
 
 - Convert the resource to JSON

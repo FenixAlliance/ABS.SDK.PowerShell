@@ -28,7 +28,7 @@ Creates a new item brand for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemBrandCreateDto = Initialize-ItemBrandCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -Description "MyDescription" -WebsiteURL "MyWebsiteURL" -Featured $false -Trending $false -BusinessID "MyBusinessID" # ItemBrandCreateDto |  (optional)
+$ItemBrandCreateDto = Initialize-ItemBrandCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -Description "MyDescription" -WebsiteURL "MyWebsiteURL" -Featured $false -Trending $false # ItemBrandCreateDto |  (optional)
 
 # Create a new item brand
 try {

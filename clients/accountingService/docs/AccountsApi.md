@@ -159,7 +159,7 @@ Get root accounts.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -TenantId "MyTenantId" -CurrencyId "MyCurrencyId" -EnrollmentId "MyEnrollmentId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountCreateDto |  (optional)
+$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountCreateDto |  (optional)
 
 # Get root accounts
 try {
@@ -213,7 +213,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
 
 # Create account credit
 try {
@@ -268,7 +268,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
 
 # Create account debit
 try {
@@ -323,7 +323,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
 
 # Create account entry
 try {
@@ -378,7 +378,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountRelationCreateDto = Initialize-AccountRelationCreateDto -Id "MyId" -Timestamp (Get-Date) -AccountId "MyAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountRelationCreateDto |  (optional)
+$AccountRelationCreateDto = Initialize-AccountRelationCreateDto -Id "MyId" -Timestamp (Get-Date) -AccountId "MyAccountId" # AccountRelationCreateDto |  (optional)
 
 # Create account relation
 try {
@@ -433,7 +433,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountTypeCreateDto = Initialize-AccountTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountTypeCreateDto |  (optional)
+$AccountTypeCreateDto = Initialize-AccountTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # AccountTypeCreateDto |  (optional)
 
 # Create account type
 try {
@@ -1753,7 +1753,7 @@ $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryUpdateDto = Initialize-AccountingEntryUpdateDto -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Description "MyDescription" -Amount 0 -Date (Get-Date) -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryUpdateDto |  (optional)
+$AccountingEntryUpdateDto = Initialize-AccountingEntryUpdateDto -Description "MyDescription" -Amount 0 -Date (Get-Date) -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryUpdateDto |  (optional)
 
 # Update account entry
 try {
@@ -1811,7 +1811,7 @@ $AccountRelationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountRelationUpdateDto = Initialize-AccountRelationUpdateDto -AccountId "MyAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountRelationUpdateDto |  (optional)
+$AccountRelationUpdateDto = Initialize-AccountRelationUpdateDto -AccountId "MyAccountId" # AccountRelationUpdateDto |  (optional)
 
 # Update account relation
 try {
@@ -1869,7 +1869,7 @@ $AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountTypeUpdateDto = Initialize-AccountTypeUpdateDto -Name "MyName" -Description "MyDescription" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # AccountTypeUpdateDto |  (optional)
+$AccountTypeUpdateDto = Initialize-AccountTypeUpdateDto -Name "MyName" -Description "MyDescription" # AccountTypeUpdateDto |  (optional)
 
 # Update account type
 try {

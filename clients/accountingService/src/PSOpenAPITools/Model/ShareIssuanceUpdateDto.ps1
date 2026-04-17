@@ -15,10 +15,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .PARAMETER UnitPrice
 No description available.
 .PARAMETER Quantity
@@ -34,18 +30,12 @@ function Initialize-ShareIssuanceUpdateDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${UnitPrice},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Quantity},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId}
     )
@@ -53,22 +43,6 @@ function Initialize-ShareIssuanceUpdateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => ShareIssuanceUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$TenantId -and $TenantId.length -gt 36) {
-            throw "invalid value for 'TenantId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$TenantId -and $TenantId.length -lt 0) {
-            throw "invalid value for 'TenantId', the character length must be great than or equal to 0."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -gt 36) {
-            throw "invalid value for 'EnrollmentId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$EnrollmentId -and $EnrollmentId.length -lt 0) {
-            throw "invalid value for 'EnrollmentId', the character length must be great than or equal to 0."
-        }
 
         if ($Quantity -and $Quantity -gt 2147483647) {
           throw "invalid value for 'Quantity', must be smaller than or equal to 2147483647."
@@ -80,8 +54,6 @@ function Initialize-ShareIssuanceUpdateDto {
 
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "unitPrice" = ${UnitPrice}
             "quantity" = ${Quantity}
             "currencyId" = ${CurrencyId}
@@ -122,23 +94,11 @@ function ConvertFrom-JsonToShareIssuanceUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ShareIssuanceUpdateDto
-        $AllProperties = ("tenantId", "enrollmentId", "unitPrice", "quantity", "currencyId")
+        $AllProperties = ("unitPrice", "quantity", "currencyId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "unitPrice"))) { #optional property not found
@@ -160,8 +120,6 @@ function ConvertFrom-JsonToShareIssuanceUpdateDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
             "unitPrice" = ${UnitPrice}
             "quantity" = ${Quantity}
             "currencyId" = ${CurrencyId}

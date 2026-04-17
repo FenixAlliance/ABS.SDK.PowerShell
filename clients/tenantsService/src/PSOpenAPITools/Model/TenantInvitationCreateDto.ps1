@@ -21,10 +21,6 @@ No description available.
 No description available.
 .PARAMETER UserEmail
 No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER EnrollmentId
-No description available.
 .OUTPUTS
 
 TenantInvitationCreateDto<PSCustomObject>
@@ -41,13 +37,7 @@ function Initialize-TenantInvitationCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${UserEmail},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId}
+        ${UserEmail}
     )
 
     Process {
@@ -67,8 +57,6 @@ function Initialize-TenantInvitationCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "userEmail" = ${UserEmail}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -106,7 +94,7 @@ function ConvertFrom-JsonToTenantInvitationCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantInvitationCreateDto
-        $AllProperties = ("id", "timestamp", "userEmail", "tenantId", "enrollmentId")
+        $AllProperties = ("id", "timestamp", "userEmail")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,24 +123,10 @@ function ConvertFrom-JsonToTenantInvitationCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "userEmail" = ${UserEmail}
-            "tenantId" = ${TenantId}
-            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

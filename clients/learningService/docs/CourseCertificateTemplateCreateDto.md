@@ -6,10 +6,8 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 **WebPortalID** | **String** |  | [optional] 
 **WebsiteThemeID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
 **SocialProfileID** | **String** |  | [optional] 
 **ParentWebContentID** | **String** |  | [optional] 
 **ParentWebContentVersionID** | **String** |  | [optional] 
@@ -21,10 +19,8 @@ Name | Type | Description | Notes
 $CourseCertificateTemplateCreateDto = Initialize-PSOpenAPIToolsCourseCertificateTemplateCreateDto  -Id null `
  -Timestamp null `
  -CourseID null `
- -BusinessID null `
  -WebPortalID null `
  -WebsiteThemeID null `
- -BusinessProfileRecordID null `
  -SocialProfileID null `
  -ParentWebContentID null `
  -ParentWebContentVersionID null

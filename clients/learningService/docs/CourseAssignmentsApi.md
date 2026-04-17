@@ -29,7 +29,7 @@ Creates a new course assignment for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseAssignmentCreateDto = Initialize-CourseAssignmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseID "MyCourseID" -BusinessID "MyBusinessID" -CourseUnitID "MyCourseUnitID" -CourseCohortID "MyCourseCohortID" -CourseAssignmentTypeID "MyCourseAssignmentTypeID" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentCreateDto |  (optional)
+$CourseAssignmentCreateDto = Initialize-CourseAssignmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -CourseCohortID "MyCourseCohortID" -CourseAssignmentTypeID "MyCourseAssignmentTypeID" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentCreateDto |  (optional)
 
 # Create a new course assignment
 try {

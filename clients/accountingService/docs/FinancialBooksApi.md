@@ -27,7 +27,7 @@ Creates a new financial book.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$FinancialBookCreateDto = Initialize-FinancialBookCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -TenantID "MyTenantID" # FinancialBookCreateDto | 
+$FinancialBookCreateDto = Initialize-FinancialBookCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # FinancialBookCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing financial book.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FinancialBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$FinancialBookUpdateDto = Initialize-FinancialBookUpdateDto -Name "MyName" -Description "MyDescription" -TenantId "MyTenantId" # FinancialBookUpdateDto | 
+$FinancialBookUpdateDto = Initialize-FinancialBookUpdateDto -Name "MyName" -Description "MyDescription" # FinancialBookUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

@@ -83,7 +83,7 @@ Creates a new journal for the tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -TenantID "MyTenantID" -EnrollmentID "MyEnrollmentID" -ParentJournalID "MyParentJournalID" -JournalTypeID "MyJournalTypeID" -LedgerID "MyLedgerID" # JournalCreateDto |  (optional)
+$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalID "MyParentJournalID" -JournalTypeID "MyJournalTypeID" -LedgerID "MyLedgerID" # JournalCreateDto |  (optional)
 
 # Create journal
 try {

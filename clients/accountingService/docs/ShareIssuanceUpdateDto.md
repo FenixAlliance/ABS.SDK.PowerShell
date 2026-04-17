@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **UnitPrice** | **Int32** |  | [optional] 
 **Quantity** | **Int32** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -13,9 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ShareIssuanceUpdateDto = Initialize-PSOpenAPIToolsShareIssuanceUpdateDto  -TenantId null `
- -EnrollmentId null `
- -UnitPrice null `
+$ShareIssuanceUpdateDto = Initialize-PSOpenAPIToolsShareIssuanceUpdateDto  -UnitPrice null `
  -Quantity null `
  -CurrencyId null
 ```

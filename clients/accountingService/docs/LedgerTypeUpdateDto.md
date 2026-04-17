@@ -5,17 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **LedgerClass** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $LedgerTypeUpdateDto = Initialize-PSOpenAPIToolsLedgerTypeUpdateDto  -Name null `
- -LedgerClass null `
- -TenantId null `
- -EnrollmentId null
+ -LedgerClass null
 ```
 
 - Convert the resource to JSON

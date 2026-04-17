@@ -27,7 +27,7 @@ Creates a new newsletter for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$NewsletterCreateDto = Initialize-NewsletterCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Code "MyCode" -Title "MyTitle" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # NewsletterCreateDto | 
+$NewsletterCreateDto = Initialize-NewsletterCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Code "MyCode" -Title "MyTitle" # NewsletterCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -283,7 +283,7 @@ Updates an existing newsletter by its ID.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $NewsletterId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$NewsletterUpdateDto = Initialize-NewsletterUpdateDto -Code "MyCode" -Title "MyTitle" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -Name "MyName" # NewsletterUpdateDto | 
+$NewsletterUpdateDto = Initialize-NewsletterUpdateDto -Code "MyCode" -Title "MyTitle" -Name "MyName" # NewsletterUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

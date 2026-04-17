@@ -11,9 +11,7 @@ Name | Type | Description | Notes
 **Code** | **String** |  | [optional] 
 **Path** | **String** |  | [optional] 
 **Prefix** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | 
-**EnrollmentId** | **String** |  | [optional] 
 **AccountTypeId** | **String** |  | [optional] 
 **ParentAccountId** | **String** |  | [optional] 
 **AccountCategory** | **String** |  | 
@@ -37,9 +35,7 @@ $BankAccountCreateDto = Initialize-PSOpenAPIToolsBankAccountCreateDto  -Id null 
  -Code null `
  -Path null `
  -Prefix null `
- -TenantId null `
  -CurrencyId null `
- -EnrollmentId null `
  -AccountTypeId null `
  -ParentAccountId null `
  -AccountCategory null `

@@ -29,7 +29,7 @@ Creates a new support ticket type for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketTypeCreateDto = Initialize-SupportTicketTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -BusinessID "MyBusinessID" # SupportTicketTypeCreateDto |  (optional)
+$SupportTicketTypeCreateDto = Initialize-SupportTicketTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" # SupportTicketTypeCreateDto |  (optional)
 
 # Create a new support ticket type
 try {

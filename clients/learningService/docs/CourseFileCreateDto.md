@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **ContentType** | **String** |  | [optional] 
 **FileLength** | **Int64** |  | [optional] 
 **CourseID** | **String** |  | 
-**BusinessID** | **String** |  | 
 
 ## Examples
 
@@ -24,8 +23,7 @@ $CourseFileCreateDto = Initialize-PSOpenAPIToolsCourseFileCreateDto  -Id null `
  -FileUploadURL null `
  -ContentType null `
  -FileLength null `
- -CourseID null `
- -BusinessID null
+ -CourseID null
 ```
 
 - Convert the resource to JSON

@@ -29,7 +29,7 @@ Creates a new grant entry.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$GrantCreateDto = Initialize-GrantCreateDto -Id "MyId" -Timestamp (Get-Date) -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # GrantCreateDto |  (optional)
+$GrantCreateDto = Initialize-GrantCreateDto -Id "MyId" -Timestamp (Get-Date) # GrantCreateDto |  (optional)
 
 # Create grant
 try {
@@ -273,7 +273,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GrantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GrantUpdateDto] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <System.Nullable[SystemCollectionsHashtable]><br>
 
 Update grant
 
@@ -285,11 +285,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $GrantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$GrantUpdateDto = Initialize-GrantUpdateDto -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" # GrantUpdateDto |  (optional)
+$Body = @{ key_example = ... } # SystemCollectionsHashtable |  (optional)
 
 # Update grant
 try {
-    $Result = Update-GrantAsync -TenantId $TenantId -GrantId $GrantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -GrantUpdateDto $GrantUpdateDto
+    $Result = Update-GrantAsync -TenantId $TenantId -GrantId $GrantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
 } catch {
     Write-Host ("Exception occurred when calling Update-GrantAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
  **GrantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **GrantUpdateDto** | [**GrantUpdateDto**](GrantUpdateDto.md)|  | [optional] 
+ **Body** | **SystemCollectionsHashtable**|  | [optional] 
 
 ### Return type
 

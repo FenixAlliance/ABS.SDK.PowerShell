@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **Description** | **String** |  | 
 **Date** | **System.DateTime** |  | [optional] 
 **Amount** | **Double** |  | [optional] 
@@ -22,8 +20,6 @@ Name | Type | Description | Notes
 ```powershell
 $AccountingEntryCreateDto = Initialize-PSOpenAPIToolsAccountingEntryCreateDto  -Id null `
  -Timestamp null `
- -TenantId null `
- -EnrollmentId null `
  -Description null `
  -Date null `
  -Amount null `

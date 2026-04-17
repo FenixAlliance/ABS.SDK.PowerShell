@@ -33,7 +33,7 @@ Creates a new commission.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CommissionCreateDto = Initialize-CommissionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" # CommissionCreateDto | 
+$CommissionCreateDto = Initialize-CommissionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" # CommissionCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -543,7 +543,7 @@ Updates an existing commission.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CommissionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CommissionUpdateDto = Initialize-CommissionUpdateDto -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" # CommissionUpdateDto | 
+$CommissionUpdateDto = Initialize-CommissionUpdateDto -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" # CommissionUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -598,7 +598,7 @@ Updates an existing payment commission.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PaymentCommissionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PaymentCommissionUpdateDto = Initialize-PaymentCommissionUpdateDto -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" -PaymentId "MyPaymentId" # PaymentCommissionUpdateDto | 
+$PaymentCommissionUpdateDto = Initialize-PaymentCommissionUpdateDto -Title "MyTitle" -Description "MyDescription" -BaseAmount 0 -AddedPercent 0 -AddedAmount 0 -TaxComission 0 -SalaryId "MySalaryId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -EmisorContactId "MyEmisorContactId" -ReceiverContactId "MyReceiverContactId" -PaymentId "MyPaymentId" # PaymentCommissionUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

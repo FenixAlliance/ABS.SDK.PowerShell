@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | 
-**BusinessProfileRecordID** | **String** |  | 
 **BusinessTeamID** | **String** |  | 
 
 ## Examples
@@ -15,8 +13,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamRecordCreateDto = Initialize-PSOpenAPIToolsTenantTeamRecordCreateDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
  -BusinessTeamID null
 ```
 
