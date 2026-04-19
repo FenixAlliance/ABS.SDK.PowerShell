@@ -481,3 +481,11 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# CLI build outputs
+bin/
+dist/
+
+# npm package staged binary (copied by Publish-Npm.ps1)
+npm/bin/absuite.exe
+npm/LICENSE.md

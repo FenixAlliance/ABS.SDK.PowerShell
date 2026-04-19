@@ -1,0 +1,44 @@
+{
+  "name": "@fenixalliance/abs-cli",
+  "version": "1.0.1",
+  "description": "Alliance Business Suite CLI — interact with the ABS platform from the command line",
+  "keywords": [
+    "abs",
+    "absuite",
+    "alliance-business-suite",
+    "fenix-alliance",
+    "cli",
+    "api-client"
+  ],
+  "homepage": "https://absuite.net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FenixAlliance/FenixAlliance.ABS.Client.SDKs.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": {
+    "name": "Fenix Alliance Inc.",
+    "email": "support@fenix-alliance.com",
+    "url": "https://fenixalliance.com.co"
+  },
+  "bin": {
+    "absuite": "bin/absuite.js"
+  },
+  "scripts": {
+    "postinstall": "node bin/postinstall.js"
+  },
+  "files": [
+    "bin/",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "os": [
+    "win32"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

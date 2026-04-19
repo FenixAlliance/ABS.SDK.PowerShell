@@ -35,12 +35,44 @@ absuite accounting update account-entry --help
 
 ## Installation
 
-### Prerequisites
+### 📦 Install via npm (recommended)
+
+The fastest way to get `absuite` on your machine — one command, globally available:
+
+```bash
+npm install -g @fenixalliance/abs-cli
+```
+
+> **That's it.** The `absuite` command is immediately available in any terminal. No build step, no PATH configuration, no PowerShell modules needed.
+
+Verify:
+
+```bash
+absuite --version
+```
+
+To update:
+
+```bash
+npm update -g @fenixalliance/abs-cli
+```
+
+To uninstall:
+
+```bash
+npm uninstall -g @fenixalliance/abs-cli
+```
+
+### 🔨 Build from source
+
+If you prefer to build from source or need to modify the CLI:
+
+#### Prerequisites
 
 - PowerShell 5.1+
 - .NET Framework 4.x (required by PS2EXE)
 
-### Build
+#### Build
 
 ```powershell
 # Standard build (installs ps2exe module automatically, adds bin/ to PATH)
@@ -53,7 +85,7 @@ absuite accounting update account-entry --help
 .\Build-CLI.ps1 -Clean
 ```
 
-### Output
+#### Output
 
 | Artifact | Path |
 |----------|------|
@@ -131,12 +163,14 @@ No credentials are stored in plain text. Tokens and passwords are encrypted at r
 ```
 abs-cli.ps1        # Runtime entry point: alias mapping, auth, tab completion
 Build-CLI.ps1      # Build script: bundles all 37 service clients, compiles to EXE
+Publish-Npm.ps1    # Stages EXE into npm/ and optionally publishes to npmjs.org
 clients/           # OpenAPI-generated PowerShell SDK modules (37 services)
 ├── accountingService/
 ├── crmService/
 └── ...
 bin/                # Build output (absuite.exe)
 dist/               # Distribution archive
+npm/                # npm package (@fenixalliance/abs-cli)
 ```
 
 ### Build Process
@@ -145,6 +179,19 @@ dist/               # Distribution archive
 2. **Bundle scripts** — concatenate all `.ps1` source files into a single script
 3. **Embed indexes** — inline service and alias indexes into the runtime script
 4. **Compile** — PS2EXE compiles the bundled script into `absuite.exe`
+
+### Publishing to npm
+
+```powershell
+# Stage only (copies absuite.exe into npm/ package)
+.\Publish-Npm.ps1
+
+# Stage + publish to npmjs.org
+.\Publish-Npm.ps1 -Publish
+
+# Dry run (preview without uploading)
+.\Publish-Npm.ps1 -Publish -DryRun
+```
 
 ## Available Services
 
