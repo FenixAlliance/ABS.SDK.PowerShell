@@ -21,13 +21,13 @@ No description available.
 No description available.
 .PARAMETER Title
 No description available.
-.PARAMETER Code
-No description available.
 .PARAMETER Published
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER HtmlContent
+.PARAMETER Code
+No description available.
+.PARAMETER Markup
 No description available.
 .PARAMETER FeaturedImageUrl
 No description available.
@@ -53,22 +53,22 @@ function Initialize-WebPageCreateDto {
         [String]
         ${Title},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Code},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Published},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Code},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${HtmlContent},
+        ${Markup},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FeaturedImageUrl},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
+        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown", "Markup")]
         [String]
         ${CodeType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
@@ -80,15 +80,27 @@ function Initialize-WebPageCreateDto {
         'Creating PSCustomObject: PSOpenAPITools => WebPageCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Title) {
+            throw "invalid value for 'Title', 'Title' cannot be null."
+        }
+
+        if ($Title.length -gt 100) {
+            throw "invalid value for 'Title', the character length must be smaller than or equal to 100."
+        }
+
+        if ($Title.length -lt 3) {
+            throw "invalid value for 'Title', the character length must be great than or equal to 3."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
-            "code" = ${Code}
             "published" = ${Published}
             "description" = ${Description}
-            "htmlContent" = ${HtmlContent}
+            "code" = ${Code}
+            "markup" = ${Markup}
             "featuredImageUrl" = ${FeaturedImageUrl}
             "codeType" = ${CodeType}
             "webTemplateID" = ${WebTemplateID}
@@ -129,11 +141,21 @@ function ConvertFrom-JsonToWebPageCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WebPageCreateDto
-        $AllProperties = ("id", "timestamp", "title", "code", "published", "description", "htmlContent", "featuredImageUrl", "codeType", "webTemplateID")
+        $AllProperties = ("id", "timestamp", "title", "published", "description", "code", "markup", "featuredImageUrl", "codeType", "webTemplateID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'title' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'title' missing."
+        } else {
+            $Title = $JsonParameters.PSobject.Properties["title"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -148,18 +170,6 @@ function ConvertFrom-JsonToWebPageCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) { #optional property not found
-            $Title = $null
-        } else {
-            $Title = $JsonParameters.PSobject.Properties["title"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "code"))) { #optional property not found
-            $Code = $null
-        } else {
-            $Code = $JsonParameters.PSobject.Properties["code"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "published"))) { #optional property not found
             $Published = $null
         } else {
@@ -172,10 +182,16 @@ function ConvertFrom-JsonToWebPageCreateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "htmlContent"))) { #optional property not found
-            $HtmlContent = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "code"))) { #optional property not found
+            $Code = $null
         } else {
-            $HtmlContent = $JsonParameters.PSobject.Properties["htmlContent"].value
+            $Code = $JsonParameters.PSobject.Properties["code"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "markup"))) { #optional property not found
+            $Markup = $null
+        } else {
+            $Markup = $JsonParameters.PSobject.Properties["markup"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "featuredImageUrl"))) { #optional property not found
@@ -200,10 +216,10 @@ function ConvertFrom-JsonToWebPageCreateDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
-            "code" = ${Code}
             "published" = ${Published}
             "description" = ${Description}
-            "htmlContent" = ${HtmlContent}
+            "code" = ${Code}
+            "markup" = ${Markup}
             "featuredImageUrl" = ${FeaturedImageUrl}
             "codeType" = ${CodeType}
             "webTemplateID" = ${WebTemplateID}

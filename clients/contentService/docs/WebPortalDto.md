@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **Disabled** | **Boolean** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**WebsiteThemeID** | **String** |  | [optional] 
-**BusinessDomainID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**BusinessPortalApplicationID** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**WebsiteThemeId** | **String** |  | [optional] 
+**BusinessDomainId** | **String** |  | [optional] 
+**BusinessPortalApplicationId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -28,10 +28,10 @@ $WebPortalDto = Initialize-PSOpenAPIToolsWebPortalDto  -Id null `
  -Disabled null `
  -TenantId null `
  -Description null `
- -WebsiteThemeID null `
- -BusinessDomainID null `
- -BusinessProfileRecordID null `
- -BusinessPortalApplicationID null
+ -EnrollmentId null `
+ -WebsiteThemeId null `
+ -BusinessDomainId null `
+ -BusinessPortalApplicationId null
 ```
 
 - Convert the resource to JSON

@@ -57,6 +57,8 @@ Name | Type | Description | Notes
 **CornerstoneContent** | **Boolean** |  | [optional] 
 **IsEssentialContent** | **Boolean** |  | [optional] 
 **AllowSearchEngineIndexing** | **Boolean** |  | [optional] 
+**BlogPostCategoryId** | **String** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -115,7 +117,9 @@ $BlogPostUpdateDto = Initialize-PSOpenAPIToolsBlogPostUpdateDto  -Order null `
  -AllowTrackbacks null `
  -CornerstoneContent null `
  -IsEssentialContent null `
- -AllowSearchEngineIndexing null
+ -AllowSearchEngineIndexing null `
+ -BlogPostCategoryId null `
+ -WebTemplateId null
 ```
 
 - Convert the resource to JSON

@@ -78,8 +78,8 @@ function Initialize-AccountingEntryUpdateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 1."
         }
 
-        if ($Amount -and $Amount -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'Amount', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($Amount -and $Amount -gt 999999999999999) {
+          throw "invalid value for 'Amount', must be smaller than or equal to 999999999999999."
         }
 
         if ($Amount -and $Amount -lt 0.01) {

@@ -152,7 +152,7 @@ function Initialize-EmailTemplateDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
+        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown", "Markup")]
         [String]
         ${CodeType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

@@ -5,15 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Title** | **String** |  | [optional] 
-**Code** | **String** |  | [optional] 
+**Title** | **String** |  | 
 **Published** | **Boolean** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**HtmlContent** | **String** |  | [optional] 
+**Code** | **String** |  | [optional] 
+**Markup** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
 **CodeType** | **String** |  | [optional] 
-**BlogPostCategoryID** | **String** |  | [optional] 
-**WebTemplateID** | **String** |  | [optional] 
+**BlogPostCategoryId** | **String** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,14 +22,14 @@ Name | Type | Description | Notes
 $BlogPostCreateDto = Initialize-PSOpenAPIToolsBlogPostCreateDto  -Id null `
  -Timestamp null `
  -Title null `
- -Code null `
  -Published null `
  -Description null `
- -HtmlContent null `
+ -Code null `
+ -Markup null `
  -FeaturedImageUrl null `
  -CodeType null `
- -BlogPostCategoryID null `
- -WebTemplateID null
+ -BlogPostCategoryId null `
+ -WebTemplateId null
 ```
 
 - Convert the resource to JSON

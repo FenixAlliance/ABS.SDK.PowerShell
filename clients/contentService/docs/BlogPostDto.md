@@ -62,8 +62,8 @@ Name | Type | Description | Notes
 **SocialProfileId** | **String** |  | [optional] 
 **ParentWebContentId** | **String** |  | [optional] 
 **ParentWebContentVersionId** | **String** |  | [optional] 
-**BlogPostCategoryID** | **String** |  | [optional] 
-**WebTemplateID** | **String** |  | [optional] 
+**BlogPostCategoryId** | **String** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -128,8 +128,8 @@ $BlogPostDto = Initialize-PSOpenAPIToolsBlogPostDto  -Id null `
  -SocialProfileId null `
  -ParentWebContentId null `
  -ParentWebContentVersionId null `
- -BlogPostCategoryID null `
- -WebTemplateID null
+ -BlogPostCategoryId null `
+ -WebTemplateId null
 ```
 
 - Convert the resource to JSON

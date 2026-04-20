@@ -124,8 +124,8 @@ function Initialize-ItemGoogleCategoryDto {
             throw "invalid value for 'Name', the character length must be great than or equal to 0."
         }
 
-        if ($StartingAtAmountInUsd -and $StartingAtAmountInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'StartingAtAmountInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($StartingAtAmountInUsd -and $StartingAtAmountInUsd -gt 999999999999999) {
+          throw "invalid value for 'StartingAtAmountInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($StartingAtAmountInUsd -and $StartingAtAmountInUsd -lt 0) {

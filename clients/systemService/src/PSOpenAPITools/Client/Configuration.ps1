@@ -24,7 +24,7 @@ function Get-Configuration {
     $Configuration = $Script:Configuration
 
     if ([string]::IsNullOrEmpty($Configuration["BaseUrl"])) {
-        $Configuration["BaseUrl"] = "http://localhost";
+        $Configuration["BaseUrl"] = "https://absuite.net";
     }
 
     if (!$Configuration.containsKey("Username")) {
@@ -313,8 +313,20 @@ System.Collections.Hashtable[]
 function Get-HostSetting {
     return ,@(
           @{
-            "Url" = "";
-            "Description" = "No description provided";
+            "Url" = "{server}";
+            "Description" = "Alliance Business Suite API";
+            "Variables" = @{
+              "server" = @{
+                  "Description" = "ABS instance base URL";
+                  "DefaultValue" = "https://absuite.net";
+                  "EnumValues" = @(
+                    "https://absuite.net",
+                    "https://test.absuite.net",
+                    "https://dev.absuite.net",
+                    "https://localhost:44388"
+                  )
+                }
+              }
           }
     )
 

@@ -879,48 +879,48 @@ function Initialize-CatalogItemUpdateDto {
         'Creating PSCustomObject: PSOpenAPITools => CatalogItemUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($EstimatedWitholdingTaxesInUsd -and $EstimatedWitholdingTaxesInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedWitholdingTaxesInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedWitholdingTaxesInUsd -and $EstimatedWitholdingTaxesInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedWitholdingTaxesInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedWitholdingTaxesInUsd -and $EstimatedWitholdingTaxesInUsd -lt 0) {
           throw "invalid value for 'EstimatedWitholdingTaxesInUsd', must be greater than or equal to 0."
         }
 
-        if ($EstimatedPaymentCostInUsd -and $EstimatedPaymentCostInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedPaymentCostInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedPaymentCostInUsd -and $EstimatedPaymentCostInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedPaymentCostInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedPaymentCostInUsd -and $EstimatedPaymentCostInUsd -lt 0) {
           throw "invalid value for 'EstimatedPaymentCostInUsd', must be greater than or equal to 0."
         }
 
-        if ($EstimatedPaymentTaxInUsd -and $EstimatedPaymentTaxInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedPaymentTaxInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedPaymentTaxInUsd -and $EstimatedPaymentTaxInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedPaymentTaxInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedPaymentTaxInUsd -and $EstimatedPaymentTaxInUsd -lt 0) {
           throw "invalid value for 'EstimatedPaymentTaxInUsd', must be greater than or equal to 0."
         }
 
-        if ($EstimatedDefaultShippingCostInUsd -and $EstimatedDefaultShippingCostInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedDefaultShippingCostInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedDefaultShippingCostInUsd -and $EstimatedDefaultShippingCostInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedDefaultShippingCostInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedDefaultShippingCostInUsd -and $EstimatedDefaultShippingCostInUsd -lt 0) {
           throw "invalid value for 'EstimatedDefaultShippingCostInUsd', must be greater than or equal to 0."
         }
 
-        if ($EstimatedDefaultShippingTaxInUsd -and $EstimatedDefaultShippingTaxInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedDefaultShippingTaxInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedDefaultShippingTaxInUsd -and $EstimatedDefaultShippingTaxInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedDefaultShippingTaxInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedDefaultShippingTaxInUsd -and $EstimatedDefaultShippingTaxInUsd -lt 0) {
           throw "invalid value for 'EstimatedDefaultShippingTaxInUsd', must be greater than or equal to 0."
         }
 
-        if ($EstimatedTotalPriceInUsd -and $EstimatedTotalPriceInUsd -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'EstimatedTotalPriceInUsd', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($EstimatedTotalPriceInUsd -and $EstimatedTotalPriceInUsd -gt 999999999999999) {
+          throw "invalid value for 'EstimatedTotalPriceInUsd', must be smaller than or equal to 999999999999999."
         }
 
         if ($EstimatedTotalPriceInUsd -and $EstimatedTotalPriceInUsd -lt 0) {

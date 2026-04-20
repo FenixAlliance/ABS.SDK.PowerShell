@@ -133,9 +133,9 @@ No description available.
 No description available.
 .PARAMETER ParentWebContentVersionId
 No description available.
-.PARAMETER BlogPostCategoryID
+.PARAMETER BlogPostCategoryId
 No description available.
-.PARAMETER WebTemplateID
+.PARAMETER WebTemplateId
 No description available.
 .OUTPUTS
 
@@ -152,7 +152,7 @@ function Initialize-BlogPostDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
+        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown", "Markup")]
         [String]
         ${CodeType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
@@ -325,10 +325,10 @@ function Initialize-BlogPostDto {
         ${ParentWebContentVersionId},
         [Parameter(Position = 59, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BlogPostCategoryID},
+        ${BlogPostCategoryId},
         [Parameter(Position = 60, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebTemplateID}
+        ${WebTemplateId}
     )
 
     Process {
@@ -396,8 +396,8 @@ function Initialize-BlogPostDto {
             "socialProfileId" = ${SocialProfileId}
             "parentWebContentId" = ${ParentWebContentId}
             "parentWebContentVersionId" = ${ParentWebContentVersionId}
-            "blogPostCategoryID" = ${BlogPostCategoryID}
-            "webTemplateID" = ${WebTemplateID}
+            "blogPostCategoryId" = ${BlogPostCategoryId}
+            "webTemplateId" = ${WebTemplateId}
         }
 
 
@@ -435,7 +435,7 @@ function ConvertFrom-JsonToBlogPostDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BlogPostDto
-        $AllProperties = ("id", "timestamp", "codeType", "order", "slug", "name", "title", "excerpt", "password", "description", "highlightImage", "canonicalUrl", "emitResult", "seoTitle", "seoKeyWords", "seoKeyPhrases", "metaDescription", "twitterImage", "twitterTitle", "twitterDescription", "facebookImage", "facebookTitle", "facebookDescription", "featuredImageUrl", "content", "code", "namespace", "typeName", "generatedCode", "compilationPath", "htmlContent", "cSharpContent", "razorContent", "cssContent", "jsContent", "cssFiles", "jsFiles", "razorGeneratedCode", "cSharpGeneratedCode", "template", "default", "enable", "enableComments", "displaySocialBox", "published", "inTrashCan", "systemLocked", "allowPingBacks", "allowTrackbacks", "cornerstoneContent", "isEssentialContent", "allowSearchEngineIndexing", "tenantId", "webPortalId", "websiteThemeId", "enrollmentId", "socialProfileId", "parentWebContentId", "parentWebContentVersionId", "blogPostCategoryID", "webTemplateID")
+        $AllProperties = ("id", "timestamp", "codeType", "order", "slug", "name", "title", "excerpt", "password", "description", "highlightImage", "canonicalUrl", "emitResult", "seoTitle", "seoKeyWords", "seoKeyPhrases", "metaDescription", "twitterImage", "twitterTitle", "twitterDescription", "facebookImage", "facebookTitle", "facebookDescription", "featuredImageUrl", "content", "code", "namespace", "typeName", "generatedCode", "compilationPath", "htmlContent", "cSharpContent", "razorContent", "cssContent", "jsContent", "cssFiles", "jsFiles", "razorGeneratedCode", "cSharpGeneratedCode", "template", "default", "enable", "enableComments", "displaySocialBox", "published", "inTrashCan", "systemLocked", "allowPingBacks", "allowTrackbacks", "cornerstoneContent", "isEssentialContent", "allowSearchEngineIndexing", "tenantId", "webPortalId", "websiteThemeId", "enrollmentId", "socialProfileId", "parentWebContentId", "parentWebContentVersionId", "blogPostCategoryId", "webTemplateId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -796,16 +796,16 @@ function ConvertFrom-JsonToBlogPostDto {
             $ParentWebContentVersionId = $JsonParameters.PSobject.Properties["parentWebContentVersionId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "blogPostCategoryID"))) { #optional property not found
-            $BlogPostCategoryID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "blogPostCategoryId"))) { #optional property not found
+            $BlogPostCategoryId = $null
         } else {
-            $BlogPostCategoryID = $JsonParameters.PSobject.Properties["blogPostCategoryID"].value
+            $BlogPostCategoryId = $JsonParameters.PSobject.Properties["blogPostCategoryId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "webTemplateID"))) { #optional property not found
-            $WebTemplateID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "webTemplateId"))) { #optional property not found
+            $WebTemplateId = $null
         } else {
-            $WebTemplateID = $JsonParameters.PSobject.Properties["webTemplateID"].value
+            $WebTemplateId = $JsonParameters.PSobject.Properties["webTemplateId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -868,8 +868,8 @@ function ConvertFrom-JsonToBlogPostDto {
             "socialProfileId" = ${SocialProfileId}
             "parentWebContentId" = ${ParentWebContentId}
             "parentWebContentVersionId" = ${ParentWebContentVersionId}
-            "blogPostCategoryID" = ${BlogPostCategoryID}
-            "webTemplateID" = ${WebTemplateID}
+            "blogPostCategoryId" = ${BlogPostCategoryId}
+            "webTemplateId" = ${WebTemplateId}
         }
 
         return $PSO

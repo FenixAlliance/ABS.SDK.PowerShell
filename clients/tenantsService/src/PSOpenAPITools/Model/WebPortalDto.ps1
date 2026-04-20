@@ -31,13 +31,13 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER WebsiteThemeID
+.PARAMETER EnrollmentId
 No description available.
-.PARAMETER BusinessDomainID
+.PARAMETER WebsiteThemeId
 No description available.
-.PARAMETER BusinessProfileRecordID
+.PARAMETER BusinessDomainId
 No description available.
-.PARAMETER BusinessPortalApplicationID
+.PARAMETER BusinessPortalApplicationId
 No description available.
 .OUTPUTS
 
@@ -73,16 +73,16 @@ function Initialize-WebPortalDto {
         ${Description},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebsiteThemeID},
+        ${EnrollmentId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessDomainID},
+        ${WebsiteThemeId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessProfileRecordID},
+        ${BusinessDomainId},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessPortalApplicationID}
+        ${BusinessPortalApplicationId}
     )
 
     Process {
@@ -99,10 +99,10 @@ function Initialize-WebPortalDto {
             "disabled" = ${Disabled}
             "tenantId" = ${TenantId}
             "description" = ${Description}
-            "websiteThemeID" = ${WebsiteThemeID}
-            "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
-            "businessPortalApplicationID" = ${BusinessPortalApplicationID}
+            "enrollmentId" = ${EnrollmentId}
+            "websiteThemeId" = ${WebsiteThemeId}
+            "businessDomainId" = ${BusinessDomainId}
+            "businessPortalApplicationId" = ${BusinessPortalApplicationId}
         }
 
 
@@ -140,7 +140,7 @@ function ConvertFrom-JsonToWebPortalDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WebPortalDto
-        $AllProperties = ("id", "timestamp", "root", "title", "domain", "disabled", "tenantId", "description", "websiteThemeID", "businessDomainID", "businessProfileRecordID", "businessPortalApplicationID")
+        $AllProperties = ("id", "timestamp", "root", "title", "domain", "disabled", "tenantId", "description", "enrollmentId", "websiteThemeId", "businessDomainId", "businessPortalApplicationId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -195,28 +195,28 @@ function ConvertFrom-JsonToWebPortalDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "websiteThemeID"))) { #optional property not found
-            $WebsiteThemeID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
         } else {
-            $WebsiteThemeID = $JsonParameters.PSobject.Properties["websiteThemeID"].value
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessDomainID"))) { #optional property not found
-            $BusinessDomainID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "websiteThemeId"))) { #optional property not found
+            $WebsiteThemeId = $null
         } else {
-            $BusinessDomainID = $JsonParameters.PSobject.Properties["businessDomainID"].value
+            $WebsiteThemeId = $JsonParameters.PSobject.Properties["websiteThemeId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessProfileRecordID"))) { #optional property not found
-            $BusinessProfileRecordID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessDomainId"))) { #optional property not found
+            $BusinessDomainId = $null
         } else {
-            $BusinessProfileRecordID = $JsonParameters.PSobject.Properties["businessProfileRecordID"].value
+            $BusinessDomainId = $JsonParameters.PSobject.Properties["businessDomainId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessPortalApplicationID"))) { #optional property not found
-            $BusinessPortalApplicationID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessPortalApplicationId"))) { #optional property not found
+            $BusinessPortalApplicationId = $null
         } else {
-            $BusinessPortalApplicationID = $JsonParameters.PSobject.Properties["businessPortalApplicationID"].value
+            $BusinessPortalApplicationId = $JsonParameters.PSobject.Properties["businessPortalApplicationId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -228,10 +228,10 @@ function ConvertFrom-JsonToWebPortalDto {
             "disabled" = ${Disabled}
             "tenantId" = ${TenantId}
             "description" = ${Description}
-            "websiteThemeID" = ${WebsiteThemeID}
-            "businessDomainID" = ${BusinessDomainID}
-            "businessProfileRecordID" = ${BusinessProfileRecordID}
-            "businessPortalApplicationID" = ${BusinessPortalApplicationID}
+            "enrollmentId" = ${EnrollmentId}
+            "websiteThemeId" = ${WebsiteThemeId}
+            "businessDomainId" = ${BusinessDomainId}
+            "businessPortalApplicationId" = ${BusinessPortalApplicationId}
         }
 
         return $PSO

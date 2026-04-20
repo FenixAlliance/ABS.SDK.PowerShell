@@ -49,7 +49,7 @@ For troubleshooting, please run `$DebugPreference = 'Continue'` to turn on debug
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

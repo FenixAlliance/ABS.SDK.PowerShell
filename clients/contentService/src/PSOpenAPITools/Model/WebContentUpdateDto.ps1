@@ -213,7 +213,7 @@ function Initialize-WebContentUpdateDto {
         [String]
         ${HtmlContent},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
+        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown", "Markup")]
         [String]
         ${CodeType},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]

@@ -123,6 +123,10 @@ No description available.
 No description available.
 .PARAMETER AllowSearchEngineIndexing
 No description available.
+.PARAMETER BlogPostCategoryId
+No description available.
+.PARAMETER WebTemplateId
+No description available.
 .OUTPUTS
 
 BlogPostUpdateDto<PSCustomObject>
@@ -213,7 +217,7 @@ function Initialize-BlogPostUpdateDto {
         [String]
         ${HtmlContent},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown")]
+        [ValidateSet("Razor", "CSharp", "CSHtml", "Liquid", "Html5", "Markdown", "Markup")]
         [String]
         ${CodeType},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
@@ -293,7 +297,13 @@ function Initialize-BlogPostUpdateDto {
         ${IsEssentialContent},
         [Parameter(Position = 53, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AllowSearchEngineIndexing}
+        ${AllowSearchEngineIndexing},
+        [Parameter(Position = 54, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BlogPostCategoryId},
+        [Parameter(Position = 55, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${WebTemplateId}
     )
 
     Process {
@@ -356,6 +366,8 @@ function Initialize-BlogPostUpdateDto {
             "cornerstoneContent" = ${CornerstoneContent}
             "isEssentialContent" = ${IsEssentialContent}
             "allowSearchEngineIndexing" = ${AllowSearchEngineIndexing}
+            "blogPostCategoryId" = ${BlogPostCategoryId}
+            "webTemplateId" = ${WebTemplateId}
         }
 
 
@@ -393,7 +405,7 @@ function ConvertFrom-JsonToBlogPostUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BlogPostUpdateDto
-        $AllProperties = ("order", "slug", "name", "title", "excerpt", "password", "description", "highlightImage", "canonicalUrl", "seoTitle", "seoKeyWords", "seoKeyPhrases", "metaDescription", "twitterImage", "twitterTitle", "twitterDescription", "facebookImage", "facebookTitle", "facebookDescription", "featuredImageUrl", "content", "code", "namespace", "typeName", "generatedCode", "compilationPath", "htmlContent", "codeType", "cSharpContent", "razorContent", "cssContent", "jsContent", "cssFiles", "jsFiles", "razorGeneratedCode", "cSharpGeneratedCode", "precompiledLogicSize", "precompiledLogicSizeLong", "precompiledViewSize", "precompiledViewSizeLong", "precompiledLogicViewSize", "template", "default", "enable", "enableComments", "displaySocialBox", "published", "inTrashCan", "systemLocked", "allowPingbacks", "allowTrackbacks", "cornerstoneContent", "isEssentialContent", "allowSearchEngineIndexing")
+        $AllProperties = ("order", "slug", "name", "title", "excerpt", "password", "description", "highlightImage", "canonicalUrl", "seoTitle", "seoKeyWords", "seoKeyPhrases", "metaDescription", "twitterImage", "twitterTitle", "twitterDescription", "facebookImage", "facebookTitle", "facebookDescription", "featuredImageUrl", "content", "code", "namespace", "typeName", "generatedCode", "compilationPath", "htmlContent", "codeType", "cSharpContent", "razorContent", "cssContent", "jsContent", "cssFiles", "jsFiles", "razorGeneratedCode", "cSharpGeneratedCode", "precompiledLogicSize", "precompiledLogicSizeLong", "precompiledViewSize", "precompiledViewSizeLong", "precompiledLogicViewSize", "template", "default", "enable", "enableComments", "displaySocialBox", "published", "inTrashCan", "systemLocked", "allowPingbacks", "allowTrackbacks", "cornerstoneContent", "isEssentialContent", "allowSearchEngineIndexing", "blogPostCategoryId", "webTemplateId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -724,6 +736,18 @@ function ConvertFrom-JsonToBlogPostUpdateDto {
             $AllowSearchEngineIndexing = $JsonParameters.PSobject.Properties["allowSearchEngineIndexing"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "blogPostCategoryId"))) { #optional property not found
+            $BlogPostCategoryId = $null
+        } else {
+            $BlogPostCategoryId = $JsonParameters.PSobject.Properties["blogPostCategoryId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "webTemplateId"))) { #optional property not found
+            $WebTemplateId = $null
+        } else {
+            $WebTemplateId = $JsonParameters.PSobject.Properties["webTemplateId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "order" = ${Order}
             "slug" = ${Slug}
@@ -779,6 +803,8 @@ function ConvertFrom-JsonToBlogPostUpdateDto {
             "cornerstoneContent" = ${CornerstoneContent}
             "isEssentialContent" = ${IsEssentialContent}
             "allowSearchEngineIndexing" = ${AllowSearchEngineIndexing}
+            "blogPostCategoryId" = ${BlogPostCategoryId}
+            "webTemplateId" = ${WebTemplateId}
         }
 
         return $PSO

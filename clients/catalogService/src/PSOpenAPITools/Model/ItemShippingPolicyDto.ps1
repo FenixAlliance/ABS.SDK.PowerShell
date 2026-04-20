@@ -265,8 +265,8 @@ function Initialize-ItemShippingPolicyDto {
           throw "invalid value for 'Years', must be greater than or equal to 0."
         }
 
-        if ($Value -and $Value -gt 1.7976931348623157E+308) {
-          throw "invalid value for 'Value', must be smaller than or equal to 1.7976931348623157E+308."
+        if ($Value -and $Value -gt 999999999999999) {
+          throw "invalid value for 'Value', must be smaller than or equal to 999999999999999."
         }
 
         if ($Value -and $Value -lt 0) {
