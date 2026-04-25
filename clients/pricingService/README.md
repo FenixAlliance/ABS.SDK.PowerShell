@@ -65,19 +65,23 @@ Class | Method | HTTP request | Description
 *DiscountListsApi* | [**Get-DiscountListsCount**](docs/DiscountListsApi.md#Get-DiscountListsCount) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
 *DiscountListsApi* | [**Update-DiscountList**](docs/DiscountListsApi.md#Update-DiscountList) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 *DiscountListsApi* | [**Update-DiscountListEntry**](docs/DiscountListsApi.md#Update-DiscountListEntry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
-*FenixAllianceABPWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABPWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABPWebApi.md#Invoke-HealthGet) | **GET** /health | 
-*FenixAllianceABPWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABPWebApi.md#Invoke-HelloGet) | **GET** /hello | 
-*FenixAllianceABPWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABPWebApi.md#Invoke-LoginPost) | **POST** /login | 
-*FenixAllianceABPWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABPWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABPWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
-*FenixAllianceABPWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABPWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
-*FenixAllianceABPWebApi* | [**Register-Post**](docs/FenixAllianceABPWebApi.md#Register-Post) | **POST** /register | 
-*FenixAllianceABPWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABPWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABPWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABPWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABPWebApi.md#Invoke-VersionGet) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountLogoutPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountLogoutPost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-LoginPost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABSWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABSWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABSWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**Register-Post**](docs/FenixAllianceABSWebApi.md#Register-Post) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABSWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABSWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABSWebApi.md#Invoke-VersionGet) | **GET** /version | 
 *PriceListsApi* | [**New-PriceListAsync**](docs/PriceListsApi.md#New-PriceListAsync) | **POST** /api/v2/PricingService/PriceLists | Creates a new price list
 *PriceListsApi* | [**New-PriceListPricesAsync**](docs/PriceListsApi.md#New-PriceListPricesAsync) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry
 *PriceListsApi* | [**Invoke-DeletePriceListAsync**](docs/PriceListsApi.md#Invoke-DeletePriceListAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list

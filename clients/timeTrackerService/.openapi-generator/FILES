@@ -3,7 +3,7 @@ README.md
 appveyor.yml
 docs/AccessTokenResponse.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -26,7 +26,7 @@ docs/ResetPasswordRequest.md
 docs/TimeLogApprovalsApi.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/ProjectTimeLogsApi.ps1
 src/PSOpenAPITools/Api/TimeLogApprovalsApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
@@ -59,3 +59,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

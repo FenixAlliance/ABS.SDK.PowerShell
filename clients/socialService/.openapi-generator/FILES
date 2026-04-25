@@ -8,7 +8,7 @@ docs/ConversationDto.md
 docs/ConversationDtoListEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -69,7 +69,7 @@ docs/SocialReactionDtoListEnvelope.md
 docs/SocialReactionUpdateDto.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/SocialFeedsApi.ps1
 src/PSOpenAPITools/Api/SocialGroupsApi.ps1
 src/PSOpenAPITools/Api/SocialPostsApi.ps1
@@ -145,3 +145,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

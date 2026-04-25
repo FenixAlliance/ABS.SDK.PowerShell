@@ -102,7 +102,7 @@ docs/CreateLedgerDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -284,7 +284,7 @@ src/PSOpenAPITools/Api/BillingProfilesApi.ps1
 src/PSOpenAPITools/Api/BudgetsApi.ps1
 src/PSOpenAPITools/Api/CommissionsApi.ps1
 src/PSOpenAPITools/Api/CostCentresApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/FinancialBooksApi.ps1
 src/PSOpenAPITools/Api/FiscalAuthoritiesApi.ps1
 src/PSOpenAPITools/Api/FiscalAuthorityYearsApi.ps1
@@ -559,3 +559,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

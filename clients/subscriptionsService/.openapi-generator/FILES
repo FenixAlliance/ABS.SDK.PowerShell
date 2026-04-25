@@ -4,7 +4,7 @@ appveyor.yml
 docs/AccessTokenResponse.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -29,7 +29,7 @@ docs/SubscriptionUpdateDto.md
 docs/SubscriptionsApi.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/SubscriptionPlansApi.ps1
 src/PSOpenAPITools/Api/SubscriptionsApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
@@ -65,3 +65,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

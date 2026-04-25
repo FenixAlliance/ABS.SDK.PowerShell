@@ -14,7 +14,7 @@ docs/ExtendedTenantDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/ExtendedUserDtoListEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/ISwaggerContact.md
@@ -71,7 +71,7 @@ docs/UsersApi.md
 docs/WalletDto.md
 src/PSOpenAPITools/Api/AntiforgeryApi.ps1
 src/PSOpenAPITools/Api/EmailsApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/LicensingApi.ps1
 src/PSOpenAPITools/Api/MigrationsApi.ps1
 src/PSOpenAPITools/Api/ModulesApi.ps1
@@ -145,3 +145,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1
