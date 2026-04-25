@@ -18,7 +18,7 @@ docs/CurrencyId.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -50,7 +50,7 @@ docs/WishListUpdateDto.md
 docs/WishListsApi.md
 src/PSOpenAPITools/Api/CartsApi.ps1
 src/PSOpenAPITools/Api/CompareApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/RecordsApi.ps1
 src/PSOpenAPITools/Api/WishListsApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
@@ -103,3 +103,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

@@ -58,7 +58,7 @@ docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FenixAllianceIntegrationsOptions.md
 docs/FooterOptions.md
 docs/ForgotPasswordRequest.md
@@ -167,7 +167,7 @@ src/PSOpenAPITools/Api/BlogPostCategoriesApi.ps1
 src/PSOpenAPITools/Api/BlogPostTagsApi.ps1
 src/PSOpenAPITools/Api/BlogPostsApi.ps1
 src/PSOpenAPITools/Api/BusinessDomainsApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/PortalsApi.ps1
 src/PSOpenAPITools/Api/ThemesApi.ps1
 src/PSOpenAPITools/Api/WebContentsApi.ps1
@@ -331,3 +331,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

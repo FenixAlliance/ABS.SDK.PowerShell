@@ -79,7 +79,7 @@ docs/CourseWikiUpdateDto.md
 docs/CourseWikisApi.md
 docs/CoursesApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -117,7 +117,7 @@ src/PSOpenAPITools/Api/CourseUnitsApi.ps1
 src/PSOpenAPITools/Api/CourseUpdatesApi.ps1
 src/PSOpenAPITools/Api/CourseWikisApi.ps1
 src/PSOpenAPITools/Api/CoursesApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/InstructorProfilesApi.ps1
 src/PSOpenAPITools/Api/StudentProfilesApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
@@ -205,3 +205,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

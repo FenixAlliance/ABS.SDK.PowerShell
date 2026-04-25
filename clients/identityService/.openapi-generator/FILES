@@ -7,7 +7,7 @@ docs/AuthorizationResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -38,7 +38,7 @@ docs/UserCreateDtoEnvelope.md
 docs/UserInfoApi.md
 src/PSOpenAPITools/Api/ApplicationsApi.ps1
 src/PSOpenAPITools/Api/CheckerApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/OAuthApi.ps1
 src/PSOpenAPITools/Api/ResourceApi.ps1
 src/PSOpenAPITools/Api/UserInfoApi.ps1
@@ -79,3 +79,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

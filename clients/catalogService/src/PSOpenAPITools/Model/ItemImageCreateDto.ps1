@@ -203,6 +203,10 @@ function Initialize-ItemImageCreateDto {
             throw "invalid value for 'ContentType', the character length must be great than or equal to 0."
         }
 
+        if ($FileLength -and $FileLength -gt -9223372036854775616) {
+          throw "invalid value for 'FileLength', must be smaller than or equal to -9223372036854775616."
+        }
+
         if ($FileLength -and $FileLength -lt 0) {
           throw "invalid value for 'FileLength', must be greater than or equal to 0."
         }

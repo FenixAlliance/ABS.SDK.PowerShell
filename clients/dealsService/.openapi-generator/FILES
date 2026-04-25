@@ -33,7 +33,7 @@ docs/ExtendedDealUnitDtoEnvelope.md
 docs/ExtendedDealUnitDtoListEnvelope.md
 docs/ExtendedSalesLiteratureDto.md
 docs/ExtendedSalesLiteratureDtoListEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -60,7 +60,7 @@ docs/TwoFactorResponse.md
 docs/UserDto.md
 src/PSOpenAPITools/Api/DealUnitFlowsApi.ps1
 src/PSOpenAPITools/Api/DealUnitsApi.ps1
-src/PSOpenAPITools/Api/FenixAllianceABPWebApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/SalesLiteraturesApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
@@ -123,3 +123,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/FenixAllianceABSWebApi.Tests.ps1

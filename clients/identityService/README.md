@@ -59,19 +59,23 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**Get-GrantedTenantRoles**](docs/ApplicationsApi.md#Get-GrantedTenantRoles) | **GET** /api/v2/Applications/{appId}/GrantedRoles | Get granted tenant roles for an application
 *ApplicationsApi* | [**Get-RequiredPermissions**](docs/ApplicationsApi.md#Get-RequiredPermissions) | **GET** /api/v2/Applications/{appId}/RequiredPermissions | Get required permissions for an application
 *CheckerApi* | [**Invoke-IsAuthenticated**](docs/CheckerApi.md#Invoke-IsAuthenticated) | **GET** /api/v2/Auth/Checker/IsAuthenticated | Check if user is authenticated
-*FenixAllianceABPWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABPWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABPWebApi.md#Invoke-HealthGet) | **GET** /health | 
-*FenixAllianceABPWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABPWebApi.md#Invoke-HelloGet) | **GET** /hello | 
-*FenixAllianceABPWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABPWebApi.md#Invoke-LoginPost) | **POST** /login | 
-*FenixAllianceABPWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABPWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABPWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
-*FenixAllianceABPWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABPWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
-*FenixAllianceABPWebApi* | [**Register-Post**](docs/FenixAllianceABPWebApi.md#Register-Post) | **POST** /register | 
-*FenixAllianceABPWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABPWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABPWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABPWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABPWebApi.md#Invoke-VersionGet) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountLogoutPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountLogoutPost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-LoginPost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABSWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABSWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABSWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**Register-Post**](docs/FenixAllianceABSWebApi.md#Register-Post) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABSWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABSWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABSWebApi.md#Invoke-VersionGet) | **GET** /version | 
 *OAuthApi* | [**Invoke-CheckPasswordSignInAsync**](docs/OAuthApi.md#Invoke-CheckPasswordSignInAsync) | **GET** /api/v2/OAuth/SignIn | Check password sign-in
 *OAuthApi* | [**Get-**](docs/OAuthApi.md#Get-) | **GET** /api/v2/OAuth/WhoAmI | Get current user identity
 *OAuthApi* | [**Get-JwKs**](docs/OAuthApi.md#Get-JwKs) | **GET** /api/v2/OAuth/{applicationId}/Keys | Get JSON Web Key Set

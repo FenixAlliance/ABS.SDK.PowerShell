@@ -81,19 +81,23 @@ Class | Method | HTTP request | Description
 *DealUnitsApi* | [**Get-ExtendedDealUnitsAsync**](docs/DealUnitsApi.md#Get-ExtendedDealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits/Extended | Get extended deal units
 *DealUnitsApi* | [**Update-DealUnitAsync**](docs/DealUnitsApi.md#Update-DealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit
 *DealUnitsApi* | [**Update-DealUnitPriceAsync**](docs/DealUnitsApi.md#Update-DealUnitPriceAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line
-*FenixAllianceABPWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABPWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABPWebApi.md#Invoke-HealthGet) | **GET** /health | 
-*FenixAllianceABPWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABPWebApi.md#Invoke-HelloGet) | **GET** /hello | 
-*FenixAllianceABPWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABPWebApi.md#Invoke-LoginPost) | **POST** /login | 
-*FenixAllianceABPWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABPWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABPWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
-*FenixAllianceABPWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABPWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
-*FenixAllianceABPWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABPWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
-*FenixAllianceABPWebApi* | [**Register-Post**](docs/FenixAllianceABPWebApi.md#Register-Post) | **POST** /register | 
-*FenixAllianceABPWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABPWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABPWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABPWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
-*FenixAllianceABPWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABPWebApi.md#Invoke-VersionGet) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountLogoutPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountLogoutPost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**Invoke-LoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-LoginPost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**Invoke-Manage2faPost**](docs/FenixAllianceABSWebApi.md#Invoke-Manage2faPost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoGet**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoGet) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-ManageInfoPost**](docs/FenixAllianceABSWebApi.md#Invoke-ManageInfoPost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**Invoke-MapIdentityApiConfirmEmail**](docs/FenixAllianceABSWebApi.md#Invoke-MapIdentityApiConfirmEmail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**Invoke-RefreshPost**](docs/FenixAllianceABSWebApi.md#Invoke-RefreshPost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**Register-Post**](docs/FenixAllianceABSWebApi.md#Register-Post) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**Invoke-ResendConfirmationEmailPost**](docs/FenixAllianceABSWebApi.md#Invoke-ResendConfirmationEmailPost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**Reset-PasswordPost**](docs/FenixAllianceABSWebApi.md#Reset-PasswordPost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**Invoke-VersionGet**](docs/FenixAllianceABSWebApi.md#Invoke-VersionGet) | **GET** /version | 
 *SalesLiteraturesApi* | [**Invoke-CountSalesLiteraturesAsync**](docs/SalesLiteraturesApi.md#Invoke-CountSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures/Count | Get sales literatures count
 *SalesLiteraturesApi* | [**New-SalesLiteratureAsync**](docs/SalesLiteraturesApi.md#New-SalesLiteratureAsync) | **POST** /api/v2/DealsService/SalesLiteratures | Create a sales literature
 *SalesLiteraturesApi* | [**Invoke-DeleteSalesLiteratureAsync**](docs/SalesLiteraturesApi.md#Invoke-DeleteSalesLiteratureAsync) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Delete a sales literature
