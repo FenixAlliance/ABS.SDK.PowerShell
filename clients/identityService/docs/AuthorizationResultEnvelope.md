@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CorrelationId** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] [readonly] 
 **ActivityId** | **String** |  | [optional] [readonly] 
-**Result** | [**AuthorizationResult**](AuthorizationResult.md) |  | [optional] 
+**Result** | [**AuthResult**](AuthResult.md) |  | [optional] 
 
 ## Examples
 

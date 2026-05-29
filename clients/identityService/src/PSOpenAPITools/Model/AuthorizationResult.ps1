@@ -33,10 +33,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-AuthorizationResult<PSCustomObject>
+AuthResult<PSCustomObject>
 #>
 
-function Initialize-AuthorizationResult {
+function Initialize-AuthResult {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -66,7 +66,7 @@ function Initialize-AuthorizationResult {
     )
 
     Process {
-        'Creating PSCustomObject: PSOpenAPITools => AuthorizationResult' | Write-Debug
+        'Creating PSCustomObject: PSOpenAPITools => AuthResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -89,11 +89,11 @@ function Initialize-AuthorizationResult {
 <#
 .SYNOPSIS
 
-Convert from JSON to AuthorizationResult<PSCustomObject>
+Convert from JSON to AuthResult<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AuthorizationResult<PSCustomObject>
+Convert from JSON to AuthResult<PSCustomObject>
 
 .PARAMETER Json
 
@@ -101,7 +101,7 @@ Json object
 
 .OUTPUTS
 
-AuthorizationResult<PSCustomObject>
+AuthResult<PSCustomObject>
 #>
 function ConvertFrom-JsonToAuthorizationResult {
     Param(
@@ -110,12 +110,12 @@ function ConvertFrom-JsonToAuthorizationResult {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSOpenAPITools => AuthorizationResult' | Write-Debug
+        'Converting JSON to PSCustomObject: PSOpenAPITools => AuthResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AuthorizationResult
+        # check if Json contains properties not defined in AuthResult
         $AllProperties = ("userId", "tenantId", "portalId", "applicationId", "enrollmentId", "correlationId", "scopes", "error")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

@@ -3,7 +3,7 @@ README.md
 appveyor.yml
 docs/AccessTokenResponse.md
 docs/ApplicationsApi.md
-docs/AuthorizationResult.md
+docs/AuthResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
@@ -44,7 +44,7 @@ src/PSOpenAPITools/Api/ResourceApi.ps1
 src/PSOpenAPITools/Api/UserInfoApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
-src/PSOpenAPITools/Model/AuthorizationResult.ps1
+src/PSOpenAPITools/Model/AuthResult.ps1
 src/PSOpenAPITools/Model/AuthorizationResultEnvelope.ps1
 src/PSOpenAPITools/Model/ErrorEnvelope.ps1
 src/PSOpenAPITools/Model/ForgotPasswordRequest.ps1

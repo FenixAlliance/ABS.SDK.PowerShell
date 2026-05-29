@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
- - [PSOpenAPITools\Model.AuthorizationResult](docs/AuthorizationResult.md)
+ - [PSOpenAPITools\Model.AuthResult](docs/AuthResult.md)
  - [PSOpenAPITools\Model.AuthorizationResultEnvelope](docs/AuthorizationResultEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
