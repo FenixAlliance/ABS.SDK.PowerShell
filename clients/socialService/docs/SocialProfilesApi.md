@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.SocialProfilesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**Get-FollowersAsync**](SocialProfilesApi.md#Get-FollowersAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers | Get Followers
 [**Get-FollowsAsync**](SocialProfilesApi.md#Get-FollowsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows | Get Follows
 [**Get-MessagesAsync**](SocialProfilesApi.md#Get-MessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
+[**Get-NotificationByIdAsync**](SocialProfilesApi.md#Get-NotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**Get-NotificationsAsync**](SocialProfilesApi.md#Get-NotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
 [**Get-SocialProfileAsync**](SocialProfilesApi.md#Get-SocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**Get-SocialProfilesAsync**](SocialProfilesApi.md#Get-SocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles
@@ -278,6 +279,7 @@ No authorization required
 <a id="Invoke-CountMessagesAsync"></a>
 # **Invoke-CountMessagesAsync**
 > Int32Envelope Invoke-CountMessagesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -288,13 +290,14 @@ Count messages for a conversation.
 
 ### Example
 ```powershell
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ConversationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Count Messages
 try {
-    $Result = Invoke-CountMessagesAsync -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountMessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountMessagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -305,6 +308,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **SocialProfileId** | **String**|  | 
  **ConversationId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -933,6 +937,7 @@ No authorization required
 <a id="Get-MessagesAsync"></a>
 # **Get-MessagesAsync**
 > PrivateMessageDtoListEnvelope Get-MessagesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -943,13 +948,14 @@ Get a list of messages for a conversation.
 
 ### Example
 ```powershell
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ConversationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get Messages
 try {
-    $Result = Get-MessagesAsync -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-MessagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -960,6 +966,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **SocialProfileId** | **String**|  | 
  **ConversationId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -967,6 +974,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PrivateMessageDtoListEnvelope**](PrivateMessageDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-NotificationByIdAsync"></a>
+# **Get-NotificationByIdAsync**
+> NotificationDtoEnvelope Get-NotificationByIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NotificationId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get Notification
+
+Get a notification by ID for a social profile.
+
+### Example
+```powershell
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$NotificationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get Notification
+try {
+    $Result = Get-NotificationByIdAsync -SocialProfileId $SocialProfileId -NotificationId $NotificationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-NotificationByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialProfileId** | **String**|  | 
+ **NotificationId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**NotificationDtoEnvelope**](NotificationDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

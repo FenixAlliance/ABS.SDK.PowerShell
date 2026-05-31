@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.ItemTaxPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,7 @@ Method | HTTP request | Description
 <a id="Invoke-CountItemTaxPoliciesAsync"></a>
 # **Invoke-CountItemTaxPoliciesAsync**
 > Int32Envelope Invoke-CountItemTaxPoliciesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -24,13 +25,14 @@ Counts all tax policies for a specific item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Count item tax policies
 try {
-    $Result = Invoke-CountItemTaxPoliciesAsync -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountItemTaxPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountItemTaxPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -41,6 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | [optional] 
  **ItemId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -63,6 +66,7 @@ No authorization required
 <a id="Get-ItemTaxPoliciesAsync"></a>
 # **Get-ItemTaxPoliciesAsync**
 > ItemTaxPolicyDtoListEnvelope Get-ItemTaxPoliciesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -73,13 +77,14 @@ Retrieves all tax policies for a specific item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get item tax policies
 try {
-    $Result = Get-ItemTaxPoliciesAsync -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemTaxPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemTaxPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -90,6 +95,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | [optional] 
  **ItemId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -113,6 +119,7 @@ No authorization required
 # **Get-ItemTaxPolicyByIdAsync**
 > ItemTaxPolicyDtoEnvelope Get-ItemTaxPolicyByIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTaxPolicyId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -124,13 +131,14 @@ Retrieves a specific tax policy for an item.
 ### Example
 ```powershell
 $ItemTaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get item tax policy by ID
 try {
-    $Result = Get-ItemTaxPolicyByIdAsync -ItemTaxPolicyId $ItemTaxPolicyId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemTaxPolicyByIdAsync -ItemTaxPolicyId $ItemTaxPolicyId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemTaxPolicyByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -142,6 +150,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ItemTaxPolicyId** | **String**|  | 
+ **TenantId** | **String**|  | [optional] 
  **ItemId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

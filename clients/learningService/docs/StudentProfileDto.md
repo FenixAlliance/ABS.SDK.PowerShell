@@ -5,11 +5,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
 **Verified** | **Boolean** |  | [optional] 
 **Submitted** | **Boolean** |  | [optional] 
 **AvatarUrl** | **String** |  | [optional] 
-**QualifiedName** | **String** |  | [optional] 
+**Contact** | [**ContactDto**](ContactDto.md) |  | [optional] 
+**QualifiedName** | **String** |  | [optional] [readonly] 
 **VerificationTimestamp** | **System.DateTime** |  | [optional] 
 **VarData** | **String** |  | [optional] 
 **DataLabel** | **String** |  | [optional] 
@@ -41,10 +46,15 @@ Name | Type | Description | Notes
 ```powershell
 $StudentProfileDto = Initialize-PSOpenAPIToolsStudentProfileDto  -Id null `
  -Timestamp null `
+ -ContactId null `
+ -TenantId null `
+ -Type null `
+ -EnrollmentId null `
  -About null `
  -Verified null `
  -Submitted null `
  -AvatarUrl null `
+ -Contact null `
  -QualifiedName null `
  -VerificationTimestamp null `
  -VarData null `

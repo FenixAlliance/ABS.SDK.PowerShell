@@ -1,9 +1,10 @@
 # PSOpenAPITools.PSOpenAPITools\Api.AccountsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-AggregateAccountsBalanceAsync**](AccountsApi.md#Invoke-AggregateAccountsBalanceAsync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance
 [**Invoke-BalanceAccountAsync**](AccountsApi.md#Invoke-BalanceAccountAsync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account
 [**Invoke-BalanceRootAccountAsync**](AccountsApi.md#Invoke-BalanceRootAccountAsync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account
 [**New-AccountAsync**](AccountsApi.md#New-AccountAsync) | **POST** /api/v2/AccountingService/Accounts | Get root accounts
@@ -26,20 +27,75 @@ Method | HTTP request | Description
 [**Get-AccountEntryAsync**](AccountsApi.md#Get-AccountEntryAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry
 [**Get-AccountRelationsAsync**](AccountsApi.md#Get-AccountRelationsAsync) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations
 [**Get-AccountRelationsCountAsync**](AccountsApi.md#Get-AccountRelationsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count
+[**Get-AccountTypeByIdAsync**](AccountsApi.md#Get-AccountTypeByIdAsync) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID
 [**Get-AccountTypesAsync**](AccountsApi.md#Get-AccountTypesAsync) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types
 [**Get-AccountTypesCountAsync**](AccountsApi.md#Get-AccountTypesCountAsync) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count
 [**Get-AccountsAsync**](AccountsApi.md#Get-AccountsAsync) | **GET** /api/v2/AccountingService/Accounts | Creates a new account
 [**Get-AccountsCountAsync**](AccountsApi.md#Get-AccountsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts
+[**Get-ChartsOfAccountsAsync**](AccountsApi.md#Get-ChartsOfAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts
 [**Get-ChildAccountsAsync**](AccountsApi.md#Get-ChildAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts
 [**Get-CreditAccountEntriesAsync**](AccountsApi.md#Get-CreditAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries
 [**Get-DebitAccountEntriesAsync**](AccountsApi.md#Get-DebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**Get-RootAccountsAsync**](AccountsApi.md#Get-RootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**Invoke-PatchAccountAsync**](AccountsApi.md#Invoke-PatchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**Invoke-SeedChartOfAccountsAsync**](AccountsApi.md#Invoke-SeedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**Update-AccountAsync**](AccountsApi.md#Update-AccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**Update-AccountEntryAsync**](AccountsApi.md#Update-AccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
 [**Update-AccountRelationAsync**](AccountsApi.md#Update-AccountRelationAsync) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation
 [**Update-AccountTypeAsync**](AccountsApi.md#Update-AccountTypeAsync) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type
 
+
+<a id="Invoke-AggregateAccountsBalanceAsync"></a>
+# **Invoke-AggregateAccountsBalanceAsync**
+> MoneyEnvelope Invoke-AggregateAccountsBalanceAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Aggregate accounts balance
+
+Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CurrencyId = "MyCurrencyId" # String |  (optional)
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Aggregate accounts balance
+try {
+    $Result = Invoke-AggregateAccountsBalanceAsync -TenantId $TenantId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-AggregateAccountsBalanceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CurrencyId** | **String**|  | [optional] 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Invoke-BalanceAccountAsync"></a>
 # **Invoke-BalanceAccountAsync**
@@ -418,7 +474,6 @@ No authorization required
 # **New-AccountTypeAsync**
 > EmptyEnvelope New-AccountTypeAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeCreateDto] <PSCustomObject><br>
@@ -430,14 +485,13 @@ Create account type.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $AccountTypeCreateDto = Initialize-AccountTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # AccountTypeCreateDto |  (optional)
 
 # Create account type
 try {
-    $Result = New-AccountTypeAsync -TenantId $TenantId -AccountId $AccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AccountTypeCreateDto $AccountTypeCreateDto
+    $Result = New-AccountTypeAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AccountTypeCreateDto $AccountTypeCreateDto
 } catch {
     Write-Host ("Exception occurred when calling New-AccountTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -449,7 +503,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **AccountId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **AccountTypeCreateDto** | [**AccountTypeCreateDto**](AccountTypeCreateDto.md)|  | [optional] 
@@ -636,7 +689,6 @@ No authorization required
 > EmptyEnvelope Invoke-DeleteAccountTypeAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -648,13 +700,12 @@ Delete account type.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Delete account type
 try {
-    $Result = Invoke-DeleteAccountTypeAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -AccountId $AccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteAccountTypeAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-DeleteAccountTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -667,7 +718,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AccountTypeId** | **String**|  | 
- **AccountId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -708,7 +758,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 $CurrencyId = Initialize-CurrencyId -Value "MyValue" -Code "MyCode" -Country "MyCountry"
 $Money = Initialize-Money -Amount 0 -Currency $CurrencyId
 
-$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money # AccountDto[] |  (optional)
+$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -BalanceInUsd 0 -DebitsBalanceInUsd 0 -CreditsBalanceInUsd 0 -ForexRate 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money -BalanceAmountInUsd $Money -DebitsBalanceAmountInUsd $Money -CreditsBalanceAmountInUsd $Money # AccountDto[] |  (optional)
 
 # Get account aggregate
 try {
@@ -1215,11 +1265,62 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-AccountTypeByIdAsync"></a>
+# **Get-AccountTypeByIdAsync**
+> AccountTypeDtoEnvelope Get-AccountTypeByIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get account type by ID
+
+Get account type by ID.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get account type by ID
+try {
+    $Result = Get-AccountTypeByIdAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-AccountTypeByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AccountTypeId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**AccountTypeDtoEnvelope**](AccountTypeDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-AccountTypesAsync"></a>
 # **Get-AccountTypesAsync**
 > AccountTypeDtoListEnvelope Get-AccountTypesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -1230,13 +1331,12 @@ Get account types.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get account types
 try {
-    $Result = Get-AccountTypesAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AccountTypesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-AccountTypesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1248,7 +1348,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **AccountTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -1271,7 +1370,6 @@ No authorization required
 # **Get-AccountTypesCountAsync**
 > Int32Envelope Get-AccountTypesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -1282,13 +1380,12 @@ Get account types count.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get account types count
 try {
-    $Result = Get-AccountTypesCountAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AccountTypesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-AccountTypesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1300,7 +1397,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **AccountTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -1405,6 +1501,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-ChartsOfAccountsAsync"></a>
+# **Get-ChartsOfAccountsAsync**
+> ChartOfAccountsListEnvelope Get-ChartsOfAccountsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get charts of accounts
+
+Get available charts of accounts.
+
+### Example
+```powershell
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get charts of accounts
+try {
+    $Result = Get-ChartsOfAccountsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-ChartsOfAccountsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**ChartOfAccountsListEnvelope**](ChartOfAccountsListEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1677,6 +1819,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-SeedChartOfAccountsAsync"></a>
+# **Invoke-SeedChartOfAccountsAsync**
+> EmptyEnvelope Invoke-SeedChartOfAccountsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SeedChartOfAccountsRequest] <PSCustomObject><br>
+
+Seed chart of accounts
+
+Seed a chart of accounts from a file URL.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SeedChartOfAccountsRequest = Initialize-SeedChartOfAccountsRequest -FileUrl "MyFileUrl" # SeedChartOfAccountsRequest |  (optional)
+
+# Seed chart of accounts
+try {
+    $Result = Invoke-SeedChartOfAccountsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SeedChartOfAccountsRequest $SeedChartOfAccountsRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-SeedChartOfAccountsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SeedChartOfAccountsRequest** | [**SeedChartOfAccountsRequest**](SeedChartOfAccountsRequest.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-AccountAsync"></a>
 # **Update-AccountAsync**
 > AccountDtoEnvelope Update-AccountAsync<br>
@@ -1853,7 +2047,6 @@ No authorization required
 > EmptyEnvelope Update-AccountTypeAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeUpdateDto] <PSCustomObject><br>
@@ -1866,14 +2059,13 @@ Update account type.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $AccountTypeUpdateDto = Initialize-AccountTypeUpdateDto -Name "MyName" -Description "MyDescription" # AccountTypeUpdateDto |  (optional)
 
 # Update account type
 try {
-    $Result = Update-AccountTypeAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -AccountId $AccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AccountTypeUpdateDto $AccountTypeUpdateDto
+    $Result = Update-AccountTypeAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AccountTypeUpdateDto $AccountTypeUpdateDto
 } catch {
     Write-Host ("Exception occurred when calling Update-AccountTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1886,7 +2078,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AccountTypeId** | **String**|  | 
- **AccountId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **AccountTypeUpdateDto** | [**AccountTypeUpdateDto**](AccountTypeUpdateDto.md)|  | [optional] 

@@ -2,7 +2,9 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
-docs/FenixAllianceABSWebApi.md
+docs/CompletionsApi.md
+docs/ErrorEnvelope.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -14,9 +16,11 @@ docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
+src/PSOpenAPITools/Api/CompletionsApi.ps1
+src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
+src/PSOpenAPITools/Model/ErrorEnvelope.ps1
 src/PSOpenAPITools/Model/ForgotPasswordRequest.ps1
 src/PSOpenAPITools/Model/HttpValidationProblemDetails.ps1
 src/PSOpenAPITools/Model/InfoRequest.ps1
@@ -35,3 +39,6 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/CompletionsApi.Tests.ps1
+tests/Api/FenixAlliancePortalsWebsiteApi.Tests.ps1
+tests/Model/ErrorEnvelope.Tests.ps1

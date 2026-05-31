@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.CourseCertificatesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,11 @@ Method | HTTP request | Description
 [**Get-CourseCertificateAsync**](CourseCertificatesApi.md#Get-CourseCertificateAsync) | **GET** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID
 [**Get-CourseCertificateTemplateAsync**](CourseCertificatesApi.md#Get-CourseCertificateTemplateAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID
 [**Get-CourseCertificateTemplatesAsync**](CourseCertificatesApi.md#Get-CourseCertificateTemplatesAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates
+[**Get-CourseCertificateTemplatesCountAsync**](CourseCertificatesApi.md#Get-CourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count
 [**Get-CourseCertificatesAsync**](CourseCertificatesApi.md#Get-CourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates
 [**Get-CourseCertificatesCountAsync**](CourseCertificatesApi.md#Get-CourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count
 [**Update-CourseCertificateAsync**](CourseCertificatesApi.md#Update-CourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate
+[**Update-CourseCertificateTemplateAsync**](CourseCertificatesApi.md#Update-CourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template
 
 
 <a id="New-CourseCertificateAsync"></a>
@@ -377,6 +379,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-CourseCertificateTemplatesCountAsync"></a>
+# **Get-CourseCertificateTemplatesCountAsync**
+> Int32 Get-CourseCertificateTemplatesCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get certificate templates count
+
+Returns the count of course certificate templates for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get certificate templates count
+try {
+    $Result = Get-CourseCertificateTemplatesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-CourseCertificateTemplatesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+**Int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-CourseCertificatesAsync"></a>
 # **Get-CourseCertificatesAsync**
 > CourseCompletionCertificateDto[] Get-CourseCertificatesAsync<br>
@@ -514,6 +565,61 @@ Name | Type | Description  | Notes
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **CourseCompletionCertificateUpdateDto** | [**CourseCompletionCertificateUpdateDto**](CourseCompletionCertificateUpdateDto.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-CourseCertificateTemplateAsync"></a>
+# **Update-CourseCertificateTemplateAsync**
+> void Update-CourseCertificateTemplateAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCertificateTemplateId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCertificateTemplateUpdateDto] <PSCustomObject><br>
+
+Update a certificate template
+
+Updates an existing course certificate template for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourseCertificateTemplateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCertificateTemplateUpdateDto = Initialize-CourseCertificateTemplateUpdateDto -WebPortalID "MyWebPortalID" -WebsiteThemeID "MyWebsiteThemeID" -SocialProfileID "MySocialProfileID" -ParentWebContentID "MyParentWebContentID" -ParentWebContentVersionID "MyParentWebContentVersionID" # CourseCertificateTemplateUpdateDto |  (optional)
+
+# Update a certificate template
+try {
+    $Result = Update-CourseCertificateTemplateAsync -TenantId $TenantId -CourseCertificateTemplateId $CourseCertificateTemplateId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCertificateTemplateUpdateDto $CourseCertificateTemplateUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-CourseCertificateTemplateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourseCertificateTemplateId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **CourseCertificateTemplateUpdateDto** | [**CourseCertificateTemplateUpdateDto**](CourseCertificateTemplateUpdateDto.md)|  | [optional] 
 
 ### Return type
 

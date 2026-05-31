@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.ItemsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -85,6 +85,7 @@ Method | HTTP request | Description
 <a id="Invoke-CountStockItemTagsByItemId"></a>
 # **Invoke-CountStockItemTagsByItemId**
 > Int32Envelope Invoke-CountStockItemTagsByItemId<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -95,13 +96,14 @@ Counts the number of tags associated with a specific stock item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Count tags for a stock item
 try {
-    $Result = Invoke-CountStockItemTagsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountStockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountStockItemTagsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -112,6 +114,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -1646,6 +1649,7 @@ No authorization required
 <a id="Get-StockItemTagById"></a>
 # **Get-StockItemTagById**
 > ItemTagDtoEnvelope Get-StockItemTagById<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTagId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -1657,6 +1661,7 @@ Retrieves a specific tag by ID for a stock item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemTagId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -1664,7 +1669,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get tag by ID for a stock item
 try {
-    $Result = Get-StockItemTagById -ItemId $ItemId -ItemTagId $ItemTagId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTagById -TenantId $TenantId -ItemId $ItemId -ItemTagId $ItemTagId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTagById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1675,6 +1680,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ItemId** | **String**|  | 
  **ItemTagId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -1698,6 +1704,7 @@ No authorization required
 <a id="Get-StockItemTagsByItemId"></a>
 # **Get-StockItemTagsByItemId**
 > ItemTagDtoListEnvelope Get-StockItemTagsByItemId<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -1708,13 +1715,14 @@ Retrieves all tags associated with a specific stock item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get tags for a stock item
 try {
-    $Result = Get-StockItemTagsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTagsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1725,6 +1733,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -1848,6 +1857,7 @@ No authorization required
 <a id="Get-StockItemTypeById"></a>
 # **Get-StockItemTypeById**
 > ItemTypeDtoEnvelope Get-StockItemTypeById<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -1859,6 +1869,7 @@ Retrieves a specific type by ID for a stock item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -1866,7 +1877,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get type by ID for a stock item
 try {
-    $Result = Get-StockItemTypeById -ItemId $ItemId -ItemTypeId $ItemTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTypeById -TenantId $TenantId -ItemId $ItemId -ItemTypeId $ItemTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTypeById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1877,6 +1888,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ItemId** | **String**|  | 
  **ItemTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -1900,6 +1912,7 @@ No authorization required
 <a id="Get-StockItemTypesByItemId"></a>
 # **Get-StockItemTypesByItemId**
 > ItemTypeDtoListEnvelope Get-StockItemTypesByItemId<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -1910,13 +1923,14 @@ Retrieves all types associated with a specific stock item.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get types for a stock item
 try {
-    $Result = Get-StockItemTypesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTypesByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTypesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1927,6 +1941,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

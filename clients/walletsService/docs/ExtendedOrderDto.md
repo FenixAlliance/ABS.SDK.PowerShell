@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **CustomerNotes** | **String** |  | [optional] 
 **TaxCalculationMethod** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
+**ForexRatesSnapshot** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
@@ -125,6 +126,7 @@ $ExtendedOrderDto = Initialize-PSOpenAPIToolsExtendedOrderDto  -Id null `
  -CustomerNotes null `
  -TaxCalculationMethod null `
  -ForexRate null `
+ -ForexRatesSnapshot null `
  -CurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `

@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.ItemReviewsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -119,6 +119,7 @@ No authorization required
 # **Get-ItemReviewByIdAsync**
 > ItemReviewDtoEnvelope Get-ItemReviewByIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemReviewId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -129,12 +130,13 @@ Retrieves a specific item review by its ID.
 ### Example
 ```powershell
 $ItemReviewId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get item review by ID
 try {
-    $Result = Get-ItemReviewByIdAsync -ItemReviewId $ItemReviewId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemReviewByIdAsync -ItemReviewId $ItemReviewId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemReviewByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -146,6 +148,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ItemReviewId** | **String**|  | 
+ **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 

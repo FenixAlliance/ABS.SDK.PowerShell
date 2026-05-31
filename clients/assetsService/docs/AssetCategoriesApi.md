@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.AssetCategoriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

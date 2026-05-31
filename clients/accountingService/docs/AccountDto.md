@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **AccountTypeId** | **String** |  | [optional] 
 **DebitsBalance** | **Double** |  | [optional] 
 **CreditsBalance** | **Double** |  | [optional] 
+**BalanceInUsd** | **Double** |  | [optional] 
+**DebitsBalanceInUsd** | **Double** |  | [optional] 
+**CreditsBalanceInUsd** | **Double** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
 **ParentAccountId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -27,6 +31,9 @@ Name | Type | Description | Notes
 **BalanceAmount** | [**Money**](Money.md) |  | [optional] 
 **CreditsBalanceAmount** | [**Money**](Money.md) |  | [optional] 
 **DebitsBalanceAmount** | [**Money**](Money.md) |  | [optional] 
+**BalanceAmountInUsd** | [**Money**](Money.md) |  | [optional] 
+**DebitsBalanceAmountInUsd** | [**Money**](Money.md) |  | [optional] 
+**CreditsBalanceAmountInUsd** | [**Money**](Money.md) |  | [optional] 
 
 ## Examples
 
@@ -48,6 +55,10 @@ $AccountDto = Initialize-PSOpenAPIToolsAccountDto  -Id null `
  -AccountTypeId null `
  -DebitsBalance null `
  -CreditsBalance null `
+ -BalanceInUsd null `
+ -DebitsBalanceInUsd null `
+ -CreditsBalanceInUsd null `
+ -ForexRate null `
  -ParentAccountId null `
  -TenantId null `
  -EnrollmentId null `
@@ -55,7 +66,10 @@ $AccountDto = Initialize-PSOpenAPIToolsAccountDto  -Id null `
  -AccountCategory null `
  -BalanceAmount null `
  -CreditsBalanceAmount null `
- -DebitsBalanceAmount null
+ -DebitsBalanceAmount null `
+ -BalanceAmountInUsd null `
+ -DebitsBalanceAmountInUsd null `
+ -CreditsBalanceAmountInUsd null
 ```
 
 - Convert the resource to JSON

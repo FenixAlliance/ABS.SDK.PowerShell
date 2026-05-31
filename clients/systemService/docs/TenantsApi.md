@@ -1,11 +1,11 @@
 # PSOpenAPITools.PSOpenAPITools\Api.TenantsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-AdminPreviewTenantEmail**](TenantsApi.md#Invoke-AdminPreviewTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user.
-[**Invoke-AdminSendTenantEmail**](TenantsApi.md#Invoke-AdminSendTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user.
+[**Invoke-AdminPreviewTenantEmail**](TenantsApi.md#Invoke-AdminPreviewTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a tenant.
+[**Invoke-AdminSendTenantEmail**](TenantsApi.md#Invoke-AdminSendTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a tenant.
 [**New-Tenant**](TenantsApi.md#New-Tenant) | **POST** /api/v2/SystemService/Tenants | Create a new tenant.
 [**Invoke-DeleteTenant**](TenantsApi.md#Invoke-DeleteTenant) | **DELETE** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID.
 [**Get-AllExtendedTenants**](TenantsApi.md#Get-AllExtendedTenants) | **GET** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance.
@@ -24,9 +24,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailDispatchRequest] <PSCustomObject><br>
 
-Preview the rendered email for a user.
+Preview the rendered email for a tenant.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```powershell
@@ -35,7 +35,7 @@ $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $EmailDispatchRequest = Initialize-EmailDispatchRequest -Title "MyTitle" -Message "MyMessage" -ButtonLink "MyButtonLink" -ButtonText "MyButtonText" -AlertMessage "MyAlertMessage" -AlertType "None" -Culture "MyCulture" -UiCulture "MyUiCulture" -Recipients "MyRecipients" -ContactIds "MyContactIds" -TenantIds "MyTenantIds" -UserIds "MyUserIds" -TemplateUrl "MyTemplateUrl" -EmailTemplateId "MyEmailTemplateId" # EmailDispatchRequest |  (optional)
 
-# Preview the rendered email for a user.
+# Preview the rendered email for a tenant.
 try {
     $Result = Invoke-AdminPreviewTenantEmail -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmailDispatchRequest $EmailDispatchRequest
 } catch {
@@ -76,9 +76,9 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailDispatchRequest] <PSCustomObject><br>
 
-Send an email to a user.
+Send an email to a tenant.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```powershell
@@ -87,7 +87,7 @@ $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $EmailDispatchRequest = Initialize-EmailDispatchRequest -Title "MyTitle" -Message "MyMessage" -ButtonLink "MyButtonLink" -ButtonText "MyButtonText" -AlertMessage "MyAlertMessage" -AlertType "None" -Culture "MyCulture" -UiCulture "MyUiCulture" -Recipients "MyRecipients" -ContactIds "MyContactIds" -TenantIds "MyTenantIds" -UserIds "MyUserIds" -TemplateUrl "MyTemplateUrl" -EmailTemplateId "MyEmailTemplateId" # EmailDispatchRequest |  (optional)
 
-# Send an email to a user.
+# Send an email to a tenant.
 try {
     $Result = Invoke-AdminSendTenantEmail -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmailDispatchRequest $EmailDispatchRequest
 } catch {

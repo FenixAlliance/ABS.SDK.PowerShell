@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **ConcurrencyToken** | **String** |  | [optional] 
 **CreationDate** | **System.DateTime** |  | [optional] 
 **Properties** | **String** |  | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $OAuthAuthorizationDto = Initialize-PSOpenAPIToolsOAuthAuthorizationDto  -Id null `
+ -Timestamp null `
  -ConcurrencyToken null `
  -CreationDate null `
  -Properties null `

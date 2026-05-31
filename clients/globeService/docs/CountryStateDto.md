@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | **System.DateTime** |  | [optional] 
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **CountryID** | **String** |  | [optional] 
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CountryStateDto = Initialize-PSOpenAPIToolsCountryStateDto  -Timestamp null `
- -Id null `
+$CountryStateDto = Initialize-PSOpenAPIToolsCountryStateDto  -Id null `
+ -Timestamp null `
  -Name null `
  -Code null `
  -CountryID null

@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.FiscalPeriodsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 <a id="New-FiscalPeriod"></a>
 # **New-FiscalPeriod**
 > EmptyEnvelope New-FiscalPeriod<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodCreateDto] <PSCustomObject><br>
@@ -26,7 +26,7 @@ Creates a new fiscal period associated with a fiscal year.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $FiscalPeriodCreateDto = Initialize-FiscalPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -FromDate (Get-Date) -ToDate (Get-Date) -FiscalYearId "MyFiscalYearId" # FiscalPeriodCreateDto |  (optional)
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **FiscalPeriodCreateDto** | [**FiscalPeriodCreateDto**](FiscalPeriodCreateDto.md)|  | [optional] 
@@ -67,7 +67,7 @@ No authorization required
 <a id="Invoke-DeleteFiscalPeriod"></a>
 # **Invoke-DeleteFiscalPeriod**
 > EmptyEnvelope Invoke-DeleteFiscalPeriod<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -78,7 +78,7 @@ Deletes a fiscal period identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalPeriodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -119,7 +119,7 @@ No authorization required
 <a id="Get-FiscalPeriod"></a>
 # **Get-FiscalPeriod**
 > FiscalPeriodDtoEnvelope Get-FiscalPeriod<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodId] <String><br>
@@ -132,7 +132,7 @@ Retrieves a specific fiscal period by its unique identifier within a fiscal year
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
@@ -152,7 +152,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **FiscalYearId** | **String**|  | 
  **FiscalPeriodId** | **String**|  | 
@@ -177,7 +177,7 @@ No authorization required
 <a id="Get-FiscalPeriods"></a>
 # **Get-FiscalPeriods**
 > FiscalPeriodDtoListEnvelope Get-FiscalPeriods<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
@@ -190,7 +190,7 @@ Retrieves all fiscal periods for the specified fiscal year within a fiscal autho
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AuthorityId = "MyAuthorityId" # String | 
@@ -210,7 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **FiscalYearId** | **String**|  | 
  **AuthorityId** | **String**|  | 
@@ -235,7 +235,7 @@ No authorization required
 <a id="Get-FiscalPeriodsCount"></a>
 # **Get-FiscalPeriodsCount**
 > Int32Envelope Get-FiscalPeriodsCount<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -247,7 +247,7 @@ Returns the total count of fiscal periods for the specified fiscal year.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -266,7 +266,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **FiscalYearId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -290,7 +290,7 @@ No authorization required
 <a id="Update-FiscalPeriod"></a>
 # **Update-FiscalPeriod**
 > EmptyEnvelope Update-FiscalPeriod<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -302,7 +302,7 @@ Updates an existing fiscal period identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -321,7 +321,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalPeriodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

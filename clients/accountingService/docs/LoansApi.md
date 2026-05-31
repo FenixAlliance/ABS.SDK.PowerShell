@@ -1,21 +1,27 @@
 # PSOpenAPITools.PSOpenAPITools\Api.LoansApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-LoanApplicationAsync**](LoansApi.md#New-LoanApplicationAsync) | **POST** /api/v2/AccountingService/Loans/Applications | Creates a loan application
 [**New-LoanAsync**](LoansApi.md#New-LoanAsync) | **POST** /api/v2/AccountingService/Loans | Creates a new loan
+[**New-LoanTypeAsync**](LoansApi.md#New-LoanTypeAsync) | **POST** /api/v2/AccountingService/Loans/Types | Creates a loan type
 [**Invoke-DeleteLoanApplicationAsync**](LoansApi.md#Invoke-DeleteLoanApplicationAsync) | **DELETE** /api/v2/AccountingService/Loans/Applications/{applicationId} | Deletes a loan application
 [**Invoke-DeleteLoanAsync**](LoansApi.md#Invoke-DeleteLoanAsync) | **DELETE** /api/v2/AccountingService/Loans/{loanId} | Deletes a loan
+[**Invoke-DeleteLoanTypeAsync**](LoansApi.md#Invoke-DeleteLoanTypeAsync) | **DELETE** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Deletes a loan type
 [**Get-LoanApplicationDetailsAsync**](LoansApi.md#Get-LoanApplicationDetailsAsync) | **GET** /api/v2/AccountingService/Loans/Applications/{applicationId} | Gets a loan application by ID
 [**Get-LoanApplicationsAsync**](LoansApi.md#Get-LoanApplicationsAsync) | **GET** /api/v2/AccountingService/Loans/Applications | Gets all loan applications
 [**Get-LoanApplicationsCountAsync**](LoansApi.md#Get-LoanApplicationsCountAsync) | **GET** /api/v2/AccountingService/Loans/Applications/Count | Counts loan applications
 [**Get-LoanDetailsAsync**](LoansApi.md#Get-LoanDetailsAsync) | **GET** /api/v2/AccountingService/Loans/{loanId} | Gets a loan by ID
+[**Get-LoanTypeByIdAsync**](LoansApi.md#Get-LoanTypeByIdAsync) | **GET** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Gets a loan type by ID
+[**Get-LoanTypesAsync**](LoansApi.md#Get-LoanTypesAsync) | **GET** /api/v2/AccountingService/Loans/Types | Gets all loan types
+[**Get-LoanTypesCountAsync**](LoansApi.md#Get-LoanTypesCountAsync) | **GET** /api/v2/AccountingService/Loans/Types/Count | Counts loan types
 [**Get-LoansAsync**](LoansApi.md#Get-LoansAsync) | **GET** /api/v2/AccountingService/Loans | Gets all loans
 [**Get-LoansCountAsync**](LoansApi.md#Get-LoansCountAsync) | **GET** /api/v2/AccountingService/Loans/Count | Counts loans
 [**Update-LoanApplicationAsync**](LoansApi.md#Update-LoanApplicationAsync) | **PUT** /api/v2/AccountingService/Loans/Applications/{applicationId} | Updates a loan application
 [**Update-LoanAsync**](LoansApi.md#Update-LoanAsync) | **PUT** /api/v2/AccountingService/Loans/{loanId} | Updates a loan
+[**Update-LoanTypeAsync**](LoansApi.md#Update-LoanTypeAsync) | **PUT** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Updates a loan type
 
 
 <a id="New-LoanApplicationAsync"></a>
@@ -122,6 +128,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="New-LoanTypeAsync"></a>
+# **New-LoanTypeAsync**
+> EmptyEnvelope New-LoanTypeAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanTypeCreateDto] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Creates a loan type
+
+Creates a new loan type for the current tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoanTypeCreateDto = Initialize-LoanTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # LoanTypeCreateDto | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Creates a loan type
+try {
+    $Result = New-LoanTypeAsync -TenantId $TenantId -LoanTypeCreateDto $LoanTypeCreateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling New-LoanTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **LoanTypeCreateDto** | [**LoanTypeCreateDto**](LoanTypeCreateDto.md)|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-DeleteLoanApplicationAsync"></a>
 # **Invoke-DeleteLoanApplicationAsync**
 > EmptyEnvelope Invoke-DeleteLoanApplicationAsync<br>
@@ -208,6 +266,58 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **LoanId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-DeleteLoanTypeAsync"></a>
+# **Invoke-DeleteLoanTypeAsync**
+> EmptyEnvelope Invoke-DeleteLoanTypeAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Deletes a loan type
+
+Deletes the specified loan type.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoanTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Deletes a loan type
+try {
+    $Result = Invoke-DeleteLoanTypeAsync -TenantId $TenantId -LoanTypeId $LoanTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-DeleteLoanTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **LoanTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -428,6 +538,156 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-LoanTypeByIdAsync"></a>
+# **Get-LoanTypeByIdAsync**
+> LoanTypeDtoEnvelope Get-LoanTypeByIdAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Gets a loan type by ID
+
+Retrieves the details of a loan type using its unique ID.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoanTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Gets a loan type by ID
+try {
+    $Result = Get-LoanTypeByIdAsync -TenantId $TenantId -LoanTypeId $LoanTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LoanTypeByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **LoanTypeId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**LoanTypeDtoEnvelope**](LoanTypeDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-LoanTypesAsync"></a>
+# **Get-LoanTypesAsync**
+> LoanTypeDtoIReadOnlyListEnvelope Get-LoanTypesAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Gets all loan types
+
+Retrieves all loan types for the current tenant with OData support.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Gets all loan types
+try {
+    $Result = Get-LoanTypesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LoanTypesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**LoanTypeDtoIReadOnlyListEnvelope**](LoanTypeDtoIReadOnlyListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-LoanTypesCountAsync"></a>
+# **Get-LoanTypesCountAsync**
+> Int32Envelope Get-LoanTypesCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Counts loan types
+
+Gets the count of loan types for the current tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Counts loan types
+try {
+    $Result = Get-LoanTypesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LoanTypesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-LoansAsync"></a>
 # **Get-LoansAsync**
 > LoanDtoIReadOnlyListEnvelope Get-LoansAsync<br>
@@ -618,6 +878,61 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **LoanId** | **String**|  | 
  **LoanUpdateDto** | [**LoanUpdateDto**](LoanUpdateDto.md)|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-LoanTypeAsync"></a>
+# **Update-LoanTypeAsync**
+> EmptyEnvelope Update-LoanTypeAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoanTypeUpdateDto] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Updates a loan type
+
+Updates the specified loan type.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoanTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoanTypeUpdateDto = Initialize-LoanTypeUpdateDto -Name "MyName" -Description "MyDescription" # LoanTypeUpdateDto | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Updates a loan type
+try {
+    $Result = Update-LoanTypeAsync -TenantId $TenantId -LoanTypeId $LoanTypeId -LoanTypeUpdateDto $LoanTypeUpdateDto -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Update-LoanTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **LoanTypeId** | **String**|  | 
+ **LoanTypeUpdateDto** | [**LoanTypeUpdateDto**](LoanTypeUpdateDto.md)|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 

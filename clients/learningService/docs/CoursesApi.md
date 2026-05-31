@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.CoursesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -64,7 +64,7 @@ Creates a new course for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCreateDto = Initialize-CourseCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" # CourseCreateDto |  (optional)
+$CourseCreateDto = Initialize-CourseCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryID "MyCourseCategoryID" -InstructorProfileID "MyInstructorProfileID" -CurrencyID "MyCurrencyID" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) # CourseCreateDto |  (optional)
 
 # Create a new course
 try {
@@ -356,8 +356,8 @@ No authorization required
 <a id="Get-CourseByIdAsync"></a>
 # **Get-CourseByIdAsync**
 > CourseDto Get-CourseByIdAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -367,14 +367,14 @@ Retrieves a specific course by its ID.
 
 ### Example
 ```powershell
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get course by ID
 try {
-    $Result = Get-CourseByIdAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseByIdAsync -CourseId $CourseId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -385,8 +385,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
  **CourseId** | **String**|  | 
+ **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -2050,7 +2050,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseUpdateDto = Initialize-CourseUpdateDto -Title "MyTitle" # CourseUpdateDto |  (optional)
+$CourseUpdateDto = Initialize-CourseUpdateDto -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryID "MyCourseCategoryID" -InstructorProfileID "MyInstructorProfileID" -CurrencyID "MyCurrencyID" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) -Published $false # CourseUpdateDto |  (optional)
 
 # Update a course
 try {

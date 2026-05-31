@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.PaymentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -107,6 +107,7 @@ No authorization required
 <a id="Get-PaymentAsync"></a>
 # **Get-PaymentAsync**
 > PaymentDtoListEnvelope Get-PaymentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentId] <String><br>
 
 Gets a payment by ID (deprecated)
@@ -115,11 +116,12 @@ Retrieves a payment using the deprecated /Details route. Use GET {paymentId} ins
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PaymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
 # Gets a payment by ID (deprecated)
 try {
-    $Result = Get-PaymentAsync -PaymentId $PaymentId
+    $Result = Get-PaymentAsync -TenantId $TenantId -PaymentId $PaymentId
 } catch {
     Write-Host ("Exception occurred when calling Get-PaymentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -130,6 +132,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **PaymentId** | **String**|  | 
 
 ### Return type
@@ -150,6 +153,7 @@ No authorization required
 <a id="Get-PaymentAsyncV2"></a>
 # **Get-PaymentAsyncV2**
 > PaymentDtoListEnvelope Get-PaymentAsyncV2<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentId] <String><br>
 
 Gets a payment by ID
@@ -158,11 +162,12 @@ Retrieves the details of a payment using its unique identifier.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PaymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
 # Gets a payment by ID
 try {
-    $Result = Get-PaymentAsyncV2 -PaymentId $PaymentId
+    $Result = Get-PaymentAsyncV2 -TenantId $TenantId -PaymentId $PaymentId
 } catch {
     Write-Host ("Exception occurred when calling Get-PaymentAsyncV2: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -173,6 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **PaymentId** | **String**|  | 
 
 ### Return type

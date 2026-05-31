@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Ip** | **String** |  | [optional] 
 **Type** | **String** |  | [optional] 
 **Total** | **Double** |  | [optional] 
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CartDto = Initialize-PSOpenAPIToolsCartDto  -Id null `
+ -Timestamp null `
  -Ip null `
  -Type null `
  -Total null `

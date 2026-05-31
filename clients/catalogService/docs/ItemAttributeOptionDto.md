@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**ItemAttributeId** | **String** |  | [optional] 
 **BusinessID** | **String** |  | [optional] 
 
 ## Examples
@@ -17,6 +18,7 @@ $ItemAttributeOptionDto = Initialize-PSOpenAPIToolsItemAttributeOptionDto  -Id n
  -Timestamp null `
  -Name null `
  -Description null `
+ -ItemAttributeId null `
  -BusinessID null
 ```
 

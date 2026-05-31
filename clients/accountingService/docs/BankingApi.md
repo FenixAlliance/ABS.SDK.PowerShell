@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.BankingApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -101,7 +101,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountCreateDto |  (optional)
+$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountCreateDto |  (optional)
 
 # Creates a new bank account
 try {
@@ -1167,7 +1167,7 @@ $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankAccountUpdateDto = Initialize-BankAccountUpdateDto -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountUpdateDto |  (optional)
+$BankAccountUpdateDto = Initialize-BankAccountUpdateDto -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountUpdateDto |  (optional)
 
 # Updates a bank account
 try {

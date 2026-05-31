@@ -4,24 +4,36 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TrackingCode** | **String** |  | [optional] 
 **IsInternational** | **Boolean** |  | [optional] 
+**Shipped** | **Boolean** |  | [optional] 
+**Delivered** | **Boolean** |  | [optional] 
 **ShipmentTimestamp** | **System.DateTime** |  | [optional] 
 **DeliveryTimestamp** | **System.DateTime** |  | [optional] 
 **ExpectedShippingDate** | **System.DateTime** |  | [optional] 
 **ExpectedDeliveryDate** | **System.DateTime** |  | [optional] 
+**ShippingTerms** | **String** |  | [optional] 
+**OrderID** | **String** |  | [optional] 
+**BusinessID** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ShipmentDto = Initialize-PSOpenAPIToolsShipmentDto  -Id null `
+ -Timestamp null `
  -TrackingCode null `
  -IsInternational null `
+ -Shipped null `
+ -Delivered null `
  -ShipmentTimestamp null `
  -DeliveryTimestamp null `
  -ExpectedShippingDate null `
- -ExpectedDeliveryDate null
+ -ExpectedDeliveryDate null `
+ -ShippingTerms null `
+ -OrderID null `
+ -BusinessID null
 ```
 
 - Convert the resource to JSON

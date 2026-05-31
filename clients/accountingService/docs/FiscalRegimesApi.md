@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.FiscalRegimesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 <a id="New-FiscalRegime"></a>
 # **New-FiscalRegime**
 > EmptyEnvelope New-FiscalRegime<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalRegimeCreateDto] <PSCustomObject><br>
@@ -26,7 +26,7 @@ Creates a new fiscal regime for a fiscal authority.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $FiscalRegimeCreateDto = Initialize-FiscalRegimeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalRegimeCreateDto |  (optional)
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **FiscalRegimeCreateDto** | [**FiscalRegimeCreateDto**](FiscalRegimeCreateDto.md)|  | [optional] 
@@ -67,7 +67,7 @@ No authorization required
 <a id="Invoke-DeleteFiscalRegime"></a>
 # **Invoke-DeleteFiscalRegime**
 > EmptyEnvelope Invoke-DeleteFiscalRegime<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegimeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -78,7 +78,7 @@ Deletes a fiscal regime identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RegimeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **RegimeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -119,7 +119,7 @@ No authorization required
 <a id="Get-FiscalRegime"></a>
 # **Get-FiscalRegime**
 > FiscalRegimeDtoEnvelope Get-FiscalRegime<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegimeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -131,7 +131,7 @@ Retrieves a specific fiscal regime by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RegimeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **RegimeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -174,6 +174,7 @@ No authorization required
 <a id="Get-FiscalRegimes"></a>
 # **Get-FiscalRegimes**
 > FiscalRegimeDtoListEnvelope Get-FiscalRegimes<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -185,6 +186,7 @@ Retrieves all fiscal regimes for the specified fiscal authority.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AuthorityId = "MyAuthorityId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -192,7 +194,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal regimes for an authority
 try {
-    $Result = Get-FiscalRegimes -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalRegimes -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalRegimes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -203,6 +205,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -226,6 +229,7 @@ No authorization required
 <a id="Get-FiscalRegimesCount"></a>
 # **Get-FiscalRegimesCount**
 > Int32Envelope Get-FiscalRegimesCount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -236,13 +240,14 @@ Returns the total count of fiscal regimes for the specified fiscal authority.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal regimes count
 try {
-    $Result = Get-FiscalRegimesCount -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalRegimesCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalRegimesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -253,6 +258,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -275,7 +281,7 @@ No authorization required
 <a id="Update-FiscalRegime"></a>
 # **Update-FiscalRegime**
 > EmptyEnvelope Update-FiscalRegime<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegimeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -287,7 +293,7 @@ Updates an existing fiscal regime identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RegimeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -306,7 +312,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **RegimeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

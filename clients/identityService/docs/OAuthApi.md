@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.OAuthApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -61,7 +61,7 @@ No authorization required
 
 <a id="Get-"></a>
 # **Get-**
-> AuthorizationResultEnvelope Get-<br>
+> AuthResultEnvelope Get-<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthorizationResultEnvelope**](AuthorizationResultEnvelope.md) (PSCustomObject)
+[**AuthResultEnvelope**](AuthResultEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.EmployersApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ Creates a new employer for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$EmployerProfileCreateDto = Initialize-EmployerProfileCreateDto -Id "MyId" -Timestamp (Get-Date) # EmployerProfileCreateDto |  (optional)
+$EmployerProfileCreateDto = Initialize-EmployerProfileCreateDto -Id "MyId" -Timestamp (Get-Date) -Type "MyType" -ContactId "MyContactId" -About "MyAbout" -AvatarUrl "MyAvatarUrl" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" # EmployerProfileCreateDto |  (optional)
 
 # Create an employer
 try {
@@ -273,7 +273,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmployerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <System.Nullable[SystemCollectionsHashtable]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmployerProfileUpdateDto] <PSCustomObject><br>
 
 Update an employer
 
@@ -285,11 +285,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EmployerId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Body = @{ key_example = ... } # SystemCollectionsHashtable |  (optional)
+$EmployerProfileUpdateDto = Initialize-EmployerProfileUpdateDto -Type "MyType" -ContactId "MyContactId" -About "MyAbout" -AvatarUrl "MyAvatarUrl" -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" # EmployerProfileUpdateDto |  (optional)
 
 # Update an employer
 try {
-    $Result = Update-EmployerAsync -TenantId $TenantId -EmployerId $EmployerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
+    $Result = Update-EmployerAsync -TenantId $TenantId -EmployerId $EmployerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -EmployerProfileUpdateDto $EmployerProfileUpdateDto
 } catch {
     Write-Host ("Exception occurred when calling Update-EmployerAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
  **EmployerId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Body** | **SystemCollectionsHashtable**|  | [optional] 
+ **EmployerProfileUpdateDto** | [**EmployerProfileUpdateDto**](EmployerProfileUpdateDto.md)|  | [optional] 
 
 ### Return type
 

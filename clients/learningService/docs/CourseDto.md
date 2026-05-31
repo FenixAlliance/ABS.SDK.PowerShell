@@ -166,6 +166,20 @@ Name | Type | Description | Notes
 **SelectedShipmentPolicies** | **String[]** |  | [optional] 
 **SelectedAttributesOptions** | **String[]** |  | [optional] 
 **SelectedSellingMarginPolicies** | **String[]** |  | [optional] 
+**Code** | **String** |  | [optional] 
+**Version** | **String** |  | [optional] 
+**CourseCategoryID** | **String** |  | [optional] 
+**CourseCategoryName** | **String** |  | [optional] 
+**InstructorProfileID** | **String** |  | [optional] 
+**InstructorProfileName** | **String** |  | [optional] 
+**MaxCourseEnrollments** | **Int32** |  | [optional] 
+**TotalEffortInWeeks** | **Int32** |  | [optional] 
+**TotalHoursPerWeek** | **Int32** |  | [optional] 
+**TotalEffortInHours** | **Int32** |  | [optional] 
+**StartDateTime** | **System.DateTime** |  | [optional] 
+**EndDateTime** | **System.DateTime** |  | [optional] 
+**InscriptionsStartDateTime** | **System.DateTime** |  | [optional] 
+**InscriptionsEndDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
 
@@ -333,7 +347,21 @@ $CourseDto = Initialize-PSOpenAPIToolsCourseDto  -Id null `
  -SelectedWarrantyPolicies null `
  -SelectedShipmentPolicies null `
  -SelectedAttributesOptions null `
- -SelectedSellingMarginPolicies null
+ -SelectedSellingMarginPolicies null `
+ -Code null `
+ -Version null `
+ -CourseCategoryID null `
+ -CourseCategoryName null `
+ -InstructorProfileID null `
+ -InstructorProfileName null `
+ -MaxCourseEnrollments null `
+ -TotalEffortInWeeks null `
+ -TotalHoursPerWeek null `
+ -TotalEffortInHours null `
+ -StartDateTime null `
+ -EndDateTime null `
+ -InscriptionsStartDateTime null `
+ -InscriptionsEndDateTime null
 ```
 
 - Convert the resource to JSON

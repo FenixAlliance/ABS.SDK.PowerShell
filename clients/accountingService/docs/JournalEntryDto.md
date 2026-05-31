@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **ForexRate** | **Double** |  | [optional] 
 **Credit** | **Double** |  | [optional] 
 **Debit** | **Double** |  | [optional] 
+**CreditInUsd** | **Double** |  | [optional] 
+**DebitInUsd** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -27,6 +29,8 @@ Name | Type | Description | Notes
 **ParentJournalEntryId** | **String** |  | [optional] 
 **CreditAmount** | [**Money**](Money.md) |  | [optional] 
 **DebitAmount** | [**Money**](Money.md) |  | [optional] 
+**CreditAmountInUsd** | [**Money**](Money.md) |  | [optional] 
+**DebitAmountInUsd** | [**Money**](Money.md) |  | [optional] 
 
 ## Examples
 
@@ -42,6 +46,8 @@ $JournalEntryDto = Initialize-PSOpenAPIToolsJournalEntryDto  -Id null `
  -ForexRate null `
  -Credit null `
  -Debit null `
+ -CreditInUsd null `
+ -DebitInUsd null `
  -CurrencyId null `
  -TenantId null `
  -EnrollmentId null `
@@ -55,7 +61,9 @@ $JournalEntryDto = Initialize-PSOpenAPIToolsJournalEntryDto  -Id null `
  -InvoiceCode null `
  -ParentJournalEntryId null `
  -CreditAmount null `
- -DebitAmount null
+ -DebitAmount null `
+ -CreditAmountInUsd null `
+ -DebitAmountInUsd null
 ```
 
 - Convert the resource to JSON

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Symbol** | **String** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CurrencyDto = Initialize-PSOpenAPIToolsCurrencyDto  -Id null `
+ -Timestamp null `
  -Code null `
  -Name null `
  -Symbol null `

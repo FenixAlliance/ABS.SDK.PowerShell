@@ -1,9 +1,11 @@
 # PSOpenAPITools.PSOpenAPITools\Api.JournalsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-AggregateJournalEntryCreditsAsync**](JournalsApi.md#Invoke-AggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
+[**Invoke-AggregateJournalEntryDebitsAsync**](JournalsApi.md#Invoke-AggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
 [**Invoke-CountJournalsAsync**](JournalsApi.md#Invoke-CountJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals
 [**New-JournalAsync**](JournalsApi.md#New-JournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal
 [**New-JournalEntryAsync**](JournalsApi.md#New-JournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -16,6 +18,116 @@ Method | HTTP request | Description
 [**Update-JournalAsync**](JournalsApi.md#Update-JournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**Update-JournalEntryAsync**](JournalsApi.md#Update-JournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
+
+<a id="Invoke-AggregateJournalEntryCreditsAsync"></a>
+# **Invoke-AggregateJournalEntryCreditsAsync**
+> MoneyEnvelope Invoke-AggregateJournalEntryCreditsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Aggregate journal entry credits
+
+Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CurrencyId = "MyCurrencyId" # String |  (optional)
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Aggregate journal entry credits
+try {
+    $Result = Invoke-AggregateJournalEntryCreditsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-AggregateJournalEntryCreditsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **CurrencyId** | **String**|  | [optional] 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-AggregateJournalEntryDebitsAsync"></a>
+# **Invoke-AggregateJournalEntryDebitsAsync**
+> MoneyEnvelope Invoke-AggregateJournalEntryDebitsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Aggregate journal entry debits
+
+Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CurrencyId = "MyCurrencyId" # String |  (optional)
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Aggregate journal entry debits
+try {
+    $Result = Invoke-AggregateJournalEntryDebitsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-AggregateJournalEntryDebitsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **CurrencyId** | **String**|  | [optional] 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Invoke-CountJournalsAsync"></a>
 # **Invoke-CountJournalsAsync**

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Domain** | **String** |  | [optional] 
 **CountryID** | **String** |  | [optional] 
 
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CountryTopLevelDomainDto = Initialize-PSOpenAPIToolsCountryTopLevelDomainDto  -Id null `
+ -Timestamp null `
  -Domain null `
  -CountryID null
 ```

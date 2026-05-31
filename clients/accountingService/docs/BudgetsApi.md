@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.BudgetsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Get-BudgetAccountEntryAsync**](BudgetsApi.md#Get-BudgetAccountEntryAsync) | **GET** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Gets a budget account entry by id
 [**Get-BudgetDetailsAsync**](BudgetsApi.md#Get-BudgetDetailsAsync) | **GET** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id
 [**Get-BudgetsAsync**](BudgetsApi.md#Get-BudgetsAsync) | **GET** /api/v2/AccountingService/Budgets | Gets all budgets
+[**Get-BudgetsCountAsync**](BudgetsApi.md#Get-BudgetsCountAsync) | **GET** /api/v2/AccountingService/Budgets/Count | Get the count of budgets
 [**Update-BudgetAccountEntryAsync**](BudgetsApi.md#Update-BudgetAccountEntryAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry
 [**Update-BudgetAsync**](BudgetsApi.md#Update-BudgetAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget
 
@@ -426,6 +427,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BudgetDtoIReadOnlyListEnvelope**](BudgetDtoIReadOnlyListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-BudgetsCountAsync"></a>
+# **Get-BudgetsCountAsync**
+> Int32Envelope Get-BudgetsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get the count of budgets
+
+Get the count of budgets.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get the count of budgets
+try {
+    $Result = Get-BudgetsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-BudgetsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
 
 ### Authorization
 

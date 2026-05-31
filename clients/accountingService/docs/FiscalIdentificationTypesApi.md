@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.FiscalIdentificationTypesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 <a id="New-FiscalIdentificationType"></a>
 # **New-FiscalIdentificationType**
 > EmptyEnvelope New-FiscalIdentificationType<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalIdentificationTypeCreateDto] <PSCustomObject><br>
@@ -26,7 +26,7 @@ Creates a new fiscal identification type for a fiscal authority.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $FiscalIdentificationTypeCreateDto = Initialize-FiscalIdentificationTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalIdentificationTypeCreateDto |  (optional)
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **FiscalIdentificationTypeCreateDto** | [**FiscalIdentificationTypeCreateDto**](FiscalIdentificationTypeCreateDto.md)|  | [optional] 
@@ -67,7 +67,7 @@ No authorization required
 <a id="Invoke-DeleteFiscalIdentificationType"></a>
 # **Invoke-DeleteFiscalIdentificationType**
 > EmptyEnvelope Invoke-DeleteFiscalIdentificationType<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentificationTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -78,7 +78,7 @@ Deletes a fiscal identification type identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $IdentificationTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **IdentificationTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -119,7 +119,7 @@ No authorization required
 <a id="Get-FiscalIdentificationType"></a>
 # **Get-FiscalIdentificationType**
 > FiscalIdentificationTypeDtoEnvelope Get-FiscalIdentificationType<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentificationTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -131,7 +131,7 @@ Retrieves a specific fiscal identification type by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $IdentificationTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **IdentificationTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -174,6 +174,7 @@ No authorization required
 <a id="Get-FiscalIdentificationTypes"></a>
 # **Get-FiscalIdentificationTypes**
 > FiscalIdentificationTypeDtoListEnvelope Get-FiscalIdentificationTypes<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -184,13 +185,14 @@ Retrieves all fiscal identification types for the specified fiscal authority.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal identification types for an authority
 try {
-    $Result = Get-FiscalIdentificationTypes -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalIdentificationTypes -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalIdentificationTypes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -201,6 +203,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -223,6 +226,7 @@ No authorization required
 <a id="Get-FiscalIdentificationTypesCount"></a>
 # **Get-FiscalIdentificationTypesCount**
 > Int32Envelope Get-FiscalIdentificationTypesCount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -233,13 +237,14 @@ Returns the total count of fiscal identification types for the specified fiscal 
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal identification types count
 try {
-    $Result = Get-FiscalIdentificationTypesCount -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalIdentificationTypesCount -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalIdentificationTypesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -250,6 +255,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -272,7 +278,7 @@ No authorization required
 <a id="Update-FiscalIdentificationType"></a>
 # **Update-FiscalIdentificationType**
 > EmptyEnvelope Update-FiscalIdentificationType<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentificationTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -284,7 +290,7 @@ Updates an existing fiscal identification type identified by its unique identifi
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $IdentificationTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -303,7 +309,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **IdentificationTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

@@ -3,6 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Closed** | **Boolean** |  | [optional] 
+**Title** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
+**PriceListId** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**IndividualId** | **String** |  | [optional] 
+**PaymentTermId** | **String** |  | [optional] 
+**OrganizationId** | **String** |  | [optional] 
+**ReceiverTenantId** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **CompanyName** | **String** |  | [optional] 
@@ -16,6 +25,8 @@ Name | Type | Description | Notes
 **BillingLocationId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **ShippingMethodId** | **String** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
 **TotalProfit** | **Double** |  | [optional] 
@@ -43,28 +54,26 @@ Name | Type | Description | Notes
 **CostCalculationMethod** | **String** |  | [optional] 
 **TaxCalculationMethod** | **String** |  | [optional] 
 **CartId** | **String** |  | [optional] 
-**UserId** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
-**IndividualId** | **String** |  | [optional] 
-**OrganizationId** | **String** |  | [optional] 
 **TotalAmountInUsd** | **Double** |  | [optional] 
 **TotalTaxesInUsd** | **Double** |  | [optional] 
-**ReceiverTenantId** | **String** |  | [optional] 
-**Closed** | **Boolean** |  | [optional] 
-**PriceListId** | **String** |  | [optional] 
-**PaymentTermId** | **String** |  | [optional] 
 **QuoteStatus** | **String** |  | [optional] 
 **EffectiveTo** | **System.DateTime** |  | [optional] 
 **EffectiveFrom** | **System.DateTime** |  | [optional] 
-**Description** | **String** |  | [optional] 
-**Title** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -FirstName null `
+$OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -Closed null `
+ -Title null `
+ -UserId null `
+ -PriceListId null `
+ -Description null `
+ -IndividualId null `
+ -PaymentTermId null `
+ -OrganizationId null `
+ -ReceiverTenantId null `
+ -FirstName null `
  -LastName null `
  -CompanyName null `
  -BillingEmail null `
@@ -77,6 +86,8 @@ $OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -FirstName null `
  -BillingLocationId null `
  -ShippingLocationId null `
  -ShippingMethodId null `
+ -ForexRate null `
+ -CurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `
  -TotalProfit null `
@@ -104,22 +115,11 @@ $OrderUpdateDto = Initialize-PSOpenAPIToolsOrderUpdateDto  -FirstName null `
  -CostCalculationMethod null `
  -TaxCalculationMethod null `
  -CartId null `
- -UserId null `
- -ForexRate null `
- -CurrencyId null `
- -IndividualId null `
- -OrganizationId null `
  -TotalAmountInUsd null `
  -TotalTaxesInUsd null `
- -ReceiverTenantId null `
- -Closed null `
- -PriceListId null `
- -PaymentTermId null `
  -QuoteStatus null `
  -EffectiveTo null `
- -EffectiveFrom null `
- -Description null `
- -Title null
+ -EffectiveFrom null
 ```
 
 - Convert the resource to JSON

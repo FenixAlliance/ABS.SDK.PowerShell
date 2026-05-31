@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.EmailsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -59,7 +59,7 @@ No authorization required
 
 <a id="Invoke-AdminSendBasicEmail"></a>
 # **Invoke-AdminSendBasicEmail**
-> TenantDtoListEnvelope Invoke-AdminSendBasicEmail<br>
+> Envelope Invoke-AdminSendBasicEmail<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ObjectEmailDispatchRequest] <PSCustomObject><br>
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantDtoListEnvelope**](TenantDtoListEnvelope.md) (PSCustomObject)
+[**Envelope**](Envelope.md) (PSCustomObject)
 
 ### Authorization
 

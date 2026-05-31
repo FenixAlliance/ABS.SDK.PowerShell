@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.FiscalResponsibilitiesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 <a id="New-FiscalResponsibility"></a>
 # **New-FiscalResponsibility**
 > EmptyEnvelope New-FiscalResponsibility<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityCreateDto] <PSCustomObject><br>
@@ -26,7 +26,7 @@ Creates a new fiscal responsibility for a fiscal authority.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $FiscalResponsibilityCreateDto = Initialize-FiscalResponsibilityCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Name "MyName" -FiscalAuthorityId "MyFiscalAuthorityId" # FiscalResponsibilityCreateDto |  (optional)
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **FiscalResponsibilityCreateDto** | [**FiscalResponsibilityCreateDto**](FiscalResponsibilityCreateDto.md)|  | [optional] 
@@ -67,7 +67,7 @@ No authorization required
 <a id="Invoke-DeleteFiscalResponsibility"></a>
 # **Invoke-DeleteFiscalResponsibility**
 > EmptyEnvelope Invoke-DeleteFiscalResponsibility<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -78,7 +78,7 @@ Deletes a fiscal responsibility identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalResponsibilityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -119,6 +119,7 @@ No authorization required
 <a id="Get-FiscalResponsibilities"></a>
 # **Get-FiscalResponsibilities**
 > FiscalResponsibilityDtoListEnvelope Get-FiscalResponsibilities<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -130,6 +131,7 @@ Retrieves all fiscal responsibilities for the specified fiscal authority.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AuthorityId = "MyAuthorityId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -137,7 +139,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal responsibilities for an authority
 try {
-    $Result = Get-FiscalResponsibilities -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalResponsibilities -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalResponsibilities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -148,6 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -171,6 +174,7 @@ No authorization required
 <a id="Get-FiscalResponsibilitiesCount"></a>
 # **Get-FiscalResponsibilitiesCount**
 > Int32Envelope Get-FiscalResponsibilitiesCount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -181,13 +185,14 @@ Returns the total count of fiscal responsibilities for the specified fiscal auth
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get fiscal responsibilities count
 try {
-    $Result = Get-FiscalResponsibilitiesCount -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalResponsibilitiesCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalResponsibilitiesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -198,6 +203,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -220,7 +226,7 @@ No authorization required
 <a id="Get-FiscalResponsibility"></a>
 # **Get-FiscalResponsibility**
 > FiscalResponsibilityDtoEnvelope Get-FiscalResponsibility<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -232,7 +238,7 @@ Retrieves a specific fiscal responsibility by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
@@ -251,7 +257,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalAuthorityId** | **String**|  | 
  **FiscalResponsibilityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
@@ -275,7 +281,7 @@ No authorization required
 <a id="Update-FiscalResponsibility"></a>
 # **Update-FiscalResponsibility**
 > EmptyEnvelope Update-FiscalResponsibility<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <System.Collections.Hashtable><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -287,7 +293,7 @@ Updates an existing fiscal responsibility identified by its unique identifier.
 
 ### Example
 ```powershell
-$TenantId = @{ key_example = ... } # SystemCollectionsHashtable | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -306,7 +312,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **TenantId** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md)|  | 
+ **TenantId** | **String**|  | 
  **FiscalResponsibilityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

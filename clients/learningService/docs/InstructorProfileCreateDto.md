@@ -5,13 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Authorized** | **Boolean** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
-**Verified** | **Boolean** |  | [optional] 
-**Submitted** | **Boolean** |  | [optional] 
 **AvatarUrl** | **String** |  | [optional] 
-**QualifiedName** | **String** |  | [optional] 
-**VerificationTimestamp** | **System.DateTime** |  | [optional] 
 **VarData** | **String** |  | [optional] 
 **DataLabel** | **String** |  | [optional] 
 **Data1** | **String** |  | [optional] 
@@ -32,6 +29,7 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
+**Authorized** | **Boolean** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
 
 ## Examples
@@ -40,13 +38,10 @@ Name | Type | Description | Notes
 ```powershell
 $InstructorProfileCreateDto = Initialize-PSOpenAPIToolsInstructorProfileCreateDto  -Id null `
  -Timestamp null `
- -Authorized null `
+ -Type null `
+ -ContactId null `
  -About null `
- -Verified null `
- -Submitted null `
  -AvatarUrl null `
- -QualifiedName null `
- -VerificationTimestamp null `
  -VarData null `
  -DataLabel null `
  -Data1 null `
@@ -67,6 +62,7 @@ $InstructorProfileCreateDto = Initialize-PSOpenAPIToolsInstructorProfileCreateDt
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
+ -Authorized null `
  -ContactID null
 ```
 

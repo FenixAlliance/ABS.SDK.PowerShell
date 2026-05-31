@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.SocialGroupsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -65,6 +65,7 @@ No authorization required
 # **New-SocialGroupAsync**
 > EmptyEnvelope New-SocialGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupCreateDto] <PSCustomObject><br>
@@ -76,13 +77,14 @@ Creates a new social group for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $SocialGroupCreateDto = Initialize-SocialGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Title "MyTitle" -AvatarURL "MyAvatarURL" -SocialProfileID "MySocialProfileID" # SocialGroupCreateDto |  (optional)
 
 # Create a social group
 try {
-    $Result = New-SocialGroupAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupCreateDto $SocialGroupCreateDto
+    $Result = New-SocialGroupAsync -TenantId $TenantId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupCreateDto $SocialGroupCreateDto
 } catch {
     Write-Host ("Exception occurred when calling New-SocialGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -94,6 +96,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **SocialGroupCreateDto** | [**SocialGroupCreateDto**](SocialGroupCreateDto.md)|  | [optional] 
@@ -117,6 +120,7 @@ No authorization required
 # **Invoke-DeleteSocialGroupAsync**
 > EmptyEnvelope Invoke-DeleteSocialGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -128,13 +132,14 @@ Deletes a social group for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Delete a social group
 try {
-    $Result = Invoke-DeleteSocialGroupAsync -TenantId $TenantId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-DeleteSocialGroupAsync -TenantId $TenantId -SocialProfileId $SocialProfileId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-DeleteSocialGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -146,6 +151,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
  **SocialGroupId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
@@ -270,6 +276,7 @@ No authorization required
 # **Update-SocialGroupAsync**
 > EmptyEnvelope Update-SocialGroupAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -282,6 +289,7 @@ Updates an existing social group for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
@@ -289,7 +297,7 @@ $SocialGroupUpdateDto = Initialize-SocialGroupUpdateDto -Name "MyName" -Title "M
 
 # Update a social group
 try {
-    $Result = Update-SocialGroupAsync -TenantId $TenantId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupUpdateDto $SocialGroupUpdateDto
+    $Result = Update-SocialGroupAsync -TenantId $TenantId -SocialProfileId $SocialProfileId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupUpdateDto $SocialGroupUpdateDto
 } catch {
     Write-Host ("Exception occurred when calling Update-SocialGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -301,6 +309,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
  **SocialGroupId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 

@@ -1,0 +1,27 @@
+# ShippingClassCreateDto
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
+**Name** | **String** |  | 
+**Slug** | **String** |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ShippingClassCreateDto = Initialize-PSOpenAPIToolsShippingClassCreateDto  -Id null `
+ -Timestamp null `
+ -Name null `
+ -Slug null
+```
+
+- Convert the resource to JSON
+```powershell
+$ShippingClassCreateDto | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

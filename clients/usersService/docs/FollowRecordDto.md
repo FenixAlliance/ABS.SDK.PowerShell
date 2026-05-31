@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **Type** | **String** |  | [optional] 
 **FollowerId** | **String** |  | [optional] 
 **FollowedId** | **String** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $FollowRecordDto = Initialize-PSOpenAPIToolsFollowRecordDto  -Id null `
+ -Timestamp null `
  -Type null `
  -FollowerId null `
  -FollowedId null `

@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **TaxCalculationMethod** | **String** |  | [optional] 
 **CostCalculationMethod** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
+**ForexRatesSnapshot** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
@@ -112,6 +113,7 @@ $ExtendedQuoteDto = Initialize-PSOpenAPIToolsExtendedQuoteDto  -Id null `
  -TaxCalculationMethod null `
  -CostCalculationMethod null `
  -ForexRate null `
+ -ForexRatesSnapshot null `
  -CurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `

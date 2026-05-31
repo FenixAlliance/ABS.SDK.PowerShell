@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.InvoicesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ Method | HTTP request | Description
 <a id="Invoke-AggregateInvoiceDiscounts"></a>
 # **Invoke-AggregateInvoiceDiscounts**
 > MoneyEnvelope Invoke-AggregateInvoiceDiscounts<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 
@@ -61,12 +62,13 @@ Aggregates the discounts for the specified invoices.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RequestBody = "MyRequestBody" # String[] | 
 $CurrencyId = "MyCurrencyId" # String |  (optional)
 
 # Aggregate invoice discounts.
 try {
-    $Result = Invoke-AggregateInvoiceDiscounts -RequestBody $RequestBody -CurrencyId $CurrencyId
+    $Result = Invoke-AggregateInvoiceDiscounts -TenantId $TenantId -RequestBody $RequestBody -CurrencyId $CurrencyId
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateInvoiceDiscounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -77,6 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **RequestBody** | [**String[]**](String.md)|  | 
  **CurrencyId** | **String**|  | [optional] 
 
@@ -98,6 +101,7 @@ No authorization required
 <a id="Invoke-AggregateInvoiceGlobalSurcharges"></a>
 # **Invoke-AggregateInvoiceGlobalSurcharges**
 > MoneyEnvelope Invoke-AggregateInvoiceGlobalSurcharges<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 
@@ -107,12 +111,13 @@ Aggregates the global surcharges for the specified invoices.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RequestBody = "MyRequestBody" # String[] | 
 $CurrencyId = "MyCurrencyId" # String |  (optional)
 
 # Aggregate invoice global surcharges.
 try {
-    $Result = Invoke-AggregateInvoiceGlobalSurcharges -RequestBody $RequestBody -CurrencyId $CurrencyId
+    $Result = Invoke-AggregateInvoiceGlobalSurcharges -TenantId $TenantId -RequestBody $RequestBody -CurrencyId $CurrencyId
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateInvoiceGlobalSurcharges: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -123,6 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **RequestBody** | [**String[]**](String.md)|  | 
  **CurrencyId** | **String**|  | [optional] 
 
@@ -144,6 +150,7 @@ No authorization required
 <a id="Invoke-AggregateInvoiceTaxBases"></a>
 # **Invoke-AggregateInvoiceTaxBases**
 > MoneyEnvelope Invoke-AggregateInvoiceTaxBases<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 
@@ -153,12 +160,13 @@ Aggregates the tax bases for the specified invoices.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RequestBody = "MyRequestBody" # String[] | 
 $CurrencyId = "MyCurrencyId" # String |  (optional)
 
 # Aggregate invoice tax bases.
 try {
-    $Result = Invoke-AggregateInvoiceTaxBases -RequestBody $RequestBody -CurrencyId $CurrencyId
+    $Result = Invoke-AggregateInvoiceTaxBases -TenantId $TenantId -RequestBody $RequestBody -CurrencyId $CurrencyId
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateInvoiceTaxBases: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -169,6 +177,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **RequestBody** | [**String[]**](String.md)|  | 
  **CurrencyId** | **String**|  | [optional] 
 
@@ -190,6 +199,7 @@ No authorization required
 <a id="Invoke-AggregateInvoiceTaxes"></a>
 # **Invoke-AggregateInvoiceTaxes**
 > MoneyEnvelope Invoke-AggregateInvoiceTaxes<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 
@@ -199,12 +209,13 @@ Aggregates the taxes for the specified invoices.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RequestBody = "MyRequestBody" # String[] | 
 $CurrencyId = "MyCurrencyId" # String |  (optional)
 
 # Aggregate invoice taxes.
 try {
-    $Result = Invoke-AggregateInvoiceTaxes -RequestBody $RequestBody -CurrencyId $CurrencyId
+    $Result = Invoke-AggregateInvoiceTaxes -TenantId $TenantId -RequestBody $RequestBody -CurrencyId $CurrencyId
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateInvoiceTaxes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -215,6 +226,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **RequestBody** | [**String[]**](String.md)|  | 
  **CurrencyId** | **String**|  | [optional] 
 
@@ -236,6 +248,7 @@ No authorization required
 <a id="Invoke-AggregateInvoiceTotals"></a>
 # **Invoke-AggregateInvoiceTotals**
 > MoneyEnvelope Invoke-AggregateInvoiceTotals<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 
@@ -245,12 +258,13 @@ Aggregates the totals for the specified invoices.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RequestBody = "MyRequestBody" # String[] | 
 $CurrencyId = "MyCurrencyId" # String |  (optional)
 
 # Aggregate invoice totals.
 try {
-    $Result = Invoke-AggregateInvoiceTotals -RequestBody $RequestBody -CurrencyId $CurrencyId
+    $Result = Invoke-AggregateInvoiceTotals -TenantId $TenantId -RequestBody $RequestBody -CurrencyId $CurrencyId
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateInvoiceTotals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -261,6 +275,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **RequestBody** | [**String[]**](String.md)|  | 
  **CurrencyId** | **String**|  | [optional] 
 
@@ -1431,6 +1446,7 @@ No authorization required
 <a id="Get-InvoicePayments"></a>
 # **Get-InvoicePayments**
 > PaymentDtoIReadOnlyListEnvelope Get-InvoicePayments<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 
 Get payments for an invoice.
@@ -1439,11 +1455,12 @@ Retrieves the list of payments related to the specified invoice.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
 # Get payments for an invoice.
 try {
-    $Result = Get-InvoicePayments -InvoiceId $InvoiceId
+    $Result = Get-InvoicePayments -TenantId $TenantId -InvoiceId $InvoiceId
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoicePayments: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1454,6 +1471,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
 
 ### Return type
@@ -1474,6 +1492,7 @@ No authorization required
 <a id="Get-InvoicePaymentsCount"></a>
 # **Get-InvoicePaymentsCount**
 > Int32Envelope Get-InvoicePaymentsCount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 
 Get the count of payments for an invoice.
@@ -1482,11 +1501,12 @@ Retrieves the total count of payments for the specified invoice.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 
 # Get the count of payments for an invoice.
 try {
-    $Result = Get-InvoicePaymentsCount -InvoiceId $InvoiceId
+    $Result = Get-InvoicePaymentsCount -TenantId $TenantId -InvoiceId $InvoiceId
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoicePaymentsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1497,6 +1517,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
 
 ### Return type
@@ -1960,7 +1981,7 @@ Updates the specified invoice line.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$InvoiceLineUpdateDto = Initialize-InvoiceLineUpdateDto -Price 0 -UnitId "MyUnitId" -Percent 0 -UnitGroupId "MyUnitGroupId" -CurrencyId "MyCurrencyId" -DiscountListId "MyDiscountListId" -RoundingPolicyId "MyRoundingPolicyId" -Quantity 0 -ItemId "MyItemId" -ItemPriceId "MyItemPriceId" -InvoiceLineId "MyInvoiceLineId" -TaxAmountInUsd 0 -TaxBaseAmountInUsd 0 # InvoiceLineUpdateDto |  (optional)
+$InvoiceLineUpdateDto = Initialize-InvoiceLineUpdateDto -Closed $false -Title "MyTitle" -UserId "MyUserId" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -BillingLocationId "MyBillingLocationId" -ShippingLocationId "MyShippingLocationId" -ShippingMethodId "MyShippingMethodId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Quantity 0 -ItemId "MyItemId" -ItemPriceId "MyItemPriceId" -InvoiceLineId "MyInvoiceLineId" -TaxAmountInUsd 0 -TaxBaseAmountInUsd 0 # InvoiceLineUpdateDto |  (optional)
 
 # Update an invoice line.
 try {

@@ -2,6 +2,7 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
+docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
@@ -9,8 +10,7 @@ docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAllianceABSWebApi.md
-docs/ForexRates.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -57,7 +57,8 @@ docs/SimpleUserDto.md
 docs/TenantDto.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
+src/PSOpenAPITools/Api/CompletionsApi.ps1
+src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
 src/PSOpenAPITools/Api/InvoicesApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
@@ -68,7 +69,6 @@ src/PSOpenAPITools/Model/Envelope.ps1
 src/PSOpenAPITools/Model/ErrorEnvelope.ps1
 src/PSOpenAPITools/Model/ExtendedInvoiceDto.ps1
 src/PSOpenAPITools/Model/ExtendedInvoiceDtoListEnvelope.ps1
-src/PSOpenAPITools/Model/ForexRates.ps1
 src/PSOpenAPITools/Model/ForgotPasswordRequest.ps1
 src/PSOpenAPITools/Model/HttpValidationProblemDetails.ps1
 src/PSOpenAPITools/Model/InfoRequest.ps1
@@ -121,3 +121,5 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/CompletionsApi.Tests.ps1
+tests/Api/FenixAlliancePortalsWebsiteApi.Tests.ps1

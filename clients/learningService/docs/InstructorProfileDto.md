@@ -5,12 +5,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Authorized** | **Boolean** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
 **Verified** | **Boolean** |  | [optional] 
 **Submitted** | **Boolean** |  | [optional] 
 **AvatarUrl** | **String** |  | [optional] 
-**QualifiedName** | **String** |  | [optional] 
+**Contact** | [**ContactDto**](ContactDto.md) |  | [optional] 
+**QualifiedName** | **String** |  | [optional] [readonly] 
 **VerificationTimestamp** | **System.DateTime** |  | [optional] 
 **VarData** | **String** |  | [optional] 
 **DataLabel** | **String** |  | [optional] 
@@ -32,6 +36,7 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
+**Authorized** | **Boolean** |  | [optional] 
 **BusinessID** | **String** |  | [optional] 
 **ContactID** | **String** |  | [optional] 
 **BusinessProfileRecordID** | **String** |  | [optional] 
@@ -42,11 +47,15 @@ Name | Type | Description | Notes
 ```powershell
 $InstructorProfileDto = Initialize-PSOpenAPIToolsInstructorProfileDto  -Id null `
  -Timestamp null `
- -Authorized null `
+ -ContactId null `
+ -TenantId null `
+ -Type null `
+ -EnrollmentId null `
  -About null `
  -Verified null `
  -Submitted null `
  -AvatarUrl null `
+ -Contact null `
  -QualifiedName null `
  -VerificationTimestamp null `
  -VarData null `
@@ -69,6 +78,7 @@ $InstructorProfileDto = Initialize-PSOpenAPIToolsInstructorProfileDto  -Id null 
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
+ -Authorized null `
  -BusinessID null `
  -ContactID null `
  -BusinessProfileRecordID null

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **SwaggerSpecs** | [**ISwaggerSpec[]**](ISwaggerSpec.md) |  | [optional] 
 **Url** | **String** |  | [optional] 
 **AssemblyPaths** | **String[]** |  | [optional] 
+**RequiredPermissions** | **String[]** |  | [optional] [readonly] 
 **MarkedForDeletion** | **Boolean** |  | [optional] 
 **Version** | **String** |  | [optional] 
 
@@ -62,6 +63,7 @@ $Module = Initialize-PSOpenAPIToolsModule  -Enable null `
  -SwaggerSpecs null `
  -Url null `
  -AssemblyPaths null `
+ -RequiredPermissions null `
  -MarkedForDeletion null `
  -Version null
 ```

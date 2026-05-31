@@ -5,12 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
-**Verified** | **Boolean** |  | [optional] 
-**Submitted** | **Boolean** |  | [optional] 
 **AvatarUrl** | **String** |  | [optional] 
-**QualifiedName** | **String** |  | [optional] 
-**VerificationTimestamp** | **System.DateTime** |  | [optional] 
 **VarData** | **String** |  | [optional] 
 **DataLabel** | **String** |  | [optional] 
 **Data1** | **String** |  | [optional] 
@@ -39,12 +37,10 @@ Name | Type | Description | Notes
 ```powershell
 $StudentProfileCreateDto = Initialize-PSOpenAPIToolsStudentProfileCreateDto  -Id null `
  -Timestamp null `
+ -Type null `
+ -ContactId null `
  -About null `
- -Verified null `
- -Submitted null `
  -AvatarUrl null `
- -QualifiedName null `
- -VerificationTimestamp null `
  -VarData null `
  -DataLabel null `
  -Data1 null `

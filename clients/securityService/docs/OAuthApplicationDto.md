@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **ApplicationType** | **String** |  | [optional] 
 **ClientId** | **String** |  | [optional] 
 **ConcurrencyToken** | **String** |  | [optional] 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $OAuthApplicationDto = Initialize-PSOpenAPIToolsOAuthApplicationDto  -Id null `
+ -Timestamp null `
  -ApplicationType null `
  -ClientId null `
  -ConcurrencyToken null `

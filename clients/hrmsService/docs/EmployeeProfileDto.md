@@ -5,13 +5,87 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**About** | **String** |  | [optional] 
+**Verified** | **Boolean** |  | [optional] 
+**Submitted** | **Boolean** |  | [optional] 
+**AvatarUrl** | **String** |  | [optional] 
+**Contact** | [**ContactDto**](ContactDto.md) |  | [optional] 
+**QualifiedName** | **String** |  | [optional] [readonly] 
+**VerificationTimestamp** | **System.DateTime** |  | [optional] 
+**VarData** | **String** |  | [optional] 
+**DataLabel** | **String** |  | [optional] 
+**Data1** | **String** |  | [optional] 
+**Data1Label** | **String** |  | [optional] 
+**Data2** | **String** |  | [optional] 
+**Data2Label** | **String** |  | [optional] 
+**Data3** | **String** |  | [optional] 
+**Data3Label** | **String** |  | [optional] 
+**Data4** | **String** |  | [optional] 
+**Data4Label** | **String** |  | [optional] 
+**Data5** | **String** |  | [optional] 
+**Data5Label** | **String** |  | [optional] 
+**Data6** | **String** |  | [optional] 
+**Data6Label** | **String** |  | [optional] 
+**Data7** | **String** |  | [optional] 
+**Data7Label** | **String** |  | [optional] 
+**Data8** | **String** |  | [optional] 
+**Data8Label** | **String** |  | [optional] 
+**Data9** | **String** |  | [optional] 
+**Data9Label** | **String** |  | [optional] 
+**GrossPay** | **Double** |  | [optional] 
+**NetSalary** | **Double** |  | [optional] 
+**PayrollCurrency** | **String** |  | [optional] 
+**MaxWorkHoursPerDay** | **Int32** |  | [optional] 
+**JobTitleId** | **String** |  | [optional] 
+**EmployeeTypeId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $EmployeeProfileDto = Initialize-PSOpenAPIToolsEmployeeProfileDto  -Id null `
- -Timestamp null
+ -Timestamp null `
+ -ContactId null `
+ -TenantId null `
+ -Type null `
+ -EnrollmentId null `
+ -About null `
+ -Verified null `
+ -Submitted null `
+ -AvatarUrl null `
+ -Contact null `
+ -QualifiedName null `
+ -VerificationTimestamp null `
+ -VarData null `
+ -DataLabel null `
+ -Data1 null `
+ -Data1Label null `
+ -Data2 null `
+ -Data2Label null `
+ -Data3 null `
+ -Data3Label null `
+ -Data4 null `
+ -Data4Label null `
+ -Data5 null `
+ -Data5Label null `
+ -Data6 null `
+ -Data6Label null `
+ -Data7 null `
+ -Data7Label null `
+ -Data8 null `
+ -Data8Label null `
+ -Data9 null `
+ -Data9Label null `
+ -GrossPay null `
+ -NetSalary null `
+ -PayrollCurrency null `
+ -MaxWorkHoursPerDay null `
+ -JobTitleId null `
+ -EmployeeTypeId null
 ```
 
 - Convert the resource to JSON
