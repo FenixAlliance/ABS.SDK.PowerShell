@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
+**DiscountListType** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 $DiscountListDto = Initialize-PSOpenAPIToolsDiscountListDto  -Id null `
  -Timestamp null `
  -Name null `
+ -DiscountListType null `
  -CurrencyId null `
  -TenantId null `
  -EnrollmentId null

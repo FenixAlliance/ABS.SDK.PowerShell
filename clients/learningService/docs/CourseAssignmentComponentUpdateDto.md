@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
-**CourseAssignmentID** | **String** |  | [optional] 
+**CourseAssignmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $CourseAssignmentComponentUpdateDto = Initialize-PSOpenAPIToolsCourseAssignmentC
  -Description null `
  -Content null `
  -Order null `
- -CourseAssignmentID null
+ -CourseAssignmentId null
 ```
 
 - Convert the resource to JSON

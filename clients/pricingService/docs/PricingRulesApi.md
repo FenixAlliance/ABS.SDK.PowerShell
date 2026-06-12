@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-PricingRuleById**](PricingRulesApi.md#Get-PricingRuleById) | **GET** /api/v2/PricingService/PricingRules/{pricingRuleId} | Get pricing rule by ID
 [**Get-PricingRules**](PricingRulesApi.md#Get-PricingRules) | **GET** /api/v2/PricingService/PricingRules | Get all pricing rules
 [**Get-PricingRulesCountAsync**](PricingRulesApi.md#Get-PricingRulesCountAsync) | **GET** /api/v2/PricingService/PricingRules/Count | Counts pricing rules
+[**Invoke-PatchPricingRule**](PricingRulesApi.md#Invoke-PatchPricingRule) | **PATCH** /api/v2/PricingService/PricingRules/{pricingRuleId} | Patch a pricing rule
 [**Update-PricingRule**](PricingRulesApi.md#Update-PricingRule) | **PUT** /api/v2/PricingService/PricingRules/Update | Update a pricing rule
 
 
@@ -29,7 +30,7 @@ Creates a new pricing rule for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PricingRuleCreateDto = Initialize-PricingRuleCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyID "MyCurrencyID" -CountryID "MyCountryID" -CountryStateID "MyCountryStateID" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityID "MyCityID" # PricingRuleCreateDto |  (optional)
+$PricingRuleCreateDto = Initialize-PricingRuleCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" # PricingRuleCreateDto |  (optional)
 
 # Create a new pricing rule
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchPricingRule"></a>
+# **Invoke-PatchPricingRule**
+> void Invoke-PatchPricingRule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PricingRuleId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a pricing rule
+
+Partially updates a pricing rule using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PricingRuleId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a pricing rule
+try {
+    $Result = Invoke-PatchPricingRule -TenantId $TenantId -PricingRuleId $PricingRuleId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchPricingRule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PricingRuleId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-PricingRule"></a>
 # **Update-PricingRule**
 > void Update-PricingRule<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PricingRuleId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PricingRuleUpdateDto = Initialize-PricingRuleUpdateDto -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyID "MyCurrencyID" -CountryID "MyCountryID" -CountryStateID "MyCountryStateID" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityID "MyCityID" # PricingRuleUpdateDto |  (optional)
+$PricingRuleUpdateDto = Initialize-PricingRuleUpdateDto -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" # PricingRuleUpdateDto |  (optional)
 
 # Update a pricing rule
 try {

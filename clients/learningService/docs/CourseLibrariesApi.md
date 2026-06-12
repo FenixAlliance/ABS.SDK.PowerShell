@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseLibrariesAsync**](CourseLibrariesApi.md#Get-CourseLibrariesAsync) | **GET** /api/v2/LearningService/CourseLibraries | Get all course libraries
 [**Get-CourseLibrariesCountAsync**](CourseLibrariesApi.md#Get-CourseLibrariesCountAsync) | **GET** /api/v2/LearningService/CourseLibraries/Count | Get course libraries count
 [**Get-CourseLibraryByIdAsync**](CourseLibrariesApi.md#Get-CourseLibraryByIdAsync) | **GET** /api/v2/LearningService/CourseLibraries/{libraryId} | Get course library by ID
+[**Invoke-PatchCourseLibraryAsync**](CourseLibrariesApi.md#Invoke-PatchCourseLibraryAsync) | **PATCH** /api/v2/LearningService/CourseLibraries/{libraryId} | Patch a course library
 [**Update-CourseLibraryAsync**](CourseLibrariesApi.md#Update-CourseLibraryAsync) | **PUT** /api/v2/LearningService/CourseLibraries/{libraryId} | Update a course library
 
 
@@ -29,7 +30,7 @@ Creates a new course library for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseLibraryCreateDto = Initialize-CourseLibraryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -ReleaseDateTime (Get-Date) # CourseLibraryCreateDto |  (optional)
+$CourseLibraryCreateDto = Initialize-CourseLibraryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -CourseId "MyCourseId" -CourseUnitId "MyCourseUnitId" -ReleaseDateTime (Get-Date) # CourseLibraryCreateDto |  (optional)
 
 # Create a course library
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseLibraryAsync"></a>
+# **Invoke-PatchCourseLibraryAsync**
+> void Invoke-PatchCourseLibraryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LibraryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course library
+
+Partially updates an existing course library.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LibraryId = "MyLibraryId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course library
+try {
+    $Result = Invoke-PatchCourseLibraryAsync -TenantId $TenantId -LibraryId $LibraryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseLibraryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **LibraryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseLibraryAsync"></a>
 # **Update-CourseLibraryAsync**
 > CourseLibraryDto Update-CourseLibraryAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LibraryId = "MyLibraryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseLibraryUpdateDto = Initialize-CourseLibraryUpdateDto -Title "MyTitle" -Description "MyDescription" -CourseUnitID "MyCourseUnitID" -ReleaseDateTime (Get-Date) # CourseLibraryUpdateDto |  (optional)
+$CourseLibraryUpdateDto = Initialize-CourseLibraryUpdateDto -Title "MyTitle" -Description "MyDescription" -CourseUnitId "MyCourseUnitId" -ReleaseDateTime (Get-Date) # CourseLibraryUpdateDto |  (optional)
 
 # Update a course library
 try {

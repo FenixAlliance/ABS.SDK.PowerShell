@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-ReceiptDetailsAsync**](ReceiptsApi.md#Get-ReceiptDetailsAsync) | **GET** /api/v2/AccountingService/Receipts/{receiptId} | Gets details of a receipt
 [**Get-ReceiptsAsync**](ReceiptsApi.md#Get-ReceiptsAsync) | **GET** /api/v2/AccountingService/Receipts | Retrieves tenant receipts
 [**Get-ReceiptsCountAsync**](ReceiptsApi.md#Get-ReceiptsCountAsync) | **GET** /api/v2/AccountingService/Receipts/Count | Gets count of tenant receipts
+[**Invoke-PatchReceiptAsync**](ReceiptsApi.md#Invoke-PatchReceiptAsync) | **PATCH** /api/v2/AccountingService/Receipts/{receiptId} | Patches a receipt
 [**Update-ReceiptAsync**](ReceiptsApi.md#Update-ReceiptAsync) | **PUT** /api/v2/AccountingService/Receipts/{receiptId} | Updates a receipt
 
 
@@ -232,6 +233,55 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchReceiptAsync"></a>
+# **Invoke-PatchReceiptAsync**
+> EmptyEnvelope Invoke-PatchReceiptAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReceiptId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a receipt
+
+Partially updates the specified receipt using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ReceiptId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a receipt
+try {
+    $Result = Invoke-PatchReceiptAsync -TenantId $TenantId -ReceiptId $ReceiptId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchReceiptAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ReceiptId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

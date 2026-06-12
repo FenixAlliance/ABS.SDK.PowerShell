@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**Get-SupportRequestTicketsAsync**](SupportRequestsApi.md#Get-SupportRequestTicketsAsync) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | Retrieve tickets for a support request
 [**Get-SupportRequestsAsync**](SupportRequestsApi.md#Get-SupportRequestsAsync) | **GET** /api/v2/SupportService/SupportRequests | Retrieve a list of support requests
 [**Get-SupportRequestsCountAsync**](SupportRequestsApi.md#Get-SupportRequestsCountAsync) | **GET** /api/v2/SupportService/SupportRequests/Count | Get the count of support requests
+[**Invoke-PatchSupportRequestAsync**](SupportRequestsApi.md#Invoke-PatchSupportRequestAsync) | **PATCH** /api/v2/SupportService/SupportRequests/{supportRequestId} | Patch a support request
 [**Invoke-RelateSupportRequestToAttachmentAsync**](SupportRequestsApi.md#Invoke-RelateSupportRequestToAttachmentAsync) | **POST** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Add an attachment to a support request
 [**Update-SupportRequestAsync**](SupportRequestsApi.md#Update-SupportRequestAsync) | **PUT** /api/v2/SupportService/SupportRequests/{supportRequestId} | Update a support request
 
@@ -34,7 +35,7 @@ Creates a new support request for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportRequestCreateDto = Initialize-SupportRequestCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Approved $false -ApprovedTimestamp (Get-Date) -SupportEntitlementID "MySupportEntitlementID" -ContactID "MyContactID" # SupportRequestCreateDto |  (optional)
+$SupportRequestCreateDto = Initialize-SupportRequestCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Approved $false -ApprovedTimestamp (Get-Date) -SupportEntitlementId "MySupportEntitlementId" -ContactId "MyContactId" # SupportRequestCreateDto |  (optional)
 
 # Create a new support request
 try {
@@ -482,6 +483,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchSupportRequestAsync"></a>
+# **Invoke-PatchSupportRequestAsync**
+> EmptyEnvelope Invoke-PatchSupportRequestAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a support request
+
+Partially updates an existing support request by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a support request
+try {
+    $Result = Invoke-PatchSupportRequestAsync -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSupportRequestAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SupportRequestId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-RelateSupportRequestToAttachmentAsync"></a>
 # **Invoke-RelateSupportRequestToAttachmentAsync**
 > EmptyEnvelope Invoke-RelateSupportRequestToAttachmentAsync<br>
@@ -501,7 +557,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportRequestAttachmentCreateDto = Initialize-SupportRequestAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -Metadata "MyMetadata" -SupportRequestID "MySupportRequestID" # SupportRequestAttachmentCreateDto |  (optional)
+$SupportRequestAttachmentCreateDto = Initialize-SupportRequestAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -Metadata "MyMetadata" -SupportRequestId "MySupportRequestId" # SupportRequestAttachmentCreateDto |  (optional)
 
 # Add an attachment to a support request
 try {
@@ -556,7 +612,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportRequestUpdateDto = Initialize-SupportRequestUpdateDto -Title "MyTitle" -Description "MyDescription" -Approved $false -ApprovedTimestamp (Get-Date) -SupportEntitlementID "MySupportEntitlementID" # SupportRequestUpdateDto |  (optional)
+$SupportRequestUpdateDto = Initialize-SupportRequestUpdateDto -Title "MyTitle" -Description "MyDescription" -Approved $false -ApprovedTimestamp (Get-Date) -SupportEntitlementId "MySupportEntitlementId" # SupportRequestUpdateDto |  (optional)
 
 # Update a support request
 try {

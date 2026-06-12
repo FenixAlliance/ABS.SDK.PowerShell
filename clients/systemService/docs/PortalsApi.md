@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-SystemPortalById**](PortalsApi.md#Get-SystemPortalById) | **GET** /api/v2/SystemService/Portals/{portalId} | Retrieve a single system portal by its ID
 [**Get-SystemPortals**](PortalsApi.md#Get-SystemPortals) | **GET** /api/v2/SystemService/Portals | Retrieve a list of system portals
 [**Get-SystemPortalsCount**](PortalsApi.md#Get-SystemPortalsCount) | **GET** /api/v2/SystemService/Portals/Count | Get the count of system portals
+[**Invoke-PatchSystemPortal**](PortalsApi.md#Invoke-PatchSystemPortal) | **PATCH** /api/v2/SystemService/Portals/{portalId} | Partially update a system portal
 [**Update-SystemPortal**](PortalsApi.md#Update-SystemPortal) | **PUT** /api/v2/SystemService/Portals/{portalId} | Update a system portal
 
 
@@ -27,7 +28,7 @@ Create a new web portal in the system
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPortalCreateDto = Initialize-WebPortalCreateDto -Id "MyId" -Timestamp (Get-Date) -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalCreateDto |  (optional)
+$WebPortalCreateDto = Initialize-WebPortalCreateDto -Id "MyId" -Timestamp (Get-Date) -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeId "MyWebsiteThemeId" -BusinessDomainId "MyBusinessDomainId" -BusinessPortalApplicationId "MyBusinessPortalApplicationId" # WebPortalCreateDto |  (optional)
 
 # Create a new system portal
 try {
@@ -251,6 +252,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchSystemPortal"></a>
+# **Invoke-PatchSystemPortal**
+> EmptyEnvelope Invoke-PatchSystemPortal<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PortalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially update a system portal
+
+Partially update an existing web portal in the system using a JSON Patch document
+
+### Example
+```powershell
+$PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially update a system portal
+try {
+    $Result = Invoke-PatchSystemPortal -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSystemPortal: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **PortalId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-SystemPortal"></a>
 # **Update-SystemPortal**
 > EmptyEnvelope Update-SystemPortal<br>
@@ -268,7 +321,7 @@ Update an existing web portal in the system
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$WebPortalUpdateDto = Initialize-WebPortalUpdateDto -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeID "MyWebsiteThemeID" -BusinessDomainID "MyBusinessDomainID" -BusinessPortalApplicationID "MyBusinessPortalApplicationID" # WebPortalUpdateDto |  (optional)
+$WebPortalUpdateDto = Initialize-WebPortalUpdateDto -Root $false -Title "MyTitle" -Domain "MyDomain" -Disabled $false -Description "MyDescription" -WebsiteThemeId "MyWebsiteThemeId" -BusinessDomainId "MyBusinessDomainId" -BusinessPortalApplicationId "MyBusinessPortalApplicationId" # WebPortalUpdateDto |  (optional)
 
 # Update a system portal
 try {

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**ParentBusinessIndustryID** | **String** |  | [optional] 
+**ParentBusinessIndustryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 $TenantIndustryCreateDto = Initialize-PSOpenAPIToolsTenantIndustryCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -ParentBusinessIndustryID null
+ -ParentBusinessIndustryId null
 ```
 
 - Convert the resource to JSON

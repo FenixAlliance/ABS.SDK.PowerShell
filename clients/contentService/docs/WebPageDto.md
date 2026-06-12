@@ -62,7 +62,9 @@ Name | Type | Description | Notes
 **SocialProfileId** | **String** |  | [optional] 
 **ParentWebContentId** | **String** |  | [optional] 
 **ParentWebContentVersionId** | **String** |  | [optional] 
-**WebTemplateID** | **String** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
+**AuthorName** | **String** |  | [optional] 
+**AuthorId** | **String** |  | [optional] 
 **IsHomePage** | **Boolean** |  | [optional] 
 **IsStorePage** | **Boolean** |  | [optional] 
 **IsCartPage** | **Boolean** |  | [optional] 
@@ -137,7 +139,9 @@ $WebPageDto = Initialize-PSOpenAPIToolsWebPageDto  -Id null `
  -SocialProfileId null `
  -ParentWebContentId null `
  -ParentWebContentVersionId null `
- -WebTemplateID null `
+ -WebTemplateId null `
+ -AuthorName null `
+ -AuthorId null `
  -IsHomePage null `
  -IsStorePage null `
  -IsCartPage null `

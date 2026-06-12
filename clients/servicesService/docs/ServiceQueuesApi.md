@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-ServiceQueueByIdAsync**](ServiceQueuesApi.md#Get-ServiceQueueByIdAsync) | **GET** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Get a service queue by ID
 [**Get-ServiceQueuesAsync**](ServiceQueuesApi.md#Get-ServiceQueuesAsync) | **GET** /api/v2/ServicesService/ServiceQueues | Get all service queues
 [**Get-ServiceQueuesCountAsync**](ServiceQueuesApi.md#Get-ServiceQueuesCountAsync) | **GET** /api/v2/ServicesService/ServiceQueues/Count | Get service queues count
+[**Invoke-PatchServiceQueueAsync**](ServiceQueuesApi.md#Invoke-PatchServiceQueueAsync) | **PATCH** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Patch a service queue
 [**Update-ServiceQueueAsync**](ServiceQueuesApi.md#Update-ServiceQueueAsync) | **PUT** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Update a service queue
 
 
@@ -262,6 +263,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchServiceQueueAsync"></a>
+# **Invoke-PatchServiceQueueAsync**
+> Envelope Invoke-PatchServiceQueueAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceQueueId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a service queue
+
+Partially updates an existing service queue using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ServiceQueueId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a service queue
+try {
+    $Result = Invoke-PatchServiceQueueAsync -TenantId $TenantId -ServiceQueueId $ServiceQueueId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchServiceQueueAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ServiceQueueId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**Envelope**](Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

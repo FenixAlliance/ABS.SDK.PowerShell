@@ -20,12 +20,12 @@ Name | Type | Description | Notes
 **Years** | **Int32** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **Percentage** | **Double** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**CountryStateID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**CountryStateId** | **String** |  | [optional] 
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
-**CityID** | **String** |  | [optional] 
+**CityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -48,12 +48,12 @@ $PricingRuleCreateDto = Initialize-PSOpenAPIToolsPricingRuleCreateDto  -Id null 
  -Years null `
  -Value null `
  -Percentage null `
- -CurrencyID null `
- -CountryID null `
- -CountryStateID null `
+ -CurrencyId null `
+ -CountryId null `
+ -CountryStateId null `
  -CustomState null `
  -CustomCity null `
- -CityID null
+ -CityId null
 ```
 
 - Convert the resource to JSON

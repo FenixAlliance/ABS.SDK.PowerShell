@@ -18,6 +18,7 @@ docs/LocationDtoIReadOnlyListEnvelope.md
 docs/LocationUpdateDto.md
 docs/LocationsApi.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -42,6 +43,7 @@ src/PSOpenAPITools/Model/LocationDtoEnvelope.ps1
 src/PSOpenAPITools/Model/LocationDtoIReadOnlyListEnvelope.ps1
 src/PSOpenAPITools/Model/LocationUpdateDto.ps1
 src/PSOpenAPITools/Model/LoginRequest.ps1
+src/PSOpenAPITools/Model/Operation.ps1
 src/PSOpenAPITools/Model/RefreshRequest.ps1
 src/PSOpenAPITools/Model/RegisterRequest.ps1
 src/PSOpenAPITools/Model/ResendConfirmationEmailRequest.ps1
@@ -55,5 +57,3 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
-tests/Api/CompletionsApi.Tests.ps1
-tests/Api/FenixAlliancePortalsWebsiteApi.Tests.ps1

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**Get-ExtendedSalesLiteraturesAsync**](SalesLiteraturesApi.md#Get-ExtendedSalesLiteraturesAsync) | **GET** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures
 [**Get-SalesLiteratureAsync**](SalesLiteraturesApi.md#Get-SalesLiteratureAsync) | **GET** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
 [**Get-SalesLiteraturesAsync**](SalesLiteraturesApi.md#Get-SalesLiteraturesAsync) | **GET** /api/v2/SalesService/SalesLiteratures | Get sales literatures
+[**Invoke-PatchSalesLiteratureAsync**](SalesLiteraturesApi.md#Invoke-PatchSalesLiteratureAsync) | **PATCH** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Patch a sales literature
 [**Update-SalesLiteratureAsync**](SalesLiteraturesApi.md#Update-SalesLiteratureAsync) | **PUT** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
 
 
@@ -276,6 +277,55 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchSalesLiteratureAsync"></a>
+# **Invoke-PatchSalesLiteratureAsync**
+> EmptyEnvelope Invoke-PatchSalesLiteratureAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a sales literature
+
+Partially updates an existing sales literature using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a sales literature
+try {
+    $Result = Invoke-PatchSalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SalesLiteratureId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

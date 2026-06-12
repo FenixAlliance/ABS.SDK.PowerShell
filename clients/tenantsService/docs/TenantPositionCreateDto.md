@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +16,8 @@ Name | Type | Description | Notes
 $TenantPositionCreateDto = Initialize-PSOpenAPIToolsTenantPositionCreateDto  -Id null `
  -Timestamp null `
  -Title null `
- -Description null
+ -Description null `
+ -Type null
 ```
 
 - Convert the resource to JSON

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**Get-UserOptionByKey**](OptionsApi.md#Get-UserOptionByKey) | **GET** /api/v2/Me/Options/Key/{key} | Retrieve a single user option by its key
 [**Get-UserOptions**](OptionsApi.md#Get-UserOptions) | **GET** /api/v2/Me/Options | Retrieve a list of user options
 [**Get-UserOptionsCount**](OptionsApi.md#Get-UserOptionsCount) | **GET** /api/v2/Me/Options/Count | Get the count of user options
+[**Invoke-PatchUserOption**](OptionsApi.md#Invoke-PatchUserOption) | **PATCH** /api/v2/Me/Options/{optionId} | Patch a user option
 [**Update-UserOption**](OptionsApi.md#Update-UserOption) | **PUT** /api/v2/Me/Options/{optionId} | Update a user option
 [**Invoke-UpsertUserOption**](OptionsApi.md#Invoke-UpsertUserOption) | **PUT** /api/v2/Me/Options/Upsert/{key} | Create or update a user option by key
 
@@ -313,6 +314,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchUserOption"></a>
+# **Invoke-PatchUserOption**
+> EmptyEnvelope Invoke-PatchUserOption<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a user option
+
+Partially updates a user option using a JSON Patch document
+
+### Example
+```powershell
+$OptionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a user option
+try {
+    $Result = Invoke-PatchUserOption -OptionId $OptionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchUserOption: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **OptionId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**Status** | **String** |  | [optional] 
 **StartDateTime** | **System.DateTime** |  | [optional] 
 **EndDateTime** | **System.DateTime** |  | [optional] 
 **NextInvoiceDateTime** | **System.DateTime** |  | [optional] 
@@ -44,15 +45,15 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
-**IndividualID** | **String** |  | [optional] 
-**OrganizationID** | **String** |  | [optional] 
-**ReceiverBusinessID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**PaymentTokenID** | **String** |  | [optional] 
-**WalletAccountID** | **String** |  | [optional] 
-**SecurityCertificateID** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
+**IndividualId** | **String** |  | [optional] 
+**OrganizationId** | **String** |  | [optional] 
+**ReceiverTenantId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**PaymentTokenId** | **String** |  | [optional] 
+**WalletAccountId** | **String** |  | [optional] 
+**SecurityCertificateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -62,6 +63,7 @@ $SupportEntitlementDto = Initialize-PSOpenAPIToolsSupportEntitlementDto  -Id nul
  -Timestamp null `
  -Title null `
  -Description null `
+ -Status null `
  -StartDateTime null `
  -EndDateTime null `
  -NextInvoiceDateTime null `
@@ -99,15 +101,15 @@ $SupportEntitlementDto = Initialize-PSOpenAPIToolsSupportEntitlementDto  -Id nul
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
- -AccountHolderID null `
- -IndividualID null `
- -OrganizationID null `
- -ReceiverBusinessID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -PaymentTokenID null `
- -WalletAccountID null `
- -SecurityCertificateID null
+ -UserId null `
+ -IndividualId null `
+ -OrganizationId null `
+ -ReceiverTenantId null `
+ -TenantId null `
+ -EnrollmentId null `
+ -PaymentTokenId null `
+ -WalletAccountId null `
+ -SecurityCertificateId null
 ```
 
 - Convert the resource to JSON

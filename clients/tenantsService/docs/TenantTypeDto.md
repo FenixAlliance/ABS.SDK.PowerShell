@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTypeDto = Initialize-PSOpenAPIToolsTenantTypeDto  -Id null `
  -Timestamp null `
+ -TenantId null `
  -Name null `
  -Description null
 ```

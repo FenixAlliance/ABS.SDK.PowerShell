@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessTeamID** | **String** |  | 
+**BusinessTeamId** | **String** |  | 
 
 ## Examples
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamRecordCreateDto = Initialize-PSOpenAPIToolsTenantTeamRecordCreateDto  -Id null `
  -Timestamp null `
- -BusinessTeamID null
+ -BusinessTeamId null
 ```
 
 - Convert the resource to JSON

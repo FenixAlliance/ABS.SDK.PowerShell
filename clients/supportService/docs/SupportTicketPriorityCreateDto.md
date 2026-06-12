@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $SupportTicketPriorityCreateDto = Initialize-PSOpenAPIToolsSupportTicketPriority
  -Timestamp null `
  -Title null `
  -Description null `
- -SupportEntitlementID null
+ -SupportEntitlementId null
 ```
 
 - Convert the resource to JSON

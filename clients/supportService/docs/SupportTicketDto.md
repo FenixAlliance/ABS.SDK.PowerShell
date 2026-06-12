@@ -5,14 +5,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**SupportTicketTypeID** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
-**SupportPriorityID** | **String** |  | [optional] 
+**SupportTicketStatus** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**SupportTicketTypeId** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
+**SupportPriorityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -20,14 +22,16 @@ Name | Type | Description | Notes
 ```powershell
 $SupportTicketDto = Initialize-PSOpenAPIToolsSupportTicketDto  -Id null `
  -Timestamp null `
+ -Title null `
  -Description null `
- -AccountHolderID null `
- -ContactID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -SupportTicketTypeID null `
- -SupportEntitlementID null `
- -SupportPriorityID null
+ -SupportTicketStatus null `
+ -UserId null `
+ -ContactId null `
+ -TenantId null `
+ -EnrollmentId null `
+ -SupportTicketTypeId null `
+ -SupportEntitlementId null `
+ -SupportPriorityId null
 ```
 
 - Convert the resource to JSON

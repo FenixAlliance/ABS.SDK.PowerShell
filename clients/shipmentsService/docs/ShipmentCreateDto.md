@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ExpectedShippingDate** | **System.DateTime** |  | [optional] 
 **ExpectedDeliveryDate** | **System.DateTime** |  | [optional] 
 **ShippingTerms** | **String** |  | [optional] 
-**OrderID** | **String** |  | [optional] 
+**OrderId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,7 +23,7 @@ $ShipmentCreateDto = Initialize-PSOpenAPIToolsShipmentCreateDto  -Id null `
  -ExpectedShippingDate null `
  -ExpectedDeliveryDate null `
  -ShippingTerms null `
- -OrderID null
+ -OrderId null
 ```
 
 - Convert the resource to JSON

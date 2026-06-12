@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantTeamById**](TeamsApi.md#Get-TenantTeamById) | **GET** /api/v2/TenantsService/Teams/{tenantTeamId} | Retrieve a single tenant team by its ID
 [**Get-TenantTeams**](TeamsApi.md#Get-TenantTeams) | **GET** /api/v2/TenantsService/Teams | Retrieve a list of tenant teams
 [**Get-TenantTeamsCount**](TeamsApi.md#Get-TenantTeamsCount) | **GET** /api/v2/TenantsService/Teams/Count | Get the count of tenant teams
+[**Invoke-PatchTenantTeam**](TeamsApi.md#Invoke-PatchTenantTeam) | **PATCH** /api/v2/TenantsService/Teams/{tenantTeamId} | Patch a tenant team
 [**Update-TenantTeam**](TeamsApi.md#Update-TenantTeam) | **PUT** /api/v2/TenantsService/Teams/{tenantTeamId} | Update a tenant team
 
 
@@ -29,7 +30,7 @@ Create a new tenant team
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamCreateDto = Initialize-TenantTeamCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamCreateDto |  (optional)
+$TenantTeamCreateDto = Initialize-TenantTeamCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AvatarUrl "MyAvatarUrl" -IsPublic $false -BusinessUnitId "MyBusinessUnitId" -OrganizationProfileId "MyOrganizationProfileId" # TenantTeamCreateDto |  (optional)
 
 # Create a new tenant team
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantTeam"></a>
+# **Invoke-PatchTenantTeam**
+> EmptyEnvelope Invoke-PatchTenantTeam<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantTeamId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant team
+
+Patch a tenant team
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantTeamId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant team
+try {
+    $Result = Invoke-PatchTenantTeam -TenantId $TenantId -TenantTeamId $TenantTeamId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantTeam: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantTeamId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantTeam"></a>
 # **Update-TenantTeam**
 > EmptyEnvelope Update-TenantTeam<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantTeamId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamUpdateDto = Initialize-TenantTeamUpdateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AvatarURL "MyAvatarURL" -IsPublic $false -BusinessUnitID "MyBusinessUnitID" -OrganizationProfileID "MyOrganizationProfileID" # TenantTeamUpdateDto |  (optional)
+$TenantTeamUpdateDto = Initialize-TenantTeamUpdateDto -Name "MyName" -Description "MyDescription" -AvatarUrl "MyAvatarUrl" -IsPublic $false -BusinessUnitId "MyBusinessUnitId" -OrganizationProfileId "MyOrganizationProfileId" # TenantTeamUpdateDto |  (optional)
 
 # Update a tenant team
 try {

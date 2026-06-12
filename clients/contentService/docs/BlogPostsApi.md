@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**Get-CommentsForBlogPostAsync**](BlogPostsApi.md#Get-CommentsForBlogPostAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments | Get comments for a blog post
 [**Get-RepliesForCommentAsync**](BlogPostsApi.md#Get-RepliesForCommentAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies | Get replies for a comment
 [**Get-TagsForBlogPostAsync**](BlogPostsApi.md#Get-TagsForBlogPostAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags | Get tags for a blog post
+[**Invoke-PatchBlogPostAsync**](BlogPostsApi.md#Invoke-PatchBlogPostAsync) | **PATCH** /api/v2/ContentService/BlogPosts/{blogPostId} | Patch a blog post
 [**Invoke-RelateCategoryToBlogPostAsync**](BlogPostsApi.md#Invoke-RelateCategoryToBlogPostAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Categories/{categoryId} | Relate an existing category to a blog post
 [**Invoke-RelateTagToBlogPostAsync**](BlogPostsApi.md#Invoke-RelateTagToBlogPostAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags/{tagId} | Relate an existing tag to a blog post
 [**Invoke-ReplyToCommentAsync**](BlogPostsApi.md#Invoke-ReplyToCommentAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Reply | Reply to a blog post comment
@@ -38,7 +39,7 @@ Creates a new blog post for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCreateDto = Initialize-BlogPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Published $false -Description "MyDescription" -Code "MyCode" -Markup "MyMarkup" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -BlogPostCategoryId "MyBlogPostCategoryId" -WebTemplateId "MyWebTemplateId" # BlogPostCreateDto |  (optional)
+$BlogPostCreateDto = Initialize-BlogPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Published $false -Description "MyDescription" -Code "MyCode" -Markup "MyMarkup" -FeaturedImageUrl "MyFeaturedImageUrl" -CodeType "Razor" -Slug "MySlug" -BlogPostCategoryId "MyBlogPostCategoryId" -WebTemplateId "MyWebTemplateId" # BlogPostCreateDto |  (optional)
 
 # Create a new blog post
 try {
@@ -86,7 +87,7 @@ Creates a new category and relates it to a specific blog post.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # BlogPostCategoryCreateDto |  (optional)
+$BlogPostCategoryCreateDto = Initialize-BlogPostCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalId "MyWebPortalId" # BlogPostCategoryCreateDto |  (optional)
 
 # Create a category for a blog post
 try {
@@ -135,7 +136,7 @@ Creates a new comment on a specific blog post.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCommentCreateDto = Initialize-BlogPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -OwnerSocialProfileID "MyOwnerSocialProfileID" -SocialPostID "MySocialPostID" -ParentCommentID "MyParentCommentID" # BlogPostCommentCreateDto |  (optional)
+$BlogPostCommentCreateDto = Initialize-BlogPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -OwnerSocialProfileId "MyOwnerSocialProfileId" -SocialPostId "MySocialPostId" -ParentCommentId "MyParentCommentId" # BlogPostCommentCreateDto |  (optional)
 
 # Create a comment for a blog post
 try {
@@ -184,7 +185,7 @@ Creates a new tag and relates it to a specific blog post.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostTagCreateDto = Initialize-BlogPostTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalID "MyWebPortalID" # BlogPostTagCreateDto |  (optional)
+$BlogPostTagCreateDto = Initialize-BlogPostTagCreateDto -Id "MyId" -Timestamp (Get-Date) -Slug "MySlug" -Type "MyType" -Title "MyTitle" -Description "MyDescription" -SeoTitle "MySeoTitle" -MetaDescription "MyMetaDescription" -CornerstoneContent $false -AllowSerachEngines $false -SeoKeyPhrases "MySeoKeyPhrases" -CanonicalUrl "MyCanonicalUrl" -ImageURL "MyImageURL" -Image "MyImage" -WebPortalId "MyWebPortalId" # BlogPostTagCreateDto |  (optional)
 
 # Create a tag for a blog post
 try {
@@ -617,6 +618,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchBlogPostAsync"></a>
+# **Invoke-PatchBlogPostAsync**
+> EmptyEnvelope Invoke-PatchBlogPostAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a blog post
+
+Partially updates an existing blog post for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a blog post
+try {
+    $Result = Invoke-PatchBlogPostAsync -TenantId $TenantId -BlogPostId $BlogPostId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchBlogPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **BlogPostId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-RelateCategoryToBlogPostAsync"></a>
 # **Invoke-RelateCategoryToBlogPostAsync**
 > EmptyEnvelope Invoke-RelateCategoryToBlogPostAsync<br>
@@ -732,7 +782,7 @@ Creates a reply to an existing comment on a blog post.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BlogPostCommentCreateDto = Initialize-BlogPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -OwnerSocialProfileID "MyOwnerSocialProfileID" -SocialPostID "MySocialPostID" -ParentCommentID "MyParentCommentID" # BlogPostCommentCreateDto |  (optional)
+$BlogPostCommentCreateDto = Initialize-BlogPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -OwnerSocialProfileId "MyOwnerSocialProfileId" -SocialPostId "MySocialPostId" -ParentCommentId "MyParentCommentId" # BlogPostCommentCreateDto |  (optional)
 
 # Reply to a blog post comment
 try {

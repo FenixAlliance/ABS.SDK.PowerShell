@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Message** | **String** |  | 
-**OwnerSocialProfileID** | **String** |  | [optional] 
-**SocialPostID** | **String** |  | [optional] 
-**ParentCommentID** | **String** |  | [optional] 
+**OwnerSocialProfileId** | **String** |  | [optional] 
+**SocialPostId** | **String** |  | [optional] 
+**ParentCommentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 $BlogPostCommentCreateDto = Initialize-PSOpenAPIToolsBlogPostCommentCreateDto  -Id null `
  -Timestamp null `
  -Message null `
- -OwnerSocialProfileID null `
- -SocialPostID null `
- -ParentCommentID null
+ -OwnerSocialProfileId null `
+ -SocialPostId null `
+ -ParentCommentId null
 ```
 
 - Convert the resource to JSON

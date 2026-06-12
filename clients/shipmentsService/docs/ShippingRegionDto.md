@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **PostalCodes** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $ShippingRegionDto = Initialize-PSOpenAPIToolsShippingRegionDto  -Id null `
  -Timestamp null `
  -Name null `
  -PostalCodes null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

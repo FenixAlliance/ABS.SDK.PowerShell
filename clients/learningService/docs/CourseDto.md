@@ -168,9 +168,9 @@ Name | Type | Description | Notes
 **SelectedSellingMarginPolicies** | **String[]** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Version** | **String** |  | [optional] 
-**CourseCategoryID** | **String** |  | [optional] 
+**CourseCategoryId** | **String** |  | [optional] 
 **CourseCategoryName** | **String** |  | [optional] 
-**InstructorProfileID** | **String** |  | [optional] 
+**InstructorProfileId** | **String** |  | [optional] 
 **InstructorProfileName** | **String** |  | [optional] 
 **MaxCourseEnrollments** | **Int32** |  | [optional] 
 **TotalEffortInWeeks** | **Int32** |  | [optional] 
@@ -350,9 +350,9 @@ $CourseDto = Initialize-PSOpenAPIToolsCourseDto  -Id null `
  -SelectedSellingMarginPolicies null `
  -Code null `
  -Version null `
- -CourseCategoryID null `
+ -CourseCategoryId null `
  -CourseCategoryName null `
- -InstructorProfileID null `
+ -InstructorProfileId null `
  -InstructorProfileName null `
  -MaxCourseEnrollments null `
  -TotalEffortInWeeks null `

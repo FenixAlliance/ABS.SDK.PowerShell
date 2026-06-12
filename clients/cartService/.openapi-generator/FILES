@@ -33,6 +33,7 @@ docs/ItemToCompareCartRecordDtoEnvelope.md
 docs/ItemToCompareCartRecordDtoListEnvelope.md
 docs/LoginRequest.md
 docs/NewWishListRequest.md
+docs/Operation.md
 docs/ProductToWishListRequest.md
 docs/RecordsApi.md
 docs/RefreshRequest.md
@@ -81,6 +82,7 @@ src/PSOpenAPITools/Model/ItemToCompareCartRecordDtoEnvelope.ps1
 src/PSOpenAPITools/Model/ItemToCompareCartRecordDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/LoginRequest.ps1
 src/PSOpenAPITools/Model/NewWishListRequest.ps1
+src/PSOpenAPITools/Model/Operation.ps1
 src/PSOpenAPITools/Model/ProductToWishListRequest.ps1
 src/PSOpenAPITools/Model/RefreshRequest.ps1
 src/PSOpenAPITools/Model/RegisterRequest.ps1
@@ -99,5 +101,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
-tests/Api/CompletionsApi.Tests.ps1
-tests/Api/FenixAlliancePortalsWebsiteApi.Tests.ps1
+tests/Model/Operation.Tests.ps1

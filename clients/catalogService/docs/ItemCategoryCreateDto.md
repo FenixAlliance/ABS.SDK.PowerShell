@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
-**ParentItemCategoryID** | **String** |  | [optional] 
+**ParentItemCategoryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $ItemCategoryCreateDto = Initialize-PSOpenAPIToolsItemCategoryCreateDto  -Id nul
  -Title null `
  -Description null `
  -ImageURL null `
- -ParentItemCategoryID null
+ -ParentItemCategoryId null
 ```
 
 - Convert the resource to JSON

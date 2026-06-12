@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **InvoiceId** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
+**Priority** | **Int32** |  | [optional] 
+**Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **SurchargePercent** | **Double** |  | [optional] 
 **SurchargeAmount** | **Double** |  | [optional] 
@@ -28,6 +30,8 @@ $InvoiceAdjustmentDto = Initialize-PSOpenAPIToolsInvoiceAdjustmentDto  -Id null 
  -InvoiceId null `
  -CurrencyId null `
  -EnrollmentId null `
+ -Priority null `
+ -Code null `
  -Description null `
  -SurchargePercent null `
  -SurchargeAmount null `

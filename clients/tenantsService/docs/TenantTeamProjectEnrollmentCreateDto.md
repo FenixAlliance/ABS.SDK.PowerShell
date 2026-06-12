@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessTeamID** | **String** |  | 
-**ProjectID** | **String** |  | 
+**BusinessTeamId** | **String** |  | 
+**ProjectId** | **String** |  | 
 
 ## Examples
 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamProjectEnrollmentCreateDto = Initialize-PSOpenAPIToolsTenantTeamProjectEnrollmentCreateDto  -Id null `
  -Timestamp null `
- -BusinessTeamID null `
- -ProjectID null
+ -BusinessTeamId null `
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

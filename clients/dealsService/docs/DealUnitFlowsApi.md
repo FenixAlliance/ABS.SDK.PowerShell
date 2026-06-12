@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**Get-DealUnitFlowStagesCountAsync**](DealUnitFlowsApi.md#Get-DealUnitFlowStagesCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow
 [**Get-DealUnitFlowsAsync**](DealUnitFlowsApi.md#Get-DealUnitFlowsAsync) | **GET** /api/v2/DealsService/DealUnitFlows | Get deal unit flows
 [**Get-DealUnitFlowsCountAsync**](DealUnitFlowsApi.md#Get-DealUnitFlowsCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count
+[**Invoke-PatchDealUnitFlowAsync**](DealUnitFlowsApi.md#Invoke-PatchDealUnitFlowAsync) | **PATCH** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Patch a deal unit flow
+[**Invoke-PatchDealUnitFlowStageAsync**](DealUnitFlowsApi.md#Invoke-PatchDealUnitFlowStageAsync) | **PATCH** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Patch a deal unit flow stage
 [**Update-DealUnitFlowAsync**](DealUnitFlowsApi.md#Update-DealUnitFlowAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow
 [**Update-DealUnitFlowStageAsync**](DealUnitFlowsApi.md#Update-DealUnitFlowStageAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage
 
@@ -481,6 +483,107 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchDealUnitFlowAsync"></a>
+# **Invoke-PatchDealUnitFlowAsync**
+> EmptyEnvelope Invoke-PatchDealUnitFlowAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a deal unit flow
+
+Partially updates an existing deal unit flow by its unique identifier using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a deal unit flow
+try {
+    $Result = Invoke-PatchDealUnitFlowAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchDealUnitFlowAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitFlowId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchDealUnitFlowStageAsync"></a>
+# **Invoke-PatchDealUnitFlowStageAsync**
+> EmptyEnvelope Invoke-PatchDealUnitFlowStageAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowStageId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a deal unit flow stage
+
+Partially updates an existing stage within a specific deal unit flow using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowStageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a deal unit flow stage
+try {
+    $Result = Invoke-PatchDealUnitFlowStageAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -DealUnitFlowStageId $DealUnitFlowStageId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchDealUnitFlowStageAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DealUnitFlowId** | **String**|  | 
+ **DealUnitFlowStageId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-DealUnitFlowAsync"></a>
 # **Update-DealUnitFlowAsync**
 > EmptyEnvelope Update-DealUnitFlowAsync<br>
@@ -496,7 +599,7 @@ Updates an existing deal unit flow by its unique identifier.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DealUnitFlowUpdateDto = Initialize-DealUnitFlowUpdateDto -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" -TenantEnrollmentId "MyTenantEnrollmentId" # DealUnitFlowUpdateDto |  (optional)
+$DealUnitFlowUpdateDto = Initialize-DealUnitFlowUpdateDto -Name "MyName" -Description "MyDescription" -ParentBusinessProcessId "MyParentBusinessProcessId" # DealUnitFlowUpdateDto |  (optional)
 
 # Update a deal unit flow
 try {

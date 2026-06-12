@@ -44,12 +44,12 @@ Name | Type | Description | Notes
 **Data8Label** | **String** |  | [optional] 
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
-**IndividualID** | **String** |  | [optional] 
-**OrganizationID** | **String** |  | [optional] 
-**ReceiverBusinessID** | **String** |  | [optional] 
-**PaymentTokenID** | **String** |  | [optional] 
-**WalletAccountID** | **String** |  | [optional] 
-**SecurityCertificateID** | **String** |  | [optional] 
+**IndividualId** | **String** |  | [optional] 
+**OrganizationId** | **String** |  | [optional] 
+**ReceiverTenantId** | **String** |  | [optional] 
+**PaymentTokenId** | **String** |  | [optional] 
+**WalletAccountId** | **String** |  | [optional] 
+**SecurityCertificateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -96,12 +96,12 @@ $SupportEntitlementCreateDto = Initialize-PSOpenAPIToolsSupportEntitlementCreate
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
- -IndividualID null `
- -OrganizationID null `
- -ReceiverBusinessID null `
- -PaymentTokenID null `
- -WalletAccountID null `
- -SecurityCertificateID null
+ -IndividualId null `
+ -OrganizationId null `
+ -ReceiverTenantId null `
+ -PaymentTokenId null `
+ -WalletAccountId null `
+ -SecurityCertificateId null
 ```
 
 - Convert the resource to JSON

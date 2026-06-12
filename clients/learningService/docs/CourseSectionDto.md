@@ -8,10 +8,11 @@ Name | Type | Description | Notes
 **Icon** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **HideFromStudents** | **Boolean** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,10 +23,11 @@ $CourseSectionDto = Initialize-PSOpenAPIToolsCourseSectionDto  -Id null `
  -Icon null `
  -Name null `
  -Description null `
- -CourseID null `
+ -CourseId null `
  -ReleaseDateTime null `
  -HideFromStudents null `
- -TenantId null
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

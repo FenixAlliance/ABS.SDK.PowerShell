@@ -5,14 +5,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**AvatarURL** | **String** |  | [optional] 
+**AvatarUrl** | **String** |  | [optional] 
 **IsPublic** | **Boolean** |  | [optional] 
-**BusinessUnitID** | **String** |  | [optional] 
-**OrganizationProfileID** | **String** |  | [optional] 
+**BusinessUnitId** | **String** |  | [optional] 
+**OrganizationProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -20,14 +20,14 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTeamDto = Initialize-PSOpenAPIToolsTenantTeamDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
+ -TenantId null `
+ -EnrollmentId null `
  -Name null `
  -Description null `
- -AvatarURL null `
+ -AvatarUrl null `
  -IsPublic null `
- -BusinessUnitID null `
- -OrganizationProfileID null
+ -BusinessUnitId null `
+ -OrganizationProfileId null
 ```
 
 - Convert the resource to JSON

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **AccountId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 
@@ -13,7 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $AccountRelationCreateDto = Initialize-PSOpenAPIToolsAccountRelationCreateDto  -Id null `
  -Timestamp null `
- -AccountId null
+ -AccountId null `
+ -Type null
 ```
 
 - Convert the resource to JSON

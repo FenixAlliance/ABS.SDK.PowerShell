@@ -5,11 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**ParentTerritoryID** | **String** |  | [optional] 
+**ParentTerritoryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +17,11 @@ Name | Type | Description | Notes
 ```powershell
 $TenantTerritoryDto = Initialize-PSOpenAPIToolsTenantTerritoryDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
+ -TenantId null `
+ -EnrollmentId null `
  -Name null `
  -Description null `
- -ParentTerritoryID null
+ -ParentTerritoryId null
 ```
 
 - Convert the resource to JSON

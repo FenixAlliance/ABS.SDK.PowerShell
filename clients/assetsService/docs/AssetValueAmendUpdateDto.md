@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **NewValue** | **Double** |  | [optional] 
 **Reason** | **String** |  | [optional] 
 **AmendmentDate** | **System.DateTime** |  | [optional] 
-**ApprovedBy** | **String** |  | [optional] 
-**ApprovalDate** | **System.DateTime** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $AssetValueAmendUpdateDto = Initialize-PSOpenAPIToolsAssetValueAmendUpdateDto  -NewValue null `
  -Reason null `
- -AmendmentDate null `
- -ApprovedBy null `
- -ApprovalDate null
+ -AmendmentDate null
 ```
 
 - Convert the resource to JSON

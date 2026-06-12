@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseID** | **String** |  | 
-**CourseSectionID** | **String** |  | 
-**CourseContentGroupID** | **String** |  | [optional] 
+**CourseId** | **String** |  | 
+**CourseSectionId** | **String** |  | 
+**CourseContentGroupId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -22,9 +22,9 @@ $CourseUnitCreateDto = Initialize-PSOpenAPIToolsCourseUnitCreateDto  -Id null `
  -Title null `
  -Description null `
  -Content null `
- -CourseID null `
- -CourseSectionID null `
- -CourseContentGroupID null `
+ -CourseId null `
+ -CourseSectionId null `
+ -CourseContentGroupId null `
  -ReleaseDateTime null
 ```
 

@@ -5,14 +5,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**WebPortalID** | **String** |  | [optional] 
-**WebsiteThemeID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**ParentWebContentID** | **String** |  | [optional] 
-**ParentWebContentVersionID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
+**WebsiteThemeId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**ParentWebContentId** | **String** |  | [optional] 
+**ParentWebContentVersionId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -20,14 +20,14 @@ Name | Type | Description | Notes
 ```powershell
 $CourseCertificateTemplateDto = Initialize-PSOpenAPIToolsCourseCertificateTemplateDto  -Id null `
  -Timestamp null `
- -CourseID null `
- -BusinessID null `
- -WebPortalID null `
- -WebsiteThemeID null `
- -BusinessProfileRecordID null `
- -SocialProfileID null `
- -ParentWebContentID null `
- -ParentWebContentVersionID null
+ -CourseId null `
+ -TenantId null `
+ -WebPortalId null `
+ -WebsiteThemeId null `
+ -EnrollmentId null `
+ -SocialProfileId null `
+ -ParentWebContentId null `
+ -ParentWebContentVersionId null
 ```
 
 - Convert the resource to JSON

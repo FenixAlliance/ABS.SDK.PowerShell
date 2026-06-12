@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantIndustries**](IndustriesApi.md#Get-TenantIndustries) | **GET** /api/v2/TenantsService/Industries | Retrieve a list of tenant industries
 [**Get-TenantIndustriesCount**](IndustriesApi.md#Get-TenantIndustriesCount) | **GET** /api/v2/TenantsService/Industries/Count | Get the count of tenant industries
 [**Get-TenantIndustryById**](IndustriesApi.md#Get-TenantIndustryById) | **GET** /api/v2/TenantsService/Industries/{tenantIndustryId} | Retrieve a single tenant industry by its ID
+[**Invoke-PatchTenantIndustryAsync**](IndustriesApi.md#Invoke-PatchTenantIndustryAsync) | **PATCH** /api/v2/TenantsService/Industries/{tenantIndustryId} | Patch a tenant industry
 [**Update-TenantIndustry**](IndustriesApi.md#Update-TenantIndustry) | **PUT** /api/v2/TenantsService/Industries/{tenantIndustryId} | Update a tenant industry
 
 
@@ -29,7 +30,7 @@ Create a new tenant industry
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantIndustryCreateDto = Initialize-TenantIndustryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" # TenantIndustryCreateDto |  (optional)
+$TenantIndustryCreateDto = Initialize-TenantIndustryCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -ParentBusinessIndustryId "MyParentBusinessIndustryId" # TenantIndustryCreateDto |  (optional)
 
 # Create a new tenant industry
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantIndustryAsync"></a>
+# **Invoke-PatchTenantIndustryAsync**
+> EmptyEnvelope Invoke-PatchTenantIndustryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantIndustryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant industry
+
+Patch a tenant industry
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantIndustryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant industry
+try {
+    $Result = Invoke-PatchTenantIndustryAsync -TenantId $TenantId -TenantIndustryId $TenantIndustryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantIndustryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantIndustryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantIndustry"></a>
 # **Update-TenantIndustry**
 > EmptyEnvelope Update-TenantIndustry<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantIndustryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantIndustryUpdateDto = Initialize-TenantIndustryUpdateDto -Name "MyName" -ParentBusinessIndustryID "MyParentBusinessIndustryID" # TenantIndustryUpdateDto |  (optional)
+$TenantIndustryUpdateDto = Initialize-TenantIndustryUpdateDto -Name "MyName" -ParentBusinessIndustryId "MyParentBusinessIndustryId" # TenantIndustryUpdateDto |  (optional)
 
 # Update a tenant industry
 try {

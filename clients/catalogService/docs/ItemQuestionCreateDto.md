@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **NeedsRevision** | **Boolean** |  | 
 **Question** | **String** |  | 
-**SocialProfileID** | **String** |  | [optional] 
-**ItemID** | **String** |  | 
+**SocialProfileId** | **String** |  | [optional] 
+**ItemId** | **String** |  | 
 
 ## Examples
 
@@ -20,8 +20,8 @@ $ItemQuestionCreateDto = Initialize-PSOpenAPIToolsItemQuestionCreateDto  -Id nul
  -Title null `
  -NeedsRevision null `
  -Question null `
- -SocialProfileID null `
- -ItemID null
+ -SocialProfileId null `
+ -ItemId null
 ```
 
 - Convert the resource to JSON

@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -18,8 +19,9 @@ $CourseForumDto = Initialize-PSOpenAPIToolsCourseForumDto  -Id null `
  -Timestamp null `
  -Title null `
  -Description null `
- -CourseID null `
- -TenantId null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

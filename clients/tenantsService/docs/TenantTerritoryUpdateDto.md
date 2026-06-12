@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**ParentTerritoryId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $TenantTerritoryUpdateDto = Initialize-PSOpenAPIToolsTenantTerritoryUpdateDto  -Name null `
- -Description null
+ -Description null `
+ -ParentTerritoryId null
 ```
 
 - Convert the resource to JSON

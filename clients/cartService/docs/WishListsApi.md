@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Get-CartWishListItemsAsync**](WishListsApi.md#Get-CartWishListItemsAsync) | **GET** /api/v2/CartService/WishLists/{wishListId}/Records | Get wish list item records
 [**Get-WishListAsync**](WishListsApi.md#Get-WishListAsync) | **GET** /api/v2/CartService/WishLists/{cartId} | Get wish lists for a cart
 [**Invoke-IsProductInWishLists**](WishListsApi.md#Invoke-IsProductInWishLists) | **GET** /api/v2/CartService/WishLists/Contains | Check if a product is in any wish list
+[**Invoke-PatchWishList**](WishListsApi.md#Invoke-PatchWishList) | **PATCH** /api/v2/CartService/WishLists/{wishListId} | Patch a wish list
 [**Update-ProductToWishList**](WishListsApi.md#Update-ProductToWishList) | **PUT** /api/v2/CartService/WishLists/{wishListId} | Update a wish list
 [**Invoke-WishListExists**](WishListsApi.md#Invoke-WishListExists) | **GET** /api/v2/CartService/WishLists/Exists | Check if a wish list exists
 [**Invoke-WishListExistsHeadAsync**](WishListsApi.md#Invoke-WishListExistsHeadAsync) | **HEAD** /api/v2/CartService/WishLists/Exists | Check if a wish list exists (HEAD)
@@ -408,6 +409,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchWishList"></a>
+# **Invoke-PatchWishList**
+> EmptyEnvelope Invoke-PatchWishList<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WishListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a wish list
+
+Partially updates the specified wish list using a JSON Patch document.
+
+### Example
+```powershell
+$WishListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a wish list
+try {
+    $Result = Invoke-PatchWishList -WishListId $WishListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchWishList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WishListId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

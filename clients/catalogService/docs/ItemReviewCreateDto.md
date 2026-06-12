@@ -5,10 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 **ReviewScore** | **Double** |  | [optional] 
 **ReviewMessage** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 ```powershell
 $ItemReviewCreateDto = Initialize-PSOpenAPIToolsItemReviewCreateDto  -Id null `
  -Timestamp null `
- -ItemID null `
+ -ItemId null `
  -ReviewScore null `
  -ReviewMessage null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

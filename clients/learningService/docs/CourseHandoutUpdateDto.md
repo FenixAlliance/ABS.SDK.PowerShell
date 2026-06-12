@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Content** | **String** |  | [optional] 
 **Url** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $CourseHandoutUpdateDto = Initialize-PSOpenAPIToolsCourseHandoutUpdateDto  -Name
  -Content null `
  -Url null `
  -ReleaseDateTime null `
- -CourseUnitID null
+ -CourseUnitId null
 ```
 
 - Convert the resource to JSON

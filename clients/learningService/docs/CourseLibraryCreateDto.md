@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
-**CourseID** | **String** |  | 
-**CourseUnitID** | **String** |  | [optional] 
+**CourseId** | **String** |  | 
+**CourseUnitId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -19,8 +19,8 @@ $CourseLibraryCreateDto = Initialize-PSOpenAPIToolsCourseLibraryCreateDto  -Id n
  -Timestamp null `
  -Title null `
  -Description null `
- -CourseID null `
- -CourseUnitID null `
+ -CourseId null `
+ -CourseUnitId null `
  -ReleaseDateTime null
 ```
 

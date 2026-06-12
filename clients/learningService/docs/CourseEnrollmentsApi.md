@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**Get-EnrollmentsAsync**](CourseEnrollmentsApi.md#Get-EnrollmentsAsync) | **GET** /api/v2/LearningService/CourseEnrollments | Get all course enrollments
 [**Get-EnrollmentsCountAsync**](CourseEnrollmentsApi.md#Get-EnrollmentsCountAsync) | **GET** /api/v2/LearningService/CourseEnrollments/Count | Get course enrollments count
 [**Get-StudentCourseEnrollmentsAsync**](CourseEnrollmentsApi.md#Get-StudentCourseEnrollmentsAsync) | **GET** /api/v2/LearningService/CourseEnrollments/Student/{studentProfileId} | Get enrollments by student
+[**Invoke-PatchCourseEnrollmentAsync**](CourseEnrollmentsApi.md#Invoke-PatchCourseEnrollmentAsync) | **PATCH** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Patch a course enrollment
 [**Update-CourseEnrollmentAsync**](CourseEnrollmentsApi.md#Update-CourseEnrollmentAsync) | **PUT** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Update a course enrollment
 
 
@@ -30,7 +31,7 @@ Creates a new course enrollment for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseEnrollmentCreateDto = Initialize-CourseEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -CourseCohortID "MyCourseCohortID" -StudentProfileID "MyStudentProfileID" -CourseCompletionCertificateID "MyCourseCompletionCertificateID" # CourseEnrollmentCreateDto |  (optional)
+$CourseEnrollmentCreateDto = Initialize-CourseEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseId "MyCourseId" -CourseCohortId "MyCourseCohortId" -StudentProfileId "MyStudentProfileId" -CourseCompletionCertificateId "MyCourseCompletionCertificateId" # CourseEnrollmentCreateDto |  (optional)
 
 # Create a new course enrollment
 try {
@@ -319,6 +320,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseEnrollmentAsync"></a>
+# **Invoke-PatchCourseEnrollmentAsync**
+> void Invoke-PatchCourseEnrollmentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseEnrollmentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course enrollment
+
+Partially updates an existing course enrollment for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourseEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course enrollment
+try {
+    $Result = Invoke-PatchCourseEnrollmentAsync -TenantId $TenantId -CourseEnrollmentId $CourseEnrollmentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseEnrollmentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourseEnrollmentId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseEnrollmentAsync"></a>
 # **Update-CourseEnrollmentAsync**
 > void Update-CourseEnrollmentAsync<br>
@@ -338,7 +394,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseEnrollmentUpdateDto = Initialize-CourseEnrollmentUpdateDto -Id "MyId" -Timestamp (Get-Date) -CourseCohortID "MyCourseCohortID" -CourseCompletionCertificateID "MyCourseCompletionCertificateID" # CourseEnrollmentUpdateDto |  (optional)
+$CourseEnrollmentUpdateDto = Initialize-CourseEnrollmentUpdateDto -CourseCohortId "MyCourseCohortId" -CourseCompletionCertificateId "MyCourseCompletionCertificateId" # CourseEnrollmentUpdateDto |  (optional)
 
 # Update a course enrollment
 try {

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Message** | **String** |  | [optional] 
 **ConversationId** | **String** |  | [optional] 
 **SenderSocialProfileId** | **String** |  | [optional] 
-**ReceiverSocialProfileID** | **String** |  | [optional] 
+**ReceiverSocialProfileId** | **String** |  | [optional] 
 **SentTimestamp** | **System.DateTime** |  | [optional] 
 **ReadTimestamp** | **System.DateTime** |  | [optional] 
 **ReceivedTimestamp** | **System.DateTime** |  | [optional] 
@@ -26,7 +26,7 @@ $PrivateMessageDto = Initialize-PSOpenAPIToolsPrivateMessageDto  -Id null `
  -Message null `
  -ConversationId null `
  -SenderSocialProfileId null `
- -ReceiverSocialProfileID null `
+ -ReceiverSocialProfileId null `
  -SentTimestamp null `
  -ReadTimestamp null `
  -ReceivedTimestamp null

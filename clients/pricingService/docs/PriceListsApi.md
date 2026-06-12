@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**Get-PriceListPricesAsync**](PriceListsApi.md#Get-PriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
 [**Get-PriceListsAsync**](PriceListsApi.md#Get-PriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists
 [**Get-PriceListsCountAsync**](PriceListsApi.md#Get-PriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists
+[**Invoke-PatchPriceListAsync**](PriceListsApi.md#Invoke-PatchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list
+[**Invoke-PatchPriceListPriceAsync**](PriceListsApi.md#Invoke-PatchPriceListPriceAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Patches a price list entry
 [**Update-PriceListAsync**](PriceListsApi.md#Update-PriceListAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list
 [**Update-PriceListPriceAsync**](PriceListsApi.md#Update-PriceListPriceAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry
 
@@ -30,7 +32,7 @@ Creates a new price list for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceListCreateDto = Initialize-PriceListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" # PriceListCreateDto |  (optional)
+$PriceListCreateDto = Initialize-PriceListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Context "Sales" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -PartnerVisible $false -UnitOfMeasureDependant $false # PriceListCreateDto |  (optional)
 
 # Creates a new price list
 try {
@@ -437,6 +439,107 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchPriceListAsync"></a>
+# **Invoke-PatchPriceListAsync**
+> EmptyEnvelope Invoke-PatchPriceListAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a price list
+
+Partially updates the specified price list using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a price list
+try {
+    $Result = Invoke-PatchPriceListAsync -TenantId $TenantId -PriceListId $PriceListId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchPriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PriceListId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchPriceListPriceAsync"></a>
+# **Invoke-PatchPriceListPriceAsync**
+> EmptyEnvelope Invoke-PatchPriceListPriceAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a price list entry
+
+Partially updates the specified price entry in a price list using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a price list entry
+try {
+    $Result = Invoke-PatchPriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchPriceListPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PriceListId** | **String**|  | 
+ **PriceId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-PriceListAsync"></a>
 # **Update-PriceListAsync**
 > EmptyEnvelope Update-PriceListAsync<br>
@@ -452,7 +555,7 @@ Updates the specified price list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$PriceListUpdateDto = Initialize-PriceListUpdateDto -Name "MyName" -Description "MyDescription" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" # PriceListUpdateDto |  (optional)
+$PriceListUpdateDto = Initialize-PriceListUpdateDto -Name "MyName" -Description "MyDescription" -Context "Sales" -StartDate (Get-Date) -EndDate (Get-Date) -CurrencyId "MyCurrencyId" -UnitId "MyUnitId" -UnitGroupId "MyUnitGroupId" -PartnerVisible $false -UnitOfMeasureDependant $false # PriceListUpdateDto |  (optional)
 
 # Updates a price list
 try {

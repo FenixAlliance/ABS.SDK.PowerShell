@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **DateTime** | **System.DateTime** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **LedgerTypeId** | **String** |  | [optional] 
 
 ## Examples
@@ -21,8 +19,6 @@ $CreateLedgerDto = Initialize-PSOpenAPIToolsCreateLedgerDto  -Id null `
  -Name null `
  -Description null `
  -DateTime null `
- -TenantId null `
- -EnrollmentId null `
  -LedgerTypeId null
 ```
 

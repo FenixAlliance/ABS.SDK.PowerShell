@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | 
+**Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 
 ## Examples
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ItemFamilyUpdateDto = Initialize-PSOpenAPIToolsItemFamilyUpdateDto  -Name null `
+ -Code null `
  -Description null
 ```
 

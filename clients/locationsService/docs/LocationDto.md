@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **IsDefaultSenderAddress** | **Boolean** |  | [optional] 
 **IsDefaultReturnAddress** | **Boolean** |  | [optional] 
 **IsDefaultSuppingLocation** | **Boolean** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -55,7 +57,9 @@ $LocationDto = Initialize-PSOpenAPIToolsLocationDto  -Id null `
  -CanGenerateLabels null `
  -IsDefaultSenderAddress null `
  -IsDefaultReturnAddress null `
- -IsDefaultSuppingLocation null
+ -IsDefaultSuppingLocation null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

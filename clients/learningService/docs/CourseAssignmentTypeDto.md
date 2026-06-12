@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **Weight** | **Double** |  | [optional] 
 **Quantity** | **Int32** |  | [optional] 
 **Excluded** | **Int32** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,8 +25,9 @@ $CourseAssignmentTypeDto = Initialize-PSOpenAPIToolsCourseAssignmentTypeDto  -Id
  -Weight null `
  -Quantity null `
  -Excluded null `
- -CourseID null `
- -TenantId null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

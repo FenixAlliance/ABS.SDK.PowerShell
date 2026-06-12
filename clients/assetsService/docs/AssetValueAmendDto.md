@@ -3,19 +3,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**BusinessProfileRecordId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**AssetId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**AssetId** | **String** |  | [optional] 
 **AssetName** | **String** |  | [optional] 
 **PreviousValue** | **Double** |  | [optional] 
 **NewValue** | **Double** |  | [optional] 
 **AmendmentAmount** | **Double** |  | [optional] 
 **Reason** | **String** |  | [optional] 
 **AmendmentDate** | **System.DateTime** |  | [optional] 
-**ApprovedBy** | **String** |  | [optional] 
-**ApprovalDate** | **System.DateTime** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,8 +22,8 @@ Name | Type | Description | Notes
 ```powershell
 $AssetValueAmendDto = Initialize-PSOpenAPIToolsAssetValueAmendDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
+ -TenantId null `
+ -EnrollmentId null `
  -AssetId null `
  -AssetName null `
  -PreviousValue null `
@@ -32,8 +31,7 @@ $AssetValueAmendDto = Initialize-PSOpenAPIToolsAssetValueAmendDto  -Id null `
  -AmendmentAmount null `
  -Reason null `
  -AmendmentDate null `
- -ApprovedBy null `
- -ApprovalDate null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

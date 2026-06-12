@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseHandoutByIdAsync**](CourseHandoutsApi.md#Get-CourseHandoutByIdAsync) | **GET** /api/v2/LearningService/CourseHandouts/{handoutId} | Get course handout by ID
 [**Get-CourseHandoutsAsync**](CourseHandoutsApi.md#Get-CourseHandoutsAsync) | **GET** /api/v2/LearningService/CourseHandouts | Get all course handouts
 [**Get-CourseHandoutsCountAsync**](CourseHandoutsApi.md#Get-CourseHandoutsCountAsync) | **GET** /api/v2/LearningService/CourseHandouts/Count | Get course handouts count
+[**Invoke-PatchCourseHandoutAsync**](CourseHandoutsApi.md#Invoke-PatchCourseHandoutAsync) | **PATCH** /api/v2/LearningService/CourseHandouts/{handoutId} | Patch a course handout
 [**Update-CourseHandoutAsync**](CourseHandoutsApi.md#Update-CourseHandoutAsync) | **PUT** /api/v2/LearningService/CourseHandouts/{handoutId} | Update a course handout
 
 
@@ -29,7 +30,7 @@ Creates a new course handout for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseHandoutCreateDto = Initialize-CourseHandoutCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Content "MyContent" -Url "MyUrl" -ReleaseDateTime (Get-Date) -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" # CourseHandoutCreateDto |  (optional)
+$CourseHandoutCreateDto = Initialize-CourseHandoutCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Content "MyContent" -Url "MyUrl" -ReleaseDateTime (Get-Date) -CourseId "MyCourseId" -CourseUnitId "MyCourseUnitId" # CourseHandoutCreateDto |  (optional)
 
 # Create a course handout
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseHandoutAsync"></a>
+# **Invoke-PatchCourseHandoutAsync**
+> void Invoke-PatchCourseHandoutAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-HandoutId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course handout
+
+Partially updates an existing course handout.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$HandoutId = "MyHandoutId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course handout
+try {
+    $Result = Invoke-PatchCourseHandoutAsync -TenantId $TenantId -HandoutId $HandoutId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseHandoutAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **HandoutId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseHandoutAsync"></a>
 # **Update-CourseHandoutAsync**
 > CourseHandoutDto Update-CourseHandoutAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $HandoutId = "MyHandoutId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseHandoutUpdateDto = Initialize-CourseHandoutUpdateDto -Name "MyName" -Description "MyDescription" -Content "MyContent" -Url "MyUrl" -ReleaseDateTime (Get-Date) -CourseUnitID "MyCourseUnitID" # CourseHandoutUpdateDto |  (optional)
+$CourseHandoutUpdateDto = Initialize-CourseHandoutUpdateDto -Name "MyName" -Description "MyDescription" -Content "MyContent" -Url "MyUrl" -ReleaseDateTime (Get-Date) -CourseUnitId "MyCourseUnitId" # CourseHandoutUpdateDto |  (optional)
 
 # Update a course handout
 try {

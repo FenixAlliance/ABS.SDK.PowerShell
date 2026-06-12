@@ -5,12 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**StudentProfileID** | **String** |  | [optional] 
-**CourseEnrollmentID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**CourseCompletionCertificateTemplateID** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**StudentProfileId** | **String** |  | [optional] 
+**CourseEnrollmentId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**CourseCompletionCertificateTemplateId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **StudentName** | **String** |  | [optional] 
 **StudentLastName** | **String** |  | [optional] 
 **CourseTitle** | **String** |  | [optional] 
@@ -24,12 +24,12 @@ Name | Type | Description | Notes
 ```powershell
 $CourseCompletionCertificateDto = Initialize-PSOpenAPIToolsCourseCompletionCertificateDto  -Id null `
  -Timestamp null `
- -StudentProfileID null `
- -CourseEnrollmentID null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -CourseCompletionCertificateTemplateID null `
- -CourseID null `
+ -StudentProfileId null `
+ -CourseEnrollmentId null `
+ -TenantId null `
+ -EnrollmentId null `
+ -CourseCompletionCertificateTemplateId null `
+ -CourseId null `
  -StudentName null `
  -StudentLastName null `
  -CourseTitle null `

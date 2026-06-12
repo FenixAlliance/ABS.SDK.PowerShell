@@ -5,9 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**ParentBusinessIndustryID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**ParentBusinessIndustryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +16,10 @@ Name | Type | Description | Notes
 ```powershell
 $TenantIndustryDto = Initialize-PSOpenAPIToolsTenantIndustryDto  -Id null `
  -Timestamp null `
+ -TenantId null `
+ -EnrollmentId null `
  -Name null `
- -ParentBusinessIndustryID null `
- -BusinessProfileRecordID null
+ -ParentBusinessIndustryId null
 ```
 
 - Convert the resource to JSON

@@ -5,11 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
-**SupportTicketTypeID** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
-**SupportPriorityID** | **String** |  | [optional] 
+**SupportTicketStatus** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**SupportTicketTypeId** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
+**SupportPriorityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +19,13 @@ Name | Type | Description | Notes
 ```powershell
 $SupportTicketCreateDto = Initialize-PSOpenAPIToolsSupportTicketCreateDto  -Id null `
  -Timestamp null `
+ -Title null `
  -Description null `
- -ContactID null `
- -SupportTicketTypeID null `
- -SupportEntitlementID null `
- -SupportPriorityID null
+ -SupportTicketStatus null `
+ -ContactId null `
+ -SupportTicketTypeId null `
+ -SupportEntitlementId null `
+ -SupportPriorityId null
 ```
 
 - Convert the resource to JSON

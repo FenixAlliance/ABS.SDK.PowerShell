@@ -3,21 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WebPortalID** | **String** |  | [optional] 
-**WebsiteThemeID** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**ParentWebContentID** | **String** |  | [optional] 
-**ParentWebContentVersionID** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
+**WebsiteThemeId** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**ParentWebContentId** | **String** |  | [optional] 
+**ParentWebContentVersionId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CourseCertificateTemplateUpdateDto = Initialize-PSOpenAPIToolsCourseCertificateTemplateUpdateDto  -WebPortalID null `
- -WebsiteThemeID null `
- -SocialProfileID null `
- -ParentWebContentID null `
- -ParentWebContentVersionID null
+$CourseCertificateTemplateUpdateDto = Initialize-PSOpenAPIToolsCourseCertificateTemplateUpdateDto  -WebPortalId null `
+ -WebsiteThemeId null `
+ -SocialProfileId null `
+ -ParentWebContentId null `
+ -ParentWebContentVersionId null
 ```
 
 - Convert the resource to JSON

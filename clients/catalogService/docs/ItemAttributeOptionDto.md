@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ItemAttributeId** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $ItemAttributeOptionDto = Initialize-PSOpenAPIToolsItemAttributeOptionDto  -Id n
  -Name null `
  -Description null `
  -ItemAttributeId null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

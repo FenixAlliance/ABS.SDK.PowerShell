@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**Get-InstructorProfilesByCourseCountAsync**](CoursesApi.md#Get-InstructorProfilesByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Instructors/Count | Get instructor profiles by course count
 [**Get-StudentProfilesByCourseAsync**](CoursesApi.md#Get-StudentProfilesByCourseAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students | Get student profiles by course
 [**Get-StudentProfilesByCourseCountAsync**](CoursesApi.md#Get-StudentProfilesByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students/Count | Get student profiles by course count
+[**Invoke-PatchCourseAsync**](CoursesApi.md#Invoke-PatchCourseAsync) | **PATCH** /api/v2/LearningService/Courses/{courseId} | Patch a course
 [**Update-CourseAsync**](CoursesApi.md#Update-CourseAsync) | **PUT** /api/v2/LearningService/Courses/{courseId} | Update a course
 
 
@@ -64,7 +65,7 @@ Creates a new course for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCreateDto = Initialize-CourseCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryID "MyCourseCategoryID" -InstructorProfileID "MyInstructorProfileID" -CurrencyID "MyCurrencyID" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) # CourseCreateDto |  (optional)
+$CourseCreateDto = Initialize-CourseCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryId "MyCourseCategoryId" -InstructorProfileId "MyInstructorProfileId" -CurrencyId "MyCurrencyId" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) # CourseCreateDto |  (optional)
 
 # Create a new course
 try {
@@ -2031,6 +2032,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseAsync"></a>
+# **Invoke-PatchCourseAsync**
+> EmptyEnvelope Invoke-PatchCourseAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course
+
+Partially updates a course for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course
+try {
+    $Result = Invoke-PatchCourseAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourseId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseAsync"></a>
 # **Update-CourseAsync**
 > void Update-CourseAsync<br>
@@ -2050,7 +2106,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseUpdateDto = Initialize-CourseUpdateDto -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryID "MyCourseCategoryID" -InstructorProfileID "MyInstructorProfileID" -CurrencyID "MyCurrencyID" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) -Published $false # CourseUpdateDto |  (optional)
+$CourseUpdateDto = Initialize-CourseUpdateDto -Title "MyTitle" -Description "MyDescription" -Sku "MySku" -Summary "MySummary" -Code "MyCode" -Version "MyVersion" -CourseCategoryId "MyCourseCategoryId" -InstructorProfileId "MyInstructorProfileId" -CurrencyId "MyCurrencyId" -RegularPrice 0 -MaxCourseEnrollments 0 -TotalEffortInWeeks 0 -TotalHoursPerWeek 0 -TotalEffortInHours 0 -StartDateTime (Get-Date) -EndDateTime (Get-Date) -InscriptionsStartDateTime (Get-Date) -InscriptionsEndDateTime (Get-Date) -Published $false # CourseUpdateDto |  (optional)
 
 # Update a course
 try {

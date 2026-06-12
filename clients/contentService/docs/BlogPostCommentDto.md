@@ -5,11 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BlogPostID** | **String** |  | [optional] 
+**BlogPostId** | **String** |  | [optional] 
 **Message** | **String** |  | [optional] 
-**OwnerSocialProfileID** | **String** |  | [optional] 
-**SocialPostID** | **String** |  | [optional] 
-**ParentCommentID** | **String** |  | [optional] 
+**OwnerSocialProfileId** | **String** |  | [optional] 
+**SocialPostId** | **String** |  | [optional] 
+**ParentCommentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +17,11 @@ Name | Type | Description | Notes
 ```powershell
 $BlogPostCommentDto = Initialize-PSOpenAPIToolsBlogPostCommentDto  -Id null `
  -Timestamp null `
- -BlogPostID null `
+ -BlogPostId null `
  -Message null `
- -OwnerSocialProfileID null `
- -SocialPostID null `
- -ParentCommentID null
+ -OwnerSocialProfileId null `
+ -SocialPostId null `
+ -ParentCommentId null
 ```
 
 - Convert the resource to JSON

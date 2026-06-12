@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Prefix** | **String** |  | [optional] 
 **Balance** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
 **AccountType** | **String** |  | [optional] 
 **QualifiedName** | **String** |  | [optional] 
 **AccountTypeId** | **String** |  | [optional] 
@@ -50,6 +51,7 @@ $AccountDto = Initialize-PSOpenAPIToolsAccountDto  -Id null `
  -Prefix null `
  -Balance null `
  -CurrencyId null `
+ -ContactId null `
  -AccountType null `
  -QualifiedName null `
  -AccountTypeId null `

@@ -38,6 +38,9 @@ Method | HTTP request | Description
 [**Get-DebitAccountEntriesAsync**](AccountsApi.md#Get-DebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**Get-RootAccountsAsync**](AccountsApi.md#Get-RootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**Invoke-PatchAccountAsync**](AccountsApi.md#Invoke-PatchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**Invoke-PatchAccountEntryAsync**](AccountsApi.md#Invoke-PatchAccountEntryAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Patch account entry
+[**Invoke-PatchAccountRelationAsync**](AccountsApi.md#Invoke-PatchAccountRelationAsync) | **PATCH** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Patch account relation
+[**Invoke-PatchAccountTypeAsync**](AccountsApi.md#Invoke-PatchAccountTypeAsync) | **PATCH** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Patch account type
 [**Invoke-SeedChartOfAccountsAsync**](AccountsApi.md#Invoke-SeedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**Update-AccountAsync**](AccountsApi.md#Update-AccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**Update-AccountEntryAsync**](AccountsApi.md#Update-AccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
@@ -215,7 +218,7 @@ Get root accounts.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountCreateDto |  (optional)
+$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountCreateDto |  (optional)
 
 # Get root accounts
 try {
@@ -434,7 +437,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountRelationCreateDto = Initialize-AccountRelationCreateDto -Id "MyId" -Timestamp (Get-Date) -AccountId "MyAccountId" # AccountRelationCreateDto |  (optional)
+$AccountRelationCreateDto = Initialize-AccountRelationCreateDto -Id "MyId" -Timestamp (Get-Date) -AccountId "MyAccountId" -Type "MyType" # AccountRelationCreateDto |  (optional)
 
 # Create account relation
 try {
@@ -758,7 +761,7 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 $CurrencyId = Initialize-CurrencyId -Value "MyValue" -Code "MyCode" -Country "MyCountry"
 $Money = Initialize-Money -Amount 0 -Currency $CurrencyId
 
-$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -BalanceInUsd 0 -DebitsBalanceInUsd 0 -CreditsBalanceInUsd 0 -ForexRate 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money -BalanceAmountInUsd $Money -DebitsBalanceAmountInUsd $Money -CreditsBalanceAmountInUsd $Money # AccountDto[] |  (optional)
+$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -BalanceInUsd 0 -DebitsBalanceInUsd 0 -CreditsBalanceInUsd 0 -ForexRate 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money -BalanceAmountInUsd $Money -DebitsBalanceAmountInUsd $Money -CreditsBalanceAmountInUsd $Money # AccountDto[] |  (optional)
 
 # Get account aggregate
 try {
@@ -1819,6 +1822,177 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchAccountEntryAsync"></a>
+# **Invoke-PatchAccountEntryAsync**
+> EmptyEnvelope Invoke-PatchAccountEntryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch account entry
+
+Patch account entry.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch account entry
+try {
+    $Result = Invoke-PatchAccountEntryAsync -TenantId $TenantId -AccountId $AccountId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAccountEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AccountId** | **String**|  | 
+ **EntryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAccountRelationAsync"></a>
+# **Invoke-PatchAccountRelationAsync**
+> EmptyEnvelope Invoke-PatchAccountRelationAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountRelationId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch account relation
+
+Patch account relation.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountRelationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch account relation
+try {
+    $Result = Invoke-PatchAccountRelationAsync -TenantId $TenantId -AccountRelationId $AccountRelationId -AccountId $AccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAccountRelationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AccountRelationId** | **String**|  | 
+ **AccountId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAccountTypeAsync"></a>
+# **Invoke-PatchAccountTypeAsync**
+> EmptyEnvelope Invoke-PatchAccountTypeAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch account type
+
+Patch account type.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch account type
+try {
+    $Result = Invoke-PatchAccountTypeAsync -TenantId $TenantId -AccountTypeId $AccountTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAccountTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AccountTypeId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-SeedChartOfAccountsAsync"></a>
 # **Invoke-SeedChartOfAccountsAsync**
 > EmptyEnvelope Invoke-SeedChartOfAccountsAsync<br>
@@ -1890,7 +2064,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountUpdateDto = Initialize-AccountUpdateDto -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountUpdateDto |  (optional)
+$AccountUpdateDto = Initialize-AccountUpdateDto -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountUpdateDto |  (optional)
 
 # Update an account
 try {
@@ -2005,7 +2179,7 @@ $AccountRelationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountRelationUpdateDto = Initialize-AccountRelationUpdateDto -AccountId "MyAccountId" # AccountRelationUpdateDto |  (optional)
+$AccountRelationUpdateDto = Initialize-AccountRelationUpdateDto -AccountId "MyAccountId" -Type "MyType" # AccountRelationUpdateDto |  (optional)
 
 # Update account relation
 try {

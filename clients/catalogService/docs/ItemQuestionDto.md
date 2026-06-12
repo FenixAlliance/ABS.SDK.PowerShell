@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **NeedsRevision** | **Boolean** |  | [optional] 
 **Question** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,9 +21,9 @@ $ItemQuestionDto = Initialize-PSOpenAPIToolsItemQuestionDto  -Id null `
  -Title null `
  -NeedsRevision null `
  -Question null `
- -SocialProfileID null `
- -BusinessID null `
- -ItemID null
+ -SocialProfileId null `
+ -TenantId null `
+ -ItemId null
 ```
 
 - Convert the resource to JSON

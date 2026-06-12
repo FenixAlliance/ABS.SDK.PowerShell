@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **FileUploadURL** | **String** |  | [optional] 
 **ContentType** | **String** |  | [optional] 
 **FileLength** | **Int64** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,8 +25,9 @@ $CourseFileDto = Initialize-PSOpenAPIToolsCourseFileDto  -Id null `
  -FileUploadURL null `
  -ContentType null `
  -FileLength null `
- -CourseID null `
- -TenantId null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

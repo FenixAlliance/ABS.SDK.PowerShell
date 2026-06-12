@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
 **FolderPath** | **String** |  | [optional] 
-**SupportRequestID** | **String** |  | [optional] 
+**SupportRequestId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -53,7 +53,7 @@ $SupportRequestAttachmentDto = Initialize-PSOpenAPIToolsSupportRequestAttachment
  -EnrollmentId null `
  -SocialProfileId null `
  -FolderPath null `
- -SupportRequestID null
+ -SupportRequestId null
 ```
 
 - Convert the resource to JSON

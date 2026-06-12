@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Swift** | **String** |  | [optional] 
 **BranchCode** | **String** |  | [optional] 
 **BankAccountNumber** | **String** |  | [optional] 
-**QualifiedName** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **BankProfileId** | **String** |  | [optional] 
+**WalletId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,9 +21,9 @@ $BankAccountUpdateDto = Initialize-PSOpenAPIToolsBankAccountUpdateDto  -Name nul
  -Swift null `
  -BranchCode null `
  -BankAccountNumber null `
- -QualifiedName null `
  -BankId null `
- -BankProfileId null
+ -BankProfileId null `
+ -WalletId null
 ```
 
 - Convert the resource to JSON

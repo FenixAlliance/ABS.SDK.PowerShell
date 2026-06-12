@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ParentBusinessProcessId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**TenantEnrollmentId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,7 +21,7 @@ $DealUnitFlowDto = Initialize-PSOpenAPIToolsDealUnitFlowDto  -Id null `
  -Description null `
  -ParentBusinessProcessId null `
  -TenantId null `
- -TenantEnrollmentId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

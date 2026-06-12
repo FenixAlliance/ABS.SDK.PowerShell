@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **Phone** | **String** |  | [optional] 
 **Message** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
-**AccountHolderId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
@@ -37,8 +37,8 @@ $InquiryRequestDto = Initialize-PSOpenAPIToolsInquiryRequestDto  -Id null `
  -Phone null `
  -Message null `
  -TenantId null `
- -BusinessProfileRecordId null `
- -AccountHolderId null `
+ -EnrollmentId null `
+ -UserId null `
  -SocialProfileId null
 ```
 

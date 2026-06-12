@@ -10,8 +10,7 @@ Name | Type | Description | Notes
 **NewValue** | **Double** |  | [optional] 
 **Reason** | **String** |  | [optional] 
 **AmendmentDate** | **System.DateTime** |  | [optional] 
-**ApprovedBy** | **String** |  | [optional] 
-**ApprovalDate** | **System.DateTime** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,8 +23,7 @@ $AssetValueAmendCreateDto = Initialize-PSOpenAPIToolsAssetValueAmendCreateDto  -
  -NewValue null `
  -Reason null `
  -AmendmentDate null `
- -ApprovedBy null `
- -ApprovalDate null
+ -CurrencyId null
 ```
 
 - Convert the resource to JSON

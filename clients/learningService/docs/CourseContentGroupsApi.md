@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**Get-CourseContentGroupsByCourseAsync**](CourseContentGroupsApi.md#Get-CourseContentGroupsByCourseAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups | Get course content groups by course
 [**Get-CourseContentGroupsByCourseCountAsync**](CourseContentGroupsApi.md#Get-CourseContentGroupsByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups/Count | Get course content groups count by course
 [**Get-CourseContentGroupsCountAsync**](CourseContentGroupsApi.md#Get-CourseContentGroupsCountAsync) | **GET** /api/v2/LearningService/CourseContentGroups/Count | Get course content groups count
+[**Invoke-PatchCourseContentGroupAsync**](CourseContentGroupsApi.md#Invoke-PatchCourseContentGroupAsync) | **PATCH** /api/v2/LearningService/CourseContentGroups/{groupId} | Patch a course content group
 [**Update-CourseContentGroupAsync**](CourseContentGroupsApi.md#Update-CourseContentGroupAsync) | **PUT** /api/v2/LearningService/CourseContentGroups/{groupId} | Update a course content group
 
 
@@ -31,7 +32,7 @@ Creates a new course content group for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseContentGroupCreateDto = Initialize-CourseContentGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseID "MyCourseID" # CourseContentGroupCreateDto |  (optional)
+$CourseContentGroupCreateDto = Initialize-CourseContentGroupCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseId "MyCourseId" # CourseContentGroupCreateDto |  (optional)
 
 # Create a new course content group
 try {
@@ -363,6 +364,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseContentGroupAsync"></a>
+# **Invoke-PatchCourseContentGroupAsync**
+> EmptyEnvelope Invoke-PatchCourseContentGroupAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GroupId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course content group
+
+Partially updates a course content group for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$GroupId = "MyGroupId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course content group
+try {
+    $Result = Invoke-PatchCourseContentGroupAsync -TenantId $TenantId -GroupId $GroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseContentGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **GroupId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseContentGroupAsync"></a>
 # **Update-CourseContentGroupAsync**
 > void Update-CourseContentGroupAsync<br>
@@ -382,7 +438,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $GroupId = "MyGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseContentGroupUpdateDto = Initialize-CourseContentGroupUpdateDto -Name "MyName" -CourseID "MyCourseID" # CourseContentGroupUpdateDto |  (optional)
+$CourseContentGroupUpdateDto = Initialize-CourseContentGroupUpdateDto -Name "MyName" -CourseId "MyCourseId" # CourseContentGroupUpdateDto |  (optional)
 
 # Update a course content group
 try {

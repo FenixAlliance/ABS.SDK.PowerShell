@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseTeamMembershipByIdAsync**](CourseTeamMembershipsApi.md#Get-CourseTeamMembershipByIdAsync) | **GET** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Get course team membership by ID
 [**Get-CourseTeamMembershipsAsync**](CourseTeamMembershipsApi.md#Get-CourseTeamMembershipsAsync) | **GET** /api/v2/LearningService/CourseTeamMemberships | Get all course team memberships
 [**Get-CourseTeamMembershipsCountAsync**](CourseTeamMembershipsApi.md#Get-CourseTeamMembershipsCountAsync) | **GET** /api/v2/LearningService/CourseTeamMemberships/Count | Get course team memberships count
+[**Invoke-PatchCourseTeamMembershipAsync**](CourseTeamMembershipsApi.md#Invoke-PatchCourseTeamMembershipAsync) | **PATCH** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Patch a course team membership
 [**Update-CourseTeamMembershipAsync**](CourseTeamMembershipsApi.md#Update-CourseTeamMembershipAsync) | **PUT** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Update a course team membership
 
 
@@ -29,7 +30,7 @@ Creates a new course team membership for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseTeamMembershipCreateDto = Initialize-CourseTeamMembershipCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -InstructorProfileID "MyInstructorProfileID" -CourseTeamMembershipType "Admin" # CourseTeamMembershipCreateDto |  (optional)
+$CourseTeamMembershipCreateDto = Initialize-CourseTeamMembershipCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseId "MyCourseId" -InstructorProfileId "MyInstructorProfileId" -CourseTeamMembershipType "Admin" # CourseTeamMembershipCreateDto |  (optional)
 
 # Create a course team membership
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseTeamMembershipAsync"></a>
+# **Invoke-PatchCourseTeamMembershipAsync**
+> EmptyEnvelope Invoke-PatchCourseTeamMembershipAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MembershipId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course team membership
+
+Partially updates a course team membership for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$MembershipId = "MyMembershipId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course team membership
+try {
+    $Result = Invoke-PatchCourseTeamMembershipAsync -TenantId $TenantId -MembershipId $MembershipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseTeamMembershipAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **MembershipId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseTeamMembershipAsync"></a>
 # **Update-CourseTeamMembershipAsync**
 > void Update-CourseTeamMembershipAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $MembershipId = "MyMembershipId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseTeamMembershipUpdateDto = Initialize-CourseTeamMembershipUpdateDto -InstructorProfileID "MyInstructorProfileID" -CourseTeamMembershipType "Admin" # CourseTeamMembershipUpdateDto |  (optional)
+$CourseTeamMembershipUpdateDto = Initialize-CourseTeamMembershipUpdateDto -InstructorProfileId "MyInstructorProfileId" -CourseTeamMembershipType "Admin" # CourseTeamMembershipUpdateDto |  (optional)
 
 # Update a course team membership
 try {

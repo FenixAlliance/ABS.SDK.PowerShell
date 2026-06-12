@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **RazorContent** | **String** |  | [optional] 
 **HighlightImage** | **String** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -33,7 +35,9 @@ $WebTemplateDto = Initialize-PSOpenAPIToolsWebTemplateDto  -Id null `
  -JsContent null `
  -RazorContent null `
  -HighlightImage null `
- -Order null
+ -Order null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

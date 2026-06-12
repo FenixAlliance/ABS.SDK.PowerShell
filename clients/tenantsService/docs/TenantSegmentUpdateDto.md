@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Revenue** | **String** |  | [optional] 
 **MinEmployees** | **Double** |  | [optional] 
 **MaxEmployees** | **Double** |  | [optional] 
 
@@ -11,8 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantSegmentUpdateDto = Initialize-PSOpenAPIToolsTenantSegmentUpdateDto  -Revenue null `
- -MinEmployees null `
+$TenantSegmentUpdateDto = Initialize-PSOpenAPIToolsTenantSegmentUpdateDto  -MinEmployees null `
  -MaxEmployees null
 ```
 

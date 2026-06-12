@@ -5,7 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
@@ -21,12 +22,12 @@ Name | Type | Description | Notes
 **Years** | **Int32** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **Percentage** | **Double** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**CountryStateID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**CountryStateId** | **String** |  | [optional] 
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
-**CityID** | **String** |  | [optional] 
+**CityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -34,7 +35,8 @@ Name | Type | Description | Notes
 ```powershell
 $PricingRuleDto = Initialize-PSOpenAPIToolsPricingRuleDto  -Id null `
  -Timestamp null `
- -BusinessID null `
+ -TenantId null `
+ -EnrollmentId null `
  -Code null `
  -Title null `
  -Description null `
@@ -50,12 +52,12 @@ $PricingRuleDto = Initialize-PSOpenAPIToolsPricingRuleDto  -Id null `
  -Years null `
  -Value null `
  -Percentage null `
- -CurrencyID null `
- -CountryID null `
- -CountryStateID null `
+ -CurrencyId null `
+ -CountryId null `
+ -CountryStateId null `
  -CustomState null `
  -CustomCity null `
- -CityID null
+ -CityId null
 ```
 
 - Convert the resource to JSON

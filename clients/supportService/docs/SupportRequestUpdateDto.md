@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Approved** | **Boolean** |  | [optional] 
 **ApprovedTimestamp** | **System.DateTime** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $SupportRequestUpdateDto = Initialize-PSOpenAPIToolsSupportRequestUpdateDto  -Ti
  -Description null `
  -Approved null `
  -ApprovedTimestamp null `
- -SupportEntitlementID null
+ -SupportEntitlementId null
 ```
 
 - Convert the resource to JSON

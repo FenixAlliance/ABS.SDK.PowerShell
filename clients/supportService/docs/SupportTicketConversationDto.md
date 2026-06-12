@@ -5,11 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**SupportTicketID** | **String** |  | [optional] 
+**SupportTicketId** | **String** |  | [optional] 
 **Topic** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **ClosedTimestamp** | **System.DateTime** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +17,11 @@ Name | Type | Description | Notes
 ```powershell
 $SupportTicketConversationDto = Initialize-PSOpenAPIToolsSupportTicketConversationDto  -Id null `
  -Timestamp null `
- -SupportTicketID null `
+ -SupportTicketId null `
  -Topic null `
  -Closed null `
  -ClosedTimestamp null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

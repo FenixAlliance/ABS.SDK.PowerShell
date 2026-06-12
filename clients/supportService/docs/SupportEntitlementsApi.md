@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-SupportEntitlementAsync**](SupportEntitlementsApi.md#Get-SupportEntitlementAsync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID
 [**Get-SupportEntitlementsAsync**](SupportEntitlementsApi.md#Get-SupportEntitlementsAsync) | **GET** /api/v2/SupportService/SupportEntitlements | Retrieve a list of support entitlements
 [**Get-SupportEntitlementsCountAsync**](SupportEntitlementsApi.md#Get-SupportEntitlementsCountAsync) | **GET** /api/v2/SupportService/SupportEntitlements/Count | Get the count of support entitlements
+[**Invoke-PatchSupportEntitlementAsync**](SupportEntitlementsApi.md#Invoke-PatchSupportEntitlementAsync) | **PATCH** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Patch a support entitlement
 [**Update-SupportEntitlementAsync**](SupportEntitlementsApi.md#Update-SupportEntitlementAsync) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Update a support entitlement
 
 
@@ -29,7 +30,7 @@ Creates a new support entitlement for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportEntitlementCreateDto = Initialize-SupportEntitlementCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -NextInvoiceDateTime (Get-Date) -Code "MyCode" -Signature "MySignature" -Quantity 0 -Repetitions 0 -ChargeAttempts 0 -FreeTrialInDays 0 -GracePeriodInDays 0 -CustomRenewalPeriod 0 -EnableAutomaticRenew $false -EnableProRateBilling $false -EnableUsageThreshold $false -EnableAutomaticDisable $false -EnableAutomaticPayments $false -UsageThreshold 0 -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -IndividualID "MyIndividualID" -OrganizationID "MyOrganizationID" -ReceiverBusinessID "MyReceiverBusinessID" -PaymentTokenID "MyPaymentTokenID" -WalletAccountID "MyWalletAccountID" -SecurityCertificateID "MySecurityCertificateID" # SupportEntitlementCreateDto |  (optional)
+$SupportEntitlementCreateDto = Initialize-SupportEntitlementCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -NextInvoiceDateTime (Get-Date) -Code "MyCode" -Signature "MySignature" -Quantity 0 -Repetitions 0 -ChargeAttempts 0 -FreeTrialInDays 0 -GracePeriodInDays 0 -CustomRenewalPeriod 0 -EnableAutomaticRenew $false -EnableProRateBilling $false -EnableUsageThreshold $false -EnableAutomaticDisable $false -EnableAutomaticPayments $false -UsageThreshold 0 -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -IndividualId "MyIndividualId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -PaymentTokenId "MyPaymentTokenId" -WalletAccountId "MyWalletAccountId" -SecurityCertificateId "MySecurityCertificateId" # SupportEntitlementCreateDto |  (optional)
 
 # Create a new support entitlement
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchSupportEntitlementAsync"></a>
+# **Invoke-PatchSupportEntitlementAsync**
+> EmptyEnvelope Invoke-PatchSupportEntitlementAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportEntitlementId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a support entitlement
+
+Partially updates an existing support entitlement by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SupportEntitlementId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a support entitlement
+try {
+    $Result = Invoke-PatchSupportEntitlementAsync -TenantId $TenantId -SupportEntitlementId $SupportEntitlementId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSupportEntitlementAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SupportEntitlementId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-SupportEntitlementAsync"></a>
 # **Update-SupportEntitlementAsync**
 > EmptyEnvelope Update-SupportEntitlementAsync<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportEntitlementId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportEntitlementUpdateDto = Initialize-SupportEntitlementUpdateDto -Title "MyTitle" -Description "MyDescription" -EndDateTime (Get-Date) -NextInvoiceDateTime (Get-Date) -Code "MyCode" -Signature "MySignature" -Quantity 0 -Repetitions 0 -ChargeAttempts 0 -FreeTrialInDays 0 -GracePeriodInDays 0 -CustomRenewalPeriod 0 -EnableAutomaticRenew $false -EnableProRateBilling $false -EnableUsageThreshold $false -EnableAutomaticDisable $false -EnableAutomaticPayments $false -UsageThreshold 0 -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -IndividualID "MyIndividualID" -OrganizationID "MyOrganizationID" -ReceiverBusinessID "MyReceiverBusinessID" -PaymentTokenID "MyPaymentTokenID" -WalletAccountID "MyWalletAccountID" -SecurityCertificateID "MySecurityCertificateID" # SupportEntitlementUpdateDto |  (optional)
+$SupportEntitlementUpdateDto = Initialize-SupportEntitlementUpdateDto -Title "MyTitle" -Description "MyDescription" -EndDateTime (Get-Date) -NextInvoiceDateTime (Get-Date) -Code "MyCode" -Signature "MySignature" -Quantity 0 -Repetitions 0 -ChargeAttempts 0 -FreeTrialInDays 0 -GracePeriodInDays 0 -CustomRenewalPeriod 0 -EnableAutomaticRenew $false -EnableProRateBilling $false -EnableUsageThreshold $false -EnableAutomaticDisable $false -EnableAutomaticPayments $false -UsageThreshold 0 -VarData "MyVarData" -DataLabel "MyDataLabel" -Data1 "MyData1" -Data1Label "MyData1Label" -Data2 "MyData2" -Data2Label "MyData2Label" -Data3 "MyData3" -Data3Label "MyData3Label" -Data4 "MyData4" -Data4Label "MyData4Label" -Data5 "MyData5" -Data5Label "MyData5Label" -Data6 "MyData6" -Data6Label "MyData6Label" -Data7 "MyData7" -Data7Label "MyData7Label" -Data8 "MyData8" -Data8Label "MyData8Label" -Data9 "MyData9" -Data9Label "MyData9Label" -IndividualId "MyIndividualId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -PaymentTokenId "MyPaymentTokenId" -WalletAccountId "MyWalletAccountId" -SecurityCertificateId "MySecurityCertificateId" # SupportEntitlementUpdateDto |  (optional)
 
 # Update a support entitlement
 try {

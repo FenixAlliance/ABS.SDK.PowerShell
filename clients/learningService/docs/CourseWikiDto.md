@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,8 +23,9 @@ $CourseWikiDto = Initialize-PSOpenAPIToolsCourseWikiDto  -Id null `
  -Description null `
  -ReleaseDateTime null `
  -TenantId null `
- -CourseID null `
- -CourseUnitID null
+ -EnrollmentId null `
+ -CourseId null `
+ -CourseUnitId null
 ```
 
 - Convert the resource to JSON

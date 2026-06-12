@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseCohortByIdAsync**](CourseCohortsApi.md#Get-CourseCohortByIdAsync) | **GET** /api/v2/LearningService/CourseCohorts/{cohortId} | Get course cohort by ID
 [**Get-CourseCohortsAsync**](CourseCohortsApi.md#Get-CourseCohortsAsync) | **GET** /api/v2/LearningService/CourseCohorts | Get all course cohorts
 [**Get-CourseCohortsCountAsync**](CourseCohortsApi.md#Get-CourseCohortsCountAsync) | **GET** /api/v2/LearningService/CourseCohorts/Count | Get course cohorts count
+[**Invoke-PatchCourseCohortAsync**](CourseCohortsApi.md#Invoke-PatchCourseCohortAsync) | **PATCH** /api/v2/LearningService/CourseCohorts/{cohortId} | Patch a course cohort
 [**Update-CourseCohortAsync**](CourseCohortsApi.md#Update-CourseCohortAsync) | **PUT** /api/v2/LearningService/CourseCohorts/{cohortId} | Update a course cohort
 
 
@@ -29,7 +30,7 @@ Creates a new course cohort for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCohortCreateDto = Initialize-CourseCohortCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseID "MyCourseID" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -ExpectedStartDateTime (Get-Date) -ExpectedEndDateTime (Get-Date) # CourseCohortCreateDto |  (optional)
+$CourseCohortCreateDto = Initialize-CourseCohortCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CourseId "MyCourseId" -StartDateTime (Get-Date) -EndDateTime (Get-Date) -ExpectedStartDateTime (Get-Date) -ExpectedEndDateTime (Get-Date) # CourseCohortCreateDto |  (optional)
 
 # Create a new course cohort
 try {
@@ -259,6 +260,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchCourseCohortAsync"></a>
+# **Invoke-PatchCourseCohortAsync**
+> EmptyEnvelope Invoke-PatchCourseCohortAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CohortId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course cohort
+
+Partially updates a course cohort for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CohortId = "MyCohortId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course cohort
+try {
+    $Result = Invoke-PatchCourseCohortAsync -TenantId $TenantId -CohortId $CohortId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseCohortAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CohortId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

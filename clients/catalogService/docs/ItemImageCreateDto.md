@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 **IsItemMozaicBG** | **Boolean** |  | [optional] 
 **MD5Hash** | **String** |  | [optional] 
 **Metadata** | **String** |  | [optional] 
@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **ContentType** | **String** |  | [optional] 
 **FileLength** | **Int64** |  | [optional] 
 **ValidResponse** | **Boolean** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**ParentFileUploadID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**ParentFileUploadId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ```powershell
 $ItemImageCreateDto = Initialize-PSOpenAPIToolsItemImageCreateDto  -Id null `
  -Timestamp null `
- -ItemID null `
+ -ItemId null `
  -IsItemMozaicBG null `
  -MD5Hash null `
  -Metadata null `
@@ -42,8 +42,8 @@ $ItemImageCreateDto = Initialize-PSOpenAPIToolsItemImageCreateDto  -Id null `
  -ContentType null `
  -FileLength null `
  -ValidResponse null `
- -SocialProfileID null `
- -ParentFileUploadID null
+ -SocialProfileId null `
+ -ParentFileUploadId null
 ```
 
 - Convert the resource to JSON

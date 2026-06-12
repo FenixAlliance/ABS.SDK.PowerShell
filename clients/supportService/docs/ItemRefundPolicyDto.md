@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**ShippingCourierID** | **String** |  | [optional] 
+**ShippingCourierId** | **String** |  | [optional] 
 **Type** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
@@ -22,14 +22,14 @@ Name | Type | Description | Notes
 **Years** | **Int32** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **Percentage** | **Double** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**CountryStateID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**CountryStateId** | **String** |  | [optional] 
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
-**CityID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**CityId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 ```powershell
 $ItemRefundPolicyDto = Initialize-PSOpenAPIToolsItemRefundPolicyDto  -Id null `
  -Timestamp null `
- -ShippingCourierID null `
+ -ShippingCourierId null `
  -Type null `
  -Code null `
  -Title null `
@@ -54,14 +54,14 @@ $ItemRefundPolicyDto = Initialize-PSOpenAPIToolsItemRefundPolicyDto  -Id null `
  -Years null `
  -Value null `
  -Percentage null `
- -CurrencyID null `
- -CountryID null `
- -CountryStateID null `
+ -CurrencyId null `
+ -CountryId null `
+ -CountryStateId null `
  -CustomState null `
  -CustomCity null `
- -CityID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -CityId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

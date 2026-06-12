@@ -5,12 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | 
-**WebPortalID** | **String** |  | [optional] 
-**WebsiteThemeID** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**ParentWebContentID** | **String** |  | [optional] 
-**ParentWebContentVersionID** | **String** |  | [optional] 
+**CourseId** | **String** |  | 
+**WebPortalId** | **String** |  | [optional] 
+**WebsiteThemeId** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**ParentWebContentId** | **String** |  | [optional] 
+**ParentWebContentVersionId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -18,12 +18,12 @@ Name | Type | Description | Notes
 ```powershell
 $CourseCertificateTemplateCreateDto = Initialize-PSOpenAPIToolsCourseCertificateTemplateCreateDto  -Id null `
  -Timestamp null `
- -CourseID null `
- -WebPortalID null `
- -WebsiteThemeID null `
- -SocialProfileID null `
- -ParentWebContentID null `
- -ParentWebContentVersionID null
+ -CourseId null `
+ -WebPortalId null `
+ -WebsiteThemeId null `
+ -SocialProfileId null `
+ -ParentWebContentId null `
+ -ParentWebContentVersionId null
 ```
 
 - Convert the resource to JSON

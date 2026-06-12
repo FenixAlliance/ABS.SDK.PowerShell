@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **Slug** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,8 +23,9 @@ $CoursePageDto = Initialize-PSOpenAPIToolsCoursePageDto  -Id null `
  -Description null `
  -Content null `
  -Slug null `
- -CourseID null `
- -TenantId null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

@@ -116,8 +116,6 @@ Name | Type | Description | Notes
 **BusinessProfileRecordId** | **String** |  | [optional] 
 **ParentBillingItemRecordId** | **String** |  | [optional] 
 **CartId** | **String** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
-**ShippingAddressID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -235,9 +233,7 @@ $ItemCartRecordDto = Initialize-PSOpenAPIToolsItemCartRecordDto  -Id null `
  -QuoteItemRecordId null `
  -BusinessProfileRecordId null `
  -ParentBillingItemRecordId null `
- -CartId null `
- -ItemID null `
- -ShippingAddressID null
+ -CartId null
 ```
 
 - Convert the resource to JSON

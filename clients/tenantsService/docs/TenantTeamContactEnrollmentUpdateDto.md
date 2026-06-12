@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BusinessTeamID** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
+**BusinessTeamId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TenantTeamContactEnrollmentUpdateDto = Initialize-PSOpenAPIToolsTenantTeamContactEnrollmentUpdateDto  -BusinessTeamID null `
- -ContactID null
+$TenantTeamContactEnrollmentUpdateDto = Initialize-PSOpenAPIToolsTenantTeamContactEnrollmentUpdateDto  -BusinessTeamId null `
+ -ContactId null
 ```
 
 - Convert the resource to JSON

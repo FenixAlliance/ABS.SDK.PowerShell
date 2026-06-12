@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **AvatarURL** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $SocialGroupCreateDto = Initialize-PSOpenAPIToolsSocialGroupCreateDto  -Id null 
  -Name null `
  -Title null `
  -AvatarURL null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

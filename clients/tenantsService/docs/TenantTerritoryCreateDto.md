@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**ParentTerritoryID** | **String** |  | [optional] 
+**ParentTerritoryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $TenantTerritoryCreateDto = Initialize-PSOpenAPIToolsTenantTerritoryCreateDto  -
  -Timestamp null `
  -Name null `
  -Description null `
- -ParentTerritoryID null
+ -ParentTerritoryId null
 ```
 
 - Convert the resource to JSON

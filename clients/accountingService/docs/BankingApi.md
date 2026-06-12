@@ -24,6 +24,10 @@ Method | HTTP request | Description
 [**Get-BankTransactionsCount**](BankingApi.md#Get-BankTransactionsCount) | **GET** /api/v2/AccountingService/Banking/{bankId}/Transactions/Count | Gets the current tenant bank transactions count
 [**Get-Banks**](BankingApi.md#Get-Banks) | **GET** /api/v2/AccountingService/Banking | Gets the current tenant banks
 [**Get-BanksCount**](BankingApi.md#Get-BanksCount) | **GET** /api/v2/AccountingService/Banking/Count | Gets the current tenant banks count
+[**Invoke-PatchBank**](BankingApi.md#Invoke-PatchBank) | **PATCH** /api/v2/AccountingService/Banking/{bankId} | Patches a bank
+[**Invoke-PatchBankAccount**](BankingApi.md#Invoke-PatchBankAccount) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Patches a bank account
+[**Invoke-PatchBankGuarantee**](BankingApi.md#Invoke-PatchBankGuarantee) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Patches a bank guarantee
+[**Invoke-PatchBankTransaction**](BankingApi.md#Invoke-PatchBankTransaction) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Transactions/{transactionId} | Patches a bank transaction
 [**Update-Bank**](BankingApi.md#Update-Bank) | **PUT** /api/v2/AccountingService/Banking/{bankId} | Updates a bank
 [**Update-BankAccount**](BankingApi.md#Update-BankAccount) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Updates a bank account
 [**Update-BankGuarantee**](BankingApi.md#Update-BankGuarantee) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Updates a bank guarantee
@@ -101,7 +105,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountCreateDto |  (optional)
+$BankAccountCreateDto = Initialize-BankAccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -BankId "MyBankId" -BankProfileId "MyBankProfileId" -WalletId "MyWalletId" # BankAccountCreateDto |  (optional)
 
 # Creates a new bank account
 try {
@@ -211,7 +215,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankTransactionCreateDto = Initialize-BankTransactionCreateDto -Id "MyId" -Timestamp (Get-Date) -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" # BankTransactionCreateDto |  (optional)
+$BankTransactionCreateDto = Initialize-BankTransactionCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Price 0 -Quantity 0 -ExternalDescription "MyExternalDescription" -BasisQuantity 0 -BasisAmount 0 -Percent 0 -UnitGroupId "MyUnitGroupId" -UnitId "MyUnitId" -TransactionCategoryId "MyTransactionCategoryId" -CurrencyId "MyCurrencyId" -BankProfileId "MyBankProfileId" -BankAccountId "MyBankAccountId" # BankTransactionCreateDto |  (optional)
 
 # Creates a new bank transaction
 try {
@@ -1091,6 +1095,235 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchBank"></a>
+# **Invoke-PatchBank**
+> EmptyEnvelope Invoke-PatchBank<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a bank
+
+Partially update a bank using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a bank
+try {
+    $Result = Invoke-PatchBank -TenantId $TenantId -BankId $BankId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchBank: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **BankId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchBankAccount"></a>
+# **Invoke-PatchBankAccount**
+> EmptyEnvelope Invoke-PatchBankAccount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a bank account
+
+Partially update a bank account using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a bank account
+try {
+    $Result = Invoke-PatchBankAccount -TenantId $TenantId -BankId $BankId -AccountId $AccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchBankAccount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **BankId** | **String**|  | 
+ **AccountId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchBankGuarantee"></a>
+# **Invoke-PatchBankGuarantee**
+> EmptyEnvelope Invoke-PatchBankGuarantee<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-GuaranteeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a bank guarantee
+
+Partially update a bank guarantee using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$GuaranteeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a bank guarantee
+try {
+    $Result = Invoke-PatchBankGuarantee -TenantId $TenantId -BankId $BankId -GuaranteeId $GuaranteeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchBankGuarantee: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **BankId** | **String**|  | 
+ **GuaranteeId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchBankTransaction"></a>
+# **Invoke-PatchBankTransaction**
+> EmptyEnvelope Invoke-PatchBankTransaction<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TransactionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a bank transaction
+
+Partially update a bank transaction using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TransactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a bank transaction
+try {
+    $Result = Invoke-PatchBankTransaction -TenantId $TenantId -BankId $BankId -TransactionId $TransactionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchBankTransaction: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **BankId** | **String**|  | 
+ **TransactionId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-Bank"></a>
 # **Update-Bank**
 > BankDtoEnvelope Update-Bank<br>
@@ -1167,7 +1400,7 @@ $BankId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$BankAccountUpdateDto = Initialize-BankAccountUpdateDto -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -QualifiedName "MyQualifiedName" -BankId "MyBankId" -BankProfileId "MyBankProfileId" # BankAccountUpdateDto |  (optional)
+$BankAccountUpdateDto = Initialize-BankAccountUpdateDto -Name "MyName" -Iban "MyIban" -Swift "MySwift" -BranchCode "MyBranchCode" -BankAccountNumber "MyBankAccountNumber" -BankId "MyBankId" -BankProfileId "MyBankProfileId" -WalletId "MyWalletId" # BankAccountUpdateDto |  (optional)
 
 # Updates a bank account
 try {

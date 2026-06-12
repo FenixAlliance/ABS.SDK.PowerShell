@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseFileByIdAsync**](CourseFilesApi.md#Get-CourseFileByIdAsync) | **GET** /api/v2/LearningService/CourseFiles/{fileId} | Get course file by ID
 [**Get-CourseFilesAsync**](CourseFilesApi.md#Get-CourseFilesAsync) | **GET** /api/v2/LearningService/CourseFiles | Get all course files
 [**Get-CourseFilesCountAsync**](CourseFilesApi.md#Get-CourseFilesCountAsync) | **GET** /api/v2/LearningService/CourseFiles/Count | Get course files count
+[**Invoke-PatchCourseFileAsync**](CourseFilesApi.md#Invoke-PatchCourseFileAsync) | **PATCH** /api/v2/LearningService/CourseFiles/{fileId} | Patch a course file
 [**Update-CourseFileAsync**](CourseFilesApi.md#Update-CourseFileAsync) | **PUT** /api/v2/LearningService/CourseFiles/{fileId} | Update a course file
 
 
@@ -29,7 +30,7 @@ Creates a new course file for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseFileCreateDto = Initialize-CourseFileCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -FileName "MyFileName" -FileUploadURL "MyFileUploadURL" -ContentType "MyContentType" -FileLength 0 -CourseID "MyCourseID" # CourseFileCreateDto |  (optional)
+$CourseFileCreateDto = Initialize-CourseFileCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -FileName "MyFileName" -FileUploadURL "MyFileUploadURL" -ContentType "MyContentType" -FileLength 0 -CourseId "MyCourseId" # CourseFileCreateDto |  (optional)
 
 # Create a new course file
 try {
@@ -259,6 +260,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchCourseFileAsync"></a>
+# **Invoke-PatchCourseFileAsync**
+> void Invoke-PatchCourseFileAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course file
+
+Partially updates an existing course file for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$FileId = "MyFileId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course file
+try {
+    $Result = Invoke-PatchCourseFileAsync -TenantId $TenantId -FileId $FileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseFileAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **FileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

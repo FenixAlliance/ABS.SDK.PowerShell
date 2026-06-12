@@ -5,10 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**InstructorProfileID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**InstructorProfileId** | **String** |  | [optional] 
 **CourseTeamMembershipType** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,10 +17,11 @@ Name | Type | Description | Notes
 ```powershell
 $CourseTeamMembershipDto = Initialize-PSOpenAPIToolsCourseTeamMembershipDto  -Id null `
  -Timestamp null `
- -CourseID null `
- -InstructorProfileID null `
+ -CourseId null `
+ -InstructorProfileId null `
  -CourseTeamMembershipType null `
- -TenantId null
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

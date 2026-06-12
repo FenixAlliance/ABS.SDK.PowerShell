@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Slug** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **SeoTitle** | **String** |  | [optional] 
@@ -16,9 +17,9 @@ Name | Type | Description | Notes
 **CanonicalUrl** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **Image** | **String** |  | [optional] 
-**WebPortalID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 $BlogPostTagDto = Initialize-PSOpenAPIToolsBlogPostTagDto  -Id null `
  -Timestamp null `
  -Slug null `
+ -Type null `
  -Title null `
  -Description null `
  -SeoTitle null `
@@ -37,9 +39,9 @@ $BlogPostTagDto = Initialize-PSOpenAPIToolsBlogPostTagDto  -Id null `
  -CanonicalUrl null `
  -ImageURL null `
  -Image null `
- -WebPortalID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -WebPortalId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

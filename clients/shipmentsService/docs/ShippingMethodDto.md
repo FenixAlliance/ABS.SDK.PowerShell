@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Cost** | **Double** |  | [optional] 
 **Taxable** | **Boolean** |  | [optional] 
 **TaxIncluded** | **Boolean** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 **ShippingClassCalculationType** | **String** |  | [optional] 
 
 ## Examples
@@ -25,8 +25,8 @@ $ShippingMethodDto = Initialize-PSOpenAPIToolsShippingMethodDto  -Id null `
  -Cost null `
  -Taxable null `
  -TaxIncluded null `
- -CurrencyID null `
- -BusinessID null `
+ -CurrencyId null `
+ -TenantId null `
  -ShippingClassCalculationType null
 ```
 

@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **AssetId** | **String** |  | [optional] 
 **AssetName** | **String** |  | [optional] 
 **IsRootTransfer** | **Boolean** |  | [optional] 
@@ -33,8 +33,8 @@ Name | Type | Description | Notes
 ```powershell
 $AssetTransferDto = Initialize-PSOpenAPIToolsAssetTransferDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
+ -TenantId null `
+ -EnrollmentId null `
  -AssetId null `
  -AssetName null `
  -IsRootTransfer null `

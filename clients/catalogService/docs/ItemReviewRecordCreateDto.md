@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **ReviewScore** | **Double** |  | [optional] 
 **ReviewMessage** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $ItemReviewRecordCreateDto = Initialize-PSOpenAPIToolsItemReviewRecordCreateDto 
  -Timestamp null `
  -ReviewScore null `
  -ReviewMessage null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

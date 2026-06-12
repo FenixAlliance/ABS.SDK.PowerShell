@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -18,8 +18,8 @@ $SupportTicketPriorityDto = Initialize-PSOpenAPIToolsSupportTicketPriorityDto  -
  -Timestamp null `
  -Title null `
  -Description null `
- -BusinessID null `
- -SupportEntitlementID null
+ -TenantId null `
+ -SupportEntitlementId null
 ```
 
 - Convert the resource to JSON

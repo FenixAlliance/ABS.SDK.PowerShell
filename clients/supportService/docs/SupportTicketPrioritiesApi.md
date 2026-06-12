@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-SupportTicketPrioritiesAsync**](SupportTicketPrioritiesApi.md#Get-SupportTicketPrioritiesAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities | Retrieve a list of support ticket priorities
 [**Get-SupportTicketPrioritiesCountAsync**](SupportTicketPrioritiesApi.md#Get-SupportTicketPrioritiesCountAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count | Get the count of support ticket priorities
 [**Get-SupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#Get-SupportTicketPriorityAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Retrieve a support ticket priority by ID
+[**Invoke-PatchSupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#Invoke-PatchSupportTicketPriorityAsync) | **PATCH** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Patch a support ticket priority
 [**Update-SupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#Update-SupportTicketPriorityAsync) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Update a support ticket priority
 
 
@@ -29,7 +30,7 @@ Creates a new support ticket priority for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketPriorityCreateDto = Initialize-SupportTicketPriorityCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -SupportEntitlementID "MySupportEntitlementID" # SupportTicketPriorityCreateDto |  (optional)
+$SupportTicketPriorityCreateDto = Initialize-SupportTicketPriorityCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -SupportEntitlementId "MySupportEntitlementId" # SupportTicketPriorityCreateDto |  (optional)
 
 # Create a new support ticket priority
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchSupportTicketPriorityAsync"></a>
+# **Invoke-PatchSupportTicketPriorityAsync**
+> EmptyEnvelope Invoke-PatchSupportTicketPriorityAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportTicketPriorityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a support ticket priority
+
+Partially updates an existing support ticket priority by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SupportTicketPriorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a support ticket priority
+try {
+    $Result = Invoke-PatchSupportTicketPriorityAsync -TenantId $TenantId -SupportTicketPriorityId $SupportTicketPriorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSupportTicketPriorityAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SupportTicketPriorityId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-SupportTicketPriorityAsync"></a>
 # **Update-SupportTicketPriorityAsync**
 > EmptyEnvelope Update-SupportTicketPriorityAsync<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportTicketPriorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketPriorityUpdateDto = Initialize-SupportTicketPriorityUpdateDto -Title "MyTitle" -Description "MyDescription" # SupportTicketPriorityUpdateDto |  (optional)
+$SupportTicketPriorityUpdateDto = Initialize-SupportTicketPriorityUpdateDto -Title "MyTitle" -Description "MyDescription" -SupportEntitlementId "MySupportEntitlementId" # SupportTicketPriorityUpdateDto |  (optional)
 
 # Update a support ticket priority
 try {

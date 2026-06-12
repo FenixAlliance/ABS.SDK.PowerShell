@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ParentFileUploadId** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
 **Metadata** | **String** |  | [optional] 
-**SupportRequestID** | **String** |  | [optional] 
+**SupportRequestId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -35,7 +35,7 @@ $SupportRequestAttachmentCreateDto = Initialize-PSOpenAPIToolsSupportRequestAtta
  -ParentFileUploadId null `
  -FilePath null `
  -Metadata null `
- -SupportRequestID null
+ -SupportRequestId null
 ```
 
 - Convert the resource to JSON

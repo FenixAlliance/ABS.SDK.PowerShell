@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $ItemFamilyDto = Initialize-PSOpenAPIToolsItemFamilyDto  -Id null `
  -Name null `
  -Code null `
  -Description null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

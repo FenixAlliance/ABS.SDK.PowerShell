@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **OverallScore** | **Double** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
-**CourseGradingRubricID** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
+**CourseGradingRubricId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 $CourseProblemSetUpdateDto = Initialize-PSOpenAPIToolsCourseProblemSetUpdateDto  -Title null `
  -Description null `
  -OverallScore null `
- -CourseUnitID null `
- -CourseGradingRubricID null `
+ -CourseUnitId null `
+ -CourseGradingRubricId null `
  -ReleaseDateTime null
 ```
 

@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**AvatarURL** | **String** |  | [optional] 
+**AvatarUrl** | **String** |  | [optional] 
 **IsPublic** | **Boolean** |  | [optional] 
-**BusinessUnitID** | **String** |  | [optional] 
-**OrganizationProfileID** | **String** |  | [optional] 
+**BusinessUnitId** | **String** |  | [optional] 
+**OrganizationProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -20,10 +20,10 @@ $TenantTeamCreateDto = Initialize-PSOpenAPIToolsTenantTeamCreateDto  -Id null `
  -Timestamp null `
  -Name null `
  -Description null `
- -AvatarURL null `
+ -AvatarUrl null `
  -IsPublic null `
- -BusinessUnitID null `
- -OrganizationProfileID null
+ -BusinessUnitId null `
+ -OrganizationProfileId null
 ```
 
 - Convert the resource to JSON

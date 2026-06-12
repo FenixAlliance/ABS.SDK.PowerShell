@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Instructions** | **String** |  | [optional] 
 **Points** | **Double** |  | [optional] 
-**CourseID** | **String** |  | 
-**CourseUnitID** | **String** |  | [optional] 
-**CourseCohortID** | **String** |  | [optional] 
-**CourseAssignmentTypeID** | **String** |  | [optional] 
+**CourseId** | **String** |  | 
+**CourseUnitId** | **String** |  | [optional] 
+**CourseCohortId** | **String** |  | [optional] 
+**CourseAssignmentTypeId** | **String** |  | [optional] 
 **DueDateTime** | **System.DateTime** |  | [optional] 
 **AsignToAllCohorts** | **Boolean** |  | [optional] 
 **Resources** | **String** |  | [optional] 
@@ -27,10 +27,10 @@ $CourseAssignmentCreateDto = Initialize-PSOpenAPIToolsCourseAssignmentCreateDto 
  -Description null `
  -Instructions null `
  -Points null `
- -CourseID null `
- -CourseUnitID null `
- -CourseCohortID null `
- -CourseAssignmentTypeID null `
+ -CourseId null `
+ -CourseUnitId null `
+ -CourseCohortId null `
+ -CourseAssignmentTypeId null `
  -DueDateTime null `
  -AsignToAllCohorts null `
  -Resources null

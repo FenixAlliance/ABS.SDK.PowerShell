@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **NeedsRevision** | **Boolean** |  | 
 **Question** | **String** |  | 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $ItemQuestionRecordCreateDto = Initialize-PSOpenAPIToolsItemQuestionRecordCreate
  -Title null `
  -NeedsRevision null `
  -Question null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

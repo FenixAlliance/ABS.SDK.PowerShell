@@ -5,11 +5,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
+**Context** | **String** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **UnitId** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
+**PartnerVisible** | **Boolean** |  | [optional] 
+**UnitOfMeasureDependant** | **Boolean** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +20,14 @@ Name | Type | Description | Notes
 ```powershell
 $PriceListUpdateDto = Initialize-PSOpenAPIToolsPriceListUpdateDto  -Name null `
  -Description null `
+ -Context null `
  -StartDate null `
  -EndDate null `
  -CurrencyId null `
  -UnitId null `
- -UnitGroupId null
+ -UnitGroupId null `
+ -PartnerVisible null `
+ -UnitOfMeasureDependant null
 ```
 
 - Convert the resource to JSON

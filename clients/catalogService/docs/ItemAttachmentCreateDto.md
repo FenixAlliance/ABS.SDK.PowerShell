@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **ParentFileUploadId** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -33,7 +33,7 @@ $ItemAttachmentCreateDto = Initialize-PSOpenAPIToolsItemAttachmentCreateDto  -Id
  -ValidResponse null `
  -ParentFileUploadId null `
  -FilePath null `
- -ItemID null
+ -ItemId null
 ```
 
 - Convert the resource to JSON

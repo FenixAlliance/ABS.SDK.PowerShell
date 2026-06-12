@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] 
-**Timestamp** | **System.DateTime** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
 **ItemPriceId** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
@@ -13,9 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ItemTaxPolicyRecordUpdateDto = Initialize-PSOpenAPIToolsItemTaxPolicyRecordUpdateDto  -Id null `
- -Timestamp null `
- -TaxPolicyId null `
+$ItemTaxPolicyRecordUpdateDto = Initialize-PSOpenAPIToolsItemTaxPolicyRecordUpdateDto  -TaxPolicyId null `
  -ItemPriceId null `
  -ItemId null
 ```

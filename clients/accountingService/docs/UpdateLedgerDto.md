@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**TenantId** | **String** |  | [optional] 
-**EnrollmentId** | **String** |  | [optional] 
 **LedgerTypeId** | **String** |  | [optional] 
 
 ## Examples
@@ -15,8 +13,6 @@ Name | Type | Description | Notes
 ```powershell
 $UpdateLedgerDto = Initialize-PSOpenAPIToolsUpdateLedgerDto  -Name null `
  -Description null `
- -TenantId null `
- -EnrollmentId null `
  -LedgerTypeId null
 ```
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**AssetType** | **String** |  | [optional] 
+**AssetClass** | **String** |  | [optional] 
 **AssetOwner** | **String** |  | [optional] 
 **CalculateDepreciation** | **Boolean** |  | [optional] 
 **AllowMonthlyDepreciation** | **Boolean** |  | [optional] 
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **PurchaseDate** | **System.DateTime** |  | [optional] 
 **PurchasePrice** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
-**CurrencyCode** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
+**AssetTypeId** | **String** |  | [optional] 
 **AssetCategoryId** | **String** |  | [optional] 
 **PurchaseInvoiceId** | **String** |  | [optional] 
 **PurchaseReceiptId** | **String** |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ```powershell
 $AssetUpdateDto = Initialize-PSOpenAPIToolsAssetUpdateDto  -Name null `
  -Description null `
- -AssetType null `
+ -AssetClass null `
  -AssetOwner null `
  -CalculateDepreciation null `
  -AllowMonthlyDepreciation null `
@@ -36,8 +36,8 @@ $AssetUpdateDto = Initialize-PSOpenAPIToolsAssetUpdateDto  -Name null `
  -PurchaseDate null `
  -PurchasePrice null `
  -CurrencyId null `
- -CurrencyCode null `
  -ItemId null `
+ -AssetTypeId null `
  -AssetCategoryId null `
  -PurchaseInvoiceId null `
  -PurchaseReceiptId null `

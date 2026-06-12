@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **ReceiverWalletAccountId** | **String** |  | [optional] 
 **EmisorContactId** | **String** |  | [optional] 
 **ReceiverContactId** | **String** |  | [optional] 
-**PaymentID** | **String** |  | [optional] 
+**PaymentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -39,7 +39,7 @@ $PaymentCommissionDto = Initialize-PSOpenAPIToolsPaymentCommissionDto  -Id null 
  -ReceiverWalletAccountId null `
  -EmisorContactId null `
  -ReceiverContactId null `
- -PaymentID null
+ -PaymentId null
 ```
 
 - Convert the resource to JSON

@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Type** | **String** |  | [optional] 
@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ```powershell
 $TenantPositionDto = Initialize-PSOpenAPIToolsTenantPositionDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
+ -TenantId null `
+ -EnrollmentId null `
  -Title null `
  -Description null `
  -Type null

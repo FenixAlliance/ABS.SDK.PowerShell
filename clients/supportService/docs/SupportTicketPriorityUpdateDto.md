@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SupportTicketPriorityUpdateDto = Initialize-PSOpenAPIToolsSupportTicketPriorityUpdateDto  -Title null `
- -Description null
+ -Description null `
+ -SupportEntitlementId null
 ```
 
 - Convert the resource to JSON

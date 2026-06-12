@@ -8,10 +8,12 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **OverallScore** | **Double** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
+**CourseGradingRubricId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,10 +24,12 @@ $CourseProblemSetDto = Initialize-PSOpenAPIToolsCourseProblemSetDto  -Id null `
  -Title null `
  -Description null `
  -OverallScore null `
- -CourseID null `
- -CourseUnitID null `
+ -CourseId null `
+ -CourseUnitId null `
+ -CourseGradingRubricId null `
  -ReleaseDateTime null `
- -TenantId null
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

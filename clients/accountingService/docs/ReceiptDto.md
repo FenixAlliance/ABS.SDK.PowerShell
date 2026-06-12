@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PaymentId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
-**AccountHolderId** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 **ReceiptType** | **String** |  | [optional] 
@@ -24,7 +24,7 @@ $ReceiptDto = Initialize-PSOpenAPIToolsReceiptDto  -Id null `
  -PaymentId null `
  -TenantId null `
  -Closed null `
- -AccountHolderId null `
+ -UserId null `
  -ContactId null `
  -EnrollmentId null `
  -ReceiptType null `

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
-**CourseID** | **String** |  | 
+**CourseId** | **String** |  | 
 **StartDateTime** | **System.DateTime** |  | [optional] 
 **EndDateTime** | **System.DateTime** |  | [optional] 
 **ExpectedStartDateTime** | **System.DateTime** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 $CourseCohortCreateDto = Initialize-PSOpenAPIToolsCourseCohortCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -CourseID null `
+ -CourseId null `
  -StartDateTime null `
  -EndDateTime null `
  -ExpectedStartDateTime null `

@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 **IsItemMozaicBG** | **Boolean** |  | [optional] 
 **MD5Hash** | **String** |  | [optional] 
 **Metadata** | **String** |  | [optional] 
@@ -21,9 +21,9 @@ Name | Type | Description | Notes
 **ContentType** | **String** |  | [optional] 
 **FileLength** | **Int64** |  | [optional] 
 **ValidResponse** | **Boolean** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
-**ParentFileUploadID** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
+**ParentFileUploadId** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -31,9 +31,9 @@ Name | Type | Description | Notes
 ```powershell
 $ItemImageDto = Initialize-PSOpenAPIToolsItemImageDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -ItemID null `
+ -TenantId null `
+ -EnrollmentId null `
+ -ItemId null `
  -IsItemMozaicBG null `
  -MD5Hash null `
  -Metadata null `
@@ -47,9 +47,9 @@ $ItemImageDto = Initialize-PSOpenAPIToolsItemImageDto  -Id null `
  -ContentType null `
  -FileLength null `
  -ValidResponse null `
- -SocialProfileID null `
- -ParentFileUploadID null `
- -AccountHolderID null
+ -SocialProfileId null `
+ -ParentFileUploadId null `
+ -UserId null
 ```
 
 - Convert the resource to JSON

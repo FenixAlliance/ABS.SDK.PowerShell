@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseProblemSetByIdAsync**](CourseProblemSetsApi.md#Get-CourseProblemSetByIdAsync) | **GET** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Get course problem set by ID
 [**Get-CourseProblemSetsAsync**](CourseProblemSetsApi.md#Get-CourseProblemSetsAsync) | **GET** /api/v2/LearningService/CourseProblemSets | Get all course problem sets
 [**Get-CourseProblemSetsCountAsync**](CourseProblemSetsApi.md#Get-CourseProblemSetsCountAsync) | **GET** /api/v2/LearningService/CourseProblemSets/Count | Get course problem sets count
+[**Invoke-PatchCourseProblemSetAsync**](CourseProblemSetsApi.md#Invoke-PatchCourseProblemSetAsync) | **PATCH** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Patch a course problem set
 [**Update-CourseProblemSetAsync**](CourseProblemSetsApi.md#Update-CourseProblemSetAsync) | **PUT** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Update a course problem set
 
 
@@ -29,7 +30,7 @@ Creates a new course problem set for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseProblemSetCreateDto = Initialize-CourseProblemSetCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -CourseGradingRubricID "MyCourseGradingRubricID" -ReleaseDateTime (Get-Date) # CourseProblemSetCreateDto |  (optional)
+$CourseProblemSetCreateDto = Initialize-CourseProblemSetCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseId "MyCourseId" -CourseUnitId "MyCourseUnitId" -CourseGradingRubricId "MyCourseGradingRubricId" -ReleaseDateTime (Get-Date) # CourseProblemSetCreateDto |  (optional)
 
 # Create a new course problem set
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseProblemSetAsync"></a>
+# **Invoke-PatchCourseProblemSetAsync**
+> EmptyEnvelope Invoke-PatchCourseProblemSetAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProblemSetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course problem set
+
+Partially updates a course problem set for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProblemSetId = "MyProblemSetId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course problem set
+try {
+    $Result = Invoke-PatchCourseProblemSetAsync -TenantId $TenantId -ProblemSetId $ProblemSetId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseProblemSetAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ProblemSetId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseProblemSetAsync"></a>
 # **Update-CourseProblemSetAsync**
 > void Update-CourseProblemSetAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ProblemSetId = "MyProblemSetId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseProblemSetUpdateDto = Initialize-CourseProblemSetUpdateDto -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseUnitID "MyCourseUnitID" -CourseGradingRubricID "MyCourseGradingRubricID" -ReleaseDateTime (Get-Date) # CourseProblemSetUpdateDto |  (optional)
+$CourseProblemSetUpdateDto = Initialize-CourseProblemSetUpdateDto -Title "MyTitle" -Description "MyDescription" -OverallScore 0 -CourseUnitId "MyCourseUnitId" -CourseGradingRubricId "MyCourseGradingRubricId" -ReleaseDateTime (Get-Date) # CourseProblemSetUpdateDto |  (optional)
 
 # Update a course problem set
 try {

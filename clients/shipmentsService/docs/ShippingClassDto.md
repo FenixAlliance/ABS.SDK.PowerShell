@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Slug** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $ShippingClassDto = Initialize-PSOpenAPIToolsShippingClassDto  -Id null `
  -Timestamp null `
  -Name null `
  -Slug null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

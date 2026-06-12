@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseUnitComponentByIdAsync**](CourseUnitComponentsApi.md#Get-CourseUnitComponentByIdAsync) | **GET** /api/v2/LearningService/CourseUnitComponents/{componentId} | Get course unit component by ID
 [**Get-CourseUnitComponentsAsync**](CourseUnitComponentsApi.md#Get-CourseUnitComponentsAsync) | **GET** /api/v2/LearningService/CourseUnitComponents | Get all course unit components
 [**Get-CourseUnitComponentsCountAsync**](CourseUnitComponentsApi.md#Get-CourseUnitComponentsCountAsync) | **GET** /api/v2/LearningService/CourseUnitComponents/Count | Get course unit components count
+[**Invoke-PatchCourseUnitComponentAsync**](CourseUnitComponentsApi.md#Invoke-PatchCourseUnitComponentAsync) | **PATCH** /api/v2/LearningService/CourseUnitComponents/{componentId} | Patch a course unit component
 [**Update-CourseUnitComponentAsync**](CourseUnitComponentsApi.md#Update-CourseUnitComponentAsync) | **PUT** /api/v2/LearningService/CourseUnitComponents/{componentId} | Update a course unit component
 
 
@@ -29,7 +30,7 @@ Creates a new course unit component for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseUnitComponentCreateDto = Initialize-CourseUnitComponentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Order 0 -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" # CourseUnitComponentCreateDto |  (optional)
+$CourseUnitComponentCreateDto = Initialize-CourseUnitComponentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Order 0 -CourseId "MyCourseId" -CourseUnitId "MyCourseUnitId" # CourseUnitComponentCreateDto |  (optional)
 
 # Create a new course unit component
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseUnitComponentAsync"></a>
+# **Invoke-PatchCourseUnitComponentAsync**
+> EmptyEnvelope Invoke-PatchCourseUnitComponentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ComponentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course unit component
+
+Partially updates a course unit component for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ComponentId = "MyComponentId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course unit component
+try {
+    $Result = Invoke-PatchCourseUnitComponentAsync -TenantId $TenantId -ComponentId $ComponentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseUnitComponentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ComponentId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseUnitComponentAsync"></a>
 # **Update-CourseUnitComponentAsync**
 > void Update-CourseUnitComponentAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ComponentId = "MyComponentId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseUnitComponentUpdateDto = Initialize-CourseUnitComponentUpdateDto -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Order 0 -CourseUnitID "MyCourseUnitID" # CourseUnitComponentUpdateDto |  (optional)
+$CourseUnitComponentUpdateDto = Initialize-CourseUnitComponentUpdateDto -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -Order 0 -CourseUnitId "MyCourseUnitId" # CourseUnitComponentUpdateDto |  (optional)
 
 # Update a course unit component
 try {

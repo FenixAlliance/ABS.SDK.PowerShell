@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantDepartmentById**](DepartmentsApi.md#Get-TenantDepartmentById) | **GET** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Retrieve a single tenant department by its ID
 [**Get-TenantDepartments**](DepartmentsApi.md#Get-TenantDepartments) | **GET** /api/v2/TenantsService/Departments | Retrieve a list of tenant departments
 [**Get-TenantDepartmentsCount**](DepartmentsApi.md#Get-TenantDepartmentsCount) | **GET** /api/v2/TenantsService/Departments/Count | Get the count of tenant departments
+[**Invoke-PatchTenantDepartmentAsync**](DepartmentsApi.md#Invoke-PatchTenantDepartmentAsync) | **PATCH** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Patch a tenant department
 [**Update-TenantDepartment**](DepartmentsApi.md#Update-TenantDepartment) | **PUT** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Update a tenant department
 
 
@@ -29,7 +30,7 @@ Create a new tenant department
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantDepartmentCreateDto = Initialize-TenantDepartmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentCreateDto |  (optional)
+$TenantDepartmentCreateDto = Initialize-TenantDepartmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileId "MyOrganizationProfileId" -ParentDepartmentId "MyParentDepartmentId" # TenantDepartmentCreateDto |  (optional)
 
 # Create a new tenant department
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantDepartmentAsync"></a>
+# **Invoke-PatchTenantDepartmentAsync**
+> EmptyEnvelope Invoke-PatchTenantDepartmentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantDepartmentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant department
+
+Patch a tenant department
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantDepartmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant department
+try {
+    $Result = Invoke-PatchTenantDepartmentAsync -TenantId $TenantId -TenantDepartmentId $TenantDepartmentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantDepartmentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantDepartmentId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantDepartment"></a>
 # **Update-TenantDepartment**
 > EmptyEnvelope Update-TenantDepartment<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantDepartmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantDepartmentUpdateDto = Initialize-TenantDepartmentUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileID "MyOrganizationProfileID" -ParentDepartmentID "MyParentDepartmentID" # TenantDepartmentUpdateDto |  (optional)
+$TenantDepartmentUpdateDto = Initialize-TenantDepartmentUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -OrganizationProfileId "MyOrganizationProfileId" -ParentDepartmentId "MyParentDepartmentId" # TenantDepartmentUpdateDto |  (optional)
 
 # Update a tenant department
 try {

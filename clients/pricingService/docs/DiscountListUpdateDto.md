@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
+**DiscountListType** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 
 ## Examples
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $DiscountListUpdateDto = Initialize-PSOpenAPIToolsDiscountListUpdateDto  -Name null `
+ -DiscountListType null `
  -CurrencyId null
 ```
 

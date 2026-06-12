@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **Approved** | **Boolean** |  | [optional] 
 **ApprovedTimestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **SupportEntitlementId** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
-**AccountHolderId** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
 **ReturnPolicyId** | **String** |  | [optional] 
 
 ## Examples
@@ -27,10 +27,10 @@ $ReturnRequestDto = Initialize-PSOpenAPIToolsReturnRequestDto  -Id null `
  -Approved null `
  -ApprovedTimestamp null `
  -TenantId null `
- -BusinessProfileRecordId null `
+ -EnrollmentId null `
  -SupportEntitlementId null `
  -ContactId null `
- -AccountHolderId null `
+ -UserId null `
  -ReturnPolicyId null
 ```
 

@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**BusinessProfileRecordId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**AssetId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**AssetId** | **String** |  | [optional] 
 **AssetName** | **String** |  | [optional] 
 **RepairStatus** | **String** |  | [optional] 
 **ScheduledDate** | **System.DateTime** |  | [optional] 
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 ```powershell
 $AssetRepairDto = Initialize-PSOpenAPIToolsAssetRepairDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
+ -TenantId null `
+ -EnrollmentId null `
  -AssetId null `
  -AssetName null `
  -RepairStatus null `

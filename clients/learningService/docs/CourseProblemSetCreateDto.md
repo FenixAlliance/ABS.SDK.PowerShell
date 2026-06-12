@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **OverallScore** | **Double** |  | [optional] 
-**CourseID** | **String** |  | 
-**CourseUnitID** | **String** |  | [optional] 
-**CourseGradingRubricID** | **String** |  | [optional] 
+**CourseId** | **String** |  | 
+**CourseUnitId** | **String** |  | [optional] 
+**CourseGradingRubricId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -22,9 +22,9 @@ $CourseProblemSetCreateDto = Initialize-PSOpenAPIToolsCourseProblemSetCreateDto 
  -Title null `
  -Description null `
  -OverallScore null `
- -CourseID null `
- -CourseUnitID null `
- -CourseGradingRubricID null `
+ -CourseId null `
+ -CourseUnitId null `
+ -CourseGradingRubricId null `
  -ReleaseDateTime null
 ```
 

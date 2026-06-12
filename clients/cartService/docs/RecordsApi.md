@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Get-ItemsInCartAsync**](RecordsApi.md#Get-ItemsInCartAsync) | **GET** /api/v2/CartService/Records/{cartId} | Get all items in a cart
 [**ConvertTo-creaseItemCartRecord**](RecordsApi.md#ConvertTo-creaseItemCartRecord) | **PUT** /api/v2/CartService/Records/{recordId}/Increase | Increase cart record quantity
 [**Invoke-IsItemAlreadyInCart**](RecordsApi.md#Invoke-IsItemAlreadyInCart) | **GET** /api/v2/CartService/Records/IsInCart | Check if an item is in a cart
+[**Invoke-PatchItemCartRecord**](RecordsApi.md#Invoke-PatchItemCartRecord) | **PATCH** /api/v2/CartService/Records/{recordId} | Patch a cart record
 [**Remove-ProductFromCartByParams**](RecordsApi.md#Remove-ProductFromCartByParams) | **DELETE** /api/v2/CartService/Records | Remove a product from a cart
 [**Remove-ProductFromCartByRecordId**](RecordsApi.md#Remove-ProductFromCartByRecordId) | **DELETE** /api/v2/CartService/Records/{recordId} | Remove a product from a cart by record ID
 [**Update-ItemCartRecord**](RecordsApi.md#Update-ItemCartRecord) | **PUT** /api/v2/CartService/Records/{recordId} | Update a cart record
@@ -420,6 +421,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchItemCartRecord"></a>
+# **Invoke-PatchItemCartRecord**
+> EmptyEnvelope Invoke-PatchItemCartRecord<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RecordId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a cart record
+
+Partially updates the specified item cart record using a JSON Patch document.
+
+### Example
+```powershell
+$RecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a cart record
+try {
+    $Result = Invoke-PatchItemCartRecord -RecordId $RecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchItemCartRecord: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RecordId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

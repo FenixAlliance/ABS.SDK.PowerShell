@@ -7,10 +7,11 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -20,10 +21,11 @@ $CourseLibraryDto = Initialize-PSOpenAPIToolsCourseLibraryDto  -Id null `
  -Timestamp null `
  -Title null `
  -Description null `
- -CourseID null `
- -CourseUnitID null `
+ -CourseId null `
+ -CourseUnitId null `
  -ReleaseDateTime null `
- -TenantId null
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

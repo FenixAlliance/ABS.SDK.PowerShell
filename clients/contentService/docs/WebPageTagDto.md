@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **CanonicalUrl** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **Image** | **String** |  | [optional] 
-**WebPortalID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -37,9 +37,9 @@ $WebPageTagDto = Initialize-PSOpenAPIToolsWebPageTagDto  -Id null `
  -CanonicalUrl null `
  -ImageURL null `
  -Image null `
- -WebPortalID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -WebPortalId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

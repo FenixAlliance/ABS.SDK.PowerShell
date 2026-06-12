@@ -8,10 +8,9 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**BusinessUnitQualifiedName** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**OrganizationProfileID** | **String** |  | [optional] 
-**ParentBusinessUnitID** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**OrganizationProfileId** | **String** |  | [optional] 
+**ParentBusinessUnitId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,10 +21,9 @@ $TenantUnitCreateDto = Initialize-PSOpenAPIToolsTenantUnitCreateDto  -Id null `
  -Name null `
  -Description null `
  -Disabled null `
- -BusinessUnitQualifiedName null `
- -CountryID null `
- -OrganizationProfileID null `
- -ParentBusinessUnitID null
+ -CountryId null `
+ -OrganizationProfileId null `
+ -ParentBusinessUnitId null
 ```
 
 - Convert the resource to JSON

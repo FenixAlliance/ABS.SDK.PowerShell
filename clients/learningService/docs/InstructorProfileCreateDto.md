@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **Data9** | **String** |  | [optional] 
 **Data9Label** | **String** |  | [optional] 
 **Authorized** | **Boolean** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
 
 ## Examples
 
@@ -62,8 +61,7 @@ $InstructorProfileCreateDto = Initialize-PSOpenAPIToolsInstructorProfileCreateDt
  -Data8Label null `
  -Data9 null `
  -Data9Label null `
- -Authorized null `
- -ContactID null
+ -Authorized null
 ```
 
 - Convert the resource to JSON

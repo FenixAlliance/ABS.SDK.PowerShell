@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **PurchasePrice** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
+**AssetTypeId** | **String** |  | [optional] 
 **AssetCategoryId** | **String** |  | [optional] 
 **PurchaseInvoiceId** | **String** |  | [optional] 
 **PurchaseReceiptId** | **String** |  | [optional] 
@@ -42,6 +43,7 @@ $AssetCreateDto = Initialize-PSOpenAPIToolsAssetCreateDto  -Id null `
  -PurchasePrice null `
  -CurrencyId null `
  -ItemId null `
+ -AssetTypeId null `
  -AssetCategoryId null `
  -PurchaseInvoiceId null `
  -PurchaseReceiptId null `

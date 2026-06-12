@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**OrganizationProfileID** | **String** |  | [optional] 
-**ParentDepartmentID** | **String** |  | [optional] 
+**OrganizationProfileId** | **String** |  | [optional] 
+**ParentDepartmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 $TenantDepartmentUpdateDto = Initialize-PSOpenAPIToolsTenantDepartmentUpdateDto  -Name null `
  -Description null `
  -Disabled null `
- -OrganizationProfileID null `
- -ParentDepartmentID null
+ -OrganizationProfileId null `
+ -ParentDepartmentId null
 ```
 
 - Convert the resource to JSON

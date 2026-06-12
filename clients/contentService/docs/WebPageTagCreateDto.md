@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **CanonicalUrl** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **Image** | **String** |  | [optional] 
-**WebPortalID** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -35,7 +35,7 @@ $WebPageTagCreateDto = Initialize-PSOpenAPIToolsWebPageTagCreateDto  -Id null `
  -CanonicalUrl null `
  -ImageURL null `
  -Image null `
- -WebPortalID null
+ -WebPortalId null
 ```
 
 - Convert the resource to JSON

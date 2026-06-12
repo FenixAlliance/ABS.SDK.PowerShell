@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**ShipmentId** | **String** |  | [optional] 
+**ProofOfDeliveryId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +18,10 @@ Name | Type | Description | Notes
 $DeliveryNoteDto = Initialize-PSOpenAPIToolsDeliveryNoteDto  -Id null `
  -Timestamp null `
  -Title null `
- -Description null
+ -Description null `
+ -ShipmentId null `
+ -ProofOfDeliveryId null `
+ -TenantId null
 ```
 
 - Convert the resource to JSON

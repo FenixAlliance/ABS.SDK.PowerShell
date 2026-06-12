@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-ShippingCourierByIdAsync**](ShippingCouriersApi.md#Get-ShippingCourierByIdAsync) | **GET** /api/v2/ShipmentsService/ShippingCouriers/{courierId} | Get shipping courier by ID
 [**Get-ShippingCouriersAsync**](ShippingCouriersApi.md#Get-ShippingCouriersAsync) | **GET** /api/v2/ShipmentsService/ShippingCouriers | Get all shipping couriers
 [**Get-ShippingCouriersCountAsync**](ShippingCouriersApi.md#Get-ShippingCouriersCountAsync) | **GET** /api/v2/ShipmentsService/ShippingCouriers/Count | Get shipping couriers count
+[**Invoke-PatchShippingCourierAsync**](ShippingCouriersApi.md#Invoke-PatchShippingCourierAsync) | **PATCH** /api/v2/ShipmentsService/ShippingCouriers/{courierId} | Patch a shipping courier
 [**Update-ShippingCourierAsync**](ShippingCouriersApi.md#Update-ShippingCourierAsync) | **PUT** /api/v2/ShipmentsService/ShippingCouriers/{courierId} | Update a shipping courier
 
 
@@ -29,7 +30,7 @@ Creates a new shipping courier.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShippingCourierCreateDto = Initialize-ShippingCourierCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LogoURL "MyLogoURL" -CountryID "MyCountryID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # ShippingCourierCreateDto |  (optional)
+$ShippingCourierCreateDto = Initialize-ShippingCourierCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LogoURL "MyLogoURL" -CountryId "MyCountryId" # ShippingCourierCreateDto |  (optional)
 
 # Create a shipping courier
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchShippingCourierAsync"></a>
+# **Invoke-PatchShippingCourierAsync**
+> EmptyEnvelope Invoke-PatchShippingCourierAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourierId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a shipping courier
+
+Partially updates an existing shipping courier using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourierId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a shipping courier
+try {
+    $Result = Invoke-PatchShippingCourierAsync -TenantId $TenantId -CourierId $CourierId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchShippingCourierAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourierId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-ShippingCourierAsync"></a>
 # **Update-ShippingCourierAsync**
 > void Update-ShippingCourierAsync<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourierId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShippingCourierUpdateDto = Initialize-ShippingCourierUpdateDto -Name "MyName" -LogoURL "MyLogoURL" -CountryID "MyCountryID" -BusinessProfileRecordID "MyBusinessProfileRecordID" # ShippingCourierUpdateDto |  (optional)
+$ShippingCourierUpdateDto = Initialize-ShippingCourierUpdateDto -Name "MyName" -LogoURL "MyLogoURL" -CountryId "MyCountryId" # ShippingCourierUpdateDto |  (optional)
 
 # Update a shipping courier
 try {

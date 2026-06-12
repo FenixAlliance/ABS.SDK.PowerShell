@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **TaxPolicyId** | **String** |  | [optional] 
 **ItemPriceId** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
@@ -15,6 +17,8 @@ Name | Type | Description | Notes
 ```powershell
 $ItemTaxPolicyRecordDto = Initialize-PSOpenAPIToolsItemTaxPolicyRecordDto  -Id null `
  -Timestamp null `
+ -TenantId null `
+ -EnrollmentId null `
  -TaxPolicyId null `
  -ItemPriceId null `
  -ItemId null

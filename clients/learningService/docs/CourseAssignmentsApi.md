@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseAssignmentByIdAsync**](CourseAssignmentsApi.md#Get-CourseAssignmentByIdAsync) | **GET** /api/v2/LearningService/CourseAssignments/{assignmentId} | Get course assignment by ID
 [**Get-CourseAssignmentsAsync**](CourseAssignmentsApi.md#Get-CourseAssignmentsAsync) | **GET** /api/v2/LearningService/CourseAssignments | Get all course assignments
 [**Get-CourseAssignmentsCountAsync**](CourseAssignmentsApi.md#Get-CourseAssignmentsCountAsync) | **GET** /api/v2/LearningService/CourseAssignments/Count | Get course assignments count
+[**Invoke-PatchCourseAssignmentAsync**](CourseAssignmentsApi.md#Invoke-PatchCourseAssignmentAsync) | **PATCH** /api/v2/LearningService/CourseAssignments/{assignmentId} | Patch a course assignment
 [**Update-CourseAssignmentAsync**](CourseAssignmentsApi.md#Update-CourseAssignmentAsync) | **PUT** /api/v2/LearningService/CourseAssignments/{assignmentId} | Update a course assignment
 
 
@@ -29,7 +30,7 @@ Creates a new course assignment for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseAssignmentCreateDto = Initialize-CourseAssignmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseID "MyCourseID" -CourseUnitID "MyCourseUnitID" -CourseCohortID "MyCourseCohortID" -CourseAssignmentTypeID "MyCourseAssignmentTypeID" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentCreateDto |  (optional)
+$CourseAssignmentCreateDto = Initialize-CourseAssignmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseId "MyCourseId" -CourseUnitId "MyCourseUnitId" -CourseCohortId "MyCourseCohortId" -CourseAssignmentTypeId "MyCourseAssignmentTypeId" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentCreateDto |  (optional)
 
 # Create a new course assignment
 try {
@@ -263,6 +264,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseAssignmentAsync"></a>
+# **Invoke-PatchCourseAssignmentAsync**
+> EmptyEnvelope Invoke-PatchCourseAssignmentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssignmentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course assignment
+
+Partially updates a course assignment for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssignmentId = "MyAssignmentId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course assignment
+try {
+    $Result = Invoke-PatchCourseAssignmentAsync -TenantId $TenantId -AssignmentId $AssignmentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseAssignmentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssignmentId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseAssignmentAsync"></a>
 # **Update-CourseAssignmentAsync**
 > void Update-CourseAssignmentAsync<br>
@@ -282,7 +338,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AssignmentId = "MyAssignmentId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseAssignmentUpdateDto = Initialize-CourseAssignmentUpdateDto -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseUnitID "MyCourseUnitID" -CourseCohortID "MyCourseCohortID" -CourseAssignmentTypeID "MyCourseAssignmentTypeID" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentUpdateDto |  (optional)
+$CourseAssignmentUpdateDto = Initialize-CourseAssignmentUpdateDto -Title "MyTitle" -Description "MyDescription" -Instructions "MyInstructions" -Points 0 -CourseUnitId "MyCourseUnitId" -CourseCohortId "MyCourseCohortId" -CourseAssignmentTypeId "MyCourseAssignmentTypeId" -DueDateTime (Get-Date) -AsignToAllCohorts $false -Resources "MyResources" # CourseAssignmentUpdateDto |  (optional)
 
 # Update a course assignment
 try {

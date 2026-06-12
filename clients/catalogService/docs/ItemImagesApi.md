@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**Invoke-DeleteItemImageAsync**](ItemImagesApi.md#Invoke-DeleteItemImageAsync) | **DELETE** /api/v2/CatalogService/ItemImages/{itemImageId} | Delete an item image
 [**Get-ItemImageByIdAsync**](ItemImagesApi.md#Get-ItemImageByIdAsync) | **GET** /api/v2/CatalogService/ItemImages/{itemImageId} | Get item image by ID
 [**Get-ItemImagesAsync**](ItemImagesApi.md#Get-ItemImagesAsync) | **GET** /api/v2/CatalogService/ItemImages | Get all item images
+[**Invoke-PatchItemImageAsync**](ItemImagesApi.md#Invoke-PatchItemImageAsync) | **PATCH** /api/v2/CatalogService/ItemImages/{itemImageId} | Patch an item image
 [**Update-ItemImageAsync**](ItemImagesApi.md#Update-ItemImageAsync) | **PUT** /api/v2/CatalogService/ItemImages/{itemImageId} | Update an item image
 
 
@@ -28,7 +29,7 @@ Creates a new item image for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemImageCreateDto = Initialize-ItemImageCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemID "MyItemID" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -SocialProfileID "MySocialProfileID" -ParentFileUploadID "MyParentFileUploadID" # ItemImageCreateDto |  (optional)
+$ItemImageCreateDto = Initialize-ItemImageCreateDto -Id "MyId" -Timestamp (Get-Date) -ItemId "MyItemId" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -SocialProfileId "MySocialProfileId" -ParentFileUploadId "MyParentFileUploadId" # ItemImageCreateDto |  (optional)
 
 # Create a new item image
 try {
@@ -216,6 +217,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchItemImageAsync"></a>
+# **Invoke-PatchItemImageAsync**
+> void Invoke-PatchItemImageAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemImageId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an item image
+
+Partially updates an existing item image for the specified tenant using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemImageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an item image
+try {
+    $Result = Invoke-PatchItemImageAsync -TenantId $TenantId -ItemImageId $ItemImageId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchItemImageAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ItemImageId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-ItemImageAsync"></a>
 # **Update-ItemImageAsync**
 > void Update-ItemImageAsync<br>
@@ -235,7 +291,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemImageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemImageUpdateDto = Initialize-ItemImageUpdateDto -ItemID "MyItemID" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -ParentFileUploadID "MyParentFileUploadID" # ItemImageUpdateDto |  (optional)
+$ItemImageUpdateDto = Initialize-ItemImageUpdateDto -ItemId "MyItemId" -IsItemMozaicBG $false -MD5Hash "MyMD5Hash" -Metadata "MyMetadata" -FileUploadURL "MyFileUploadURL" -FileName "MyFileName" -Title "MyTitle" -Abstract "MyAbstract" -Author "MyAuthor" -KeyWords "MyKeyWords" -Notes "MyNotes" -ContentType "MyContentType" -FileLength 0 -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" # ItemImageUpdateDto |  (optional)
 
 # Update an item image
 try {

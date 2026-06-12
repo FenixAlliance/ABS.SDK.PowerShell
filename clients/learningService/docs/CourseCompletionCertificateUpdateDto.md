@@ -3,19 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StudentProfileID** | **String** |  | [optional] 
-**CourseEnrollmentID** | **String** |  | [optional] 
-**CourseCompletionCertificateTemplateID** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**StudentProfileId** | **String** |  | [optional] 
+**CourseEnrollmentId** | **String** |  | [optional] 
+**CourseCompletionCertificateTemplateId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CourseCompletionCertificateUpdateDto = Initialize-PSOpenAPIToolsCourseCompletionCertificateUpdateDto  -StudentProfileID null `
- -CourseEnrollmentID null `
- -CourseCompletionCertificateTemplateID null `
- -CourseID null
+$CourseCompletionCertificateUpdateDto = Initialize-PSOpenAPIToolsCourseCompletionCertificateUpdateDto  -StudentProfileId null `
+ -CourseEnrollmentId null `
+ -CourseCompletionCertificateTemplateId null `
+ -CourseId null
 ```
 
 - Convert the resource to JSON

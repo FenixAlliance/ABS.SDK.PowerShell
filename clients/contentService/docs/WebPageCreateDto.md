@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **Markup** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
 **CodeType** | **String** |  | [optional] 
-**WebTemplateID** | **String** |  | [optional] 
+**Slug** | **String** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
+**ParentWebContentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,7 +29,9 @@ $WebPageCreateDto = Initialize-PSOpenAPIToolsWebPageCreateDto  -Id null `
  -Markup null `
  -FeaturedImageUrl null `
  -CodeType null `
- -WebTemplateID null
+ -Slug null `
+ -WebTemplateId null `
+ -ParentWebContentId null
 ```
 
 - Convert the resource to JSON

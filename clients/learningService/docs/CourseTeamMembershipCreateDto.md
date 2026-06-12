@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | 
-**InstructorProfileID** | **String** |  | 
+**CourseId** | **String** |  | 
+**InstructorProfileId** | **String** |  | 
 **CourseTeamMembershipType** | **String** |  | [optional] 
 
 ## Examples
@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 ```powershell
 $CourseTeamMembershipCreateDto = Initialize-PSOpenAPIToolsCourseTeamMembershipCreateDto  -Id null `
  -Timestamp null `
- -CourseID null `
- -InstructorProfileID null `
+ -CourseId null `
+ -InstructorProfileId null `
  -CourseTeamMembershipType null
 ```
 

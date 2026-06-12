@@ -8,8 +8,10 @@ Name | Type | Description | Notes
 **Read** | **Boolean** |  | [optional] 
 **Icon** | **String** |  | [optional] 
 **Message** | **String** |  | [optional] 
+**ImageUrl** | **String** |  | [optional] 
 **RedirectUrl** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 **ReadTimestamp** | **System.DateTime** |  | [optional] 
 **IssuedTimestamp** | **System.DateTime** |  | [optional] 
 
@@ -22,8 +24,10 @@ $NotificationDto = Initialize-PSOpenAPIToolsNotificationDto  -Id null `
  -Read null `
  -Icon null `
  -Message null `
+ -ImageUrl null `
  -RedirectUrl null `
- -SocialProfileID null `
+ -Type null `
+ -SocialProfileId null `
  -ReadTimestamp null `
  -IssuedTimestamp null
 ```

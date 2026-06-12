@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ImageURL** | **String** |  | [optional] 
 **GoogleCategoryTaxonomy** | **String** |  | [optional] 
-**ItemCategoryID** | **String** |  | 
-**ItemGoogleCategoryID** | **String** |  | [optional] 
+**ItemCategoryId** | **String** |  | 
+**ItemGoogleCategoryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,8 +24,8 @@ $ItemTypeCreateDto = Initialize-PSOpenAPIToolsItemTypeCreateDto  -Id null `
  -Description null `
  -ImageURL null `
  -GoogleCategoryTaxonomy null `
- -ItemCategoryID null `
- -ItemGoogleCategoryID null
+ -ItemCategoryId null `
+ -ItemGoogleCategoryId null
 ```
 
 - Convert the resource to JSON

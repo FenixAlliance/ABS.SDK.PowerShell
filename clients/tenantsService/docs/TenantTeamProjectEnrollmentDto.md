@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TeamId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
-**ProjectID** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $TenantTeamProjectEnrollmentDto = Initialize-PSOpenAPIToolsTenantTeamProjectEnro
  -TeamId null `
  -TenantId null `
  -EnrollmentId null `
- -ProjectID null
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

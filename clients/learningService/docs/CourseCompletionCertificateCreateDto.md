@@ -5,10 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**StudentProfileID** | **String** |  | 
-**CourseEnrollmentID** | **String** |  | 
-**CourseCompletionCertificateTemplateID** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**StudentProfileId** | **String** |  | 
+**CourseEnrollmentId** | **String** |  | 
+**CourseCompletionCertificateTemplateId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 ```powershell
 $CourseCompletionCertificateCreateDto = Initialize-PSOpenAPIToolsCourseCompletionCertificateCreateDto  -Id null `
  -Timestamp null `
- -StudentProfileID null `
- -CourseEnrollmentID null `
- -CourseCompletionCertificateTemplateID null `
- -CourseID null
+ -StudentProfileId null `
+ -CourseEnrollmentId null `
+ -CourseCompletionCertificateTemplateId null `
+ -CourseId null
 ```
 
 - Convert the resource to JSON

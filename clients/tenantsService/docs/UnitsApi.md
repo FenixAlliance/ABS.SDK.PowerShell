@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantUnitById**](UnitsApi.md#Get-TenantUnitById) | **GET** /api/v2/TenantsService/Units/{tenantUnitId} | Retrieve a single tenant unit by its ID
 [**Get-TenantUnits**](UnitsApi.md#Get-TenantUnits) | **GET** /api/v2/TenantsService/Units | Retrieve a list of tenant units
 [**Get-TenantUnitsCount**](UnitsApi.md#Get-TenantUnitsCount) | **GET** /api/v2/TenantsService/Units/Count | Get the count of tenant units
+[**Invoke-PatchTenantUnit**](UnitsApi.md#Invoke-PatchTenantUnit) | **PATCH** /api/v2/TenantsService/Units/{tenantUnitId} | Patch a tenant unit
 [**Update-TenantUnit**](UnitsApi.md#Update-TenantUnit) | **PUT** /api/v2/TenantsService/Units/{tenantUnitId} | Update a tenant unit
 
 
@@ -29,7 +30,7 @@ Create a new tenant unit
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantUnitCreateDto = Initialize-TenantUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -BusinessUnitQualifiedName "MyBusinessUnitQualifiedName" -CountryID "MyCountryID" -OrganizationProfileID "MyOrganizationProfileID" -ParentBusinessUnitID "MyParentBusinessUnitID" # TenantUnitCreateDto |  (optional)
+$TenantUnitCreateDto = Initialize-TenantUnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Disabled $false -CountryId "MyCountryId" -OrganizationProfileId "MyOrganizationProfileId" -ParentBusinessUnitId "MyParentBusinessUnitId" # TenantUnitCreateDto |  (optional)
 
 # Create a new tenant unit
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantUnit"></a>
+# **Invoke-PatchTenantUnit**
+> EmptyEnvelope Invoke-PatchTenantUnit<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantUnitId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant unit
+
+Patch a tenant unit
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant unit
+try {
+    $Result = Invoke-PatchTenantUnit -TenantId $TenantId -TenantUnitId $TenantUnitId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantUnit: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantUnitId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantUnit"></a>
 # **Update-TenantUnit**
 > EmptyEnvelope Update-TenantUnit<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantUnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantUnitUpdateDto = Initialize-TenantUnitUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -BusinessUnitQualifiedName "MyBusinessUnitQualifiedName" -CountryID "MyCountryID" -OrganizationProfileID "MyOrganizationProfileID" -ParentBusinessUnitID "MyParentBusinessUnitID" # TenantUnitUpdateDto |  (optional)
+$TenantUnitUpdateDto = Initialize-TenantUnitUpdateDto -Name "MyName" -Description "MyDescription" -Disabled $false -CountryId "MyCountryId" -OrganizationProfileId "MyOrganizationProfileId" -ParentBusinessUnitId "MyParentBusinessUnitId" # TenantUnitUpdateDto |  (optional)
 
 # Update a tenant unit
 try {

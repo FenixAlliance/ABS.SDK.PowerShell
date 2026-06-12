@@ -3,19 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] 
-**Timestamp** | **System.DateTime** |  | [optional] 
-**CourseCohortID** | **String** |  | [optional] 
-**CourseCompletionCertificateID** | **String** |  | [optional] 
+**CourseCohortId** | **String** |  | [optional] 
+**CourseCompletionCertificateId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CourseEnrollmentUpdateDto = Initialize-PSOpenAPIToolsCourseEnrollmentUpdateDto  -Id null `
- -Timestamp null `
- -CourseCohortID null `
- -CourseCompletionCertificateID null
+$CourseEnrollmentUpdateDto = Initialize-PSOpenAPIToolsCourseEnrollmentUpdateDto  -CourseCohortId null `
+ -CourseCompletionCertificateId null
 ```
 
 - Convert the resource to JSON

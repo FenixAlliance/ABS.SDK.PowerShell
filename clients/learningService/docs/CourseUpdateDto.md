@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Summary** | **String** |  | [optional] 
 **Code** | **String** |  | [optional] 
 **Version** | **String** |  | [optional] 
-**CourseCategoryID** | **String** |  | [optional] 
-**InstructorProfileID** | **String** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
+**CourseCategoryId** | **String** |  | [optional] 
+**InstructorProfileId** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
 **RegularPrice** | **Double** |  | [optional] 
 **MaxCourseEnrollments** | **Int32** |  | [optional] 
 **TotalEffortInWeeks** | **Int32** |  | [optional] 
@@ -33,9 +33,9 @@ $CourseUpdateDto = Initialize-PSOpenAPIToolsCourseUpdateDto  -Title null `
  -Summary null `
  -Code null `
  -Version null `
- -CourseCategoryID null `
- -InstructorProfileID null `
- -CurrencyID null `
+ -CourseCategoryId null `
+ -InstructorProfileId null `
+ -CurrencyId null `
  -RegularPrice null `
  -MaxCourseEnrollments null `
  -TotalEffortInWeeks null `

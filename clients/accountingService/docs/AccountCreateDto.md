@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Path** | **String** |  | [optional] 
 **Prefix** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | 
+**ContactId** | **String** |  | [optional] 
 **AccountTypeId** | **String** |  | [optional] 
 **ParentAccountId** | **String** |  | [optional] 
 **AccountCategory** | **String** |  | 
@@ -29,6 +30,7 @@ $AccountCreateDto = Initialize-PSOpenAPIToolsAccountCreateDto  -Id null `
  -Path null `
  -Prefix null `
  -CurrencyId null `
+ -ContactId null `
  -AccountTypeId null `
  -ParentAccountId null `
  -AccountCategory null

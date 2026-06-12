@@ -57,6 +57,8 @@ Name | Type | Description | Notes
 **CornerstoneContent** | **Boolean** |  | [optional] 
 **IsEssentialContent** | **Boolean** |  | [optional] 
 **AllowSearchEngineIndexing** | **Boolean** |  | [optional] 
+**WebTemplateId** | **String** |  | [optional] 
+**ParentWebContentId** | **String** |  | [optional] 
 **IsHomePage** | **Boolean** |  | [optional] 
 **IsStorePage** | **Boolean** |  | [optional] 
 **IsCartPage** | **Boolean** |  | [optional] 
@@ -126,6 +128,8 @@ $WebPageUpdateDto = Initialize-PSOpenAPIToolsWebPageUpdateDto  -Order null `
  -CornerstoneContent null `
  -IsEssentialContent null `
  -AllowSearchEngineIndexing null `
+ -WebTemplateId null `
+ -ParentWebContentId null `
  -IsHomePage null `
  -IsStorePage null `
  -IsCartPage null `

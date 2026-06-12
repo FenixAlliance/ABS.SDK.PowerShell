@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **LastModification** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -41,7 +41,7 @@ $KnowledgeArticleDto = Initialize-PSOpenAPIToolsKnowledgeArticleDto  -Id null `
  -ReleaseDateTime null `
  -LastModification null `
  -TenantId null `
- -BusinessProfileRecordId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

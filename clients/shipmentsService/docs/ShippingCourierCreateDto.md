@@ -7,8 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
 **LogoURL** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -18,8 +17,7 @@ $ShippingCourierCreateDto = Initialize-PSOpenAPIToolsShippingCourierCreateDto  -
  -Timestamp null `
  -Name null `
  -LogoURL null `
- -CountryID null `
- -BusinessProfileRecordID null
+ -CountryId null
 ```
 
 - Convert the resource to JSON

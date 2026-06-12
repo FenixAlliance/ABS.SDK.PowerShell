@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TrackingCode** | **String** |  | [optional] 
 **ExpectedDelivery** | **System.DateTime** |  | [optional] 
-**LocationID** | **String** |  | [optional] 
-**ShipmentID** | **String** |  | [optional] 
-**ShippingCourierID** | **String** |  | [optional] 
+**LocationId** | **String** |  | [optional] 
+**ShipmentId** | **String** |  | [optional] 
+**ShippingCourierId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 ```powershell
 $ShippingLabelUpdateDto = Initialize-PSOpenAPIToolsShippingLabelUpdateDto  -TrackingCode null `
  -ExpectedDelivery null `
- -LocationID null `
- -ShipmentID null `
- -ShippingCourierID null
+ -LocationId null `
+ -ShipmentId null `
+ -ShippingCourierId null
 ```
 
 - Convert the resource to JSON

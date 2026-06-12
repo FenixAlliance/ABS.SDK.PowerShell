@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**Get-CourseCertificateTemplatesCountAsync**](CourseCertificatesApi.md#Get-CourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count
 [**Get-CourseCertificatesAsync**](CourseCertificatesApi.md#Get-CourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates
 [**Get-CourseCertificatesCountAsync**](CourseCertificatesApi.md#Get-CourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count
+[**Invoke-PatchCourseCertificateAsync**](CourseCertificatesApi.md#Invoke-PatchCourseCertificateAsync) | **PATCH** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Patch a course certificate
+[**Invoke-PatchCourseCertificateTemplateAsync**](CourseCertificatesApi.md#Invoke-PatchCourseCertificateTemplateAsync) | **PATCH** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Patch a certificate template
 [**Update-CourseCertificateAsync**](CourseCertificatesApi.md#Update-CourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate
 [**Update-CourseCertificateTemplateAsync**](CourseCertificatesApi.md#Update-CourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template
 
@@ -35,7 +37,7 @@ Creates a new course certificate for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCompletionCertificateCreateDto = Initialize-CourseCompletionCertificateCreateDto -Id "MyId" -Timestamp (Get-Date) -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateCreateDto |  (optional)
+$CourseCompletionCertificateCreateDto = Initialize-CourseCompletionCertificateCreateDto -Id "MyId" -Timestamp (Get-Date) -StudentProfileId "MyStudentProfileId" -CourseEnrollmentId "MyCourseEnrollmentId" -CourseCompletionCertificateTemplateId "MyCourseCompletionCertificateTemplateId" -CourseId "MyCourseId" # CourseCompletionCertificateCreateDto |  (optional)
 
 # Create a course certificate
 try {
@@ -87,7 +89,7 @@ Creates a new course certificate template for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCertificateTemplateCreateDto = Initialize-CourseCertificateTemplateCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseID "MyCourseID" -WebPortalID "MyWebPortalID" -WebsiteThemeID "MyWebsiteThemeID" -SocialProfileID "MySocialProfileID" -ParentWebContentID "MyParentWebContentID" -ParentWebContentVersionID "MyParentWebContentVersionID" # CourseCertificateTemplateCreateDto |  (optional)
+$CourseCertificateTemplateCreateDto = Initialize-CourseCertificateTemplateCreateDto -Id "MyId" -Timestamp (Get-Date) -CourseId "MyCourseId" -WebPortalId "MyWebPortalId" -WebsiteThemeId "MyWebsiteThemeId" -SocialProfileId "MySocialProfileId" -ParentWebContentId "MyParentWebContentId" -ParentWebContentVersionId "MyParentWebContentVersionId" # CourseCertificateTemplateCreateDto |  (optional)
 
 # Create a certificate template
 try {
@@ -526,6 +528,116 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchCourseCertificateAsync"></a>
+# **Invoke-PatchCourseCertificateAsync**
+> EmptyEnvelope Invoke-PatchCourseCertificateAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCertificateId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course certificate
+
+Partially updates a course certificate for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourseCertificateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course certificate
+try {
+    $Result = Invoke-PatchCourseCertificateAsync -TenantId $TenantId -CourseCertificateId $CourseCertificateId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseCertificateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourseCertificateId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchCourseCertificateTemplateAsync"></a>
+# **Invoke-PatchCourseCertificateTemplateAsync**
+> EmptyEnvelope Invoke-PatchCourseCertificateTemplateAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCertificateTemplateId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a certificate template
+
+Partially updates a course certificate template for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CourseCertificateTemplateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a certificate template
+try {
+    $Result = Invoke-PatchCourseCertificateTemplateAsync -TenantId $TenantId -CourseCertificateTemplateId $CourseCertificateTemplateId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseCertificateTemplateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CourseCertificateTemplateId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-CourseCertificateAsync"></a>
 # **Update-CourseCertificateAsync**
 > void Update-CourseCertificateAsync<br>
@@ -545,7 +657,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseCertificateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCompletionCertificateUpdateDto = Initialize-CourseCompletionCertificateUpdateDto -StudentProfileID "MyStudentProfileID" -CourseEnrollmentID "MyCourseEnrollmentID" -CourseCompletionCertificateTemplateID "MyCourseCompletionCertificateTemplateID" -CourseID "MyCourseID" # CourseCompletionCertificateUpdateDto |  (optional)
+$CourseCompletionCertificateUpdateDto = Initialize-CourseCompletionCertificateUpdateDto -StudentProfileId "MyStudentProfileId" -CourseEnrollmentId "MyCourseEnrollmentId" -CourseCompletionCertificateTemplateId "MyCourseCompletionCertificateTemplateId" -CourseId "MyCourseId" # CourseCompletionCertificateUpdateDto |  (optional)
 
 # Update a course certificate
 try {
@@ -600,7 +712,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseCertificateTemplateId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseCertificateTemplateUpdateDto = Initialize-CourseCertificateTemplateUpdateDto -WebPortalID "MyWebPortalID" -WebsiteThemeID "MyWebsiteThemeID" -SocialProfileID "MySocialProfileID" -ParentWebContentID "MyParentWebContentID" -ParentWebContentVersionID "MyParentWebContentVersionID" # CourseCertificateTemplateUpdateDto |  (optional)
+$CourseCertificateTemplateUpdateDto = Initialize-CourseCertificateTemplateUpdateDto -WebPortalId "MyWebPortalId" -WebsiteThemeId "MyWebsiteThemeId" -SocialProfileId "MySocialProfileId" -ParentWebContentId "MyParentWebContentId" -ParentWebContentVersionId "MyParentWebContentVersionId" # CourseCertificateTemplateUpdateDto |  (optional)
 
 # Update a certificate template
 try {

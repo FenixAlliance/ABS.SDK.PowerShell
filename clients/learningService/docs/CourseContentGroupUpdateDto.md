@@ -4,14 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $CourseContentGroupUpdateDto = Initialize-PSOpenAPIToolsCourseContentGroupUpdateDto  -Name null `
- -CourseID null
+ -CourseId null
 ```
 
 - Convert the resource to JSON

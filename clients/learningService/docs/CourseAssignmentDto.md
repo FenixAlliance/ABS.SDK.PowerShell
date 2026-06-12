@@ -10,10 +10,15 @@ Name | Type | Description | Notes
 **Instructions** | **String** |  | [optional] 
 **Points** | **Double** |  | [optional] 
 **DueDateTime** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
-**CourseSectionID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
+**CourseSectionId** | **String** |  | [optional] 
+**CourseCohortId** | **String** |  | [optional] 
+**CourseAssignmentTypeId** | **String** |  | [optional] 
+**AsignToAllCohorts** | **Boolean** |  | [optional] 
+**Resources** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -26,10 +31,15 @@ $CourseAssignmentDto = Initialize-PSOpenAPIToolsCourseAssignmentDto  -Id null `
  -Instructions null `
  -Points null `
  -DueDateTime null `
- -CourseID null `
- -CourseUnitID null `
- -CourseSectionID null `
- -TenantId null
+ -CourseId null `
+ -CourseUnitId null `
+ -CourseSectionId null `
+ -CourseCohortId null `
+ -CourseAssignmentTypeId null `
+ -AsignToAllCohorts null `
+ -Resources null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

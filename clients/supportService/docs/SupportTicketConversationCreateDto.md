@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Topic** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **ClosedTimestamp** | **System.DateTime** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $SupportTicketConversationCreateDto = Initialize-PSOpenAPIToolsSupportTicketConv
  -Topic null `
  -Closed null `
  -ClosedTimestamp null `
- -SocialProfileID null
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

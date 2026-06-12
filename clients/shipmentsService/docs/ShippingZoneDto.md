@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Everywhere** | **Boolean** |  | [optional] 
 **PostalCodes** | **String** |  | [optional] 
 **CountryCodes** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,7 +23,7 @@ $ShippingZoneDto = Initialize-PSOpenAPIToolsShippingZoneDto  -Id null `
  -Everywhere null `
  -PostalCodes null `
  -CountryCodes null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

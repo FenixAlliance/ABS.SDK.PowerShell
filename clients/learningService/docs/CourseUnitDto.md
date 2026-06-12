@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseSectionID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseSectionId** | **String** |  | [optional] 
+**CourseContentGroupId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **CourseHandouts** | [**CourseHandoutDto[]**](CourseHandoutDto.md) |  | [optional] 
 **CourseAssignments** | [**CourseAssignmentDto[]**](CourseAssignmentDto.md) |  | [optional] 
 **CourseComponents** | [**CourseUnitComponentDto[]**](CourseUnitComponentDto.md) |  | [optional] 
@@ -26,9 +28,11 @@ $CourseUnitDto = Initialize-PSOpenAPIToolsCourseUnitDto  -Id null `
  -Description null `
  -ReleaseDateTime null `
  -Content null `
- -CourseID null `
- -CourseSectionID null `
+ -CourseId null `
+ -CourseSectionId null `
+ -CourseContentGroupId null `
  -TenantId null `
+ -EnrollmentId null `
  -CourseHandouts null `
  -CourseAssignments null `
  -CourseComponents null

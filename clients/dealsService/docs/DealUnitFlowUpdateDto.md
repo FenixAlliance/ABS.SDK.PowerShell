@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **ParentBusinessProcessId** | **String** |  | [optional] 
-**TenantEnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -14,8 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $DealUnitFlowUpdateDto = Initialize-PSOpenAPIToolsDealUnitFlowUpdateDto  -Name null `
  -Description null `
- -ParentBusinessProcessId null `
- -TenantEnrollmentId null
+ -ParentBusinessProcessId null
 ```
 
 - Convert the resource to JSON

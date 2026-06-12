@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
+**DiscountListType** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 
 ## Examples
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 $DiscountListCreateDto = Initialize-PSOpenAPIToolsDiscountListCreateDto  -Id null `
  -Timestamp null `
  -Name null `
+ -DiscountListType null `
  -CurrencyId null
 ```
 

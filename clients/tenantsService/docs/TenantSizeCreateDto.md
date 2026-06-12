@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Name** | **String** |  | [optional] 
 **EmployeeLowRangeValue** | **Int32** |  | [optional] 
 **EmployeeHighRangeValue** | **Int32** |  | [optional] 
 
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantSizeCreateDto = Initialize-PSOpenAPIToolsTenantSizeCreateDto  -Id null `
  -Timestamp null `
- -Name null `
  -EmployeeLowRangeValue null `
  -EmployeeHighRangeValue null
 ```

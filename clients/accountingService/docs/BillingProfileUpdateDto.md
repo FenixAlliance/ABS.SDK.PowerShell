@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Duns** | **String** |  | [optional] 
 **IsPublicCompany** | **Boolean** |  | [optional] 
 **IsFactaCustomer** | **Boolean** |  | [optional] 
+**TaxPayerType** | **String** |  | [optional] 
 **CountryId** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
@@ -42,6 +43,7 @@ $BillingProfileUpdateDto = Initialize-PSOpenAPIToolsBillingProfileUpdateDto  -Co
  -Duns null `
  -IsPublicCompany null `
  -IsFactaCustomer null `
+ -TaxPayerType null `
  -CountryId null `
  -StateId null `
  -CityId null `

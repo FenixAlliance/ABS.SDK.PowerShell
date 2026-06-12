@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **BusinessName** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **AssetClass** | **String** |  | [optional] 
@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **CurrencyCode** | **String** |  | [optional] 
 **ItemId** | **String** |  | [optional] 
 **ItemName** | **String** |  | [optional] 
+**AssetTypeId** | **String** |  | [optional] 
+**AssetTypeName** | **String** |  | [optional] 
 **AssetCategoryId** | **String** |  | [optional] 
 **AssetCategoryName** | **String** |  | [optional] 
 **PurchaseInvoiceId** | **String** |  | [optional] 
@@ -42,7 +44,7 @@ $AssetDto = Initialize-PSOpenAPIToolsAssetDto  -Id null `
  -Timestamp null `
  -TenantId null `
  -BusinessName null `
- -BusinessProfileRecordId null `
+ -EnrollmentId null `
  -Name null `
  -Description null `
  -AssetClass null `
@@ -57,6 +59,8 @@ $AssetDto = Initialize-PSOpenAPIToolsAssetDto  -Id null `
  -CurrencyCode null `
  -ItemId null `
  -ItemName null `
+ -AssetTypeId null `
+ -AssetTypeName null `
  -AssetCategoryId null `
  -AssetCategoryName null `
  -PurchaseInvoiceId null `

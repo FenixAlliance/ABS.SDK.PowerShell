@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LogoURL** | **String** |  | [optional] 
 **Featured** | **Boolean** |  | [optional] 
 **Trending** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,7 +27,7 @@ $ItemBrandDto = Initialize-PSOpenAPIToolsItemBrandDto  -Id null `
  -LogoURL null `
  -Featured null `
  -Trending null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

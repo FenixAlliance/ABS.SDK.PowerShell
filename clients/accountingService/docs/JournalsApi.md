@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**Get-JournalEntriesAsync**](JournalsApi.md#Get-JournalEntriesAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries
 [**Get-JournalEntriesCountAsync**](JournalsApi.md#Get-JournalEntriesCountAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries
 [**Get-JournalsAsync**](JournalsApi.md#Get-JournalsAsync) | **GET** /api/v2/AccountingService/Journals | Get all journals
+[**Invoke-PatchJournalAsync**](JournalsApi.md#Invoke-PatchJournalAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId} | Patch a journal
+[**Invoke-PatchJournalEntryAsync**](JournalsApi.md#Invoke-PatchJournalEntryAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry
 [**Update-JournalAsync**](JournalsApi.md#Update-JournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**Update-JournalEntryAsync**](JournalsApi.md#Update-JournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
@@ -195,7 +197,7 @@ Creates a new journal for the tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalID "MyParentJournalID" -JournalTypeID "MyJournalTypeID" -LedgerID "MyLedgerID" # JournalCreateDto |  (optional)
+$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalId "MyParentJournalId" -JournalTypeId "MyJournalTypeId" -LedgerId "MyLedgerId" # JournalCreateDto |  (optional)
 
 # Create journal
 try {
@@ -597,6 +599,119 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchJournalAsync"></a>
+# **Invoke-PatchJournalAsync**
+> EmptyEnvelope Invoke-PatchJournalAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a journal
+
+Partially updates a journal.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a journal
+try {
+    $Result = Invoke-PatchJournalAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchJournalAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchJournalEntryAsync"></a>
+# **Invoke-PatchJournalEntryAsync**
+> EmptyEnvelope Invoke-PatchJournalEntryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a journal entry
+
+Partially updates a journal entry.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a journal entry
+try {
+    $Result = Invoke-PatchJournalEntryAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchJournalEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **EntryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-JournalAsync"></a>
 # **Update-JournalAsync**
 > EmptyEnvelope Update-JournalAsync<br>
@@ -616,7 +731,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalUpdateDto = Initialize-JournalUpdateDto -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalID "MyParentJournalID" -JournalTypeID "MyJournalTypeID" -LedgerID "MyLedgerID" # JournalUpdateDto |  (optional)
+$JournalUpdateDto = Initialize-JournalUpdateDto -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalId "MyParentJournalId" -JournalTypeId "MyJournalTypeId" -LedgerId "MyLedgerId" # JournalUpdateDto |  (optional)
 
 # Update journal
 try {

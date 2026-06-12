@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseContentGroupID** | **String** |  | [optional] 
+**CourseContentGroupId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 $CourseUnitUpdateDto = Initialize-PSOpenAPIToolsCourseUnitUpdateDto  -Title null `
  -Description null `
  -Content null `
- -CourseContentGroupID null `
+ -CourseContentGroupId null `
  -ReleaseDateTime null
 ```
 

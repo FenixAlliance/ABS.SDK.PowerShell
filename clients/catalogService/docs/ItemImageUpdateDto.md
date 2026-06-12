@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemID** | **String** |  | 
+**ItemId** | **String** |  | 
 **IsItemMozaicBG** | **Boolean** |  | [optional] 
 **MD5Hash** | **String** |  | 
 **Metadata** | **String** |  | [optional] 
@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 **ContentType** | **String** |  | 
 **FileLength** | **Int64** |  | [optional] 
 **ValidResponse** | **Boolean** |  | [optional] 
-**ParentFileUploadID** | **String** |  | [optional] 
+**ParentFileUploadId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ItemImageUpdateDto = Initialize-PSOpenAPIToolsItemImageUpdateDto  -ItemID null `
+$ItemImageUpdateDto = Initialize-PSOpenAPIToolsItemImageUpdateDto  -ItemId null `
  -IsItemMozaicBG null `
  -MD5Hash null `
  -Metadata null `
@@ -37,7 +37,7 @@ $ItemImageUpdateDto = Initialize-PSOpenAPIToolsItemImageUpdateDto  -ItemID null 
  -ContentType null `
  -FileLength null `
  -ValidResponse null `
- -ParentFileUploadID null
+ -ParentFileUploadId null
 ```
 
 - Convert the resource to JSON

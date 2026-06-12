@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **AccountId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 $AccountRelationDto = Initialize-PSOpenAPIToolsAccountRelationDto  -Id null `
  -Timestamp null `
  -AccountId null `
+ -Type null `
  -TenantId null `
  -EnrollmentId null
 ```

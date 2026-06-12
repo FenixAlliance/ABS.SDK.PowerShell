@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-ShippingMethodByIdAsync**](ShippingMethodsApi.md#Get-ShippingMethodByIdAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Get shipping method by ID
 [**Get-ShippingMethodsAsync**](ShippingMethodsApi.md#Get-ShippingMethodsAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods | Get all shipping methods
 [**Get-ShippingMethodsCountAsync**](ShippingMethodsApi.md#Get-ShippingMethodsCountAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods/Count | Get shipping methods count
+[**Invoke-PatchShippingMethodAsync**](ShippingMethodsApi.md#Invoke-PatchShippingMethodAsync) | **PATCH** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Patch a shipping method
 [**Update-ShippingMethodAsync**](ShippingMethodsApi.md#Update-ShippingMethodAsync) | **PUT** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Update a shipping method
 
 
@@ -29,7 +30,7 @@ Creates a new shipping method.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShippingMethodCreateDto = Initialize-ShippingMethodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Cost 0 -Taxable $false -TaxIncluded $false -CurrencyID "MyCurrencyID" -ShippingClassCalculationType "PerClass" # ShippingMethodCreateDto |  (optional)
+$ShippingMethodCreateDto = Initialize-ShippingMethodCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -Cost 0 -Taxable $false -TaxIncluded $false -CurrencyId "MyCurrencyId" -ShippingClassCalculationType "PerClass" # ShippingMethodCreateDto |  (optional)
 
 # Create a shipping method
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchShippingMethodAsync"></a>
+# **Invoke-PatchShippingMethodAsync**
+> EmptyEnvelope Invoke-PatchShippingMethodAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MethodId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a shipping method
+
+Partially updates an existing shipping method using JSON Patch.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$MethodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a shipping method
+try {
+    $Result = Invoke-PatchShippingMethodAsync -TenantId $TenantId -MethodId $MethodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchShippingMethodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **MethodId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-ShippingMethodAsync"></a>
 # **Update-ShippingMethodAsync**
 > void Update-ShippingMethodAsync<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $MethodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ShippingMethodUpdateDto = Initialize-ShippingMethodUpdateDto -Name "MyName" -Description "MyDescription" -Cost 0 -Taxable $false -TaxIncluded $false -CurrencyID "MyCurrencyID" -ShippingClassCalculationType "PerClass" # ShippingMethodUpdateDto |  (optional)
+$ShippingMethodUpdateDto = Initialize-ShippingMethodUpdateDto -Name "MyName" -Description "MyDescription" -Cost 0 -Taxable $false -TaxIncluded $false -CurrencyId "MyCurrencyId" -ShippingClassCalculationType "PerClass" # ShippingMethodUpdateDto |  (optional)
 
 # Update a shipping method
 try {

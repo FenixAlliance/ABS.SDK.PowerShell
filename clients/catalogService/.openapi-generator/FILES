@@ -2,6 +2,8 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
+docs/BatchStockItemUpdateRequest.md
+docs/BulkProduct.md
 docs/CatalogItemCreateDto.md
 docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
@@ -123,6 +125,7 @@ docs/MerchantDtoListEnvelope.md
 docs/MerchantsApi.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PricingRuleDto.md
 docs/PricingRuleDtoEnvelope.md
 docs/PricingRuleDtoListEnvelope.md
@@ -157,6 +160,8 @@ src/PSOpenAPITools/Api/ItemsApi.ps1
 src/PSOpenAPITools/Api/MerchantsApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
+src/PSOpenAPITools/Model/BatchStockItemUpdateRequest.ps1
+src/PSOpenAPITools/Model/BulkProduct.ps1
 src/PSOpenAPITools/Model/CatalogItemCreateDto.ps1
 src/PSOpenAPITools/Model/CatalogItemDto.ps1
 src/PSOpenAPITools/Model/CatalogItemDtoEnvelope.ps1
@@ -256,6 +261,7 @@ src/PSOpenAPITools/Model/MerchantDtoEnvelope.ps1
 src/PSOpenAPITools/Model/MerchantDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/Money.ps1
 src/PSOpenAPITools/Model/MoneyEnvelope.ps1
+src/PSOpenAPITools/Model/Operation.ps1
 src/PSOpenAPITools/Model/PricingRuleDto.ps1
 src/PSOpenAPITools/Model/PricingRuleDtoEnvelope.ps1
 src/PSOpenAPITools/Model/PricingRuleDtoListEnvelope.ps1
@@ -273,20 +279,3 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
-tests/Api/CompletionsApi.Tests.ps1
-tests/Api/FenixAlliancePortalsWebsiteApi.Tests.ps1
-tests/Api/ItemAttributeOptionsApi.Tests.ps1
-tests/Api/ItemBundlesApi.Tests.ps1
-tests/Api/ItemFamiliesApi.Tests.ps1
-tests/Model/ItemAttributeOptionCreateDto.Tests.ps1
-tests/Model/ItemAttributeOptionUpdateDto.Tests.ps1
-tests/Model/ItemBundleCreateDto.Tests.ps1
-tests/Model/ItemBundleDto.Tests.ps1
-tests/Model/ItemBundleDtoEnvelope.Tests.ps1
-tests/Model/ItemBundleDtoListEnvelope.Tests.ps1
-tests/Model/ItemBundleUpdateDto.Tests.ps1
-tests/Model/ItemFamilyCreateDto.Tests.ps1
-tests/Model/ItemFamilyDto.Tests.ps1
-tests/Model/ItemFamilyDtoEnvelope.Tests.ps1
-tests/Model/ItemFamilyDtoListEnvelope.Tests.ps1
-tests/Model/ItemFamilyUpdateDto.Tests.ps1

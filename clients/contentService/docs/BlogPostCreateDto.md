@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Markup** | **String** |  | [optional] 
 **FeaturedImageUrl** | **String** |  | [optional] 
 **CodeType** | **String** |  | [optional] 
+**Slug** | **String** |  | [optional] 
 **BlogPostCategoryId** | **String** |  | [optional] 
 **WebTemplateId** | **String** |  | [optional] 
 
@@ -28,6 +29,7 @@ $BlogPostCreateDto = Initialize-PSOpenAPIToolsBlogPostCreateDto  -Id null `
  -Markup null `
  -FeaturedImageUrl null `
  -CodeType null `
+ -Slug null `
  -BlogPostCategoryId null `
  -WebTemplateId null
 ```

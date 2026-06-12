@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-BatchUpdateStockItems**](ItemsApi.md#Invoke-BatchUpdateStockItems) | **POST** /api/v2/CatalogService/Items/Batch | Bulk-update stock items
+[**Invoke-BulkUpsertStockItems**](ItemsApi.md#Invoke-BulkUpsertStockItems) | **POST** /api/v2/CatalogService/Items/BulkUpsert | Bulk upsert stock items from rows
 [**Invoke-CountStockItemTagsByItemId**](ItemsApi.md#Invoke-CountStockItemTagsByItemId) | **GET** /api/v2/CatalogService/Items/{itemId}/Tags/Count | Count tags for a stock item
 [**Invoke-CountStockItemsByBusiness**](ItemsApi.md#Invoke-CountStockItemsByBusiness) | **GET** /api/v2/CatalogService/Items/Count | Count stock items by business
 [**New-StockItem**](ItemsApi.md#New-StockItem) | **POST** /api/v2/CatalogService/Items | Create a new stock item
@@ -46,6 +48,8 @@ Method | HTTP request | Description
 [**Get-StockItemsOdataMaxPrice**](ItemsApi.md#Get-StockItemsOdataMaxPrice) | **GET** /api/v2/CatalogService/Items/MaxPrice | Get max price of stock items
 [**Get-StockItemsOdataMinPrice**](ItemsApi.md#Get-StockItemsOdataMinPrice) | **GET** /api/v2/CatalogService/Items/MinPrice | Get min price of stock items
 [**Get-StockItemsQuery**](ItemsApi.md#Get-StockItemsQuery) | **GET** /api/v2/CatalogService/Items | Get all stock items
+[**Invoke-PatchStockItem**](ItemsApi.md#Invoke-PatchStockItem) | **PATCH** /api/v2/CatalogService/Items/{itemId} | Patch a stock item
+[**Invoke-RecalculateStockItemPrices**](ItemsApi.md#Invoke-RecalculateStockItemPrices) | **POST** /api/v2/CatalogService/Items/RecalculatePrices | Recalculate stock item prices
 [**Invoke-RelateAttachmentToStockItem**](ItemsApi.md#Invoke-RelateAttachmentToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Attachments/{itemAttachmentId} | Relate attachment to stock item
 [**Invoke-RelateAttributeOptionToStockItem**](ItemsApi.md#Invoke-RelateAttributeOptionToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/AttributeOptions/{itemAttributeOptionId} | Relate attribute option to stock item
 [**Invoke-RelateBrandToStockItem**](ItemsApi.md#Invoke-RelateBrandToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Brands/{itemBrandId} | Relate brand to stock item
@@ -81,6 +85,110 @@ Method | HTTP request | Description
 [**Update-ProductPrimaryImageAsync**](ItemsApi.md#Update-ProductPrimaryImageAsync) | **POST** /api/v2/CatalogService/Items/{itemId}/Images/Primary | Update item primary image
 [**Update-StockItem**](ItemsApi.md#Update-StockItem) | **PUT** /api/v2/CatalogService/Items/{itemId} | Update a stock item
 
+
+<a id="Invoke-BatchUpdateStockItems"></a>
+# **Invoke-BatchUpdateStockItems**
+> void Invoke-BatchUpdateStockItems<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BatchStockItemUpdateRequest] <PSCustomObject><br>
+
+Bulk-update stock items
+
+Applies a targeted bulk operation (set flags, add/remove tax policies) to many items atomically.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$BatchStockItemUpdateRequest = Initialize-BatchStockItemUpdateRequest -ItemIds "MyItemIds" -Published $false -Taxable $false -AddTaxPolicyIds "MyAddTaxPolicyIds" -RemoveTaxPolicyIds "MyRemoveTaxPolicyIds" # BatchStockItemUpdateRequest |  (optional)
+
+# Bulk-update stock items
+try {
+    $Result = Invoke-BatchUpdateStockItems -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BatchStockItemUpdateRequest $BatchStockItemUpdateRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BatchUpdateStockItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **BatchStockItemUpdateRequest** | [**BatchStockItemUpdateRequest**](BatchStockItemUpdateRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-BulkUpsertStockItems"></a>
+# **Invoke-BulkUpsertStockItems**
+> void Invoke-BulkUpsertStockItems<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkProduct] <PSCustomObject[]><br>
+
+Bulk upsert stock items from rows
+
+Updates scalar fields of matching tenant-owned items or creates new ones, all in one transaction.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$BulkProduct = Initialize-BulkProduct -Id "MyId" -Sku "MySku" -Title "MyTitle" -Type "MyType" -Image "MyImage" -Brand "MyBrand" -Currency "MyCurrency" -Supplier "MySupplier" -TaxPolicies "MyTaxPolicies" -SupplierCode "MySupplierCode" -GoogleCategory "MyGoogleCategory" -ShippingCountry "MyShippingCountry" -RegularPrice 0 -DiscountPercentage 0 -DiscountAmount 0 -CurrentStock 0 -Taxable $false -InStock $false -OnDiscount $false -ByRequest $false -IsFixedDiscount $false -ManageInventory $false -IsDeadlineDiscount $false -DeadlineDiscountFromDate (Get-Date) -DeadlineDiscountDueDate (Get-Date) # BulkProduct[] |  (optional)
+
+# Bulk upsert stock items from rows
+try {
+    $Result = Invoke-BulkUpsertStockItems -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BulkProduct $BulkProduct
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BulkUpsertStockItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **BulkProduct** | [**BulkProduct[]**](BulkProduct.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Invoke-CountStockItemTagsByItemId"></a>
 # **Invoke-CountStockItemTagsByItemId**
@@ -2209,6 +2317,113 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchStockItem"></a>
+# **Invoke-PatchStockItem**
+> void Invoke-PatchStockItem<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a stock item
+
+Partially updates an existing stock item for the specified tenant and item ID.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a stock item
+try {
+    $Result = Invoke-PatchStockItem -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchStockItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ItemId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-RecalculateStockItemPrices"></a>
+# **Invoke-RecalculateStockItemPrices**
+> void Invoke-RecalculateStockItemPrices<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
+
+Recalculate stock item prices
+
+Recomputes derived prices for the given tenant-owned items via the pricing service, atomically.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$RequestBody = "MyRequestBody" # String[] |  (optional)
+
+# Recalculate stock item prices
+try {
+    $Result = Invoke-RecalculateStockItemPrices -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -RequestBody $RequestBody
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-RecalculateStockItemPrices: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **RequestBody** | [**String[]**](String.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-RelateAttachmentToStockItem"></a>
 # **Invoke-RelateAttachmentToStockItem**
 > ItemAttachmentDtoEnvelope Invoke-RelateAttachmentToStockItem<br>
@@ -2230,7 +2445,7 @@ $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemAttachmentId = "MyItemAttachmentId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemAttachmentCreateDto = Initialize-ItemAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -ItemID "MyItemID" # ItemAttachmentCreateDto |  (optional)
+$ItemAttachmentCreateDto = Initialize-ItemAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -ItemId "MyItemId" # ItemAttachmentCreateDto |  (optional)
 
 # Relate attachment to stock item
 try {
@@ -2610,7 +2825,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemQuestionRecordCreateDto = Initialize-ItemQuestionRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileID "MySocialProfileID" # ItemQuestionRecordCreateDto |  (optional)
+$ItemQuestionRecordCreateDto = Initialize-ItemQuestionRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileId "MySocialProfileId" # ItemQuestionRecordCreateDto |  (optional)
 
 # Create question for stock item
 try {
@@ -2775,7 +2990,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemReviewRecordCreateDto = Initialize-ItemReviewRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -ReviewScore 0 -ReviewMessage "MyReviewMessage" -SocialProfileID "MySocialProfileID" # ItemReviewRecordCreateDto |  (optional)
+$ItemReviewRecordCreateDto = Initialize-ItemReviewRecordCreateDto -Id "MyId" -Timestamp (Get-Date) -ReviewScore 0 -ReviewMessage "MyReviewMessage" -SocialProfileId "MySocialProfileId" # ItemReviewRecordCreateDto |  (optional)
 
 # Create review for stock item
 try {

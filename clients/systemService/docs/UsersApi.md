@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**Get-UserAsync**](UsersApi.md#Get-UserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 [**Get-UsersAsync**](UsersApi.md#Get-UsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users
 [**Get-UsersCountAsync**](UsersApi.md#Get-UsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users
+[**Invoke-PatchAccountHolderAsync**](UsersApi.md#Invoke-PatchAccountHolderAsync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user
 [**Update-AccountHolderAsync**](UsersApi.md#Update-AccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user
 
 
@@ -497,6 +498,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAccountHolderAsync"></a>
+# **Invoke-PatchAccountHolderAsync**
+> EmptyEnvelope Invoke-PatchAccountHolderAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially update a user
+
+This action is only available for global administrators.
+
+### Example
+```powershell
+$UserId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially update a user
+try {
+    $Result = Invoke-PatchAccountHolderAsync -UserId $UserId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAccountHolderAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UserId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

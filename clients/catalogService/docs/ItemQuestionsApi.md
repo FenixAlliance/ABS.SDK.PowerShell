@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**Invoke-DeleteItemQuestionAsync**](ItemQuestionsApi.md#Invoke-DeleteItemQuestionAsync) | **DELETE** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Delete an item question
 [**Get-ItemQuestionByIdAsync**](ItemQuestionsApi.md#Get-ItemQuestionByIdAsync) | **GET** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Get item question by ID
 [**Get-ItemQuestionsAsync**](ItemQuestionsApi.md#Get-ItemQuestionsAsync) | **GET** /api/v2/CatalogService/ItemQuestions | Get all item questions
+[**Invoke-PatchItemQuestionAsync**](ItemQuestionsApi.md#Invoke-PatchItemQuestionAsync) | **PATCH** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Patch an item question
 [**Update-ItemQuestionAsync**](ItemQuestionsApi.md#Update-ItemQuestionAsync) | **PUT** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Update an item question
 
 
@@ -28,7 +29,7 @@ Creates a new item question for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$ItemQuestionCreateDto = Initialize-ItemQuestionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileID "MySocialProfileID" -ItemID "MyItemID" # ItemQuestionCreateDto |  (optional)
+$ItemQuestionCreateDto = Initialize-ItemQuestionCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -NeedsRevision $false -Question "MyQuestion" -SocialProfileId "MySocialProfileId" -ItemId "MyItemId" # ItemQuestionCreateDto |  (optional)
 
 # Create a new item question
 try {
@@ -212,6 +213,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchItemQuestionAsync"></a>
+# **Invoke-PatchItemQuestionAsync**
+> void Invoke-PatchItemQuestionAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemQuestionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an item question
+
+Partially updates an existing item question for the specified tenant using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemQuestionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an item question
+try {
+    $Result = Invoke-PatchItemQuestionAsync -TenantId $TenantId -ItemQuestionId $ItemQuestionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchItemQuestionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ItemQuestionId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

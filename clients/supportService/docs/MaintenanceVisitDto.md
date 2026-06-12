@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**BusinessProfileRecordId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 $MaintenanceVisitDto = Initialize-PSOpenAPIToolsMaintenanceVisitDto  -Id null `
  -Timestamp null `
  -TenantId null `
- -BusinessProfileRecordId null
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

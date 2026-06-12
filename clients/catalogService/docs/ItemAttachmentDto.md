@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
 **FolderPath** | **String** |  | [optional] 
-**ItemID** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -53,7 +53,7 @@ $ItemAttachmentDto = Initialize-PSOpenAPIToolsItemAttachmentDto  -Id null `
  -EnrollmentId null `
  -SocialProfileId null `
  -FolderPath null `
- -ItemID null
+ -ItemId null
 ```
 
 - Convert the resource to JSON

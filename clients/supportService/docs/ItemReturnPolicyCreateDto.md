@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
-**ShippingCourierID** | **String** |  | [optional] 
+**ShippingCourierId** | **String** |  | [optional] 
 **IsFree** | **Boolean** |  | [optional] 
 **Reduce** | **Boolean** |  | [optional] 
 **IsEnabled** | **Boolean** |  | [optional] 
@@ -20,12 +20,12 @@ Name | Type | Description | Notes
 **Years** | **Int32** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **Percentage** | **Double** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**CountryStateID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**CountryStateId** | **String** |  | [optional] 
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
-**CityID** | **String** |  | [optional] 
+**CityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -35,7 +35,7 @@ $ItemReturnPolicyCreateDto = Initialize-PSOpenAPIToolsItemReturnPolicyCreateDto 
  -Timestamp null `
  -Title null `
  -Description null `
- -ShippingCourierID null `
+ -ShippingCourierId null `
  -IsFree null `
  -Reduce null `
  -IsEnabled null `
@@ -48,12 +48,12 @@ $ItemReturnPolicyCreateDto = Initialize-PSOpenAPIToolsItemReturnPolicyCreateDto 
  -Years null `
  -Value null `
  -Percentage null `
- -CurrencyID null `
- -CountryID null `
- -CountryStateID null `
+ -CurrencyId null `
+ -CountryId null `
+ -CountryStateId null `
  -CustomState null `
  -CustomCity null `
- -CityID null
+ -CityId null
 ```
 
 - Convert the resource to JSON

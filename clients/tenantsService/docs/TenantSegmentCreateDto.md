@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Revenue** | **String** |  | [optional] 
 **MinEmployees** | **Double** |  | [optional] 
 **MaxEmployees** | **Double** |  | [optional] 
 
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 ```powershell
 $TenantSegmentCreateDto = Initialize-PSOpenAPIToolsTenantSegmentCreateDto  -Id null `
  -Timestamp null `
- -Revenue null `
  -MinEmployees null `
  -MaxEmployees null
 ```

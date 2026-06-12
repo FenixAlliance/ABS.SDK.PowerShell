@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-CourseArticleByIdAsync**](CourseArticlesApi.md#Get-CourseArticleByIdAsync) | **GET** /api/v2/LearningService/CourseArticles/{articleId} | Get course article by ID
 [**Get-CourseArticlesAsync**](CourseArticlesApi.md#Get-CourseArticlesAsync) | **GET** /api/v2/LearningService/CourseArticles | Get all course articles
 [**Get-CourseArticlesCountAsync**](CourseArticlesApi.md#Get-CourseArticlesCountAsync) | **GET** /api/v2/LearningService/CourseArticles/Count | Get course articles count
+[**Invoke-PatchCourseArticleAsync**](CourseArticlesApi.md#Invoke-PatchCourseArticleAsync) | **PATCH** /api/v2/LearningService/CourseArticles/{articleId} | Patch a course article
 [**Update-CourseArticleAsync**](CourseArticlesApi.md#Update-CourseArticleAsync) | **PUT** /api/v2/LearningService/CourseArticles/{articleId} | Update a course article
 
 
@@ -29,7 +30,7 @@ Creates a new course article for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$CourseArticleCreateDto = Initialize-CourseArticleCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseID "MyCourseID" -CourseWikiID "MyCourseWikiID" # CourseArticleCreateDto |  (optional)
+$CourseArticleCreateDto = Initialize-CourseArticleCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -Content "MyContent" -CourseId "MyCourseId" -CourseWikiId "MyCourseWikiId" # CourseArticleCreateDto |  (optional)
 
 # Create a new course article
 try {
@@ -259,6 +260,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchCourseArticleAsync"></a>
+# **Invoke-PatchCourseArticleAsync**
+> EmptyEnvelope Invoke-PatchCourseArticleAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ArticleId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a course article
+
+Partially updates a course article for the specified tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ArticleId = "MyArticleId" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a course article
+try {
+    $Result = Invoke-PatchCourseArticleAsync -TenantId $TenantId -ArticleId $ArticleId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchCourseArticleAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ArticleId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

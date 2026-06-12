@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**CourseUnitID** | **String** |  | [optional] 
+**CourseUnitId** | **String** |  | [optional] 
 **ReleaseDateTime** | **System.DateTime** |  | [optional] 
 
 ## Examples
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ```powershell
 $CourseWikiUpdateDto = Initialize-PSOpenAPIToolsCourseWikiUpdateDto  -Title null `
  -Description null `
- -CourseUnitID null `
+ -CourseUnitId null `
  -ReleaseDateTime null
 ```
 

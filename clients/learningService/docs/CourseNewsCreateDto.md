@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseID** | **String** |  | 
+**CourseId** | **String** |  | 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $CourseNewsCreateDto = Initialize-PSOpenAPIToolsCourseNewsCreateDto  -Id null `
  -Title null `
  -Description null `
  -Content null `
- -CourseID null
+ -CourseId null
 ```
 
 - Convert the resource to JSON

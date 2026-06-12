@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreditWeeks** | **Double** |  | [optional] 
 **CreditMonths** | **Double** |  | [optional] 
 **CreditYears** | **Double** |  | [optional] 
-**PaymentModeID** | **String** |  | [optional] 
+**PaymentModeId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -25,7 +25,7 @@ $PaymentTermUpdateDto = Initialize-PSOpenAPIToolsPaymentTermUpdateDto  -Name nul
  -CreditWeeks null `
  -CreditMonths null `
  -CreditYears null `
- -PaymentModeID null
+ -PaymentModeId null
 ```
 
 - Convert the resource to JSON

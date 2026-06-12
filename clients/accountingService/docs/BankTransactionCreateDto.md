@@ -5,6 +5,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**Price** | **Double** |  | [optional] 
+**Quantity** | **Double** |  | [optional] 
+**ExternalDescription** | **String** |  | [optional] 
+**BasisQuantity** | **Double** |  | [optional] 
+**BasisAmount** | **Double** |  | [optional] 
+**Percent** | **Double** |  | [optional] 
+**UnitGroupId** | **String** |  | [optional] 
+**UnitId** | **String** |  | [optional] 
+**TransactionCategoryId** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
 **BankProfileId** | **String** |  | [optional] 
 **BankAccountId** | **String** |  | [optional] 
 
@@ -14,6 +25,17 @@ Name | Type | Description | Notes
 ```powershell
 $BankTransactionCreateDto = Initialize-PSOpenAPIToolsBankTransactionCreateDto  -Id null `
  -Timestamp null `
+ -Description null `
+ -Price null `
+ -Quantity null `
+ -ExternalDescription null `
+ -BasisQuantity null `
+ -BasisAmount null `
+ -Percent null `
+ -UnitGroupId null `
+ -UnitId null `
+ -TransactionCategoryId null `
+ -CurrencyId null `
  -BankProfileId null `
  -BankAccountId null
 ```

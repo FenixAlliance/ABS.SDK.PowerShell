@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,8 +17,9 @@ Name | Type | Description | Notes
 $CourseContentGroupDto = Initialize-PSOpenAPIToolsCourseContentGroupDto  -Id null `
  -Timestamp null `
  -Name null `
- -CourseID null `
- -BusinessID null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

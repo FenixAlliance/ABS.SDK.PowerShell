@@ -3,14 +3,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**BusinessProfileRecordId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
-**AssetId** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**AssetId** | **String** |  | [optional] 
 **AssetName** | **String** |  | [optional] 
 **AssetDepreciationPolicyId** | **String** |  | [optional] 
 **AssetDepreciationPolicyName** | **String** |  | [optional] 
+**FinancialBookId** | **String** |  | [optional] 
+**StartDate** | **System.DateTime** |  | [optional] 
+**TotalDepreciations** | **Int32** |  | [optional] 
+**DepreciationFrequency** | **Int32** |  | [optional] 
+**DepreciationRate** | **Double** |  | [optional] 
+**ExpectedValueAUL** | **Double** |  | [optional] 
 **DepreciationAmount** | **Double** |  | [optional] 
 **AccumulatedDepreciation** | **Double** |  | [optional] 
 **BookValue** | **Double** |  | [optional] 
@@ -25,12 +31,18 @@ Name | Type | Description | Notes
 ```powershell
 $AssetDepreciationRecordDto = Initialize-PSOpenAPIToolsAssetDepreciationRecordDto  -Id null `
  -Timestamp null `
- -BusinessId null `
- -BusinessProfileRecordId null `
+ -TenantId null `
+ -EnrollmentId null `
  -AssetId null `
  -AssetName null `
  -AssetDepreciationPolicyId null `
  -AssetDepreciationPolicyName null `
+ -FinancialBookId null `
+ -StartDate null `
+ -TotalDepreciations null `
+ -DepreciationFrequency null `
+ -DepreciationRate null `
+ -ExpectedValueAUL null `
  -DepreciationAmount null `
  -AccumulatedDepreciation null `
  -BookValue null `

@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **EndDateTime** | **System.DateTime** |  | [optional] 
 **ExpectedStartDateTime** | **System.DateTime** |  | [optional] 
 **ExpectedEndDateTime** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -24,8 +25,9 @@ $CourseCohortDto = Initialize-PSOpenAPIToolsCourseCohortDto  -Id null `
  -EndDateTime null `
  -ExpectedStartDateTime null `
  -ExpectedEndDateTime null `
- -CourseID null `
- -TenantId null
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

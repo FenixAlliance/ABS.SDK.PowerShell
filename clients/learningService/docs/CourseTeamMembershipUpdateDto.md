@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstructorProfileID** | **String** |  | [optional] 
+**InstructorProfileId** | **String** |  | [optional] 
 **CourseTeamMembershipType** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CourseTeamMembershipUpdateDto = Initialize-PSOpenAPIToolsCourseTeamMembershipUpdateDto  -InstructorProfileID null `
+$CourseTeamMembershipUpdateDto = Initialize-PSOpenAPIToolsCourseTeamMembershipUpdateDto  -InstructorProfileId null `
  -CourseTeamMembershipType null
 ```
 

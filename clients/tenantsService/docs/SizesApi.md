@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantSizeById**](SizesApi.md#Get-TenantSizeById) | **GET** /api/v2/TenantsService/Sizes/{tenantSizeId} | Retrieve a single tenant size by its ID
 [**Get-TenantSizes**](SizesApi.md#Get-TenantSizes) | **GET** /api/v2/TenantsService/Sizes | Retrieve a list of tenant sizes
 [**Get-TenantSizesCount**](SizesApi.md#Get-TenantSizesCount) | **GET** /api/v2/TenantsService/Sizes/Count | Get the count of tenant sizes
+[**Invoke-PatchTenantSize**](SizesApi.md#Invoke-PatchTenantSize) | **PATCH** /api/v2/TenantsService/Sizes/{tenantSizeId} | Patch a tenant size
 [**Update-TenantSize**](SizesApi.md#Update-TenantSize) | **PUT** /api/v2/TenantsService/Sizes/{tenantSizeId} | Update a tenant size
 
 
@@ -29,7 +30,7 @@ Create a new tenant size
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantSizeCreateDto = Initialize-TenantSizeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -EmployeeLowRangeValue 0 -EmployeeHighRangeValue 0 # TenantSizeCreateDto |  (optional)
+$TenantSizeCreateDto = Initialize-TenantSizeCreateDto -Id "MyId" -Timestamp (Get-Date) -EmployeeLowRangeValue 0 -EmployeeHighRangeValue 0 # TenantSizeCreateDto |  (optional)
 
 # Create a new tenant size
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantSize"></a>
+# **Invoke-PatchTenantSize**
+> EmptyEnvelope Invoke-PatchTenantSize<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantSizeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant size
+
+Patch a tenant size
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantSizeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant size
+try {
+    $Result = Invoke-PatchTenantSize -TenantId $TenantId -TenantSizeId $TenantSizeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantSize: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantSizeId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantSize"></a>
 # **Update-TenantSize**
 > EmptyEnvelope Update-TenantSize<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantSizeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantSizeUpdateDto = Initialize-TenantSizeUpdateDto -Name "MyName" -EmployeeLowRangeValue 0 -EmployeeHighRangeValue 0 # TenantSizeUpdateDto |  (optional)
+$TenantSizeUpdateDto = Initialize-TenantSizeUpdateDto -EmployeeLowRangeValue 0 -EmployeeHighRangeValue 0 # TenantSizeUpdateDto |  (optional)
 
 # Update a tenant size
 try {

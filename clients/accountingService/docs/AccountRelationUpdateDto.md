@@ -4,12 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **String** |  | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountRelationUpdateDto = Initialize-PSOpenAPIToolsAccountRelationUpdateDto  -AccountId null
+$AccountRelationUpdateDto = Initialize-PSOpenAPIToolsAccountRelationUpdateDto  -AccountId null `
+ -Type null
 ```
 
 - Convert the resource to JSON

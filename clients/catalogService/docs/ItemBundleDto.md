@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,7 +21,7 @@ $ItemBundleDto = Initialize-PSOpenAPIToolsItemBundleDto  -Id null `
  -Code null `
  -Description null `
  -Disabled null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

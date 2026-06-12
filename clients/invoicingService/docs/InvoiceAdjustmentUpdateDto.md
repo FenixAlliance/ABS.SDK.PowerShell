@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrencyId** | **String** |  | [optional] 
+**Priority** | **Int32** |  | [optional] 
+**Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **SurchargePercent** | **Double** |  | [optional] 
 **SurchargeAmount** | **Double** |  | [optional] 
@@ -18,6 +20,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $InvoiceAdjustmentUpdateDto = Initialize-PSOpenAPIToolsInvoiceAdjustmentUpdateDto  -CurrencyId null `
+ -Priority null `
+ -Code null `
  -Description null `
  -SurchargePercent null `
  -SurchargeAmount null `

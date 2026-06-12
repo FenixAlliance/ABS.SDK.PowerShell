@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **EnableForLicenses** | **Boolean** |  | [optional] 
 **EnableForServices** | **Boolean** |  | [optional] 
 **EnableForSubscriptions** | **Boolean** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**ParentItemCategoryID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**ParentItemCategoryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -33,9 +33,9 @@ $ItemCategoryDto = Initialize-PSOpenAPIToolsItemCategoryDto  -Id null `
  -EnableForLicenses null `
  -EnableForServices null `
  -EnableForSubscriptions null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -ParentItemCategoryID null
+ -TenantId null `
+ -EnrollmentId null `
+ -ParentItemCategoryId null
 ```
 
 - Convert the resource to JSON

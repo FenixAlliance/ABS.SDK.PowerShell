@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **EnablePoints** | **Boolean** |  | [optional] 
-**CourseID** | **String** |  | 
+**CourseId** | **String** |  | 
 
 ## Examples
 
@@ -19,7 +19,7 @@ $CourseGradingRubricCreateDto = Initialize-PSOpenAPIToolsCourseGradingRubricCrea
  -Title null `
  -Description null `
  -EnablePoints null `
- -CourseID null
+ -CourseId null
 ```
 
 - Convert the resource to JSON

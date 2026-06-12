@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **TrackingCode** | **String** |  | 
 **ExpectedDelivery** | **System.DateTime** |  | [optional] 
-**LocationID** | **String** |  | [optional] 
-**ShipmentID** | **String** |  | [optional] 
-**ShippingCourierID** | **String** |  | [optional] 
+**LocationId** | **String** |  | [optional] 
+**ShipmentId** | **String** |  | [optional] 
+**ShippingCourierId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,9 +19,9 @@ $ShippingLabelCreateDto = Initialize-PSOpenAPIToolsShippingLabelCreateDto  -Id n
  -Timestamp null `
  -TrackingCode null `
  -ExpectedDelivery null `
- -LocationID null `
- -ShipmentID null `
- -ShippingCourierID null
+ -LocationId null `
+ -ShipmentId null `
+ -ShippingCourierId null
 ```
 
 - Convert the resource to JSON

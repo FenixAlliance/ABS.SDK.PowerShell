@@ -5,13 +5,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
-**OrganizationProfileID** | **String** |  | [optional] 
-**ParentDepartmentID** | **String** |  | [optional] 
+**OrganizationProfileId** | **String** |  | [optional] 
+**ParentDepartmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,13 +19,13 @@ Name | Type | Description | Notes
 ```powershell
 $TenantDepartmentDto = Initialize-PSOpenAPIToolsTenantDepartmentDto  -Id null `
  -Timestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
+ -TenantId null `
+ -EnrollmentId null `
  -Name null `
  -Description null `
  -Disabled null `
- -OrganizationProfileID null `
- -ParentDepartmentID null
+ -OrganizationProfileId null `
+ -ParentDepartmentId null
 ```
 
 - Convert the resource to JSON

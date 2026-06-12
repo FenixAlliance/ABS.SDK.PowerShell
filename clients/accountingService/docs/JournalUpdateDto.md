@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **DateTime** | **System.DateTime** |  | [optional] 
-**ParentJournalID** | **String** |  | [optional] 
-**JournalTypeID** | **String** |  | [optional] 
-**LedgerID** | **String** |  | [optional] 
+**ParentJournalId** | **String** |  | [optional] 
+**JournalTypeId** | **String** |  | [optional] 
+**LedgerId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 $JournalUpdateDto = Initialize-PSOpenAPIToolsJournalUpdateDto  -Name null `
  -Description null `
  -DateTime null `
- -ParentJournalID null `
- -JournalTypeID null `
- -LedgerID null
+ -ParentJournalId null `
+ -JournalTypeId null `
+ -LedgerId null
 ```
 
 - Convert the resource to JSON

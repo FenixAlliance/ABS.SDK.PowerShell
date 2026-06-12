@@ -9,9 +9,10 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
 **Order** | **Int32** |  | [optional] 
-**CourseAssignmentID** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseAssignmentId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,9 +24,10 @@ $CourseAssignmentComponentDto = Initialize-PSOpenAPIToolsCourseAssignmentCompone
  -Description null `
  -Content null `
  -Order null `
- -CourseAssignmentID null `
- -CourseID null `
- -TenantId null
+ -CourseAssignmentId null `
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

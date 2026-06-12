@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
+**Priority** | **Int32** |  | [optional] 
+**Code** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **SurchargePercent** | **Double** |  | [optional] 
 **SurchargeAmount** | **Double** |  | [optional] 
@@ -22,6 +24,8 @@ Name | Type | Description | Notes
 $InvoiceAdjustmentCreateDto = Initialize-PSOpenAPIToolsInvoiceAdjustmentCreateDto  -Id null `
  -Timestamp null `
  -CurrencyId null `
+ -Priority null `
+ -Code null `
  -Description null `
  -SurchargePercent null `
  -SurchargeAmount null `

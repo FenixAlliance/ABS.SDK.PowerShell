@@ -3,21 +3,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
-**SupportTicketTypeID** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
-**SupportPriorityID** | **String** |  | [optional] 
+**SupportTicketStatus** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**SupportTicketTypeId** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
+**SupportPriorityId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SupportTicketUpdateDto = Initialize-PSOpenAPIToolsSupportTicketUpdateDto  -Description null `
- -ContactID null `
- -SupportTicketTypeID null `
- -SupportEntitlementID null `
- -SupportPriorityID null
+$SupportTicketUpdateDto = Initialize-PSOpenAPIToolsSupportTicketUpdateDto  -Title null `
+ -Description null `
+ -SupportTicketStatus null `
+ -ContactId null `
+ -SupportTicketTypeId null `
+ -SupportEntitlementId null `
+ -SupportPriorityId null
 ```
 
 - Convert the resource to JSON

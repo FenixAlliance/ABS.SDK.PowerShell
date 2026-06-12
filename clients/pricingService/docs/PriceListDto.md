@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **StartDate** | **System.DateTime** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**Context** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **UnitId** | **String** |  | [optional] 
@@ -27,6 +28,7 @@ $PriceListDto = Initialize-PSOpenAPIToolsPriceListDto  -Id null `
  -StartDate null `
  -EndDate null `
  -Description null `
+ -Context null `
  -CurrencyId null `
  -TenantId null `
  -UnitId null `

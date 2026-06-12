@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**ShipmentID** | **String** |  | [optional] 
-**ProofOfDeliveryID** | **String** |  | [optional] 
+**ShipmentId** | **String** |  | [optional] 
+**ProofOfDeliveryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $DeliveryNoteUpdateDto = Initialize-PSOpenAPIToolsDeliveryNoteUpdateDto  -Title null `
  -Description null `
- -ShipmentID null `
- -ProofOfDeliveryID null
+ -ShipmentId null `
+ -ProofOfDeliveryId null
 ```
 
 - Convert the resource to JSON

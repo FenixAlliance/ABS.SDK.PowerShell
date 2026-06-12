@@ -5,8 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **LogoURL** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -14,8 +13,7 @@ Name | Type | Description | Notes
 ```powershell
 $ShippingCourierUpdateDto = Initialize-PSOpenAPIToolsShippingCourierUpdateDto  -Name null `
  -LogoURL null `
- -CountryID null `
- -BusinessProfileRecordID null
+ -CountryId null
 ```
 
 - Convert the resource to JSON

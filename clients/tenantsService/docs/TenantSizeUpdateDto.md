@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** |  | [optional] 
 **EmployeeLowRangeValue** | **Int32** |  | [optional] 
 **EmployeeHighRangeValue** | **Int32** |  | [optional] 
 
@@ -11,8 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantSizeUpdateDto = Initialize-PSOpenAPIToolsTenantSizeUpdateDto  -Name null `
- -EmployeeLowRangeValue null `
+$TenantSizeUpdateDto = Initialize-PSOpenAPIToolsTenantSizeUpdateDto  -EmployeeLowRangeValue null `
  -EmployeeHighRangeValue null
 ```
 

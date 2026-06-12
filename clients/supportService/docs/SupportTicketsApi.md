@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**Get-SupportTicketConversationsAsync**](SupportTicketsApi.md#Get-SupportTicketConversationsAsync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Retrieve conversations for a support ticket
 [**Get-SupportTicketsAsync**](SupportTicketsApi.md#Get-SupportTicketsAsync) | **GET** /api/v2/SupportService/SupportTickets | Retrieve a list of support tickets
 [**Get-SupportTicketsCountAsync**](SupportTicketsApi.md#Get-SupportTicketsCountAsync) | **GET** /api/v2/SupportService/SupportTickets/Count | Get the count of support tickets
+[**Invoke-PatchSupportTicketAsync**](SupportTicketsApi.md#Invoke-PatchSupportTicketAsync) | **PATCH** /api/v2/SupportService/SupportTickets/{supportTicketId} | Patch a support ticket
 [**Invoke-RelateSupportTicketToConversationAsync**](SupportTicketsApi.md#Invoke-RelateSupportTicketToConversationAsync) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Create a conversation for a support ticket
 [**Update-SupportTicketAsync**](SupportTicketsApi.md#Update-SupportTicketAsync) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | Update a support ticket
 
@@ -34,7 +35,7 @@ Creates a new support ticket for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketCreateDto = Initialize-SupportTicketCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -ContactID "MyContactID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketCreateDto |  (optional)
+$SupportTicketCreateDto = Initialize-SupportTicketCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -SupportTicketStatus "New" -ContactId "MyContactId" -SupportTicketTypeId "MySupportTicketTypeId" -SupportEntitlementId "MySupportEntitlementId" -SupportPriorityId "MySupportPriorityId" # SupportTicketCreateDto |  (optional)
 
 # Create a new support ticket
 try {
@@ -494,6 +495,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchSupportTicketAsync"></a>
+# **Invoke-PatchSupportTicketAsync**
+> EmptyEnvelope Invoke-PatchSupportTicketAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportTicketId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a support ticket
+
+Partially updates an existing support ticket by its unique identifier.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SupportTicketId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a support ticket
+try {
+    $Result = Invoke-PatchSupportTicketAsync -TenantId $TenantId -SupportTicketId $SupportTicketId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchSupportTicketAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **SupportTicketId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-RelateSupportTicketToConversationAsync"></a>
 # **Invoke-RelateSupportTicketToConversationAsync**
 > EmptyEnvelope Invoke-RelateSupportTicketToConversationAsync<br>
@@ -513,7 +569,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportTicketId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketConversationCreateDto = Initialize-SupportTicketConversationCreateDto -Id "MyId" -Timestamp (Get-Date) -Topic "MyTopic" -Closed $false -ClosedTimestamp (Get-Date) -SocialProfileID "MySocialProfileID" # SupportTicketConversationCreateDto |  (optional)
+$SupportTicketConversationCreateDto = Initialize-SupportTicketConversationCreateDto -Id "MyId" -Timestamp (Get-Date) -Topic "MyTopic" -Closed $false -ClosedTimestamp (Get-Date) -SocialProfileId "MySocialProfileId" # SupportTicketConversationCreateDto |  (optional)
 
 # Create a conversation for a support ticket
 try {
@@ -568,7 +624,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportTicketId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SupportTicketUpdateDto = Initialize-SupportTicketUpdateDto -Description "MyDescription" -ContactID "MyContactID" -SupportTicketTypeID "MySupportTicketTypeID" -SupportEntitlementID "MySupportEntitlementID" -SupportPriorityID "MySupportPriorityID" # SupportTicketUpdateDto |  (optional)
+$SupportTicketUpdateDto = Initialize-SupportTicketUpdateDto -Title "MyTitle" -Description "MyDescription" -SupportTicketStatus "New" -ContactId "MyContactId" -SupportTicketTypeId "MySupportTicketTypeId" -SupportEntitlementId "MySupportEntitlementId" -SupportPriorityId "MySupportPriorityId" # SupportTicketUpdateDto |  (optional)
 
 # Update a support ticket
 try {

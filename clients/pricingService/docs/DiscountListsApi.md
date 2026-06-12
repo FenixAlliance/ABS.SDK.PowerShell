@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**Get-DiscountListEntry**](DiscountListsApi.md#Get-DiscountListEntry) | **GET** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Gets a discount list entry by ID
 [**Get-DiscountLists**](DiscountListsApi.md#Get-DiscountLists) | **GET** /api/v2/PricingService/DiscountLists | Retrieves all discount lists
 [**Get-DiscountListsCount**](DiscountListsApi.md#Get-DiscountListsCount) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
+[**Invoke-PatchDiscountList**](DiscountListsApi.md#Invoke-PatchDiscountList) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId} | Patches a discount list
+[**Invoke-PatchDiscountListEntry**](DiscountListsApi.md#Invoke-PatchDiscountListEntry) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Patches a discount list entry
 [**Update-DiscountList**](DiscountListsApi.md#Update-DiscountList) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 [**Update-DiscountListEntry**](DiscountListsApi.md#Update-DiscountListEntry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
 
@@ -31,7 +33,7 @@ Creates a new discount list for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountListCreateDto = Initialize-DiscountListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -CurrencyId "MyCurrencyId" # DiscountListCreateDto |  (optional)
+$DiscountListCreateDto = Initialize-DiscountListCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -DiscountListType "Amount" -CurrencyId "MyCurrencyId" # DiscountListCreateDto |  (optional)
 
 # Creates a new discount list
 try {
@@ -79,7 +81,7 @@ Creates a new discount entry in the specified discount list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountCreateDto = Initialize-DiscountCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -DiscountListId "MyDiscountListId" # DiscountCreateDto |  (optional)
+$DiscountCreateDto = Initialize-DiscountCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -ItemId "MyItemId" -DiscountListId "MyDiscountListId" # DiscountCreateDto |  (optional)
 
 # Creates a discount list entry
 try {
@@ -481,6 +483,107 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchDiscountList"></a>
+# **Invoke-PatchDiscountList**
+> EmptyEnvelope Invoke-PatchDiscountList<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a discount list
+
+Partially updates the specified discount list using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a discount list
+try {
+    $Result = Invoke-PatchDiscountList -TenantId $TenantId -DiscountListId $DiscountListId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchDiscountList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DiscountListId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchDiscountListEntry"></a>
+# **Invoke-PatchDiscountListEntry**
+> EmptyEnvelope Invoke-PatchDiscountListEntry<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListEntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a discount list entry
+
+Partially updates the specified discount entry using a JSON Patch document.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountListEntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a discount list entry
+try {
+    $Result = Invoke-PatchDiscountListEntry -TenantId $TenantId -DiscountListId $DiscountListId -DiscountListEntryId $DiscountListEntryId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchDiscountListEntry: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **DiscountListId** | **String**|  | 
+ **DiscountListEntryId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-DiscountList"></a>
 # **Update-DiscountList**
 > EmptyEnvelope Update-DiscountList<br>
@@ -496,7 +599,7 @@ Updates the specified discount list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountListUpdateDto = Initialize-DiscountListUpdateDto -Name "MyName" -CurrencyId "MyCurrencyId" # DiscountListUpdateDto |  (optional)
+$DiscountListUpdateDto = Initialize-DiscountListUpdateDto -Name "MyName" -DiscountListType "Amount" -CurrencyId "MyCurrencyId" # DiscountListUpdateDto |  (optional)
 
 # Updates a discount list
 try {
@@ -547,7 +650,7 @@ Updates the specified discount entry in a discount list.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListEntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$DiscountUpdateDto = Initialize-DiscountUpdateDto -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -DiscountListId "MyDiscountListId" # DiscountUpdateDto |  (optional)
+$DiscountUpdateDto = Initialize-DiscountUpdateDto -Description "MyDescription" -BeginQuantity 0 -EndQuantity 0 -Percent 0 -Value 0 -ItemId "MyItemId" -DiscountListId "MyDiscountListId" # DiscountUpdateDto |  (optional)
 
 # Updates a discount list entry
 try {

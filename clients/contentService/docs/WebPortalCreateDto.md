@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Domain** | **String** |  | [optional] 
 **Disabled** | **Boolean** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**WebsiteThemeID** | **String** |  | [optional] 
-**BusinessDomainID** | **String** |  | [optional] 
-**BusinessPortalApplicationID** | **String** |  | [optional] 
+**WebsiteThemeId** | **String** |  | [optional] 
+**BusinessDomainId** | **String** |  | [optional] 
+**BusinessPortalApplicationId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -25,9 +25,9 @@ $WebPortalCreateDto = Initialize-PSOpenAPIToolsWebPortalCreateDto  -Id null `
  -Domain null `
  -Disabled null `
  -Description null `
- -WebsiteThemeID null `
- -BusinessDomainID null `
- -BusinessPortalApplicationID null
+ -WebsiteThemeId null `
+ -BusinessDomainId null `
+ -BusinessPortalApplicationId null
 ```
 
 - Convert the resource to JSON

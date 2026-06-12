@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Get-TenantTeamProjectEnrollmentById**](TeamProjectEnrollmentsApi.md#Get-TenantTeamProjectEnrollmentById) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Retrieve a single tenant team project enrollment by its ID
 [**Get-TenantTeamProjectEnrollments**](TeamProjectEnrollmentsApi.md#Get-TenantTeamProjectEnrollments) | **GET** /api/v2/TenantsService/TeamProjectEnrollments | Retrieve a list of tenant team project enrollments
 [**Get-TenantTeamProjectEnrollmentsCount**](TeamProjectEnrollmentsApi.md#Get-TenantTeamProjectEnrollmentsCount) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/Count | Get the count of tenant team project enrollments
+[**Invoke-PatchTenantTeamProjectEnrollment**](TeamProjectEnrollmentsApi.md#Invoke-PatchTenantTeamProjectEnrollment) | **PATCH** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Patch a tenant team project enrollment
 [**Update-TenantTeamProjectEnrollment**](TeamProjectEnrollmentsApi.md#Update-TenantTeamProjectEnrollment) | **PUT** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Update a tenant team project enrollment
 
 
@@ -29,7 +30,7 @@ Create a new tenant team project enrollment
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamProjectEnrollmentCreateDto = Initialize-TenantTeamProjectEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessTeamID "MyBusinessTeamID" -ProjectID "MyProjectID" # TenantTeamProjectEnrollmentCreateDto |  (optional)
+$TenantTeamProjectEnrollmentCreateDto = Initialize-TenantTeamProjectEnrollmentCreateDto -Id "MyId" -Timestamp (Get-Date) -BusinessTeamId "MyBusinessTeamId" -ProjectId "MyProjectId" # TenantTeamProjectEnrollmentCreateDto |  (optional)
 
 # Create a new tenant team project enrollment
 try {
@@ -266,6 +267,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTenantTeamProjectEnrollment"></a>
+# **Invoke-PatchTenantTeamProjectEnrollment**
+> EmptyEnvelope Invoke-PatchTenantTeamProjectEnrollment<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantTeamProjectEnrollmentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tenant team project enrollment
+
+Patch a tenant team project enrollment
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantTeamProjectEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tenant team project enrollment
+try {
+    $Result = Invoke-PatchTenantTeamProjectEnrollment -TenantId $TenantId -TenantTeamProjectEnrollmentId $TenantTeamProjectEnrollmentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTenantTeamProjectEnrollment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **TenantTeamProjectEnrollmentId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TenantTeamProjectEnrollment"></a>
 # **Update-TenantTeamProjectEnrollment**
 > EmptyEnvelope Update-TenantTeamProjectEnrollment<br>
@@ -285,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantTeamProjectEnrollmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantTeamProjectEnrollmentUpdateDto = Initialize-TenantTeamProjectEnrollmentUpdateDto -BusinessTeamID "MyBusinessTeamID" -ProjectID "MyProjectID" # TenantTeamProjectEnrollmentUpdateDto |  (optional)
+$TenantTeamProjectEnrollmentUpdateDto = Initialize-TenantTeamProjectEnrollmentUpdateDto -BusinessTeamId "MyBusinessTeamId" -ProjectId "MyProjectId" # TenantTeamProjectEnrollmentUpdateDto |  (optional)
 
 # Update a tenant team project enrollment
 try {

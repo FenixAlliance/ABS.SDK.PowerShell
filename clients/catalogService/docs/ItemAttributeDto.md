@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $ItemAttributeDto = Initialize-PSOpenAPIToolsItemAttributeDto  -Id null `
  -Timestamp null `
  -Name null `
  -Description null `
- -BusinessID null
+ -TenantId null
 ```
 
 - Convert the resource to JSON

@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **AvatarURL** | **String** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**SocialProfileID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**SocialProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,9 +21,9 @@ $SocialGroupDto = Initialize-PSOpenAPIToolsSocialGroupDto  -Id null `
  -Name null `
  -Title null `
  -AvatarURL null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -SocialProfileID null
+ -TenantId null `
+ -EnrollmentId null `
+ -SocialProfileId null
 ```
 
 - Convert the resource to JSON

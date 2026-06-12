@@ -62,6 +62,8 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **BankId** | **String** |  | [optional] 
 **PaymentTokenId** | **String** |  | [optional] 
+**EmisorWalletAccountId** | **String** |  | [optional] 
+**ReceiverWalletAccountId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -125,7 +127,9 @@ $PaymentDto = Initialize-PSOpenAPIToolsPaymentDto  -Id null `
  -BankAccountId null `
  -EnrollmentId null `
  -BankId null `
- -PaymentTokenId null
+ -PaymentTokenId null `
+ -EmisorWalletAccountId null `
+ -ReceiverWalletAccountId null
 ```
 
 - Convert the resource to JSON

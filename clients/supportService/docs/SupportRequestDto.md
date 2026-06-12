@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Approved** | **Boolean** |  | [optional] 
 **ApprovedTimestamp** | **System.DateTime** |  | [optional] 
-**BusinessID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
-**AccountHolderID** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
+**UserId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -25,11 +25,11 @@ $SupportRequestDto = Initialize-PSOpenAPIToolsSupportRequestDto  -Id null `
  -Description null `
  -Approved null `
  -ApprovedTimestamp null `
- -BusinessID null `
- -BusinessProfileRecordID null `
- -SupportEntitlementID null `
- -ContactID null `
- -AccountHolderID null
+ -TenantId null `
+ -EnrollmentId null `
+ -SupportEntitlementId null `
+ -ContactId null `
+ -UserId null
 ```
 
 - Convert the resource to JSON

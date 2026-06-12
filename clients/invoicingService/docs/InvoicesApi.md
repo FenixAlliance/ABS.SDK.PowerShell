@@ -40,6 +40,11 @@ Method | HTTP request | Description
 [**Get-InvoiceReferencesCount**](InvoicesApi.md#Get-InvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references.
 [**Get-Invoices**](InvoicesApi.md#Get-Invoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices.
 [**Get-InvoicesCount**](InvoicesApi.md#Get-InvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices.
+[**Invoke-PatchInvoice**](InvoicesApi.md#Invoke-PatchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice.
+[**Invoke-PatchInvoiceAdjustment**](InvoicesApi.md#Invoke-PatchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment.
+[**Invoke-PatchInvoiceLine**](InvoicesApi.md#Invoke-PatchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line.
+[**Invoke-PatchInvoiceLineTax**](InvoicesApi.md#Invoke-PatchInvoiceLineTax) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Patch a tax for an invoice line.
+[**Invoke-PatchInvoiceReference**](InvoicesApi.md#Invoke-PatchInvoiceReference) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Patch an invoice reference.
 [**Invoke-PreviewInvoiceEmail**](InvoicesApi.md#Invoke-PreviewInvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Preview | Preview the rendered email for an invoice.
 [**Send-InvoiceEmail**](InvoicesApi.md#Send-InvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Send | Send an invoice transactional email to recipients.
 [**Update-Invoice**](InvoicesApi.md#Update-Invoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} | Update an invoice.
@@ -404,7 +409,7 @@ Creates a new invoice for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineCreateDto = Initialize-InvoiceLineCreateDto -Id "MyId" -Timestamp (Get-Date) -Closed $false -Title "MyTitle" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Quantity 0 -ItemId "MyItemId" -InvoiceId "MyInvoiceId" -ItemPriceId "MyItemPriceId"
 $InvoiceReferenceCreateDto = Initialize-InvoiceReferenceCreateDto -Id "MyId" -Timestamp (Get-Date) -ReferencedInvoiceId "MyReferencedInvoiceId"
-$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount"
+$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Priority 0 -Code "MyCode" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount"
 $InvoiceCreateDto = Initialize-InvoiceCreateDto -Id "MyId" -Timestamp (Get-Date) -Closed $false -Title "MyTitle" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Paid $false -Number 0 -Notes "MyNotes" -OrderId "MyOrderId" -Enumeration "MyEnumeration" -PaymentModeId "MyPaymentModeId" -EnumerationRangeId "MyEnumerationRangeId" -EmisorBillingProfileId "MyEmisorBillingProfileId" -ReceiverBillingProfileId "MyReceiverBillingProfileId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -CustomerNotes "MyCustomerNotes" -InvoiceType "PurchaseInvoice" -DocumentType "Standard" -InvoiceStatus "Draft" -PaymentDue (Get-Date) -ValidFrom (Get-Date) -ValidTo (Get-Date) -InvoiceLines $InvoiceLineCreateDto -InvoiceReferences $InvoiceReferenceCreateDto -InvoiceAdjustments $InvoiceAdjustmentCreateDto # InvoiceCreateDto |  (optional)
 
 # Create a new invoice.
@@ -453,7 +458,7 @@ Creates a new adjustment for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount" # InvoiceAdjustmentCreateDto |  (optional)
+$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Priority 0 -Code "MyCode" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount" # InvoiceAdjustmentCreateDto |  (optional)
 
 # Create a new invoice adjustment.
 try {
@@ -1762,6 +1767,266 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchInvoice"></a>
+# **Invoke-PatchInvoice**
+> EmptyEnvelope Invoke-PatchInvoice<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an invoice.
+
+Partially updates the specified invoice for the tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an invoice.
+try {
+    $Result = Invoke-PatchInvoice -TenantId $TenantId -InvoiceId $InvoiceId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchInvoice: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **InvoiceId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchInvoiceAdjustment"></a>
+# **Invoke-PatchInvoiceAdjustment**
+> EmptyEnvelope Invoke-PatchInvoiceAdjustment<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceAdjustmentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an invoice adjustment.
+
+Partially updates the specified adjustment for the invoice.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceAdjustmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an invoice adjustment.
+try {
+    $Result = Invoke-PatchInvoiceAdjustment -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceAdjustmentId $InvoiceAdjustmentId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchInvoiceAdjustment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **InvoiceId** | **String**|  | 
+ **InvoiceAdjustmentId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchInvoiceLine"></a>
+# **Invoke-PatchInvoiceLine**
+> EmptyEnvelope Invoke-PatchInvoiceLine<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an invoice line.
+
+Partially updates the specified invoice line.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an invoice line.
+try {
+    $Result = Invoke-PatchInvoiceLine -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchInvoiceLine: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **InvoiceId** | **String**|  | 
+ **InvoiceLineId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchInvoiceLineTax"></a>
+# **Invoke-PatchInvoiceLineTax**
+> EmptyEnvelope Invoke-PatchInvoiceLineTax<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineTaxId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch a tax for an invoice line.
+
+Partially updates the specified tax entry for the invoice line.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineTaxId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch a tax for an invoice line.
+try {
+    $Result = Invoke-PatchInvoiceLineTax -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -InvoiceLineTaxId $InvoiceLineTaxId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchInvoiceLineTax: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **InvoiceId** | **String**|  | 
+ **InvoiceLineId** | **String**|  | 
+ **InvoiceLineTaxId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchInvoiceReference"></a>
+# **Invoke-PatchInvoiceReference**
+> EmptyEnvelope Invoke-PatchInvoiceReference<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceReferenceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patch an invoice reference.
+
+Partially updates the specified reference for the invoice.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceReferenceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patch an invoice reference.
+try {
+    $Result = Invoke-PatchInvoiceReference -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceReferenceId $InvoiceReferenceId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchInvoiceReference: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **InvoiceId** | **String**|  | 
+ **InvoiceReferenceId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-PreviewInvoiceEmail"></a>
 # **Invoke-PreviewInvoiceEmail**
 > void Invoke-PreviewInvoiceEmail<br>
@@ -1877,7 +2142,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineCreateDto = Initialize-InvoiceLineCreateDto -Id "MyId" -Timestamp (Get-Date) -Closed $false -Title "MyTitle" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Quantity 0 -ItemId "MyItemId" -InvoiceId "MyInvoiceId" -ItemPriceId "MyItemPriceId"
 $InvoiceReferenceCreateDto = Initialize-InvoiceReferenceCreateDto -Id "MyId" -Timestamp (Get-Date) -ReferencedInvoiceId "MyReferencedInvoiceId"
-$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount"
+$InvoiceAdjustmentCreateDto = Initialize-InvoiceAdjustmentCreateDto -Id "MyId" -Timestamp (Get-Date) -CurrencyId "MyCurrencyId" -Priority 0 -Code "MyCode" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount"
 $InvoiceUpdateDto = Initialize-InvoiceUpdateDto -Closed $false -Title "MyTitle" -UserId "MyUserId" -PriceListId "MyPriceListId" -Description "MyDescription" -IndividualId "MyIndividualId" -PaymentTermId "MyPaymentTermId" -OrganizationId "MyOrganizationId" -ReceiverTenantId "MyReceiverTenantId" -FirstName "MyFirstName" -LastName "MyLastName" -CompanyName "MyCompanyName" -BillingEmail "MyBillingEmail" -AddressLine1 "MyAddressLine1" -AddressLine2 "MyAddressLine2" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -BillingLocationId "MyBillingLocationId" -ShippingLocationId "MyShippingLocationId" -ShippingMethodId "MyShippingMethodId" -ForexRate 0 -CurrencyId "MyCurrencyId" -TotalDetail 0 -TotalDetailCurrencyId "MyTotalDetailCurrencyId" -TotalProfit 0 -TotalProfitCurrencyId "MyTotalProfitCurrencyId" -TotalDiscounts 0 -TotalDiscountsCurrencyId "MyTotalDiscountsCurrencyId" -TotalSurcharges 0 -TotalSurchargesCurrencyId "MyTotalSurchargesCurrencyId" -TotalShippingTax 0 -TotalShippingTaxCurrencyId "MyTotalShippingTaxCurrencyId" -TotalShippingCost 0 -TotalShippingCostCurrencyId "MyTotalShippingCostCurrencyId" -TotalGlobalDiscounts 0 -TotalGlobalDiscountsCurrencyId "MyTotalGlobalDiscountsCurrencyId" -TotalGlobalSurcharges 0 -TotalGlobalSurchargesCurrencyId "MyTotalGlobalSurchargesCurrencyId" -TotalWithheldTax 0 -TotalWithheldTaxCurrencyId "MyTotalWithheldTaxCurrencyId" -TotalTaxBase 0 -TotalTaxBaseCurrencyId "MyTotalTaxBaseCurrencyId" -TotalTaxes 0 -TotalTaxesCurrencyId "MyTotalTaxesCurrencyId" -Total 0 -TotalCurrencyId "MyTotalCurrencyId" -CostCalculationMethod "Automatic" -TaxCalculationMethod "Included" -Paid $false -Number 0 -Notes "MyNotes" -OrderId "MyOrderId" -Enumeration "MyEnumeration" -PaymentModeId "MyPaymentModeId" -EnumerationRangeId "MyEnumerationRangeId" -EmisorBillingProfileId "MyEmisorBillingProfileId" -ReceiverBillingProfileId "MyReceiverBillingProfileId" -EmisorWalletAccountId "MyEmisorWalletAccountId" -ReceiverWalletAccountId "MyReceiverWalletAccountId" -CustomerNotes "MyCustomerNotes" -InvoiceType "PurchaseInvoice" -DocumentType "Standard" -InvoiceStatus "Draft" -PaymentDue (Get-Date) -ValidFrom (Get-Date) -ValidTo (Get-Date) -InvoiceLines $InvoiceLineCreateDto -InvoiceReferences $InvoiceReferenceCreateDto -InvoiceAdjustments $InvoiceAdjustmentCreateDto # InvoiceUpdateDto |  (optional)
 
 # Update an invoice.
@@ -1929,7 +2194,7 @@ Updates the specified adjustment for the invoice.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceAdjustmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$InvoiceAdjustmentUpdateDto = Initialize-InvoiceAdjustmentUpdateDto -CurrencyId "MyCurrencyId" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount" # InvoiceAdjustmentUpdateDto |  (optional)
+$InvoiceAdjustmentUpdateDto = Initialize-InvoiceAdjustmentUpdateDto -CurrencyId "MyCurrencyId" -Priority 0 -Code "MyCode" -Description "MyDescription" -SurchargePercent 0 -SurchargeAmount 0 -DiscountPercent 0 -DiscountAmount 0 -TotalSurcharge 0 -TotalDiscount 0 -Type "Discount" # InvoiceAdjustmentUpdateDto |  (optional)
 
 # Update an invoice adjustment.
 try {

@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **Approved** | **Boolean** |  | [optional] 
 **ApprovedTimestamp** | **System.DateTime** |  | [optional] 
-**SupportEntitlementID** | **String** |  | [optional] 
-**ContactID** | **String** |  | [optional] 
+**SupportEntitlementId** | **String** |  | [optional] 
+**ContactId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -22,8 +22,8 @@ $SupportRequestCreateDto = Initialize-PSOpenAPIToolsSupportRequestCreateDto  -Id
  -Description null `
  -Approved null `
  -ApprovedTimestamp null `
- -SupportEntitlementID null `
- -ContactID null
+ -SupportEntitlementId null `
+ -ContactId null
 ```
 
 - Convert the resource to JSON

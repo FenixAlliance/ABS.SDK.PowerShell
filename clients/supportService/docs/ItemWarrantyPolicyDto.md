@@ -21,14 +21,14 @@ Name | Type | Description | Notes
 **Years** | **Int32** |  | [optional] 
 **Value** | **Double** |  | [optional] 
 **Percentage** | **Double** |  | [optional] 
-**CurrencyID** | **String** |  | [optional] 
-**CountryID** | **String** |  | [optional] 
-**CountryStateID** | **String** |  | [optional] 
+**CurrencyId** | **String** |  | [optional] 
+**CountryId** | **String** |  | [optional] 
+**CountryStateId** | **String** |  | [optional] 
 **CustomState** | **String** |  | [optional] 
 **CustomCity** | **String** |  | [optional] 
-**CityID** | **String** |  | [optional] 
-**BusinessID** | **String** |  | 
-**BusinessProfileRecordID** | **String** |  | [optional] 
+**CityId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -52,14 +52,14 @@ $ItemWarrantyPolicyDto = Initialize-PSOpenAPIToolsItemWarrantyPolicyDto  -Id nul
  -Years null `
  -Value null `
  -Percentage null `
- -CurrencyID null `
- -CountryID null `
- -CountryStateID null `
+ -CurrencyId null `
+ -CountryId null `
+ -CountryStateId null `
  -CustomState null `
  -CustomCity null `
- -CityID null `
- -BusinessID null `
- -BusinessProfileRecordID null
+ -CityId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

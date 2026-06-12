@@ -34,6 +34,12 @@ Method | HTTP request | Description
 [**Get-AssetValueAmendsCount**](AssetsApi.md#Get-AssetValueAmendsCount) | **GET** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/Count | Gets count of value amendments for a specific asset
 [**Get-Assets**](AssetsApi.md#Get-Assets) | **GET** /api/v2/AssetsService/Assets | Gets all assets for the current tenant
 [**Get-AssetsCount**](AssetsApi.md#Get-AssetsCount) | **GET** /api/v2/AssetsService/Assets/count | Gets the count of assets
+[**Invoke-PatchAsset**](AssetsApi.md#Invoke-PatchAsset) | **PATCH** /api/v2/AssetsService/Assets/{assetId} | Partially updates an existing asset
+[**Invoke-PatchAssetAssetCategory**](AssetsApi.md#Invoke-PatchAssetAssetCategory) | **PATCH** /api/v2/AssetsService/Assets/Categories/{categoryId} | Partially updates an existing asset category
+[**Invoke-PatchAssetDepreciationRecord**](AssetsApi.md#Invoke-PatchAssetDepreciationRecord) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Partially updates a depreciation record for an asset
+[**Invoke-PatchAssetRepair**](AssetsApi.md#Invoke-PatchAssetRepair) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Repairs/{repairId} | Partially updates a repair for an asset
+[**Invoke-PatchAssetTransfer**](AssetsApi.md#Invoke-PatchAssetTransfer) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Transfers/{transferId} | Partially updates a transfer for an asset
+[**Invoke-PatchAssetValueAmend**](AssetsApi.md#Invoke-PatchAssetValueAmend) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/{amendId} | Partially updates a value amendment for an asset
 [**Update-Asset**](AssetsApi.md#Update-Asset) | **PUT** /api/v2/AssetsService/Assets/{assetId} | Updates an existing asset
 [**Update-AssetAssetCategory**](AssetsApi.md#Update-AssetAssetCategory) | **PUT** /api/v2/AssetsService/Assets/Categories/{categoryId} | Updates an existing asset category
 [**Update-AssetDepreciationRecord**](AssetsApi.md#Update-AssetDepreciationRecord) | **PUT** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Updates a depreciation record for an asset
@@ -55,7 +61,7 @@ Creates a new asset for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetCreateDto = Initialize-AssetCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AssetClass "Fixed" -AssetOwner "Business" -IsExistingAsset $false -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -ItemId "MyItemId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetCreateDto |  (optional)
+$AssetCreateDto = Initialize-AssetCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -AssetClass "Fixed" -AssetOwner "Business" -IsExistingAsset $false -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -ItemId "MyItemId" -AssetTypeId "MyAssetTypeId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetCreateDto |  (optional)
 
 # Creates a new asset
 try {
@@ -296,7 +302,7 @@ Creates a new value amendment record for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetValueAmendCreateDto = Initialize-AssetValueAmendCreateDto -Id "MyId" -Timestamp (Get-Date) -AssetId "MyAssetId" -PreviousValue 0 -NewValue 0 -Reason "MyReason" -AmendmentDate (Get-Date) -ApprovedBy "MyApprovedBy" -ApprovalDate (Get-Date) # AssetValueAmendCreateDto |  (optional)
+$AssetValueAmendCreateDto = Initialize-AssetValueAmendCreateDto -Id "MyId" -Timestamp (Get-Date) -AssetId "MyAssetId" -PreviousValue 0 -NewValue 0 -Reason "MyReason" -AmendmentDate (Get-Date) -CurrencyId "MyCurrencyId" # AssetValueAmendCreateDto |  (optional)
 
 # Creates a new value amendment for an asset
 try {
@@ -1446,6 +1452,312 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchAsset"></a>
+# **Invoke-PatchAsset**
+> EmptyEnvelope Invoke-PatchAsset<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates an existing asset
+
+Applies a JSON Patch document to an existing asset for the authenticated tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates an existing asset
+try {
+    $Result = Invoke-PatchAsset -TenantId $TenantId -AssetId $AssetId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAsset: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssetId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAssetAssetCategory"></a>
+# **Invoke-PatchAssetAssetCategory**
+> EmptyEnvelope Invoke-PatchAssetAssetCategory<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CategoryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates an existing asset category
+
+Applies a JSON Patch document to an existing asset category for the authenticated tenant.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates an existing asset category
+try {
+    $Result = Invoke-PatchAssetAssetCategory -TenantId $TenantId -CategoryId $CategoryId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAssetAssetCategory: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **CategoryId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAssetDepreciationRecord"></a>
+# **Invoke-PatchAssetDepreciationRecord**
+> EmptyEnvelope Invoke-PatchAssetDepreciationRecord<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RecordId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates a depreciation record for an asset
+
+Applies a JSON Patch document to an existing depreciation record for the specified asset.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$RecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates a depreciation record for an asset
+try {
+    $Result = Invoke-PatchAssetDepreciationRecord -TenantId $TenantId -AssetId $AssetId -RecordId $RecordId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAssetDepreciationRecord: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssetId** | **String**|  | 
+ **RecordId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAssetRepair"></a>
+# **Invoke-PatchAssetRepair**
+> EmptyEnvelope Invoke-PatchAssetRepair<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RepairId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates a repair for an asset
+
+Applies a JSON Patch document to an existing repair record for the specified asset.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$RepairId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates a repair for an asset
+try {
+    $Result = Invoke-PatchAssetRepair -TenantId $TenantId -AssetId $AssetId -RepairId $RepairId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAssetRepair: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssetId** | **String**|  | 
+ **RepairId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAssetTransfer"></a>
+# **Invoke-PatchAssetTransfer**
+> EmptyEnvelope Invoke-PatchAssetTransfer<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TransferId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates a transfer for an asset
+
+Applies a JSON Patch document to an existing transfer record for the specified asset.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TransferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates a transfer for an asset
+try {
+    $Result = Invoke-PatchAssetTransfer -TenantId $TenantId -AssetId $AssetId -TransferId $TransferId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAssetTransfer: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssetId** | **String**|  | 
+ **TransferId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchAssetValueAmend"></a>
+# **Invoke-PatchAssetValueAmend**
+> EmptyEnvelope Invoke-PatchAssetValueAmend<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AmendId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Partially updates a value amendment for an asset
+
+Applies a JSON Patch document to an existing value amendment record for the specified asset.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AmendId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Partially updates a value amendment for an asset
+try {
+    $Result = Invoke-PatchAssetValueAmend -TenantId $TenantId -AssetId $AssetId -AmendId $AmendId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchAssetValueAmend: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **AssetId** | **String**|  | 
+ **AmendId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-Asset"></a>
 # **Update-Asset**
 > AssetDtoEnvelope Update-Asset<br>
@@ -1461,7 +1773,7 @@ Updates an existing asset for the authenticated tenant.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetUpdateDto = Initialize-AssetUpdateDto -Name "MyName" -Description "MyDescription" -AssetType "Fixed" -AssetOwner "Business" -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -CurrencyCode "MyCurrencyCode" -ItemId "MyItemId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetUpdateDto |  (optional)
+$AssetUpdateDto = Initialize-AssetUpdateDto -Name "MyName" -Description "MyDescription" -AssetClass "Fixed" -AssetOwner "Business" -CalculateDepreciation $false -AllowMonthlyDepreciation $false -OpeningDepreciation 0 -PurchaseDate (Get-Date) -PurchasePrice 0 -CurrencyId "MyCurrencyId" -ItemId "MyItemId" -AssetTypeId "MyAssetTypeId" -AssetCategoryId "MyAssetCategoryId" -PurchaseInvoiceId "MyPurchaseInvoiceId" -PurchaseReceiptId "MyPurchaseReceiptId" -AssetLocationId "MyAssetLocationId" -ContactId "MyContactId" -OrganizationDepartmentId "MyOrganizationDepartmentId" # AssetUpdateDto |  (optional)
 
 # Updates an existing asset
 try {
@@ -1717,7 +2029,7 @@ Updates an existing value amendment record for the specified asset.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AmendId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$AssetValueAmendUpdateDto = Initialize-AssetValueAmendUpdateDto -NewValue 0 -Reason "MyReason" -AmendmentDate (Get-Date) -ApprovedBy "MyApprovedBy" -ApprovalDate (Get-Date) # AssetValueAmendUpdateDto |  (optional)
+$AssetValueAmendUpdateDto = Initialize-AssetValueAmendUpdateDto -NewValue 0 -Reason "MyReason" -AmendmentDate (Get-Date) # AssetValueAmendUpdateDto |  (optional)
 
 # Updates a value amendment for an asset
 try {

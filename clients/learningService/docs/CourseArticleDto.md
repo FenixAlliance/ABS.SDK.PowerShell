@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseWikiID** | **String** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
+**CourseWikiId** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,9 +22,10 @@ $CourseArticleDto = Initialize-PSOpenAPIToolsCourseArticleDto  -Id null `
  -Title null `
  -Description null `
  -Content null `
- -CourseWikiID null `
- -CourseID null `
- -TenantId null
+ -CourseWikiId null `
+ -CourseId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

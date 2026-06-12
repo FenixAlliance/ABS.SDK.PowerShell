@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Zero** | **Boolean** |  | [optional] 
 **Reduced** | **Boolean** |  | [optional] 
 **Withholding** | **Boolean** |  | [optional] 
-**FiscalAuthorityID** | **String** |  | [optional] 
+**FiscalAuthorityId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -65,7 +65,7 @@ $TaxPolicyDto = Initialize-PSOpenAPIToolsTaxPolicyDto  -Id null `
  -Zero null `
  -Reduced null `
  -Withholding null `
- -FiscalAuthorityID null
+ -FiscalAuthorityId null
 ```
 
 - Convert the resource to JSON

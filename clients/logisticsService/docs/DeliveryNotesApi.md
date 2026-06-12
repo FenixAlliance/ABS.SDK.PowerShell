@@ -29,7 +29,7 @@ Creates a new delivery note.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$DeliveryNoteCreateDto = Initialize-DeliveryNoteCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ShipmentID "MyShipmentID" -ProofOfDeliveryID "MyProofOfDeliveryID" # DeliveryNoteCreateDto |  (optional)
+$DeliveryNoteCreateDto = Initialize-DeliveryNoteCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ShipmentId "MyShipmentId" -ProofOfDeliveryId "MyProofOfDeliveryId" # DeliveryNoteCreateDto |  (optional)
 
 # Create a delivery note
 try {
@@ -285,7 +285,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $DeliveryNoteId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$DeliveryNoteUpdateDto = Initialize-DeliveryNoteUpdateDto -Title "MyTitle" -Description "MyDescription" -ShipmentID "MyShipmentID" -ProofOfDeliveryID "MyProofOfDeliveryID" # DeliveryNoteUpdateDto |  (optional)
+$DeliveryNoteUpdateDto = Initialize-DeliveryNoteUpdateDto -Title "MyTitle" -Description "MyDescription" -ShipmentId "MyShipmentId" -ProofOfDeliveryId "MyProofOfDeliveryId" # DeliveryNoteUpdateDto |  (optional)
 
 # Update a delivery note
 try {

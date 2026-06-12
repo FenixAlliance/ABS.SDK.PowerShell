@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **CreditWeeks** | **Double** |  | [optional] 
 **CreditMonths** | **Double** |  | [optional] 
 **CreditYears** | **Double** |  | [optional] 
-**PaymentModeID** | **String** |  | [optional] 
+**PaymentModeId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 
@@ -31,7 +31,7 @@ $PaymentTermDto = Initialize-PSOpenAPIToolsPaymentTermDto  -Id null `
  -CreditWeeks null `
  -CreditMonths null `
  -CreditYears null `
- -PaymentModeID null `
+ -PaymentModeId null `
  -TenantId null `
  -EnrollmentId null
 ```

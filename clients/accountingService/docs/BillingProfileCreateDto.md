@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Duns** | **String** |  | [optional] 
 **IsPublicCompany** | **Boolean** |  | [optional] 
 **IsFactaCustomer** | **Boolean** |  | [optional] 
+**TaxPayerType** | **String** |  | [optional] 
 **CountryId** | **String** |  | 
 **StateId** | **String** |  | 
 **CityId** | **String** |  | 
@@ -46,6 +47,7 @@ $BillingProfileCreateDto = Initialize-PSOpenAPIToolsBillingProfileCreateDto  -Id
  -Duns null `
  -IsPublicCompany null `
  -IsFactaCustomer null `
+ -TaxPayerType null `
  -CountryId null `
  -StateId null `
  -CityId null `

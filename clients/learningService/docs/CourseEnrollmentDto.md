@@ -5,11 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**CourseID** | **String** |  | [optional] 
-**CourseCohortID** | **String** |  | [optional] 
-**StudentProfileID** | **String** |  | [optional] 
-**BusinessProfileRecordID** | **String** |  | [optional] 
-**CourseCompletionCertificateID** | **String** |  | [optional] 
+**CourseId** | **String** |  | [optional] 
+**CourseCohortId** | **String** |  | [optional] 
+**StudentProfileId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
+**CourseCompletionCertificateId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,11 +18,12 @@ Name | Type | Description | Notes
 ```powershell
 $CourseEnrollmentDto = Initialize-PSOpenAPIToolsCourseEnrollmentDto  -Id null `
  -Timestamp null `
- -CourseID null `
- -CourseCohortID null `
- -StudentProfileID null `
- -BusinessProfileRecordID null `
- -CourseCompletionCertificateID null
+ -CourseId null `
+ -CourseCohortId null `
+ -StudentProfileId null `
+ -TenantId null `
+ -EnrollmentId null `
+ -CourseCompletionCertificateId null
 ```
 
 - Convert the resource to JSON

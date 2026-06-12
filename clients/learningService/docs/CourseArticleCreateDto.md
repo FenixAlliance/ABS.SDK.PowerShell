@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Title** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **Content** | **String** |  | [optional] 
-**CourseID** | **String** |  | 
-**CourseWikiID** | **String** |  | 
+**CourseId** | **String** |  | 
+**CourseWikiId** | **String** |  | 
 
 ## Examples
 
@@ -20,8 +20,8 @@ $CourseArticleCreateDto = Initialize-PSOpenAPIToolsCourseArticleCreateDto  -Id n
  -Title null `
  -Description null `
  -Content null `
- -CourseID null `
- -CourseWikiID null
+ -CourseId null `
+ -CourseWikiId null
 ```
 
 - Convert the resource to JSON
