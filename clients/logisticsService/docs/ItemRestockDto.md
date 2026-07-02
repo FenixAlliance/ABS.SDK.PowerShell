@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EntryCount** | **Int32** |  | [optional] 
+**SellerBillingProfileId** | **String** |  | [optional] 
+**BuyerBillingProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +21,9 @@ $ItemRestockDto = Initialize-PSOpenAPIToolsItemRestockDto  -Id null `
  -Name null `
  -Description null `
  -TenantId null `
- -EntryCount null
+ -EntryCount null `
+ -SellerBillingProfileId null `
+ -BuyerBillingProfileId null
 ```
 
 - Convert the resource to JSON

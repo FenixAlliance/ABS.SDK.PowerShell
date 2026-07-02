@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **CornerstoneContent** | **Boolean** |  | [optional] 
 **IsEssentialContent** | **Boolean** |  | [optional] 
 **AllowSearchEngineIndexing** | **Boolean** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
 **WebTemplateId** | **String** |  | [optional] 
 **ParentWebContentId** | **String** |  | [optional] 
 **IsHomePage** | **Boolean** |  | [optional] 
@@ -128,6 +129,7 @@ $WebPageUpdateDto = Initialize-PSOpenAPIToolsWebPageUpdateDto  -Order null `
  -CornerstoneContent null `
  -IsEssentialContent null `
  -AllowSearchEngineIndexing null `
+ -WebPortalId null `
  -WebTemplateId null `
  -ParentWebContentId null `
  -IsHomePage null `

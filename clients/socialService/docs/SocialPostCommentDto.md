@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **SocialFeedPostId** | **String** |  | [optional] 
 **SocialProfileName** | **String** |  | [optional] 
 **SocialProfileAvatarUrl** | **String** |  | [optional] 
+**BodyHtml** | **String** |  | [optional] 
+**BodyFormat** | **String** |  | [optional] 
 **SocialPostId** | **String** |  | [optional] 
 
 ## Examples
@@ -25,6 +27,8 @@ $SocialPostCommentDto = Initialize-PSOpenAPIToolsSocialPostCommentDto  -Id null 
  -SocialFeedPostId null `
  -SocialProfileName null `
  -SocialProfileAvatarUrl null `
+ -BodyHtml null `
+ -BodyFormat null `
  -SocialPostId null
 ```
 

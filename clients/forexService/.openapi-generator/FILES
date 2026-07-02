@@ -2,14 +2,13 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/ErrorEnvelope.md
 docs/ExchangeApi.md
 docs/ExchangeRate.md
 docs/ExchangeRateEnvelope.md
 docs/ExchangeVApi.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForexRatesDto.md
 docs/ForexRatesDtoEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -26,10 +25,9 @@ docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/CompletionsApi.ps1
 src/PSOpenAPITools/Api/ExchangeApi.ps1
 src/PSOpenAPITools/Api/ExchangeVApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/RatesApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1

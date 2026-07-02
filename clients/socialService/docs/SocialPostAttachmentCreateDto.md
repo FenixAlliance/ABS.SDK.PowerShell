@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **ParentFileUploadId** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
+**PublicAccessType** | **String** |  | [optional] 
 **SocialPostId** | **String** |  | [optional] 
 
 ## Examples
@@ -33,6 +34,7 @@ $SocialPostAttachmentCreateDto = Initialize-PSOpenAPIToolsSocialPostAttachmentCr
  -ValidResponse null `
  -ParentFileUploadId null `
  -FilePath null `
+ -PublicAccessType null `
  -SocialPostId null
 ```
 

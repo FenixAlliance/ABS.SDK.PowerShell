@@ -41,10 +41,9 @@ docs/AssetValueAmendDtoEnvelope.md
 docs/AssetValueAmendDtoListEnvelope.md
 docs/AssetValueAmendUpdateDto.md
 docs/AssetsApi.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -62,8 +61,7 @@ src/PSOpenAPITools/Api/AssetCategoriesApi.ps1
 src/PSOpenAPITools/Api/AssetTransfersApi.ps1
 src/PSOpenAPITools/Api/AssetTypesApi.ps1
 src/PSOpenAPITools/Api/AssetsApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
 src/PSOpenAPITools/Model/AssetCategoryCreateDto.ps1

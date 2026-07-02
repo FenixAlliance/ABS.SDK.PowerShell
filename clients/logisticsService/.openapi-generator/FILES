@@ -8,7 +8,7 @@ docs/AirwayBillDtoEnvelope.md
 docs/AirwayBillDtoListEnvelope.md
 docs/AirwayBillUpdateDto.md
 docs/AirwayBillsApi.md
-docs/CompletionsApi.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/DeliveryNoteCreateDto.md
 docs/DeliveryNoteDto.md
@@ -19,7 +19,7 @@ docs/DeliveryNotesApi.md
 docs/DisputeProofOfDeliveryRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -157,9 +157,8 @@ docs/WaybillLineDto.md
 docs/WaybillLineDtoListEnvelope.md
 docs/WaybillLineUpdateDto.md
 src/PSOpenAPITools/Api/AirwayBillsApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
 src/PSOpenAPITools/Api/DeliveryNotesApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/ItemPackingSlipsApi.ps1
 src/PSOpenAPITools/Api/ItemPickListsApi.ps1
 src/PSOpenAPITools/Api/ItemRestocksApi.ps1
@@ -182,6 +181,7 @@ src/PSOpenAPITools/Model/AirwayBillDto.ps1
 src/PSOpenAPITools/Model/AirwayBillDtoEnvelope.ps1
 src/PSOpenAPITools/Model/AirwayBillDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/AirwayBillUpdateDto.ps1
+src/PSOpenAPITools/Model/ContactCreateDto.ps1
 src/PSOpenAPITools/Model/ContactDto.ps1
 src/PSOpenAPITools/Model/DeliveryNoteCreateDto.ps1
 src/PSOpenAPITools/Model/DeliveryNoteDto.ps1
@@ -319,3 +319,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Model/ContactCreateDto.Tests.ps1

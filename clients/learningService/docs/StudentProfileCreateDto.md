@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Type** | **String** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
+**Contact** | [**ContactCreateDto**](ContactCreateDto.md) |  | [optional] 
 **About** | **String** |  | [optional] 
 **AvatarUrl** | **String** |  | [optional] 
 **VarData** | **String** |  | [optional] 
@@ -38,6 +39,7 @@ $StudentProfileCreateDto = Initialize-PSOpenAPIToolsStudentProfileCreateDto  -Id
  -Timestamp null `
  -Type null `
  -ContactId null `
+ -Contact null `
  -About null `
  -AvatarUrl null `
  -VarData null `

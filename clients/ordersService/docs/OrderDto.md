@@ -76,6 +76,8 @@ Name | Type | Description | Notes
 **BillingLocationId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **QualifiedIdentifier** | **String** |  | [optional] 
+**SellerBillingProfileId** | **String** |  | [optional] 
+**BuyerBillingProfileId** | **String** |  | [optional] 
 **CostCalculationMethod** | **String** |  | [optional] 
 **FreightTerms** | **String** |  | [optional] 
 **OrderStatus** | **String** |  | [optional] 
@@ -167,6 +169,8 @@ $OrderDto = Initialize-PSOpenAPIToolsOrderDto  -Id null `
  -BillingLocationId null `
  -ShippingLocationId null `
  -QualifiedIdentifier null `
+ -SellerBillingProfileId null `
+ -BuyerBillingProfileId null `
  -CostCalculationMethod null `
  -FreightTerms null `
  -OrderStatus null `

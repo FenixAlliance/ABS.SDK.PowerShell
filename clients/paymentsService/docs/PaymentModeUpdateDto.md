@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**PaymentMeansCode** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $PaymentModeUpdateDto = Initialize-PSOpenAPIToolsPaymentModeUpdateDto  -Name null `
- -Description null
+ -Description null `
+ -PaymentMeansCode null
 ```
 
 - Convert the resource to JSON

@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **Zero** | **Boolean** |  | [optional] 
 **Reduced** | **Boolean** |  | [optional] 
 **Withholding** | **Boolean** |  | [optional] 
+**TaxSchemeCode** | **String** |  | [optional] 
+**TaxCategoryCode** | **String** |  | [optional] 
 **FiscalAuthorityId** | **String** |  | [optional] 
 
 ## Examples
@@ -65,6 +67,8 @@ $TaxPolicyDto = Initialize-PSOpenAPIToolsTaxPolicyDto  -Id null `
  -Zero null `
  -Reduced null `
  -Withholding null `
+ -TaxSchemeCode null `
+ -TaxCategoryCode null `
  -FiscalAuthorityId null
 ```
 

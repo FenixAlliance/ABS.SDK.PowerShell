@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Kind** | **String** |  | [optional] 
 **Name** | **String** |  | 
 **LegalName** | **String** |  | [optional] 
 **Email** | **String** |  | 
@@ -34,7 +35,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantUpdateDto = Initialize-PSOpenAPIToolsTenantUpdateDto  -Name null `
+$TenantUpdateDto = Initialize-PSOpenAPIToolsTenantUpdateDto  -Kind null `
+ -Name null `
  -LegalName null `
  -Email null `
  -Phone null `

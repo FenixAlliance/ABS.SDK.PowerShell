@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | 
 **BaseUnitAmount** | **Double** |  | [optional] 
 **BaseUnitId** | **String** |  | [optional] 
+**UnECECode** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +18,8 @@ $UnitCreateDto = Initialize-PSOpenAPIToolsUnitCreateDto  -Id null `
  -Timestamp null `
  -Name null `
  -BaseUnitAmount null `
- -BaseUnitId null
+ -BaseUnitId null `
+ -UnECECode null
 ```
 
 - Convert the resource to JSON

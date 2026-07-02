@@ -13,10 +13,9 @@ docs/BillOfLadingLineDtoListEnvelope.md
 docs/BillOfLadingLineUpdateDto.md
 docs/BillOfLadingUpdateDto.md
 docs/BillsOfLadingApi.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -79,8 +78,7 @@ docs/ShippingZonesApi.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 src/PSOpenAPITools/Api/BillsOfLadingApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/ItemShippingPoliciesApi.ps1
 src/PSOpenAPITools/Api/ShipmentsApi.ps1
 src/PSOpenAPITools/Api/ShippingClassesApi.ps1

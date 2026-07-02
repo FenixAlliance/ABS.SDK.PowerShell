@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.TaxPoliciesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -154,7 +154,7 @@ Creates a new tax policy for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxPolicyCreateDto = Initialize-TaxPolicyCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyCreateDto |  (optional)
+$TaxPolicyCreateDto = Initialize-TaxPolicyCreateDto -Id "MyId" -Timestamp (Get-Date) -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -TaxSchemeCode "MyTaxSchemeCode" -TaxCategoryCode "MyTaxCategoryCode" -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyCreateDto |  (optional)
 
 # Create a tax policy
 try {
@@ -1125,7 +1125,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $Id = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TaxPolicyUpdateDto = Initialize-TaxPolicyUpdateDto -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyUpdateDto |  (optional)
+$TaxPolicyUpdateDto = Initialize-TaxPolicyUpdateDto -Code "MyCode" -Title "MyTitle" -Description "MyDescription" -IsFree $false -Reduce $false -IsEnabled $false -IsDefault $false -AllowInternational $false -Hours 0 -Days 0 -Weeks 0 -Months 0 -Years 0 -Value 0 -Percentage 0 -CurrencyId "MyCurrencyId" -CountryId "MyCountryId" -CountryStateId "MyCountryStateId" -CustomState "MyCustomState" -CustomCity "MyCustomCity" -CityId "MyCityId" -Zero $false -Reduced $false -Withholding $false -TaxSchemeCode "MyTaxSchemeCode" -TaxCategoryCode "MyTaxCategoryCode" -FiscalAuthorityId "MyFiscalAuthorityId" # TaxPolicyUpdateDto |  (optional)
 
 # Update a tax policy
 try {

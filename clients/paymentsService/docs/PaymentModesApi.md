@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.PaymentModesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ Creates a new payment mode for the current tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PaymentModeCreateDto = Initialize-PaymentModeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" # PaymentModeCreateDto |  (optional)
+$PaymentModeCreateDto = Initialize-PaymentModeCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -PaymentMeansCode "MyPaymentMeansCode" # PaymentModeCreateDto |  (optional)
 
 # Creates a new payment mode
 try {
@@ -341,7 +341,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PaymentModeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$PaymentModeUpdateDto = Initialize-PaymentModeUpdateDto -Name "MyName" -Description "MyDescription" # PaymentModeUpdateDto |  (optional)
+$PaymentModeUpdateDto = Initialize-PaymentModeUpdateDto -Name "MyName" -Description "MyDescription" -PaymentMeansCode "MyPaymentMeansCode" # PaymentModeUpdateDto |  (optional)
 
 # Updates a payment mode
 try {

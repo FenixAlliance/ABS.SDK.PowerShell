@@ -57,7 +57,6 @@ docs/ClaimsIdentity.md
 docs/ClaimsPrincipal.md
 docs/ColorOptions.md
 docs/ColorScheme.md
-docs/CompletionsApi.md
 docs/ComputeClause.md
 docs/ComputeExpression.md
 docs/ComputeQueryOption.md
@@ -85,8 +84,8 @@ docs/ErrorEnvelope.md
 docs/EventInfo.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
+docs/FenixAllianceABSWebApi.md
 docs/FenixAllianceIntegrationsOptions.md
-docs/FenixAlliancePortalsWebsiteApi.md
 docs/FieldInfo.md
 docs/FilterClause.md
 docs/FilterQueryOption.md
@@ -292,8 +291,7 @@ src/PSOpenAPITools/Api/BlogPostCategoriesApi.ps1
 src/PSOpenAPITools/Api/BlogPostTagsApi.ps1
 src/PSOpenAPITools/Api/BlogPostsApi.ps1
 src/PSOpenAPITools/Api/BusinessDomainsApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/LocalizationStringsApi.ps1
 src/PSOpenAPITools/Api/MenuContextsApi.ps1
 src/PSOpenAPITools/Api/PortalsApi.ps1

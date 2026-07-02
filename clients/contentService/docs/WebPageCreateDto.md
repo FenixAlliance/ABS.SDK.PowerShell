@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **FeaturedImageUrl** | **String** |  | [optional] 
 **CodeType** | **String** |  | [optional] 
 **Slug** | **String** |  | [optional] 
+**WebPortalId** | **String** |  | [optional] 
 **WebTemplateId** | **String** |  | [optional] 
 **ParentWebContentId** | **String** |  | [optional] 
 
@@ -30,6 +31,7 @@ $WebPageCreateDto = Initialize-PSOpenAPIToolsWebPageCreateDto  -Id null `
  -FeaturedImageUrl null `
  -CodeType null `
  -Slug null `
+ -WebPortalId null `
  -WebTemplateId null `
  -ParentWebContentId null
 ```

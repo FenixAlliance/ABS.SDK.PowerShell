@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Hash** | **String** |  | [optional] 
 **FileUrl** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
+**StorageKey** | **String** |  | [optional] 
+**StorageProviderKey** | **String** |  | [optional] 
 **FileName** | **String** |  | [optional] 
 **Abstract** | **String** |  | [optional] 
 **KeyWords** | **String** |  | [optional] 
@@ -25,6 +27,14 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
 **FolderPath** | **String** |  | [optional] 
+**ScanStatus** | **String** |  | [optional] 
+**ThumbnailStatus** | **String** |  | [optional] 
+**HasThumbnail** | **Boolean** |  | [optional] [readonly] 
+**ThumbnailStorageKey** | **String** |  | [optional] 
+**ThumbnailContentType** | **String** |  | [optional] 
+**ThumbnailWidth** | **Int32** |  | [optional] 
+**ThumbnailHeight** | **Int32** |  | [optional] 
+**PublicAccessType** | **String** |  | [optional] 
 **SocialPostId** | **String** |  | [optional] 
 
 ## Examples
@@ -40,6 +50,8 @@ $SocialPostAttachmentDto = Initialize-PSOpenAPIToolsSocialPostAttachmentDto  -Id
  -Hash null `
  -FileUrl null `
  -FilePath null `
+ -StorageKey null `
+ -StorageProviderKey null `
  -FileName null `
  -Abstract null `
  -KeyWords null `
@@ -53,6 +65,14 @@ $SocialPostAttachmentDto = Initialize-PSOpenAPIToolsSocialPostAttachmentDto  -Id
  -EnrollmentId null `
  -SocialProfileId null `
  -FolderPath null `
+ -ScanStatus null `
+ -ThumbnailStatus null `
+ -HasThumbnail null `
+ -ThumbnailStorageKey null `
+ -ThumbnailContentType null `
+ -ThumbnailWidth null `
+ -ThumbnailHeight null `
+ -PublicAccessType null `
  -SocialPostId null
 ```
 

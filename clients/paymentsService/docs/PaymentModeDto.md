@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**PaymentMeansCode** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 
@@ -18,6 +19,7 @@ $PaymentModeDto = Initialize-PSOpenAPIToolsPaymentModeDto  -Id null `
  -Timestamp null `
  -Name null `
  -Description null `
+ -PaymentMeansCode null `
  -TenantId null `
  -EnrollmentId null
 ```

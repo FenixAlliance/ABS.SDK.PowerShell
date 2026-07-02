@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | [optional] 
+**UnECECode** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
 **BaseUnitAmount** | **Double** |  | [optional] 
 **BaseUnitId** | **String** |  | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 $UnitDto = Initialize-PSOpenAPIToolsUnitDto  -Id null `
  -Timestamp null `
  -Name null `
+ -UnECECode null `
  -UnitGroupId null `
  -BaseUnitAmount null `
  -BaseUnitId null `

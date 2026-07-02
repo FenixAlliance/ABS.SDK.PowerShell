@@ -3,9 +3,9 @@ README.md
 appveyor.yml
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/BusinessRelationshipsApi.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
-docs/CompletionsApi.md
 docs/DepartmentsApi.md
 docs/EmployeeEnrollmentsApi.md
 docs/EmptyEnvelope.md
@@ -15,7 +15,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesApi.md
@@ -155,11 +155,11 @@ docs/WalletDto.md
 docs/WalletDtoEnvelope.md
 docs/WebPortalDto.md
 docs/WebPortalDtoListEnvelope.md
-src/PSOpenAPITools/Api/CompletionsApi.ps1
+src/PSOpenAPITools/Api/BusinessRelationshipsApi.ps1
 src/PSOpenAPITools/Api/DepartmentsApi.ps1
 src/PSOpenAPITools/Api/EmployeeEnrollmentsApi.ps1
 src/PSOpenAPITools/Api/EnrollmentsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/IndustriesApi.ps1
 src/PSOpenAPITools/Api/InvitationsApi.ps1
 src/PSOpenAPITools/Api/OptionsApi.ps1
@@ -317,3 +317,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/BusinessRelationshipsApi.Tests.ps1

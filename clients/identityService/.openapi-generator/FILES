@@ -6,9 +6,8 @@ docs/ApplicationsApi.md
 docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
-docs/CompletionsApi.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -39,8 +38,7 @@ docs/UserCreateDtoEnvelope.md
 docs/UserInfoApi.md
 src/PSOpenAPITools/Api/ApplicationsApi.ps1
 src/PSOpenAPITools/Api/CheckerApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/OAuthApi.ps1
 src/PSOpenAPITools/Api/ResourceApi.ps1
 src/PSOpenAPITools/Api/UserInfoApi.ps1

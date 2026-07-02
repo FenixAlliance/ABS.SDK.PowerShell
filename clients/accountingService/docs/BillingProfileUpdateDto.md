@@ -13,6 +13,11 @@ Name | Type | Description | Notes
 **PostalCode** | **String** |  | [optional] 
 **BusinessName** | **String** |  | [optional] 
 **CommercialName** | **String** |  | [optional] 
+**VerificationDigit** | **String** |  | [optional] 
+**EconomicActivityCode** | **String** |  | [optional] 
+**EconomicActivityScheme** | **String** |  | [optional] 
+**IsPrimary** | **Boolean** |  | [optional] 
+**EstablishmentCode** | **String** |  | [optional] 
 **Ticker** | **String** |  | [optional] 
 **Duns** | **String** |  | [optional] 
 **IsPublicCompany** | **Boolean** |  | [optional] 
@@ -39,6 +44,11 @@ $BillingProfileUpdateDto = Initialize-PSOpenAPIToolsBillingProfileUpdateDto  -Co
  -PostalCode null `
  -BusinessName null `
  -CommercialName null `
+ -VerificationDigit null `
+ -EconomicActivityCode null `
+ -EconomicActivityScheme null `
+ -IsPrimary null `
+ -EstablishmentCode null `
  -Ticker null `
  -Duns null `
  -IsPublicCompany null `

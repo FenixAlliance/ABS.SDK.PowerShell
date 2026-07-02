@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.UnitGroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,10 +36,10 @@ Creates a new unit within a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$UnitCreateDto = Initialize-UnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -BaseUnitAmount 0 -BaseUnitId "MyBaseUnitId" # UnitCreateDto |  (optional)
+$UnitCreateDto = Initialize-UnitCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -BaseUnitAmount 0 -BaseUnitId "MyBaseUnitId" -UnECECode "MyUnECECode" # UnitCreateDto |  (optional)
 
 # Create a unit within a unit group
 try {
@@ -143,8 +143,8 @@ Deletes a unit from a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
+$UnitId = "MyUnitId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -197,7 +197,7 @@ Deletes a unit group by its unique identifier.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -250,8 +250,8 @@ Retrieves a single unit by its unique identifier within a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
+$UnitId = "MyUnitId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -304,7 +304,7 @@ Retrieves a single unit group by its unique identifier.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -454,7 +454,7 @@ Retrieves a list of units belonging to a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -506,7 +506,7 @@ Returns the total count of units in a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -560,8 +560,8 @@ Partially updates an existing unit within a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
+$UnitId = "MyUnitId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
@@ -617,7 +617,7 @@ Partially updates an existing unit group by its unique identifier.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
@@ -673,11 +673,11 @@ Updates an existing unit within a specific unit group.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
+$UnitId = "MyUnitId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$UnitUpdateDto = Initialize-UnitUpdateDto -Name "MyName" -BaseUnitAmount 0 -BaseUnitId "MyBaseUnitId" # UnitUpdateDto |  (optional)
+$UnitUpdateDto = Initialize-UnitUpdateDto -Name "MyName" -BaseUnitAmount 0 -BaseUnitId "MyBaseUnitId" -UnECECode "MyUnECECode" # UnitUpdateDto |  (optional)
 
 # Update a unit within a unit group
 try {
@@ -730,7 +730,7 @@ Updates an existing unit group by its unique identifier.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$UnitGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$UnitGroupId = "MyUnitGroupId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $UnitGroupUpdateDto = Initialize-UnitGroupUpdateDto -Name "MyName" -Description "MyDescription" # UnitGroupUpdateDto |  (optional)

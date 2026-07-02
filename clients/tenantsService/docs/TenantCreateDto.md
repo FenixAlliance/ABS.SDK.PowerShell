@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Kind** | **String** |  | [optional] 
 **Name** | **String** |  | 
 **LegalName** | **String** |  | [optional] 
 **Email** | **String** |  | 
@@ -33,6 +34,7 @@ Name | Type | Description | Notes
 ```powershell
 $TenantCreateDto = Initialize-PSOpenAPIToolsTenantCreateDto  -Id null `
  -Timestamp null `
+ -Kind null `
  -Name null `
  -LegalName null `
  -Email null `

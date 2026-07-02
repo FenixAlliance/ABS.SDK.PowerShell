@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **QualifiedName** | **String** |  | [optional] [readonly] 
+**Kind** | **String** |  | [optional] 
 **TaxId** | **String** |  | [optional] 
 **About** | **String** |  | [optional] 
 **WalletId** | **String** |  | [optional] 
@@ -52,6 +53,7 @@ Name | Type | Description | Notes
 $ExtendedTenantDto = Initialize-PSOpenAPIToolsExtendedTenantDto  -Id null `
  -Timestamp null `
  -QualifiedName null `
+ -Kind null `
  -TaxId null `
  -About null `
  -WalletId null `

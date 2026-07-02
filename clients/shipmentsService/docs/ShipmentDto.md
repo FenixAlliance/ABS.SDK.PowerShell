@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **ShippingTerms** | **String** |  | [optional] 
 **OrderId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
+**SellerBillingProfileId** | **String** |  | [optional] 
+**BuyerBillingProfileId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -33,7 +35,9 @@ $ShipmentDto = Initialize-PSOpenAPIToolsShipmentDto  -Id null `
  -ExpectedDeliveryDate null `
  -ShippingTerms null `
  -OrderId null `
- -TenantId null
+ -TenantId null `
+ -SellerBillingProfileId null `
+ -BuyerBillingProfileId null
 ```
 
 - Convert the resource to JSON

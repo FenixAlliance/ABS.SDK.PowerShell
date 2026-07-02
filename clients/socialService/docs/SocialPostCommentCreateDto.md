@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Message** | **String** |  | 
+**BodyHtml** | **String** |  | [optional] 
+**BodyFormat** | **String** |  | [optional] 
 **ParentCommentId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
 **SocialFeedPostId** | **String** |  | [optional] 
@@ -18,6 +20,8 @@ Name | Type | Description | Notes
 $SocialPostCommentCreateDto = Initialize-PSOpenAPIToolsSocialPostCommentCreateDto  -Id null `
  -Timestamp null `
  -Message null `
+ -BodyHtml null `
+ -BodyFormat null `
  -ParentCommentId null `
  -SocialProfileId null `
  -SocialFeedPostId null `

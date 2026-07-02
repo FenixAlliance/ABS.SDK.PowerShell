@@ -2,7 +2,6 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
-docs/AdditionalAttribute.md
 docs/AntiforgeryApi.md
 docs/BooleanEnvelope.md
 docs/BusinessDomainDto.md
@@ -13,7 +12,6 @@ docs/CartDto.md
 docs/CartDtoEnvelope.md
 docs/CartDtoListEnvelope.md
 docs/CartsApi.md
-docs/CompletionsApi.md
 docs/ContactOptionsApi.md
 docs/EmailDispatchRequest.md
 docs/EmailsApi.md
@@ -25,7 +23,7 @@ docs/ExtendedTenantDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/ExtendedUserDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IPLookupDto.md
@@ -41,14 +39,7 @@ docs/IValidationFailureListEnvelope.md
 docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
-docs/LicenseAttributesListEnvelope.md
-docs/LicenseFeature.md
-docs/LicenseKey.md
-docs/LicenseKeyRequest.md
-docs/LicenseValidationError.md
-docs/LicenseValidationErrorListEnvelope.md
 docs/LicenseValidationRequest.md
-docs/LicensesApi.md
 docs/LicensingApi.md
 docs/LoginRequest.md
 docs/MigrationsApi.md
@@ -70,7 +61,6 @@ docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
-docs/StringEnvelope.md
 docs/StringListEnvelope.md
 docs/StudioModule.md
 docs/StudioModuleListEnvelope.md
@@ -107,12 +97,10 @@ docs/WebPortalUpdateDto.md
 src/PSOpenAPITools/Api/AntiforgeryApi.ps1
 src/PSOpenAPITools/Api/BusinessDomainsApi.ps1
 src/PSOpenAPITools/Api/CartsApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
 src/PSOpenAPITools/Api/ContactOptionsApi.ps1
 src/PSOpenAPITools/Api/EmailsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/IPLookupsApi.ps1
-src/PSOpenAPITools/Api/LicensesApi.ps1
 src/PSOpenAPITools/Api/LicensingApi.ps1
 src/PSOpenAPITools/Api/MigrationsApi.ps1
 src/PSOpenAPITools/Api/ModulesApi.ps1
@@ -125,7 +113,6 @@ src/PSOpenAPITools/Api/UserOptionsApi.ps1
 src/PSOpenAPITools/Api/UsersApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
-src/PSOpenAPITools/Model/AdditionalAttribute.ps1
 src/PSOpenAPITools/Model/BooleanEnvelope.ps1
 src/PSOpenAPITools/Model/BusinessDomainDto.ps1
 src/PSOpenAPITools/Model/BusinessDomainDtoEnvelope.ps1
@@ -156,12 +143,6 @@ src/PSOpenAPITools/Model/IValidationFailureListEnvelope.ps1
 src/PSOpenAPITools/Model/InfoRequest.ps1
 src/PSOpenAPITools/Model/InfoResponse.ps1
 src/PSOpenAPITools/Model/Int32Envelope.ps1
-src/PSOpenAPITools/Model/LicenseAttributesListEnvelope.ps1
-src/PSOpenAPITools/Model/LicenseFeature.ps1
-src/PSOpenAPITools/Model/LicenseKey.ps1
-src/PSOpenAPITools/Model/LicenseKeyRequest.ps1
-src/PSOpenAPITools/Model/LicenseValidationError.ps1
-src/PSOpenAPITools/Model/LicenseValidationErrorListEnvelope.ps1
 src/PSOpenAPITools/Model/LicenseValidationRequest.ps1
 src/PSOpenAPITools/Model/LoginRequest.ps1
 src/PSOpenAPITools/Model/Module.ps1
@@ -178,7 +159,6 @@ src/PSOpenAPITools/Model/RegisterRequest.ps1
 src/PSOpenAPITools/Model/ResendConfirmationEmailRequest.ps1
 src/PSOpenAPITools/Model/ResetPasswordRequest.ps1
 src/PSOpenAPITools/Model/SocialProfileDto.ps1
-src/PSOpenAPITools/Model/StringEnvelope.ps1
 src/PSOpenAPITools/Model/StringListEnvelope.ps1
 src/PSOpenAPITools/Model/StudioModule.ps1
 src/PSOpenAPITools/Model/StudioModuleListEnvelope.ps1

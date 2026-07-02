@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.SocialPostsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -102,7 +102,7 @@ $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SocialPostAttachmentCreateDto = Initialize-SocialPostAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -SocialPostId "MySocialPostId" # SocialPostAttachmentCreateDto |  (optional)
+$SocialPostAttachmentCreateDto = Initialize-SocialPostAttachmentCreateDto -Id "MyId" -Timestamp (Get-Date) -Notes "MyNotes" -Title "MyTitle" -Author "MyAuthor" -IsFolder $false -FileName "MyFileName" -Abstract "MyAbstract" -KeyWords "MyKeyWords" -ValidResponse $false -ParentFileUploadId "MyParentFileUploadId" -FilePath "MyFilePath" -PublicAccessType "false" -SocialPostId "MySocialPostId" # SocialPostAttachmentCreateDto |  (optional)
 
 # Create a social post attachment
 try {
@@ -157,7 +157,7 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SocialPostCommentCreateDto = Initialize-SocialPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -ParentCommentId "MyParentCommentId" -SocialProfileId "MySocialProfileId" -SocialFeedPostId "MySocialFeedPostId" -SocialPostId "MySocialPostId" # SocialPostCommentCreateDto |  (optional)
+$SocialPostCommentCreateDto = Initialize-SocialPostCommentCreateDto -Id "MyId" -Timestamp (Get-Date) -Message "MyMessage" -BodyHtml "MyBodyHtml" -BodyFormat "PlainText" -ParentCommentId "MyParentCommentId" -SocialProfileId "MySocialProfileId" -SocialFeedPostId "MySocialFeedPostId" -SocialPostId "MySocialPostId" # SocialPostCommentCreateDto |  (optional)
 
 # Create a social post comment
 try {

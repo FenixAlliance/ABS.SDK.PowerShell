@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.TenantsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -111,7 +111,7 @@ Create a new business tenant
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantCreateDto = Initialize-TenantCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -Handler "MyHandler" -About "MyAbout" -Slogan "MySlogan" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -LanguageId "MyLanguageId" -TimezoneId "MyTimezoneId" -BusinessTypeId "MyBusinessTypeId" -BusinessSegmentId "MyBusinessSegmentId" -BusinessIndustryId "MyBusinessIndustryId" -BusinessSizeId "MyBusinessSizeId" # TenantCreateDto |  (optional)
+$TenantCreateDto = Initialize-TenantCreateDto -Id "MyId" -Timestamp (Get-Date) -Kind "Organization" -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -Handler "MyHandler" -About "MyAbout" -Slogan "MySlogan" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -LanguageId "MyLanguageId" -TimezoneId "MyTimezoneId" -BusinessTypeId "MyBusinessTypeId" -BusinessSegmentId "MyBusinessSegmentId" -BusinessIndustryId "MyBusinessIndustryId" -BusinessSizeId "MyBusinessSizeId" # TenantCreateDto |  (optional)
 
 # Create a new business tenant
 try {
@@ -1659,7 +1659,7 @@ Update a tenant's profile
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$TenantUpdateDto = Initialize-TenantUpdateDto -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -About "MyAbout" -Slogan "MySlogan" -Handler "MyHandler" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -TwitterUsername "MyTwitterUsername" -FacebookUrl "MyFacebookUrl" -TwitterUrl "MyTwitterUrl" -GitHubUrl "MyGitHubUrl" -LinkedInUrl "MyLinkedInUrl" -InstagramUrl "MyInstagramUrl" -YouTubeUrl "MyYouTubeUrl" -WhatsAppNumber "MyWhatsAppNumber" -SupportPhoneNumber "MySupportPhoneNumber" -CountryId "MyCountryId" -TimezoneId "MyTimezoneId" -LanguageId "MyLanguageId" -StateId "MyStateId" -CityId "MyCityId" # TenantUpdateDto |  (optional)
+$TenantUpdateDto = Initialize-TenantUpdateDto -Kind "Organization" -Name "MyName" -LegalName "MyLegalName" -Email "MyEmail" -Phone "MyPhone" -WebUrl "MyWebUrl" -About "MyAbout" -Slogan "MySlogan" -Handler "MyHandler" -CurrencyId "MyCurrencyId" -Duns "MyDuns" -TaxId "MyTaxId" -AvatarUrl "MyAvatarUrl" -TwitterUsername "MyTwitterUsername" -FacebookUrl "MyFacebookUrl" -TwitterUrl "MyTwitterUrl" -GitHubUrl "MyGitHubUrl" -LinkedInUrl "MyLinkedInUrl" -InstagramUrl "MyInstagramUrl" -YouTubeUrl "MyYouTubeUrl" -WhatsAppNumber "MyWhatsAppNumber" -SupportPhoneNumber "MySupportPhoneNumber" -CountryId "MyCountryId" -TimezoneId "MyTimezoneId" -LanguageId "MyLanguageId" -StateId "MyStateId" -CityId "MyCityId" # TenantUpdateDto |  (optional)
 
 # Update a tenant's profile
 try {

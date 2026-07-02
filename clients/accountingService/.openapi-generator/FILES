@@ -23,6 +23,7 @@ docs/AccountTypeDtoEnvelope.md
 docs/AccountTypeDtoListEnvelope.md
 docs/AccountTypeUpdateDto.md
 docs/AccountUpdateDto.md
+docs/AccountingEntriesApi.md
 docs/AccountingEntryCreateDto.md
 docs/AccountingEntryDto.md
 docs/AccountingEntryDtoEnvelope.md
@@ -94,7 +95,6 @@ docs/CommissionDtoEnvelope.md
 docs/CommissionDtoListEnvelope.md
 docs/CommissionUpdateDto.md
 docs/CommissionsApi.md
-docs/CompletionsApi.md
 docs/ContactDto.md
 docs/CostCentreBudgetCreateDto.md
 docs/CostCentreBudgetDto.md
@@ -114,6 +114,7 @@ docs/CostCentreUpdateDto.md
 docs/CostCentresApi.md
 docs/CreateLedgerDto.md
 docs/CurrencyId.md
+docs/DecimalEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExpenseClaimCreateDto.md
@@ -128,7 +129,7 @@ docs/ExpenseTypeDtoEnvelope.md
 docs/ExpenseTypeDtoListEnvelope.md
 docs/ExpenseTypeUpdateDto.md
 docs/ExpenseTypesApi.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -205,6 +206,7 @@ docs/JournalCreateDto.md
 docs/JournalDto.md
 docs/JournalDtoEnvelope.md
 docs/JournalDtoIReadOnlyListEnvelope.md
+docs/JournalEntriesApi.md
 docs/JournalEntryCreateDto.md
 docs/JournalEntryDto.md
 docs/JournalEntryDtoIReadOnlyListEnvelope.md
@@ -316,6 +318,7 @@ docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 docs/UpdateLedgerDto.md
 src/PSOpenAPITools/Api/AccountGroupsApi.ps1
+src/PSOpenAPITools/Api/AccountingEntriesApi.ps1
 src/PSOpenAPITools/Api/AccountingPeriodsApi.ps1
 src/PSOpenAPITools/Api/AccountsApi.ps1
 src/PSOpenAPITools/Api/BankProfilesApi.ps1
@@ -324,11 +327,10 @@ src/PSOpenAPITools/Api/BillableLineTaxesApi.ps1
 src/PSOpenAPITools/Api/BillingProfilesApi.ps1
 src/PSOpenAPITools/Api/BudgetsApi.ps1
 src/PSOpenAPITools/Api/CommissionsApi.ps1
-src/PSOpenAPITools/Api/CompletionsApi.ps1
 src/PSOpenAPITools/Api/CostCentresApi.ps1
 src/PSOpenAPITools/Api/ExpenseClaimsApi.ps1
 src/PSOpenAPITools/Api/ExpenseTypesApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/FinancialBooksApi.ps1
 src/PSOpenAPITools/Api/FiscalAuthoritiesApi.ps1
 src/PSOpenAPITools/Api/FiscalAuthorityYearsApi.ps1
@@ -341,6 +343,7 @@ src/PSOpenAPITools/Api/FiscalResponsibilityRecordsApi.ps1
 src/PSOpenAPITools/Api/FiscalYearsApi.ps1
 src/PSOpenAPITools/Api/GrantsApi.ps1
 src/PSOpenAPITools/Api/InvoiceEnumerationRangesApi.ps1
+src/PSOpenAPITools/Api/JournalEntriesApi.ps1
 src/PSOpenAPITools/Api/JournalTypesApi.ps1
 src/PSOpenAPITools/Api/JournalsApi.ps1
 src/PSOpenAPITools/Api/LedgerTypesApi.ps1
@@ -455,6 +458,7 @@ src/PSOpenAPITools/Model/CostCentreGroupUpdateDto.ps1
 src/PSOpenAPITools/Model/CostCentreUpdateDto.ps1
 src/PSOpenAPITools/Model/CreateLedgerDto.ps1
 src/PSOpenAPITools/Model/CurrencyId.ps1
+src/PSOpenAPITools/Model/DecimalEnvelope.ps1
 src/PSOpenAPITools/Model/EmptyEnvelope.ps1
 src/PSOpenAPITools/Model/ErrorEnvelope.ps1
 src/PSOpenAPITools/Model/ExpenseClaimCreateDto.ps1
@@ -637,3 +641,6 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/AccountingEntriesApi.Tests.ps1
+tests/Api/JournalEntriesApi.Tests.ps1
+tests/Model/DecimalEnvelope.Tests.ps1

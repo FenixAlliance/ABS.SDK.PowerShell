@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Status** | **String** |  | [optional] 
 **Remote** | **Boolean** |  | [optional] 
 **ExpectedHireDate** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
@@ -62,6 +63,7 @@ Name | Type | Description | Notes
 ```powershell
 $JobOfferDto = Initialize-PSOpenAPIToolsJobOfferDto  -Id null `
  -Timestamp null `
+ -Status null `
  -Remote null `
  -ExpectedHireDate null `
  -Title null `

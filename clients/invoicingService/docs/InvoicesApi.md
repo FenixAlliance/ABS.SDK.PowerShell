@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.InvoicesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,6 +40,8 @@ Method | HTTP request | Description
 [**Get-InvoiceReferencesCount**](InvoicesApi.md#Get-InvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references.
 [**Get-Invoices**](InvoicesApi.md#Get-Invoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices.
 [**Get-InvoicesCount**](InvoicesApi.md#Get-InvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices.
+[**Get-PurchaseInvoicesSum**](InvoicesApi.md#Get-PurchaseInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals.
+[**Get-SalesInvoicesSum**](InvoicesApi.md#Get-SalesInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals.
 [**Invoke-PatchInvoice**](InvoicesApi.md#Invoke-PatchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice.
 [**Invoke-PatchInvoiceAdjustment**](InvoicesApi.md#Invoke-PatchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment.
 [**Invoke-PatchInvoiceLine**](InvoicesApi.md#Invoke-PatchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line.
@@ -1755,6 +1757,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-PurchaseInvoicesSum"></a>
+# **Get-PurchaseInvoicesSum**
+> DecimalEnvelope Get-PurchaseInvoicesSum<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Sum tenant purchase-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Sum tenant purchase-invoice totals.
+try {
+    $Result = Get-PurchaseInvoicesSum -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-PurchaseInvoicesSum: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SalesInvoicesSum"></a>
+# **Get-SalesInvoicesSum**
+> DecimalEnvelope Get-SalesInvoicesSum<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Sum tenant sales-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Sum tenant sales-invoice totals.
+try {
+    $Result = Get-SalesInvoicesSum -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-SalesInvoicesSum: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

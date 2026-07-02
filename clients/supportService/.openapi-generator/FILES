@@ -2,10 +2,9 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -114,8 +113,7 @@ docs/WarrantyRequestDtoEnvelope.md
 docs/WarrantyRequestDtoListEnvelope.md
 docs/WarrantyRequestUpdateDto.md
 docs/WarrantyRequestsApi.md
-src/PSOpenAPITools/Api/CompletionsApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/InquiryRequestsApi.ps1
 src/PSOpenAPITools/Api/KnowledgeArticlesApi.ps1
 src/PSOpenAPITools/Api/MaintenanceVisitsApi.ps1

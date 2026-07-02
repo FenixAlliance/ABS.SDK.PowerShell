@@ -2,7 +2,6 @@ Build.ps1
 README.md
 appveyor.yml
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/EmailGroupCreateDto.md
 docs/EmailGroupDto.md
 docs/EmailGroupDtoEnvelope.md
@@ -23,7 +22,7 @@ docs/EmailTemplateUpdateDto.md
 docs/EmailTemplatesApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -56,6 +55,7 @@ docs/MarketingListsApi.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionsApi.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
 docs/Operation.md
@@ -80,15 +80,15 @@ docs/SocialPostBucketsApi.md
 docs/TrackingPixelsApi.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
-src/PSOpenAPITools/Api/CompletionsApi.ps1
 src/PSOpenAPITools/Api/EmailGroupsApi.ps1
 src/PSOpenAPITools/Api/EmailSignaturesApi.ps1
 src/PSOpenAPITools/Api/EmailTemplatesApi.ps1
-src/PSOpenAPITools/Api/FenixAlliancePortalsWebsiteApi.ps1
+src/PSOpenAPITools/Api/FenixAllianceABSWebApi.ps1
 src/PSOpenAPITools/Api/MarketingAreasApi.ps1
 src/PSOpenAPITools/Api/MarketingCampaignsApi.ps1
 src/PSOpenAPITools/Api/MarketingLeadsApi.ps1
 src/PSOpenAPITools/Api/MarketingListsApi.ps1
+src/PSOpenAPITools/Api/NewsletterSubscriptionsApi.ps1
 src/PSOpenAPITools/Api/NewslettersApi.ps1
 src/PSOpenAPITools/Api/SocialMediaPostsApi.ps1
 src/PSOpenAPITools/Api/SocialPostBucketsApi.ps1
@@ -167,3 +167,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Api/NewsletterSubscriptionsApi.Tests.ps1

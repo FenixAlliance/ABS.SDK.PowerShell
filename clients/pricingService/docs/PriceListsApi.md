@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.PriceListsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**Get-PriceListAsync**](PriceListsApi.md#Get-PriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID
 [**Get-PriceListPriceAsync**](PriceListsApi.md#Get-PriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID
 [**Get-PriceListPricesAsync**](PriceListsApi.md#Get-PriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
+[**Get-PriceListPricesCountAsync**](PriceListsApi.md#Get-PriceListPricesCountAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/Count | Counts prices in a price list
 [**Get-PriceListsAsync**](PriceListsApi.md#Get-PriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists
 [**Get-PriceListsCountAsync**](PriceListsApi.md#Get-PriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists
 [**Invoke-PatchPriceListAsync**](PriceListsApi.md#Invoke-PatchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list
@@ -341,6 +342,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemPriceDtoListEnvelope**](ItemPriceDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-PriceListPricesCountAsync"></a>
+# **Get-PriceListPricesCountAsync**
+> Int32Envelope Get-PriceListPricesCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+
+Counts prices in a price list
+
+Gets the count of price entries for a specific price list.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts prices in a price list
+try {
+    $Result = Get-PriceListPricesCountAsync -TenantId $TenantId -PriceListId $PriceListId
+} catch {
+    Write-Host ("Exception occurred when calling Get-PriceListPricesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **PriceListId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
 
 ### Authorization
 

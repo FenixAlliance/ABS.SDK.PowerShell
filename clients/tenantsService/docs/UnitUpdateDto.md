@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Name** | **String** |  | [optional] 
 **BaseUnitAmount** | **Double** |  | [optional] 
 **BaseUnitId** | **String** |  | [optional] 
+**UnECECode** | **String** |  | [optional] 
 
 ## Examples
 
@@ -13,7 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $UnitUpdateDto = Initialize-PSOpenAPIToolsUnitUpdateDto  -Name null `
  -BaseUnitAmount null `
- -BaseUnitId null
+ -BaseUnitId null `
+ -UnECECode null
 ```
 
 - Convert the resource to JSON

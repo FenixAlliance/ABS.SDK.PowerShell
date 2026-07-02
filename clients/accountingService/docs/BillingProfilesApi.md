@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.BillingProfilesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ Adds a new billing profile record for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BillingProfileCreateDto = Initialize-BillingProfileCreateDto -Id "MyId" -Timestamp (Get-Date) -ContactId "MyContactId" -TaxId "MyTaxId" -Phone "MyPhone" -Email "MyEmail" -Address "MyAddress" -Address1 "MyAddress1" -Address2 "MyAddress2" -PostalCode "MyPostalCode" -BusinessName "MyBusinessName" -CommercialName "MyCommercialName" -Ticker "MyTicker" -Duns "MyDuns" -IsPublicCompany $false -IsFactaCustomer $false -TaxPayerType "Individual" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -FiscalIdentificationTypeId "MyFiscalIdentificationTypeId" -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalRegimeId "MyFiscalRegimeId" # BillingProfileCreateDto | 
+$BillingProfileCreateDto = Initialize-BillingProfileCreateDto -Id "MyId" -Timestamp (Get-Date) -ContactId "MyContactId" -TaxId "MyTaxId" -Phone "MyPhone" -Email "MyEmail" -Address "MyAddress" -Address1 "MyAddress1" -Address2 "MyAddress2" -PostalCode "MyPostalCode" -BusinessName "MyBusinessName" -CommercialName "MyCommercialName" -VerificationDigit "MyVerificationDigit" -EconomicActivityCode "MyEconomicActivityCode" -EconomicActivityScheme "MyEconomicActivityScheme" -IsPrimary $false -EstablishmentCode "MyEstablishmentCode" -Ticker "MyTicker" -Duns "MyDuns" -IsPublicCompany $false -IsFactaCustomer $false -TaxPayerType "Individual" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -FiscalIdentificationTypeId "MyFiscalIdentificationTypeId" -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalRegimeId "MyFiscalRegimeId" # BillingProfileCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -339,7 +339,7 @@ Modifies an existing billing profile using the provided data.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BillingProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BillingProfileUpdateDto = Initialize-BillingProfileUpdateDto -ContactId "MyContactId" -TaxId "MyTaxId" -Phone "MyPhone" -Email "MyEmail" -Address "MyAddress" -Address1 "MyAddress1" -Address2 "MyAddress2" -PostalCode "MyPostalCode" -BusinessName "MyBusinessName" -CommercialName "MyCommercialName" -Ticker "MyTicker" -Duns "MyDuns" -IsPublicCompany $false -IsFactaCustomer $false -TaxPayerType "Individual" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -FiscalIdentificationTypeId "MyFiscalIdentificationTypeId" -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalRegimeId "MyFiscalRegimeId" # BillingProfileUpdateDto | 
+$BillingProfileUpdateDto = Initialize-BillingProfileUpdateDto -ContactId "MyContactId" -TaxId "MyTaxId" -Phone "MyPhone" -Email "MyEmail" -Address "MyAddress" -Address1 "MyAddress1" -Address2 "MyAddress2" -PostalCode "MyPostalCode" -BusinessName "MyBusinessName" -CommercialName "MyCommercialName" -VerificationDigit "MyVerificationDigit" -EconomicActivityCode "MyEconomicActivityCode" -EconomicActivityScheme "MyEconomicActivityScheme" -IsPrimary $false -EstablishmentCode "MyEstablishmentCode" -Ticker "MyTicker" -Duns "MyDuns" -IsPublicCompany $false -IsFactaCustomer $false -TaxPayerType "Individual" -CountryId "MyCountryId" -StateId "MyStateId" -CityId "MyCityId" -FiscalIdentificationTypeId "MyFiscalIdentificationTypeId" -FiscalAuthorityId "MyFiscalAuthorityId" -FiscalRegimeId "MyFiscalRegimeId" # BillingProfileUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

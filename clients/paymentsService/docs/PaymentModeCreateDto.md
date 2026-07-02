@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
+**PaymentMeansCode** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +16,8 @@ Name | Type | Description | Notes
 $PaymentModeCreateDto = Initialize-PSOpenAPIToolsPaymentModeCreateDto  -Id null `
  -Timestamp null `
  -Name null `
- -Description null
+ -Description null `
+ -PaymentMeansCode null
 ```
 
 - Convert the resource to JSON

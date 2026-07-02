@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ValidResponse** | **Boolean** |  | [optional] 
 **ParentFileUploadId** | **String** |  | [optional] 
 **FilePath** | **String** |  | [optional] 
+**PublicAccessType** | **String** |  | [optional] 
 **Metadata** | **String** |  | [optional] 
 **SupportRequestId** | **String** |  | [optional] 
 
@@ -34,6 +35,7 @@ $SupportRequestAttachmentCreateDto = Initialize-PSOpenAPIToolsSupportRequestAtta
  -ValidResponse null `
  -ParentFileUploadId null `
  -FilePath null `
+ -PublicAccessType null `
  -Metadata null `
  -SupportRequestId null
 ```
