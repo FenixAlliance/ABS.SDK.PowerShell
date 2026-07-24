@@ -19,21 +19,17 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER Description
-No description available.
-.PARAMETER Date
-No description available.
-.PARAMETER Amount
-No description available.
-.PARAMETER CurrencyId
-No description available.
-.PARAMETER DebitAccountId
-No description available.
-.PARAMETER CreditAccountId
-No description available.
 .PARAMETER JournalEntryId
 No description available.
-.PARAMETER AccountingEntryType
+.PARAMETER AccountId
+No description available.
+.PARAMETER Direction
+No description available.
+.PARAMETER TransactionAmount
+No description available.
+.PARAMETER TransactionCurrencyId
+No description available.
+.PARAMETER Description
 No description available.
 .OUTPUTS
 
@@ -51,34 +47,64 @@ function Initialize-AccountingEntryCreateDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${JournalEntryId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Date},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Amount},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${AccountId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Debit", "Credit")]
+        [String]
+        ${Direction},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Double]]
+        ${TransactionAmount},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DebitAccountId},
+        ${TransactionCurrencyId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CreditAccountId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${JournalEntryId},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("None", "Debit", "Credit")]
-        [String]
-        ${AccountingEntryType}
+        ${Description}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => AccountingEntryCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if ($null -eq $JournalEntryId) {
+            throw "invalid value for 'JournalEntryId', 'JournalEntryId' cannot be null."
+        }
+
+        if ($JournalEntryId.length -lt 1) {
+            throw "invalid value for 'JournalEntryId', the character length must be great than or equal to 1."
+        }
+
+        if ($null -eq $AccountId) {
+            throw "invalid value for 'AccountId', 'AccountId' cannot be null."
+        }
+
+        if ($AccountId.length -lt 1) {
+            throw "invalid value for 'AccountId', the character length must be great than or equal to 1."
+        }
+
+        if ($null -eq $Direction) {
+            throw "invalid value for 'Direction', 'Direction' cannot be null."
+        }
+
+        if ($TransactionAmount -and $TransactionAmount -gt 9.999999999999999E+20) {
+          throw "invalid value for 'TransactionAmount', must be smaller than or equal to 9.999999999999999E+20."
+        }
+
+        if ($TransactionAmount -and $TransactionAmount -lt 1.0E-16) {
+          throw "invalid value for 'TransactionAmount', must be greater than or equal to 1.0E-16."
+        }
+
+        if ($null -eq $TransactionCurrencyId) {
+            throw "invalid value for 'TransactionCurrencyId', 'TransactionCurrencyId' cannot be null."
+        }
+
+        if ($TransactionCurrencyId.length -lt 1) {
+            throw "invalid value for 'TransactionCurrencyId', the character length must be great than or equal to 1."
+        }
 
         if ($null -eq $Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
@@ -92,26 +118,16 @@ function Initialize-AccountingEntryCreateDto {
             throw "invalid value for 'Description', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $CurrencyId) {
-            throw "invalid value for 'CurrencyId', 'CurrencyId' cannot be null."
-        }
-
-        if ($CurrencyId.length -lt 1) {
-            throw "invalid value for 'CurrencyId', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "description" = ${Description}
-            "date" = ${Date}
-            "amount" = ${Amount}
-            "currencyId" = ${CurrencyId}
-            "debitAccountId" = ${DebitAccountId}
-            "creditAccountId" = ${CreditAccountId}
             "journalEntryId" = ${JournalEntryId}
-            "accountingEntryType" = ${AccountingEntryType}
+            "accountId" = ${AccountId}
+            "direction" = ${Direction}
+            "transactionAmount" = ${TransactionAmount}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
+            "description" = ${Description}
         }
 
 
@@ -149,7 +165,7 @@ function ConvertFrom-JsonToAccountingEntryCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountingEntryCreateDto
-        $AllProperties = ("id", "timestamp", "description", "date", "amount", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType")
+        $AllProperties = ("id", "timestamp", "journalEntryId", "accountId", "direction", "transactionAmount", "transactionCurrencyId", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -157,19 +173,37 @@ function ConvertFrom-JsonToAccountingEntryCreateDto {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'description' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'journalEntryId' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "journalEntryId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'journalEntryId' missing."
+        } else {
+            $JournalEntryId = $JsonParameters.PSobject.Properties["journalEntryId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'accountId' missing."
+        } else {
+            $AccountId = $JsonParameters.PSobject.Properties["accountId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "direction"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'direction' missing."
+        } else {
+            $Direction = $JsonParameters.PSobject.Properties["direction"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "transactionCurrencyId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'transactionCurrencyId' missing."
+        } else {
+            $TransactionCurrencyId = $JsonParameters.PSobject.Properties["transactionCurrencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
             throw "Error! JSON cannot be serialized due to the required property 'description' missing."
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'currencyId' missing."
-        } else {
-            $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -184,53 +218,21 @@ function ConvertFrom-JsonToAccountingEntryCreateDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
-            $Date = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "transactionAmount"))) { #optional property not found
+            $TransactionAmount = $null
         } else {
-            $Date = $JsonParameters.PSobject.Properties["date"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "amount"))) { #optional property not found
-            $Amount = $null
-        } else {
-            $Amount = $JsonParameters.PSobject.Properties["amount"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAccountId"))) { #optional property not found
-            $DebitAccountId = $null
-        } else {
-            $DebitAccountId = $JsonParameters.PSobject.Properties["debitAccountId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAccountId"))) { #optional property not found
-            $CreditAccountId = $null
-        } else {
-            $CreditAccountId = $JsonParameters.PSobject.Properties["creditAccountId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "journalEntryId"))) { #optional property not found
-            $JournalEntryId = $null
-        } else {
-            $JournalEntryId = $JsonParameters.PSobject.Properties["journalEntryId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountingEntryType"))) { #optional property not found
-            $AccountingEntryType = $null
-        } else {
-            $AccountingEntryType = $JsonParameters.PSobject.Properties["accountingEntryType"].value
+            $TransactionAmount = $JsonParameters.PSobject.Properties["transactionAmount"].value
         }
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "description" = ${Description}
-            "date" = ${Date}
-            "amount" = ${Amount}
-            "currencyId" = ${CurrencyId}
-            "debitAccountId" = ${DebitAccountId}
-            "creditAccountId" = ${CreditAccountId}
             "journalEntryId" = ${JournalEntryId}
-            "accountingEntryType" = ${AccountingEntryType}
+            "accountId" = ${AccountId}
+            "direction" = ${Direction}
+            "transactionAmount" = ${TransactionAmount}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
+            "description" = ${Description}
         }
 
         return $PSO

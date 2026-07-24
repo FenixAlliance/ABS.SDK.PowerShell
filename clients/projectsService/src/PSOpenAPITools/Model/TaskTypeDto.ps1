@@ -21,11 +21,15 @@ No description available.
 No description available.
 .PARAMETER Title
 No description available.
-.PARAMETER TaskCategoryID
+.PARAMETER TaskCategoryId
 No description available.
 .PARAMETER DisplayInTimeTracker
 No description available.
 .PARAMETER RequiresDescription
+No description available.
+.PARAMETER TenantId
+No description available.
+.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -46,13 +50,19 @@ function Initialize-TaskTypeDto {
         ${Title},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TaskCategoryID},
+        ${TaskCategoryId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayInTimeTracker},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RequiresDescription}
+        ${RequiresDescription},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EnrollmentId}
     )
 
     Process {
@@ -64,9 +74,11 @@ function Initialize-TaskTypeDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
-            "taskCategoryID" = ${TaskCategoryID}
+            "taskCategoryId" = ${TaskCategoryId}
             "displayInTimeTracker" = ${DisplayInTimeTracker}
             "requiresDescription" = ${RequiresDescription}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -104,7 +116,7 @@ function ConvertFrom-JsonToTaskTypeDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaskTypeDto
-        $AllProperties = ("id", "timestamp", "title", "taskCategoryID", "displayInTimeTracker", "requiresDescription")
+        $AllProperties = ("id", "timestamp", "title", "taskCategoryId", "displayInTimeTracker", "requiresDescription", "tenantId", "enrollmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,10 +141,10 @@ function ConvertFrom-JsonToTaskTypeDto {
             $Title = $JsonParameters.PSobject.Properties["title"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "taskCategoryID"))) { #optional property not found
-            $TaskCategoryID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "taskCategoryId"))) { #optional property not found
+            $TaskCategoryId = $null
         } else {
-            $TaskCategoryID = $JsonParameters.PSobject.Properties["taskCategoryID"].value
+            $TaskCategoryId = $JsonParameters.PSobject.Properties["taskCategoryId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayInTimeTracker"))) { #optional property not found
@@ -147,13 +159,27 @@ function ConvertFrom-JsonToTaskTypeDto {
             $RequiresDescription = $JsonParameters.PSobject.Properties["requiresDescription"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
+        } else {
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
-            "taskCategoryID" = ${TaskCategoryID}
+            "taskCategoryId" = ${TaskCategoryId}
             "displayInTimeTracker" = ${DisplayInTimeTracker}
             "requiresDescription" = ${RequiresDescription}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

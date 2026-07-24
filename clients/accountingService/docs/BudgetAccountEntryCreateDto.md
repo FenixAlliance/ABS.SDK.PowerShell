@@ -6,14 +6,11 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Description** | **String** |  | 
-**Date** | **System.DateTime** |  | [optional] 
-**Amount** | **Double** |  | [optional] 
+**PlannedAmount** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | 
-**DebitAccountId** | **String** |  | [optional] 
-**CreditAccountId** | **String** |  | [optional] 
-**JournalEntryId** | **String** |  | [optional] 
-**AccountingEntryType** | **String** |  | [optional] 
-**BudgetId** | **String** |  | [optional] 
+**DebitAccountId** | **String** |  | 
+**CreditAccountId** | **String** |  | 
+**BudgetId** | **String** |  | 
 
 ## Examples
 
@@ -22,13 +19,10 @@ Name | Type | Description | Notes
 $BudgetAccountEntryCreateDto = Initialize-PSOpenAPIToolsBudgetAccountEntryCreateDto  -Id null `
  -Timestamp null `
  -Description null `
- -Date null `
- -Amount null `
+ -PlannedAmount null `
  -CurrencyId null `
  -DebitAccountId null `
  -CreditAccountId null `
- -JournalEntryId null `
- -AccountingEntryType null `
  -BudgetId null
 ```
 

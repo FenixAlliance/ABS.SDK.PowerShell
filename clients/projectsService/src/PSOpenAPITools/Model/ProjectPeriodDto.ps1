@@ -23,7 +23,11 @@ No description available.
 No description available.
 .PARAMETER PeriodEndDate
 No description available.
-.PARAMETER ProjectID
+.PARAMETER ProjectId
+No description available.
+.PARAMETER TenantId
+No description available.
+.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -47,7 +51,13 @@ function Initialize-ProjectPeriodDto {
         ${PeriodEndDate},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectID}
+        ${ProjectId},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EnrollmentId}
     )
 
     Process {
@@ -60,7 +70,9 @@ function Initialize-ProjectPeriodDto {
             "timestamp" = ${Timestamp}
             "periodStartDate" = ${PeriodStartDate}
             "periodEndDate" = ${PeriodEndDate}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -98,7 +110,7 @@ function ConvertFrom-JsonToProjectPeriodDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectPeriodDto
-        $AllProperties = ("id", "timestamp", "periodStartDate", "periodEndDate", "projectID")
+        $AllProperties = ("id", "timestamp", "periodStartDate", "periodEndDate", "projectId", "tenantId", "enrollmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,10 +141,22 @@ function ConvertFrom-JsonToProjectPeriodDto {
             $PeriodEndDate = $JsonParameters.PSobject.Properties["periodEndDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectID"))) { #optional property not found
-            $ProjectID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
         } else {
-            $ProjectID = $JsonParameters.PSobject.Properties["projectID"].value
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
+        } else {
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -140,7 +164,9 @@ function ConvertFrom-JsonToProjectPeriodDto {
             "timestamp" = ${Timestamp}
             "periodStartDate" = ${PeriodStartDate}
             "periodEndDate" = ${PeriodEndDate}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

@@ -4,18 +4,21 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-LocationForWalletAsync**](WalletsApi.md#New-LocationForWalletAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**New-WalletBankAccountAsync**](WalletsApi.md#New-WalletBankAccountAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Create Wallet Bank Account
-[**New-WalletLocationAsync**](WalletsApi.md#New-WalletLocationAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**New-WalletPaymentAsync**](WalletsApi.md#New-WalletPaymentAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Payments | Create Wallet Payment
 [**New-WalletTokenAsync**](WalletsApi.md#New-WalletTokenAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Create Wallet Token
 [**New-WalletWithdrawRequestAsync**](WalletsApi.md#New-WalletWithdrawRequestAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Create Wallet Withdraw Request
+[**Invoke-DeleteLocationForWalletAsync**](WalletsApi.md#Invoke-DeleteLocationForWalletAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**Invoke-DeleteWalletBankAccountAsync**](WalletsApi.md#Invoke-DeleteWalletBankAccountAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Delete Wallet Bank Account
-[**Invoke-DeleteWalletLocationAsync**](WalletsApi.md#Invoke-DeleteWalletLocationAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**Invoke-DeleteWalletTokenAsync**](WalletsApi.md#Invoke-DeleteWalletTokenAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Delete Wallet Token
 [**Get-IncomingPaymentsAsync**](WalletsApi.md#Get-IncomingPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming | Get Incoming Payments
 [**Get-IncomingPaymentsCountAsync**](WalletsApi.md#Get-IncomingPaymentsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count | Get Incoming Payments Count
 [**Get-IncomingWalletInvoicesAsync**](WalletsApi.md#Get-IncomingWalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming | Get Incoming Wallet Invoices
 [**Get-IncomingWalletInvoicesCountAsync**](WalletsApi.md#Get-IncomingWalletInvoicesCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count | Get Incoming Wallet Invoices Count
+[**Get-LocationForWalletAsync**](WalletsApi.md#Get-LocationForWalletAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
+[**Get-LocationsForWalletAsync**](WalletsApi.md#Get-LocationsForWalletAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
+[**Get-LocationsForWalletCountAsync**](WalletsApi.md#Get-LocationsForWalletCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**Get-OutgoingPaymentsAsync**](WalletsApi.md#Get-OutgoingPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing | Get Outgoing Payments
 [**Get-OutgoingPaymentsCountAsync**](WalletsApi.md#Get-OutgoingPaymentsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count | Get Outgoing Payments Count
 [**Get-OutgoingWalletInvoicesAsync**](WalletsApi.md#Get-OutgoingWalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing | Get Outgoing Wallet Invoices
@@ -29,9 +32,6 @@ Method | HTTP request | Description
 [**Get-WalletExtendedOrdersAsync**](WalletsApi.md#Get-WalletExtendedOrdersAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended | Get Wallet Extended Orders
 [**Get-WalletInvoicesAsync**](WalletsApi.md#Get-WalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices | Get Wallet Invoices
 [**Get-WalletInvoicesCountAsync**](WalletsApi.md#Get-WalletInvoicesCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Count | Get Wallet Invoices Count
-[**Get-WalletLocationAsync**](WalletsApi.md#Get-WalletLocationAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
-[**Get-WalletLocationsAsync**](WalletsApi.md#Get-WalletLocationsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
-[**Get-WalletLocationsCountAsync**](WalletsApi.md#Get-WalletLocationsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**Get-WalletOrdersAsync**](WalletsApi.md#Get-WalletOrdersAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders | Get Wallet Orders
 [**Get-WalletOrdersCountAsync**](WalletsApi.md#Get-WalletOrdersCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Count | Get Wallet Orders Count
 [**Get-WalletPaymentsAsync**](WalletsApi.md#Get-WalletPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments | Get Wallet Payments
@@ -49,10 +49,62 @@ Method | HTTP request | Description
 [**Get-WalletWithdrawsCountAsync**](WalletsApi.md#Get-WalletWithdrawsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count | Get Wallet Withdraws Count
 [**Invoke-PatchWalletBankAccountAsync**](WalletsApi.md#Invoke-PatchWalletBankAccountAsync) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Patch Wallet Bank Account
 [**Invoke-PatchWalletTokenAsync**](WalletsApi.md#Invoke-PatchWalletTokenAsync) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Patch Wallet Token
+[**Update-LocationForWalletAsync**](WalletsApi.md#Update-LocationForWalletAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**Update-WalletBankAccountAsync**](WalletsApi.md#Update-WalletBankAccountAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Update Wallet Bank Account
-[**Update-WalletLocationAsync**](WalletsApi.md#Update-WalletLocationAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**Update-WalletTokenAsync**](WalletsApi.md#Update-WalletTokenAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Update Wallet Token
 
+
+<a id="New-LocationForWalletAsync"></a>
+# **New-LocationForWalletAsync**
+> EmptyEnvelope New-LocationForWalletAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationCreateDto] <PSCustomObject><br>
+
+Create Wallet Location
+
+Create a new location for a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
+
+# Create Wallet Location
+try {
+    $Result = New-LocationForWalletAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationCreateDto $LocationCreateDto
+} catch {
+    Write-Host ("Exception occurred when calling New-LocationForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **LocationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-WalletBankAccountAsync"></a>
 # **New-WalletBankAccountAsync**
@@ -90,58 +142,6 @@ Name | Type | Description  | Notes
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **BankAccountCreateDto** | [**BankAccountCreateDto**](BankAccountCreateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="New-WalletLocationAsync"></a>
-# **New-WalletLocationAsync**
-> EmptyEnvelope New-WalletLocationAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationCreateDto] <PSCustomObject><br>
-
-Create Wallet Location
-
-Create a new location for a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$LocationCreateDto = Initialize-LocationCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationCreateDto |  (optional)
-
-# Create Wallet Location
-try {
-    $Result = New-WalletLocationAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationCreateDto $LocationCreateDto
-} catch {
-    Write-Host ("Exception occurred when calling New-WalletLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **LocationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md)|  | [optional] 
 
 ### Return type
 
@@ -314,6 +314,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-DeleteLocationForWalletAsync"></a>
+# **Invoke-DeleteLocationForWalletAsync**
+> EmptyEnvelope Invoke-DeleteLocationForWalletAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Delete Wallet Location
+
+Delete a specific location of a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Delete Wallet Location
+try {
+    $Result = Invoke-DeleteLocationForWalletAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-DeleteLocationForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **LocationId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-DeleteWalletBankAccountAsync"></a>
 # **Invoke-DeleteWalletBankAccountAsync**
 > EmptyEnvelope Invoke-DeleteWalletBankAccountAsync<br>
@@ -348,58 +400,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WalletId** | **String**|  | 
  **BankAccountId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Invoke-DeleteWalletLocationAsync"></a>
-# **Invoke-DeleteWalletLocationAsync**
-> EmptyEnvelope Invoke-DeleteWalletLocationAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-Delete Wallet Location
-
-Delete a specific location of a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-# Delete Wallet Location
-try {
-    $Result = Invoke-DeleteWalletLocationAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteWalletLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **LocationId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -639,6 +639,156 @@ try {
     $Result = Get-IncomingWalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-IncomingWalletInvoicesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-LocationForWalletAsync"></a>
+# **Get-LocationForWalletAsync**
+> LocationDtoEnvelope Get-LocationForWalletAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get Wallet Location
+
+Get a specific location of a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get Wallet Location
+try {
+    $Result = Get-LocationForWalletAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LocationForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **LocationId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**LocationDtoEnvelope**](LocationDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-LocationsForWalletAsync"></a>
+# **Get-LocationsForWalletAsync**
+> LocationDtoListEnvelope Get-LocationsForWalletAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get Wallet Locations
+
+Get locations of a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get Wallet Locations
+try {
+    $Result = Get-LocationsForWalletAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LocationsForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-LocationsForWalletCountAsync"></a>
+# **Get-LocationsForWalletCountAsync**
+> Int32Envelope Get-LocationsForWalletCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get Wallet Locations Count
+
+Get locations count of a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get Wallet Locations Count
+try {
+    $Result = Get-LocationsForWalletCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-LocationsForWalletCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1279,156 +1429,6 @@ try {
     $Result = Get-WalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletInvoicesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-WalletLocationAsync"></a>
-# **Get-WalletLocationAsync**
-> LocationDtoEnvelope Get-WalletLocationAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-Get Wallet Location
-
-Get a specific location of a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-# Get Wallet Location
-try {
-    $Result = Get-WalletLocationAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Get-WalletLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **LocationId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**LocationDtoEnvelope**](LocationDtoEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-WalletLocationsAsync"></a>
-# **Get-WalletLocationsAsync**
-> LocationDtoListEnvelope Get-WalletLocationsAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-Get Wallet Locations
-
-Get locations of a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-# Get Wallet Locations
-try {
-    $Result = Get-WalletLocationsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Get-WalletLocationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-WalletLocationsCountAsync"></a>
-# **Get-WalletLocationsCountAsync**
-> Int32Envelope Get-WalletLocationsCountAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-Get Wallet Locations Count
-
-Get locations count of a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-# Get Wallet Locations Count
-try {
-    $Result = Get-WalletLocationsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Get-WalletLocationsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -2304,6 +2304,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Update-LocationForWalletAsync"></a>
+# **Update-LocationForWalletAsync**
+> EmptyEnvelope Update-LocationForWalletAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationUpdateDto] <PSCustomObject><br>
+
+Update Wallet Location
+
+Update a specific location of a specific wallet by ID.
+
+### Example
+```powershell
+$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
+
+# Update Wallet Location
+try {
+    $Result = Update-LocationForWalletAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationUpdateDto $LocationUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-LocationForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **WalletId** | **String**|  | 
+ **LocationId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **LocationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-WalletBankAccountAsync"></a>
 # **Update-WalletBankAccountAsync**
 > EmptyEnvelope Update-WalletBankAccountAsync<br>
@@ -2343,61 +2398,6 @@ Name | Type | Description  | Notes
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **BankAccountUpdateDto** | [**BankAccountUpdateDto**](BankAccountUpdateDto.md)|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Update-WalletLocationAsync"></a>
-# **Update-WalletLocationAsync**
-> EmptyEnvelope Update-WalletLocationAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationUpdateDto] <PSCustomObject><br>
-
-Update Wallet Location
-
-Update a specific location of a specific wallet by ID.
-
-### Example
-```powershell
-$WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$LocationUpdateDto = Initialize-LocationUpdateDto -Title "MyTitle" -Email "MyEmail" -Phone "MyPhone" -Fax "MyFax" -Address1 "MyAddress1" -Address2 "MyAddress2" -Address3 "MyAddress3" -Unit "MyUnit" -CityId "MyCityId" -StateId "MyStateId" -PostalCode "MyPostalCode" -CountryId "MyCountryId" -Longitude 0 -Latitude 0 -IsRoutable $false -IsGlobalPrimary $false -IsCountryPrimary $false -CanGenerateLabels $false -IsDefaultSenderAddress $false -IsDefaultReturnAddress $false -IsDefaultSuppingLocation $false # LocationUpdateDto |  (optional)
-
-# Update Wallet Location
-try {
-    $Result = Update-WalletLocationAsync -WalletId $WalletId -LocationId $LocationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationUpdateDto $LocationUpdateDto
-} catch {
-    Write-Host ("Exception occurred when calling Update-WalletLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **WalletId** | **String**|  | 
- **LocationId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **LocationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md)|  | [optional] 
 
 ### Return type
 

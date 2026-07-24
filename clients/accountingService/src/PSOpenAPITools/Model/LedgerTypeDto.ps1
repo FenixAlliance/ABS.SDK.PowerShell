@@ -45,7 +45,7 @@ function Initialize-LedgerTypeDto {
         [String]
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Assets", "Equity", "Gains", "Losses", "Revenue", "Expenses", "Liabilities")]
+        [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
         ${LedgerClass},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]

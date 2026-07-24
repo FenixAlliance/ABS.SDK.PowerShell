@@ -4,12 +4,12 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-LatestCurrencyRatesModelAsync**](ThemesApi.md#Get-LatestCurrencyRatesModelAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes
+[**Update-ThemesAsync**](ThemesApi.md#Update-ThemesAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes
 
 
-<a id="Get-LatestCurrencyRatesModelAsync"></a>
-# **Get-LatestCurrencyRatesModelAsync**
-> void Get-LatestCurrencyRatesModelAsync<br>
+<a id="Update-ThemesAsync"></a>
+# **Update-ThemesAsync**
+> void Update-ThemesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -24,9 +24,9 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Update base web content themes
 try {
-    $Result = Get-LatestCurrencyRatesModelAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Update-ThemesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Get-LatestCurrencyRatesModelAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-ThemesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -5,10 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Name** | **String** |  | [optional] 
+**Name** | **String** |  | 
 **FromDate** | **System.DateTime** |  | [optional] 
 **ToDate** | **System.DateTime** |  | [optional] 
-**FiscalYearId** | **String** |  | [optional] 
+**FiscalYearId** | **String** |  | 
 
 ## Examples
 

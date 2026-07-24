@@ -55,6 +55,11 @@ docs/MarketingListsApi.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionCreateDto.md
+docs/NewsletterSubscriptionDto.md
+docs/NewsletterSubscriptionDtoEnvelope.md
+docs/NewsletterSubscriptionDtoListEnvelope.md
+docs/NewsletterSubscriptionUpdateDto.md
 docs/NewsletterSubscriptionsApi.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
@@ -140,6 +145,11 @@ src/PSOpenAPITools/Model/MarketingListUpdateDto.ps1
 src/PSOpenAPITools/Model/NewsletterCreateDto.ps1
 src/PSOpenAPITools/Model/NewsletterDto.ps1
 src/PSOpenAPITools/Model/NewsletterDtoEnvelope.ps1
+src/PSOpenAPITools/Model/NewsletterSubscriptionCreateDto.ps1
+src/PSOpenAPITools/Model/NewsletterSubscriptionDto.ps1
+src/PSOpenAPITools/Model/NewsletterSubscriptionDtoEnvelope.ps1
+src/PSOpenAPITools/Model/NewsletterSubscriptionDtoListEnvelope.ps1
+src/PSOpenAPITools/Model/NewsletterSubscriptionUpdateDto.ps1
 src/PSOpenAPITools/Model/NewsletterUpdateDto.ps1
 src/PSOpenAPITools/Model/Operation.ps1
 src/PSOpenAPITools/Model/OrderDto.ps1
@@ -167,4 +177,8 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
-tests/Api/NewsletterSubscriptionsApi.Tests.ps1
+tests/Model/NewsletterSubscriptionCreateDto.Tests.ps1
+tests/Model/NewsletterSubscriptionDto.Tests.ps1
+tests/Model/NewsletterSubscriptionDtoEnvelope.Tests.ps1
+tests/Model/NewsletterSubscriptionDtoListEnvelope.Tests.ps1
+tests/Model/NewsletterSubscriptionUpdateDto.Tests.ps1

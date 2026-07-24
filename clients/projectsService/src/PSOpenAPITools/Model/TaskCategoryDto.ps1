@@ -21,6 +21,12 @@ No description available.
 No description available.
 .PARAMETER Title
 No description available.
+.PARAMETER ProjectId
+No description available.
+.PARAMETER TenantId
+No description available.
+.PARAMETER EnrollmentId
+No description available.
 .OUTPUTS
 
 TaskCategoryDto<PSCustomObject>
@@ -37,7 +43,16 @@ function Initialize-TaskCategoryDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Title}
+        ${Title},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EnrollmentId}
     )
 
     Process {
@@ -49,6 +64,9 @@ function Initialize-TaskCategoryDto {
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
+            "projectId" = ${ProjectId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -86,7 +104,7 @@ function ConvertFrom-JsonToTaskCategoryDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaskCategoryDto
-        $AllProperties = ("id", "timestamp", "title")
+        $AllProperties = ("id", "timestamp", "title", "projectId", "tenantId", "enrollmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -111,10 +129,31 @@ function ConvertFrom-JsonToTaskCategoryDto {
             $Title = $JsonParameters.PSobject.Properties["title"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
+        } else {
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
+        } else {
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
             "title" = ${Title}
+            "projectId" = ${ProjectId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

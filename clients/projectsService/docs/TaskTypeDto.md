@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**TaskCategoryID** | **String** |  | [optional] 
+**TaskCategoryId** | **String** |  | [optional] 
 **DisplayInTimeTracker** | **Boolean** |  | [optional] 
 **RequiresDescription** | **Boolean** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,9 +19,11 @@ Name | Type | Description | Notes
 $TaskTypeDto = Initialize-PSOpenAPIToolsTaskTypeDto  -Id null `
  -Timestamp null `
  -Title null `
- -TaskCategoryID null `
+ -TaskCategoryId null `
  -DisplayInTimeTracker null `
- -RequiresDescription null
+ -RequiresDescription null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

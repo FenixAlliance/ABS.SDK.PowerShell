@@ -5,18 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Group** | **Boolean** |  | [optional] 
-**Opening** | **Boolean** |  | [optional] 
-**Description** | **String** |  | 
-**Date** | **System.DateTime** |  | 
-**Debit** | **Double** |  | [optional] 
-**Credit** | **Double** |  | [optional] 
 **JournalId** | **String** |  | 
-**CurrencyId** | **String** |  | 
-**DebitAccountId** | **String** |  | 
-**CreditAccountId** | **String** |  | 
-**ParentJournalEntryId** | **String** |  | [optional] 
-**InvoiceCode** | **String** |  | [optional] 
+**FiscalPeriodId** | **String** |  | 
+**TransactionCurrencyId** | **String** |  | 
+**Description** | **String** |  | 
+**SourceDocumentType** | **String** |  | [optional] 
+**SourceDocumentId** | **String** |  | [optional] 
+**IdempotencyKey** | **String** |  | [optional] 
+**IsOpeningBalance** | **Boolean** |  | [optional] 
+**AccountingEntries** | [**AccountingEntryCreateDto[]**](AccountingEntryCreateDto.md) |  | [optional] 
 
 ## Examples
 
@@ -24,18 +21,15 @@ Name | Type | Description | Notes
 ```powershell
 $JournalEntryCreateDto = Initialize-PSOpenAPIToolsJournalEntryCreateDto  -Id null `
  -Timestamp null `
- -Group null `
- -Opening null `
- -Description null `
- -Date null `
- -Debit null `
- -Credit null `
  -JournalId null `
- -CurrencyId null `
- -DebitAccountId null `
- -CreditAccountId null `
- -ParentJournalEntryId null `
- -InvoiceCode null
+ -FiscalPeriodId null `
+ -TransactionCurrencyId null `
+ -Description null `
+ -SourceDocumentType null `
+ -SourceDocumentId null `
+ -IdempotencyKey null `
+ -IsOpeningBalance null `
+ -AccountingEntries null
 ```
 
 - Convert the resource to JSON

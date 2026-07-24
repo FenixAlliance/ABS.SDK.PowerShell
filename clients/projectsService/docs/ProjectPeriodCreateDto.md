@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **PeriodStartDate** | **System.DateTime** |  | [optional] 
 **PeriodEndDate** | **System.DateTime** |  | [optional] 
-**ProjectID** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $ProjectPeriodCreateDto = Initialize-PSOpenAPIToolsProjectPeriodCreateDto  -Id n
  -Timestamp null `
  -PeriodStartDate null `
  -PeriodEndDate null `
- -ProjectID null
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

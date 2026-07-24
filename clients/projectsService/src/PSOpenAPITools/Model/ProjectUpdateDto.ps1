@@ -19,6 +19,10 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
+.PARAMETER IndividualId
+No description available.
+.PARAMETER OrganizationId
+No description available.
 .PARAMETER ProjectStartDate
 No description available.
 .PARAMETER ProjectEndDate
@@ -38,9 +42,15 @@ function Initialize-ProjectUpdateDto {
         [String]
         ${Description},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IndividualId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OrganizationId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ProjectStartDate},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ProjectEndDate}
     )
@@ -53,6 +63,8 @@ function Initialize-ProjectUpdateDto {
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "description" = ${Description}
+            "individualId" = ${IndividualId}
+            "organizationId" = ${OrganizationId}
             "projectStartDate" = ${ProjectStartDate}
             "projectEndDate" = ${ProjectEndDate}
         }
@@ -92,7 +104,7 @@ function ConvertFrom-JsonToProjectUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectUpdateDto
-        $AllProperties = ("title", "description", "projectStartDate", "projectEndDate")
+        $AllProperties = ("title", "description", "individualId", "organizationId", "projectStartDate", "projectEndDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -111,6 +123,18 @@ function ConvertFrom-JsonToProjectUpdateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "individualId"))) { #optional property not found
+            $IndividualId = $null
+        } else {
+            $IndividualId = $JsonParameters.PSobject.Properties["individualId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "organizationId"))) { #optional property not found
+            $OrganizationId = $null
+        } else {
+            $OrganizationId = $JsonParameters.PSobject.Properties["organizationId"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectStartDate"))) { #optional property not found
             $ProjectStartDate = $null
         } else {
@@ -126,6 +150,8 @@ function ConvertFrom-JsonToProjectUpdateDto {
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "description" = ${Description}
+            "individualId" = ${IndividualId}
+            "organizationId" = ${OrganizationId}
             "projectStartDate" = ${ProjectStartDate}
             "projectEndDate" = ${ProjectEndDate}
         }

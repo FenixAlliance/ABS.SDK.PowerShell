@@ -69,6 +69,22 @@ function Initialize-FiscalYearCreateDto {
         'Creating PSCustomObject: PSOpenAPITools => FiscalYearCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
+        if ($Name.length -lt 1) {
+            throw "invalid value for 'Name', the character length must be great than or equal to 1."
+        }
+
+        if ($null -eq $FiscalAuthorityId) {
+            throw "invalid value for 'FiscalAuthorityId', 'FiscalAuthorityId' cannot be null."
+        }
+
+        if ($FiscalAuthorityId.length -lt 1) {
+            throw "invalid value for 'FiscalAuthorityId', the character length must be great than or equal to 1."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -123,6 +139,22 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
             }
         }
 
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalAuthorityId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'fiscalAuthorityId' missing."
+        } else {
+            $FiscalAuthorityId = $JsonParameters.PSobject.Properties["fiscalAuthorityId"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
@@ -133,12 +165,6 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -163,12 +189,6 @@ function ConvertFrom-JsonToFiscalYearCreateDto {
             $StartDate = $null
         } else {
             $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalAuthorityId"))) { #optional property not found
-            $FiscalAuthorityId = $null
-        } else {
-            $FiscalAuthorityId = $JsonParameters.PSobject.Properties["fiscalAuthorityId"].value
         }
 
         $PSO = [PSCustomObject]@{

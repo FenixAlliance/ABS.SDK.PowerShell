@@ -6,23 +6,26 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-ProjectAsync**](ProjectsApi.md#New-ProjectAsync) | **POST** /api/v2/ProjectsService/Projects | Creates a new project
 [**New-ProjectPeriodAsync**](ProjectsApi.md#New-ProjectPeriodAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period
-[**New-ProjectTaskAsync**](ProjectsApi.md#New-ProjectTaskAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
+[**New-TaskForProjectAsync**](ProjectsApi.md#New-TaskForProjectAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
 [**Invoke-DeleteProjectAsync**](ProjectsApi.md#Invoke-DeleteProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project
 [**Invoke-DeleteProjectPeriodAsync**](ProjectsApi.md#Invoke-DeleteProjectPeriodAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period
-[**Invoke-DeleteProjectTaskAsync**](ProjectsApi.md#Invoke-DeleteProjectTaskAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
+[**Invoke-DeleteTaskForProjectAsync**](ProjectsApi.md#Invoke-DeleteTaskForProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
 [**Get-ProjectByIdAsync**](ProjectsApi.md#Get-ProjectByIdAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID
 [**Get-ProjectPeriodsAsync**](ProjectsApi.md#Get-ProjectPeriodsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods
 [**Get-ProjectTaskCategoriesAsync**](ProjectsApi.md#Get-ProjectTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories
 [**Get-ProjectTaskCategoriesCountAsync**](ProjectsApi.md#Get-ProjectTaskCategoriesCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories
-[**Get-ProjectTasksAsync**](ProjectsApi.md#Get-ProjectTasksAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
-[**Get-ProjectTasksCountAsync**](ProjectsApi.md#Get-ProjectTasksCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
-[**Get-ProjectTimeLogsAsync**](ProjectsApi.md#Get-ProjectTimeLogsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
 [**Get-ProjectTimeLogsCountAsync**](ProjectsApi.md#Get-ProjectTimeLogsCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs
 [**Get-ProjectsByTenantIdAsync**](ProjectsApi.md#Get-ProjectsByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects
 [**Get-ProjectsCountByTenantIdAsync**](ProjectsApi.md#Get-ProjectsCountByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects
+[**Get-TasksForProjectAsync**](ProjectsApi.md#Get-TasksForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
+[**Get-TasksForProjectCountAsync**](ProjectsApi.md#Get-TasksForProjectCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
+[**Get-TimeLogsForProjectAsync**](ProjectsApi.md#Get-TimeLogsForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
+[**Invoke-PatchProjectAsync**](ProjectsApi.md#Invoke-PatchProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId} | Patches a project
+[**Invoke-PatchProjectPeriodAsync**](ProjectsApi.md#Invoke-PatchProjectPeriodAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Patches a project period
+[**Invoke-PatchTaskForProjectAsync**](ProjectsApi.md#Invoke-PatchTaskForProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Patches a project task
 [**Update-ProjectAsync**](ProjectsApi.md#Update-ProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project
 [**Update-ProjectPeriodAsync**](ProjectsApi.md#Update-ProjectPeriodAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period
-[**Update-ProjectTaskAsync**](ProjectsApi.md#Update-ProjectTaskAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
+[**Update-TaskForProjectAsync**](ProjectsApi.md#Update-TaskForProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
 
 
 <a id="New-ProjectAsync"></a>
@@ -38,7 +41,7 @@ Creates a new project for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectCreateDto = Initialize-ProjectCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectCreateDto |  (optional)
+$ProjectCreateDto = Initialize-ProjectCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -IndividualId "MyIndividualId" -OrganizationId "MyOrganizationId" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectCreateDto |  (optional)
 
 # Creates a new project
 try {
@@ -86,7 +89,7 @@ Creates a new period for the specified project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectPeriodCreateDto = Initialize-ProjectPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -PeriodStartDate (Get-Date) -PeriodEndDate (Get-Date) -ProjectID "MyProjectID" # ProjectPeriodCreateDto |  (optional)
+$ProjectPeriodCreateDto = Initialize-ProjectPeriodCreateDto -Id "MyId" -Timestamp (Get-Date) -PeriodStartDate (Get-Date) -PeriodEndDate (Get-Date) -ProjectId "MyProjectId" # ProjectPeriodCreateDto |  (optional)
 
 # Creates a project period
 try {
@@ -120,9 +123,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="New-ProjectTaskAsync"></a>
-# **New-ProjectTaskAsync**
-> EmptyEnvelope New-ProjectTaskAsync<br>
+<a id="New-TaskForProjectAsync"></a>
+# **New-TaskForProjectAsync**
+> EmptyEnvelope New-TaskForProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskCreateDto] <PSCustomObject><br>
@@ -135,13 +138,13 @@ Creates a new task for the specified project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectTaskCreateDto = Initialize-ProjectTaskCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDate (Get-Date) -DueLine (Get-Date) -ProjectID "MyProjectID" # ProjectTaskCreateDto |  (optional)
+$ProjectTaskCreateDto = Initialize-ProjectTaskCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Description "MyDescription" -StartDate (Get-Date) -DueLine (Get-Date) -ProjectId "MyProjectId" # ProjectTaskCreateDto |  (optional)
 
 # Creates a project task
 try {
-    $Result = New-ProjectTaskAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTaskCreateDto $ProjectTaskCreateDto
+    $Result = New-TaskForProjectAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTaskCreateDto $ProjectTaskCreateDto
 } catch {
-    Write-Host ("Exception occurred when calling New-ProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-TaskForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -264,9 +267,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Invoke-DeleteProjectTaskAsync"></a>
-# **Invoke-DeleteProjectTaskAsync**
-> EmptyEnvelope Invoke-DeleteProjectTaskAsync<br>
+<a id="Invoke-DeleteTaskForProjectAsync"></a>
+# **Invoke-DeleteTaskForProjectAsync**
+> EmptyEnvelope Invoke-DeleteTaskForProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
@@ -283,9 +286,9 @@ $ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 
 # Deletes a project task
 try {
-    $Result = Invoke-DeleteProjectTaskAsync -TenantId $TenantId -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId
+    $Result = Invoke-DeleteTaskForProjectAsync -TenantId $TenantId -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-DeleteTaskForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -497,144 +500,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-ProjectTasksAsync"></a>
-# **Get-ProjectTasksAsync**
-> ProjectTaskDtoListEnvelope Get-ProjectTasksAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-
-Retrieves project tasks
-
-Gets all tasks for a specific project with OData support.
-
-### Example
-```powershell
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-# Retrieves project tasks
-try {
-    $Result = Get-ProjectTasksAsync -ProjectId $ProjectId -TenantId $TenantId
-} catch {
-    Write-Host ("Exception occurred when calling Get-ProjectTasksAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
-
-### Return type
-
-[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-ProjectTasksCountAsync"></a>
-# **Get-ProjectTasksCountAsync**
-> Int32Envelope Get-ProjectTasksCountAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-
-Counts project tasks
-
-Gets the count of tasks for a specific project.
-
-### Example
-```powershell
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-# Counts project tasks
-try {
-    $Result = Get-ProjectTasksCountAsync -ProjectId $ProjectId -TenantId $TenantId
-} catch {
-    Write-Host ("Exception occurred when calling Get-ProjectTasksCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-ProjectTimeLogsAsync"></a>
-# **Get-ProjectTimeLogsAsync**
-> ProjectTimeLogDtoListEnvelope Get-ProjectTimeLogsAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-
-Retrieves project time logs
-
-Gets all time log entries for a specific project with OData support.
-
-### Example
-```powershell
-$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-
-# Retrieves project time logs
-try {
-    $Result = Get-ProjectTimeLogsAsync -ProjectId $ProjectId -TenantId $TenantId
-} catch {
-    Write-Host ("Exception occurred when calling Get-ProjectTimeLogsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ProjectId** | **String**|  | 
- **TenantId** | **String**|  | 
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Get-ProjectTimeLogsCountAsync"></a>
 # **Get-ProjectTimeLogsCountAsync**
 > Int32Envelope Get-ProjectTimeLogsCountAsync<br>
@@ -767,6 +632,297 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-TasksForProjectAsync"></a>
+# **Get-TasksForProjectAsync**
+> ProjectTaskDtoListEnvelope Get-TasksForProjectAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project tasks
+try {
+    $Result = Get-TasksForProjectAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-TasksForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-TasksForProjectCountAsync"></a>
+# **Get-TasksForProjectCountAsync**
+> Int32Envelope Get-TasksForProjectCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Counts project tasks
+try {
+    $Result = Get-TasksForProjectCountAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-TasksForProjectCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-TimeLogsForProjectAsync"></a>
+# **Get-TimeLogsForProjectAsync**
+> ProjectTimeLogDtoListEnvelope Get-TimeLogsForProjectAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+
+# Retrieves project time logs
+try {
+    $Result = Get-TimeLogsForProjectAsync -ProjectId $ProjectId -TenantId $TenantId
+} catch {
+    Write-Host ("Exception occurred when calling Get-TimeLogsForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchProjectAsync"></a>
+# **Invoke-PatchProjectAsync**
+> EmptyEnvelope Invoke-PatchProjectAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a project
+
+Partially updates the specified project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a project
+try {
+    $Result = Invoke-PatchProjectAsync -ProjectId $ProjectId -TenantId $TenantId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchProjectPeriodAsync"></a>
+# **Invoke-PatchProjectPeriodAsync**
+> EmptyEnvelope Invoke-PatchProjectPeriodAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a project period
+
+Partially updates the specified period for a project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a project period
+try {
+    $Result = Invoke-PatchProjectPeriodAsync -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchProjectPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **ProjectPeriodId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PatchTaskForProjectAsync"></a>
+# **Invoke-PatchTaskForProjectAsync**
+> EmptyEnvelope Invoke-PatchTaskForProjectAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a project task
+
+Partially updates the specified task in a project.
+
+### Example
+```powershell
+$ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a project task
+try {
+    $Result = Invoke-PatchTaskForProjectAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTaskForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProjectId** | **String**|  | 
+ **ProjectTaskId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-ProjectAsync"></a>
 # **Update-ProjectAsync**
 > EmptyEnvelope Update-ProjectAsync<br>
@@ -782,7 +938,7 @@ Updates the specified project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectUpdateDto = Initialize-ProjectUpdateDto -Title "MyTitle" -Description "MyDescription" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectUpdateDto |  (optional)
+$ProjectUpdateDto = Initialize-ProjectUpdateDto -Title "MyTitle" -Description "MyDescription" -IndividualId "MyIndividualId" -OrganizationId "MyOrganizationId" -ProjectStartDate (Get-Date) -ProjectEndDate (Get-Date) # ProjectUpdateDto |  (optional)
 
 # Updates a project
 try {
@@ -868,9 +1024,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Update-ProjectTaskAsync"></a>
-# **Update-ProjectTaskAsync**
-> EmptyEnvelope Update-ProjectTaskAsync<br>
+<a id="Update-TaskForProjectAsync"></a>
+# **Update-TaskForProjectAsync**
+> EmptyEnvelope Update-TaskForProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
@@ -885,13 +1041,13 @@ Updates the specified task in a project.
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ProjectTaskUpdateDto = Initialize-ProjectTaskUpdateDto -StartDate (Get-Date) -DueLine (Get-Date) # ProjectTaskUpdateDto |  (optional)
+$ProjectTaskUpdateDto = Initialize-ProjectTaskUpdateDto -Title "MyTitle" -Description "MyDescription" -StartDate (Get-Date) -DueLine (Get-Date) # ProjectTaskUpdateDto |  (optional)
 
 # Updates a project task
 try {
-    $Result = Update-ProjectTaskAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -ProjectTaskUpdateDto $ProjectTaskUpdateDto
+    $Result = Update-TaskForProjectAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -ProjectTaskUpdateDto $ProjectTaskUpdateDto
 } catch {
-    Write-Host ("Exception occurred when calling Update-ProjectTaskAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-TaskForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

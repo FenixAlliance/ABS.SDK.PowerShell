@@ -29,6 +29,10 @@ Name | Type | Description | Notes
 **EnrollmentId** | **String** |  | [optional] 
 **ChildrenAccountsCount** | **Int32** |  | [optional] 
 **AccountCategory** | **String** |  | [optional] 
+**IsContra** | **Boolean** |  | [optional] 
+**IsMonetary** | **Boolean** |  | [optional] 
+**IncomeStatementSubType** | **String** |  | [optional] 
+**NormalBalance** | **String** |  | [optional] 
 **BalanceAmount** | [**Money**](Money.md) |  | [optional] 
 **CreditsBalanceAmount** | [**Money**](Money.md) |  | [optional] 
 **DebitsBalanceAmount** | [**Money**](Money.md) |  | [optional] 
@@ -66,6 +70,10 @@ $AccountDto = Initialize-PSOpenAPIToolsAccountDto  -Id null `
  -EnrollmentId null `
  -ChildrenAccountsCount null `
  -AccountCategory null `
+ -IsContra null `
+ -IsMonetary null `
+ -IncomeStatementSubType null `
+ -NormalBalance null `
  -BalanceAmount null `
  -CreditsBalanceAmount null `
  -DebitsBalanceAmount null `

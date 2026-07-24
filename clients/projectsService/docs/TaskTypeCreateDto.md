@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
-**TaskCategoryID** | **String** |  | [optional] 
+**TaskCategoryId** | **String** |  | [optional] 
 **DisplayInTimeTracker** | **Boolean** |  | [optional] 
 **RequiresDescription** | **Boolean** |  | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 $TaskTypeCreateDto = Initialize-PSOpenAPIToolsTaskTypeCreateDto  -Id null `
  -Timestamp null `
  -Title null `
- -TaskCategoryID null `
+ -TaskCategoryId null `
  -DisplayInTimeTracker null `
  -RequiresDescription null
 ```

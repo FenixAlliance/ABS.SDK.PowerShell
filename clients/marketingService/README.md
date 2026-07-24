@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -119,7 +120,12 @@ Class | Method | HTTP request | Description
 *MarketingListsApi* | [**Get-MarketingListsCountAsync**](docs/MarketingListsApi.md#Get-MarketingListsCountAsync) | **GET** /api/v2/MarketingService/MarketingLists/Count | Get marketing lists count
 *MarketingListsApi* | [**Invoke-PatchMarketingListAsync**](docs/MarketingListsApi.md#Invoke-PatchMarketingListAsync) | **PATCH** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Patch a marketing list
 *MarketingListsApi* | [**Update-MarketingListAsync**](docs/MarketingListsApi.md#Update-MarketingListAsync) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Update a marketing list
+*NewsletterSubscriptionsApi* | [**New-NewsletterSubscriptionAsync**](docs/NewsletterSubscriptionsApi.md#New-NewsletterSubscriptionAsync) | **POST** /api/v2/MarketingService/NewsletterSubscriptions | Create a newsletter subscription
+*NewsletterSubscriptionsApi* | [**Invoke-DeleteNewsletterSubscriptionAsync**](docs/NewsletterSubscriptionsApi.md#Invoke-DeleteNewsletterSubscriptionAsync) | **DELETE** /api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId} | Delete a newsletter subscription
+*NewsletterSubscriptionsApi* | [**Get-NewsletterSubscriptionByIdAsync**](docs/NewsletterSubscriptionsApi.md#Get-NewsletterSubscriptionByIdAsync) | **GET** /api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId} | Get newsletter subscription by ID
+*NewsletterSubscriptionsApi* | [**Get-NewsletterSubscriptionsAsync**](docs/NewsletterSubscriptionsApi.md#Get-NewsletterSubscriptionsAsync) | **GET** /api/v2/MarketingService/NewsletterSubscriptions | Get newsletter subscriptions
 *NewsletterSubscriptionsApi* | [**Get-NewsletterSubscriptionsCountAsync**](docs/NewsletterSubscriptionsApi.md#Get-NewsletterSubscriptionsCountAsync) | **GET** /api/v2/MarketingService/NewsletterSubscriptions/Count | Get newsletter subscriptions count
+*NewsletterSubscriptionsApi* | [**Update-NewsletterSubscriptionAsync**](docs/NewsletterSubscriptionsApi.md#Update-NewsletterSubscriptionAsync) | **PUT** /api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId} | Update a newsletter subscription
 *NewslettersApi* | [**New-NewsletterAsync**](docs/NewslettersApi.md#New-NewsletterAsync) | **POST** /api/v2/MarketingService/Newsletters | Create a newsletter
 *NewslettersApi* | [**Invoke-DeleteNewsletterAsync**](docs/NewslettersApi.md#Invoke-DeleteNewsletterAsync) | **DELETE** /api/v2/MarketingService/Newsletters/{newsletterId} | Delete a newsletter
 *NewslettersApi* | [**Get-NewsletterDetailsAsync**](docs/NewslettersApi.md#Get-NewsletterDetailsAsync) | **GET** /api/v2/MarketingService/Newsletters/{newsletterId} | Get newsletter by ID
@@ -192,6 +198,11 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.NewsletterCreateDto](docs/NewsletterCreateDto.md)
  - [PSOpenAPITools\Model.NewsletterDto](docs/NewsletterDto.md)
  - [PSOpenAPITools\Model.NewsletterDtoEnvelope](docs/NewsletterDtoEnvelope.md)
+ - [PSOpenAPITools\Model.NewsletterSubscriptionCreateDto](docs/NewsletterSubscriptionCreateDto.md)
+ - [PSOpenAPITools\Model.NewsletterSubscriptionDto](docs/NewsletterSubscriptionDto.md)
+ - [PSOpenAPITools\Model.NewsletterSubscriptionDtoEnvelope](docs/NewsletterSubscriptionDtoEnvelope.md)
+ - [PSOpenAPITools\Model.NewsletterSubscriptionDtoListEnvelope](docs/NewsletterSubscriptionDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.NewsletterSubscriptionUpdateDto](docs/NewsletterSubscriptionUpdateDto.md)
  - [PSOpenAPITools\Model.NewsletterUpdateDto](docs/NewsletterUpdateDto.md)
  - [PSOpenAPITools\Model.Operation](docs/Operation.md)
  - [PSOpenAPITools\Model.OrderDto](docs/OrderDto.md)

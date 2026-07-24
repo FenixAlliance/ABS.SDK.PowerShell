@@ -41,6 +41,12 @@ No description available.
 No description available.
 .PARAMETER AccountCategory
 No description available.
+.PARAMETER IsContra
+No description available.
+.PARAMETER IsMonetary
+No description available.
+.PARAMETER IncomeStatementSubType
+No description available.
 .OUTPUTS
 
 AccountCreateDto<PSCustomObject>
@@ -88,7 +94,17 @@ function Initialize-AccountCreateDto {
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
-        ${AccountCategory}
+        ${AccountCategory},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsContra},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsMonetary},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("OperatingRevenue", "Gain", "OperatingExpense", "Loss")]
+        [String]
+        ${IncomeStatementSubType}
     )
 
     Process {
@@ -130,6 +146,9 @@ function Initialize-AccountCreateDto {
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
         }
 
 
@@ -167,7 +186,7 @@ function ConvertFrom-JsonToAccountCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountCreateDto
-        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "currencyId", "contactId", "accountTypeId", "parentAccountId", "accountCategory")
+        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "prefix", "currencyId", "contactId", "accountTypeId", "parentAccountId", "accountCategory", "isContra", "isMonetary", "incomeStatementSubType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -256,6 +275,24 @@ function ConvertFrom-JsonToAccountCreateDto {
             $ParentAccountId = $JsonParameters.PSobject.Properties["parentAccountId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isContra"))) { #optional property not found
+            $IsContra = $null
+        } else {
+            $IsContra = $JsonParameters.PSobject.Properties["isContra"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMonetary"))) { #optional property not found
+            $IsMonetary = $null
+        } else {
+            $IsMonetary = $JsonParameters.PSobject.Properties["isMonetary"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "incomeStatementSubType"))) { #optional property not found
+            $IncomeStatementSubType = $null
+        } else {
+            $IncomeStatementSubType = $JsonParameters.PSobject.Properties["incomeStatementSubType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -270,6 +307,9 @@ function ConvertFrom-JsonToAccountCreateDto {
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
         }
 
         return $PSO

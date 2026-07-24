@@ -367,9 +367,6 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -395,12 +392,9 @@ function Get-WebsiteThemesAsync {
         [String]
         ${TenantId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -443,10 +437,6 @@ function Get-WebsiteThemesAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
-
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
@@ -483,9 +473,6 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -511,12 +498,9 @@ function Get-WebsiteThemesCountAsync {
         [String]
         ${TenantId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -558,10 +542,6 @@ function Get-WebsiteThemesCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getWebsiteThemesCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
 
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion

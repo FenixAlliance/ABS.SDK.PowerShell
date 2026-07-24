@@ -17,6 +17,8 @@ No description available.
 
 .PARAMETER Title
 No description available.
+.PARAMETER ProjectId
+No description available.
 .OUTPUTS
 
 TaskCategoryUpdateDto<PSCustomObject>
@@ -27,7 +29,10 @@ function Initialize-TaskCategoryUpdateDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Title}
+        ${Title},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ProjectId}
     )
 
     Process {
@@ -37,6 +42,7 @@ function Initialize-TaskCategoryUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
+            "projectId" = ${ProjectId}
         }
 
 
@@ -74,7 +80,7 @@ function ConvertFrom-JsonToTaskCategoryUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaskCategoryUpdateDto
-        $AllProperties = ("title")
+        $AllProperties = ("title", "projectId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -87,8 +93,15 @@ function ConvertFrom-JsonToTaskCategoryUpdateDto {
             $Title = $JsonParameters.PSobject.Properties["title"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
+        } else {
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
+            "projectId" = ${ProjectId}
         }
 
         return $PSO

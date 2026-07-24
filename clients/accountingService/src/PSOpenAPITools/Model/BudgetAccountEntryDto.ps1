@@ -19,21 +19,13 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
-.PARAMETER Debit
+.PARAMETER TenantId
 No description available.
-.PARAMETER Credit
+.PARAMETER EnrollmentId
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER ForexRate
-No description available.
-.PARAMETER AccountId
-No description available.
-.PARAMETER TenantId
-No description available.
-.PARAMETER Date
-No description available.
-.PARAMETER EnrollmentId
+.PARAMETER PlannedAmount
 No description available.
 .PARAMETER CurrencyId
 No description available.
@@ -41,19 +33,11 @@ No description available.
 No description available.
 .PARAMETER CreditAccountId
 No description available.
-.PARAMETER JournalEntryId
-No description available.
-.PARAMETER DebitAccountName
-No description available.
-.PARAMETER CreditAccountName
-No description available.
-.PARAMETER AccountingEntryType
-No description available.
-.PARAMETER DebitAmount
-No description available.
-.PARAMETER CreditAmount
-No description available.
 .PARAMETER BudgetId
+No description available.
+.PARAMETER Date
+No description available.
+.PARAMETER PlannedAmountMoney
 No description available.
 .OUTPUTS
 
@@ -70,60 +54,35 @@ function Initialize-BudgetAccountEntryDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Debit},
+        [String]
+        ${TenantId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Credit},
+        [String]
+        ${EnrollmentId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${ForexRate},
+        ${PlannedAmount},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountId},
+        ${CurrencyId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Date},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EnrollmentId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CurrencyId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${DebitAccountId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CreditAccountId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${JournalEntryId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DebitAccountName},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CreditAccountName},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("None", "Debit", "Credit")]
-        [String]
-        ${AccountingEntryType},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        ${BudgetId},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Date},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${DebitAmount},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${CreditAmount},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${BudgetId}
+        ${PlannedAmountMoney}
     )
 
     Process {
@@ -134,24 +93,16 @@ function Initialize-BudgetAccountEntryDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "debit" = ${Debit}
-            "credit" = ${Credit}
-            "description" = ${Description}
-            "forexRate" = ${ForexRate}
-            "accountId" = ${AccountId}
             "tenantId" = ${TenantId}
-            "date" = ${Date}
             "enrollmentId" = ${EnrollmentId}
+            "description" = ${Description}
+            "plannedAmount" = ${PlannedAmount}
             "currencyId" = ${CurrencyId}
             "debitAccountId" = ${DebitAccountId}
             "creditAccountId" = ${CreditAccountId}
-            "journalEntryId" = ${JournalEntryId}
-            "debitAccountName" = ${DebitAccountName}
-            "creditAccountName" = ${CreditAccountName}
-            "accountingEntryType" = ${AccountingEntryType}
-            "debitAmount" = ${DebitAmount}
-            "creditAmount" = ${CreditAmount}
             "budgetId" = ${BudgetId}
+            "date" = ${Date}
+            "plannedAmountMoney" = ${PlannedAmountMoney}
         }
 
 
@@ -189,7 +140,7 @@ function ConvertFrom-JsonToBudgetAccountEntryDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BudgetAccountEntryDto
-        $AllProperties = ("id", "timestamp", "debit", "credit", "description", "forexRate", "accountId", "tenantId", "date", "enrollmentId", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "debitAccountName", "creditAccountName", "accountingEntryType", "debitAmount", "creditAmount", "budgetId")
+        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "description", "plannedAmount", "currencyId", "debitAccountId", "creditAccountId", "budgetId", "date", "plannedAmountMoney")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -208,16 +159,16 @@ function ConvertFrom-JsonToBudgetAccountEntryDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debit"))) { #optional property not found
-            $Debit = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
         } else {
-            $Debit = $JsonParameters.PSobject.Properties["debit"].value
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "credit"))) { #optional property not found
-            $Credit = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
         } else {
-            $Credit = $JsonParameters.PSobject.Properties["credit"].value
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -226,34 +177,10 @@ function ConvertFrom-JsonToBudgetAccountEntryDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRate"))) { #optional property not found
-            $ForexRate = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "plannedAmount"))) { #optional property not found
+            $PlannedAmount = $null
         } else {
-            $ForexRate = $JsonParameters.PSobject.Properties["forexRate"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountId"))) { #optional property not found
-            $AccountId = $null
-        } else {
-            $AccountId = $JsonParameters.PSobject.Properties["accountId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
-            $Date = $null
-        } else {
-            $Date = $JsonParameters.PSobject.Properties["date"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
-            $EnrollmentId = $null
-        } else {
-            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
+            $PlannedAmount = $JsonParameters.PSobject.Properties["plannedAmount"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) { #optional property not found
@@ -274,69 +201,37 @@ function ConvertFrom-JsonToBudgetAccountEntryDto {
             $CreditAccountId = $JsonParameters.PSobject.Properties["creditAccountId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "journalEntryId"))) { #optional property not found
-            $JournalEntryId = $null
-        } else {
-            $JournalEntryId = $JsonParameters.PSobject.Properties["journalEntryId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAccountName"))) { #optional property not found
-            $DebitAccountName = $null
-        } else {
-            $DebitAccountName = $JsonParameters.PSobject.Properties["debitAccountName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAccountName"))) { #optional property not found
-            $CreditAccountName = $null
-        } else {
-            $CreditAccountName = $JsonParameters.PSobject.Properties["creditAccountName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountingEntryType"))) { #optional property not found
-            $AccountingEntryType = $null
-        } else {
-            $AccountingEntryType = $JsonParameters.PSobject.Properties["accountingEntryType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAmount"))) { #optional property not found
-            $DebitAmount = $null
-        } else {
-            $DebitAmount = $JsonParameters.PSobject.Properties["debitAmount"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAmount"))) { #optional property not found
-            $CreditAmount = $null
-        } else {
-            $CreditAmount = $JsonParameters.PSobject.Properties["creditAmount"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "budgetId"))) { #optional property not found
             $BudgetId = $null
         } else {
             $BudgetId = $JsonParameters.PSobject.Properties["budgetId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
+            $Date = $null
+        } else {
+            $Date = $JsonParameters.PSobject.Properties["date"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "plannedAmountMoney"))) { #optional property not found
+            $PlannedAmountMoney = $null
+        } else {
+            $PlannedAmountMoney = $JsonParameters.PSobject.Properties["plannedAmountMoney"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "debit" = ${Debit}
-            "credit" = ${Credit}
-            "description" = ${Description}
-            "forexRate" = ${ForexRate}
-            "accountId" = ${AccountId}
             "tenantId" = ${TenantId}
-            "date" = ${Date}
             "enrollmentId" = ${EnrollmentId}
+            "description" = ${Description}
+            "plannedAmount" = ${PlannedAmount}
             "currencyId" = ${CurrencyId}
             "debitAccountId" = ${DebitAccountId}
             "creditAccountId" = ${CreditAccountId}
-            "journalEntryId" = ${JournalEntryId}
-            "debitAccountName" = ${DebitAccountName}
-            "creditAccountName" = ${CreditAccountName}
-            "accountingEntryType" = ${AccountingEntryType}
-            "debitAmount" = ${DebitAmount}
-            "creditAmount" = ${CreditAmount}
             "budgetId" = ${BudgetId}
+            "date" = ${Date}
+            "plannedAmountMoney" = ${PlannedAmountMoney}
         }
 
         return $PSO

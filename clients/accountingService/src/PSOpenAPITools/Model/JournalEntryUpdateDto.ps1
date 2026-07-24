@@ -15,29 +15,17 @@ No summary available.
 
 No description available.
 
-.PARAMETER Group
+.PARAMETER FiscalPeriodId
 No description available.
-.PARAMETER Opening
+.PARAMETER TransactionCurrencyId
 No description available.
 .PARAMETER Description
 No description available.
-.PARAMETER Date
+.PARAMETER SourceDocumentType
 No description available.
-.PARAMETER Debit
+.PARAMETER SourceDocumentId
 No description available.
-.PARAMETER Credit
-No description available.
-.PARAMETER JournalId
-No description available.
-.PARAMETER CurrencyId
-No description available.
-.PARAMETER InvoiceCode
-No description available.
-.PARAMETER DebitAccountId
-No description available.
-.PARAMETER CreditAccountId
-No description available.
-.PARAMETER ParentJournalEntryId
+.PARAMETER IsOpeningBalance
 No description available.
 .OUTPUTS
 
@@ -48,105 +36,65 @@ function Initialize-JournalEntryUpdateDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Group},
+        [String]
+        ${FiscalPeriodId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Opening},
+        [String]
+        ${TransactionCurrencyId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
-        ${Date},
+        [String]
+        ${SourceDocumentType},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Debit},
+        [String]
+        ${SourceDocumentId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Credit},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${JournalId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CurrencyId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${InvoiceCode},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DebitAccountId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CreditAccountId},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ParentJournalEntryId}
+        [System.Nullable[Boolean]]
+        ${IsOpeningBalance}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => JournalEntryUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $FiscalPeriodId) {
+            throw "invalid value for 'FiscalPeriodId', 'FiscalPeriodId' cannot be null."
+        }
+
+        if ($FiscalPeriodId.length -lt 1) {
+            throw "invalid value for 'FiscalPeriodId', the character length must be great than or equal to 1."
+        }
+
+        if ($null -eq $TransactionCurrencyId) {
+            throw "invalid value for 'TransactionCurrencyId', 'TransactionCurrencyId' cannot be null."
+        }
+
+        if ($TransactionCurrencyId.length -lt 1) {
+            throw "invalid value for 'TransactionCurrencyId', the character length must be great than or equal to 1."
+        }
+
         if ($null -eq $Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
+        }
+
+        if ($Description.length -gt 300) {
+            throw "invalid value for 'Description', the character length must be smaller than or equal to 300."
         }
 
         if ($Description.length -lt 1) {
             throw "invalid value for 'Description', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $Date) {
-            throw "invalid value for 'Date', 'Date' cannot be null."
-        }
-
-        if ($null -eq $JournalId) {
-            throw "invalid value for 'JournalId', 'JournalId' cannot be null."
-        }
-
-        if ($JournalId.length -lt 1) {
-            throw "invalid value for 'JournalId', the character length must be great than or equal to 1."
-        }
-
-        if ($null -eq $CurrencyId) {
-            throw "invalid value for 'CurrencyId', 'CurrencyId' cannot be null."
-        }
-
-        if ($CurrencyId.length -lt 1) {
-            throw "invalid value for 'CurrencyId', the character length must be great than or equal to 1."
-        }
-
-        if ($null -eq $DebitAccountId) {
-            throw "invalid value for 'DebitAccountId', 'DebitAccountId' cannot be null."
-        }
-
-        if ($DebitAccountId.length -lt 1) {
-            throw "invalid value for 'DebitAccountId', the character length must be great than or equal to 1."
-        }
-
-        if ($null -eq $CreditAccountId) {
-            throw "invalid value for 'CreditAccountId', 'CreditAccountId' cannot be null."
-        }
-
-        if ($CreditAccountId.length -lt 1) {
-            throw "invalid value for 'CreditAccountId', the character length must be great than or equal to 1."
-        }
-
 
         $PSO = [PSCustomObject]@{
-            "group" = ${Group}
-            "opening" = ${Opening}
+            "fiscalPeriodId" = ${FiscalPeriodId}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
             "description" = ${Description}
-            "date" = ${Date}
-            "debit" = ${Debit}
-            "credit" = ${Credit}
-            "journalId" = ${JournalId}
-            "currencyId" = ${CurrencyId}
-            "invoiceCode" = ${InvoiceCode}
-            "debitAccountId" = ${DebitAccountId}
-            "creditAccountId" = ${CreditAccountId}
-            "parentJournalEntryId" = ${ParentJournalEntryId}
+            "sourceDocumentType" = ${SourceDocumentType}
+            "sourceDocumentId" = ${SourceDocumentId}
+            "isOpeningBalance" = ${IsOpeningBalance}
         }
 
 
@@ -184,7 +132,7 @@ function ConvertFrom-JsonToJournalEntryUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalEntryUpdateDto
-        $AllProperties = ("group", "opening", "description", "date", "debit", "credit", "journalId", "currencyId", "invoiceCode", "debitAccountId", "creditAccountId", "parentJournalEntryId")
+        $AllProperties = ("fiscalPeriodId", "transactionCurrencyId", "description", "sourceDocumentType", "sourceDocumentId", "isOpeningBalance")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -192,7 +140,19 @@ function ConvertFrom-JsonToJournalEntryUpdateDto {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'description' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'fiscalPeriodId' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalPeriodId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'fiscalPeriodId' missing."
+        } else {
+            $FiscalPeriodId = $JsonParameters.PSobject.Properties["fiscalPeriodId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "transactionCurrencyId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'transactionCurrencyId' missing."
+        } else {
+            $TransactionCurrencyId = $JsonParameters.PSobject.Properties["transactionCurrencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
@@ -201,85 +161,31 @@ function ConvertFrom-JsonToJournalEntryUpdateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'date' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceDocumentType"))) { #optional property not found
+            $SourceDocumentType = $null
         } else {
-            $Date = $JsonParameters.PSobject.Properties["date"].value
+            $SourceDocumentType = $JsonParameters.PSobject.Properties["sourceDocumentType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "journalId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'journalId' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceDocumentId"))) { #optional property not found
+            $SourceDocumentId = $null
         } else {
-            $JournalId = $JsonParameters.PSobject.Properties["journalId"].value
+            $SourceDocumentId = $JsonParameters.PSobject.Properties["sourceDocumentId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'currencyId' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isOpeningBalance"))) { #optional property not found
+            $IsOpeningBalance = $null
         } else {
-            $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAccountId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'debitAccountId' missing."
-        } else {
-            $DebitAccountId = $JsonParameters.PSobject.Properties["debitAccountId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAccountId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'creditAccountId' missing."
-        } else {
-            $CreditAccountId = $JsonParameters.PSobject.Properties["creditAccountId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "group"))) { #optional property not found
-            $Group = $null
-        } else {
-            $Group = $JsonParameters.PSobject.Properties["group"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "opening"))) { #optional property not found
-            $Opening = $null
-        } else {
-            $Opening = $JsonParameters.PSobject.Properties["opening"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debit"))) { #optional property not found
-            $Debit = $null
-        } else {
-            $Debit = $JsonParameters.PSobject.Properties["debit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "credit"))) { #optional property not found
-            $Credit = $null
-        } else {
-            $Credit = $JsonParameters.PSobject.Properties["credit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "invoiceCode"))) { #optional property not found
-            $InvoiceCode = $null
-        } else {
-            $InvoiceCode = $JsonParameters.PSobject.Properties["invoiceCode"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentJournalEntryId"))) { #optional property not found
-            $ParentJournalEntryId = $null
-        } else {
-            $ParentJournalEntryId = $JsonParameters.PSobject.Properties["parentJournalEntryId"].value
+            $IsOpeningBalance = $JsonParameters.PSobject.Properties["isOpeningBalance"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "group" = ${Group}
-            "opening" = ${Opening}
+            "fiscalPeriodId" = ${FiscalPeriodId}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
             "description" = ${Description}
-            "date" = ${Date}
-            "debit" = ${Debit}
-            "credit" = ${Credit}
-            "journalId" = ${JournalId}
-            "currencyId" = ${CurrencyId}
-            "invoiceCode" = ${InvoiceCode}
-            "debitAccountId" = ${DebitAccountId}
-            "creditAccountId" = ${CreditAccountId}
-            "parentJournalEntryId" = ${ParentJournalEntryId}
+            "sourceDocumentType" = ${SourceDocumentType}
+            "sourceDocumentId" = ${SourceDocumentId}
+            "isOpeningBalance" = ${IsOpeningBalance}
         }
 
         return $PSO

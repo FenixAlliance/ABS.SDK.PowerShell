@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **JobTitle** | **String** |  | [optional] 
 **CountryId** | **String** |  | [optional] 
 **ParentContactId** | **String** |  | [optional] 
-**AddressLine1** | **String** |  | [optional] 
-**AddressLine2** | **String** |  | [optional] 
 **PostalCode** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
@@ -65,8 +63,6 @@ $ContactUpdateDto = Initialize-PSOpenAPIToolsContactUpdateDto  -Type null `
  -JobTitle null `
  -CountryId null `
  -ParentContactId null `
- -AddressLine1 null `
- -AddressLine2 null `
  -PostalCode null `
  -StateId null `
  -CityId null `

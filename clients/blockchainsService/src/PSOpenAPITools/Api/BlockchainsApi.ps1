@@ -603,9 +603,6 @@ No description available.
 .PARAMETER BlockchainId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -634,12 +631,9 @@ function Get-BlockchainBlocksAsync {
         [String]
         ${BlockchainId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -686,10 +680,6 @@ function Get-BlockchainBlocksAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
-
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
@@ -729,9 +719,6 @@ No description available.
 .PARAMETER BlockchainId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -760,12 +747,9 @@ function Get-BlockchainBlocksCountAsync {
         [String]
         ${BlockchainId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -811,10 +795,6 @@ function Get-BlockchainBlocksCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getBlockchainBlocksCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
 
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
@@ -968,9 +948,6 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -996,12 +973,9 @@ function Get-BlockchainsAsync {
         [String]
         ${TenantId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -1044,10 +1018,6 @@ function Get-BlockchainsAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
-
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
@@ -1084,9 +1054,6 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER ODataQueryOptions
-No description available.
-
 .PARAMETER ApiVersion
 No description available.
 
@@ -1112,12 +1079,9 @@ function Get-BlockchainsCountAsync {
         [String]
         ${TenantId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ODataQueryOptions},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
         [String]
@@ -1159,10 +1123,6 @@ function Get-BlockchainsCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getBlockchainsCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        if ($ODataQueryOptions) {
-            $LocalVarQueryParameters['oDataQueryOptions'] = $ODataQueryOptions
-        }
 
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion

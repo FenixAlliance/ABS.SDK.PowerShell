@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**Get-TaskCategoryByIdAsync**](TaskCategoriesApi.md#Get-TaskCategoryByIdAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID
 [**Get-TaskCategoryTaskTypesAsync**](TaskCategoriesApi.md#Get-TaskCategoryTaskTypesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category
 [**Get-TenantTaskCategoriesAsync**](TaskCategoriesApi.md#Get-TenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories
+[**Invoke-PatchTaskCategoryAsync**](TaskCategoriesApi.md#Invoke-PatchTaskCategoryAsync) | **PATCH** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Patches a task category
 [**Update-TaskCategoryAsync**](TaskCategoriesApi.md#Update-TaskCategoryAsync) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category
 
 
@@ -69,7 +70,7 @@ Creates a new task category for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TaskCategoryCreateDto = Initialize-TaskCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" # TaskCategoryCreateDto |  (optional)
+$TaskCategoryCreateDto = Initialize-TaskCategoryCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -ProjectId "MyProjectId" # TaskCategoryCreateDto |  (optional)
 
 # Creates a new task category
 try {
@@ -283,6 +284,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTaskCategoryAsync"></a>
+# **Invoke-PatchTaskCategoryAsync**
+> EmptyEnvelope Invoke-PatchTaskCategoryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a task category
+
+Partially updates the specified task category.
+
+### Example
+```powershell
+$TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a task category
+try {
+    $Result = Invoke-PatchTaskCategoryAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTaskCategoryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TaskCategoryId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TaskCategoryAsync"></a>
 # **Update-TaskCategoryAsync**
 > TaskCategoryDto Update-TaskCategoryAsync<br>
@@ -298,7 +348,7 @@ Updates the specified task category.
 ```powershell
 $TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TaskCategoryUpdateDto = Initialize-TaskCategoryUpdateDto -Title "MyTitle" # TaskCategoryUpdateDto |  (optional)
+$TaskCategoryUpdateDto = Initialize-TaskCategoryUpdateDto -Title "MyTitle" -ProjectId "MyProjectId" # TaskCategoryUpdateDto |  (optional)
 
 # Updates a task category
 try {

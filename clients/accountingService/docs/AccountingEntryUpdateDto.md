@@ -3,27 +3,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | **String** |  | [optional] 
-**Amount** | **Double** |  | [optional] 
-**Date** | **System.DateTime** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
-**DebitAccountId** | **String** |  | [optional] 
-**CreditAccountId** | **String** |  | [optional] 
 **JournalEntryId** | **String** |  | [optional] 
-**AccountingEntryType** | **String** |  | [optional] 
+**AccountId** | **String** |  | [optional] 
+**Direction** | **String** |  | [optional] 
+**TransactionAmount** | **Double** |  | [optional] 
+**TransactionCurrencyId** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountingEntryUpdateDto = Initialize-PSOpenAPIToolsAccountingEntryUpdateDto  -Description null `
- -Amount null `
- -Date null `
- -CurrencyId null `
- -DebitAccountId null `
- -CreditAccountId null `
- -JournalEntryId null `
- -AccountingEntryType null
+$AccountingEntryUpdateDto = Initialize-PSOpenAPIToolsAccountingEntryUpdateDto  -JournalEntryId null `
+ -AccountId null `
+ -Direction null `
+ -TransactionAmount null `
+ -TransactionCurrencyId null `
+ -Description null
 ```
 
 - Convert the resource to JSON

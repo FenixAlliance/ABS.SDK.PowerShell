@@ -23,6 +23,14 @@ No description available.
 No description available.
 .PARAMETER Description
 No description available.
+.PARAMETER IndividualId
+No description available.
+.PARAMETER OrganizationId
+No description available.
+.PARAMETER TenantId
+No description available.
+.PARAMETER EnrollmentId
+No description available.
 .PARAMETER ProjectStartDate
 No description available.
 .PARAMETER ProjectEndDate
@@ -48,9 +56,21 @@ function Initialize-ProjectDto {
         [String]
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IndividualId},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OrganizationId},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EnrollmentId},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ProjectStartDate},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ProjectEndDate}
     )
@@ -65,6 +85,10 @@ function Initialize-ProjectDto {
             "timestamp" = ${Timestamp}
             "title" = ${Title}
             "description" = ${Description}
+            "individualId" = ${IndividualId}
+            "organizationId" = ${OrganizationId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
             "projectStartDate" = ${ProjectStartDate}
             "projectEndDate" = ${ProjectEndDate}
         }
@@ -104,7 +128,7 @@ function ConvertFrom-JsonToProjectDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectDto
-        $AllProperties = ("id", "timestamp", "title", "description", "projectStartDate", "projectEndDate")
+        $AllProperties = ("id", "timestamp", "title", "description", "individualId", "organizationId", "tenantId", "enrollmentId", "projectStartDate", "projectEndDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,6 +159,30 @@ function ConvertFrom-JsonToProjectDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "individualId"))) { #optional property not found
+            $IndividualId = $null
+        } else {
+            $IndividualId = $JsonParameters.PSobject.Properties["individualId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "organizationId"))) { #optional property not found
+            $OrganizationId = $null
+        } else {
+            $OrganizationId = $JsonParameters.PSobject.Properties["organizationId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
+        } else {
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectStartDate"))) { #optional property not found
             $ProjectStartDate = $null
         } else {
@@ -152,6 +200,10 @@ function ConvertFrom-JsonToProjectDto {
             "timestamp" = ${Timestamp}
             "title" = ${Title}
             "description" = ${Description}
+            "individualId" = ${IndividualId}
+            "organizationId" = ${OrganizationId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
             "projectStartDate" = ${ProjectStartDate}
             "projectEndDate" = ${ProjectEndDate}
         }

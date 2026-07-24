@@ -154,7 +154,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ItemShippingPolicyDtoListEnvelope
 #>
-function Get-ItemShippingPoliciesAsync {
+function Get-CatalogItemShippingPoliciesAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -177,7 +177,7 @@ function Get-ItemShippingPoliciesAsync {
     )
 
     Process {
-        'Calling method: Get-ItemShippingPoliciesAsync' | Write-Debug
+        'Calling method: Get-CatalogItemShippingPoliciesAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -272,7 +272,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ItemShippingPolicyDtoEnvelope
 #>
-function Get-ItemShippingPolicyByIdAsync {
+function Get-CatalogItemShippingPolicyByIdAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -298,7 +298,7 @@ function Get-ItemShippingPolicyByIdAsync {
     )
 
     Process {
-        'Calling method: Get-ItemShippingPolicyByIdAsync' | Write-Debug
+        'Calling method: Get-CatalogItemShippingPolicyByIdAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -321,7 +321,7 @@ function Get-ItemShippingPolicyByIdAsync {
 
         $LocalVarUri = '/api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId}'
         if (!$ItemShippingPolicyId) {
-            throw "Error! The required parameter `ItemShippingPolicyId` missing when calling getItemShippingPolicyByIdAsync."
+            throw "Error! The required parameter `ItemShippingPolicyId` missing when calling getCatalogItemShippingPolicyByIdAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{itemShippingPolicyId}', [System.Web.HTTPUtility]::UrlEncode($ItemShippingPolicyId))
 

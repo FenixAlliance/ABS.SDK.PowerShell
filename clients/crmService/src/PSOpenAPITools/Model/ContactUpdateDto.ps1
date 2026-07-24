@@ -45,10 +45,6 @@ No description available.
 No description available.
 .PARAMETER ParentContactId
 No description available.
-.PARAMETER AddressLine1
-No description available.
-.PARAMETER AddressLine2
-No description available.
 .PARAMETER PostalCode
 No description available.
 .PARAMETER StateId
@@ -155,83 +151,77 @@ function Initialize-ContactUpdateDto {
         ${ParentContactId},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AddressLine1},
+        ${PostalCode},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AddressLine2},
+        ${StateId},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PostalCode},
+        ${CityId},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${StateId},
+        ${StreetLine1},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CityId},
+        ${StreetLine2},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${StreetLine1},
+        ${CurrencyId},
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${StreetLine2},
+        ${LanguageId},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CurrencyId},
+        ${TimezoneId},
         [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${LanguageId},
+        ${CoverUrl},
         [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TimezoneId},
+        ${GithubUsername},
         [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CoverUrl},
+        ${InstagramUsername},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${GithubUsername},
+        ${WebUrl},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${InstagramUsername},
+        ${TwitchUrl},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${WebUrl},
+        ${RedditUrl},
         [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TwitchUrl},
+        ${GitHubUrl},
         [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${RedditUrl},
+        ${TikTokUrl},
         [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${GitHubUrl},
+        ${TwitterUrl},
         [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TikTokUrl},
+        ${YouTubeUrl},
         [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TwitterUrl},
+        ${FacebookUrl},
         [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${YouTubeUrl},
+        ${LinkedInUrl},
         [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FacebookUrl},
+        ${InstagramUrl},
         [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${LinkedInUrl},
+        ${TikTokUsername},
         [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${InstagramUrl},
+        ${StackExchangeUrl},
         [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TikTokUsername},
-        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${StackExchangeUrl},
-        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${StackOverflowUrl},
-        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FaxNumber}
     )
@@ -325,8 +315,6 @@ function Initialize-ContactUpdateDto {
             "jobTitle" = ${JobTitle}
             "countryId" = ${CountryId}
             "parentContactId" = ${ParentContactId}
-            "addressLine1" = ${AddressLine1}
-            "addressLine2" = ${AddressLine2}
             "postalCode" = ${PostalCode}
             "stateId" = ${StateId}
             "cityId" = ${CityId}
@@ -389,7 +377,7 @@ function ConvertFrom-JsonToContactUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ContactUpdateDto
-        $AllProperties = ("type", "birthday", "duns", "taxId", "email", "firstName", "lastName", "primaryContactId", "qualifiedName", "about", "mobilePhone", "businessPhone", "jobTitle", "countryId", "parentContactId", "addressLine1", "addressLine2", "postalCode", "stateId", "cityId", "streetLine1", "streetLine2", "currencyId", "languageId", "timezoneId", "coverUrl", "githubUsername", "instagramUsername", "webUrl", "twitchUrl", "redditUrl", "gitHubUrl", "tikTokUrl", "twitterUrl", "youTubeUrl", "facebookUrl", "linkedInUrl", "instagramUrl", "tikTokUsername", "stackExchangeUrl", "stackOverflowUrl", "faxNumber")
+        $AllProperties = ("type", "birthday", "duns", "taxId", "email", "firstName", "lastName", "primaryContactId", "qualifiedName", "about", "mobilePhone", "businessPhone", "jobTitle", "countryId", "parentContactId", "postalCode", "stateId", "cityId", "streetLine1", "streetLine2", "currencyId", "languageId", "timezoneId", "coverUrl", "githubUsername", "instagramUsername", "webUrl", "twitchUrl", "redditUrl", "gitHubUrl", "tikTokUrl", "twitterUrl", "youTubeUrl", "facebookUrl", "linkedInUrl", "instagramUrl", "tikTokUsername", "stackExchangeUrl", "stackOverflowUrl", "faxNumber")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -488,18 +476,6 @@ function ConvertFrom-JsonToContactUpdateDto {
             $ParentContactId = $null
         } else {
             $ParentContactId = $JsonParameters.PSobject.Properties["parentContactId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "addressLine1"))) { #optional property not found
-            $AddressLine1 = $null
-        } else {
-            $AddressLine1 = $JsonParameters.PSobject.Properties["addressLine1"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "addressLine2"))) { #optional property not found
-            $AddressLine2 = $null
-        } else {
-            $AddressLine2 = $JsonParameters.PSobject.Properties["addressLine2"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "postalCode"))) { #optional property not found
@@ -668,8 +644,6 @@ function ConvertFrom-JsonToContactUpdateDto {
             "jobTitle" = ${JobTitle}
             "countryId" = ${CountryId}
             "parentContactId" = ${ParentContactId}
-            "addressLine1" = ${AddressLine1}
-            "addressLine2" = ${AddressLine2}
             "postalCode" = ${PostalCode}
             "stateId" = ${StateId}
             "cityId" = ${CityId}

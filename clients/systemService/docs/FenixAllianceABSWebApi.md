@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**Invoke-AccountManageDownloadPersonalDataPost**](FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 [**Invoke-AccountManageLinkExternalLoginPost**](FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 [**Invoke-AccountPerformExternalLoginPost**](FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+[**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 [**Invoke-ForgotPasswordPost**](FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 [**Invoke-HealthGet**](FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 [**Invoke-HelloGet**](FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -177,6 +178,46 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-ApiV2AIServiceAgentsAgentIdAguiPost"></a>
+# **Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**
+> void Invoke-ApiV2AIServiceAgentsAgentIdAguiPost<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AgentId] <String><br>
+
+
+
+### Example
+```powershell
+$AgentId = "MyAgentId" # String | 
+
+try {
+    $Result = Invoke-ApiV2AIServiceAgentsAgentIdAguiPost -AgentId $AgentId
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-ApiV2AIServiceAgentsAgentIdAguiPost: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **AgentId** | **String**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

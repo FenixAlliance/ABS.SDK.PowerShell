@@ -5,12 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Name** | **String** |  | [optional] 
+**Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
-**FiscalAuthorityId** | **String** |  | [optional] 
+**FiscalAuthorityId** | **String** |  | 
 
 ## Examples
 

@@ -17,6 +17,8 @@ No description available.
 
 .PARAMETER Title
 No description available.
+.PARAMETER TaskCategoryId
+No description available.
 .PARAMETER DisplayInTimeTracker
 No description available.
 .PARAMETER RequiresDescription
@@ -33,9 +35,12 @@ function Initialize-TaskTypeUpdateDto {
         [String]
         ${Title},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TaskCategoryId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayInTimeTracker},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresDescription}
     )
@@ -47,6 +52,7 @@ function Initialize-TaskTypeUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
+            "taskCategoryId" = ${TaskCategoryId}
             "displayInTimeTracker" = ${DisplayInTimeTracker}
             "requiresDescription" = ${RequiresDescription}
         }
@@ -86,7 +92,7 @@ function ConvertFrom-JsonToTaskTypeUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TaskTypeUpdateDto
-        $AllProperties = ("title", "displayInTimeTracker", "requiresDescription")
+        $AllProperties = ("title", "taskCategoryId", "displayInTimeTracker", "requiresDescription")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,6 +103,12 @@ function ConvertFrom-JsonToTaskTypeUpdateDto {
             $Title = $null
         } else {
             $Title = $JsonParameters.PSobject.Properties["title"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "taskCategoryId"))) { #optional property not found
+            $TaskCategoryId = $null
+        } else {
+            $TaskCategoryId = $JsonParameters.PSobject.Properties["taskCategoryId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayInTimeTracker"))) { #optional property not found
@@ -113,6 +125,7 @@ function ConvertFrom-JsonToTaskTypeUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
+            "taskCategoryId" = ${TaskCategoryId}
             "displayInTimeTracker" = ${DisplayInTimeTracker}
             "requiresDescription" = ${RequiresDescription}
         }

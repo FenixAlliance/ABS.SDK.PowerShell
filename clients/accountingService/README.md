@@ -60,8 +60,6 @@ Class | Method | HTTP request | Description
 *AccountGroupsApi* | [**Get-AccountGroupsCountAsync**](docs/AccountGroupsApi.md#Get-AccountGroupsCountAsync) | **GET** /api/v2/AccountingService/AccountGroups/Count | Gets the current tenant accounts count
 *AccountGroupsApi* | [**Invoke-PatchAccountGroupAsync**](docs/AccountGroupsApi.md#Invoke-PatchAccountGroupAsync) | **PATCH** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Patch an account group
 *AccountGroupsApi* | [**Update-AccountGroup**](docs/AccountGroupsApi.md#Update-AccountGroup) | **PUT** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Updates an existing account group
-*AccountingEntriesApi* | [**Get-CreditsSumAsync**](docs/AccountingEntriesApi.md#Get-CreditsSumAsync) | **GET** /api/v2/AccountingService/AccountingEntries/Credits/Sum | Sum tenant accounting-entry credits
-*AccountingEntriesApi* | [**Get-DebitsSumAsync**](docs/AccountingEntriesApi.md#Get-DebitsSumAsync) | **GET** /api/v2/AccountingService/AccountingEntries/Debits/Sum | Sum tenant accounting-entry debits
 *AccountingPeriodsApi* | [**New-AccountingPeriod**](docs/AccountingPeriodsApi.md#New-AccountingPeriod) | **POST** /api/v2/AccountingService/AccountingPeriods | Creates a new accounting period
 *AccountingPeriodsApi* | [**Invoke-DeleteAccountingPeriod**](docs/AccountingPeriodsApi.md#Invoke-DeleteAccountingPeriod) | **DELETE** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Deletes an existing accounting period
 *AccountingPeriodsApi* | [**Get-AccountingPeriod**](docs/AccountingPeriodsApi.md#Get-AccountingPeriod) | **GET** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Gets the current tenant accounting period
@@ -69,6 +67,10 @@ Class | Method | HTTP request | Description
 *AccountingPeriodsApi* | [**Get-AccountingPeriodsCountAsync**](docs/AccountingPeriodsApi.md#Get-AccountingPeriodsCountAsync) | **GET** /api/v2/AccountingService/AccountingPeriods/Count | Gets the current tenant accounting periods count
 *AccountingPeriodsApi* | [**Invoke-PatchAccountingPeriodAsync**](docs/AccountingPeriodsApi.md#Invoke-PatchAccountingPeriodAsync) | **PATCH** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Patch an accounting period
 *AccountingPeriodsApi* | [**Update-AccountingPeriod**](docs/AccountingPeriodsApi.md#Update-AccountingPeriod) | **PUT** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Updates an existing accounting period
+*AccountingSummaryApi* | [**Get-CreditsSumAsync**](docs/AccountingSummaryApi.md#Get-CreditsSumAsync) | **GET** /api/v2/AccountingService/Summary/Credits/Sum | Sum tenant accounting-entry credits
+*AccountingSummaryApi* | [**Get-DebitsSumAsync**](docs/AccountingSummaryApi.md#Get-DebitsSumAsync) | **GET** /api/v2/AccountingService/Summary/Debits/Sum | Sum tenant accounting-entry debits
+*AccountingSummaryApi* | [**Get-ExpensesSumAsync**](docs/AccountingSummaryApi.md#Get-ExpensesSumAsync) | **GET** /api/v2/AccountingService/Summary/Expenses/Sum | Sum tenant expenses
+*AccountingSummaryApi* | [**Get-IncomesSumAsync**](docs/AccountingSummaryApi.md#Get-IncomesSumAsync) | **GET** /api/v2/AccountingService/Summary/Incomes/Sum | Sum tenant incomes
 *AccountsApi* | [**Invoke-AggregateAccountsBalanceAsync**](docs/AccountsApi.md#Invoke-AggregateAccountsBalanceAsync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance
 *AccountsApi* | [**Invoke-BalanceAccountAsync**](docs/AccountsApi.md#Invoke-BalanceAccountAsync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account
 *AccountsApi* | [**Invoke-BalanceRootAccountAsync**](docs/AccountsApi.md#Invoke-BalanceRootAccountAsync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account
@@ -219,6 +221,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -267,11 +270,13 @@ Class | Method | HTTP request | Description
 *FiscalIdentificationTypesApi* | [**Get-FiscalIdentificationTypesCount**](docs/FiscalIdentificationTypesApi.md#Get-FiscalIdentificationTypesCount) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/IdentificationTypes/Count | Get fiscal identification types count
 *FiscalIdentificationTypesApi* | [**Invoke-PatchFiscalIdentificationTypeAsync**](docs/FiscalIdentificationTypesApi.md#Invoke-PatchFiscalIdentificationTypeAsync) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/IdentificationTypes/{identificationTypeId} | Patch a fiscal identification type
 *FiscalIdentificationTypesApi* | [**Update-FiscalIdentificationType**](docs/FiscalIdentificationTypesApi.md#Update-FiscalIdentificationType) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/IdentificationTypes/{identificationTypeId} | Update a fiscal identification type
+*FiscalPeriodsApi* | [**Close-FiscalPeriod**](docs/FiscalPeriodsApi.md#Close-FiscalPeriod) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Close | Close a fiscal period
 *FiscalPeriodsApi* | [**New-FiscalPeriod**](docs/FiscalPeriodsApi.md#New-FiscalPeriod) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods | Create a fiscal period
 *FiscalPeriodsApi* | [**Invoke-DeleteFiscalPeriod**](docs/FiscalPeriodsApi.md#Invoke-DeleteFiscalPeriod) | **DELETE** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Delete a fiscal period
 *FiscalPeriodsApi* | [**Get-FiscalPeriod**](docs/FiscalPeriodsApi.md#Get-FiscalPeriod) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods/{fiscalPeriodId} | Get fiscal period by ID
 *FiscalPeriodsApi* | [**Get-FiscalPeriods**](docs/FiscalPeriodsApi.md#Get-FiscalPeriods) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods | Get fiscal periods for a fiscal year
 *FiscalPeriodsApi* | [**Get-FiscalPeriodsCount**](docs/FiscalPeriodsApi.md#Get-FiscalPeriodsCount) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods/Count | Get fiscal periods count
+*FiscalPeriodsApi* | [**Open-FiscalPeriod**](docs/FiscalPeriodsApi.md#Open-FiscalPeriod) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Open | Open a fiscal period
 *FiscalPeriodsApi* | [**Invoke-PatchFiscalPeriodAsync**](docs/FiscalPeriodsApi.md#Invoke-PatchFiscalPeriodAsync) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Patch a fiscal period
 *FiscalPeriodsApi* | [**Update-FiscalPeriod**](docs/FiscalPeriodsApi.md#Update-FiscalPeriod) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Update a fiscal period
 *FiscalRegimesApi* | [**New-FiscalRegime**](docs/FiscalRegimesApi.md#New-FiscalRegime) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalRegimes | Create a fiscal regime
@@ -315,8 +320,6 @@ Class | Method | HTTP request | Description
 *InvoiceEnumerationRangesApi* | [**Get-InvoiceEnumerationRangesAsync**](docs/InvoiceEnumerationRangesApi.md#Get-InvoiceEnumerationRangesAsync) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges | Get all invoice enumeration ranges
 *InvoiceEnumerationRangesApi* | [**Invoke-PatchInvoiceEnumerationRangeAsync**](docs/InvoiceEnumerationRangesApi.md#Invoke-PatchInvoiceEnumerationRangeAsync) | **PATCH** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Patch an invoice enumeration range
 *InvoiceEnumerationRangesApi* | [**Update-InvoiceEnumerationRangeAsync**](docs/InvoiceEnumerationRangesApi.md#Update-InvoiceEnumerationRangeAsync) | **PUT** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Update an invoice enumeration range
-*JournalEntriesApi* | [**Get-ExpensesSumAsync**](docs/JournalEntriesApi.md#Get-ExpensesSumAsync) | **GET** /api/v2/AccountingService/JournalEntries/Expenses/Sum | Sum tenant expenses
-*JournalEntriesApi* | [**Get-IncomesSumAsync**](docs/JournalEntriesApi.md#Get-IncomesSumAsync) | **GET** /api/v2/AccountingService/JournalEntries/Incomes/Sum | Sum tenant incomes
 *JournalTypesApi* | [**New-JournalTypeAsync**](docs/JournalTypesApi.md#New-JournalTypeAsync) | **POST** /api/v2/AccountingService/JournalTypes | Creates a new journal type
 *JournalTypesApi* | [**Invoke-DeleteJournalTypeAsync**](docs/JournalTypesApi.md#Invoke-DeleteJournalTypeAsync) | **DELETE** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Deletes a journal type
 *JournalTypesApi* | [**Get-JournalTypeDetailsAsync**](docs/JournalTypesApi.md#Get-JournalTypeDetailsAsync) | **GET** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Retrieves a journal type by ID
@@ -334,9 +337,12 @@ Class | Method | HTTP request | Description
 *JournalsApi* | [**Get-JournalDetailsAsync**](docs/JournalsApi.md#Get-JournalDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId} | Get journal by ID
 *JournalsApi* | [**Get-JournalEntriesAsync**](docs/JournalsApi.md#Get-JournalEntriesAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries
 *JournalsApi* | [**Get-JournalEntriesCountAsync**](docs/JournalsApi.md#Get-JournalEntriesCountAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries
+*JournalsApi* | [**Get-JournalEntryDetailsAsync**](docs/JournalsApi.md#Get-JournalEntryDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Get journal entry by ID
 *JournalsApi* | [**Get-JournalsAsync**](docs/JournalsApi.md#Get-JournalsAsync) | **GET** /api/v2/AccountingService/Journals | Get all journals
 *JournalsApi* | [**Invoke-PatchJournalAsync**](docs/JournalsApi.md#Invoke-PatchJournalAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId} | Patch a journal
 *JournalsApi* | [**Invoke-PatchJournalEntryAsync**](docs/JournalsApi.md#Invoke-PatchJournalEntryAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry
+*JournalsApi* | [**Submit-JournalEntryAsync**](docs/JournalsApi.md#Submit-JournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post | Post a draft journal entry
+*JournalsApi* | [**Invoke-ReverseJournalEntryAsync**](docs/JournalsApi.md#Invoke-ReverseJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse | Reverse a posted journal entry
 *JournalsApi* | [**Update-JournalAsync**](docs/JournalsApi.md#Update-JournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal
 *JournalsApi* | [**Update-JournalEntryAsync**](docs/JournalsApi.md#Update-JournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 *LedgerTypesApi* | [**New-LedgerTypeAsync**](docs/LedgerTypesApi.md#New-LedgerTypeAsync) | **POST** /api/v2/AccountingService/LedgerTypes | Creates a new ledger type
@@ -381,6 +387,7 @@ Class | Method | HTTP request | Description
 *ReceiptsApi* | [**Get-ReceiptsCountAsync**](docs/ReceiptsApi.md#Get-ReceiptsCountAsync) | **GET** /api/v2/AccountingService/Receipts/Count | Gets count of tenant receipts
 *ReceiptsApi* | [**Invoke-PatchReceiptAsync**](docs/ReceiptsApi.md#Invoke-PatchReceiptAsync) | **PATCH** /api/v2/AccountingService/Receipts/{receiptId} | Patches a receipt
 *ReceiptsApi* | [**Update-ReceiptAsync**](docs/ReceiptsApi.md#Update-ReceiptAsync) | **PUT** /api/v2/AccountingService/Receipts/{receiptId} | Updates a receipt
+*ReportsApi* | [**Get-TrialBalanceAsync**](docs/ReportsApi.md#Get-TrialBalanceAsync) | **GET** /api/v2/AccountingService/Reports/TrialBalance | Trial balance for a fiscal period
 *SharesApi* | [**New-ShareClass**](docs/SharesApi.md#New-ShareClass) | **POST** /api/v2/AccountingService/Shares/Classes | Creates a new share class
 *SharesApi* | [**New-ShareIssuance**](docs/SharesApi.md#New-ShareIssuance) | **POST** /api/v2/AccountingService/Shares/Issuances | Creates a new share issuance
 *SharesApi* | [**New-ShareTransfer**](docs/SharesApi.md#New-ShareTransfer) | **POST** /api/v2/AccountingService/Shares/Transfers | Creates a new share transfer
@@ -644,6 +651,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.JournalDtoIReadOnlyListEnvelope](docs/JournalDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.JournalEntryCreateDto](docs/JournalEntryCreateDto.md)
  - [PSOpenAPITools\Model.JournalEntryDto](docs/JournalEntryDto.md)
+ - [PSOpenAPITools\Model.JournalEntryDtoEnvelope](docs/JournalEntryDtoEnvelope.md)
  - [PSOpenAPITools\Model.JournalEntryDtoIReadOnlyListEnvelope](docs/JournalEntryDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.JournalEntryUpdateDto](docs/JournalEntryUpdateDto.md)
  - [PSOpenAPITools\Model.JournalTypeCreateDto](docs/JournalTypeCreateDto.md)
@@ -692,6 +700,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
+ - [PSOpenAPITools\Model.ReverseJournalEntryRequest](docs/ReverseJournalEntryRequest.md)
  - [PSOpenAPITools\Model.SeedChartOfAccountsRequest](docs/SeedChartOfAccountsRequest.md)
  - [PSOpenAPITools\Model.ShareClassCreateDto](docs/ShareClassCreateDto.md)
  - [PSOpenAPITools\Model.ShareClassDto](docs/ShareClassDto.md)
@@ -738,6 +747,9 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.TransactionDtoEnvelope](docs/TransactionDtoEnvelope.md)
  - [PSOpenAPITools\Model.TransactionDtoListEnvelope](docs/TransactionDtoListEnvelope.md)
  - [PSOpenAPITools\Model.TransactionUpdateDto](docs/TransactionUpdateDto.md)
+ - [PSOpenAPITools\Model.TrialBalanceDto](docs/TrialBalanceDto.md)
+ - [PSOpenAPITools\Model.TrialBalanceDtoEnvelope](docs/TrialBalanceDtoEnvelope.md)
+ - [PSOpenAPITools\Model.TrialBalanceRowDto](docs/TrialBalanceRowDto.md)
  - [PSOpenAPITools\Model.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [PSOpenAPITools\Model.TwoFactorResponse](docs/TwoFactorResponse.md)
  - [PSOpenAPITools\Model.UpdateLedgerDto](docs/UpdateLedgerDto.md)

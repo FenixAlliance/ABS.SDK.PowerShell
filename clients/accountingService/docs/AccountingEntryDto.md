@@ -4,48 +4,58 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
-**Timestamp** | **System.DateTime** |  | [optional] 
-**Debit** | **Double** |  | [optional] 
-**Credit** | **Double** |  | [optional] 
-**Description** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
-**AccountId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**Date** | **System.DateTime** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
-**CurrencyId** | **String** |  | [optional] 
-**DebitAccountId** | **String** |  | [optional] 
-**CreditAccountId** | **String** |  | [optional] 
 **JournalEntryId** | **String** |  | [optional] 
-**DebitAccountName** | **String** |  | [optional] 
-**CreditAccountName** | **String** |  | [optional] 
-**AccountingEntryType** | **String** |  | [optional] 
-**DebitAmount** | [**Money**](Money.md) |  | [optional] 
-**CreditAmount** | [**Money**](Money.md) |  | [optional] 
+**AccountId** | **String** |  | [optional] 
+**AccountName** | **String** |  | [optional] 
+**Direction** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**TransactionAmount** | **Double** |  | [optional] 
+**TransactionCurrencyId** | **String** |  | [optional] 
+**FunctionalAmount** | **Double** |  | [optional] 
+**FunctionalCurrencyId** | **String** |  | [optional] 
+**AccountAmount** | **Double** |  | [optional] 
+**AccountCurrencyId** | **String** |  | [optional] 
+**ReportingAmountInUsd** | **Double** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
+**ForexRatesSnapshot** | **String** |  | [optional] 
+**CostCentreId** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
+**Debit** | **Double** |  | [optional] [readonly] 
+**Credit** | **Double** |  | [optional] [readonly] 
+**Amount** | [**Money**](Money.md) |  | [optional] 
+**AmountInUsd** | [**Money**](Money.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccountingEntryDto = Initialize-PSOpenAPIToolsAccountingEntryDto  -Id null `
+ -TenantId null `
+ -EnrollmentId null `
+ -JournalEntryId null `
+ -AccountId null `
+ -AccountName null `
+ -Direction null `
+ -Description null `
+ -TransactionAmount null `
+ -TransactionCurrencyId null `
+ -FunctionalAmount null `
+ -FunctionalCurrencyId null `
+ -AccountAmount null `
+ -AccountCurrencyId null `
+ -ReportingAmountInUsd null `
+ -ForexRate null `
+ -ForexRatesSnapshot null `
+ -CostCentreId null `
+ -ProjectId null `
  -Timestamp null `
  -Debit null `
  -Credit null `
- -Description null `
- -ForexRate null `
- -AccountId null `
- -TenantId null `
- -Date null `
- -EnrollmentId null `
- -CurrencyId null `
- -DebitAccountId null `
- -CreditAccountId null `
- -JournalEntryId null `
- -DebitAccountName null `
- -CreditAccountName null `
- -AccountingEntryType null `
- -DebitAmount null `
- -CreditAmount null
+ -Amount null `
+ -AmountInUsd null
 ```
 
 - Convert the resource to JSON

@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** |  | [optional] 
+**Name** | **String** |  | 
 **FromDate** | **System.DateTime** |  | [optional] 
 **ToDate** | **System.DateTime** |  | [optional] 
-**FiscalYearId** | **String** |  | [optional] 
+**FiscalYearId** | **String** |  | 
 
 ## Examples
 

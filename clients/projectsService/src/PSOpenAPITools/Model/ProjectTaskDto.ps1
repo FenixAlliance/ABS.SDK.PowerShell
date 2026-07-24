@@ -19,13 +19,21 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
+.PARAMETER Title
+No description available.
+.PARAMETER Description
+No description available.
 .PARAMETER StartDate
 No description available.
 .PARAMETER DueLine
 No description available.
-.PARAMETER ProjectID
+.PARAMETER ProjectId
 No description available.
-.PARAMETER ProjectTaskBucketID
+.PARAMETER ProjectTaskBucketId
+No description available.
+.PARAMETER TenantId
+No description available.
+.PARAMETER EnrollmentId
 No description available.
 .OUTPUTS
 
@@ -42,17 +50,29 @@ function Initialize-ProjectTaskDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Title},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${StartDate},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DueLine},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectID},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        ${ProjectId},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectTaskBucketID}
+        ${ProjectTaskBucketId},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EnrollmentId}
     )
 
     Process {
@@ -63,10 +83,14 @@ function Initialize-ProjectTaskDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
+            "title" = ${Title}
+            "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
-            "projectID" = ${ProjectID}
-            "projectTaskBucketID" = ${ProjectTaskBucketID}
+            "projectId" = ${ProjectId}
+            "projectTaskBucketId" = ${ProjectTaskBucketId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
 
@@ -104,7 +128,7 @@ function ConvertFrom-JsonToProjectTaskDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectTaskDto
-        $AllProperties = ("id", "timestamp", "startDate", "dueLine", "projectID", "projectTaskBucketID")
+        $AllProperties = ("id", "timestamp", "title", "description", "startDate", "dueLine", "projectId", "projectTaskBucketId", "tenantId", "enrollmentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,6 +147,18 @@ function ConvertFrom-JsonToProjectTaskDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) { #optional property not found
+            $Title = $null
+        } else {
+            $Title = $JsonParameters.PSobject.Properties["title"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
             $StartDate = $null
         } else {
@@ -135,25 +171,41 @@ function ConvertFrom-JsonToProjectTaskDto {
             $DueLine = $JsonParameters.PSobject.Properties["dueLine"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectID"))) { #optional property not found
-            $ProjectID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
         } else {
-            $ProjectID = $JsonParameters.PSobject.Properties["projectID"].value
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectTaskBucketID"))) { #optional property not found
-            $ProjectTaskBucketID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectTaskBucketId"))) { #optional property not found
+            $ProjectTaskBucketId = $null
         } else {
-            $ProjectTaskBucketID = $JsonParameters.PSobject.Properties["projectTaskBucketID"].value
+            $ProjectTaskBucketId = $JsonParameters.PSobject.Properties["projectTaskBucketId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
+            $EnrollmentId = $null
+        } else {
+            $EnrollmentId = $JsonParameters.PSobject.Properties["enrollmentId"].value
         }
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
+            "title" = ${Title}
+            "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
-            "projectID" = ${ProjectID}
-            "projectTaskBucketID" = ${ProjectTaskBucketID}
+            "projectId" = ${ProjectId}
+            "projectTaskBucketId" = ${ProjectTaskBucketId}
+            "tenantId" = ${TenantId}
+            "enrollmentId" = ${EnrollmentId}
         }
 
         return $PSO

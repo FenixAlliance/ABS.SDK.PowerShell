@@ -1771,7 +1771,7 @@ No authorization required
 
 <a id="Get-PurchaseInvoicesSum"></a>
 # **Get-PurchaseInvoicesSum**
-> DecimalEnvelope Get-PurchaseInvoicesSum<br>
+> MoneyEnvelope Get-PurchaseInvoicesSum<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 
 Sum tenant purchase-invoice totals.
@@ -1799,7 +1799,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md) (PSCustomObject)
+[**MoneyEnvelope**](MoneyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1814,7 +1814,7 @@ No authorization required
 
 <a id="Get-SalesInvoicesSum"></a>
 # **Get-SalesInvoicesSum**
-> DecimalEnvelope Get-SalesInvoicesSum<br>
+> MoneyEnvelope Get-SalesInvoicesSum<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 
 Sum tenant sales-invoice totals.
@@ -1842,7 +1842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md) (PSCustomObject)
+[**MoneyEnvelope**](MoneyEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

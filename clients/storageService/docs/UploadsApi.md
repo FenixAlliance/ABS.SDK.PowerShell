@@ -1,6 +1,6 @@
 # PSOpenAPITools.PSOpenAPITools\Api.UploadsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,6 +13,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Notes] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Title] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Author] <String><br>
@@ -23,6 +24,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ValidResponse] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ParentFileUploadId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FilePath] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PublicAccessType] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Purpose] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileIdValue] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppFileContent] <System.Nullable[SystemByte]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppFileSha256] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppFileCreatedAtUtc] <System.Nullable[System.DateTime]><br>
@@ -43,13 +47,14 @@ Method | HTTP request | Description
 
 Upload a file
 
-Uploads a file to tenant or user storage.
+Uploads a file to tenant or user storage, scanned and catalogued through the storage spine.
 
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$File =  # System.IO.FileInfo |  (optional)
 $Notes = "MyNotes" # String |  (optional)
 $Title = "MyTitle" # String |  (optional)
 $Author = "MyAuthor" # String |  (optional)
@@ -60,6 +65,9 @@ $KeyWords = "MyKeyWords" # String |  (optional)
 $ValidResponse = $true # Boolean |  (optional)
 $ParentFileUploadId = "MyParentFileUploadId" # String |  (optional)
 $FilePath = "MyFilePath" # String |  (optional)
+$PublicAccessType = "false" # String |  (optional)
+$Purpose = "Unknown" # String |  (optional)
+$SocialProfileIdValue = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $AppFileContent =  # SystemByte |  (optional)
 $AppFileSha256 = "MyAppFileSha256" # String |  (optional)
 $AppFileCreatedAtUtc = (Get-Date) # System.DateTime |  (optional)
@@ -80,7 +88,7 @@ $Timestamp = (Get-Date) # System.DateTime |  (optional)
 
 # Upload a file
 try {
-    $Result = Save-FileAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Notes $Notes -Title $Title -Author $Author -IsFolder $IsFolder -FileName $FileName -Abstract $Abstract -KeyWords $KeyWords -ValidResponse $ValidResponse -ParentFileUploadId $ParentFileUploadId -FilePath $FilePath -AppFileContent $AppFileContent -AppFileSha256 $AppFileSha256 -AppFileCreatedAtUtc $AppFileCreatedAtUtc -AppFileUserIdValue $AppFileUserIdValue -AppFileTenantIdValue $AppFileTenantIdValue -AppFileEnrollmentIdValue $AppFileEnrollmentIdValue -AppFileSource $AppFileSource -AppFileLength $AppFileLength -AppFileName $AppFileName -AppFileFileName $AppFileFileName -AppFileLastModified $AppFileLastModified -AppFileSize $AppFileSize -AppFileContentType $AppFileContentType -AppFileContentDisposition $AppFileContentDisposition -AppFileHeaders $AppFileHeaders -Id $Id -Timestamp $Timestamp
+    $Result = Save-FileAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -File $File -Notes $Notes -Title $Title -Author $Author -IsFolder $IsFolder -FileName $FileName -Abstract $Abstract -KeyWords $KeyWords -ValidResponse $ValidResponse -ParentFileUploadId $ParentFileUploadId -FilePath $FilePath -PublicAccessType $PublicAccessType -Purpose $Purpose -SocialProfileIdValue $SocialProfileIdValue -AppFileContent $AppFileContent -AppFileSha256 $AppFileSha256 -AppFileCreatedAtUtc $AppFileCreatedAtUtc -AppFileUserIdValue $AppFileUserIdValue -AppFileTenantIdValue $AppFileTenantIdValue -AppFileEnrollmentIdValue $AppFileEnrollmentIdValue -AppFileSource $AppFileSource -AppFileLength $AppFileLength -AppFileName $AppFileName -AppFileFileName $AppFileFileName -AppFileLastModified $AppFileLastModified -AppFileSize $AppFileSize -AppFileContentType $AppFileContentType -AppFileContentDisposition $AppFileContentDisposition -AppFileHeaders $AppFileHeaders -Id $Id -Timestamp $Timestamp
 } catch {
     Write-Host ("Exception occurred when calling Save-FileAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -94,6 +102,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
  **Notes** | **String**|  | [optional] 
  **Title** | **String**|  | [optional] 
  **Author** | **String**|  | [optional] 
@@ -104,6 +113,9 @@ Name | Type | Description  | Notes
  **ValidResponse** | **Boolean**|  | [optional] 
  **ParentFileUploadId** | **String**|  | [optional] 
  **FilePath** | **String**|  | [optional] 
+ **PublicAccessType** | **String**|  | [optional] 
+ **Purpose** | **String**|  | [optional] 
+ **SocialProfileIdValue** | **String**|  | [optional] 
  **AppFileContent** | **SystemByte**|  | [optional] 
  **AppFileSha256** | **String**|  | [optional] 
  **AppFileCreatedAtUtc** | **System.DateTime**|  | [optional] 

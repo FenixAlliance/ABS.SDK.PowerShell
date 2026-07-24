@@ -14,9 +14,12 @@ Method | HTTP request | Description
 [**Get-JournalDetailsAsync**](JournalsApi.md#Get-JournalDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId} | Get journal by ID
 [**Get-JournalEntriesAsync**](JournalsApi.md#Get-JournalEntriesAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries
 [**Get-JournalEntriesCountAsync**](JournalsApi.md#Get-JournalEntriesCountAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries
+[**Get-JournalEntryDetailsAsync**](JournalsApi.md#Get-JournalEntryDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Get journal entry by ID
 [**Get-JournalsAsync**](JournalsApi.md#Get-JournalsAsync) | **GET** /api/v2/AccountingService/Journals | Get all journals
 [**Invoke-PatchJournalAsync**](JournalsApi.md#Invoke-PatchJournalAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId} | Patch a journal
 [**Invoke-PatchJournalEntryAsync**](JournalsApi.md#Invoke-PatchJournalEntryAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry
+[**Submit-JournalEntryAsync**](JournalsApi.md#Submit-JournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post | Post a draft journal entry
+[**Invoke-ReverseJournalEntryAsync**](JournalsApi.md#Invoke-ReverseJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse | Reverse a posted journal entry
 [**Update-JournalAsync**](JournalsApi.md#Update-JournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal
 [**Update-JournalEntryAsync**](JournalsApi.md#Update-JournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry
 
@@ -38,7 +41,7 @@ Returns the sum of all credit amounts for entries in the specified journal, norm
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CurrencyId = "MyCurrencyId" # String |  (optional)
+$CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -57,7 +60,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **JournalId** | **String**|  | 
- **CurrencyId** | **String**|  | [optional] 
+ **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -93,7 +96,7 @@ Returns the sum of all debit amounts for entries in the specified journal, norma
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CurrencyId = "MyCurrencyId" # String |  (optional)
+$CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -112,7 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **JournalId** | **String**|  | 
- **CurrencyId** | **String**|  | [optional] 
+ **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -251,7 +254,8 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalEntryCreateDto = Initialize-JournalEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Opening $false -Description "MyDescription" -Date (Get-Date) -Debit 0 -Credit 0 -JournalId "MyJournalId" -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -ParentJournalEntryId "MyParentJournalEntryId" -InvoiceCode "MyInvoiceCode" # JournalEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -JournalEntryId "MyJournalEntryId" -AccountId "MyAccountId" -Direction "Debit" -TransactionAmount 0 -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription"
+$JournalEntryCreateDto = Initialize-JournalEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -JournalId "MyJournalId" -FiscalPeriodId "MyFiscalPeriodId" -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" -SourceDocumentType "MySourceDocumentType" -SourceDocumentId "MySourceDocumentId" -IdempotencyKey "MyIdempotencyKey" -IsOpeningBalance $false -AccountingEntries $AccountingEntryCreateDto # JournalEntryCreateDto |  (optional)
 
 # Create journal entry
 try {
@@ -550,6 +554,61 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-JournalEntryDetailsAsync"></a>
+# **Get-JournalEntryDetailsAsync**
+> JournalEntryDtoEnvelope Get-JournalEntryDetailsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get journal entry by ID
+
+Retrieves a single journal entry WITH its hydrated posting lines — each line's account, direction, description and currency facets (transaction / functional / account / USD).
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get journal entry by ID
+try {
+    $Result = Get-JournalEntryDetailsAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-JournalEntryDetailsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **EntryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**JournalEntryDtoEnvelope**](JournalEntryDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-JournalsAsync"></a>
 # **Get-JournalsAsync**
 > JournalDtoIReadOnlyListEnvelope Get-JournalsAsync<br>
@@ -712,6 +771,119 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Submit-JournalEntryAsync"></a>
+# **Submit-JournalEntryAsync**
+> EmptyEnvelope Submit-JournalEntryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Post a draft journal entry
+
+Posts a DRAFT journal entry into its own open fiscal period. Enforces the balanced-entry invariant and the open-period gate, then seals the entry (immutable — correct via reversal, never edit/delete). An unbalanced draft or a closed period is rejected. Requires the journals_post permission.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Post a draft journal entry
+try {
+    $Result = Submit-JournalEntryAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Submit-JournalEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **EntryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-ReverseJournalEntryAsync"></a>
+# **Invoke-ReverseJournalEntryAsync**
+> EmptyEnvelope Invoke-ReverseJournalEntryAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReverseJournalEntryRequest] <PSCustomObject><br>
+
+Reverse a posted journal entry
+
+Reverses a POSTED journal entry by writing a balanced compensating counter-entry into the supplied open fiscal period and marking the original Reversed — one atomic operation (append-only audit trail). Requires the journals_reverse permission.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$ReverseJournalEntryRequest = Initialize-ReverseJournalEntryRequest -ReversalPeriodId "MyReversalPeriodId" # ReverseJournalEntryRequest |  (optional)
+
+# Reverse a posted journal entry
+try {
+    $Result = Invoke-ReverseJournalEntryAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ReverseJournalEntryRequest $ReverseJournalEntryRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-ReverseJournalEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **EntryId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **ReverseJournalEntryRequest** | [**ReverseJournalEntryRequest**](ReverseJournalEntryRequest.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-JournalAsync"></a>
 # **Update-JournalAsync**
 > EmptyEnvelope Update-JournalAsync<br>
@@ -788,7 +960,7 @@ $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalEntryUpdateDto = Initialize-JournalEntryUpdateDto -Group $false -Opening $false -Description "MyDescription" -Date (Get-Date) -Debit 0 -Credit 0 -JournalId "MyJournalId" -CurrencyId "MyCurrencyId" -InvoiceCode "MyInvoiceCode" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -ParentJournalEntryId "MyParentJournalEntryId" # JournalEntryUpdateDto |  (optional)
+$JournalEntryUpdateDto = Initialize-JournalEntryUpdateDto -FiscalPeriodId "MyFiscalPeriodId" -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" -SourceDocumentType "MySourceDocumentType" -SourceDocumentId "MySourceDocumentId" -IsOpeningBalance $false # JournalEntryUpdateDto |  (optional)
 
 # Update journal entry
 try {

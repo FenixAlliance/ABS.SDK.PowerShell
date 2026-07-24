@@ -17,19 +17,13 @@ No description available.
 
 .PARAMETER Description
 No description available.
-.PARAMETER Amount
-No description available.
-.PARAMETER Date
+.PARAMETER PlannedAmount
 No description available.
 .PARAMETER CurrencyId
 No description available.
 .PARAMETER DebitAccountId
 No description available.
 .PARAMETER CreditAccountId
-No description available.
-.PARAMETER JournalEntryId
-No description available.
-.PARAMETER AccountingEntryType
 No description available.
 .PARAMETER BudgetId
 No description available.
@@ -46,27 +40,17 @@ function Initialize-BudgetAccountEntryUpdateDto {
         ${Description},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${Amount},
+        ${PlannedAmount},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Date},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DebitAccountId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CreditAccountId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${JournalEntryId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("None", "Debit", "Credit")]
-        [String]
-        ${AccountingEntryType},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BudgetId}
     )
@@ -75,56 +59,21 @@ function Initialize-BudgetAccountEntryUpdateDto {
         'Creating PSCustomObject: PSOpenAPITools => BudgetAccountEntryUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Description -and $Description.length -gt 1000) {
-            throw "invalid value for 'Description', the character length must be smaller than or equal to 1000."
+        if (!$Description -and $Description.length -gt 300) {
+            throw "invalid value for 'Description', the character length must be smaller than or equal to 300."
         }
 
         if (!$Description -and $Description.length -lt 1) {
             throw "invalid value for 'Description', the character length must be great than or equal to 1."
         }
 
-        if ($Amount -and $Amount -gt 999999999999999) {
-          throw "invalid value for 'Amount', must be smaller than or equal to 999999999999999."
-        }
-
-        if ($Amount -and $Amount -lt 0.01) {
-          throw "invalid value for 'Amount', must be greater than or equal to 0.01."
-        }
-
-        if (!$CreditAccountId -and $CreditAccountId.length -gt 36) {
-            throw "invalid value for 'CreditAccountId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$CreditAccountId -and $CreditAccountId.length -lt 36) {
-            throw "invalid value for 'CreditAccountId', the character length must be great than or equal to 36."
-        }
-
-        if (!$JournalEntryId -and $JournalEntryId.length -gt 36) {
-            throw "invalid value for 'JournalEntryId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$JournalEntryId -and $JournalEntryId.length -lt 36) {
-            throw "invalid value for 'JournalEntryId', the character length must be great than or equal to 36."
-        }
-
-        if (!$BudgetId -and $BudgetId.length -gt 36) {
-            throw "invalid value for 'BudgetId', the character length must be smaller than or equal to 36."
-        }
-
-        if (!$BudgetId -and $BudgetId.length -lt 0) {
-            throw "invalid value for 'BudgetId', the character length must be great than or equal to 0."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "description" = ${Description}
-            "amount" = ${Amount}
-            "date" = ${Date}
+            "plannedAmount" = ${PlannedAmount}
             "currencyId" = ${CurrencyId}
             "debitAccountId" = ${DebitAccountId}
             "creditAccountId" = ${CreditAccountId}
-            "journalEntryId" = ${JournalEntryId}
-            "accountingEntryType" = ${AccountingEntryType}
             "budgetId" = ${BudgetId}
         }
 
@@ -163,7 +112,7 @@ function ConvertFrom-JsonToBudgetAccountEntryUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BudgetAccountEntryUpdateDto
-        $AllProperties = ("description", "amount", "date", "currencyId", "debitAccountId", "creditAccountId", "journalEntryId", "accountingEntryType", "budgetId")
+        $AllProperties = ("description", "plannedAmount", "currencyId", "debitAccountId", "creditAccountId", "budgetId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -176,16 +125,10 @@ function ConvertFrom-JsonToBudgetAccountEntryUpdateDto {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "amount"))) { #optional property not found
-            $Amount = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "plannedAmount"))) { #optional property not found
+            $PlannedAmount = $null
         } else {
-            $Amount = $JsonParameters.PSobject.Properties["amount"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
-            $Date = $null
-        } else {
-            $Date = $JsonParameters.PSobject.Properties["date"].value
+            $PlannedAmount = $JsonParameters.PSobject.Properties["plannedAmount"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) { #optional property not found
@@ -206,18 +149,6 @@ function ConvertFrom-JsonToBudgetAccountEntryUpdateDto {
             $CreditAccountId = $JsonParameters.PSobject.Properties["creditAccountId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "journalEntryId"))) { #optional property not found
-            $JournalEntryId = $null
-        } else {
-            $JournalEntryId = $JsonParameters.PSobject.Properties["journalEntryId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountingEntryType"))) { #optional property not found
-            $AccountingEntryType = $null
-        } else {
-            $AccountingEntryType = $JsonParameters.PSobject.Properties["accountingEntryType"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "budgetId"))) { #optional property not found
             $BudgetId = $null
         } else {
@@ -226,13 +157,10 @@ function ConvertFrom-JsonToBudgetAccountEntryUpdateDto {
 
         $PSO = [PSCustomObject]@{
             "description" = ${Description}
-            "amount" = ${Amount}
-            "date" = ${Date}
+            "plannedAmount" = ${PlannedAmount}
             "currencyId" = ${CurrencyId}
             "debitAccountId" = ${DebitAccountId}
             "creditAccountId" = ${CreditAccountId}
-            "journalEntryId" = ${JournalEntryId}
-            "accountingEntryType" = ${AccountingEntryType}
             "budgetId" = ${BudgetId}
         }
 

@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**IndividualId** | **String** |  | [optional] 
+**OrganizationId** | **String** |  | [optional] 
 **ProjectStartDate** | **System.DateTime** |  | [optional] 
 **ProjectEndDate** | **System.DateTime** |  | [optional] 
 
@@ -14,6 +16,8 @@ Name | Type | Description | Notes
 ```powershell
 $ProjectUpdateDto = Initialize-PSOpenAPIToolsProjectUpdateDto  -Title null `
  -Description null `
+ -IndividualId null `
+ -OrganizationId null `
  -ProjectStartDate null `
  -ProjectEndDate null
 ```

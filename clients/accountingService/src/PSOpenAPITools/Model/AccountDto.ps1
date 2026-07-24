@@ -67,6 +67,14 @@ No description available.
 No description available.
 .PARAMETER AccountCategory
 No description available.
+.PARAMETER IsContra
+No description available.
+.PARAMETER IsMonetary
+No description available.
+.PARAMETER IncomeStatementSubType
+No description available.
+.PARAMETER NormalBalance
+No description available.
 .PARAMETER BalanceAmount
 No description available.
 .PARAMETER CreditsBalanceAmount
@@ -167,21 +175,35 @@ function Initialize-AccountDto {
         [String]
         ${AccountCategory},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${BalanceAmount},
+        [System.Nullable[Boolean]]
+        ${IsContra},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${CreditsBalanceAmount},
+        [System.Nullable[Boolean]]
+        ${IsMonetary},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${DebitsBalanceAmount},
+        [ValidateSet("OperatingRevenue", "Gain", "OperatingExpense", "Loss")]
+        [String]
+        ${IncomeStatementSubType},
         [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${BalanceAmountInUsd},
+        [ValidateSet("Debit", "Credit")]
+        [String]
+        ${NormalBalance},
         [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${DebitsBalanceAmountInUsd},
+        ${BalanceAmount},
         [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${CreditsBalanceAmount},
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DebitsBalanceAmount},
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${BalanceAmountInUsd},
+        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DebitsBalanceAmountInUsd},
+        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${CreditsBalanceAmountInUsd}
     )
@@ -218,6 +240,10 @@ function Initialize-AccountDto {
             "enrollmentId" = ${EnrollmentId}
             "childrenAccountsCount" = ${ChildrenAccountsCount}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
+            "normalBalance" = ${NormalBalance}
             "balanceAmount" = ${BalanceAmount}
             "creditsBalanceAmount" = ${CreditsBalanceAmount}
             "debitsBalanceAmount" = ${DebitsBalanceAmount}
@@ -261,7 +287,7 @@ function ConvertFrom-JsonToAccountDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountDto
-        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "title", "prefix", "balance", "currencyId", "contactId", "accountType", "qualifiedName", "accountTypeId", "debitsBalance", "creditsBalance", "balanceInUsd", "debitsBalanceInUsd", "creditsBalanceInUsd", "forexRate", "parentAccountId", "tenantId", "enrollmentId", "childrenAccountsCount", "accountCategory", "balanceAmount", "creditsBalanceAmount", "debitsBalanceAmount", "balanceAmountInUsd", "debitsBalanceAmountInUsd", "creditsBalanceAmountInUsd")
+        $AllProperties = ("id", "timestamp", "group", "frozen", "name", "code", "path", "title", "prefix", "balance", "currencyId", "contactId", "accountType", "qualifiedName", "accountTypeId", "debitsBalance", "creditsBalance", "balanceInUsd", "debitsBalanceInUsd", "creditsBalanceInUsd", "forexRate", "parentAccountId", "tenantId", "enrollmentId", "childrenAccountsCount", "accountCategory", "isContra", "isMonetary", "incomeStatementSubType", "normalBalance", "balanceAmount", "creditsBalanceAmount", "debitsBalanceAmount", "balanceAmountInUsd", "debitsBalanceAmountInUsd", "creditsBalanceAmountInUsd")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -424,6 +450,30 @@ function ConvertFrom-JsonToAccountDto {
             $AccountCategory = $JsonParameters.PSobject.Properties["accountCategory"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isContra"))) { #optional property not found
+            $IsContra = $null
+        } else {
+            $IsContra = $JsonParameters.PSobject.Properties["isContra"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMonetary"))) { #optional property not found
+            $IsMonetary = $null
+        } else {
+            $IsMonetary = $JsonParameters.PSobject.Properties["isMonetary"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "incomeStatementSubType"))) { #optional property not found
+            $IncomeStatementSubType = $null
+        } else {
+            $IncomeStatementSubType = $JsonParameters.PSobject.Properties["incomeStatementSubType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "normalBalance"))) { #optional property not found
+            $NormalBalance = $null
+        } else {
+            $NormalBalance = $JsonParameters.PSobject.Properties["normalBalance"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "balanceAmount"))) { #optional property not found
             $BalanceAmount = $null
         } else {
@@ -487,6 +537,10 @@ function ConvertFrom-JsonToAccountDto {
             "enrollmentId" = ${EnrollmentId}
             "childrenAccountsCount" = ${ChildrenAccountsCount}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
+            "normalBalance" = ${NormalBalance}
             "balanceAmount" = ${BalanceAmount}
             "creditsBalanceAmount" = ${CreditsBalanceAmount}
             "debitsBalanceAmount" = ${DebitsBalanceAmount}

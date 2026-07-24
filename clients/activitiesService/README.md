@@ -64,17 +64,18 @@ Class | Method | HTTP request | Description
 *ActivityFeedsApi* | [**Get-ActivityFeedAsync**](docs/ActivityFeedsApi.md#Get-ActivityFeedAsync) | **GET** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId} | Get activity feed by ID
 *ActivityFeedsApi* | [**Get-ActivityFeedsAsync**](docs/ActivityFeedsApi.md#Get-ActivityFeedsAsync) | **GET** /api/v2/ActivitiesService/ActivityFeeds | Get activity feeds
 *ActivityFeedsApi* | [**Get-ActivityFeedsCountAsync**](docs/ActivityFeedsApi.md#Get-ActivityFeedsCountAsync) | **GET** /api/v2/ActivitiesService/ActivityFeeds/Count | Count activity feeds
+*ActivityFeedsApi* | [**Get-ActivityRecordsCountAsync**](docs/ActivityFeedsApi.md#Get-ActivityRecordsCountAsync) | **GET** /api/v2/ActivitiesService/Activities/Count | Count activity records
 *ActivityFeedsApi* | [**Get-ActivityTypeByIdAsync**](docs/ActivityFeedsApi.md#Get-ActivityTypeByIdAsync) | **GET** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Get Activity Type
 *ActivityFeedsApi* | [**Get-ActivityTypesAsync**](docs/ActivityFeedsApi.md#Get-ActivityTypesAsync) | **GET** /api/v2/ActivitiesService/ActivityTypes | Get Activity Types
 *ActivityFeedsApi* | [**Invoke-PatchActivityAsync**](docs/ActivityFeedsApi.md#Invoke-PatchActivityAsync) | **PATCH** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Patch an activity
 *ActivityFeedsApi* | [**Invoke-PatchActivityTypeAsync**](docs/ActivityFeedsApi.md#Invoke-PatchActivityTypeAsync) | **PATCH** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Patch Activity Type
 *ActivityFeedsApi* | [**Update-ActivityAsync**](docs/ActivityFeedsApi.md#Update-ActivityAsync) | **PUT** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Update an activity
 *ActivityFeedsApi* | [**Update-ActivityTypeAsync**](docs/ActivityFeedsApi.md#Update-ActivityTypeAsync) | **PUT** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Update Activity Type
-*ActivityRecordsApi* | [**Get-ActivityRecordsCountAsync**](docs/ActivityRecordsApi.md#Get-ActivityRecordsCountAsync) | **GET** /api/v2/ActivitiesService/ActivityRecords/Count | Count activity records
 *FenixAllianceABSWebApi* | [**Invoke-AccountLogoutPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountLogoutPost) | **POST** /Account/Logout | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 

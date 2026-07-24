@@ -3,6 +3,11 @@ README.md
 appveyor.yml
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/BusinessRelationshipCreateDto.md
+docs/BusinessRelationshipDto.md
+docs/BusinessRelationshipDtoEnvelope.md
+docs/BusinessRelationshipDtoListEnvelope.md
+docs/BusinessRelationshipUpdateDto.md
 docs/BusinessRelationshipsApi.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -148,7 +153,7 @@ docs/UnitGroupUpdateDto.md
 docs/UnitGroupsApi.md
 docs/UnitUpdateDto.md
 docs/UnitsApi.md
-docs/UpdateAvatarAsyncRequest.md
+docs/UpdateTenantAvatarAsyncRequest.md
 docs/UserDto.md
 docs/UserDtoListEnvelope.md
 docs/WalletDto.md
@@ -178,6 +183,11 @@ src/PSOpenAPITools/Api/UnitsApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
 src/PSOpenAPITools/Model/BooleanEnvelope.ps1
+src/PSOpenAPITools/Model/BusinessRelationshipCreateDto.ps1
+src/PSOpenAPITools/Model/BusinessRelationshipDto.ps1
+src/PSOpenAPITools/Model/BusinessRelationshipDtoEnvelope.ps1
+src/PSOpenAPITools/Model/BusinessRelationshipDtoListEnvelope.ps1
+src/PSOpenAPITools/Model/BusinessRelationshipUpdateDto.ps1
 src/PSOpenAPITools/Model/CartDto.ps1
 src/PSOpenAPITools/Model/CartDtoEnvelope.ps1
 src/PSOpenAPITools/Model/EmptyEnvelope.ps1
@@ -303,7 +313,7 @@ src/PSOpenAPITools/Model/UnitGroupDtoEnvelope.ps1
 src/PSOpenAPITools/Model/UnitGroupDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/UnitGroupUpdateDto.ps1
 src/PSOpenAPITools/Model/UnitUpdateDto.ps1
-src/PSOpenAPITools/Model/UpdateAvatarAsyncRequest.ps1
+src/PSOpenAPITools/Model/UpdateTenantAvatarAsyncRequest.ps1
 src/PSOpenAPITools/Model/UserDto.ps1
 src/PSOpenAPITools/Model/UserDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/WalletDto.ps1
@@ -317,4 +327,9 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
-tests/Api/BusinessRelationshipsApi.Tests.ps1
+tests/Model/BusinessRelationshipCreateDto.Tests.ps1
+tests/Model/BusinessRelationshipDto.Tests.ps1
+tests/Model/BusinessRelationshipDtoEnvelope.Tests.ps1
+tests/Model/BusinessRelationshipDtoListEnvelope.Tests.ps1
+tests/Model/BusinessRelationshipUpdateDto.Tests.ps1
+tests/Model/UpdateTenantAvatarAsyncRequest.Tests.ps1

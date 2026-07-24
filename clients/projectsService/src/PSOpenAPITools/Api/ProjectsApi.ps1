@@ -240,7 +240,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 EmptyEnvelope
 #>
-function New-ProjectTaskAsync {
+function New-TaskForProjectAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -260,7 +260,7 @@ function New-ProjectTaskAsync {
     )
 
     Process {
-        'Calling method: New-ProjectTaskAsync' | Write-Debug
+        'Calling method: New-TaskForProjectAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -286,12 +286,12 @@ function New-ProjectTaskAsync {
 
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks'
         if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling createProjectTaskAsync."
+            throw "Error! The required parameter `ProjectId` missing when calling createTaskForProjectAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
 
         if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling createProjectTaskAsync."
+            throw "Error! The required parameter `TenantId` missing when calling createTaskForProjectAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
@@ -549,7 +549,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 EmptyEnvelope
 #>
-function Invoke-DeleteProjectTaskAsync {
+function Invoke-DeleteTaskForProjectAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -569,7 +569,7 @@ function Invoke-DeleteProjectTaskAsync {
     )
 
     Process {
-        'Calling method: Invoke-DeleteProjectTaskAsync' | Write-Debug
+        'Calling method: Invoke-DeleteTaskForProjectAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -592,16 +592,16 @@ function Invoke-DeleteProjectTaskAsync {
 
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}'
         if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling deleteProjectTaskAsync."
+            throw "Error! The required parameter `ProjectId` missing when calling deleteTaskForProjectAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
         if (!$ProjectTaskId) {
-            throw "Error! The required parameter `ProjectTaskId` missing when calling deleteProjectTaskAsync."
+            throw "Error! The required parameter `ProjectTaskId` missing when calling deleteTaskForProjectAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{projectTaskId}', [System.Web.HTTPUtility]::UrlEncode($ProjectTaskId))
 
         if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling deleteProjectTaskAsync."
+            throw "Error! The required parameter `TenantId` missing when calling deleteTaskForProjectAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
@@ -1012,294 +1012,6 @@ function Get-ProjectTaskCategoriesCountAsync {
 <#
 .SYNOPSIS
 
-Retrieves project tasks
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER ProjectId
-No description available.
-
-.PARAMETER TenantId
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-ProjectTaskDtoListEnvelope
-#>
-function Get-ProjectTasksAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ProjectId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${TenantId},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-ProjectTasksAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks'
-        if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling getProjectTasksAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
-
-        if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling getProjectTasksAsync."
-        }
-        $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ProjectTaskDtoListEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Counts project tasks
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER ProjectId
-No description available.
-
-.PARAMETER TenantId
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-Int32Envelope
-#>
-function Get-ProjectTasksCountAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ProjectId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${TenantId},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-ProjectTasksCountAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count'
-        if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling getProjectTasksCountAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
-
-        if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling getProjectTasksCountAsync."
-        }
-        $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Int32Envelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Retrieves project time logs
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER ProjectId
-No description available.
-
-.PARAMETER TenantId
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-ProjectTimeLogDtoListEnvelope
-#>
-function Get-ProjectTimeLogsAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ProjectId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${TenantId},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-ProjectTimeLogsAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs'
-        if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling getProjectTimeLogsAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
-
-        if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling getProjectTimeLogsAsync."
-        }
-        $LocalVarQueryParameters['tenantId'] = $TenantId
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ProjectTimeLogDtoListEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Counts project time logs
 
 .DESCRIPTION
@@ -1568,6 +1280,635 @@ function Get-ProjectsCountByTenantIdAsync {
 <#
 .SYNOPSIS
 
+Retrieves project tasks
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ProjectTaskDtoListEnvelope
+#>
+function Get-TasksForProjectAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-TasksForProjectAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling getTasksForProjectAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling getTasksForProjectAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ProjectTaskDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Counts project tasks
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Int32Envelope
+#>
+function Get-TasksForProjectCountAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-TasksForProjectCountAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling getTasksForProjectCountAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling getTasksForProjectCountAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Int32Envelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Retrieves project time logs
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ProjectTimeLogDtoListEnvelope
+#>
+function Get-TimeLogsForProjectAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-TimeLogsForProjectAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling getTimeLogsForProjectAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling getTimeLogsForProjectAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ProjectTimeLogDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Patches a project
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER Operation
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Invoke-PatchProjectAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Operation},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-PatchProjectAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling patchProjectAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling patchProjectAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Patches a project period
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER ProjectPeriodId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER Operation
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Invoke-PatchProjectPeriodAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectPeriodId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Operation},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-PatchProjectPeriodAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling patchProjectPeriodAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+        if (!$ProjectPeriodId) {
+            throw "Error! The required parameter `ProjectPeriodId` missing when calling patchProjectPeriodAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectPeriodId}', [System.Web.HTTPUtility]::UrlEncode($ProjectPeriodId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling patchProjectPeriodAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Patches a project task
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER ProjectId
+No description available.
+
+.PARAMETER ProjectTaskId
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER Operation
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Invoke-PatchTaskForProjectAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ProjectTaskId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Operation},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-PatchTaskForProjectAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}'
+        if (!$ProjectId) {
+            throw "Error! The required parameter `ProjectId` missing when calling patchTaskForProjectAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
+        if (!$ProjectTaskId) {
+            throw "Error! The required parameter `ProjectTaskId` missing when calling patchTaskForProjectAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{projectTaskId}', [System.Web.HTTPUtility]::UrlEncode($ProjectTaskId))
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling patchTaskForProjectAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Updates a project
 
 .DESCRIPTION
@@ -1822,7 +2163,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 EmptyEnvelope
 #>
-function Update-ProjectTaskAsync {
+function Update-TaskForProjectAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1845,7 +2186,7 @@ function Update-ProjectTaskAsync {
     )
 
     Process {
-        'Calling method: Update-ProjectTaskAsync' | Write-Debug
+        'Calling method: Update-TaskForProjectAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1871,16 +2212,16 @@ function Update-ProjectTaskAsync {
 
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}'
         if (!$ProjectId) {
-            throw "Error! The required parameter `ProjectId` missing when calling updateProjectTaskAsync."
+            throw "Error! The required parameter `ProjectId` missing when calling updateTaskForProjectAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{projectId}', [System.Web.HTTPUtility]::UrlEncode($ProjectId))
         if (!$ProjectTaskId) {
-            throw "Error! The required parameter `ProjectTaskId` missing when calling updateProjectTaskAsync."
+            throw "Error! The required parameter `ProjectTaskId` missing when calling updateTaskForProjectAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{projectTaskId}', [System.Web.HTTPUtility]::UrlEncode($ProjectTaskId))
 
         if (!$TenantId) {
-            throw "Error! The required parameter `TenantId` missing when calling updateProjectTaskAsync."
+            throw "Error! The required parameter `TenantId` missing when calling updateTaskForProjectAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 

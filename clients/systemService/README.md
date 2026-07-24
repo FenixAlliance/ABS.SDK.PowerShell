@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -94,10 +95,10 @@ Class | Method | HTTP request | Description
 *IPLookupsApi* | [**Get-SystemIPLookupById**](docs/IPLookupsApi.md#Get-SystemIPLookupById) | **GET** /api/v2/SystemService/IPLookups/{ipLookupId} | Retrieve a single system IP lookup by its ID
 *IPLookupsApi* | [**Get-SystemIPLookups**](docs/IPLookupsApi.md#Get-SystemIPLookups) | **GET** /api/v2/SystemService/IPLookups | Retrieve a list of system IP lookups
 *IPLookupsApi* | [**Get-SystemIPLookupsCount**](docs/IPLookupsApi.md#Get-SystemIPLookupsCount) | **GET** /api/v2/SystemService/IPLookups/Count | Get the count of system IP lookups
+*LicensingApi* | [**Get-AttributesForLicenseAsync**](docs/LicensingApi.md#Get-AttributesForLicenseAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes
+*LicensingApi* | [**Get-FeaturesForLicenseAsync**](docs/LicensingApi.md#Get-FeaturesForLicenseAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features
 *LicensingApi* | [**Get-LicenseAssignmentsAsync**](docs/LicensingApi.md#Get-LicenseAssignmentsAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | Retrieve license assignments
-*LicensingApi* | [**Get-LicenseAttributesAsync**](docs/LicensingApi.md#Get-LicenseAttributesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes
 *LicensingApi* | [**Get-LicenseByIdAsync**](docs/LicensingApi.md#Get-LicenseByIdAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId} | Retrieve a license by ID
-*LicensingApi* | [**Get-LicenseFeaturesAsync**](docs/LicensingApi.md#Get-LicenseFeaturesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features
 *LicensingApi* | [**Get-LicenseRecordsQuotaAsync**](docs/LicensingApi.md#Get-LicenseRecordsQuotaAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota | Retrieve license record quota
 *LicensingApi* | [**Get-LicensesAsync**](docs/LicensingApi.md#Get-LicensesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses | Retrieve a list of licenses
 *LicensingApi* | [**Invoke-RedeemLicenseAsync**](docs/LicensingApi.md#Invoke-RedeemLicenseAsync) | **POST** /api/v2/SystemService/Licensing/Licenses/Redeem | Redeem a license
@@ -183,13 +184,13 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ExtendedUserDtoListEnvelope](docs/ExtendedUserDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
+ - [PSOpenAPITools\Model.IOpenApiContact](docs/IOpenApiContact.md)
+ - [PSOpenAPITools\Model.IOpenApiDefinitionSpec](docs/IOpenApiDefinitionSpec.md)
+ - [PSOpenAPITools\Model.IOpenApiEndpoint](docs/IOpenApiEndpoint.md)
+ - [PSOpenAPITools\Model.IOpenApiLicense](docs/IOpenApiLicense.md)
  - [PSOpenAPITools\Model.IPLookupDto](docs/IPLookupDto.md)
  - [PSOpenAPITools\Model.IPLookupDtoEnvelope](docs/IPLookupDtoEnvelope.md)
  - [PSOpenAPITools\Model.IPLookupDtoListEnvelope](docs/IPLookupDtoListEnvelope.md)
- - [PSOpenAPITools\Model.ISwaggerContact](docs/ISwaggerContact.md)
- - [PSOpenAPITools\Model.ISwaggerEndpoint](docs/ISwaggerEndpoint.md)
- - [PSOpenAPITools\Model.ISwaggerLicense](docs/ISwaggerLicense.md)
- - [PSOpenAPITools\Model.ISwaggerSpec](docs/ISwaggerSpec.md)
  - [PSOpenAPITools\Model.IValidationFailure](docs/IValidationFailure.md)
  - [PSOpenAPITools\Model.IValidationFailureListEnvelope](docs/IValidationFailureListEnvelope.md)
  - [PSOpenAPITools\Model.InfoRequest](docs/InfoRequest.md)
@@ -197,8 +198,6 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LicenseValidationRequest](docs/LicenseValidationRequest.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Module](docs/Module.md)
- - [PSOpenAPITools\Model.ModuleListEnvelope](docs/ModuleListEnvelope.md)
  - [PSOpenAPITools\Model.ObjectEmailDispatchRequest](docs/ObjectEmailDispatchRequest.md)
  - [PSOpenAPITools\Model.Operation](docs/Operation.md)
  - [PSOpenAPITools\Model.OptionCreateDto](docs/OptionCreateDto.md)
@@ -219,6 +218,8 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.SuiteLicenseDto](docs/SuiteLicenseDto.md)
  - [PSOpenAPITools\Model.SuiteLicenseDtoEnvelope](docs/SuiteLicenseDtoEnvelope.md)
  - [PSOpenAPITools\Model.SuiteLicenseDtoListEnvelope](docs/SuiteLicenseDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.SuiteModule](docs/SuiteModule.md)
+ - [PSOpenAPITools\Model.SuiteModuleListEnvelope](docs/SuiteModuleListEnvelope.md)
  - [PSOpenAPITools\Model.SystemOverviewDto](docs/SystemOverviewDto.md)
  - [PSOpenAPITools\Model.SystemOverviewDtoEnvelope](docs/SystemOverviewDtoEnvelope.md)
  - [PSOpenAPITools\Model.TenantCreateDto](docs/TenantCreateDto.md)

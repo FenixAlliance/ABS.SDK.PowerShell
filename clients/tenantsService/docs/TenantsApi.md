@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Invoke-DeSelectTenantAsync**](TenantsApi.md#Invoke-DeSelectTenantAsync) | **POST** /api/v2/TenantsService/Tenants/Deselect | Deselect the user&#39;s default tenant
 [**Invoke-DeleteTenantAsync**](TenantsApi.md#Invoke-DeleteTenantAsync) | **DELETE** /api/v2/TenantsService/Tenants | Delete a tenant
 [**Get-AccessibleFeaturesAsync**](TenantsApi.md#Get-AccessibleFeaturesAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Features | Get the list of features accessible to a specific enrollment
+[**Get-CartForTenantAsync**](TenantsApi.md#Get-CartForTenantAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 [**Get-CurrentTenantAsync**](TenantsApi.md#Get-CurrentTenantAsync) | **GET** /api/v2/TenantsService/Tenants/Current | Get the user&#39;s current default tenant
 [**Get-EnrollmentLicenseByIdAsync**](TenantsApi.md#Get-EnrollmentLicenseByIdAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Get a specific license for an enrollment
 [**Get-EnrollmentLicensesAsync**](TenantsApi.md#Get-EnrollmentLicensesAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses | Get the list of licenses available to a specific enrollment
@@ -18,7 +19,6 @@ Method | HTTP request | Description
 [**Get-RootTenantAsync**](TenantsApi.md#Get-RootTenantAsync) | **GET** /api/v2/TenantsService/Tenants/Root | Get the root tenant of the platform
 [**Get-TenantAsync**](TenantsApi.md#Get-TenantAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId} | Get a specific tenant by ID
 [**Get-TenantAvatarAsync**](TenantsApi.md#Get-TenantAvatarAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Get a tenant&#39;s avatar
-[**Get-TenantCartAsync**](TenantsApi.md#Get-TenantCartAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 [**Get-TenantEnrollmentAsync**](TenantsApi.md#Get-TenantEnrollmentAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId} | Get a specific tenant enrollment
 [**Get-TenantEnrollmentsAsync**](TenantsApi.md#Get-TenantEnrollmentsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments | Get the list of user enrollments for a tenant
 [**Get-TenantInvitationsAsync**](TenantsApi.md#Get-TenantInvitationsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Invitations | Get the list of invitations issued by a tenant
@@ -35,8 +35,8 @@ Method | HTTP request | Description
 [**Invoke-PatchTenantAsync**](TenantsApi.md#Invoke-PatchTenantAsync) | **PATCH** /api/v2/TenantsService/Tenants/{tenantId} | Patch a tenant&#39;s profile
 [**Revoke-LicenseAsync**](TenantsApi.md#Revoke-LicenseAsync) | **DELETE** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Revoke a license from a specific enrollment
 [**Select-TenantAsync**](TenantsApi.md#Select-TenantAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Select | Select a business tenant as the user&#39;s default tenant
-[**Update-AvatarAsync**](TenantsApi.md#Update-AvatarAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 [**Update-TenantAsync**](TenantsApi.md#Update-TenantAsync) | **PUT** /api/v2/TenantsService/Tenants/{tenantId} | Update a tenant&#39;s profile
+[**Update-TenantAvatarAsync**](TenantsApi.md#Update-TenantAvatarAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 [**Confirm-EnrollmentFeatureAccess**](TenantsApi.md#Confirm-EnrollmentFeatureAccess) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/HasAccess | Validate the access to a specific feature for a specific enrollment
 [**Confirm-EnrollmentPermissionsAsync**](TenantsApi.md#Confirm-EnrollmentPermissionsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Permissions/Validate | Validate the existence of a list of roles and permissions for a specific enrollment
 
@@ -280,6 +280,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SuiteLicenseFeatureDtoListEnvelope**](SuiteLicenseFeatureDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-CartForTenantAsync"></a>
+# **Get-CartForTenantAsync**
+> CartDtoEnvelope Get-CartForTenantAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get a tenant's default cart
+
+Get a tenant's default cart
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get a tenant's default cart
+try {
+    $Result = Get-CartForTenantAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-CartForTenantAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**CartDtoEnvelope**](CartDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -733,55 +782,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-TenantCartAsync"></a>
-# **Get-TenantCartAsync**
-> CartDtoEnvelope Get-TenantCartAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-
-Get a tenant's default cart
-
-Get a tenant's default cart
-
-### Example
-```powershell
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-
-# Get a tenant's default cart
-try {
-    $Result = Get-TenantCartAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
-} catch {
-    Write-Host ("Exception occurred when calling Get-TenantCartAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**CartDtoEnvelope**](CartDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1590,58 +1590,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Update-AvatarAsync"></a>
-# **Update-AvatarAsync**
-> EmptyEnvelope Update-AvatarAsync<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Avatar] <System.IO.FileInfo><br>
-
-Update a tenant's avatar
-
-Update a tenant's avatar
-
-### Example
-```powershell
-$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$ApiVersion = "MyApiVersion" # String |  (optional)
-$XApiVersion = "MyXApiVersion" # String |  (optional)
-$Avatar =  # System.IO.FileInfo |  (optional)
-
-# Update a tenant's avatar
-try {
-    $Result = Update-AvatarAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Avatar $Avatar
-} catch {
-    Write-Host ("Exception occurred when calling Update-AvatarAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TenantId** | **String**|  | 
- **ApiVersion** | **String**|  | [optional] 
- **XApiVersion** | **String**|  | [optional] 
- **Avatar** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data, application/json, application/xml
- - **Accept**: image/png, application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Update-TenantAsync"></a>
 # **Update-TenantAsync**
 > EmptyEnvelope Update-TenantAsync<br>
@@ -1691,6 +1639,58 @@ No authorization required
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-TenantAvatarAsync"></a>
+# **Update-TenantAvatarAsync**
+> EmptyEnvelope Update-TenantAvatarAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Avatar] <System.IO.FileInfo><br>
+
+Update a tenant's avatar
+
+Update a tenant's avatar
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Avatar =  # System.IO.FileInfo |  (optional)
+
+# Update a tenant's avatar
+try {
+    $Result = Update-TenantAvatarAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Avatar $Avatar
+} catch {
+    Write-Host ("Exception occurred when calling Update-TenantAvatarAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Avatar** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json, application/xml
+ - **Accept**: image/png, application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -3,35 +3,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Group** | **Boolean** |  | [optional] 
-**Opening** | **Boolean** |  | [optional] 
+**FiscalPeriodId** | **String** |  | 
+**TransactionCurrencyId** | **String** |  | 
 **Description** | **String** |  | 
-**Date** | **System.DateTime** |  | 
-**Debit** | **Double** |  | [optional] 
-**Credit** | **Double** |  | [optional] 
-**JournalId** | **String** |  | 
-**CurrencyId** | **String** |  | 
-**InvoiceCode** | **String** |  | [optional] 
-**DebitAccountId** | **String** |  | 
-**CreditAccountId** | **String** |  | 
-**ParentJournalEntryId** | **String** |  | [optional] 
+**SourceDocumentType** | **String** |  | [optional] 
+**SourceDocumentId** | **String** |  | [optional] 
+**IsOpeningBalance** | **Boolean** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$JournalEntryUpdateDto = Initialize-PSOpenAPIToolsJournalEntryUpdateDto  -Group null `
- -Opening null `
+$JournalEntryUpdateDto = Initialize-PSOpenAPIToolsJournalEntryUpdateDto  -FiscalPeriodId null `
+ -TransactionCurrencyId null `
  -Description null `
- -Date null `
- -Debit null `
- -Credit null `
- -JournalId null `
- -CurrencyId null `
- -InvoiceCode null `
- -DebitAccountId null `
- -CreditAccountId null `
- -ParentJournalEntryId null
+ -SourceDocumentType null `
+ -SourceDocumentId null `
+ -IsOpeningBalance null
 ```
 
 - Convert the resource to JSON

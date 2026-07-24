@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** |  | [optional] 
+**Name** | **String** |  | 
 **Description** | **String** |  | [optional] 
 **Closed** | **Boolean** |  | [optional] 
 **EndDate** | **System.DateTime** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
-**FiscalAuthorityId** | **String** |  | [optional] 
+**FiscalAuthorityId** | **String** |  | 
 
 ## Examples
 

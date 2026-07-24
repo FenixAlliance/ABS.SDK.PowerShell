@@ -63,7 +63,7 @@ Returns the sum of all account balances matching OData filters, normalized to th
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CurrencyId = "MyCurrencyId" # String |  (optional)
+$CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -81,7 +81,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **CurrencyId** | **String**|  | [optional] 
+ **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
@@ -218,7 +218,7 @@ Get root accounts.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountCreateDto |  (optional)
+$AccountCreateDto = Initialize-AccountCreateDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -IsContra $false -IsMonetary $false -IncomeStatementSubType "OperatingRevenue" # AccountCreateDto |  (optional)
 
 # Get root accounts
 try {
@@ -272,7 +272,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -JournalEntryId "MyJournalEntryId" -AccountId "MyAccountId" -Direction "Debit" -TransactionAmount 0 -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" # AccountingEntryCreateDto |  (optional)
 
 # Create account credit
 try {
@@ -327,7 +327,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -JournalEntryId "MyJournalEntryId" -AccountId "MyAccountId" -Direction "Debit" -TransactionAmount 0 -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" # AccountingEntryCreateDto |  (optional)
 
 # Create account debit
 try {
@@ -382,7 +382,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryCreateDto |  (optional)
+$AccountingEntryCreateDto = Initialize-AccountingEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -JournalEntryId "MyJournalEntryId" -AccountId "MyAccountId" -Direction "Debit" -TransactionAmount 0 -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" # AccountingEntryCreateDto |  (optional)
 
 # Create account entry
 try {
@@ -755,13 +755,13 @@ Get account aggregate.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$CurrencyId = "MyCurrencyId" # String |  (optional)
+$CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 $CurrencyId = Initialize-CurrencyId -Value "MyValue" -Code "MyCode" -Country "MyCountry"
 $Money = Initialize-Money -Amount 0 -Currency $CurrencyId
 
-$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -BalanceInUsd 0 -DebitsBalanceInUsd 0 -CreditsBalanceInUsd 0 -ForexRate 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money -BalanceAmountInUsd $Money -DebitsBalanceAmountInUsd $Money -CreditsBalanceAmountInUsd $Money # AccountDto[] |  (optional)
+$AccountDto = Initialize-AccountDto -Id "MyId" -Timestamp (Get-Date) -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Title "MyTitle" -Prefix "MyPrefix" -Balance 0 -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountType "MyAccountType" -QualifiedName "MyQualifiedName" -AccountTypeId "MyAccountTypeId" -DebitsBalance 0 -CreditsBalance 0 -BalanceInUsd 0 -DebitsBalanceInUsd 0 -CreditsBalanceInUsd 0 -ForexRate 0 -ParentAccountId "MyParentAccountId" -TenantId "MyTenantId" -EnrollmentId "MyEnrollmentId" -ChildrenAccountsCount 0 -AccountCategory "Assets" -IsContra $false -IsMonetary $false -IncomeStatementSubType "OperatingRevenue" -NormalBalance "Debit" -BalanceAmount $Money -CreditsBalanceAmount $Money -DebitsBalanceAmount $Money -BalanceAmountInUsd $Money -DebitsBalanceAmountInUsd $Money -CreditsBalanceAmountInUsd $Money # AccountDto[] |  (optional)
 
 # Get account aggregate
 try {
@@ -777,7 +777,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
- **CurrencyId** | **String**|  | [optional] 
+ **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
  **AccountDto** | [**AccountDto[]**](AccountDto.md)|  | [optional] 
@@ -2064,7 +2064,7 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountUpdateDto = Initialize-AccountUpdateDto -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" # AccountUpdateDto |  (optional)
+$AccountUpdateDto = Initialize-AccountUpdateDto -Group $false -Frozen $false -Name "MyName" -Code "MyCode" -Path "MyPath" -Prefix "MyPrefix" -CurrencyId "MyCurrencyId" -ContactId "MyContactId" -AccountTypeId "MyAccountTypeId" -ParentAccountId "MyParentAccountId" -AccountCategory "Assets" -IsContra $false -IsMonetary $false -IncomeStatementSubType "OperatingRevenue" # AccountUpdateDto |  (optional)
 
 # Update an account
 try {
@@ -2121,7 +2121,7 @@ $AccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$AccountingEntryUpdateDto = Initialize-AccountingEntryUpdateDto -Description "MyDescription" -Amount 0 -Date (Get-Date) -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" # AccountingEntryUpdateDto |  (optional)
+$AccountingEntryUpdateDto = Initialize-AccountingEntryUpdateDto -JournalEntryId "MyJournalEntryId" -AccountId "MyAccountId" -Direction "Debit" -TransactionAmount 0 -TransactionCurrencyId "MyTransactionCurrencyId" -Description "MyDescription" # AccountingEntryUpdateDto |  (optional)
 
 # Update account entry
 try {

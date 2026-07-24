@@ -15,6 +15,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER Title
+No description available.
+.PARAMETER Description
+No description available.
 .PARAMETER StartDate
 No description available.
 .PARAMETER DueLine
@@ -28,9 +32,15 @@ function Initialize-ProjectTaskUpdateDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Title},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${StartDate},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DueLine}
     )
@@ -41,6 +51,8 @@ function Initialize-ProjectTaskUpdateDto {
 
 
         $PSO = [PSCustomObject]@{
+            "title" = ${Title}
+            "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
         }
@@ -80,11 +92,23 @@ function ConvertFrom-JsonToProjectTaskUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectTaskUpdateDto
-        $AllProperties = ("startDate", "dueLine")
+        $AllProperties = ("title", "description", "startDate", "dueLine")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "title"))) { #optional property not found
+            $Title = $null
+        } else {
+            $Title = $JsonParameters.PSobject.Properties["title"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
@@ -100,6 +124,8 @@ function ConvertFrom-JsonToProjectTaskUpdateDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "title" = ${Title}
+            "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
         }

@@ -7,6 +7,10 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
+**IndividualId** | **String** |  | [optional] 
+**OrganizationId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 **ProjectStartDate** | **System.DateTime** |  | [optional] 
 **ProjectEndDate** | **System.DateTime** |  | [optional] 
 
@@ -18,6 +22,10 @@ $ProjectDto = Initialize-PSOpenAPIToolsProjectDto  -Id null `
  -Timestamp null `
  -Title null `
  -Description null `
+ -IndividualId null `
+ -OrganizationId null `
+ -TenantId null `
+ -EnrollmentId null `
  -ProjectStartDate null `
  -ProjectEndDate null
 ```

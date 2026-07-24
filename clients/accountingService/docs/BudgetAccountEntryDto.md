@@ -5,24 +5,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Debit** | **Double** |  | [optional] 
-**Credit** | **Double** |  | [optional] 
-**Description** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
-**AccountId** | **String** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
-**Date** | **System.DateTime** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**PlannedAmount** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **DebitAccountId** | **String** |  | [optional] 
 **CreditAccountId** | **String** |  | [optional] 
-**JournalEntryId** | **String** |  | [optional] 
-**DebitAccountName** | **String** |  | [optional] 
-**CreditAccountName** | **String** |  | [optional] 
-**AccountingEntryType** | **String** |  | [optional] 
-**DebitAmount** | [**Money**](Money.md) |  | [optional] 
-**CreditAmount** | [**Money**](Money.md) |  | [optional] 
 **BudgetId** | **String** |  | [optional] 
+**Date** | **System.DateTime** |  | [optional] 
+**PlannedAmountMoney** | [**Money**](Money.md) |  | [optional] 
 
 ## Examples
 
@@ -30,24 +22,16 @@ Name | Type | Description | Notes
 ```powershell
 $BudgetAccountEntryDto = Initialize-PSOpenAPIToolsBudgetAccountEntryDto  -Id null `
  -Timestamp null `
- -Debit null `
- -Credit null `
- -Description null `
- -ForexRate null `
- -AccountId null `
  -TenantId null `
- -Date null `
  -EnrollmentId null `
+ -Description null `
+ -PlannedAmount null `
  -CurrencyId null `
  -DebitAccountId null `
  -CreditAccountId null `
- -JournalEntryId null `
- -DebitAccountName null `
- -CreditAccountName null `
- -AccountingEntryType null `
- -DebitAmount null `
- -CreditAmount null `
- -BudgetId null
+ -BudgetId null `
+ -Date null `
+ -PlannedAmountMoney null
 ```
 
 - Convert the resource to JSON

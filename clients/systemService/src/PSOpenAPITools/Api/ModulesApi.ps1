@@ -140,7 +140,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ModuleListEnvelope
+SuiteModuleListEnvelope
 #>
 function Get-AvailableModules {
     [CmdletBinding()]
@@ -206,7 +206,7 @@ function Get-AvailableModules {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ModuleListEnvelope" `
+                                -ReturnType "SuiteModuleListEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

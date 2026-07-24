@@ -41,7 +41,7 @@ function Initialize-LedgerTypeCreateDto {
         [String]
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Assets", "Equity", "Gains", "Losses", "Revenue", "Expenses", "Liabilities")]
+        [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
         ${LedgerClass}
     )

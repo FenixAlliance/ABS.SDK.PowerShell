@@ -23,7 +23,7 @@ No description available.
 No description available.
 .PARAMETER PeriodEndDate
 No description available.
-.PARAMETER ProjectID
+.PARAMETER ProjectId
 No description available.
 .OUTPUTS
 
@@ -47,7 +47,7 @@ function Initialize-ProjectPeriodCreateDto {
         ${PeriodEndDate},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectID}
+        ${ProjectId}
     )
 
     Process {
@@ -60,7 +60,7 @@ function Initialize-ProjectPeriodCreateDto {
             "timestamp" = ${Timestamp}
             "periodStartDate" = ${PeriodStartDate}
             "periodEndDate" = ${PeriodEndDate}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToProjectPeriodCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectPeriodCreateDto
-        $AllProperties = ("id", "timestamp", "periodStartDate", "periodEndDate", "projectID")
+        $AllProperties = ("id", "timestamp", "periodStartDate", "periodEndDate", "projectId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,10 +129,10 @@ function ConvertFrom-JsonToProjectPeriodCreateDto {
             $PeriodEndDate = $JsonParameters.PSobject.Properties["periodEndDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectID"))) { #optional property not found
-            $ProjectID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
         } else {
-            $ProjectID = $JsonParameters.PSobject.Properties["projectID"].value
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -140,7 +140,7 @@ function ConvertFrom-JsonToProjectPeriodCreateDto {
             "timestamp" = ${Timestamp}
             "periodStartDate" = ${PeriodStartDate}
             "periodEndDate" = ${PeriodEndDate}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
         }
 
         return $PSO

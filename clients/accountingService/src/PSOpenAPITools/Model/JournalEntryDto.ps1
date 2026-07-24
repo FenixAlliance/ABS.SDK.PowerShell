@@ -17,30 +17,6 @@ No description available.
 
 .PARAMETER Id
 No description available.
-.PARAMETER Timestamp
-No description available.
-.PARAMETER Group
-No description available.
-.PARAMETER Opening
-No description available.
-.PARAMETER Description
-No description available.
-.PARAMETER Date
-No description available.
-.PARAMETER ForexRatesSnapshot
-No description available.
-.PARAMETER ForexRate
-No description available.
-.PARAMETER Credit
-No description available.
-.PARAMETER Debit
-No description available.
-.PARAMETER CreditInUsd
-No description available.
-.PARAMETER DebitInUsd
-No description available.
-.PARAMETER CurrencyId
-No description available.
 .PARAMETER TenantId
 No description available.
 .PARAMETER EnrollmentId
@@ -51,25 +27,51 @@ No description available.
 No description available.
 .PARAMETER JournalCode
 No description available.
-.PARAMETER CreditAccountId
+.PARAMETER FiscalPeriodId
 No description available.
-.PARAMETER CreditAccountName
+.PARAMETER FinancialBookId
 No description available.
-.PARAMETER DebitAccountId
+.PARAMETER Description
 No description available.
-.PARAMETER DebitAccountName
+.PARAMETER EntryType
 No description available.
-.PARAMETER InvoiceCode
+.PARAMETER Status
 No description available.
-.PARAMETER ParentJournalEntryId
+.PARAMETER PostingDate
 No description available.
-.PARAMETER CreditAmount
+.PARAMETER IsOpeningBalance
 No description available.
-.PARAMETER DebitAmount
+.PARAMETER TransactionCurrencyId
 No description available.
-.PARAMETER CreditAmountInUsd
+.PARAMETER SourceDocumentType
 No description available.
-.PARAMETER DebitAmountInUsd
+.PARAMETER SourceDocumentId
+No description available.
+.PARAMETER IdempotencyKey
+No description available.
+.PARAMETER ReversalOfJournalEntryId
+No description available.
+.PARAMETER PostedBy
+No description available.
+.PARAMETER ForexRate
+No description available.
+.PARAMETER ForexRatesSnapshot
+No description available.
+.PARAMETER Timestamp
+No description available.
+.PARAMETER DebitInUsd
+No description available.
+.PARAMETER CreditInUsd
+No description available.
+.PARAMETER AccountingEntries
+No description available.
+.PARAMETER TotalDebit
+No description available.
+.PARAMETER TotalCredit
+No description available.
+.PARAMETER TotalDebitAmount
+No description available.
+.PARAMETER TotalCreditAmount
 No description available.
 .OUTPUTS
 
@@ -83,86 +85,91 @@ function Initialize-JournalEntryDto {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Timestamp},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Group},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Opening},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Date},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ForexRatesSnapshot},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${ForexRate},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Credit},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${Debit},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${CreditInUsd},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${DebitInUsd},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CurrencyId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TenantId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EnrollmentId},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JournalId},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JournalName},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JournalCode},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FiscalPeriodId},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FinancialBookId},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Simple", "Compound", "Adjusting", "Reversing")]
+        [String]
+        ${EntryType},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Draft", "Posted", "Reversed", "Voided")]
+        [String]
+        ${Status},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${PostingDate},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsOpeningBalance},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TransactionCurrencyId},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceDocumentType},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceDocumentId},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IdempotencyKey},
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ReversalOfJournalEntryId},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CreditAccountId},
+        ${PostedBy},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CreditAccountName},
+        [System.Nullable[Double]]
+        ${ForexRate},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DebitAccountId},
+        ${ForexRatesSnapshot},
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DebitAccountName},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${InvoiceCode},
+        [System.Nullable[Double]]
+        ${DebitInUsd},
         [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ParentJournalEntryId},
+        [System.Nullable[Double]]
+        ${CreditInUsd},
         [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${CreditAmount},
+        [PSCustomObject[]]
+        ${AccountingEntries},
         [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${DebitAmount},
+        [System.Nullable[Double]]
+        ${TotalDebit},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${CreditAmountInUsd},
+        [System.Nullable[Double]]
+        ${TotalCredit},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${DebitAmountInUsd}
+        ${TotalDebitAmount},
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TotalCreditAmount}
     )
 
     Process {
@@ -172,33 +179,34 @@ function Initialize-JournalEntryDto {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "timestamp" = ${Timestamp}
-            "group" = ${Group}
-            "opening" = ${Opening}
-            "description" = ${Description}
-            "date" = ${Date}
-            "forexRatesSnapshot" = ${ForexRatesSnapshot}
-            "forexRate" = ${ForexRate}
-            "credit" = ${Credit}
-            "debit" = ${Debit}
-            "creditInUsd" = ${CreditInUsd}
-            "debitInUsd" = ${DebitInUsd}
-            "currencyId" = ${CurrencyId}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalId" = ${JournalId}
             "journalName" = ${JournalName}
             "journalCode" = ${JournalCode}
-            "creditAccountId" = ${CreditAccountId}
-            "creditAccountName" = ${CreditAccountName}
-            "debitAccountId" = ${DebitAccountId}
-            "debitAccountName" = ${DebitAccountName}
-            "invoiceCode" = ${InvoiceCode}
-            "parentJournalEntryId" = ${ParentJournalEntryId}
-            "creditAmount" = ${CreditAmount}
-            "debitAmount" = ${DebitAmount}
-            "creditAmountInUsd" = ${CreditAmountInUsd}
-            "debitAmountInUsd" = ${DebitAmountInUsd}
+            "fiscalPeriodId" = ${FiscalPeriodId}
+            "financialBookId" = ${FinancialBookId}
+            "description" = ${Description}
+            "entryType" = ${EntryType}
+            "status" = ${Status}
+            "postingDate" = ${PostingDate}
+            "isOpeningBalance" = ${IsOpeningBalance}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
+            "sourceDocumentType" = ${SourceDocumentType}
+            "sourceDocumentId" = ${SourceDocumentId}
+            "idempotencyKey" = ${IdempotencyKey}
+            "reversalOfJournalEntryId" = ${ReversalOfJournalEntryId}
+            "postedBy" = ${PostedBy}
+            "forexRate" = ${ForexRate}
+            "forexRatesSnapshot" = ${ForexRatesSnapshot}
+            "timestamp" = ${Timestamp}
+            "debitInUsd" = ${DebitInUsd}
+            "creditInUsd" = ${CreditInUsd}
+            "accountingEntries" = ${AccountingEntries}
+            "totalDebit" = ${TotalDebit}
+            "totalCredit" = ${TotalCredit}
+            "totalDebitAmount" = ${TotalDebitAmount}
+            "totalCreditAmount" = ${TotalCreditAmount}
         }
 
 
@@ -236,7 +244,7 @@ function ConvertFrom-JsonToJournalEntryDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalEntryDto
-        $AllProperties = ("id", "timestamp", "group", "opening", "description", "date", "forexRatesSnapshot", "forexRate", "credit", "debit", "creditInUsd", "debitInUsd", "currencyId", "tenantId", "enrollmentId", "journalId", "journalName", "journalCode", "creditAccountId", "creditAccountName", "debitAccountId", "debitAccountName", "invoiceCode", "parentJournalEntryId", "creditAmount", "debitAmount", "creditAmountInUsd", "debitAmountInUsd")
+        $AllProperties = ("id", "tenantId", "enrollmentId", "journalId", "journalName", "journalCode", "fiscalPeriodId", "financialBookId", "description", "entryType", "status", "postingDate", "isOpeningBalance", "transactionCurrencyId", "sourceDocumentType", "sourceDocumentId", "idempotencyKey", "reversalOfJournalEntryId", "postedBy", "forexRate", "forexRatesSnapshot", "timestamp", "debitInUsd", "creditInUsd", "accountingEntries", "totalDebit", "totalCredit", "totalDebitAmount", "totalCreditAmount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -247,78 +255,6 @@ function ConvertFrom-JsonToJournalEntryDto {
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
-            $Timestamp = $null
-        } else {
-            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "group"))) { #optional property not found
-            $Group = $null
-        } else {
-            $Group = $JsonParameters.PSobject.Properties["group"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "opening"))) { #optional property not found
-            $Opening = $null
-        } else {
-            $Opening = $JsonParameters.PSobject.Properties["opening"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
-            $Date = $null
-        } else {
-            $Date = $JsonParameters.PSobject.Properties["date"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRatesSnapshot"))) { #optional property not found
-            $ForexRatesSnapshot = $null
-        } else {
-            $ForexRatesSnapshot = $JsonParameters.PSobject.Properties["forexRatesSnapshot"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRate"))) { #optional property not found
-            $ForexRate = $null
-        } else {
-            $ForexRate = $JsonParameters.PSobject.Properties["forexRate"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "credit"))) { #optional property not found
-            $Credit = $null
-        } else {
-            $Credit = $JsonParameters.PSobject.Properties["credit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debit"))) { #optional property not found
-            $Debit = $null
-        } else {
-            $Debit = $JsonParameters.PSobject.Properties["debit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditInUsd"))) { #optional property not found
-            $CreditInUsd = $null
-        } else {
-            $CreditInUsd = $JsonParameters.PSobject.Properties["creditInUsd"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitInUsd"))) { #optional property not found
-            $DebitInUsd = $null
-        } else {
-            $DebitInUsd = $JsonParameters.PSobject.Properties["debitInUsd"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currencyId"))) { #optional property not found
-            $CurrencyId = $null
-        } else {
-            $CurrencyId = $JsonParameters.PSobject.Properties["currencyId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
@@ -351,95 +287,174 @@ function ConvertFrom-JsonToJournalEntryDto {
             $JournalCode = $JsonParameters.PSobject.Properties["journalCode"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAccountId"))) { #optional property not found
-            $CreditAccountId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalPeriodId"))) { #optional property not found
+            $FiscalPeriodId = $null
         } else {
-            $CreditAccountId = $JsonParameters.PSobject.Properties["creditAccountId"].value
+            $FiscalPeriodId = $JsonParameters.PSobject.Properties["fiscalPeriodId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAccountName"))) { #optional property not found
-            $CreditAccountName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "financialBookId"))) { #optional property not found
+            $FinancialBookId = $null
         } else {
-            $CreditAccountName = $JsonParameters.PSobject.Properties["creditAccountName"].value
+            $FinancialBookId = $JsonParameters.PSobject.Properties["financialBookId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAccountId"))) { #optional property not found
-            $DebitAccountId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $DebitAccountId = $JsonParameters.PSobject.Properties["debitAccountId"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAccountName"))) { #optional property not found
-            $DebitAccountName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entryType"))) { #optional property not found
+            $EntryType = $null
         } else {
-            $DebitAccountName = $JsonParameters.PSobject.Properties["debitAccountName"].value
+            $EntryType = $JsonParameters.PSobject.Properties["entryType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "invoiceCode"))) { #optional property not found
-            $InvoiceCode = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
+            $Status = $null
         } else {
-            $InvoiceCode = $JsonParameters.PSobject.Properties["invoiceCode"].value
+            $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "parentJournalEntryId"))) { #optional property not found
-            $ParentJournalEntryId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "postingDate"))) { #optional property not found
+            $PostingDate = $null
         } else {
-            $ParentJournalEntryId = $JsonParameters.PSobject.Properties["parentJournalEntryId"].value
+            $PostingDate = $JsonParameters.PSobject.Properties["postingDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAmount"))) { #optional property not found
-            $CreditAmount = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isOpeningBalance"))) { #optional property not found
+            $IsOpeningBalance = $null
         } else {
-            $CreditAmount = $JsonParameters.PSobject.Properties["creditAmount"].value
+            $IsOpeningBalance = $JsonParameters.PSobject.Properties["isOpeningBalance"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAmount"))) { #optional property not found
-            $DebitAmount = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "transactionCurrencyId"))) { #optional property not found
+            $TransactionCurrencyId = $null
         } else {
-            $DebitAmount = $JsonParameters.PSobject.Properties["debitAmount"].value
+            $TransactionCurrencyId = $JsonParameters.PSobject.Properties["transactionCurrencyId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditAmountInUsd"))) { #optional property not found
-            $CreditAmountInUsd = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceDocumentType"))) { #optional property not found
+            $SourceDocumentType = $null
         } else {
-            $CreditAmountInUsd = $JsonParameters.PSobject.Properties["creditAmountInUsd"].value
+            $SourceDocumentType = $JsonParameters.PSobject.Properties["sourceDocumentType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitAmountInUsd"))) { #optional property not found
-            $DebitAmountInUsd = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceDocumentId"))) { #optional property not found
+            $SourceDocumentId = $null
         } else {
-            $DebitAmountInUsd = $JsonParameters.PSobject.Properties["debitAmountInUsd"].value
+            $SourceDocumentId = $JsonParameters.PSobject.Properties["sourceDocumentId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "idempotencyKey"))) { #optional property not found
+            $IdempotencyKey = $null
+        } else {
+            $IdempotencyKey = $JsonParameters.PSobject.Properties["idempotencyKey"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reversalOfJournalEntryId"))) { #optional property not found
+            $ReversalOfJournalEntryId = $null
+        } else {
+            $ReversalOfJournalEntryId = $JsonParameters.PSobject.Properties["reversalOfJournalEntryId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "postedBy"))) { #optional property not found
+            $PostedBy = $null
+        } else {
+            $PostedBy = $JsonParameters.PSobject.Properties["postedBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRate"))) { #optional property not found
+            $ForexRate = $null
+        } else {
+            $ForexRate = $JsonParameters.PSobject.Properties["forexRate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forexRatesSnapshot"))) { #optional property not found
+            $ForexRatesSnapshot = $null
+        } else {
+            $ForexRatesSnapshot = $JsonParameters.PSobject.Properties["forexRatesSnapshot"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitInUsd"))) { #optional property not found
+            $DebitInUsd = $null
+        } else {
+            $DebitInUsd = $JsonParameters.PSobject.Properties["debitInUsd"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditInUsd"))) { #optional property not found
+            $CreditInUsd = $null
+        } else {
+            $CreditInUsd = $JsonParameters.PSobject.Properties["creditInUsd"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountingEntries"))) { #optional property not found
+            $AccountingEntries = $null
+        } else {
+            $AccountingEntries = $JsonParameters.PSobject.Properties["accountingEntries"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalDebit"))) { #optional property not found
+            $TotalDebit = $null
+        } else {
+            $TotalDebit = $JsonParameters.PSobject.Properties["totalDebit"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCredit"))) { #optional property not found
+            $TotalCredit = $null
+        } else {
+            $TotalCredit = $JsonParameters.PSobject.Properties["totalCredit"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalDebitAmount"))) { #optional property not found
+            $TotalDebitAmount = $null
+        } else {
+            $TotalDebitAmount = $JsonParameters.PSobject.Properties["totalDebitAmount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCreditAmount"))) { #optional property not found
+            $TotalCreditAmount = $null
+        } else {
+            $TotalCreditAmount = $JsonParameters.PSobject.Properties["totalCreditAmount"].value
         }
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "timestamp" = ${Timestamp}
-            "group" = ${Group}
-            "opening" = ${Opening}
-            "description" = ${Description}
-            "date" = ${Date}
-            "forexRatesSnapshot" = ${ForexRatesSnapshot}
-            "forexRate" = ${ForexRate}
-            "credit" = ${Credit}
-            "debit" = ${Debit}
-            "creditInUsd" = ${CreditInUsd}
-            "debitInUsd" = ${DebitInUsd}
-            "currencyId" = ${CurrencyId}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalId" = ${JournalId}
             "journalName" = ${JournalName}
             "journalCode" = ${JournalCode}
-            "creditAccountId" = ${CreditAccountId}
-            "creditAccountName" = ${CreditAccountName}
-            "debitAccountId" = ${DebitAccountId}
-            "debitAccountName" = ${DebitAccountName}
-            "invoiceCode" = ${InvoiceCode}
-            "parentJournalEntryId" = ${ParentJournalEntryId}
-            "creditAmount" = ${CreditAmount}
-            "debitAmount" = ${DebitAmount}
-            "creditAmountInUsd" = ${CreditAmountInUsd}
-            "debitAmountInUsd" = ${DebitAmountInUsd}
+            "fiscalPeriodId" = ${FiscalPeriodId}
+            "financialBookId" = ${FinancialBookId}
+            "description" = ${Description}
+            "entryType" = ${EntryType}
+            "status" = ${Status}
+            "postingDate" = ${PostingDate}
+            "isOpeningBalance" = ${IsOpeningBalance}
+            "transactionCurrencyId" = ${TransactionCurrencyId}
+            "sourceDocumentType" = ${SourceDocumentType}
+            "sourceDocumentId" = ${SourceDocumentId}
+            "idempotencyKey" = ${IdempotencyKey}
+            "reversalOfJournalEntryId" = ${ReversalOfJournalEntryId}
+            "postedBy" = ${PostedBy}
+            "forexRate" = ${ForexRate}
+            "forexRatesSnapshot" = ${ForexRatesSnapshot}
+            "timestamp" = ${Timestamp}
+            "debitInUsd" = ${DebitInUsd}
+            "creditInUsd" = ${CreditInUsd}
+            "accountingEntries" = ${AccountingEntries}
+            "totalDebit" = ${TotalDebit}
+            "totalCredit" = ${TotalCredit}
+            "totalDebitAmount" = ${TotalDebitAmount}
+            "totalCreditAmount" = ${TotalCreditAmount}
         }
 
         return $PSO

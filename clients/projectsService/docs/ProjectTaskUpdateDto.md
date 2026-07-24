@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Title** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
 **DueLine** | **System.DateTime** |  | [optional] 
 
@@ -10,7 +12,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProjectTaskUpdateDto = Initialize-PSOpenAPIToolsProjectTaskUpdateDto  -StartDate null `
+$ProjectTaskUpdateDto = Initialize-PSOpenAPIToolsProjectTaskUpdateDto  -Title null `
+ -Description null `
+ -StartDate null `
  -DueLine null
 ```
 

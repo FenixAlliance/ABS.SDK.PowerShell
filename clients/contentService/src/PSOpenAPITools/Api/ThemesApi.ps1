@@ -33,7 +33,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Get-LatestCurrencyRatesModelAsync {
+function Update-ThemesAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -50,7 +50,7 @@ function Get-LatestCurrencyRatesModelAsync {
     )
 
     Process {
-        'Calling method: Get-LatestCurrencyRatesModelAsync' | Write-Debug
+        'Calling method: Update-ThemesAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

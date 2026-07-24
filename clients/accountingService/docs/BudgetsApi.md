@@ -36,7 +36,7 @@ Create a budget account entry
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BudgetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BudgetAccountEntryCreateDto = Initialize-BudgetAccountEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -Date (Get-Date) -Amount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" -BudgetId "MyBudgetId" # BudgetAccountEntryCreateDto | 
+$BudgetAccountEntryCreateDto = Initialize-BudgetAccountEntryCreateDto -Id "MyId" -Timestamp (Get-Date) -Description "MyDescription" -PlannedAmount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -BudgetId "MyBudgetId" # BudgetAccountEntryCreateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
@@ -622,7 +622,7 @@ Update a budget account entry
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BudgetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$BudgetAccountEntryUpdateDto = Initialize-BudgetAccountEntryUpdateDto -Description "MyDescription" -Amount 0 -Date (Get-Date) -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -JournalEntryId "MyJournalEntryId" -AccountingEntryType "None" -BudgetId "MyBudgetId" # BudgetAccountEntryUpdateDto | 
+$BudgetAccountEntryUpdateDto = Initialize-BudgetAccountEntryUpdateDto -Description "MyDescription" -PlannedAmount 0 -CurrencyId "MyCurrencyId" -DebitAccountId "MyDebitAccountId" -CreditAccountId "MyCreditAccountId" -BudgetId "MyBudgetId" # BudgetAccountEntryUpdateDto | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 

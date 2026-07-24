@@ -5,8 +5,8 @@ All URIs are relative to *https://absuite.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-CountItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#Invoke-CountItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies
-[**Get-ItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#Get-ItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
-[**Get-ItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#Get-ItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
+[**Get-CatalogItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#Get-CatalogItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
+[**Get-CatalogItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#Get-CatalogItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
 [**Invoke-RelateItemToShippingPolicyAsync**](ItemShippingPoliciesApi.md#Invoke-RelateItemToShippingPolicyAsync) | **POST** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy
 [**Remove-ShippingPolicyFromItemAsync**](ItemShippingPoliciesApi.md#Remove-ShippingPolicyFromItemAsync) | **DELETE** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item
 
@@ -63,9 +63,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-ItemShippingPoliciesAsync"></a>
-# **Get-ItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope Get-ItemShippingPoliciesAsync<br>
+<a id="Get-CatalogItemShippingPoliciesAsync"></a>
+# **Get-CatalogItemShippingPoliciesAsync**
+> ItemShippingPolicyDtoListEnvelope Get-CatalogItemShippingPoliciesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -84,9 +84,9 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get item shipping policies
 try {
-    $Result = Get-ItemShippingPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CatalogItemShippingPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Get-ItemShippingPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CatalogItemShippingPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -115,9 +115,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-ItemShippingPolicyByIdAsync"></a>
-# **Get-ItemShippingPolicyByIdAsync**
-> ItemShippingPolicyDtoEnvelope Get-ItemShippingPolicyByIdAsync<br>
+<a id="Get-CatalogItemShippingPolicyByIdAsync"></a>
+# **Get-CatalogItemShippingPolicyByIdAsync**
+> ItemShippingPolicyDtoEnvelope Get-CatalogItemShippingPolicyByIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemShippingPolicyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
@@ -138,9 +138,9 @@ $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Get item shipping policy by ID
 try {
-    $Result = Get-ItemShippingPolicyByIdAsync -ItemShippingPolicyId $ItemShippingPolicyId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CatalogItemShippingPolicyByIdAsync -ItemShippingPolicyId $ItemShippingPolicyId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Get-ItemShippingPolicyByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CatalogItemShippingPolicyByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

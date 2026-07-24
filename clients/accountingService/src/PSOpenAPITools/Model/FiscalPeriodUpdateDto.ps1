@@ -49,19 +49,27 @@ function Initialize-FiscalPeriodUpdateDto {
         'Creating PSCustomObject: PSOpenAPITools => FiscalPeriodUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name -and $Name.length -gt 50) {
+        if ($null -eq $Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
+        if ($Name.length -gt 50) {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 50."
         }
 
-        if (!$Name -and $Name.length -lt 0) {
+        if ($Name.length -lt 0) {
             throw "invalid value for 'Name', the character length must be great than or equal to 0."
         }
 
-        if (!$FiscalYearId -and $FiscalYearId.length -gt 36) {
+        if ($null -eq $FiscalYearId) {
+            throw "invalid value for 'FiscalYearId', 'FiscalYearId' cannot be null."
+        }
+
+        if ($FiscalYearId.length -gt 36) {
             throw "invalid value for 'FiscalYearId', the character length must be smaller than or equal to 36."
         }
 
-        if (!$FiscalYearId -and $FiscalYearId.length -lt 0) {
+        if ($FiscalYearId.length -lt 0) {
             throw "invalid value for 'FiscalYearId', the character length must be great than or equal to 0."
         }
 
@@ -115,10 +123,20 @@ function ConvertFrom-JsonToFiscalPeriodUpdateDto {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalYearId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'fiscalYearId' missing."
+        } else {
+            $FiscalYearId = $JsonParameters.PSobject.Properties["fiscalYearId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "fromDate"))) { #optional property not found
@@ -131,12 +149,6 @@ function ConvertFrom-JsonToFiscalPeriodUpdateDto {
             $ToDate = $null
         } else {
             $ToDate = $JsonParameters.PSobject.Properties["toDate"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fiscalYearId"))) { #optional property not found
-            $FiscalYearId = $null
-        } else {
-            $FiscalYearId = $JsonParameters.PSobject.Properties["fiscalYearId"].value
         }
 
         $PSO = [PSCustomObject]@{

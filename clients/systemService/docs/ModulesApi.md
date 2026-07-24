@@ -57,7 +57,7 @@ No authorization required
 
 <a id="Get-AvailableModules"></a>
 # **Get-AvailableModules**
-> ModuleListEnvelope Get-AvailableModules<br>
+> SuiteModuleListEnvelope Get-AvailableModules<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModuleListEnvelope**](ModuleListEnvelope.md) (PSCustomObject)
+[**SuiteModuleListEnvelope**](SuiteModuleListEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

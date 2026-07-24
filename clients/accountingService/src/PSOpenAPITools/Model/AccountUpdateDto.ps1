@@ -37,6 +37,12 @@ No description available.
 No description available.
 .PARAMETER AccountCategory
 No description available.
+.PARAMETER IsContra
+No description available.
+.PARAMETER IsMonetary
+No description available.
+.PARAMETER IncomeStatementSubType
+No description available.
 .OUTPUTS
 
 AccountUpdateDto<PSCustomObject>
@@ -78,7 +84,17 @@ function Initialize-AccountUpdateDto {
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Assets", "Equity", "Revenue", "Expense", "Liabilities")]
         [String]
-        ${AccountCategory}
+        ${AccountCategory},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsContra},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsMonetary},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("OperatingRevenue", "Gain", "OperatingExpense", "Loss")]
+        [String]
+        ${IncomeStatementSubType}
     )
 
     Process {
@@ -114,6 +130,9 @@ function Initialize-AccountUpdateDto {
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
         }
 
 
@@ -151,7 +170,7 @@ function ConvertFrom-JsonToAccountUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountUpdateDto
-        $AllProperties = ("group", "frozen", "name", "code", "path", "prefix", "currencyId", "contactId", "accountTypeId", "parentAccountId", "accountCategory")
+        $AllProperties = ("group", "frozen", "name", "code", "path", "prefix", "currencyId", "contactId", "accountTypeId", "parentAccountId", "accountCategory", "isContra", "isMonetary", "incomeStatementSubType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -228,6 +247,24 @@ function ConvertFrom-JsonToAccountUpdateDto {
             $AccountCategory = $JsonParameters.PSobject.Properties["accountCategory"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isContra"))) { #optional property not found
+            $IsContra = $null
+        } else {
+            $IsContra = $JsonParameters.PSobject.Properties["isContra"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMonetary"))) { #optional property not found
+            $IsMonetary = $null
+        } else {
+            $IsMonetary = $JsonParameters.PSobject.Properties["isMonetary"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "incomeStatementSubType"))) { #optional property not found
+            $IncomeStatementSubType = $null
+        } else {
+            $IncomeStatementSubType = $JsonParameters.PSobject.Properties["incomeStatementSubType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "group" = ${Group}
             "frozen" = ${Frozen}
@@ -240,6 +277,9 @@ function ConvertFrom-JsonToAccountUpdateDto {
             "accountTypeId" = ${AccountTypeId}
             "parentAccountId" = ${ParentAccountId}
             "accountCategory" = ${AccountCategory}
+            "isContra" = ${IsContra}
+            "isMonetary" = ${IsMonetary}
+            "incomeStatementSubType" = ${IncomeStatementSubType}
         }
 
         return $PSO

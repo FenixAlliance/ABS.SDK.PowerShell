@@ -4,12 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TaskCategoryUpdateDto = Initialize-PSOpenAPIToolsTaskCategoryUpdateDto  -Title null
+$TaskCategoryUpdateDto = Initialize-PSOpenAPIToolsTaskCategoryUpdateDto  -Title null `
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

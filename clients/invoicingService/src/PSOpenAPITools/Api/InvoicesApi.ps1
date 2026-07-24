@@ -3694,7 +3694,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-DecimalEnvelope
+MoneyEnvelope
 #>
 function Get-PurchaseInvoicesSum {
     [CmdletBinding()]
@@ -3747,7 +3747,7 @@ function Get-PurchaseInvoicesSum {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "DecimalEnvelope" `
+                                -ReturnType "MoneyEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3780,7 +3780,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-DecimalEnvelope
+MoneyEnvelope
 #>
 function Get-SalesInvoicesSum {
     [CmdletBinding()]
@@ -3833,7 +3833,7 @@ function Get-SalesInvoicesSum {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "DecimalEnvelope" `
+                                -ReturnType "MoneyEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

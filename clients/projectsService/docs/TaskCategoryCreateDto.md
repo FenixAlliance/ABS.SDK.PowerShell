@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
 **Title** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -13,7 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $TaskCategoryCreateDto = Initialize-PSOpenAPIToolsTaskCategoryCreateDto  -Id null `
  -Timestamp null `
- -Title null
+ -Title null `
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

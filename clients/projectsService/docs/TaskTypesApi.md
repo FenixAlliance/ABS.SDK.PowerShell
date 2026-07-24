@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**New-TaskTypeAsync**](TaskTypesApi.md#New-TaskTypeAsync) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type
 [**Invoke-DeleteTaskTypeAsync**](TaskTypesApi.md#Invoke-DeleteTaskTypeAsync) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type
 [**Get-TaskTypeByIdAsync**](TaskTypesApi.md#Get-TaskTypeByIdAsync) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID
+[**Invoke-PatchTaskTypeAsync**](TaskTypesApi.md#Invoke-PatchTaskTypeAsync) | **PATCH** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Patches a task type
 [**Update-TaskTypeAsync**](TaskTypesApi.md#Update-TaskTypeAsync) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type
 
 
@@ -23,7 +24,7 @@ Creates a new task type for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TaskTypeCreateDto = Initialize-TaskTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -TaskCategoryID "MyTaskCategoryID" -DisplayInTimeTracker $false -RequiresDescription $false # TaskTypeCreateDto |  (optional)
+$TaskTypeCreateDto = Initialize-TaskTypeCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -TaskCategoryId "MyTaskCategoryId" -DisplayInTimeTracker $false -RequiresDescription $false # TaskTypeCreateDto |  (optional)
 
 # Creates a new task type
 try {
@@ -148,6 +149,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Invoke-PatchTaskTypeAsync"></a>
+# **Invoke-PatchTaskTypeAsync**
+> EmptyEnvelope Invoke-PatchTaskTypeAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskTypeId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+
+Patches a task type
+
+Partially updates the specified task type.
+
+### Example
+```powershell
+$TaskTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+
+# Patches a task type
+try {
+    $Result = Invoke-PatchTaskTypeAsync -TaskTypeId $TaskTypeId -TenantId $TenantId -Operation $Operation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PatchTaskTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TaskTypeId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Update-TaskTypeAsync"></a>
 # **Update-TaskTypeAsync**
 > TaskTypeDto Update-TaskTypeAsync<br>
@@ -163,7 +213,7 @@ Updates the specified task type.
 ```powershell
 $TaskTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$TaskTypeUpdateDto = Initialize-TaskTypeUpdateDto -Title "MyTitle" -DisplayInTimeTracker $false -RequiresDescription $false # TaskTypeUpdateDto |  (optional)
+$TaskTypeUpdateDto = Initialize-TaskTypeUpdateDto -Title "MyTitle" -TaskCategoryId "MyTaskCategoryId" -DisplayInTimeTracker $false -RequiresDescription $false # TaskTypeUpdateDto |  (optional)
 
 # Updates a task type
 try {

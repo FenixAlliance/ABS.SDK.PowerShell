@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **String** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
 **DueLine** | **System.DateTime** |  | [optional] 
-**ProjectID** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,7 +21,7 @@ $ProjectTaskCreateDto = Initialize-PSOpenAPIToolsProjectTaskCreateDto  -Id null 
  -Description null `
  -StartDate null `
  -DueLine null `
- -ProjectID null
+ -ProjectId null
 ```
 
 - Convert the resource to JSON

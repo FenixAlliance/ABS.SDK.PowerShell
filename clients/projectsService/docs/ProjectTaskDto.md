@@ -5,10 +5,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Title** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
 **StartDate** | **System.DateTime** |  | [optional] 
 **DueLine** | **System.DateTime** |  | [optional] 
-**ProjectID** | **String** |  | [optional] 
-**ProjectTaskBucketID** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
+**ProjectTaskBucketId** | **String** |  | [optional] 
+**TenantId** | **String** |  | [optional] 
+**EnrollmentId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -16,10 +20,14 @@ Name | Type | Description | Notes
 ```powershell
 $ProjectTaskDto = Initialize-PSOpenAPIToolsProjectTaskDto  -Id null `
  -Timestamp null `
+ -Title null `
+ -Description null `
  -StartDate null `
  -DueLine null `
- -ProjectID null `
- -ProjectTaskBucketID null
+ -ProjectId null `
+ -ProjectTaskBucketId null `
+ -TenantId null `
+ -EnrollmentId null
 ```
 
 - Convert the resource to JSON

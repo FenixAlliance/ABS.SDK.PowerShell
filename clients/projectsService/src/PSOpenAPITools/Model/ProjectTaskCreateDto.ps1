@@ -27,7 +27,7 @@ No description available.
 No description available.
 .PARAMETER DueLine
 No description available.
-.PARAMETER ProjectID
+.PARAMETER ProjectId
 No description available.
 .OUTPUTS
 
@@ -57,7 +57,7 @@ function Initialize-ProjectTaskCreateDto {
         ${DueLine},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectID}
+        ${ProjectId}
     )
 
     Process {
@@ -72,7 +72,7 @@ function Initialize-ProjectTaskCreateDto {
             "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
         }
 
 
@@ -110,7 +110,7 @@ function ConvertFrom-JsonToProjectTaskCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ProjectTaskCreateDto
-        $AllProperties = ("id", "timestamp", "title", "description", "startDate", "dueLine", "projectID")
+        $AllProperties = ("id", "timestamp", "title", "description", "startDate", "dueLine", "projectId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -153,10 +153,10 @@ function ConvertFrom-JsonToProjectTaskCreateDto {
             $DueLine = $JsonParameters.PSobject.Properties["dueLine"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectID"))) { #optional property not found
-            $ProjectID = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
         } else {
-            $ProjectID = $JsonParameters.PSobject.Properties["projectID"].value
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -166,7 +166,7 @@ function ConvertFrom-JsonToProjectTaskCreateDto {
             "description" = ${Description}
             "startDate" = ${StartDate}
             "dueLine" = ${DueLine}
-            "projectID" = ${ProjectID}
+            "projectId" = ${ProjectId}
         }
 
         return $PSO

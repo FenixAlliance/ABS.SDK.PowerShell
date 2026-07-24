@@ -9,6 +9,122 @@
 <#
 .SYNOPSIS
 
+Create Wallet Location
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER LocationCreateDto
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function New-LocationForWalletAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${LocationCreateDto},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-LocationForWalletAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling createLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $LocationCreateDto | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Create Wallet Bank Account
 
 .DESCRIPTION
@@ -101,122 +217,6 @@ function New-WalletBankAccountAsync {
         }
 
         $LocalVarBodyParameter = $BankAccountCreateDto | ConvertTo-Json -Depth 100
-
-        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "EmptyEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Create Wallet Location
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER LocationCreateDto
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-EmptyEnvelope
-#>
-function New-WalletLocationAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${LocationCreateDto},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: New-WalletLocationAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json', 'application/xml')
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling createWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarBodyParameter = $LocationCreateDto | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
@@ -589,6 +589,121 @@ function New-WalletWithdrawRequestAsync {
 <#
 .SYNOPSIS
 
+Delete Wallet Location
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER LocationId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Invoke-DeleteLocationForWalletAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${LocationId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-DeleteLocationForWalletAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling deleteLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+        if (!$LocationId) {
+            throw "Error! The required parameter `LocationId` missing when calling deleteLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Delete Wallet Bank Account
 
 .DESCRIPTION
@@ -672,121 +787,6 @@ function Invoke-DeleteWalletBankAccountAsync {
             throw "Error! The required parameter `BankAccountId` missing when calling deleteWalletBankAccountAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{bankAccountId}', [System.Web.HTTPUtility]::UrlEncode($BankAccountId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "EmptyEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Delete Wallet Location
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER LocationId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-EmptyEnvelope
-#>
-function Invoke-DeleteWalletLocationAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${LocationId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-DeleteWalletLocationAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling deleteWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-        if (!$LocationId) {
-            throw "Error! The required parameter `LocationId` missing when calling deleteWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
 
         if ($XApiVersion) {
             $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
@@ -1320,6 +1320,331 @@ function Get-IncomingWalletInvoicesCountAsync {
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getIncomingWalletInvoicesCountAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Int32Envelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get Wallet Location
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER LocationId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LocationDtoEnvelope
+#>
+function Get-LocationForWalletAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${LocationId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-LocationForWalletAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling getLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+        if (!$LocationId) {
+            throw "Error! The required parameter `LocationId` missing when calling getLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LocationDtoEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get Wallet Locations
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LocationDtoListEnvelope
+#>
+function Get-LocationsForWalletAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-LocationsForWalletAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling getLocationsForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LocationDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get Wallet Locations Count
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Int32Envelope
+#>
+function Get-LocationsForWalletCountAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-LocationsForWalletCountAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/Count'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling getLocationsForWalletCountAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
 
@@ -2695,331 +3020,6 @@ function Get-WalletInvoicesCountAsync {
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletInvoicesCountAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Int32Envelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Get Wallet Location
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER LocationId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-LocationDtoEnvelope
-#>
-function Get-WalletLocationAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${LocationId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-WalletLocationAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling getWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-        if (!$LocationId) {
-            throw "Error! The required parameter `LocationId` missing when calling getWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "LocationDtoEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Get Wallet Locations
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-LocationDtoListEnvelope
-#>
-function Get-WalletLocationsAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-WalletLocationsAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling getWalletLocationsAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "LocationDtoListEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Get Wallet Locations Count
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-Int32Envelope
-#>
-function Get-WalletLocationsCountAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-WalletLocationsCountAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/Count'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling getWalletLocationsCountAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
 
@@ -4891,6 +4891,132 @@ function Invoke-PatchWalletTokenAsync {
 <#
 .SYNOPSIS
 
+Update Wallet Location
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER WalletId
+No description available.
+
+.PARAMETER LocationId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER LocationUpdateDto
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Update-LocationForWalletAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${WalletId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${LocationId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${LocationUpdateDto},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-LocationForWalletAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
+        if (!$WalletId) {
+            throw "Error! The required parameter `WalletId` missing when calling updateLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
+        if (!$LocationId) {
+            throw "Error! The required parameter `LocationId` missing when calling updateLocationForWalletAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $LocationUpdateDto | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Update Wallet Bank Account
 
 .DESCRIPTION
@@ -4993,132 +5119,6 @@ function Update-WalletBankAccountAsync {
         }
 
         $LocalVarBodyParameter = $BankAccountUpdateDto | ConvertTo-Json -Depth 100
-
-        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "EmptyEnvelope" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Update Wallet Location
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER WalletId
-No description available.
-
-.PARAMETER LocationId
-No description available.
-
-.PARAMETER ApiVersion
-No description available.
-
-.PARAMETER XApiVersion
-No description available.
-
-.PARAMETER LocationUpdateDto
-No description available.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/json, application/xml
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-EmptyEnvelope
-#>
-function Update-WalletLocationAsync {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${WalletId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${LocationId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ApiVersion},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${XApiVersion},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${LocationUpdateDto},
-        [String]
-        [ValidateSet("application/json", "application/xml")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Update-WalletLocationAsync' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json', 'application/xml')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json', 'application/xml')
-
-        $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}'
-        if (!$WalletId) {
-            throw "Error! The required parameter `WalletId` missing when calling updateWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{walletId}', [System.Web.HTTPUtility]::UrlEncode($WalletId))
-        if (!$LocationId) {
-            throw "Error! The required parameter `LocationId` missing when calling updateWalletLocationAsync."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{locationId}', [System.Web.HTTPUtility]::UrlEncode($LocationId))
-
-        if ($XApiVersion) {
-            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
-        }
-
-        if ($ApiVersion) {
-            $LocalVarQueryParameters['api-version'] = $ApiVersion
-        }
-
-        $LocalVarBodyParameter = $LocationUpdateDto | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `

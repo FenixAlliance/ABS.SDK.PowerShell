@@ -4,13 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **String** |  | [optional] 
-**Amount** | **Double** |  | [optional] 
-**Date** | **System.DateTime** |  | [optional] 
+**PlannedAmount** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **DebitAccountId** | **String** |  | [optional] 
 **CreditAccountId** | **String** |  | [optional] 
-**JournalEntryId** | **String** |  | [optional] 
-**AccountingEntryType** | **String** |  | [optional] 
 **BudgetId** | **String** |  | [optional] 
 
 ## Examples
@@ -18,13 +15,10 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $BudgetAccountEntryUpdateDto = Initialize-PSOpenAPIToolsBudgetAccountEntryUpdateDto  -Description null `
- -Amount null `
- -Date null `
+ -PlannedAmount null `
  -CurrencyId null `
  -DebitAccountId null `
  -CreditAccountId null `
- -JournalEntryId null `
- -AccountingEntryType null `
  -BudgetId null
 ```
 

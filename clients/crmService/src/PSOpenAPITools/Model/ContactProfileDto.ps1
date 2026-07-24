@@ -19,9 +19,11 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
+.PARAMETER ContactId
+No description available.
 .PARAMETER TenantId
 No description available.
-.PARAMETER ContactId
+.PARAMETER Type
 No description available.
 .PARAMETER EnrollmentId
 No description available.
@@ -32,6 +34,8 @@ No description available.
 .PARAMETER Submitted
 No description available.
 .PARAMETER AvatarUrl
+No description available.
+.PARAMETER Contact
 No description available.
 .PARAMETER QualifiedName
 No description available.
@@ -93,89 +97,95 @@ function Initialize-ContactProfileDto {
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TenantId},
+        ${ContactId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ContactId},
+        ${TenantId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${Type},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${About},
+        ${EnrollmentId},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Verified},
+        [String]
+        ${About},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Submitted},
+        ${Verified},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AvatarUrl},
+        [System.Nullable[Boolean]]
+        ${Submitted},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${QualifiedName},
+        ${AvatarUrl},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${VerificationTimestamp},
+        [PSCustomObject]
+        ${Contact},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${VarData},
+        ${QualifiedName},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DataLabel},
+        [System.Nullable[System.DateTime]]
+        ${VerificationTimestamp},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data1},
+        ${VarData},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data1Label},
+        ${DataLabel},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data2},
+        ${Data1},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data2Label},
+        ${Data1Label},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data3},
+        ${Data2},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data3Label},
+        ${Data2Label},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data4},
+        ${Data3},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data4Label},
+        ${Data3Label},
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data5},
+        ${Data4},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data5Label},
+        ${Data4Label},
         [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data6},
+        ${Data5},
         [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data6Label},
+        ${Data5Label},
         [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data7},
+        ${Data6},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data7Label},
+        ${Data6Label},
         [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data8},
+        ${Data7},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data8Label},
+        ${Data7Label},
         [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Data9},
+        ${Data8},
         [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Data8Label},
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Data9},
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Data9Label}
     )
@@ -188,13 +198,15 @@ function Initialize-ContactProfileDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "contactId" = ${ContactId}
+            "tenantId" = ${TenantId}
+            "type" = ${Type}
             "enrollmentId" = ${EnrollmentId}
             "about" = ${About}
             "verified" = ${Verified}
             "submitted" = ${Submitted}
             "avatarUrl" = ${AvatarUrl}
+            "contact" = ${Contact}
             "qualifiedName" = ${QualifiedName}
             "verificationTimestamp" = ${VerificationTimestamp}
             "data" = ${VarData}
@@ -254,7 +266,7 @@ function ConvertFrom-JsonToContactProfileDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ContactProfileDto
-        $AllProperties = ("id", "timestamp", "tenantId", "contactId", "enrollmentId", "about", "verified", "submitted", "avatarUrl", "qualifiedName", "verificationTimestamp", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label")
+        $AllProperties = ("id", "timestamp", "contactId", "tenantId", "type", "enrollmentId", "about", "verified", "submitted", "avatarUrl", "contact", "qualifiedName", "verificationTimestamp", "data", "dataLabel", "data1", "data1Label", "data2", "data2Label", "data3", "data3Label", "data4", "data4Label", "data5", "data5Label", "data6", "data6Label", "data7", "data7Label", "data8", "data8Label", "data9", "data9Label")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -273,16 +285,22 @@ function ConvertFrom-JsonToContactProfileDto {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactId"))) { #optional property not found
+            $ContactId = $null
+        } else {
+            $ContactId = $JsonParameters.PSobject.Properties["contactId"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
             $TenantId = $null
         } else {
             $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contactId"))) { #optional property not found
-            $ContactId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
         } else {
-            $ContactId = $JsonParameters.PSobject.Properties["contactId"].value
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "enrollmentId"))) { #optional property not found
@@ -313,6 +331,12 @@ function ConvertFrom-JsonToContactProfileDto {
             $AvatarUrl = $null
         } else {
             $AvatarUrl = $JsonParameters.PSobject.Properties["avatarUrl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contact"))) { #optional property not found
+            $Contact = $null
+        } else {
+            $Contact = $JsonParameters.PSobject.Properties["contact"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "qualifiedName"))) { #optional property not found
@@ -450,13 +474,15 @@ function ConvertFrom-JsonToContactProfileDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
-            "tenantId" = ${TenantId}
             "contactId" = ${ContactId}
+            "tenantId" = ${TenantId}
+            "type" = ${Type}
             "enrollmentId" = ${EnrollmentId}
             "about" = ${About}
             "verified" = ${Verified}
             "submitted" = ${Submitted}
             "avatarUrl" = ${AvatarUrl}
+            "contact" = ${Contact}
             "qualifiedName" = ${QualifiedName}
             "verificationTimestamp" = ${VerificationTimestamp}
             "data" = ${VarData}

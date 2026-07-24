@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **AccountTypeId** | **String** |  | [optional] 
 **ParentAccountId** | **String** |  | [optional] 
 **AccountCategory** | **String** |  | [optional] 
+**IsContra** | **Boolean** |  | [optional] 
+**IsMonetary** | **Boolean** |  | [optional] 
+**IncomeStatementSubType** | **String** |  | [optional] 
 
 ## Examples
 
@@ -29,7 +32,10 @@ $AccountUpdateDto = Initialize-PSOpenAPIToolsAccountUpdateDto  -Group null `
  -ContactId null `
  -AccountTypeId null `
  -ParentAccountId null `
- -AccountCategory null
+ -AccountCategory null `
+ -IsContra null `
+ -IsMonetary null `
+ -IncomeStatementSubType null
 ```
 
 - Convert the resource to JSON

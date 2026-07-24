@@ -53,8 +53,49 @@ All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ContactGroupsApi* | [**New-ContactGroupAsync**](docs/ContactGroupsApi.md#New-ContactGroupAsync) | **POST** /api/v2/CrmService/ContactGroups | Create a new contact group
+*ContactGroupsApi* | [**Invoke-DeleteContactGroupAsync**](docs/ContactGroupsApi.md#Invoke-DeleteContactGroupAsync) | **DELETE** /api/v2/CrmService/ContactGroups/{id} | Delete a contact group
+*ContactGroupsApi* | [**Get-ContactGroupByIdAsync**](docs/ContactGroupsApi.md#Get-ContactGroupByIdAsync) | **GET** /api/v2/CrmService/ContactGroups/{id} | Get contact group by ID
+*ContactGroupsApi* | [**Get-ContactGroupsAsync**](docs/ContactGroupsApi.md#Get-ContactGroupsAsync) | **GET** /api/v2/CrmService/ContactGroups | Get all contact groups
+*ContactGroupsApi* | [**Get-ContactGroupsCountAsync**](docs/ContactGroupsApi.md#Get-ContactGroupsCountAsync) | **GET** /api/v2/CrmService/ContactGroups/Count | Get contact groups count
+*ContactGroupsApi* | [**Invoke-PatchContactGroupAsync**](docs/ContactGroupsApi.md#Invoke-PatchContactGroupAsync) | **PATCH** /api/v2/CrmService/ContactGroups/{id} | Patch a contact group
+*ContactGroupsApi* | [**Update-ContactGroupAsync**](docs/ContactGroupsApi.md#Update-ContactGroupAsync) | **PUT** /api/v2/CrmService/ContactGroups/{id} | Update a contact group
+*ContactProfilesApi* | [**New-ContactProfileAsync**](docs/ContactProfilesApi.md#New-ContactProfileAsync) | **POST** /api/v2/CrmService/ContactProfiles | Create a new contact profile
+*ContactProfilesApi* | [**Invoke-DeleteContactProfileAsync**](docs/ContactProfilesApi.md#Invoke-DeleteContactProfileAsync) | **DELETE** /api/v2/CrmService/ContactProfiles/{id} | Delete a contact profile
+*ContactProfilesApi* | [**Get-ContactProfileByIdAsync**](docs/ContactProfilesApi.md#Get-ContactProfileByIdAsync) | **GET** /api/v2/CrmService/ContactProfiles/{id} | Get contact profile by ID
+*ContactProfilesApi* | [**Get-ContactProfilesAsync**](docs/ContactProfilesApi.md#Get-ContactProfilesAsync) | **GET** /api/v2/CrmService/ContactProfiles | Get all contact profiles
+*ContactProfilesApi* | [**Get-ContactProfilesCountAsync**](docs/ContactProfilesApi.md#Get-ContactProfilesCountAsync) | **GET** /api/v2/CrmService/ContactProfiles/Count | Get contact profiles count
+*ContactProfilesApi* | [**Get-PartnerProfilesCountAsync**](docs/ContactProfilesApi.md#Get-PartnerProfilesCountAsync) | **GET** /api/v2/CrmService/ContactProfiles/Partners/Count | Get partner profiles count
+*ContactProfilesApi* | [**Get-PatientProfilesCountAsync**](docs/ContactProfilesApi.md#Get-PatientProfilesCountAsync) | **GET** /api/v2/CrmService/ContactProfiles/Patients/Count | Get patient profiles count
+*ContactProfilesApi* | [**Invoke-PatchContactProfileAsync**](docs/ContactProfilesApi.md#Invoke-PatchContactProfileAsync) | **PATCH** /api/v2/CrmService/ContactProfiles/{id} | Patch a contact profile
+*ContactProfilesApi* | [**Update-ContactProfileAsync**](docs/ContactProfilesApi.md#Update-ContactProfileAsync) | **PUT** /api/v2/CrmService/ContactProfiles/{id} | Update a contact profile
+*ContactRelationTypesApi* | [**New-ContactRelationTypeAsync**](docs/ContactRelationTypesApi.md#New-ContactRelationTypeAsync) | **POST** /api/v2/CrmService/ContactRelationTypes | Create a new contact relation type
+*ContactRelationTypesApi* | [**Invoke-DeleteContactRelationTypeAsync**](docs/ContactRelationTypesApi.md#Invoke-DeleteContactRelationTypeAsync) | **DELETE** /api/v2/CrmService/ContactRelationTypes/{id} | Delete a contact relation type
+*ContactRelationTypesApi* | [**Get-ContactRelationTypeByIdAsync**](docs/ContactRelationTypesApi.md#Get-ContactRelationTypeByIdAsync) | **GET** /api/v2/CrmService/ContactRelationTypes/{id} | Get contact relation type by ID
+*ContactRelationTypesApi* | [**Get-ContactRelationTypesAsync**](docs/ContactRelationTypesApi.md#Get-ContactRelationTypesAsync) | **GET** /api/v2/CrmService/ContactRelationTypes | Get all contact relation types
+*ContactRelationTypesApi* | [**Get-ContactRelationTypesCountAsync**](docs/ContactRelationTypesApi.md#Get-ContactRelationTypesCountAsync) | **GET** /api/v2/CrmService/ContactRelationTypes/Count | Get contact relation types count
+*ContactRelationTypesApi* | [**Invoke-PatchContactRelationTypeAsync**](docs/ContactRelationTypesApi.md#Invoke-PatchContactRelationTypeAsync) | **PATCH** /api/v2/CrmService/ContactRelationTypes/{id} | Patch a contact relation type
+*ContactRelationTypesApi* | [**Update-ContactRelationTypeAsync**](docs/ContactRelationTypesApi.md#Update-ContactRelationTypeAsync) | **PUT** /api/v2/CrmService/ContactRelationTypes/{id} | Update a contact relation type
+*ContactRelationsApi* | [**New-ContactRelationAsync**](docs/ContactRelationsApi.md#New-ContactRelationAsync) | **POST** /api/v2/CrmService/ContactRelations | Create a new contact relation
+*ContactRelationsApi* | [**Invoke-DeleteContactRelationAsync**](docs/ContactRelationsApi.md#Invoke-DeleteContactRelationAsync) | **DELETE** /api/v2/CrmService/ContactRelations/{id} | Delete a contact relation
+*ContactRelationsApi* | [**Get-ContactRelationByIdAsync**](docs/ContactRelationsApi.md#Get-ContactRelationByIdAsync) | **GET** /api/v2/CrmService/ContactRelations/{id} | Get contact relation by ID
+*ContactRelationsApi* | [**Get-ContactRelationsAsync**](docs/ContactRelationsApi.md#Get-ContactRelationsAsync) | **GET** /api/v2/CrmService/ContactRelations | Get all contact relations
+*ContactRelationsApi* | [**Get-ContactRelationsCountAsync**](docs/ContactRelationsApi.md#Get-ContactRelationsCountAsync) | **GET** /api/v2/CrmService/ContactRelations/Count | Get contact relations count
+*ContactRelationsApi* | [**Invoke-PatchContactRelationAsync**](docs/ContactRelationsApi.md#Invoke-PatchContactRelationAsync) | **PATCH** /api/v2/CrmService/ContactRelations/{id} | Patch a contact relation
+*ContactRelationsApi* | [**Update-ContactRelationAsync**](docs/ContactRelationsApi.md#Update-ContactRelationAsync) | **PUT** /api/v2/CrmService/ContactRelations/{id} | Update a contact relation
+*ContactSourcesApi* | [**New-ContactSourceAsync**](docs/ContactSourcesApi.md#New-ContactSourceAsync) | **POST** /api/v2/CrmService/ContactSources | Create a new contact source
+*ContactSourcesApi* | [**Invoke-DeleteContactSourceAsync**](docs/ContactSourcesApi.md#Invoke-DeleteContactSourceAsync) | **DELETE** /api/v2/CrmService/ContactSources/{id} | Delete a contact source
+*ContactSourcesApi* | [**Get-ContactSourceByIdAsync**](docs/ContactSourcesApi.md#Get-ContactSourceByIdAsync) | **GET** /api/v2/CrmService/ContactSources/{id} | Get contact source by ID
+*ContactSourcesApi* | [**Get-ContactSourcesAsync**](docs/ContactSourcesApi.md#Get-ContactSourcesAsync) | **GET** /api/v2/CrmService/ContactSources | Get all contact sources
+*ContactSourcesApi* | [**Get-ContactSourcesCountAsync**](docs/ContactSourcesApi.md#Get-ContactSourcesCountAsync) | **GET** /api/v2/CrmService/ContactSources/Count | Get contact sources count
+*ContactSourcesApi* | [**Invoke-PatchContactSourceAsync**](docs/ContactSourcesApi.md#Invoke-PatchContactSourceAsync) | **PATCH** /api/v2/CrmService/ContactSources/{id} | Patch a contact source
+*ContactSourcesApi* | [**Update-ContactSourceAsync**](docs/ContactSourcesApi.md#Update-ContactSourceAsync) | **PUT** /api/v2/CrmService/ContactSources/{id} | Update a contact source
 *ContactsApi* | [**New-ContactAsync**](docs/ContactsApi.md#New-ContactAsync) | **POST** /api/v2/CrmService/Contacts | Create a new contact
+*ContactsApi* | [**New-ContactEmailAsync**](docs/ContactsApi.md#New-ContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses | Add an email address to a contact
+*ContactsApi* | [**New-ProfileForContactAsync**](docs/ContactsApi.md#New-ProfileForContactAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Profiles | Create a contact profile
 *ContactsApi* | [**Invoke-DeleteContactAsync**](docs/ContactsApi.md#Invoke-DeleteContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId} | Delete a contact
+*ContactsApi* | [**Invoke-DeleteContactEmailAsync**](docs/ContactsApi.md#Invoke-DeleteContactEmailAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Delete a contact email address
+*ContactsApi* | [**Invoke-DeleteProfileForContactAsync**](docs/ContactsApi.md#Invoke-DeleteProfileForContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Delete a contact profile
 *ContactsApi* | [**Get-BusinessOwnedIndividualAsync**](docs/ContactsApi.md#Get-BusinessOwnedIndividualAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId} | Get a Contact of type Individual by ID
 *ContactsApi* | [**Get-BusinessOwnedIndividualsAsync**](docs/ContactsApi.md#Get-BusinessOwnedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals | Get all contacts of type individual
 *ContactsApi* | [**Get-BusinessOwnedIndividualsCountAsync**](docs/ContactsApi.md#Get-BusinessOwnedIndividualsCountAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/Count | Get all contacts of type individual count
@@ -64,7 +105,8 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**Get-ContactAsync**](docs/ContactsApi.md#Get-ContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId} | Get a contact by ID
 *ContactsApi* | [**Get-ContactAvatarAsync**](docs/ContactsApi.md#Get-ContactAvatarAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Avatar | Get a contact's avatar
 *ContactsApi* | [**Get-ContactCartAsync**](docs/ContactsApi.md#Get-ContactCartAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Cart | Get a contact's cart
-*ContactsApi* | [**Get-ContactProfilesAsync**](docs/ContactsApi.md#Get-ContactProfilesAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact's social profiles
+*ContactsApi* | [**Get-ContactEmailsAsync**](docs/ContactsApi.md#Get-ContactEmailsAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails | Get a contact's email addresses
+*ContactsApi* | [**Get-ContactEmailsCountAsync**](docs/ContactsApi.md#Get-ContactEmailsCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails/Count | Get contact email addresses count
 *ContactsApi* | [**Get-ContactSocialProfileAsync**](docs/ContactsApi.md#Get-ContactSocialProfileAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/SocialProfile | Get a contact's social profile
 *ContactsApi* | [**Get-ContactWalletAsync**](docs/ContactsApi.md#Get-ContactWalletAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Wallet | Get a contact's wallet
 *ContactsApi* | [**Get-ContactsAsync**](docs/ContactsApi.md#Get-ContactsAsync) | **GET** /api/v2/CrmService/Contacts | Get all business owned contacts
@@ -77,17 +119,24 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**Get-IndividualRelatedOrganizationsAsync**](docs/ContactsApi.md#Get-IndividualRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations | Get individual related organizations
 *ContactsApi* | [**Get-OrganizationRelatedIndividualsAsync**](docs/ContactsApi.md#Get-OrganizationRelatedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals
 *ContactsApi* | [**Get-OrganizationRelatedOrganizationsAsync**](docs/ContactsApi.md#Get-OrganizationRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations
+*ContactsApi* | [**Get-ProfilesForContactAsync**](docs/ContactsApi.md#Get-ProfilesForContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact's social profiles
+*ContactsApi* | [**Get-ProfilesForContactCountAsync**](docs/ContactsApi.md#Get-ProfilesForContactCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles/Count | Get contact profiles count
 *ContactsApi* | [**Invoke-PatchContactAsync**](docs/ContactsApi.md#Invoke-PatchContactAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId} | Patch a contact
+*ContactsApi* | [**Invoke-PatchContactEmailAsync**](docs/ContactsApi.md#Invoke-PatchContactEmailAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Patch a contact email address
 *ContactsApi* | [**Invoke-PreviewContactEmailTemplate**](docs/ContactsApi.md#Invoke-PreviewContactEmailTemplate) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact.
 *ContactsApi* | [**Send-ContactEmail**](docs/ContactsApi.md#Send-ContactEmail) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact.
 *ContactsApi* | [**Update-ContactAsync**](docs/ContactsApi.md#Update-ContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId} | Update a contact
 *ContactsApi* | [**Update-ContactAvatarAsync**](docs/ContactsApi.md#Update-ContactAvatarAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact's avatar
+*ContactsApi* | [**Update-ContactEmailAsync**](docs/ContactsApi.md#Update-ContactEmailAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Update a contact email address
+*ContactsApi* | [**Update-ProfileForContactAsync**](docs/ContactsApi.md#Update-ProfileForContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Update a contact profile
 *ContactsApi* | [**Invoke-UpsertTenantOntoAnotherTenantContactListAsync**](docs/ContactsApi.md#Invoke-UpsertTenantOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant's contact list
 *ContactsApi* | [**Invoke-UpsertUserOntoAnotherTenantContactListAsync**](docs/ContactsApi.md#Invoke-UpsertUserOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant's contact list
+*ContactsApi* | [**Test-ContactEmailAsync**](docs/ContactsApi.md#Test-ContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify | Verify a contact email address
 *FenixAllianceABSWebApi* | [**Invoke-AccountLogoutPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountLogoutPost) | **POST** /Account/Logout | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -107,6 +156,8 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**Get-ContactOptionByKey**](docs/OptionsApi.md#Get-ContactOptionByKey) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Retrieve a single contact option by its key
 *OptionsApi* | [**Get-ContactOptions**](docs/OptionsApi.md#Get-ContactOptions) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options | Retrieve a list of contact options
 *OptionsApi* | [**Get-ContactOptionsCount**](docs/OptionsApi.md#Get-ContactOptionsCount) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Count | Get the count of contact options
+*OptionsApi* | [**Invoke-PatchContactOptionAsync**](docs/OptionsApi.md#Invoke-PatchContactOptionAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Patch a contact option
+*OptionsApi* | [**Invoke-PatchContactOptionByKeyAsync**](docs/OptionsApi.md#Invoke-PatchContactOptionByKeyAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Patch a contact option by key
 *OptionsApi* | [**Update-ContactOption**](docs/OptionsApi.md#Update-ContactOption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Update a contact option
 *OptionsApi* | [**Invoke-UpsertContactOption**](docs/OptionsApi.md#Invoke-UpsertContactOption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key} | Create or update a contact option by key
 *SyncApi* | [**Sync-CurrentHolderToCurrentTenantCrm**](docs/SyncApi.md#Sync-CurrentHolderToCurrentTenantCrm) | **POST** /api/v2/CrmService/Sync | Sync the current user into the current tenant's contact list
@@ -124,9 +175,31 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ContactDto](docs/ContactDto.md)
  - [PSOpenAPITools\Model.ContactDtoEnvelope](docs/ContactDtoEnvelope.md)
  - [PSOpenAPITools\Model.ContactDtoListEnvelope](docs/ContactDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactEmailCreateDto](docs/ContactEmailCreateDto.md)
+ - [PSOpenAPITools\Model.ContactEmailDto](docs/ContactEmailDto.md)
+ - [PSOpenAPITools\Model.ContactEmailDtoListEnvelope](docs/ContactEmailDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactEmailUpdateDto](docs/ContactEmailUpdateDto.md)
+ - [PSOpenAPITools\Model.ContactProfileCreateDto](docs/ContactProfileCreateDto.md)
  - [PSOpenAPITools\Model.ContactProfileDto](docs/ContactProfileDto.md)
  - [PSOpenAPITools\Model.ContactProfileDtoListEnvelope](docs/ContactProfileDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactProfileUpdateDto](docs/ContactProfileUpdateDto.md)
+ - [PSOpenAPITools\Model.ContactRelationCreateDto](docs/ContactRelationCreateDto.md)
+ - [PSOpenAPITools\Model.ContactRelationDto](docs/ContactRelationDto.md)
+ - [PSOpenAPITools\Model.ContactRelationDtoListEnvelope](docs/ContactRelationDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactRelationTypeCreateDto](docs/ContactRelationTypeCreateDto.md)
+ - [PSOpenAPITools\Model.ContactRelationTypeDto](docs/ContactRelationTypeDto.md)
+ - [PSOpenAPITools\Model.ContactRelationTypeDtoListEnvelope](docs/ContactRelationTypeDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactRelationTypeUpdateDto](docs/ContactRelationTypeUpdateDto.md)
+ - [PSOpenAPITools\Model.ContactRelationUpdateDto](docs/ContactRelationUpdateDto.md)
+ - [PSOpenAPITools\Model.ContactSourceCreateDto](docs/ContactSourceCreateDto.md)
+ - [PSOpenAPITools\Model.ContactSourceDto](docs/ContactSourceDto.md)
+ - [PSOpenAPITools\Model.ContactSourceDtoListEnvelope](docs/ContactSourceDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactSourceUpdateDto](docs/ContactSourceUpdateDto.md)
  - [PSOpenAPITools\Model.ContactUpdateDto](docs/ContactUpdateDto.md)
+ - [PSOpenAPITools\Model.ContactsGroupCreateDto](docs/ContactsGroupCreateDto.md)
+ - [PSOpenAPITools\Model.ContactsGroupDto](docs/ContactsGroupDto.md)
+ - [PSOpenAPITools\Model.ContactsGroupDtoListEnvelope](docs/ContactsGroupDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ContactsGroupUpdateDto](docs/ContactsGroupUpdateDto.md)
  - [PSOpenAPITools\Model.EmailDispatchRequest](docs/EmailDispatchRequest.md)
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.Envelope](docs/Envelope.md)

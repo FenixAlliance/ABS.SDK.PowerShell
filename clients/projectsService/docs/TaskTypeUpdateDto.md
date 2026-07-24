@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
+**TaskCategoryId** | **String** |  | [optional] 
 **DisplayInTimeTracker** | **Boolean** |  | [optional] 
 **RequiresDescription** | **Boolean** |  | [optional] 
 
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $TaskTypeUpdateDto = Initialize-PSOpenAPIToolsTaskTypeUpdateDto  -Title null `
+ -TaskCategoryId null `
  -DisplayInTimeTracker null `
  -RequiresDescription null
 ```
