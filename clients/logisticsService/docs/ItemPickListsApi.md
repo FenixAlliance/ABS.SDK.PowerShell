@@ -293,6 +293,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PickListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPickListEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get pick list entries
 
@@ -304,10 +305,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PickListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPickListEntryDtoCollectionQueryParameters = Initialize-ItemPickListEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPickListEntryDtoCollectionQueryParameters |  (optional)
 
 # Get pick list entries
 try {
-    $Result = Get-ItemPickListEntriesAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPickListEntriesAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPickListEntryDtoCollectionQueryParameters $ItemPickListEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPickListEntriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -322,6 +324,7 @@ Name | Type | Description  | Notes
  **PickListId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -333,7 +336,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,6 +348,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PickListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPickListEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get pick list entries count
 
@@ -356,10 +360,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PickListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPickListEntryDtoCollectionQueryParameters = Initialize-ItemPickListEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPickListEntryDtoCollectionQueryParameters |  (optional)
 
 # Get pick list entries count
 try {
-    $Result = Get-ItemPickListEntriesCountAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPickListEntriesCountAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPickListEntryDtoCollectionQueryParameters $ItemPickListEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPickListEntriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -374,6 +379,7 @@ Name | Type | Description  | Notes
  **PickListId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -385,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -451,6 +457,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPickListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all item pick lists
 
@@ -461,10 +468,11 @@ Retrieves all item pick lists for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPickListDtoCollectionQueryParameters = Initialize-ItemPickListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPickListDtoCollectionQueryParameters |  (optional)
 
 # Get all item pick lists
 try {
-    $Result = Get-ItemPickListsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPickListsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPickListDtoCollectionQueryParameters $ItemPickListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPickListsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -478,6 +486,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -489,7 +498,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -500,6 +509,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPickListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get item pick lists count
 
@@ -510,10 +520,11 @@ Returns the count of item pick lists.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPickListDtoCollectionQueryParameters = Initialize-ItemPickListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPickListDtoCollectionQueryParameters |  (optional)
 
 # Get item pick lists count
 try {
-    $Result = Get-ItemPickListsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPickListsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPickListDtoCollectionQueryParameters $ItemPickListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPickListsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -527,6 +538,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -538,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -550,7 +562,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PickListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an item pick list
 
@@ -562,11 +574,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PickListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an item pick list
 try {
-    $Result = Invoke-PatchItemPickListAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchItemPickListAsync -TenantId $TenantId -PickListId $PickListId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchItemPickListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -581,7 +593,7 @@ Name | Type | Description  | Notes
  **PickListId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -606,7 +618,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a pick list entry
 
@@ -619,11 +631,11 @@ $PickListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a pick list entry
 try {
-    $Result = Invoke-PatchItemPickListEntryAsync -TenantId $TenantId -PickListId $PickListId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchItemPickListEntryAsync -TenantId $TenantId -PickListId $PickListId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchItemPickListEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -639,7 +651,7 @@ Name | Type | Description  | Notes
  **EntryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -294,6 +294,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WaybillLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get airway bill lines
 
@@ -305,10 +306,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WaybillLineDtoCollectionQueryParameters = Initialize-WaybillLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WaybillLineDtoCollectionQueryParameters |  (optional)
 
 # Get airway bill lines
 try {
-    $Result = Get-AirwayBillLinesAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AirwayBillLinesAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WaybillLineDtoCollectionQueryParameters $WaybillLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AirwayBillLinesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -323,6 +325,7 @@ Name | Type | Description  | Notes
  **BillId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WaybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -334,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -346,6 +349,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WaybillLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get airway bill lines count
 
@@ -357,10 +361,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WaybillLineDtoCollectionQueryParameters = Initialize-WaybillLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WaybillLineDtoCollectionQueryParameters |  (optional)
 
 # Get airway bill lines count
 try {
-    $Result = Get-AirwayBillLinesCountAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AirwayBillLinesCountAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WaybillLineDtoCollectionQueryParameters $WaybillLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AirwayBillLinesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -375,6 +380,7 @@ Name | Type | Description  | Notes
  **BillId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WaybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -386,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -397,6 +403,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AirwayBillDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all airway bills
 
@@ -407,10 +414,11 @@ Retrieves all airway bills for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$AirwayBillDtoCollectionQueryParameters = Initialize-AirwayBillDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AirwayBillDtoCollectionQueryParameters |  (optional)
 
 # Get all airway bills
 try {
-    $Result = Get-AirwayBillsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AirwayBillsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AirwayBillDtoCollectionQueryParameters $AirwayBillDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AirwayBillsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -424,6 +432,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **AirwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -435,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -446,6 +455,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AirwayBillDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get airway bills count
 
@@ -456,10 +466,11 @@ Returns the count of airway bills for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$AirwayBillDtoCollectionQueryParameters = Initialize-AirwayBillDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AirwayBillDtoCollectionQueryParameters |  (optional)
 
 # Get airway bills count
 try {
-    $Result = Get-AirwayBillsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AirwayBillsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AirwayBillDtoCollectionQueryParameters $AirwayBillDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AirwayBillsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -473,6 +484,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **AirwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -484,7 +496,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -704,7 +716,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an airway bill
 
@@ -716,11 +728,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an airway bill
 try {
-    $Result = Invoke-PatchAirwayBillAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchAirwayBillAsync -TenantId $TenantId -BillId $BillId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAirwayBillAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -735,7 +747,7 @@ Name | Type | Description  | Notes
  **BillId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -760,7 +772,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LineId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an airway bill line
 
@@ -773,11 +785,11 @@ $BillId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an airway bill line
 try {
-    $Result = Invoke-PatchAirwayBillLineAsync -TenantId $TenantId -BillId $BillId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchAirwayBillLineAsync -TenantId $TenantId -BillId $BillId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAirwayBillLineAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -793,7 +805,7 @@ Name | Type | Description  | Notes
  **LineId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

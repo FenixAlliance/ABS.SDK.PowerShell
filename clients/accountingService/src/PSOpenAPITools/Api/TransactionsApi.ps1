@@ -606,6 +606,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TransactionCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -630,6 +633,9 @@ function Get-TransactionCategories {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TransactionCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -659,6 +665,9 @@ function Get-TransactionCategories {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Transactions/Categories'
 
         if ($XApiVersion) {
@@ -673,6 +682,8 @@ function Get-TransactionCategories {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TransactionCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -712,6 +723,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TransactionCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -736,6 +750,9 @@ function Get-TransactionCategoriesCount {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TransactionCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -765,6 +782,9 @@ function Get-TransactionCategoriesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Transactions/Categories/Count'
 
         if ($XApiVersion) {
@@ -779,6 +799,8 @@ function Get-TransactionCategoriesCount {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TransactionCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -934,6 +956,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TransactionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -958,6 +983,9 @@ function Get-Transactions {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TransactionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -987,6 +1015,9 @@ function Get-Transactions {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Transactions'
 
         if ($XApiVersion) {
@@ -1001,6 +1032,8 @@ function Get-Transactions {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TransactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1040,6 +1073,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TransactionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1064,6 +1100,9 @@ function Get-TransactionsCount {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TransactionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1093,6 +1132,9 @@ function Get-TransactionsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Transactions/Count'
 
         if ($XApiVersion) {
@@ -1107,6 +1149,8 @@ function Get-TransactionsCount {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TransactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1149,7 +1193,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1181,7 +1225,7 @@ function Invoke-PatchTransaction {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1233,7 +1277,7 @@ function Invoke-PatchTransaction {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1276,7 +1320,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1308,7 +1352,7 @@ function Invoke-PatchTransactionCategory {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1360,7 +1404,7 @@ function Invoke-PatchTransactionCategory {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

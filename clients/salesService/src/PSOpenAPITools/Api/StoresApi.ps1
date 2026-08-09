@@ -18,6 +18,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER StoreDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -36,6 +39,9 @@ function Invoke-CountStoresAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${StoreDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -65,12 +71,17 @@ function Invoke-CountStoresAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SalesService/Stores/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling countStoresAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $StoreDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -393,6 +404,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER StoreDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -411,6 +425,9 @@ function Get-StoresAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${StoreDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -440,12 +457,17 @@ function Get-StoresAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SalesService/Stores'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getStoresAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $StoreDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -482,7 +504,7 @@ No description available.
 .PARAMETER StoreId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -508,7 +530,7 @@ function Invoke-PatchStoreAsync {
         ${StoreId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -552,7 +574,7 @@ function Invoke-PatchStoreAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

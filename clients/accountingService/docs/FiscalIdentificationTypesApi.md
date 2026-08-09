@@ -179,6 +179,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalIdentificationTypeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal identification types for an authority
 
@@ -190,10 +191,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalIdentificationTypeDtoCollectionQueryParameters = Initialize-FiscalIdentificationTypeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalIdentificationTypeDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal identification types for an authority
 try {
-    $Result = Get-FiscalIdentificationTypes -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalIdentificationTypes -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalIdentificationTypeDtoCollectionQueryParameters $FiscalIdentificationTypeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalIdentificationTypes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -208,6 +210,7 @@ Name | Type | Description  | Notes
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -219,7 +222,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -231,6 +234,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalIdentificationTypeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal identification types count
 
@@ -242,10 +246,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalIdentificationTypeDtoCollectionQueryParameters = Initialize-FiscalIdentificationTypeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalIdentificationTypeDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal identification types count
 try {
-    $Result = Get-FiscalIdentificationTypesCount -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalIdentificationTypesCount -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalIdentificationTypeDtoCollectionQueryParameters $FiscalIdentificationTypeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalIdentificationTypesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -260,6 +265,7 @@ Name | Type | Description  | Notes
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -271,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -283,7 +289,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentificationTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a fiscal identification type
 
@@ -295,11 +301,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $IdentificationTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a fiscal identification type
 try {
-    $Result = Invoke-PatchFiscalIdentificationTypeAsync -TenantId $TenantId -IdentificationTypeId $IdentificationTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchFiscalIdentificationTypeAsync -TenantId $TenantId -IdentificationTypeId $IdentificationTypeId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchFiscalIdentificationTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -314,7 +320,7 @@ Name | Type | Description  | Notes
  **IdentificationTypeId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -476,6 +476,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Incoming Payments
 
@@ -486,10 +487,11 @@ Get incoming payments of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Incoming Payments
 try {
-    $Result = Get-IncomingPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-IncomingPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-IncomingPaymentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -503,6 +505,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -514,7 +517,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -525,6 +528,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Incoming Payments Count
 
@@ -535,10 +539,11 @@ Get incoming payments count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Incoming Payments Count
 try {
-    $Result = Get-IncomingPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-IncomingPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-IncomingPaymentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -552,6 +557,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -563,7 +569,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -574,6 +580,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Incoming Wallet Invoices
 
@@ -584,10 +591,11 @@ Get incoming invoices of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Incoming Wallet Invoices
 try {
-    $Result = Get-IncomingWalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-IncomingWalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-IncomingWalletInvoicesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -601,6 +609,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -612,7 +621,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -623,6 +632,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Incoming Wallet Invoices Count
 
@@ -633,10 +643,11 @@ Get incoming invoices count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Incoming Wallet Invoices Count
 try {
-    $Result = Get-IncomingWalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-IncomingWalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-IncomingWalletInvoicesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -650,6 +661,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -661,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -724,6 +736,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Locations
 
@@ -734,10 +747,11 @@ Get locations of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Locations
 try {
-    $Result = Get-LocationsForWalletAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LocationsForWalletAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LocationsForWalletAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -751,6 +765,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -762,7 +777,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -773,6 +788,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Locations Count
 
@@ -783,10 +799,11 @@ Get locations count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Locations Count
 try {
-    $Result = Get-LocationsForWalletCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LocationsForWalletCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LocationsForWalletCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -800,6 +817,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -811,7 +829,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -822,6 +840,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Outgoing Payments
 
@@ -832,10 +851,11 @@ Get outgoing payments of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Outgoing Payments
 try {
-    $Result = Get-OutgoingPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-OutgoingPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-OutgoingPaymentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -849,6 +869,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -860,7 +881,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -871,6 +892,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Outgoing Payments Count
 
@@ -881,10 +903,11 @@ Get outgoing payments count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Outgoing Payments Count
 try {
-    $Result = Get-OutgoingPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-OutgoingPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-OutgoingPaymentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -898,6 +921,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -909,7 +933,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -920,6 +944,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Outgoing Wallet Invoices
 
@@ -930,10 +955,11 @@ Get outgoing invoices of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Outgoing Wallet Invoices
 try {
-    $Result = Get-OutgoingWalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-OutgoingWalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-OutgoingWalletInvoicesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -947,6 +973,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -958,7 +985,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -969,6 +996,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Outgoing Wallet Invoices Count
 
@@ -979,10 +1007,11 @@ Get outgoing invoices count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Outgoing Wallet Invoices Count
 try {
-    $Result = Get-OutgoingWalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-OutgoingWalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-OutgoingWalletInvoicesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -996,6 +1025,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1007,7 +1037,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1070,6 +1100,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankAccountDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Bank Accounts
 
@@ -1080,10 +1111,11 @@ Get bank accounts of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BankAccountDtoCollectionQueryParameters = Initialize-BankAccountDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BankAccountDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Bank Accounts
 try {
-    $Result = Get-WalletBankAccountsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletBankAccountsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BankAccountDtoCollectionQueryParameters $BankAccountDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletBankAccountsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1097,6 +1129,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1108,7 +1141,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1119,6 +1152,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankAccountDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Bank Accounts Count
 
@@ -1129,10 +1163,11 @@ Get bank accounts count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BankAccountDtoCollectionQueryParameters = Initialize-BankAccountDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BankAccountDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Bank Accounts Count
 try {
-    $Result = Get-WalletBankAccountsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletBankAccountsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BankAccountDtoCollectionQueryParameters $BankAccountDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletBankAccountsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1146,6 +1181,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1157,7 +1193,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1168,6 +1204,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentChargebackDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Chargebacks
 
@@ -1178,10 +1215,11 @@ Get chargebacks of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentChargebackDtoCollectionQueryParameters = Initialize-PaymentChargebackDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentChargebackDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Chargebacks
 try {
-    $Result = Get-WalletChargebacksAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletChargebacksAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentChargebackDtoCollectionQueryParameters $PaymentChargebackDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletChargebacksAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1195,6 +1233,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1206,7 +1245,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1217,6 +1256,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentChargebackDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Chargebacks Count
 
@@ -1227,10 +1267,11 @@ Get chargebacks count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentChargebackDtoCollectionQueryParameters = Initialize-PaymentChargebackDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentChargebackDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Chargebacks Count
 try {
-    $Result = Get-WalletChargebacksCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletChargebacksCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentChargebackDtoCollectionQueryParameters $PaymentChargebackDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletChargebacksCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1244,6 +1285,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1255,7 +1297,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1315,6 +1357,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedOrderDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Extended Orders
 
@@ -1325,10 +1368,11 @@ Get extended orders of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ExtendedOrderDtoCollectionQueryParameters = Initialize-ExtendedOrderDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedOrderDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Extended Orders
 try {
-    $Result = Get-WalletExtendedOrdersAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletExtendedOrdersAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ExtendedOrderDtoCollectionQueryParameters $ExtendedOrderDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletExtendedOrdersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1342,6 +1386,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ExtendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1353,7 +1398,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1364,6 +1409,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Invoices
 
@@ -1374,10 +1420,11 @@ Get invoices of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Invoices
 try {
-    $Result = Get-WalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletInvoicesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletInvoicesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1391,6 +1438,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1402,7 +1450,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1413,6 +1461,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Invoices Count
 
@@ -1423,10 +1472,11 @@ Get invoices count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Invoices Count
 try {
-    $Result = Get-WalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletInvoicesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletInvoicesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1440,6 +1490,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1451,7 +1502,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1462,6 +1513,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OrderDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Orders
 
@@ -1472,10 +1524,11 @@ Get orders of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OrderDtoCollectionQueryParameters = Initialize-OrderDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OrderDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Orders
 try {
-    $Result = Get-WalletOrdersAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletOrdersAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OrderDtoCollectionQueryParameters $OrderDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletOrdersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1489,6 +1542,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OrderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1500,7 +1554,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1511,6 +1565,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OrderDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Orders Count
 
@@ -1521,10 +1576,11 @@ Get orders count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OrderDtoCollectionQueryParameters = Initialize-OrderDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OrderDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Orders Count
 try {
-    $Result = Get-WalletOrdersCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletOrdersCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OrderDtoCollectionQueryParameters $OrderDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletOrdersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1538,6 +1594,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OrderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1549,7 +1606,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1560,6 +1617,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Payments
 
@@ -1570,10 +1628,11 @@ Get payments of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Payments
 try {
-    $Result = Get-WalletPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletPaymentsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletPaymentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1587,6 +1646,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1598,7 +1658,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1609,6 +1669,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Payments Count
 
@@ -1619,10 +1680,11 @@ Get payments count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Payments Count
 try {
-    $Result = Get-WalletPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletPaymentsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletPaymentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1636,6 +1698,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1647,7 +1710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1658,6 +1721,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QuoteDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Quotes
 
@@ -1668,10 +1732,11 @@ Get quotes of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$QuoteDtoCollectionQueryParameters = Initialize-QuoteDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # QuoteDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Quotes
 try {
-    $Result = Get-WalletQuotesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletQuotesAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -QuoteDtoCollectionQueryParameters $QuoteDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletQuotesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1685,6 +1750,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **QuoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1696,7 +1762,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1707,6 +1773,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QuoteDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Quotes Count
 
@@ -1717,10 +1784,11 @@ Get quotes count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$QuoteDtoCollectionQueryParameters = Initialize-QuoteDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # QuoteDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Quotes Count
 try {
-    $Result = Get-WalletQuotesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletQuotesCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -QuoteDtoCollectionQueryParameters $QuoteDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletQuotesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1734,6 +1802,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **QuoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1745,7 +1814,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1756,6 +1825,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentRefundDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Refunds
 
@@ -1766,10 +1836,11 @@ Get refunds of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentRefundDtoCollectionQueryParameters = Initialize-PaymentRefundDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentRefundDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Refunds
 try {
-    $Result = Get-WalletRefundsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletRefundsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentRefundDtoCollectionQueryParameters $PaymentRefundDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletRefundsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1783,6 +1854,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1794,7 +1866,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1805,6 +1877,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentRefundDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Refunds Count
 
@@ -1815,10 +1888,11 @@ Get refunds count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentRefundDtoCollectionQueryParameters = Initialize-PaymentRefundDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentRefundDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Refunds Count
 try {
-    $Result = Get-WalletRefundsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletRefundsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentRefundDtoCollectionQueryParameters $PaymentRefundDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletRefundsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1832,6 +1906,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1843,7 +1918,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1906,6 +1981,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentTokenDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Tokens
 
@@ -1916,10 +1992,11 @@ Get payment tokens of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentTokenDtoCollectionQueryParameters = Initialize-PaymentTokenDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentTokenDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Tokens
 try {
-    $Result = Get-WalletTokensAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletTokensAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentTokenDtoCollectionQueryParameters $PaymentTokenDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletTokensAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1933,6 +2010,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1944,7 +2022,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1955,6 +2033,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentTokenDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Tokens Count
 
@@ -1965,10 +2044,11 @@ Get payment tokens count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PaymentTokenDtoCollectionQueryParameters = Initialize-PaymentTokenDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentTokenDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Tokens Count
 try {
-    $Result = Get-WalletTokensCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletTokensCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PaymentTokenDtoCollectionQueryParameters $PaymentTokenDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletTokensCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1982,6 +2062,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PaymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1993,7 +2074,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2004,6 +2085,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletWithdrawRequestDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Withdraw Requests
 
@@ -2014,10 +2096,11 @@ Get withdraw requests of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WalletWithdrawRequestDtoCollectionQueryParameters = Initialize-WalletWithdrawRequestDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WalletWithdrawRequestDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Withdraw Requests
 try {
-    $Result = Get-WalletWithdrawRequestsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletWithdrawRequestsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WalletWithdrawRequestDtoCollectionQueryParameters $WalletWithdrawRequestDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletWithdrawRequestsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2031,6 +2114,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WalletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2042,7 +2126,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2053,6 +2137,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletWithdrawRequestDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Withdraw Requests Count
 
@@ -2063,10 +2148,11 @@ Get withdraw requests count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WalletWithdrawRequestDtoCollectionQueryParameters = Initialize-WalletWithdrawRequestDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WalletWithdrawRequestDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Withdraw Requests Count
 try {
-    $Result = Get-WalletWithdrawRequestsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletWithdrawRequestsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WalletWithdrawRequestDtoCollectionQueryParameters $WalletWithdrawRequestDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletWithdrawRequestsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2080,6 +2166,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WalletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2091,7 +2178,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2102,6 +2189,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletWithdrawDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Withdraws
 
@@ -2112,10 +2200,11 @@ Get withdraws of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WalletWithdrawDtoCollectionQueryParameters = Initialize-WalletWithdrawDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WalletWithdrawDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Withdraws
 try {
-    $Result = Get-WalletWithdrawsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletWithdrawsAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WalletWithdrawDtoCollectionQueryParameters $WalletWithdrawDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletWithdrawsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2129,6 +2218,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WalletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2140,7 +2230,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2151,6 +2241,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletWithdrawDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Withdraws Count
 
@@ -2161,10 +2252,11 @@ Get withdraws count of a specific wallet by ID.
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$WalletWithdrawDtoCollectionQueryParameters = Initialize-WalletWithdrawDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # WalletWithdrawDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Withdraws Count
 try {
-    $Result = Get-WalletWithdrawsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-WalletWithdrawsCountAsync -WalletId $WalletId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -WalletWithdrawDtoCollectionQueryParameters $WalletWithdrawDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletWithdrawsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2178,6 +2270,7 @@ Name | Type | Description  | Notes
  **WalletId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **WalletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2189,7 +2282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2201,7 +2294,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankAccountId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch Wallet Bank Account
 
@@ -2213,11 +2306,11 @@ $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BankAccountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch Wallet Bank Account
 try {
-    $Result = Invoke-PatchWalletBankAccountAsync -WalletId $WalletId -BankAccountId $BankAccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchWalletBankAccountAsync -WalletId $WalletId -BankAccountId $BankAccountId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchWalletBankAccountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2232,7 +2325,7 @@ Name | Type | Description  | Notes
  **BankAccountId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -2256,7 +2349,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TokenId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch Wallet Token
 
@@ -2268,11 +2361,11 @@ $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TokenId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch Wallet Token
 try {
-    $Result = Invoke-PatchWalletTokenAsync -WalletId $WalletId -TokenId $TokenId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchWalletTokenAsync -WalletId $WalletId -TokenId $TokenId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchWalletTokenAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2287,7 +2380,7 @@ Name | Type | Description  | Notes
  **TokenId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

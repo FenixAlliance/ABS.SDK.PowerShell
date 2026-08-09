@@ -175,6 +175,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LedgerDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves all ledgers
 
@@ -185,10 +186,11 @@ Gets all ledgers for the current tenant with OData support.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$LedgerDtoCollectionQueryParameters = Initialize-LedgerDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LedgerDtoCollectionQueryParameters |  (optional)
 
 # Retrieves all ledgers
 try {
-    $Result = Get-LedgersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LedgersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LedgerDtoCollectionQueryParameters $LedgerDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LedgersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -202,6 +204,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **LedgerDtoCollectionQueryParameters** | [**LedgerDtoCollectionQueryParameters**](LedgerDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -213,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -224,6 +227,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LedgerDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts ledgers
 
@@ -234,10 +238,11 @@ Gets the count of ledgers for the current tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$LedgerDtoCollectionQueryParameters = Initialize-LedgerDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LedgerDtoCollectionQueryParameters |  (optional)
 
 # Counts ledgers
 try {
-    $Result = Get-LedgersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LedgersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -LedgerDtoCollectionQueryParameters $LedgerDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LedgersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -251,6 +256,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **LedgerDtoCollectionQueryParameters** | [**LedgerDtoCollectionQueryParameters**](LedgerDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -262,7 +268,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -274,7 +280,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LedgerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a ledger
 
@@ -286,11 +292,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LedgerId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a ledger
 try {
-    $Result = Invoke-PatchLedgerAsync -TenantId $TenantId -LedgerId $LedgerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchLedgerAsync -TenantId $TenantId -LedgerId $LedgerId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchLedgerAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -305,7 +311,7 @@ Name | Type | Description  | Notes
  **LedgerId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

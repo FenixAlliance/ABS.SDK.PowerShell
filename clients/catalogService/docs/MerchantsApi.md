@@ -63,6 +63,7 @@ No authorization required
 > MerchantDtoListEnvelope Get-Merchants<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MerchantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all merchants
 
@@ -72,10 +73,11 @@ Retrieves all merchants, optionally filtered by OData query options.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$MerchantDtoCollectionQueryParameters = Initialize-MerchantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # MerchantDtoCollectionQueryParameters |  (optional)
 
 # Get all merchants
 try {
-    $Result = Get-Merchants -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-Merchants -ApiVersion $ApiVersion -XApiVersion $XApiVersion -MerchantDtoCollectionQueryParameters $MerchantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-Merchants: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -88,6 +90,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **MerchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -99,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,6 +112,7 @@ No authorization required
 > Int32Envelope Get-MerchantsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MerchantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count merchants
 
@@ -118,10 +122,11 @@ Counts the number of merchants, optionally filtered by OData query options.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$MerchantDtoCollectionQueryParameters = Initialize-MerchantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # MerchantDtoCollectionQueryParameters |  (optional)
 
 # Count merchants
 try {
-    $Result = Get-MerchantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MerchantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -MerchantDtoCollectionQueryParameters $MerchantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MerchantsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -134,6 +139,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **MerchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -145,7 +151,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

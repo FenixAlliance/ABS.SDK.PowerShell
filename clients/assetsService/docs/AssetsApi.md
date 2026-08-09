@@ -674,6 +674,7 @@ No authorization required
 # **Get-AssetAssetCategories**
 > AssetCategoryDtoListEnvelope Get-AssetAssetCategories<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets all asset categories
 
@@ -682,10 +683,11 @@ Retrieves all asset categories for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetCategoryDtoCollectionQueryParameters = Initialize-AssetCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 # Gets all asset categories
 try {
-    $Result = Get-AssetAssetCategories -TenantId $TenantId
+    $Result = Get-AssetAssetCategories -TenantId $TenantId -AssetCategoryDtoCollectionQueryParameters $AssetCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetAssetCategories: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -697,6 +699,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -708,7 +711,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -717,6 +720,7 @@ No authorization required
 # **Get-AssetAssetCategoriesCount**
 > Int32Envelope Get-AssetAssetCategoriesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets the count of asset categories
 
@@ -725,10 +729,11 @@ Returns the total number of asset categories for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetCategoryDtoCollectionQueryParameters = Initialize-AssetCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 # Gets the count of asset categories
 try {
-    $Result = Get-AssetAssetCategoriesCount -TenantId $TenantId
+    $Result = Get-AssetAssetCategoriesCount -TenantId $TenantId -AssetCategoryDtoCollectionQueryParameters $AssetCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetAssetCategoriesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -740,6 +745,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -751,7 +757,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -856,6 +862,7 @@ No authorization required
 > AssetDepreciationRecordDtoListEnvelope Get-AssetDepreciationRecords<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetDepreciationRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets depreciation records for a specific asset
 
@@ -865,10 +872,11 @@ Retrieves all depreciation records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetDepreciationRecordDtoCollectionQueryParameters = Initialize-AssetDepreciationRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetDepreciationRecordDtoCollectionQueryParameters |  (optional)
 
 # Gets depreciation records for a specific asset
 try {
-    $Result = Get-AssetDepreciationRecords -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetDepreciationRecords -TenantId $TenantId -AssetId $AssetId -AssetDepreciationRecordDtoCollectionQueryParameters $AssetDepreciationRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetDepreciationRecords: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -881,6 +889,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -892,7 +901,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -902,6 +911,7 @@ No authorization required
 > Int32Envelope Get-AssetDepreciationRecordsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetDepreciationRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets count of depreciation records for a specific asset
 
@@ -911,10 +921,11 @@ Returns the total number of depreciation records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetDepreciationRecordDtoCollectionQueryParameters = Initialize-AssetDepreciationRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetDepreciationRecordDtoCollectionQueryParameters |  (optional)
 
 # Gets count of depreciation records for a specific asset
 try {
-    $Result = Get-AssetDepreciationRecordsCount -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetDepreciationRecordsCount -TenantId $TenantId -AssetId $AssetId -AssetDepreciationRecordDtoCollectionQueryParameters $AssetDepreciationRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetDepreciationRecordsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -927,6 +938,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -938,7 +950,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -997,6 +1009,7 @@ No authorization required
 > AssetRepairDtoListEnvelope Get-AssetRepairs<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetRepairDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets repairs for a specific asset
 
@@ -1006,10 +1019,11 @@ Retrieves all repair records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetRepairDtoCollectionQueryParameters = Initialize-AssetRepairDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetRepairDtoCollectionQueryParameters |  (optional)
 
 # Gets repairs for a specific asset
 try {
-    $Result = Get-AssetRepairs -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetRepairs -TenantId $TenantId -AssetId $AssetId -AssetRepairDtoCollectionQueryParameters $AssetRepairDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetRepairs: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1022,6 +1036,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1033,7 +1048,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1043,6 +1058,7 @@ No authorization required
 > Int32Envelope Get-AssetRepairsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetRepairDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets count of repairs for a specific asset
 
@@ -1052,10 +1068,11 @@ Returns the total number of repair records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetRepairDtoCollectionQueryParameters = Initialize-AssetRepairDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetRepairDtoCollectionQueryParameters |  (optional)
 
 # Gets count of repairs for a specific asset
 try {
-    $Result = Get-AssetRepairsCount -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetRepairsCount -TenantId $TenantId -AssetId $AssetId -AssetRepairDtoCollectionQueryParameters $AssetRepairDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetRepairsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1068,6 +1085,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1079,7 +1097,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1138,6 +1156,7 @@ No authorization required
 > AssetTransferDtoListEnvelope Get-AssetTransfers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetTransferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets transfers for a specific asset
 
@@ -1147,10 +1166,11 @@ Retrieves all transfer records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetTransferDtoCollectionQueryParameters = Initialize-AssetTransferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetTransferDtoCollectionQueryParameters |  (optional)
 
 # Gets transfers for a specific asset
 try {
-    $Result = Get-AssetTransfers -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetTransfers -TenantId $TenantId -AssetId $AssetId -AssetTransferDtoCollectionQueryParameters $AssetTransferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetTransfers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1163,6 +1183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1174,7 +1195,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1184,6 +1205,7 @@ No authorization required
 > Int32Envelope Get-AssetTransfersCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetTransferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets count of transfers for a specific asset
 
@@ -1193,10 +1215,11 @@ Returns the total number of transfer records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetTransferDtoCollectionQueryParameters = Initialize-AssetTransferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetTransferDtoCollectionQueryParameters |  (optional)
 
 # Gets count of transfers for a specific asset
 try {
-    $Result = Get-AssetTransfersCount -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetTransfersCount -TenantId $TenantId -AssetId $AssetId -AssetTransferDtoCollectionQueryParameters $AssetTransferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetTransfersCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1209,6 +1232,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1220,7 +1244,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1279,6 +1303,7 @@ No authorization required
 > AssetValueAmendDtoListEnvelope Get-AssetValueAmends<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetValueAmendDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets value amendments for a specific asset
 
@@ -1288,10 +1313,11 @@ Retrieves all value amendment records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetValueAmendDtoCollectionQueryParameters = Initialize-AssetValueAmendDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetValueAmendDtoCollectionQueryParameters |  (optional)
 
 # Gets value amendments for a specific asset
 try {
-    $Result = Get-AssetValueAmends -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetValueAmends -TenantId $TenantId -AssetId $AssetId -AssetValueAmendDtoCollectionQueryParameters $AssetValueAmendDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetValueAmends: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1304,6 +1330,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1315,7 +1342,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1325,6 +1352,7 @@ No authorization required
 > Int32Envelope Get-AssetValueAmendsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetValueAmendDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets count of value amendments for a specific asset
 
@@ -1334,10 +1362,11 @@ Returns the total number of value amendment records for the specified asset.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetValueAmendDtoCollectionQueryParameters = Initialize-AssetValueAmendDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetValueAmendDtoCollectionQueryParameters |  (optional)
 
 # Gets count of value amendments for a specific asset
 try {
-    $Result = Get-AssetValueAmendsCount -TenantId $TenantId -AssetId $AssetId
+    $Result = Get-AssetValueAmendsCount -TenantId $TenantId -AssetId $AssetId -AssetValueAmendDtoCollectionQueryParameters $AssetValueAmendDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetValueAmendsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1350,6 +1379,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
+ **AssetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1361,7 +1391,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1370,6 +1400,7 @@ No authorization required
 # **Get-Assets**
 > AssetDtoListEnvelope Get-Assets<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets all assets for the current tenant
 
@@ -1378,10 +1409,11 @@ Retrieves all assets for the authenticated tenant with optional filtering.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetDtoCollectionQueryParameters = Initialize-AssetDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetDtoCollectionQueryParameters |  (optional)
 
 # Gets all assets for the current tenant
 try {
-    $Result = Get-Assets -TenantId $TenantId
+    $Result = Get-Assets -TenantId $TenantId -AssetDtoCollectionQueryParameters $AssetDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-Assets: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1393,6 +1425,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1404,7 +1437,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1413,6 +1446,7 @@ No authorization required
 # **Get-AssetsCount**
 > Int32Envelope Get-AssetsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets the count of assets
 
@@ -1421,10 +1455,11 @@ Returns the total number of assets for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetDtoCollectionQueryParameters = Initialize-AssetDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetDtoCollectionQueryParameters |  (optional)
 
 # Gets the count of assets
 try {
-    $Result = Get-AssetsCount -TenantId $TenantId
+    $Result = Get-AssetsCount -TenantId $TenantId -AssetDtoCollectionQueryParameters $AssetDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1436,6 +1471,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1447,7 +1483,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1457,7 +1493,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchAsset<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates an existing asset
 
@@ -1467,11 +1503,11 @@ Applies a JSON Patch document to an existing asset for the authenticated tenant.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates an existing asset
 try {
-    $Result = Invoke-PatchAsset -TenantId $TenantId -AssetId $AssetId -Operation $Operation
+    $Result = Invoke-PatchAsset -TenantId $TenantId -AssetId $AssetId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAsset: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1484,7 +1520,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1506,7 +1542,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchAssetAssetCategory<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CategoryId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates an existing asset category
 
@@ -1516,11 +1552,11 @@ Applies a JSON Patch document to an existing asset category for the authenticate
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates an existing asset category
 try {
-    $Result = Invoke-PatchAssetAssetCategory -TenantId $TenantId -CategoryId $CategoryId -Operation $Operation
+    $Result = Invoke-PatchAssetAssetCategory -TenantId $TenantId -CategoryId $CategoryId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetAssetCategory: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1533,7 +1569,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **CategoryId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1556,7 +1592,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RecordId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates a depreciation record for an asset
 
@@ -1567,11 +1603,11 @@ Applies a JSON Patch document to an existing depreciation record for the specifi
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates a depreciation record for an asset
 try {
-    $Result = Invoke-PatchAssetDepreciationRecord -TenantId $TenantId -AssetId $AssetId -RecordId $RecordId -Operation $Operation
+    $Result = Invoke-PatchAssetDepreciationRecord -TenantId $TenantId -AssetId $AssetId -RecordId $RecordId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetDepreciationRecord: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1585,7 +1621,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
  **RecordId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1608,7 +1644,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RepairId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates a repair for an asset
 
@@ -1619,11 +1655,11 @@ Applies a JSON Patch document to an existing repair record for the specified ass
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $RepairId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates a repair for an asset
 try {
-    $Result = Invoke-PatchAssetRepair -TenantId $TenantId -AssetId $AssetId -RepairId $RepairId -Operation $Operation
+    $Result = Invoke-PatchAssetRepair -TenantId $TenantId -AssetId $AssetId -RepairId $RepairId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetRepair: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1637,7 +1673,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
  **RepairId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1660,7 +1696,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TransferId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates a transfer for an asset
 
@@ -1671,11 +1707,11 @@ Applies a JSON Patch document to an existing transfer record for the specified a
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TransferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates a transfer for an asset
 try {
-    $Result = Invoke-PatchAssetTransfer -TenantId $TenantId -AssetId $AssetId -TransferId $TransferId -Operation $Operation
+    $Result = Invoke-PatchAssetTransfer -TenantId $TenantId -AssetId $AssetId -TransferId $TransferId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetTransfer: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1689,7 +1725,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
  **TransferId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1712,7 +1748,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AmendId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates a value amendment for an asset
 
@@ -1723,11 +1759,11 @@ Applies a JSON Patch document to an existing value amendment record for the spec
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AssetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $AmendId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates a value amendment for an asset
 try {
-    $Result = Invoke-PatchAssetValueAmend -TenantId $TenantId -AssetId $AssetId -AmendId $AmendId -Operation $Operation
+    $Result = Invoke-PatchAssetValueAmend -TenantId $TenantId -AssetId $AssetId -AmendId $AmendId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetValueAmend: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1741,7 +1777,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **AssetId** | **String**|  | 
  **AmendId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

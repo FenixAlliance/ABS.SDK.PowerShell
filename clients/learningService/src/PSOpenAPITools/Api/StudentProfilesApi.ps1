@@ -820,7 +820,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -852,7 +852,7 @@ function Invoke-ApiV2LearningServiceStudentProfilesStudentProfileIdPatch {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -904,7 +904,7 @@ function Invoke-ApiV2LearningServiceStudentProfilesStudentProfileIdPatch {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

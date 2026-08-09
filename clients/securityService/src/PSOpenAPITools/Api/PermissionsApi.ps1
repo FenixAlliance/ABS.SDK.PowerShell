@@ -987,6 +987,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SecurityPermissionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1011,6 +1014,9 @@ function Get-PermissionsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SecurityPermissionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1040,6 +1046,9 @@ function Get-PermissionsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Permissions'
 
         if ($XApiVersion) {
@@ -1054,6 +1063,8 @@ function Get-PermissionsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SecurityPermissionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1209,6 +1220,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SecurityPermissionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1233,6 +1247,9 @@ function Get-PermissionsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SecurityPermissionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1262,6 +1279,9 @@ function Get-PermissionsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Permissions/Count'
 
         if ($XApiVersion) {
@@ -1276,6 +1296,8 @@ function Get-PermissionsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SecurityPermissionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1428,7 +1450,7 @@ No description available.
 .PARAMETER SecurityPermissionId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ApiVersion
@@ -1460,7 +1482,7 @@ function Invoke-PatchPermissionAsync {
         ${SecurityPermissionId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
@@ -1518,11 +1540,11 @@ function Invoke-PatchPermissionAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        if (!$Operation) {
-            throw "Error! The required parameter `Operation` missing when calling patchPermissionAsync."
+        if (!$PatchOperation) {
+            throw "Error! The required parameter `PatchOperation` missing when calling patchPermissionAsync."
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

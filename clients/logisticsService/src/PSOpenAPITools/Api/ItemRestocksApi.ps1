@@ -629,6 +629,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemRestockEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -656,6 +659,9 @@ function Get-ItemRestockEntriesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemRestockEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -685,6 +691,9 @@ function Get-ItemRestockEntriesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/ItemRestocks/{restockId}/Entries'
         if (!$RestockId) {
             throw "Error! The required parameter `RestockId` missing when calling getItemRestockEntriesAsync."
@@ -703,6 +712,8 @@ function Get-ItemRestockEntriesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemRestockEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -745,6 +756,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemRestockEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -772,6 +786,9 @@ function Get-ItemRestockEntriesCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemRestockEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -801,6 +818,9 @@ function Get-ItemRestockEntriesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/Count'
         if (!$RestockId) {
             throw "Error! The required parameter `RestockId` missing when calling getItemRestockEntriesCountAsync."
@@ -819,6 +839,8 @@ function Get-ItemRestockEntriesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemRestockEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -984,6 +1006,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemRestockDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1008,6 +1033,9 @@ function Get-ItemRestocksAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemRestockDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1037,6 +1065,9 @@ function Get-ItemRestocksAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/ItemRestocks'
 
         if ($XApiVersion) {
@@ -1051,6 +1082,8 @@ function Get-ItemRestocksAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemRestockDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1090,6 +1123,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemRestockDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1114,6 +1150,9 @@ function Get-ItemRestocksCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemRestockDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1143,6 +1182,9 @@ function Get-ItemRestocksCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/ItemRestocks/Count'
 
         if ($XApiVersion) {
@@ -1157,6 +1199,8 @@ function Get-ItemRestocksCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemRestockDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1199,7 +1243,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1231,7 +1275,7 @@ function Invoke-PatchItemRestockAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1283,7 +1327,7 @@ function Invoke-PatchItemRestockAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1329,7 +1373,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1364,7 +1408,7 @@ function Invoke-PatchItemRestockEntryAsync {
         ${XApiVersion},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1420,7 +1464,7 @@ function Invoke-PatchItemRestockEntryAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

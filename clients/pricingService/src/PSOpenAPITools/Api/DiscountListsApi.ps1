@@ -523,6 +523,9 @@ No description available.
 .PARAMETER DiscountListId
 No description available.
 
+.PARAMETER DiscountDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -544,6 +547,9 @@ function Get-DiscountListEntries {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${DiscountListId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DiscountDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -573,6 +579,9 @@ function Get-DiscountListEntries {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/PricingService/DiscountLists/{discountListId}/Discounts'
         if (!$DiscountListId) {
             throw "Error! The required parameter `DiscountListId` missing when calling getDiscountListEntries."
@@ -583,6 +592,8 @@ function Get-DiscountListEntries {
             throw "Error! The required parameter `TenantId` missing when calling getDiscountListEntries."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DiscountDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -619,6 +630,9 @@ No description available.
 .PARAMETER DiscountListId
 No description available.
 
+.PARAMETER DiscountDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -640,6 +654,9 @@ function Get-DiscountListEntriesCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${DiscountListId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DiscountDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -669,6 +686,9 @@ function Get-DiscountListEntriesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count'
         if (!$DiscountListId) {
             throw "Error! The required parameter `DiscountListId` missing when calling getDiscountListEntriesCount."
@@ -679,6 +699,8 @@ function Get-DiscountListEntriesCount {
             throw "Error! The required parameter `TenantId` missing when calling getDiscountListEntriesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DiscountDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -818,6 +840,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER DiscountListDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -836,6 +861,9 @@ function Get-DiscountLists {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DiscountListDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -865,12 +893,17 @@ function Get-DiscountLists {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/PricingService/DiscountLists'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getDiscountLists."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DiscountListDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -904,6 +937,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER DiscountListDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -922,6 +958,9 @@ function Get-DiscountListsCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DiscountListDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -951,12 +990,17 @@ function Get-DiscountListsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/PricingService/DiscountLists/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getDiscountListsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DiscountListDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -993,7 +1037,7 @@ No description available.
 .PARAMETER DiscountListId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1019,7 +1063,7 @@ function Invoke-PatchDiscountList {
         ${DiscountListId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1063,7 +1107,7 @@ function Invoke-PatchDiscountList {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1103,7 +1147,7 @@ No description available.
 .PARAMETER DiscountListEntryId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1132,7 +1176,7 @@ function Invoke-PatchDiscountListEntry {
         ${DiscountListEntryId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1180,7 +1224,7 @@ function Invoke-PatchDiscountListEntry {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

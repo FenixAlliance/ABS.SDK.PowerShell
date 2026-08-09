@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 **FiscalYearId** | **String** |  | [optional] 
+**Status** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,7 +24,8 @@ $FiscalPeriodDto = Initialize-PSOpenAPIToolsFiscalPeriodDto  -Id null `
  -ToDate null `
  -TenantId null `
  -EnrollmentId null `
- -FiscalYearId null
+ -FiscalYearId null `
+ -Status null
 ```
 
 - Convert the resource to JSON

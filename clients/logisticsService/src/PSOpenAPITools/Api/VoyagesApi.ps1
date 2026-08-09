@@ -861,6 +861,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER VoyagePortCallDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -888,6 +891,9 @@ function Get-VoyagePortCallsAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${VoyagePortCallDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -917,6 +923,9 @@ function Get-VoyagePortCallsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/Voyages/{voyageId}/PortCalls'
         if (!$VoyageId) {
             throw "Error! The required parameter `VoyageId` missing when calling getVoyagePortCallsAsync."
@@ -935,6 +944,8 @@ function Get-VoyagePortCallsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $VoyagePortCallDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -977,6 +988,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER VoyagePortCallDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1004,6 +1018,9 @@ function Get-VoyagePortCallsCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${VoyagePortCallDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1033,6 +1050,9 @@ function Get-VoyagePortCallsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/Count'
         if (!$VoyageId) {
             throw "Error! The required parameter `VoyageId` missing when calling getVoyagePortCallsCountAsync."
@@ -1051,6 +1071,8 @@ function Get-VoyagePortCallsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $VoyagePortCallDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1090,6 +1112,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER VoyageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1114,6 +1139,9 @@ function Get-VoyagesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${VoyageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1143,6 +1171,9 @@ function Get-VoyagesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/Voyages'
 
         if ($XApiVersion) {
@@ -1157,6 +1188,8 @@ function Get-VoyagesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $VoyageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1196,6 +1229,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER VoyageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1220,6 +1256,9 @@ function Get-VoyagesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${VoyageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1249,6 +1288,9 @@ function Get-VoyagesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LogisticsService/Voyages/Count'
 
         if ($XApiVersion) {
@@ -1263,6 +1305,8 @@ function Get-VoyagesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $VoyageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1305,7 +1349,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1337,7 +1381,7 @@ function Invoke-PatchVoyageAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1389,7 +1433,7 @@ function Invoke-PatchVoyageAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1435,7 +1479,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1470,7 +1514,7 @@ function Invoke-PatchVoyagePortCallAsync {
         ${XApiVersion},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1526,7 +1570,7 @@ function Invoke-PatchVoyagePortCallAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

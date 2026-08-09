@@ -24,6 +24,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryCallingCodeDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -44,6 +47,9 @@ function Invoke-CountCallingCodesByCountryAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryCallingCodeDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -65,6 +71,9 @@ function Invoke-CountCallingCodesByCountryAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling countCallingCodesByCountryAsync."
@@ -78,6 +87,8 @@ function Invoke-CountCallingCodesByCountryAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryCallingCodeDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -120,6 +131,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CityDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -143,6 +157,9 @@ function Invoke-CountCitiesByStateAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CityDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -164,6 +181,9 @@ function Invoke-CountCitiesByStateAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count'
         if (!$CountryStateId) {
             throw "Error! The required parameter `CountryStateId` missing when calling countCitiesByStateAsync."
@@ -181,6 +201,8 @@ function Invoke-CountCitiesByStateAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CityDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -217,6 +239,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -234,6 +259,9 @@ function Invoke-CountCountries {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -255,6 +283,9 @@ function Invoke-CountCountries {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/Count'
 
         if ($XApiVersion) {
@@ -264,6 +295,8 @@ function Invoke-CountCountries {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -303,6 +336,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryStateDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -323,6 +359,9 @@ function Invoke-CountCountryStatesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryStateDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -344,6 +383,9 @@ function Invoke-CountCountryStatesAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/States/Count'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling countCountryStatesAsync."
@@ -357,6 +399,8 @@ function Invoke-CountCountryStatesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryStateDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -396,6 +440,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TimezoneDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -416,6 +463,9 @@ function Invoke-CountTimezonesByCountryAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TimezoneDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -437,6 +487,9 @@ function Invoke-CountTimezonesByCountryAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/Timezones/Count'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling countTimezonesByCountryAsync."
@@ -450,6 +503,8 @@ function Invoke-CountTimezonesByCountryAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TimezoneDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -489,6 +544,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryTopLevelDomainDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -509,6 +567,9 @@ function Invoke-CountTopLevelDomainsByCountryAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryTopLevelDomainDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -530,6 +591,9 @@ function Invoke-CountTopLevelDomainsByCountryAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling countTopLevelDomainsByCountryAsync."
@@ -543,6 +607,8 @@ function Invoke-CountTopLevelDomainsByCountryAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryTopLevelDomainDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -579,6 +645,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -596,6 +665,9 @@ function Get-AllCountries {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -617,6 +689,9 @@ function Get-AllCountries {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries'
 
         if ($XApiVersion) {
@@ -626,6 +701,8 @@ function Get-AllCountries {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -665,6 +742,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryCallingCodeDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -685,6 +765,9 @@ function Get-CallingCodesByCountryIdAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryCallingCodeDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -706,6 +789,9 @@ function Get-CallingCodesByCountryIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/CallingCodes'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling getCallingCodesByCountryIdAsync."
@@ -719,6 +805,8 @@ function Get-CallingCodesByCountryIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryCallingCodeDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -761,6 +849,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CityDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -784,6 +875,9 @@ function Get-CitiesByCountryStateIdAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CityDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -805,6 +899,9 @@ function Get-CitiesByCountryStateIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities'
         if (!$CountryStateId) {
             throw "Error! The required parameter `CountryStateId` missing when calling getCitiesByCountryStateIdAsync."
@@ -822,6 +919,8 @@ function Get-CitiesByCountryStateIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CityDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -957,6 +1056,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryStateDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -980,6 +1082,9 @@ function Get-CountryStateByIdAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryStateDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -1001,6 +1106,9 @@ function Get-CountryStateByIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}'
         if (!$CountryStateId) {
             throw "Error! The required parameter `CountryStateId` missing when calling getCountryStateByIdAsync."
@@ -1018,6 +1126,8 @@ function Get-CountryStateByIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryStateDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1057,6 +1167,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryStateDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1077,6 +1190,9 @@ function Get-CountryStatesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryStateDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -1098,6 +1214,9 @@ function Get-CountryStatesAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/States'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling getCountryStatesAsync."
@@ -1111,6 +1230,8 @@ function Get-CountryStatesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryStateDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1150,6 +1271,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CurrencyDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1170,6 +1294,9 @@ function Get-EnabledCurrenciesByCountryIdAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CurrencyDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -1191,6 +1318,9 @@ function Get-EnabledCurrenciesByCountryIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/Currencies'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling getEnabledCurrenciesByCountryIdAsync."
@@ -1204,6 +1334,8 @@ function Get-EnabledCurrenciesByCountryIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CurrencyDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1243,6 +1375,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TimezoneDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1263,6 +1398,9 @@ function Get-TimeZonesByCountryIdAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TimezoneDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -1284,6 +1422,9 @@ function Get-TimeZonesByCountryIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/Timezones'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling getTimeZonesByCountryIdAsync."
@@ -1297,6 +1438,8 @@ function Get-TimeZonesByCountryIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TimezoneDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1336,6 +1479,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CountryTopLevelDomainDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1356,6 +1502,9 @@ function Get-TopLevelDomainsByCountryIdAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CountryTopLevelDomainDtoCollectionQueryParameters},
         [Switch]
         $WithHttpInfo
     )
@@ -1377,6 +1526,9 @@ function Get-TopLevelDomainsByCountryIdAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/api/v2/GlobeService/Countries/{countryId}/TopLevelDomains'
         if (!$CountryId) {
             throw "Error! The required parameter `CountryId` missing when calling getTopLevelDomainsByCountryIdAsync."
@@ -1390,6 +1542,8 @@ function Get-TopLevelDomainsByCountryIdAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CountryTopLevelDomainDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

@@ -260,6 +260,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseArticleDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -287,6 +290,9 @@ function Get-CourseArticlesByCourseWikiAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseArticleDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -316,6 +322,9 @@ function Get-CourseArticlesByCourseWikiAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Articles/{wikiId}'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseArticlesByCourseWikiAsync."
@@ -333,6 +342,8 @@ function Get-CourseArticlesByCourseWikiAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseArticleDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -375,6 +386,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseArticleDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -402,6 +416,9 @@ function Get-CourseArticlesByCourseWikiCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseArticleDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -431,6 +448,9 @@ function Get-CourseArticlesByCourseWikiCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Articles/{wikiId}/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseArticlesByCourseWikiCountAsync."
@@ -448,6 +468,8 @@ function Get-CourseArticlesByCourseWikiCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseArticleDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -487,6 +509,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseAssignmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -511,6 +536,9 @@ function Get-CourseAssignmentsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseAssignmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -540,6 +568,9 @@ function Get-CourseAssignmentsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Assignments'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseAssignmentsByCourseAsync."
@@ -553,6 +584,8 @@ function Get-CourseAssignmentsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseAssignmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -592,6 +625,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseAssignmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -616,6 +652,9 @@ function Get-CourseAssignmentsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseAssignmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -645,6 +684,9 @@ function Get-CourseAssignmentsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Assignments/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseAssignmentsByCourseCountAsync."
@@ -658,6 +700,8 @@ function Get-CourseAssignmentsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseAssignmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -812,6 +856,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -836,6 +883,9 @@ function Get-CourseCategoriesByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -865,6 +915,9 @@ function Get-CourseCategoriesByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Categories'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseCategoriesByCourseAsync."
@@ -878,6 +931,8 @@ function Get-CourseCategoriesByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -917,6 +972,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -941,6 +999,9 @@ function Get-CourseCategoriesByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -970,6 +1031,9 @@ function Get-CourseCategoriesByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Categories/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseCategoriesByCourseCountAsync."
@@ -983,6 +1047,8 @@ function Get-CourseCategoriesByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1022,6 +1088,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseCohortDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1046,6 +1115,9 @@ function Get-CourseCohortsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseCohortDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1075,6 +1147,9 @@ function Get-CourseCohortsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Cohorts'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseCohortsByCourseAsync."
@@ -1088,6 +1163,8 @@ function Get-CourseCohortsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseCohortDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1127,6 +1204,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseCohortDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1151,6 +1231,9 @@ function Get-CourseCohortsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseCohortDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1180,6 +1263,9 @@ function Get-CourseCohortsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Cohorts/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseCohortsByCourseCountAsync."
@@ -1193,6 +1279,8 @@ function Get-CourseCohortsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseCohortDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1235,6 +1323,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseEnrollmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1262,6 +1353,9 @@ function Get-CourseEnrollmentsByCourseAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseEnrollmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1291,6 +1385,9 @@ function Get-CourseEnrollmentsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Enrollments'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseEnrollmentsByCourseAsync."
@@ -1309,6 +1406,8 @@ function Get-CourseEnrollmentsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseEnrollmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1348,6 +1447,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseFileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1372,6 +1474,9 @@ function Get-CourseFilesByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseFileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1401,6 +1506,9 @@ function Get-CourseFilesByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Files'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseFilesByCourseAsync."
@@ -1414,6 +1522,8 @@ function Get-CourseFilesByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseFileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1453,6 +1563,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseFileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1477,6 +1590,9 @@ function Get-CourseFilesByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseFileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1506,6 +1622,9 @@ function Get-CourseFilesByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Files/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseFilesByCourseCountAsync."
@@ -1519,6 +1638,8 @@ function Get-CourseFilesByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseFileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1558,6 +1679,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseForumDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1582,6 +1706,9 @@ function Get-CourseForumsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseForumDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1611,6 +1738,9 @@ function Get-CourseForumsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Forums'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseForumsByCourseAsync."
@@ -1624,6 +1754,8 @@ function Get-CourseForumsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseForumDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1663,6 +1795,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseForumDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1687,6 +1822,9 @@ function Get-CourseForumsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseForumDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1716,6 +1854,9 @@ function Get-CourseForumsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Forums/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseForumsByCourseCountAsync."
@@ -1729,6 +1870,8 @@ function Get-CourseForumsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseForumDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1768,6 +1911,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseHandoutDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1792,6 +1938,9 @@ function Get-CourseHandoutsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseHandoutDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1821,6 +1970,9 @@ function Get-CourseHandoutsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Handouts'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseHandoutsByCourseAsync."
@@ -1834,6 +1986,8 @@ function Get-CourseHandoutsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseHandoutDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1873,6 +2027,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseHandoutDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1897,6 +2054,9 @@ function Get-CourseHandoutsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseHandoutDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1926,6 +2086,9 @@ function Get-CourseHandoutsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Handouts/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseHandoutsByCourseCountAsync."
@@ -1939,6 +2102,8 @@ function Get-CourseHandoutsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseHandoutDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1978,6 +2143,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseLibraryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2002,6 +2170,9 @@ function Get-CourseLibrariesByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseLibraryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2031,6 +2202,9 @@ function Get-CourseLibrariesByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Libraries'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseLibrariesByCourseAsync."
@@ -2044,6 +2218,8 @@ function Get-CourseLibrariesByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseLibraryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2083,6 +2259,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseLibraryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2107,6 +2286,9 @@ function Get-CourseLibrariesByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseLibraryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2136,6 +2318,9 @@ function Get-CourseLibrariesByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Libraries/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseLibrariesByCourseCountAsync."
@@ -2149,6 +2334,8 @@ function Get-CourseLibrariesByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseLibraryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2188,6 +2375,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CoursePageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2212,6 +2402,9 @@ function Get-CoursePagesByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CoursePageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2241,6 +2434,9 @@ function Get-CoursePagesByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Pages'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCoursePagesByCourseAsync."
@@ -2254,6 +2450,8 @@ function Get-CoursePagesByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CoursePageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2293,6 +2491,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CoursePageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2317,6 +2518,9 @@ function Get-CoursePagesByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CoursePageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2346,6 +2550,9 @@ function Get-CoursePagesByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Pages/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCoursePagesByCourseCountAsync."
@@ -2359,6 +2566,8 @@ function Get-CoursePagesByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CoursePageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2398,6 +2607,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseProblemSetDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2422,6 +2634,9 @@ function Get-CourseProblemSetsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseProblemSetDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2451,6 +2666,9 @@ function Get-CourseProblemSetsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/ProblemSets'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseProblemSetsByCourseAsync."
@@ -2464,6 +2682,8 @@ function Get-CourseProblemSetsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseProblemSetDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2503,6 +2723,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseProblemSetDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2527,6 +2750,9 @@ function Get-CourseProblemSetsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseProblemSetDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2556,6 +2782,9 @@ function Get-CourseProblemSetsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/ProblemSets/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseProblemSetsByCourseCountAsync."
@@ -2569,6 +2798,8 @@ function Get-CourseProblemSetsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseProblemSetDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2608,6 +2839,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseSectionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2632,6 +2866,9 @@ function Get-CourseSectionsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseSectionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2661,6 +2898,9 @@ function Get-CourseSectionsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Sections'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseSectionsByCourseAsync."
@@ -2674,6 +2914,8 @@ function Get-CourseSectionsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseSectionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2713,6 +2955,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseSectionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2737,6 +2982,9 @@ function Get-CourseSectionsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseSectionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2766,6 +3014,9 @@ function Get-CourseSectionsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Sections/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseSectionsByCourseCountAsync."
@@ -2779,6 +3030,8 @@ function Get-CourseSectionsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseSectionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2818,6 +3071,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseUnitComponentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2842,6 +3098,9 @@ function Get-CourseUnitComponentsByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseUnitComponentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2871,6 +3130,9 @@ function Get-CourseUnitComponentsByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/UnitComponents'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUnitComponentsByCourseAsync."
@@ -2884,6 +3146,8 @@ function Get-CourseUnitComponentsByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseUnitComponentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2923,6 +3187,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseUnitComponentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2947,6 +3214,9 @@ function Get-CourseUnitComponentsByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseUnitComponentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2976,6 +3246,9 @@ function Get-CourseUnitComponentsByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/UnitComponents/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUnitComponentsByCourseCountAsync."
@@ -2989,6 +3262,8 @@ function Get-CourseUnitComponentsByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseUnitComponentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3031,6 +3306,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseUnitDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3058,6 +3336,9 @@ function Get-CourseUnitsBySectionAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseUnitDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3087,6 +3368,9 @@ function Get-CourseUnitsBySectionAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Units/{sectionId}'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUnitsBySectionAsync."
@@ -3104,6 +3388,8 @@ function Get-CourseUnitsBySectionAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseUnitDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3146,6 +3432,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseUnitDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3173,6 +3462,9 @@ function Get-CourseUnitsBySectionCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseUnitDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3202,6 +3494,9 @@ function Get-CourseUnitsBySectionCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Units/{sectionId}/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUnitsBySectionCountAsync."
@@ -3219,6 +3514,8 @@ function Get-CourseUnitsBySectionCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseUnitDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3258,6 +3555,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseNewsDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3282,6 +3582,9 @@ function Get-CourseUpdatesByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseNewsDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3311,6 +3614,9 @@ function Get-CourseUpdatesByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Updates'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUpdatesByCourseAsync."
@@ -3324,6 +3630,8 @@ function Get-CourseUpdatesByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseNewsDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3363,6 +3671,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseNewsDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3387,6 +3698,9 @@ function Get-CourseUpdatesByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseNewsDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3416,6 +3730,9 @@ function Get-CourseUpdatesByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Updates/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseUpdatesByCourseCountAsync."
@@ -3429,6 +3746,8 @@ function Get-CourseUpdatesByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseNewsDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3468,6 +3787,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseWikiDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3492,6 +3814,9 @@ function Get-CourseWikisByCourseAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseWikiDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3521,6 +3846,9 @@ function Get-CourseWikisByCourseAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Wikis'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseWikisByCourseAsync."
@@ -3534,6 +3862,8 @@ function Get-CourseWikisByCourseAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseWikiDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3573,6 +3903,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseWikiDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3597,6 +3930,9 @@ function Get-CourseWikisByCourseCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseWikiDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3626,6 +3962,9 @@ function Get-CourseWikisByCourseCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/{courseId}/Wikis/Count'
         if (!$CourseId) {
             throw "Error! The required parameter `CourseId` missing when calling getCourseWikisByCourseCountAsync."
@@ -3639,6 +3978,8 @@ function Get-CourseWikisByCourseCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseWikiDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3678,6 +4019,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3702,6 +4046,9 @@ function Get-CoursesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3731,6 +4078,9 @@ function Get-CoursesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses'
 
         if ($XApiVersion) {
@@ -3745,6 +4095,8 @@ function Get-CoursesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3784,6 +4136,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CourseDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3808,6 +4163,9 @@ function Get-CoursesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CourseDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3837,6 +4195,9 @@ function Get-CoursesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/LearningService/Courses/Count'
 
         if ($XApiVersion) {
@@ -3851,6 +4212,8 @@ function Get-CoursesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CourseDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4313,7 +4676,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4345,7 +4708,7 @@ function Invoke-PatchCourseAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4397,7 +4760,7 @@ function Invoke-PatchCourseAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

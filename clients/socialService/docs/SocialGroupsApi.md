@@ -19,6 +19,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social groups
 
@@ -29,10 +30,11 @@ Counts all social groups for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialGroupDtoCollectionQueryParameters = Initialize-SocialGroupDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialGroupDtoCollectionQueryParameters |  (optional)
 
 # Count social groups
 try {
-    $Result = Invoke-CountSocialGroupsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountSocialGroupsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupDtoCollectionQueryParameters $SocialGroupDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountSocialGroupsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -46,6 +48,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialGroupDtoCollectionQueryParameters** | [**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -57,7 +60,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -230,6 +233,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social groups
 
@@ -240,10 +244,11 @@ Retrieves all social groups for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialGroupDtoCollectionQueryParameters = Initialize-SocialGroupDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialGroupDtoCollectionQueryParameters |  (optional)
 
 # Get social groups
 try {
-    $Result = Get-SocialGroupsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialGroupsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialGroupDtoCollectionQueryParameters $SocialGroupDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialGroupsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -257,6 +262,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialGroupDtoCollectionQueryParameters** | [**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -268,7 +274,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,7 +287,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialGroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a social group
 
@@ -294,11 +300,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialGroupId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a social group
 try {
-    $Result = Invoke-PatchSocialGroupAsync -TenantId $TenantId -SocialProfileId $SocialProfileId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchSocialGroupAsync -TenantId $TenantId -SocialProfileId $SocialProfileId -SocialGroupId $SocialGroupId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSocialGroupAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -314,7 +320,7 @@ Name | Type | Description  | Notes
  **SocialGroupId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

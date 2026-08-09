@@ -377,6 +377,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER BusinessApplicationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -401,6 +404,9 @@ function Get-BusinessApplicationsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BusinessApplicationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -430,6 +436,9 @@ function Get-BusinessApplicationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Applications'
 
         if ($XApiVersion) {
@@ -444,6 +453,8 @@ function Get-BusinessApplicationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $BusinessApplicationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -483,6 +494,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER BusinessApplicationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -507,6 +521,9 @@ function Get-BusinessApplicationsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BusinessApplicationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -536,6 +553,9 @@ function Get-BusinessApplicationsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Applications/Count'
 
         if ($XApiVersion) {
@@ -550,6 +570,8 @@ function Get-BusinessApplicationsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $BusinessApplicationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -818,7 +840,7 @@ No description available.
 .PARAMETER ApplicationId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ApiVersion
@@ -850,7 +872,7 @@ function Invoke-PatchBusinessApplicationAsync {
         ${ApplicationId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
@@ -908,11 +930,11 @@ function Invoke-PatchBusinessApplicationAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        if (!$Operation) {
-            throw "Error! The required parameter `Operation` missing when calling patchBusinessApplicationAsync."
+        if (!$PatchOperation) {
+            throw "Error! The required parameter `PatchOperation` missing when calling patchBusinessApplicationAsync."
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

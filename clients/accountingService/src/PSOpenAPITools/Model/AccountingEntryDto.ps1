@@ -17,6 +17,8 @@ No description available.
 
 .PARAMETER Id
 No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER TenantId
 No description available.
 .PARAMETER EnrollmentId
@@ -53,8 +55,6 @@ No description available.
 No description available.
 .PARAMETER ProjectId
 No description available.
-.PARAMETER Timestamp
-No description available.
 .PARAMETER Debit
 No description available.
 .PARAMETER Credit
@@ -75,63 +75,63 @@ function Initialize-AccountingEntryDto {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${TenantId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${JournalEntryId},
+        ${EnrollmentId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountId},
+        ${JournalEntryId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountName},
+        ${AccountId},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AccountName},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Debit", "Credit")]
         [String]
         ${Direction},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TransactionAmount},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TransactionCurrencyId},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${FunctionalAmount},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FunctionalCurrencyId},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${AccountAmount},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountCurrencyId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Double]]
-        ${ReportingAmountInUsd},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
-        ${ForexRate},
+        ${ReportingAmountInUsd},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ForexRatesSnapshot},
+        [System.Nullable[Double]]
+        ${ForexRate},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CostCentreId},
+        ${ForexRatesSnapshot},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProjectId},
+        ${CostCentreId},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Timestamp},
+        [String]
+        ${ProjectId},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Debit},
@@ -153,6 +153,7 @@ function Initialize-AccountingEntryDto {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalEntryId" = ${JournalEntryId}
@@ -171,7 +172,6 @@ function Initialize-AccountingEntryDto {
             "forexRatesSnapshot" = ${ForexRatesSnapshot}
             "costCentreId" = ${CostCentreId}
             "projectId" = ${ProjectId}
-            "timestamp" = ${Timestamp}
             "debit" = ${Debit}
             "credit" = ${Credit}
             "amount" = ${Amount}
@@ -213,7 +213,7 @@ function ConvertFrom-JsonToAccountingEntryDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountingEntryDto
-        $AllProperties = ("id", "tenantId", "enrollmentId", "journalEntryId", "accountId", "accountName", "direction", "description", "transactionAmount", "transactionCurrencyId", "functionalAmount", "functionalCurrencyId", "accountAmount", "accountCurrencyId", "reportingAmountInUsd", "forexRate", "forexRatesSnapshot", "costCentreId", "projectId", "timestamp", "debit", "credit", "amount", "amountInUsd")
+        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "journalEntryId", "accountId", "accountName", "direction", "description", "transactionAmount", "transactionCurrencyId", "functionalAmount", "functionalCurrencyId", "accountAmount", "accountCurrencyId", "reportingAmountInUsd", "forexRate", "forexRatesSnapshot", "costCentreId", "projectId", "debit", "credit", "amount", "amountInUsd")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -224,6 +224,12 @@ function ConvertFrom-JsonToAccountingEntryDto {
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
@@ -334,12 +340,6 @@ function ConvertFrom-JsonToAccountingEntryDto {
             $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
-            $Timestamp = $null
-        } else {
-            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "debit"))) { #optional property not found
             $Debit = $null
         } else {
@@ -366,6 +366,7 @@ function ConvertFrom-JsonToAccountingEntryDto {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalEntryId" = ${JournalEntryId}
@@ -384,7 +385,6 @@ function ConvertFrom-JsonToAccountingEntryDto {
             "forexRatesSnapshot" = ${ForexRatesSnapshot}
             "costCentreId" = ${CostCentreId}
             "projectId" = ${ProjectId}
-            "timestamp" = ${Timestamp}
             "debit" = ${Debit}
             "credit" = ${Credit}
             "amount" = ${Amount}

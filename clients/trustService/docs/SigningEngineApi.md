@@ -15,6 +15,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TrustSigningProviderDescriptorDtoCollectionQueryParameters] <PSCustomObject><br>
 
 List signing providers
 
@@ -25,10 +26,11 @@ Returns the registered alpha signing providers (Noop / Manual / External). OData
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TrustSigningProviderDescriptorDtoCollectionQueryParameters = Initialize-TrustSigningProviderDescriptorDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TrustSigningProviderDescriptorDtoCollectionQueryParameters |  (optional)
 
 # List signing providers
 try {
-    $Result = Get-ProvidersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProvidersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TrustSigningProviderDescriptorDtoCollectionQueryParameters $TrustSigningProviderDescriptorDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProvidersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -42,6 +44,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TrustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -53,7 +56,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -64,6 +67,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TrustSigningProviderDescriptorDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count signing providers
 
@@ -74,10 +78,11 @@ Returns the count of registered alpha signing providers. OData-queryable.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TrustSigningProviderDescriptorDtoCollectionQueryParameters = Initialize-TrustSigningProviderDescriptorDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TrustSigningProviderDescriptorDtoCollectionQueryParameters |  (optional)
 
 # Count signing providers
 try {
-    $Result = Get-ProvidersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProvidersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TrustSigningProviderDescriptorDtoCollectionQueryParameters $TrustSigningProviderDescriptorDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProvidersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -91,6 +96,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TrustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -102,7 +108,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

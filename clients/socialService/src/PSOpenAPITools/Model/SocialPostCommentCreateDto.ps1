@@ -48,7 +48,6 @@ function Initialize-SocialPostCommentCreateDto {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidatePattern("^[\w\s\.\,\!\?\-\(\)\[\]\{\}\'\""\:\;]{1,280}$")]
         [String]
         ${Message},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
@@ -75,18 +74,6 @@ function Initialize-SocialPostCommentCreateDto {
     Process {
         'Creating PSCustomObject: PSOpenAPITools => SocialPostCommentCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $Message) {
-            throw "invalid value for 'Message', 'Message' cannot be null."
-        }
-
-        if ($Message.length -gt 280) {
-            throw "invalid value for 'Message', the character length must be smaller than or equal to 280."
-        }
-
-        if ($Message.length -lt 1) {
-            throw "invalid value for 'Message', the character length must be great than or equal to 1."
-        }
 
         if (!$BodyHtml -and $BodyHtml.length -gt 8000) {
             throw "invalid value for 'BodyHtml', the character length must be smaller than or equal to 8000."
@@ -147,16 +134,6 @@ function ConvertFrom-JsonToSocialPostCommentCreateDto {
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'message' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'message' missing."
-        } else {
-            $Message = $JsonParameters.PSobject.Properties["message"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
@@ -167,6 +144,12 @@ function ConvertFrom-JsonToSocialPostCommentCreateDto {
             $Timestamp = $null
         } else {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found
+            $Message = $null
+        } else {
+            $Message = $JsonParameters.PSobject.Properties["message"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found

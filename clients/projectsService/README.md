@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -139,9 +138,10 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.ProjectCreateDto](docs/ProjectCreateDto.md)
  - [PSOpenAPITools\Model.ProjectDto](docs/ProjectDto.md)
+ - [PSOpenAPITools\Model.ProjectDtoCollectionQueryParameters](docs/ProjectDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ProjectDtoEnvelope](docs/ProjectDtoEnvelope.md)
  - [PSOpenAPITools\Model.ProjectDtoListEnvelope](docs/ProjectDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ProjectHoursApprovalApproverUpdateDto](docs/ProjectHoursApprovalApproverUpdateDto.md)
@@ -153,11 +153,13 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ProjectPeriodUpdateDto](docs/ProjectPeriodUpdateDto.md)
  - [PSOpenAPITools\Model.ProjectTaskCreateDto](docs/ProjectTaskCreateDto.md)
  - [PSOpenAPITools\Model.ProjectTaskDto](docs/ProjectTaskDto.md)
+ - [PSOpenAPITools\Model.ProjectTaskDtoCollectionQueryParameters](docs/ProjectTaskDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ProjectTaskDtoEnvelope](docs/ProjectTaskDtoEnvelope.md)
  - [PSOpenAPITools\Model.ProjectTaskDtoListEnvelope](docs/ProjectTaskDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ProjectTaskUpdateDto](docs/ProjectTaskUpdateDto.md)
  - [PSOpenAPITools\Model.ProjectTimeLogCreateDto](docs/ProjectTimeLogCreateDto.md)
  - [PSOpenAPITools\Model.ProjectTimeLogDto](docs/ProjectTimeLogDto.md)
+ - [PSOpenAPITools\Model.ProjectTimeLogDtoCollectionQueryParameters](docs/ProjectTimeLogDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ProjectTimeLogDtoEnvelope](docs/ProjectTimeLogDtoEnvelope.md)
  - [PSOpenAPITools\Model.ProjectTimeLogDtoListEnvelope](docs/ProjectTimeLogDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ProjectTimeLogUpdateDto](docs/ProjectTimeLogUpdateDto.md)
@@ -168,6 +170,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.TaskCategoryCreateDto](docs/TaskCategoryCreateDto.md)
  - [PSOpenAPITools\Model.TaskCategoryDto](docs/TaskCategoryDto.md)
+ - [PSOpenAPITools\Model.TaskCategoryDtoCollectionQueryParameters](docs/TaskCategoryDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.TaskCategoryDtoListEnvelope](docs/TaskCategoryDtoListEnvelope.md)
  - [PSOpenAPITools\Model.TaskCategoryUpdateDto](docs/TaskCategoryUpdateDto.md)
  - [PSOpenAPITools\Model.TaskTypeCreateDto](docs/TaskTypeCreateDto.md)

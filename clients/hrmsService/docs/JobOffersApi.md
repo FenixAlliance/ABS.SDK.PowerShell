@@ -285,6 +285,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get job offers
 
@@ -295,10 +296,11 @@ Retrieves job offers for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JobOfferDtoCollectionQueryParameters = Initialize-JobOfferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JobOfferDtoCollectionQueryParameters |  (optional)
 
 # Get job offers
 try {
-    $Result = Get-JobOffersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-JobOffersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JobOfferDtoCollectionQueryParameters $JobOfferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-JobOffersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -312,6 +314,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JobOfferDtoCollectionQueryParameters** | [**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -323,7 +326,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -334,6 +337,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count job offers
 
@@ -344,10 +348,11 @@ Counts job offers for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JobOfferDtoCollectionQueryParameters = Initialize-JobOfferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JobOfferDtoCollectionQueryParameters |  (optional)
 
 # Count job offers
 try {
-    $Result = Get-JobOffersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-JobOffersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JobOfferDtoCollectionQueryParameters $JobOfferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-JobOffersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -361,6 +366,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JobOfferDtoCollectionQueryParameters** | [**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -372,7 +378,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -435,6 +441,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get public job offers
 
@@ -445,10 +452,11 @@ Retrieves published job offers for the Talent Portal. Anonymous; optionally scop
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JobOfferDtoCollectionQueryParameters = Initialize-JobOfferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JobOfferDtoCollectionQueryParameters |  (optional)
 
 # Get public job offers
 try {
-    $Result = Get-PublicJobOffersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PublicJobOffersAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JobOfferDtoCollectionQueryParameters $JobOfferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PublicJobOffersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -462,6 +470,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JobOfferDtoCollectionQueryParameters** | [**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -473,7 +482,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -484,6 +493,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count public job offers
 
@@ -494,10 +504,11 @@ Counts published job offers for the Talent Portal. Anonymous; optionally scoped 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JobOfferDtoCollectionQueryParameters = Initialize-JobOfferDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JobOfferDtoCollectionQueryParameters |  (optional)
 
 # Count public job offers
 try {
-    $Result = Get-PublicJobOffersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PublicJobOffersCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JobOfferDtoCollectionQueryParameters $JobOfferDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PublicJobOffersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -511,6 +522,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JobOfferDtoCollectionQueryParameters** | [**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -522,7 +534,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -534,7 +546,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JobOfferId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a job offer
 
@@ -546,11 +558,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JobOfferId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a job offer
 try {
-    $Result = Invoke-PatchJobOfferAsync -TenantId $TenantId -JobOfferId $JobOfferId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchJobOfferAsync -TenantId $TenantId -JobOfferId $JobOfferId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchJobOfferAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -565,7 +577,7 @@ Name | Type | Description  | Notes
  **JobOfferId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

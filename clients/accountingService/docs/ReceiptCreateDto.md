@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
+**Closed** | **Boolean** |  | [optional] 
 **Title** | **String** |  | [optional] 
 **PriceListId** | **String** |  | [optional] 
 **Description** | **String** |  | [optional] 
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **CountryId** | **String** |  | [optional] 
 **StateId** | **String** |  | [optional] 
 **CityId** | **String** |  | [optional] 
+**ForexRate** | **Double** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
 **TotalDetail** | **Double** |  | [optional] 
 **TotalDetailCurrencyId** | **String** |  | [optional] 
@@ -50,10 +52,8 @@ Name | Type | Description | Notes
 **CostCalculationMethod** | **String** |  | [optional] 
 **TaxCalculationMethod** | **String** |  | [optional] 
 **PaymentId** | **String** |  | [optional] 
-**ForexRate** | **Double** |  | [optional] 
 **TotalAmount** | **Double** |  | [optional] 
 **TotalAmountInUSD** | **Double** |  | [optional] 
-**Closed** | **Boolean** |  | [optional] 
 **ContactId** | **String** |  | [optional] 
 **ReceiptType** | **String** |  | [optional] 
 **OrderId** | **String** |  | [optional] 
@@ -65,6 +65,7 @@ Name | Type | Description | Notes
 ```powershell
 $ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Id null `
  -Timestamp null `
+ -Closed null `
  -Title null `
  -PriceListId null `
  -Description null `
@@ -82,6 +83,7 @@ $ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Id null `
  -CountryId null `
  -StateId null `
  -CityId null `
+ -ForexRate null `
  -CurrencyId null `
  -TotalDetail null `
  -TotalDetailCurrencyId null `
@@ -110,10 +112,8 @@ $ReceiptCreateDto = Initialize-PSOpenAPIToolsReceiptCreateDto  -Id null `
  -CostCalculationMethod null `
  -TaxCalculationMethod null `
  -PaymentId null `
- -ForexRate null `
  -TotalAmount null `
  -TotalAmountInUSD null `
- -Closed null `
  -ContactId null `
  -ReceiptType null `
  -OrderId null `

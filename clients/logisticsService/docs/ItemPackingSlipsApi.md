@@ -293,6 +293,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PackingSlipId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPackingSlipEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get packing slip entries
 
@@ -304,10 +305,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PackingSlipId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPackingSlipEntryDtoCollectionQueryParameters = Initialize-ItemPackingSlipEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPackingSlipEntryDtoCollectionQueryParameters |  (optional)
 
 # Get packing slip entries
 try {
-    $Result = Get-ItemPackingSlipEntriesAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPackingSlipEntriesAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPackingSlipEntryDtoCollectionQueryParameters $ItemPackingSlipEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPackingSlipEntriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -322,6 +324,7 @@ Name | Type | Description  | Notes
  **PackingSlipId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -333,7 +336,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,6 +348,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PackingSlipId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPackingSlipEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get packing slip entries count
 
@@ -356,10 +360,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PackingSlipId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPackingSlipEntryDtoCollectionQueryParameters = Initialize-ItemPackingSlipEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPackingSlipEntryDtoCollectionQueryParameters |  (optional)
 
 # Get packing slip entries count
 try {
-    $Result = Get-ItemPackingSlipEntriesCountAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPackingSlipEntriesCountAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPackingSlipEntryDtoCollectionQueryParameters $ItemPackingSlipEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPackingSlipEntriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -374,6 +379,7 @@ Name | Type | Description  | Notes
  **PackingSlipId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -385,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -451,6 +457,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPackingSlipDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all item packing slips
 
@@ -461,10 +468,11 @@ Retrieves all item packing slips for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPackingSlipDtoCollectionQueryParameters = Initialize-ItemPackingSlipDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPackingSlipDtoCollectionQueryParameters |  (optional)
 
 # Get all item packing slips
 try {
-    $Result = Get-ItemPackingSlipsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPackingSlipsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPackingSlipDtoCollectionQueryParameters $ItemPackingSlipDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPackingSlipsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -478,6 +486,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -489,7 +498,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -500,6 +509,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPackingSlipDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get item packing slips count
 
@@ -510,10 +520,11 @@ Returns the count of item packing slips.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemPackingSlipDtoCollectionQueryParameters = Initialize-ItemPackingSlipDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPackingSlipDtoCollectionQueryParameters |  (optional)
 
 # Get item packing slips count
 try {
-    $Result = Get-ItemPackingSlipsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemPackingSlipsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemPackingSlipDtoCollectionQueryParameters $ItemPackingSlipDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemPackingSlipsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -527,6 +538,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -538,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -550,7 +562,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PackingSlipId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an item packing slip
 
@@ -562,11 +574,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PackingSlipId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an item packing slip
 try {
-    $Result = Invoke-PatchItemPackingSlipAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchItemPackingSlipAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchItemPackingSlipAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -581,7 +593,7 @@ Name | Type | Description  | Notes
  **PackingSlipId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -606,7 +618,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a packing slip entry
 
@@ -619,11 +631,11 @@ $PackingSlipId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a packing slip entry
 try {
-    $Result = Invoke-PatchItemPackingSlipEntryAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchItemPackingSlipEntryAsync -TenantId $TenantId -PackingSlipId $PackingSlipId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchItemPackingSlipEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -639,7 +651,7 @@ Name | Type | Description  | Notes
  **EntryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

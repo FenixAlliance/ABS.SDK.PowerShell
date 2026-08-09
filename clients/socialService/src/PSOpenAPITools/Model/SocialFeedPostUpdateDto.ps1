@@ -19,6 +19,12 @@ No description available.
 No description available.
 .PARAMETER Message
 No description available.
+.PARAMETER BodyHtml
+No description available.
+.PARAMETER BodyFormat
+No description available.
+.PARAMETER BackgroundStyle
+No description available.
 .OUTPUTS
 
 SocialFeedPostUpdateDto<PSCustomObject>
@@ -32,17 +38,38 @@ function Initialize-SocialFeedPostUpdateDto {
         ${Title},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Message}
+        ${Message},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BodyHtml},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PlainText", "Html")]
+        [String]
+        ${BodyFormat},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BackgroundStyle}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => SocialFeedPostUpdateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$BodyHtml -and $BodyHtml.length -gt 8000) {
+            throw "invalid value for 'BodyHtml', the character length must be smaller than or equal to 8000."
+        }
+
+        if (!$BackgroundStyle -and $BackgroundStyle.length -gt 64) {
+            throw "invalid value for 'BackgroundStyle', the character length must be smaller than or equal to 64."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "message" = ${Message}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
 
@@ -80,7 +107,7 @@ function ConvertFrom-JsonToSocialFeedPostUpdateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialFeedPostUpdateDto
-        $AllProperties = ("title", "message")
+        $AllProperties = ("title", "message", "bodyHtml", "bodyFormat", "backgroundStyle")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,9 +126,30 @@ function ConvertFrom-JsonToSocialFeedPostUpdateDto {
             $Message = $JsonParameters.PSobject.Properties["message"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found
+            $BodyHtml = $null
+        } else {
+            $BodyHtml = $JsonParameters.PSobject.Properties["bodyHtml"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyFormat"))) { #optional property not found
+            $BodyFormat = $null
+        } else {
+            $BodyFormat = $JsonParameters.PSobject.Properties["bodyFormat"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "backgroundStyle"))) { #optional property not found
+            $BackgroundStyle = $null
+        } else {
+            $BackgroundStyle = $JsonParameters.PSobject.Properties["backgroundStyle"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "title" = ${Title}
             "message" = ${Message}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
         return $PSO

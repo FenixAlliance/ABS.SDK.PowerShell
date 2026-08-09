@@ -70,6 +70,7 @@ No authorization required
 > CourseCompletionCertificateDtoIReadOnlyListEnvelope Get-MyCertificatesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCompletionCertificateDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's completion certificates
 
@@ -77,10 +78,11 @@ Get current user's completion certificates
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCompletionCertificateDtoCollectionQueryParameters = Initialize-CourseCompletionCertificateDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCompletionCertificateDtoCollectionQueryParameters |  (optional)
 
 # Get current user's completion certificates
 try {
-    $Result = Get-MyCertificatesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyCertificatesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCompletionCertificateDtoCollectionQueryParameters $CourseCompletionCertificateDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyCertificatesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -93,6 +95,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -104,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,6 +117,7 @@ No authorization required
 > Int32 Get-MyCertificatesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCompletionCertificateDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's certificates count
 
@@ -121,10 +125,11 @@ Get current user's certificates count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCompletionCertificateDtoCollectionQueryParameters = Initialize-CourseCompletionCertificateDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCompletionCertificateDtoCollectionQueryParameters |  (optional)
 
 # Get current user's certificates count
 try {
-    $Result = Get-MyCertificatesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyCertificatesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCompletionCertificateDtoCollectionQueryParameters $CourseCompletionCertificateDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyCertificatesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -137,6 +142,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -148,7 +154,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -158,6 +164,7 @@ No authorization required
 > CourseEnrollmentDtoIReadOnlyListEnvelope Get-MyEnrollmentsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseEnrollmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's course enrollments
 
@@ -165,10 +172,11 @@ Get current user's course enrollments
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseEnrollmentDtoCollectionQueryParameters = Initialize-CourseEnrollmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 # Get current user's course enrollments
 try {
-    $Result = Get-MyEnrollmentsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyEnrollmentsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseEnrollmentDtoCollectionQueryParameters $CourseEnrollmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyEnrollmentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -181,6 +189,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -192,7 +201,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -202,6 +211,7 @@ No authorization required
 > Int32 Get-MyEnrollmentsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseEnrollmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's enrollment count
 
@@ -209,10 +219,11 @@ Get current user's enrollment count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseEnrollmentDtoCollectionQueryParameters = Initialize-CourseEnrollmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 # Get current user's enrollment count
 try {
-    $Result = Get-MyEnrollmentsCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyEnrollmentsCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseEnrollmentDtoCollectionQueryParameters $CourseEnrollmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyEnrollmentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -225,6 +236,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -236,7 +248,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,6 +302,7 @@ No authorization required
 > CourseDtoIReadOnlyListEnvelope Get-MyInstructorCoursesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's instructor courses
 
@@ -297,10 +310,11 @@ Get current user's instructor courses
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get current user's instructor courses
 try {
-    $Result = Get-MyInstructorCoursesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyInstructorCoursesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyInstructorCoursesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -313,6 +327,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -324,7 +339,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -334,6 +349,7 @@ No authorization required
 > Int32 Get-MyInstructorCoursesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's instructor courses count
 
@@ -341,10 +357,11 @@ Get current user's instructor courses count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get current user's instructor courses count
 try {
-    $Result = Get-MyInstructorCoursesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyInstructorCoursesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyInstructorCoursesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -357,6 +374,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -368,7 +386,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -378,6 +396,7 @@ No authorization required
 > InstructorProfileDtoIReadOnlyListEnvelope Get-MyInstructorProfilesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InstructorProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's instructor profiles
 
@@ -385,10 +404,11 @@ Get current user's instructor profiles
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InstructorProfileDtoCollectionQueryParameters = Initialize-InstructorProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InstructorProfileDtoCollectionQueryParameters |  (optional)
 
 # Get current user's instructor profiles
 try {
-    $Result = Get-MyInstructorProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyInstructorProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InstructorProfileDtoCollectionQueryParameters $InstructorProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyInstructorProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -401,6 +421,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InstructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -412,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -422,6 +443,7 @@ No authorization required
 > Int32 Get-MyInstructorProfilesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InstructorProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's instructor profiles count
 
@@ -429,10 +451,11 @@ Get current user's instructor profiles count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$InstructorProfileDtoCollectionQueryParameters = Initialize-InstructorProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InstructorProfileDtoCollectionQueryParameters |  (optional)
 
 # Get current user's instructor profiles count
 try {
-    $Result = Get-MyInstructorProfilesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyInstructorProfilesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -InstructorProfileDtoCollectionQueryParameters $InstructorProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyInstructorProfilesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -445,6 +468,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **InstructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -456,7 +480,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -510,6 +534,7 @@ No authorization required
 > CourseDtoIReadOnlyListEnvelope Get-MyStudentCoursesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's enrolled courses
 
@@ -517,10 +542,11 @@ Get current user's enrolled courses
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get current user's enrolled courses
 try {
-    $Result = Get-MyStudentCoursesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyStudentCoursesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyStudentCoursesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -533,6 +559,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -544,7 +571,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -554,6 +581,7 @@ No authorization required
 > Int32 Get-MyStudentCoursesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's enrolled courses count
 
@@ -561,10 +589,11 @@ Get current user's enrolled courses count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get current user's enrolled courses count
 try {
-    $Result = Get-MyStudentCoursesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyStudentCoursesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyStudentCoursesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -577,6 +606,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -588,7 +618,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -598,6 +628,7 @@ No authorization required
 > StudentProfileDtoIReadOnlyListEnvelope Get-MyStudentProfilesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StudentProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's student profiles
 
@@ -605,10 +636,11 @@ Get current user's student profiles
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$StudentProfileDtoCollectionQueryParameters = Initialize-StudentProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # StudentProfileDtoCollectionQueryParameters |  (optional)
 
 # Get current user's student profiles
 try {
-    $Result = Get-MyStudentProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyStudentProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -StudentProfileDtoCollectionQueryParameters $StudentProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyStudentProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -621,6 +653,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **StudentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -632,7 +665,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -642,6 +675,7 @@ No authorization required
 > Int32 Get-MyStudentProfilesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StudentProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get current user's student profiles count
 
@@ -649,10 +683,11 @@ Get current user's student profiles count
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$StudentProfileDtoCollectionQueryParameters = Initialize-StudentProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # StudentProfileDtoCollectionQueryParameters |  (optional)
 
 # Get current user's student profiles count
 try {
-    $Result = Get-MyStudentProfilesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MyStudentProfilesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -StudentProfileDtoCollectionQueryParameters $StudentProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MyStudentProfilesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -665,6 +700,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **StudentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -676,7 +712,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

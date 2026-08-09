@@ -104,7 +104,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -174,7 +173,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ItemToCompareCartRecordDtoListEnvelope](docs/ItemToCompareCartRecordDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.NewWishListRequest](docs/NewWishListRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.ProductToWishListRequest](docs/ProductToWishListRequest.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)

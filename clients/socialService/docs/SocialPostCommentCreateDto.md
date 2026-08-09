@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] 
-**Message** | **String** |  | 
+**Message** | **String** |  | [optional] 
 **BodyHtml** | **String** |  | [optional] 
 **BodyFormat** | **String** |  | [optional] 
 **ParentCommentId** | **String** |  | [optional] 

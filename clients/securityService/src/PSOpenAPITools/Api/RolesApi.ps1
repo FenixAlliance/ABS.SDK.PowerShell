@@ -1103,6 +1103,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SecurityRoleDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1127,6 +1130,9 @@ function Get-RolesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SecurityRoleDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1156,6 +1162,9 @@ function Get-RolesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Roles'
 
         if ($XApiVersion) {
@@ -1170,6 +1179,8 @@ function Get-RolesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SecurityRoleDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1325,6 +1336,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SecurityRoleDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1349,6 +1363,9 @@ function Get-RolesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SecurityRoleDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1378,6 +1395,9 @@ function Get-RolesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SecurityService/Roles/Count'
 
         if ($XApiVersion) {
@@ -1392,6 +1412,8 @@ function Get-RolesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SecurityRoleDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1428,7 +1450,7 @@ No description available.
 .PARAMETER SecurityRoleId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ApiVersion
@@ -1460,7 +1482,7 @@ function Invoke-PatchRoleAsync {
         ${SecurityRoleId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
@@ -1518,11 +1540,11 @@ function Invoke-PatchRoleAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        if (!$Operation) {
-            throw "Error! The required parameter `Operation` missing when calling patchRoleAsync."
+        if (!$PatchOperation) {
+            throw "Error! The required parameter `PatchOperation` missing when calling patchRoleAsync."
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

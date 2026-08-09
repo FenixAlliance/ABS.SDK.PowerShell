@@ -17,6 +17,8 @@ No description available.
 
 .PARAMETER Id
 No description available.
+.PARAMETER Timestamp
+No description available.
 .PARAMETER TenantId
 No description available.
 .PARAMETER EnrollmentId
@@ -57,8 +59,6 @@ No description available.
 No description available.
 .PARAMETER ForexRatesSnapshot
 No description available.
-.PARAMETER Timestamp
-No description available.
 .PARAMETER DebitInUsd
 No description available.
 .PARAMETER CreditInUsd
@@ -73,6 +73,10 @@ No description available.
 No description available.
 .PARAMETER TotalCreditAmount
 No description available.
+.PARAMETER DebitInUsdAmount
+No description available.
+.PARAMETER CreditInUsdAmount
+No description available.
 .OUTPUTS
 
 JournalEntryDto<PSCustomObject>
@@ -85,70 +89,70 @@ function Initialize-JournalEntryDto {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
+        [System.Nullable[System.DateTime]]
+        ${Timestamp},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EnrollmentId},
+        ${TenantId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${JournalId},
+        ${EnrollmentId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${JournalName},
+        ${JournalId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${JournalCode},
+        ${JournalName},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FiscalPeriodId},
+        ${JournalCode},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FinancialBookId},
+        ${FiscalPeriodId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${FinancialBookId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Simple", "Compound", "Adjusting", "Reversing")]
         [String]
         ${EntryType},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Draft", "Posted", "Reversed", "Voided")]
         [String]
         ${Status},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${PostingDate},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsOpeningBalance},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TransactionCurrencyId},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceDocumentType},
+        ${TransactionCurrencyId},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceDocumentId},
+        ${SourceDocumentType},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${IdempotencyKey},
+        ${SourceDocumentId},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ReversalOfJournalEntryId},
+        ${IdempotencyKey},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PostedBy},
+        ${ReversalOfJournalEntryId},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PostedBy},
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${ForexRate},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ForexRatesSnapshot},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Timestamp},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${DebitInUsd},
@@ -169,7 +173,13 @@ function Initialize-JournalEntryDto {
         ${TotalDebitAmount},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${TotalCreditAmount}
+        ${TotalCreditAmount},
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DebitInUsdAmount},
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${CreditInUsdAmount}
     )
 
     Process {
@@ -179,6 +189,7 @@ function Initialize-JournalEntryDto {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalId" = ${JournalId}
@@ -199,7 +210,6 @@ function Initialize-JournalEntryDto {
             "postedBy" = ${PostedBy}
             "forexRate" = ${ForexRate}
             "forexRatesSnapshot" = ${ForexRatesSnapshot}
-            "timestamp" = ${Timestamp}
             "debitInUsd" = ${DebitInUsd}
             "creditInUsd" = ${CreditInUsd}
             "accountingEntries" = ${AccountingEntries}
@@ -207,6 +217,8 @@ function Initialize-JournalEntryDto {
             "totalCredit" = ${TotalCredit}
             "totalDebitAmount" = ${TotalDebitAmount}
             "totalCreditAmount" = ${TotalCreditAmount}
+            "debitInUsdAmount" = ${DebitInUsdAmount}
+            "creditInUsdAmount" = ${CreditInUsdAmount}
         }
 
 
@@ -244,7 +256,7 @@ function ConvertFrom-JsonToJournalEntryDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalEntryDto
-        $AllProperties = ("id", "tenantId", "enrollmentId", "journalId", "journalName", "journalCode", "fiscalPeriodId", "financialBookId", "description", "entryType", "status", "postingDate", "isOpeningBalance", "transactionCurrencyId", "sourceDocumentType", "sourceDocumentId", "idempotencyKey", "reversalOfJournalEntryId", "postedBy", "forexRate", "forexRatesSnapshot", "timestamp", "debitInUsd", "creditInUsd", "accountingEntries", "totalDebit", "totalCredit", "totalDebitAmount", "totalCreditAmount")
+        $AllProperties = ("id", "timestamp", "tenantId", "enrollmentId", "journalId", "journalName", "journalCode", "fiscalPeriodId", "financialBookId", "description", "entryType", "status", "postingDate", "isOpeningBalance", "transactionCurrencyId", "sourceDocumentType", "sourceDocumentId", "idempotencyKey", "reversalOfJournalEntryId", "postedBy", "forexRate", "forexRatesSnapshot", "debitInUsd", "creditInUsd", "accountingEntries", "totalDebit", "totalCredit", "totalDebitAmount", "totalCreditAmount", "debitInUsdAmount", "creditInUsdAmount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -255,6 +267,12 @@ function ConvertFrom-JsonToJournalEntryDto {
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
+            $Timestamp = $null
+        } else {
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
@@ -377,12 +395,6 @@ function ConvertFrom-JsonToJournalEntryDto {
             $ForexRatesSnapshot = $JsonParameters.PSobject.Properties["forexRatesSnapshot"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) { #optional property not found
-            $Timestamp = $null
-        } else {
-            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitInUsd"))) { #optional property not found
             $DebitInUsd = $null
         } else {
@@ -425,8 +437,21 @@ function ConvertFrom-JsonToJournalEntryDto {
             $TotalCreditAmount = $JsonParameters.PSobject.Properties["totalCreditAmount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "debitInUsdAmount"))) { #optional property not found
+            $DebitInUsdAmount = $null
+        } else {
+            $DebitInUsdAmount = $JsonParameters.PSobject.Properties["debitInUsdAmount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creditInUsdAmount"))) { #optional property not found
+            $CreditInUsdAmount = $null
+        } else {
+            $CreditInUsdAmount = $JsonParameters.PSobject.Properties["creditInUsdAmount"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "timestamp" = ${Timestamp}
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "journalId" = ${JournalId}
@@ -447,7 +472,6 @@ function ConvertFrom-JsonToJournalEntryDto {
             "postedBy" = ${PostedBy}
             "forexRate" = ${ForexRate}
             "forexRatesSnapshot" = ${ForexRatesSnapshot}
-            "timestamp" = ${Timestamp}
             "debitInUsd" = ${DebitInUsd}
             "creditInUsd" = ${CreditInUsd}
             "accountingEntries" = ${AccountingEntries}
@@ -455,6 +479,8 @@ function ConvertFrom-JsonToJournalEntryDto {
             "totalCredit" = ${TotalCredit}
             "totalDebitAmount" = ${TotalDebitAmount}
             "totalCreditAmount" = ${TotalCreditAmount}
+            "debitInUsdAmount" = ${DebitInUsdAmount}
+            "creditInUsdAmount" = ${CreditInUsdAmount}
         }
 
         return $PSO

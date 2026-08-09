@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-AggregateJournalEntryCreditsAsync**](JournalsApi.md#Invoke-AggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
 [**Invoke-AggregateJournalEntryDebitsAsync**](JournalsApi.md#Invoke-AggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
+[**Set-JournalToBookAsync**](JournalsApi.md#Set-JournalToBookAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book
 [**Invoke-CountJournalsAsync**](JournalsApi.md#Invoke-CountJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals
 [**New-JournalAsync**](JournalsApi.md#New-JournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal
 [**New-JournalEntryAsync**](JournalsApi.md#New-JournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -32,6 +33,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Aggregate journal entry credits
 
@@ -44,10 +46,11 @@ $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalEntryDtoCollectionQueryParameters = Initialize-JournalEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalEntryDtoCollectionQueryParameters |  (optional)
 
 # Aggregate journal entry credits
 try {
-    $Result = Invoke-AggregateJournalEntryCreditsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-AggregateJournalEntryCreditsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalEntryDtoCollectionQueryParameters $JournalEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateJournalEntryCreditsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -63,6 +66,7 @@ Name | Type | Description  | Notes
  **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -74,7 +78,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -87,6 +91,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Aggregate journal entry debits
 
@@ -99,10 +104,11 @@ $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CurrencyId = "MyCurrencyId" # String |  (optional) (default to "USD.USA")
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalEntryDtoCollectionQueryParameters = Initialize-JournalEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalEntryDtoCollectionQueryParameters |  (optional)
 
 # Aggregate journal entry debits
 try {
-    $Result = Invoke-AggregateJournalEntryDebitsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-AggregateJournalEntryDebitsAsync -TenantId $TenantId -JournalId $JournalId -CurrencyId $CurrencyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalEntryDtoCollectionQueryParameters $JournalEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-AggregateJournalEntryDebitsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -118,6 +124,7 @@ Name | Type | Description  | Notes
  **CurrencyId** | **String**|  | [optional] [default to &quot;USD.USA&quot;]
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -129,7 +136,62 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Set-JournalToBookAsync"></a>
+# **Set-JournalToBookAsync**
+> EmptyEnvelope Set-JournalToBookAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssignJournalToBookRequest] <PSCustomObject><br>
+
+Bind a journal to a financial book
+
+Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$AssignJournalToBookRequest = Initialize-AssignJournalToBookRequest -FinancialBookId "MyFinancialBookId" -Code "MyCode" # AssignJournalToBookRequest |  (optional)
+
+# Bind a journal to a financial book
+try {
+    $Result = Set-JournalToBookAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AssignJournalToBookRequest $AssignJournalToBookRequest
+} catch {
+    Write-Host ("Exception occurred when calling Set-JournalToBookAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **JournalId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **AssignJournalToBookRequest** | [**AssignJournalToBookRequest**](AssignJournalToBookRequest.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -140,6 +202,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count journals
 
@@ -150,10 +213,11 @@ Returns the count of journals for the tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalDtoCollectionQueryParameters = Initialize-JournalDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalDtoCollectionQueryParameters |  (optional)
 
 # Count journals
 try {
-    $Result = Invoke-CountJournalsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountJournalsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalDtoCollectionQueryParameters $JournalDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountJournalsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -167,6 +231,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -178,7 +243,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -200,7 +265,7 @@ Creates a new journal for the tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalId "MyParentJournalId" -JournalTypeId "MyJournalTypeId" -LedgerId "MyLedgerId" # JournalCreateDto |  (optional)
+$JournalCreateDto = Initialize-JournalCreateDto -Id "MyId" -Timestamp (Get-Date) -Name "MyName" -Description "MyDescription" -DateTime (Get-Date) -ParentJournalId "MyParentJournalId" -JournalTypeId "MyJournalTypeId" -LedgerId "MyLedgerId" -FinancialBookId "MyFinancialBookId" -Code "MyCode" # JournalCreateDto |  (optional)
 
 # Create journal
 try {
@@ -457,6 +522,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get journal entries
 
@@ -468,10 +534,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalEntryDtoCollectionQueryParameters = Initialize-JournalEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalEntryDtoCollectionQueryParameters |  (optional)
 
 # Get journal entries
 try {
-    $Result = Get-JournalEntriesAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-JournalEntriesAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalEntryDtoCollectionQueryParameters $JournalEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-JournalEntriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -486,6 +553,7 @@ Name | Type | Description  | Notes
  **JournalId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -497,7 +565,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -509,6 +577,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalEntryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count journal entries
 
@@ -520,10 +589,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalEntryDtoCollectionQueryParameters = Initialize-JournalEntryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalEntryDtoCollectionQueryParameters |  (optional)
 
 # Count journal entries
 try {
-    $Result = Get-JournalEntriesCountAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-JournalEntriesCountAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalEntryDtoCollectionQueryParameters $JournalEntryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-JournalEntriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -538,6 +608,7 @@ Name | Type | Description  | Notes
  **JournalId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -549,7 +620,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -615,6 +686,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all journals
 
@@ -625,10 +697,11 @@ Retrieves all journals for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$JournalDtoCollectionQueryParameters = Initialize-JournalDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # JournalDtoCollectionQueryParameters |  (optional)
 
 # Get all journals
 try {
-    $Result = Get-JournalsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-JournalsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -JournalDtoCollectionQueryParameters $JournalDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-JournalsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -642,6 +715,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **JournalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -653,7 +727,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -665,7 +739,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JournalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a journal
 
@@ -677,11 +751,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a journal
 try {
-    $Result = Invoke-PatchJournalAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchJournalAsync -TenantId $TenantId -JournalId $JournalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchJournalAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -696,7 +770,7 @@ Name | Type | Description  | Notes
  **JournalId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -721,7 +795,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a journal entry
 
@@ -734,11 +808,11 @@ $JournalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $EntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a journal entry
 try {
-    $Result = Invoke-PatchJournalEntryAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchJournalEntryAsync -TenantId $TenantId -JournalId $JournalId -EntryId $EntryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchJournalEntryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -754,7 +828,7 @@ Name | Type | Description  | Notes
  **EntryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

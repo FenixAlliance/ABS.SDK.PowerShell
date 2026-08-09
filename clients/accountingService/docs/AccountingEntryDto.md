@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 **JournalEntryId** | **String** |  | [optional] 
@@ -22,7 +23,6 @@ Name | Type | Description | Notes
 **ForexRatesSnapshot** | **String** |  | [optional] 
 **CostCentreId** | **String** |  | [optional] 
 **ProjectId** | **String** |  | [optional] 
-**Timestamp** | **System.DateTime** |  | [optional] 
 **Debit** | **Double** |  | [optional] [readonly] 
 **Credit** | **Double** |  | [optional] [readonly] 
 **Amount** | [**Money**](Money.md) |  | [optional] 
@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AccountingEntryDto = Initialize-PSOpenAPIToolsAccountingEntryDto  -Id null `
+ -Timestamp null `
  -TenantId null `
  -EnrollmentId null `
  -JournalEntryId null `
@@ -51,7 +52,6 @@ $AccountingEntryDto = Initialize-PSOpenAPIToolsAccountingEntryDto  -Id null `
  -ForexRatesSnapshot null `
  -CostCentreId null `
  -ProjectId null `
- -Timestamp null `
  -Debit null `
  -Credit null `
  -Amount null `

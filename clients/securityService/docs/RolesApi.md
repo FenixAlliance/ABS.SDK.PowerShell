@@ -506,6 +506,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityRoleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all roles
 
@@ -516,10 +517,11 @@ Retrieves all security roles for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SecurityRoleDtoCollectionQueryParameters = Initialize-SecurityRoleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SecurityRoleDtoCollectionQueryParameters |  (optional)
 
 # Get all roles
 try {
-    $Result = Get-RolesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-RolesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SecurityRoleDtoCollectionQueryParameters $SecurityRoleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-RolesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -533,6 +535,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SecurityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -544,7 +547,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -607,6 +610,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityRoleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get roles count
 
@@ -617,10 +621,11 @@ Retrieves the count of security roles for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SecurityRoleDtoCollectionQueryParameters = Initialize-SecurityRoleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SecurityRoleDtoCollectionQueryParameters |  (optional)
 
 # Get roles count
 try {
-    $Result = Get-RolesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-RolesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SecurityRoleDtoCollectionQueryParameters $SecurityRoleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-RolesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -634,6 +639,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SecurityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -645,7 +651,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -655,7 +661,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchRoleAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityRoleId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -667,13 +673,13 @@ Partially updates an existing security role using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SecurityRoleId = "MySecurityRoleId" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] | 
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Patch an existing role
 try {
-    $Result = Invoke-PatchRoleAsync -TenantId $TenantId -SecurityRoleId $SecurityRoleId -Operation $Operation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-PatchRoleAsync -TenantId $TenantId -SecurityRoleId $SecurityRoleId -PatchOperation $PatchOperation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchRoleAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -686,7 +692,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **SecurityRoleId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 

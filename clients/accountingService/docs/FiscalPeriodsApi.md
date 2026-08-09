@@ -238,6 +238,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal periods for a fiscal year
 
@@ -251,10 +252,11 @@ $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AuthorityId = "MyAuthorityId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalPeriodDtoCollectionQueryParameters = Initialize-FiscalPeriodDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalPeriodDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal periods for a fiscal year
 try {
-    $Result = Get-FiscalPeriods -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalYearId $FiscalYearId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalPeriods -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalYearId $FiscalYearId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalPeriodDtoCollectionQueryParameters $FiscalPeriodDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalPeriods: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -271,6 +273,7 @@ Name | Type | Description  | Notes
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -282,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -295,6 +298,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal periods count
 
@@ -307,10 +311,11 @@ $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalPeriodDtoCollectionQueryParameters = Initialize-FiscalPeriodDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalPeriodDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal periods count
 try {
-    $Result = Get-FiscalPeriodsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalYearId $FiscalYearId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalPeriodsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalYearId $FiscalYearId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalPeriodDtoCollectionQueryParameters $FiscalPeriodDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalPeriodsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -326,6 +331,7 @@ Name | Type | Description  | Notes
  **FiscalYearId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -337,7 +343,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,7 +407,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalPeriodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a fiscal period
 
@@ -413,11 +419,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a fiscal period
 try {
-    $Result = Invoke-PatchFiscalPeriodAsync -TenantId $TenantId -FiscalPeriodId $FiscalPeriodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchFiscalPeriodAsync -TenantId $TenantId -FiscalPeriodId $FiscalPeriodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchFiscalPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -432,7 +438,7 @@ Name | Type | Description  | Notes
  **FiscalPeriodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

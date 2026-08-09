@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a id="New-FeedPostAsync"></a>
 # **New-FeedPostAsync**
-> SocialFeedPostDtoEnvelope New-FeedPostAsync<br>
+> StringEnvelope New-FeedPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -35,7 +35,7 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialFeedId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SocialFeedPostCreateDto = Initialize-SocialFeedPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Message "MyMessage" -SocialFeedId "MySocialFeedId" -SocialProfileId "MySocialProfileId" # SocialFeedPostCreateDto |  (optional)
+$SocialFeedPostCreateDto = Initialize-SocialFeedPostCreateDto -Id "MyId" -Timestamp (Get-Date) -Title "MyTitle" -Message "MyMessage" -SocialFeedId "MySocialFeedId" -SocialProfileId "MySocialProfileId" -BodyHtml "MyBodyHtml" -BodyFormat "PlainText" -BackgroundStyle "MyBackgroundStyle" # SocialFeedPostCreateDto |  (optional)
 
 # Create a social feed post
 try {
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SocialFeedPostDtoEnvelope**](SocialFeedPostDtoEnvelope.md) (PSCustomObject)
+[**StringEnvelope**](StringEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -132,6 +132,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social feeds
 
@@ -142,10 +143,11 @@ Retrieves a list of social feeds for the specified social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialFeedDtoCollectionQueryParameters = Initialize-SocialFeedDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialFeedDtoCollectionQueryParameters |  (optional)
 
 # Get social feeds
 try {
-    $Result = Get-FeedNotifications -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FeedNotifications -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialFeedDtoCollectionQueryParameters $SocialFeedDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FeedNotifications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -159,6 +161,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -170,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -237,6 +240,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social feed posts
 
@@ -248,10 +252,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialFeedId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialFeedPostDtoCollectionQueryParameters = Initialize-SocialFeedPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialFeedPostDtoCollectionQueryParameters |  (optional)
 
 # Get social feed posts
 try {
-    $Result = Get-FeedPostsAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FeedPostsAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialFeedPostDtoCollectionQueryParameters $SocialFeedPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FeedPostsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -266,6 +271,7 @@ Name | Type | Description  | Notes
  **SocialFeedId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -277,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,6 +295,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social feed posts
 
@@ -300,10 +307,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialFeedId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialFeedPostDtoCollectionQueryParameters = Initialize-SocialFeedPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialFeedPostDtoCollectionQueryParameters |  (optional)
 
 # Count social feed posts
 try {
-    $Result = Get-FeedPostsCountAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FeedPostsCountAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialFeedPostDtoCollectionQueryParameters $SocialFeedPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FeedPostsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -318,6 +326,7 @@ Name | Type | Description  | Notes
  **SocialFeedId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -329,7 +338,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -392,6 +401,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialFeedDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social feeds
 
@@ -402,10 +412,11 @@ Returns the count of social feeds for the specified social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialFeedDtoCollectionQueryParameters = Initialize-SocialFeedDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialFeedDtoCollectionQueryParameters |  (optional)
 
 # Count social feeds
 try {
-    $Result = Get-NotificationsCountAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-NotificationsCountAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialFeedDtoCollectionQueryParameters $SocialFeedDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-NotificationsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -419,6 +430,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -430,7 +442,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -443,7 +455,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FeedPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a social feed post
 
@@ -456,11 +468,11 @@ $SocialFeedId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FeedPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a social feed post
 try {
-    $Result = Invoke-PatchFeedPostAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -FeedPostId $FeedPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchFeedPostAsync -SocialProfileId $SocialProfileId -SocialFeedId $SocialFeedId -FeedPostId $FeedPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchFeedPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -476,7 +488,7 @@ Name | Type | Description  | Notes
  **FeedPostId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -514,7 +526,7 @@ $SocialFeedId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FeedPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$SocialFeedPostUpdateDto = Initialize-SocialFeedPostUpdateDto -Title "MyTitle" -Message "MyMessage" # SocialFeedPostUpdateDto |  (optional)
+$SocialFeedPostUpdateDto = Initialize-SocialFeedPostUpdateDto -Title "MyTitle" -Message "MyMessage" -BodyHtml "MyBodyHtml" -BodyFormat "PlainText" -BackgroundStyle "MyBackgroundStyle" # SocialFeedPostUpdateDto |  (optional)
 
 # Update a social feed post
 try {

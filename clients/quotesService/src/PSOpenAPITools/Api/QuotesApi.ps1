@@ -818,6 +818,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ExtendedQuoteDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -836,6 +839,9 @@ function Get-ExtendedQuotes {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedQuoteDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -865,12 +871,17 @@ function Get-ExtendedQuotes {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/QuotesService/Quotes/Extended'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getExtendedQuotes."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ExtendedQuoteDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1112,6 +1123,9 @@ No description available.
 .PARAMETER ItemId
 No description available.
 
+.PARAMETER QuoteLineDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1136,6 +1150,9 @@ function Get-QuoteLines {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ItemId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteLineDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1165,6 +1182,9 @@ function Get-QuoteLines {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/QuotesService/Quotes/{quoteId}/Lines'
         if (!$QuoteId) {
             throw "Error! The required parameter `QuoteId` missing when calling getQuoteLines."
@@ -1179,6 +1199,8 @@ function Get-QuoteLines {
         if ($ItemId) {
             $LocalVarQueryParameters['itemId'] = $ItemId
         }
+
+        $LocalVarBodyParameter = $QuoteLineDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1215,6 +1237,9 @@ No description available.
 .PARAMETER QuoteId
 No description available.
 
+.PARAMETER QuoteLineDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1236,6 +1261,9 @@ function Get-QuoteLinesCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${QuoteId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteLineDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1265,6 +1293,9 @@ function Get-QuoteLinesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/QuotesService/Quotes/{quoteId}/Lines/Count'
         if (!$QuoteId) {
             throw "Error! The required parameter `QuoteId` missing when calling getQuoteLinesCount."
@@ -1275,6 +1306,8 @@ function Get-QuoteLinesCount {
             throw "Error! The required parameter `TenantId` missing when calling getQuoteLinesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $QuoteLineDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1308,6 +1341,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER QuoteDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1326,6 +1362,9 @@ function Get-Quotes {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1355,12 +1394,17 @@ function Get-Quotes {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/QuotesService/Quotes'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getQuotes."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $QuoteDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1394,6 +1438,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER QuoteDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1412,6 +1459,9 @@ function Get-QuotesCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1441,12 +1491,17 @@ function Get-QuotesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/QuotesService/Quotes/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getQuotesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $QuoteDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1483,7 +1538,7 @@ No description available.
 .PARAMETER QuoteId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1509,7 +1564,7 @@ function Invoke-PatchQuoteAsync {
         ${QuoteId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1553,7 +1608,7 @@ function Invoke-PatchQuoteAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1593,7 +1648,7 @@ No description available.
 .PARAMETER QuoteLineId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1622,7 +1677,7 @@ function Invoke-PatchQuoteLineAsync {
         ${QuoteLineId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1670,7 +1725,7 @@ function Invoke-PatchQuoteLineAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

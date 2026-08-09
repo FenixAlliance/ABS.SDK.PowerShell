@@ -31,6 +31,10 @@ No description available.
 No description available.
 .PARAMETER LedgerId
 No description available.
+.PARAMETER FinancialBookId
+No description available.
+.PARAMETER Code
+No description available.
 .OUTPUTS
 
 JournalCreateDto<PSCustomObject>
@@ -62,7 +66,13 @@ function Initialize-JournalCreateDto {
         ${JournalTypeId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${LedgerId}
+        ${LedgerId},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FinancialBookId},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Code}
     )
 
     Process {
@@ -113,6 +123,22 @@ function Initialize-JournalCreateDto {
             throw "invalid value for 'LedgerId', the character length must be great than or equal to 0."
         }
 
+        if (!$FinancialBookId -and $FinancialBookId.length -gt 36) {
+            throw "invalid value for 'FinancialBookId', the character length must be smaller than or equal to 36."
+        }
+
+        if (!$FinancialBookId -and $FinancialBookId.length -lt 0) {
+            throw "invalid value for 'FinancialBookId', the character length must be great than or equal to 0."
+        }
+
+        if (!$Code -and $Code.length -gt 64) {
+            throw "invalid value for 'Code', the character length must be smaller than or equal to 64."
+        }
+
+        if (!$Code -and $Code.length -lt 1) {
+            throw "invalid value for 'Code', the character length must be great than or equal to 1."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -123,6 +149,8 @@ function Initialize-JournalCreateDto {
             "parentJournalId" = ${ParentJournalId}
             "journalTypeId" = ${JournalTypeId}
             "ledgerId" = ${LedgerId}
+            "financialBookId" = ${FinancialBookId}
+            "code" = ${Code}
         }
 
 
@@ -160,7 +188,7 @@ function ConvertFrom-JsonToJournalCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalCreateDto
-        $AllProperties = ("id", "timestamp", "name", "description", "dateTime", "parentJournalId", "journalTypeId", "ledgerId")
+        $AllProperties = ("id", "timestamp", "name", "description", "dateTime", "parentJournalId", "journalTypeId", "ledgerId", "financialBookId", "code")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -219,6 +247,18 @@ function ConvertFrom-JsonToJournalCreateDto {
             $LedgerId = $JsonParameters.PSobject.Properties["ledgerId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "financialBookId"))) { #optional property not found
+            $FinancialBookId = $null
+        } else {
+            $FinancialBookId = $JsonParameters.PSobject.Properties["financialBookId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "code"))) { #optional property not found
+            $Code = $null
+        } else {
+            $Code = $JsonParameters.PSobject.Properties["code"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -228,6 +268,8 @@ function ConvertFrom-JsonToJournalCreateDto {
             "parentJournalId" = ${ParentJournalId}
             "journalTypeId" = ${JournalTypeId}
             "ledgerId" = ${LedgerId}
+            "financialBookId" = ${FinancialBookId}
+            "code" = ${Code}
         }
 
         return $PSO

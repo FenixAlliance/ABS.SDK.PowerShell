@@ -23,6 +23,8 @@ No description available.
 No description available.
 .PARAMETER TenantId
 No description available.
+.PARAMETER Category
+No description available.
 .PARAMETER Description
 No description available.
 .PARAMETER IsSystemPermission
@@ -49,8 +51,11 @@ function Initialize-SecurityPermissionDto {
         ${TenantId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Category},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsSystemPermission}
     )
@@ -65,6 +70,7 @@ function Initialize-SecurityPermissionDto {
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "tenantId" = ${TenantId}
+            "category" = ${Category}
             "description" = ${Description}
             "isSystemPermission" = ${IsSystemPermission}
         }
@@ -104,7 +110,7 @@ function ConvertFrom-JsonToSecurityPermissionDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SecurityPermissionDto
-        $AllProperties = ("id", "timestamp", "name", "tenantId", "description", "isSystemPermission")
+        $AllProperties = ("id", "timestamp", "name", "tenantId", "category", "description", "isSystemPermission")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,6 +141,12 @@ function ConvertFrom-JsonToSecurityPermissionDto {
             $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "category"))) { #optional property not found
+            $Category = $null
+        } else {
+            $Category = $JsonParameters.PSobject.Properties["category"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -152,6 +164,7 @@ function ConvertFrom-JsonToSecurityPermissionDto {
             "timestamp" = ${Timestamp}
             "name" = ${Name}
             "tenantId" = ${TenantId}
+            "category" = ${Category}
             "description" = ${Description}
             "isSystemPermission" = ${IsSystemPermission}
         }

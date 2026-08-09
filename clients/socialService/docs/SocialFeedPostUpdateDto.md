@@ -5,13 +5,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **String** |  | [optional] 
 **Message** | **String** |  | [optional] 
+**BodyHtml** | **String** |  | [optional] 
+**BodyFormat** | **String** |  | [optional] 
+**BackgroundStyle** | **String** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SocialFeedPostUpdateDto = Initialize-PSOpenAPIToolsSocialFeedPostUpdateDto  -Title null `
- -Message null
+ -Message null `
+ -BodyHtml null `
+ -BodyFormat null `
+ -BackgroundStyle null
 ```
 
 - Convert the resource to JSON

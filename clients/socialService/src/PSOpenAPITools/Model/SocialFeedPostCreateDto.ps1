@@ -27,6 +27,12 @@ No description available.
 No description available.
 .PARAMETER SocialProfileId
 No description available.
+.PARAMETER BodyHtml
+No description available.
+.PARAMETER BodyFormat
+No description available.
+.PARAMETER BackgroundStyle
+No description available.
 .OUTPUTS
 
 SocialFeedPostCreateDto<PSCustomObject>
@@ -52,12 +58,30 @@ function Initialize-SocialFeedPostCreateDto {
         ${SocialFeedId},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SocialProfileId}
+        ${SocialProfileId},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BodyHtml},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PlainText", "Html")]
+        [String]
+        ${BodyFormat},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BackgroundStyle}
     )
 
     Process {
         'Creating PSCustomObject: PSOpenAPITools => SocialFeedPostCreateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$BodyHtml -and $BodyHtml.length -gt 8000) {
+            throw "invalid value for 'BodyHtml', the character length must be smaller than or equal to 8000."
+        }
+
+        if (!$BackgroundStyle -and $BackgroundStyle.length -gt 64) {
+            throw "invalid value for 'BackgroundStyle', the character length must be smaller than or equal to 64."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -67,6 +91,9 @@ function Initialize-SocialFeedPostCreateDto {
             "message" = ${Message}
             "socialFeedId" = ${SocialFeedId}
             "socialProfileId" = ${SocialProfileId}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
 
@@ -104,7 +131,7 @@ function ConvertFrom-JsonToSocialFeedPostCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialFeedPostCreateDto
-        $AllProperties = ("id", "timestamp", "title", "message", "socialFeedId", "socialProfileId")
+        $AllProperties = ("id", "timestamp", "title", "message", "socialFeedId", "socialProfileId", "bodyHtml", "bodyFormat", "backgroundStyle")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,6 +174,24 @@ function ConvertFrom-JsonToSocialFeedPostCreateDto {
             $SocialProfileId = $JsonParameters.PSobject.Properties["socialProfileId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found
+            $BodyHtml = $null
+        } else {
+            $BodyHtml = $JsonParameters.PSobject.Properties["bodyHtml"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyFormat"))) { #optional property not found
+            $BodyFormat = $null
+        } else {
+            $BodyFormat = $JsonParameters.PSobject.Properties["bodyFormat"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "backgroundStyle"))) { #optional property not found
+            $BackgroundStyle = $null
+        } else {
+            $BackgroundStyle = $JsonParameters.PSobject.Properties["backgroundStyle"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -154,6 +199,9 @@ function ConvertFrom-JsonToSocialFeedPostCreateDto {
             "message" = ${Message}
             "socialFeedId" = ${SocialFeedId}
             "socialProfileId" = ${SocialProfileId}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
         return $PSO

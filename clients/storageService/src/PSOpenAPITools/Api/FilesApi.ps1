@@ -905,6 +905,33 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER Top
+No description available.
+
+.PARAMETER Skip
+No description available.
+
+.PARAMETER Count
+No description available.
+
+.PARAMETER Filter
+No description available.
+
+.PARAMETER OrderBy
+No description available.
+
+.PARAMETER Search
+No description available.
+
+.PARAMETER Select
+No description available.
+
+.PARAMETER Expand
+No description available.
+
+.PARAMETER IsEmpty
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, image/png
@@ -929,6 +956,33 @@ function Get-FilesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Top},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Skip},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filter},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${OrderBy},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Search},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Select},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Expand},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IsEmpty},
         [String]
         [ValidateSet("application/json", "image/png")]
         $ReturnType,
@@ -958,6 +1012,9 @@ function Get-FilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
         $LocalVarUri = '/api/v2/StorageService/Files'
 
         if ($XApiVersion) {
@@ -970,6 +1027,28 @@ function Get-FilesAsync {
 
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarFormParameters['top'] = $Top
+
+        $LocalVarFormParameters['skip'] = $Skip
+
+        if ($Count) {
+            $LocalVarFormParameters['count'] = $Count
+        }
+
+        $LocalVarFormParameters['filter'] = $Filter
+
+        $LocalVarFormParameters['orderBy'] = $OrderBy
+
+        $LocalVarFormParameters['search'] = $Search
+
+        $LocalVarFormParameters['select'] = $Select
+
+        $LocalVarFormParameters['expand'] = $Expand
+
+        if ($IsEmpty) {
+            $LocalVarFormParameters['isEmpty'] = $IsEmpty
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
@@ -1010,6 +1089,33 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER Top
+No description available.
+
+.PARAMETER Skip
+No description available.
+
+.PARAMETER Count
+No description available.
+
+.PARAMETER Filter
+No description available.
+
+.PARAMETER OrderBy
+No description available.
+
+.PARAMETER Search
+No description available.
+
+.PARAMETER Select
+No description available.
+
+.PARAMETER Expand
+No description available.
+
+.PARAMETER IsEmpty
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, image/png
@@ -1034,6 +1140,33 @@ function Get-FilesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Top},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Skip},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filter},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${OrderBy},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Search},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Select},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Expand},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IsEmpty},
         [String]
         [ValidateSet("application/json", "image/png")]
         $ReturnType,
@@ -1063,6 +1196,9 @@ function Get-FilesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
         $LocalVarUri = '/api/v2/StorageService/Files/Count'
 
         if ($XApiVersion) {
@@ -1075,6 +1211,28 @@ function Get-FilesCountAsync {
 
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarFormParameters['top'] = $Top
+
+        $LocalVarFormParameters['skip'] = $Skip
+
+        if ($Count) {
+            $LocalVarFormParameters['count'] = $Count
+        }
+
+        $LocalVarFormParameters['filter'] = $Filter
+
+        $LocalVarFormParameters['orderBy'] = $OrderBy
+
+        $LocalVarFormParameters['search'] = $Search
+
+        $LocalVarFormParameters['select'] = $Select
+
+        $LocalVarFormParameters['expand'] = $Expand
+
+        if ($IsEmpty) {
+            $LocalVarFormParameters['isEmpty'] = $IsEmpty
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `

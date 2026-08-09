@@ -23,6 +23,12 @@ No description available.
 No description available.
 .PARAMETER Timestamp
 No description available.
+.PARAMETER HttpStatus
+No description available.
+.PARAMETER ErrorCode
+No description available.
+.PARAMETER ValidationDetails
+No description available.
 .PARAMETER ActivityId
 No description available.
 .PARAMETER Result
@@ -48,9 +54,18 @@ function Initialize-CurriculumExperienceDtoListEnvelope {
         [System.Nullable[System.DateTime]]
         ${Timestamp},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${HttpStatus},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ErrorCode},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${ValidationDetails},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ActivityId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Result}
     )
@@ -65,6 +80,9 @@ function Initialize-CurriculumExperienceDtoListEnvelope {
             "errorMessage" = ${ErrorMessage}
             "correlationId" = ${CorrelationId}
             "timestamp" = ${Timestamp}
+            "httpStatus" = ${HttpStatus}
+            "errorCode" = ${ErrorCode}
+            "validationDetails" = ${ValidationDetails}
             "activityId" = ${ActivityId}
             "result" = ${Result}
         }
@@ -104,7 +122,7 @@ function ConvertFrom-JsonToCurriculumExperienceDtoListEnvelope {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CurriculumExperienceDtoListEnvelope
-        $AllProperties = ("isSuccess", "errorMessage", "correlationId", "timestamp", "activityId", "result")
+        $AllProperties = ("isSuccess", "errorMessage", "correlationId", "timestamp", "httpStatus", "errorCode", "validationDetails", "activityId", "result")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,6 +153,24 @@ function ConvertFrom-JsonToCurriculumExperienceDtoListEnvelope {
             $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "httpStatus"))) { #optional property not found
+            $HttpStatus = $null
+        } else {
+            $HttpStatus = $JsonParameters.PSobject.Properties["httpStatus"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "errorCode"))) { #optional property not found
+            $ErrorCode = $null
+        } else {
+            $ErrorCode = $JsonParameters.PSobject.Properties["errorCode"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "validationDetails"))) { #optional property not found
+            $ValidationDetails = $null
+        } else {
+            $ValidationDetails = $JsonParameters.PSobject.Properties["validationDetails"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "activityId"))) { #optional property not found
             $ActivityId = $null
         } else {
@@ -152,6 +188,9 @@ function ConvertFrom-JsonToCurriculumExperienceDtoListEnvelope {
             "errorMessage" = ${ErrorMessage}
             "correlationId" = ${CorrelationId}
             "timestamp" = ${Timestamp}
+            "httpStatus" = ${HttpStatus}
+            "errorCode" = ${ErrorCode}
+            "validationDetails" = ${ValidationDetails}
             "activityId" = ${ActivityId}
             "result" = ${Result}
         }

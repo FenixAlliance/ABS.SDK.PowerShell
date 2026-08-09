@@ -29,6 +29,8 @@ No description available.
 No description available.
 .PARAMETER SocialProfileAvatarUrl
 No description available.
+.PARAMETER SocialProfileType
+No description available.
 .OUTPUTS
 
 SocialReactionDto<PSCustomObject>
@@ -58,7 +60,11 @@ function Initialize-SocialReactionDto {
         ${SocialProfileName},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SocialProfileAvatarUrl}
+        ${SocialProfileAvatarUrl},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("User", "Tenant", "Contact")]
+        [String]
+        ${SocialProfileType}
     )
 
     Process {
@@ -74,6 +80,7 @@ function Initialize-SocialReactionDto {
             "socialProfileId" = ${SocialProfileId}
             "socialProfileName" = ${SocialProfileName}
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
         }
 
 
@@ -111,7 +118,7 @@ function ConvertFrom-JsonToSocialReactionDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialReactionDto
-        $AllProperties = ("id", "timestamp", "reaction", "reactionValue", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl")
+        $AllProperties = ("id", "timestamp", "reaction", "reactionValue", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl", "socialProfileType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -160,6 +167,12 @@ function ConvertFrom-JsonToSocialReactionDto {
             $SocialProfileAvatarUrl = $JsonParameters.PSobject.Properties["socialProfileAvatarUrl"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileType"))) { #optional property not found
+            $SocialProfileType = $null
+        } else {
+            $SocialProfileType = $JsonParameters.PSobject.Properties["socialProfileType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -168,6 +181,7 @@ function ConvertFrom-JsonToSocialReactionDto {
             "socialProfileId" = ${SocialProfileId}
             "socialProfileName" = ${SocialProfileName}
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
         }
 
         return $PSO

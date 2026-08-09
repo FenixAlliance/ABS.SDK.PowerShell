@@ -33,6 +33,8 @@ No description available.
 No description available.
 .PARAMETER OrganizationId
 No description available.
+.PARAMETER ReceiverTenantId
+No description available.
 .PARAMETER FirstName
 No description available.
 .PARAMETER LastName
@@ -113,8 +115,6 @@ No description available.
 No description available.
 .PARAMETER DealUnitId
 No description available.
-.PARAMETER ReceiverTenantId
-No description available.
 .PARAMETER EffectiveTo
 No description available.
 .PARAMETER EffectiveFrom
@@ -160,129 +160,129 @@ function Initialize-QuoteCreateDto {
         ${OrganizationId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FirstName},
+        ${ReceiverTenantId},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${LastName},
+        ${FirstName},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CompanyName},
+        ${LastName},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BillingEmail},
+        ${CompanyName},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AddressLine1},
+        ${BillingEmail},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AddressLine2},
+        ${AddressLine1},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PostalCode},
+        ${AddressLine2},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CountryId},
+        ${PostalCode},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${StateId},
+        ${CountryId},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CityId},
+        ${StateId},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CityId},
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${ForexRate},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CurrencyId},
-        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalDetail},
-        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalDetailCurrencyId},
-        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalProfit},
-        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalProfitCurrencyId},
-        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalDiscounts},
-        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalDiscountsCurrencyId},
-        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalSurcharges},
-        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalSurchargesCurrencyId},
-        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalShippingCost},
-        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalShippingCostCurrencyId},
-        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalShippingTax},
-        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalShippingTaxCurrencyId},
-        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalWithheldTax},
-        [Parameter(Position = 34, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalWithheldTaxCurrencyId},
-        [Parameter(Position = 35, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalTaxBase},
-        [Parameter(Position = 36, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalTaxBaseCurrencyId},
-        [Parameter(Position = 37, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalTaxes},
-        [Parameter(Position = 38, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalTaxesCurrencyId},
-        [Parameter(Position = 39, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalGlobalSurcharges},
-        [Parameter(Position = 40, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalGlobalSurchargesCurrencyId},
-        [Parameter(Position = 41, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${TotalGlobalDiscounts},
-        [Parameter(Position = 42, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalGlobalDiscountsCurrencyId},
-        [Parameter(Position = 43, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Total},
-        [Parameter(Position = 44, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TotalCurrencyId},
-        [Parameter(Position = 45, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Automatic", "Custom")]
         [String]
         ${CostCalculationMethod},
-        [Parameter(Position = 46, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 47, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Included", "Excluded")]
         [String]
         ${TaxCalculationMethod},
-        [Parameter(Position = 47, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CartId},
         [Parameter(Position = 48, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DealUnitId},
+        ${CartId},
         [Parameter(Position = 49, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ReceiverTenantId},
+        ${DealUnitId},
         [Parameter(Position = 50, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${EffectiveTo},
@@ -313,6 +313,7 @@ function Initialize-QuoteCreateDto {
             "individualId" = ${IndividualId}
             "paymentTermId" = ${PaymentTermId}
             "organizationId" = ${OrganizationId}
+            "receiverTenantId" = ${ReceiverTenantId}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}
             "companyName" = ${CompanyName}
@@ -353,7 +354,6 @@ function Initialize-QuoteCreateDto {
             "taxCalculationMethod" = ${TaxCalculationMethod}
             "cartId" = ${CartId}
             "dealUnitId" = ${DealUnitId}
-            "receiverTenantId" = ${ReceiverTenantId}
             "effectiveTo" = ${EffectiveTo}
             "effectiveFrom" = ${EffectiveFrom}
             "quoteStatus" = ${QuoteStatus}
@@ -395,7 +395,7 @@ function ConvertFrom-JsonToQuoteCreateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in QuoteCreateDto
-        $AllProperties = ("id", "timestamp", "closed", "title", "priceListId", "description", "individualId", "paymentTermId", "organizationId", "firstName", "lastName", "companyName", "billingEmail", "addressLine1", "addressLine2", "postalCode", "countryId", "stateId", "cityId", "forexRate", "currencyId", "totalDetail", "totalDetailCurrencyId", "totalProfit", "totalProfitCurrencyId", "totalDiscounts", "totalDiscountsCurrencyId", "totalSurcharges", "totalSurchargesCurrencyId", "totalShippingCost", "totalShippingCostCurrencyId", "totalShippingTax", "totalShippingTaxCurrencyId", "totalWithheldTax", "totalWithheldTaxCurrencyId", "totalTaxBase", "totalTaxBaseCurrencyId", "totalTaxes", "totalTaxesCurrencyId", "totalGlobalSurcharges", "totalGlobalSurchargesCurrencyId", "totalGlobalDiscounts", "totalGlobalDiscountsCurrencyId", "total", "totalCurrencyId", "costCalculationMethod", "taxCalculationMethod", "cartId", "dealUnitId", "receiverTenantId", "effectiveTo", "effectiveFrom", "quoteStatus", "quoteLines")
+        $AllProperties = ("id", "timestamp", "closed", "title", "priceListId", "description", "individualId", "paymentTermId", "organizationId", "receiverTenantId", "firstName", "lastName", "companyName", "billingEmail", "addressLine1", "addressLine2", "postalCode", "countryId", "stateId", "cityId", "forexRate", "currencyId", "totalDetail", "totalDetailCurrencyId", "totalProfit", "totalProfitCurrencyId", "totalDiscounts", "totalDiscountsCurrencyId", "totalSurcharges", "totalSurchargesCurrencyId", "totalShippingCost", "totalShippingCostCurrencyId", "totalShippingTax", "totalShippingTaxCurrencyId", "totalWithheldTax", "totalWithheldTaxCurrencyId", "totalTaxBase", "totalTaxBaseCurrencyId", "totalTaxes", "totalTaxesCurrencyId", "totalGlobalSurcharges", "totalGlobalSurchargesCurrencyId", "totalGlobalDiscounts", "totalGlobalDiscountsCurrencyId", "total", "totalCurrencyId", "costCalculationMethod", "taxCalculationMethod", "cartId", "dealUnitId", "effectiveTo", "effectiveFrom", "quoteStatus", "quoteLines")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -454,6 +454,12 @@ function ConvertFrom-JsonToQuoteCreateDto {
             $OrganizationId = $null
         } else {
             $OrganizationId = $JsonParameters.PSobject.Properties["organizationId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "receiverTenantId"))) { #optional property not found
+            $ReceiverTenantId = $null
+        } else {
+            $ReceiverTenantId = $JsonParameters.PSobject.Properties["receiverTenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "firstName"))) { #optional property not found
@@ -696,12 +702,6 @@ function ConvertFrom-JsonToQuoteCreateDto {
             $DealUnitId = $JsonParameters.PSobject.Properties["dealUnitId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "receiverTenantId"))) { #optional property not found
-            $ReceiverTenantId = $null
-        } else {
-            $ReceiverTenantId = $JsonParameters.PSobject.Properties["receiverTenantId"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "effectiveTo"))) { #optional property not found
             $EffectiveTo = $null
         } else {
@@ -736,6 +736,7 @@ function ConvertFrom-JsonToQuoteCreateDto {
             "individualId" = ${IndividualId}
             "paymentTermId" = ${PaymentTermId}
             "organizationId" = ${OrganizationId}
+            "receiverTenantId" = ${ReceiverTenantId}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}
             "companyName" = ${CompanyName}
@@ -776,7 +777,6 @@ function ConvertFrom-JsonToQuoteCreateDto {
             "taxCalculationMethod" = ${TaxCalculationMethod}
             "cartId" = ${CartId}
             "dealUnitId" = ${DealUnitId}
-            "receiverTenantId" = ${ReceiverTenantId}
             "effectiveTo" = ${EffectiveTo}
             "effectiveFrom" = ${EffectiveFrom}
             "quoteStatus" = ${QuoteStatus}

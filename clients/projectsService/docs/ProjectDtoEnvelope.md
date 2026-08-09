@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | **String** |  | [optional] 
 **CorrelationId** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**HttpStatus** | **Int32** |  | [optional] 
+**ErrorCode** | **String** |  | [optional] 
+**ValidationDetails** | [**System.Collections.Hashtable**](Array.md) |  | [optional] 
 **ActivityId** | **String** |  | [optional] [readonly] 
 **Result** | [**ProjectDto**](ProjectDto.md) |  | [optional] 
 
@@ -18,6 +21,9 @@ $ProjectDtoEnvelope = Initialize-PSOpenAPIToolsProjectDtoEnvelope  -IsSuccess nu
  -ErrorMessage null `
  -CorrelationId null `
  -Timestamp null `
+ -HttpStatus null `
+ -ErrorCode null `
+ -ValidationDetails null `
  -ActivityId null `
  -Result null
 ```

@@ -434,6 +434,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ExtendedTenantDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -455,6 +458,9 @@ function Get-AllExtendedTenants {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedTenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -484,6 +490,9 @@ function Get-AllExtendedTenants {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SystemService/Tenants/Extended'
 
         if ($XApiVersion) {
@@ -493,6 +502,8 @@ function Get-AllExtendedTenants {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ExtendedTenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -529,6 +540,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TenantDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -550,6 +564,9 @@ function Get-AllTenants {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -579,6 +596,9 @@ function Get-AllTenants {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SystemService/Tenants'
 
         if ($XApiVersion) {
@@ -588,6 +608,8 @@ function Get-AllTenants {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -624,6 +646,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ExtendedTenantDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -645,6 +670,9 @@ function Get-ExtendedTenantsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedTenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -674,6 +702,9 @@ function Get-ExtendedTenantsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SystemService/Tenants/Extended/Count'
 
         if ($XApiVersion) {
@@ -683,6 +714,8 @@ function Get-ExtendedTenantsCount {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ExtendedTenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -812,6 +845,111 @@ function Get-Tenant {
 <#
 .SYNOPSIS
 
+Get the per-tenant admin module grants for a specific tenant.
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ModuleGrantDtoListEnvelope
+#>
+function Get-TenantModuleGrants {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-TenantModuleGrants' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants'
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling getTenantModuleGrants."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{tenantId}', [System.Web.HTTPUtility]::UrlEncode($TenantId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ModuleGrantDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get the total count of tenants available on this suite server instance.
 
 .DESCRIPTION
@@ -822,6 +960,9 @@ No description available.
 No description available.
 
 .PARAMETER XApiVersion
+No description available.
+
+.PARAMETER TenantDtoCollectionQueryParameters
 No description available.
 
 .PARAMETER ReturnType
@@ -845,6 +986,9 @@ function Get-TenantsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -874,6 +1018,9 @@ function Get-TenantsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SystemService/Tenants/Count'
 
         if ($XApiVersion) {
@@ -883,6 +1030,8 @@ function Get-TenantsCount {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -922,7 +1071,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -951,7 +1100,7 @@ function Invoke-PatchTenant {
         ${XApiVersion},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -998,9 +1147,125 @@ function Invoke-PatchTenant {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ModuleGrantDto
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Set-TenantModuleGrants {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${ModuleGrantDto},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Set-TenantModuleGrants' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants'
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling setTenantModuleGrants."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{tenantId}', [System.Web.HTTPUtility]::UrlEncode($TenantId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = ConvertTo-Json @($ModuleGrantDto) -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `

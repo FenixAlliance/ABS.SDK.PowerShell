@@ -1352,6 +1352,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER AssetCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1370,6 +1373,9 @@ function Get-AssetAssetCategories {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1399,12 +1405,17 @@ function Get-AssetAssetCategories {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/Categories'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getAssetAssetCategories."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1438,6 +1449,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER AssetCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1456,6 +1470,9 @@ function Get-AssetAssetCategoriesCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1485,12 +1502,17 @@ function Get-AssetAssetCategoriesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/Categories/count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getAssetAssetCategoriesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1729,6 +1751,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetDepreciationRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1750,6 +1775,9 @@ function Get-AssetDepreciationRecords {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetDepreciationRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1779,6 +1807,9 @@ function Get-AssetDepreciationRecords {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/DepreciationRecords'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetDepreciationRecords."
@@ -1789,6 +1820,8 @@ function Get-AssetDepreciationRecords {
             throw "Error! The required parameter `TenantId` missing when calling getAssetDepreciationRecords."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetDepreciationRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1825,6 +1858,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetDepreciationRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1846,6 +1882,9 @@ function Get-AssetDepreciationRecordsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetDepreciationRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1875,6 +1914,9 @@ function Get-AssetDepreciationRecordsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/Count'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetDepreciationRecordsCount."
@@ -1885,6 +1927,8 @@ function Get-AssetDepreciationRecordsCount {
             throw "Error! The required parameter `TenantId` missing when calling getAssetDepreciationRecordsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetDepreciationRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2027,6 +2071,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetRepairDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2048,6 +2095,9 @@ function Get-AssetRepairs {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetRepairDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2077,6 +2127,9 @@ function Get-AssetRepairs {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/Repairs'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetRepairs."
@@ -2087,6 +2140,8 @@ function Get-AssetRepairs {
             throw "Error! The required parameter `TenantId` missing when calling getAssetRepairs."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetRepairDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2123,6 +2178,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetRepairDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2144,6 +2202,9 @@ function Get-AssetRepairsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetRepairDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2173,6 +2234,9 @@ function Get-AssetRepairsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/Repairs/Count'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetRepairsCount."
@@ -2183,6 +2247,8 @@ function Get-AssetRepairsCount {
             throw "Error! The required parameter `TenantId` missing when calling getAssetRepairsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetRepairDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2325,6 +2391,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetTransferDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2346,6 +2415,9 @@ function Get-AssetTransfers {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetTransferDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2375,6 +2447,9 @@ function Get-AssetTransfers {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/Transfers'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetTransfers."
@@ -2385,6 +2460,8 @@ function Get-AssetTransfers {
             throw "Error! The required parameter `TenantId` missing when calling getAssetTransfers."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetTransferDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2421,6 +2498,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetTransferDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2442,6 +2522,9 @@ function Get-AssetTransfersCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetTransferDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2471,6 +2554,9 @@ function Get-AssetTransfersCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/Transfers/Count'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetTransfersCount."
@@ -2481,6 +2567,8 @@ function Get-AssetTransfersCount {
             throw "Error! The required parameter `TenantId` missing when calling getAssetTransfersCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetTransferDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2623,6 +2711,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetValueAmendDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2644,6 +2735,9 @@ function Get-AssetValueAmends {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetValueAmendDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2673,6 +2767,9 @@ function Get-AssetValueAmends {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/ValueAmends'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetValueAmends."
@@ -2683,6 +2780,8 @@ function Get-AssetValueAmends {
             throw "Error! The required parameter `TenantId` missing when calling getAssetValueAmends."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetValueAmendDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2719,6 +2818,9 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
+.PARAMETER AssetValueAmendDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2740,6 +2842,9 @@ function Get-AssetValueAmendsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AssetId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetValueAmendDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2769,6 +2874,9 @@ function Get-AssetValueAmendsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/{assetId}/ValueAmends/Count'
         if (!$AssetId) {
             throw "Error! The required parameter `AssetId` missing when calling getAssetValueAmendsCount."
@@ -2779,6 +2887,8 @@ function Get-AssetValueAmendsCount {
             throw "Error! The required parameter `TenantId` missing when calling getAssetValueAmendsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetValueAmendDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2812,6 +2922,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER AssetDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2830,6 +2943,9 @@ function Get-Assets {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2859,12 +2975,17 @@ function Get-Assets {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getAssets."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2898,6 +3019,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER AssetDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2916,6 +3040,9 @@ function Get-AssetsCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssetDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2945,12 +3072,17 @@ function Get-AssetsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AssetsService/Assets/count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getAssetsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $AssetDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2987,7 +3119,7 @@ No description available.
 .PARAMETER AssetId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3013,7 +3145,7 @@ function Invoke-PatchAsset {
         ${AssetId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3057,7 +3189,7 @@ function Invoke-PatchAsset {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3094,7 +3226,7 @@ No description available.
 .PARAMETER CategoryId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3120,7 +3252,7 @@ function Invoke-PatchAssetAssetCategory {
         ${CategoryId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3164,7 +3296,7 @@ function Invoke-PatchAssetAssetCategory {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3204,7 +3336,7 @@ No description available.
 .PARAMETER RecordId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3233,7 +3365,7 @@ function Invoke-PatchAssetDepreciationRecord {
         ${RecordId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3281,7 +3413,7 @@ function Invoke-PatchAssetDepreciationRecord {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3321,7 +3453,7 @@ No description available.
 .PARAMETER RepairId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3350,7 +3482,7 @@ function Invoke-PatchAssetRepair {
         ${RepairId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3398,7 +3530,7 @@ function Invoke-PatchAssetRepair {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3438,7 +3570,7 @@ No description available.
 .PARAMETER TransferId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3467,7 +3599,7 @@ function Invoke-PatchAssetTransfer {
         ${TransferId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3515,7 +3647,7 @@ function Invoke-PatchAssetTransfer {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3555,7 +3687,7 @@ No description available.
 .PARAMETER AmendId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3584,7 +3716,7 @@ function Invoke-PatchAssetValueAmend {
         ${AmendId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3632,7 +3764,7 @@ function Invoke-PatchAssetValueAmend {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

@@ -12,6 +12,10 @@ Name | Type | Description | Notes
 **SocialProfileAvatarUrl** | **String** |  | [optional] 
 **CommentsCount** | **Int32** |  | [optional] 
 **ReactionsCount** | **Int32** |  | [optional] 
+**SocialProfileType** | **String** |  | [optional] 
+**BodyHtml** | **String** |  | [optional] 
+**BodyFormat** | **String** |  | [optional] 
+**BackgroundStyle** | **String** |  | [optional] 
 
 ## Examples
 
@@ -25,7 +29,11 @@ $SocialPostDto = Initialize-PSOpenAPIToolsSocialPostDto  -Id null `
  -SocialProfileName null `
  -SocialProfileAvatarUrl null `
  -CommentsCount null `
- -ReactionsCount null
+ -ReactionsCount null `
+ -SocialProfileType null `
+ -BodyHtml null `
+ -BodyFormat null `
+ -BackgroundStyle null
 ```
 
 - Convert the resource to JSON

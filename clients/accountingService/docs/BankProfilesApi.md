@@ -14,6 +14,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all bank profiles for a tenant
 
@@ -24,10 +25,11 @@ Retrieves all bank profiles for the specified tenant using OData query options.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BankProfileDtoCollectionQueryParameters = Initialize-BankProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BankProfileDtoCollectionQueryParameters |  (optional)
 
 # Get all bank profiles for a tenant
 try {
-    $Result = Get-BankProfiles -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BankProfiles -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BankProfileDtoCollectionQueryParameters $BankProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BankProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -41,6 +43,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -52,7 +55,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -63,6 +66,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BankProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get bank profiles count
 
@@ -73,10 +77,11 @@ Returns the count of bank profiles for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BankProfileDtoCollectionQueryParameters = Initialize-BankProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BankProfileDtoCollectionQueryParameters |  (optional)
 
 # Get bank profiles count
 try {
-    $Result = Get-BankProfilesCount -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BankProfilesCount -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BankProfileDtoCollectionQueryParameters $BankProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BankProfilesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -90,6 +95,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -101,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

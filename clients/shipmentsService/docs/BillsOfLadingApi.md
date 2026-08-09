@@ -348,6 +348,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get bill of lading lines
 
@@ -359,10 +360,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillOfLadingId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BillOfLadingLineDtoCollectionQueryParameters = Initialize-BillOfLadingLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BillOfLadingLineDtoCollectionQueryParameters |  (optional)
 
 # Get bill of lading lines
 try {
-    $Result = Get-BillOfLadingLinesAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BillOfLadingLinesAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BillOfLadingLineDtoCollectionQueryParameters $BillOfLadingLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BillOfLadingLinesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -377,6 +379,7 @@ Name | Type | Description  | Notes
  **BillOfLadingId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BillOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -388,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -400,6 +403,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get bill of lading lines count
 
@@ -411,10 +415,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillOfLadingId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BillOfLadingLineDtoCollectionQueryParameters = Initialize-BillOfLadingLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BillOfLadingLineDtoCollectionQueryParameters |  (optional)
 
 # Get bill of lading lines count
 try {
-    $Result = Get-BillOfLadingLinesCountAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BillOfLadingLinesCountAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BillOfLadingLineDtoCollectionQueryParameters $BillOfLadingLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BillOfLadingLinesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -429,6 +434,7 @@ Name | Type | Description  | Notes
  **BillOfLadingId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BillOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -440,7 +446,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -451,6 +457,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all bills of lading
 
@@ -461,10 +468,11 @@ Retrieves all bills of lading for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BillOfLadingDtoCollectionQueryParameters = Initialize-BillOfLadingDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BillOfLadingDtoCollectionQueryParameters |  (optional)
 
 # Get all bills of lading
 try {
-    $Result = Get-BillsOfLadingAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BillsOfLadingAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BillOfLadingDtoCollectionQueryParameters $BillOfLadingDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BillsOfLadingAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -478,6 +486,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BillOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -489,7 +498,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -500,6 +509,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get bills of lading count
 
@@ -510,10 +520,11 @@ Returns the count of bills of lading for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BillOfLadingDtoCollectionQueryParameters = Initialize-BillOfLadingDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BillOfLadingDtoCollectionQueryParameters |  (optional)
 
 # Get bills of lading count
 try {
-    $Result = Get-BillsOfLadingCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-BillsOfLadingCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BillOfLadingDtoCollectionQueryParameters $BillOfLadingDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BillsOfLadingCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -527,6 +538,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BillOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -538,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -550,7 +562,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BillOfLadingId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a bill of lading
 
@@ -562,11 +574,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $BillOfLadingId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a bill of lading
 try {
-    $Result = Invoke-PatchBillOfLadingAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchBillOfLadingAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchBillOfLadingAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -581,7 +593,7 @@ Name | Type | Description  | Notes
  **BillOfLadingId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -606,7 +618,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LineId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a bill of lading line
 
@@ -619,11 +631,11 @@ $BillOfLadingId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a bill of lading line
 try {
-    $Result = Invoke-PatchBillOfLadingLineAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchBillOfLadingLineAsync -TenantId $TenantId -BillOfLadingId $BillOfLadingId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchBillOfLadingLineAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -639,7 +651,7 @@ Name | Type | Description  | Notes
  **LineId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

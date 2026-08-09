@@ -355,6 +355,15 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Top] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Skip] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filter] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OrderBy] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Select] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Expand] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsEmpty] <System.Nullable[Boolean]><br>
 
 
 
@@ -363,9 +372,18 @@ No authorization required
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$Top = 56 # Int32 |  (optional)
+$Skip = 56 # Int32 |  (optional)
+$Count = $true # Boolean |  (optional)
+$Filter = "MyFilter" # String |  (optional)
+$OrderBy = "MyOrderBy" # String |  (optional)
+$Search = "MySearch" # String |  (optional)
+$Select = "MySelect" # String |  (optional)
+$Expand = "MyExpand" # String |  (optional)
+$IsEmpty = $true # Boolean |  (optional)
 
 try {
-    $Result = Get-FilesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FilesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Top $Top -Skip $Skip -Count $Count -Filter $Filter -OrderBy $OrderBy -Search $Search -Select $Select -Expand $Expand -IsEmpty $IsEmpty
 } catch {
     Write-Host ("Exception occurred when calling Get-FilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -379,6 +397,15 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **Top** | **Int32**|  | [optional] 
+ **Skip** | **Int32**|  | [optional] 
+ **Count** | **Boolean**|  | [optional] 
+ **Filter** | **String**|  | [optional] 
+ **OrderBy** | **String**|  | [optional] 
+ **Search** | **String**|  | [optional] 
+ **Select** | **String**|  | [optional] 
+ **Expand** | **String**|  | [optional] 
+ **IsEmpty** | **Boolean**|  | [optional] 
 
 ### Return type
 
@@ -390,7 +417,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,6 +428,15 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Top] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Skip] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filter] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OrderBy] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Select] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Expand] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsEmpty] <System.Nullable[Boolean]><br>
 
 
 
@@ -409,9 +445,18 @@ No authorization required
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$Top = 56 # Int32 |  (optional)
+$Skip = 56 # Int32 |  (optional)
+$Count = $true # Boolean |  (optional)
+$Filter = "MyFilter" # String |  (optional)
+$OrderBy = "MyOrderBy" # String |  (optional)
+$Search = "MySearch" # String |  (optional)
+$Select = "MySelect" # String |  (optional)
+$Expand = "MyExpand" # String |  (optional)
+$IsEmpty = $true # Boolean |  (optional)
 
 try {
-    $Result = Get-FilesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FilesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Top $Top -Skip $Skip -Count $Count -Filter $Filter -OrderBy $OrderBy -Search $Search -Select $Select -Expand $Expand -IsEmpty $IsEmpty
 } catch {
     Write-Host ("Exception occurred when calling Get-FilesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -425,6 +470,15 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **Top** | **Int32**|  | [optional] 
+ **Skip** | **Int32**|  | [optional] 
+ **Count** | **Boolean**|  | [optional] 
+ **Filter** | **String**|  | [optional] 
+ **OrderBy** | **String**|  | [optional] 
+ **Search** | **String**|  | [optional] 
+ **Select** | **String**|  | [optional] 
+ **Expand** | **String**|  | [optional] 
+ **IsEmpty** | **Boolean**|  | [optional] 
 
 ### Return type
 
@@ -436,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

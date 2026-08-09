@@ -114,6 +114,7 @@ No authorization required
 > ItemGoogleCategoryDtoListEnvelope Get-ItemGoogleCategoriesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemGoogleCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all Google item categories
 
@@ -123,10 +124,11 @@ Retrieves all Google item categories using OData query options.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemGoogleCategoryDtoCollectionQueryParameters = Initialize-ItemGoogleCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get all Google item categories
 try {
-    $Result = Get-ItemGoogleCategoriesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemGoogleCategoriesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemGoogleCategoryDtoCollectionQueryParameters $ItemGoogleCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemGoogleCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -139,6 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -150,7 +153,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -160,6 +163,7 @@ No authorization required
 > Int32Envelope Get-ItemGoogleCategoriesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemGoogleCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Google item categories count
 
@@ -169,10 +173,11 @@ Retrieves the count of Google item categories using OData query options.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemGoogleCategoryDtoCollectionQueryParameters = Initialize-ItemGoogleCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get Google item categories count
 try {
-    $Result = Get-ItemGoogleCategoriesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemGoogleCategoriesCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemGoogleCategoryDtoCollectionQueryParameters $ItemGoogleCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemGoogleCategoriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -185,6 +190,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -196,7 +202,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

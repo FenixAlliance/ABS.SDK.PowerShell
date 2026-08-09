@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **Message** | **String** |  | [optional] 
 **SocialFeedId** | **String** |  | [optional] 
 **SocialProfileId** | **String** |  | [optional] 
+**BodyHtml** | **String** |  | [optional] 
+**BodyFormat** | **String** |  | [optional] 
+**BackgroundStyle** | **String** |  | [optional] 
 
 ## Examples
 
@@ -19,7 +22,10 @@ $SocialFeedPostCreateDto = Initialize-PSOpenAPIToolsSocialFeedPostCreateDto  -Id
  -Title null `
  -Message null `
  -SocialFeedId null `
- -SocialProfileId null
+ -SocialProfileId null `
+ -BodyHtml null `
+ -BodyFormat null `
+ -BackgroundStyle null
 ```
 
 - Convert the resource to JSON

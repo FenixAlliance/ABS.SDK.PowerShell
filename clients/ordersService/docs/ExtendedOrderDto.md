@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **CityId** | **String** |  | [optional] 
 **CustomerNotes** | **String** |  | [optional] 
 **TaxCalculationMethod** | **String** |  | [optional] 
+**CostCalculationMethod** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **ForexRatesSnapshot** | **String** |  | [optional] 
 **CurrencyId** | **String** |  | [optional] 
@@ -78,7 +79,6 @@ Name | Type | Description | Notes
 **QualifiedIdentifier** | **String** |  | [optional] 
 **SellerBillingProfileId** | **String** |  | [optional] 
 **BuyerBillingProfileId** | **String** |  | [optional] 
-**CostCalculationMethod** | **String** |  | [optional] 
 **FreightTerms** | **String** |  | [optional] 
 **OrderStatus** | **String** |  | [optional] 
 **RequestedDeliveryDate** | **System.DateTime** |  | [optional] 
@@ -127,6 +127,7 @@ $ExtendedOrderDto = Initialize-PSOpenAPIToolsExtendedOrderDto  -Id null `
  -CityId null `
  -CustomerNotes null `
  -TaxCalculationMethod null `
+ -CostCalculationMethod null `
  -ForexRate null `
  -ForexRatesSnapshot null `
  -CurrencyId null `
@@ -177,7 +178,6 @@ $ExtendedOrderDto = Initialize-PSOpenAPIToolsExtendedOrderDto  -Id null `
  -QualifiedIdentifier null `
  -SellerBillingProfileId null `
  -BuyerBillingProfileId null `
- -CostCalculationMethod null `
  -FreightTerms null `
  -OrderStatus null `
  -RequestedDeliveryDate null `

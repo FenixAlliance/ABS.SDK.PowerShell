@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -111,6 +110,7 @@ Class | Method | HTTP request | Description
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [PSOpenAPITools\Model.AddressDto](docs/AddressDto.md)
+ - [PSOpenAPITools\Model.AddressDtoCollectionQueryParameters](docs/AddressDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.AddressDtoListEnvelope](docs/AddressDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CartDto](docs/CartDto.md)
  - [PSOpenAPITools\Model.CartDtoEnvelope](docs/CartDtoEnvelope.md)
@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ExtendedUserDto](docs/ExtendedUserDto.md)
  - [PSOpenAPITools\Model.ExtendedUserDtoEnvelope](docs/ExtendedUserDtoEnvelope.md)
  - [PSOpenAPITools\Model.FollowRecordDto](docs/FollowRecordDto.md)
+ - [PSOpenAPITools\Model.FollowRecordDtoCollectionQueryParameters](docs/FollowRecordDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.FollowRecordDtoListEnvelope](docs/FollowRecordDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -131,13 +132,15 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.NotificationDto](docs/NotificationDto.md)
+ - [PSOpenAPITools\Model.NotificationDtoCollectionQueryParameters](docs/NotificationDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.NotificationDtoListEnvelope](docs/NotificationDtoListEnvelope.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
  - [PSOpenAPITools\Model.OptionCreateDto](docs/OptionCreateDto.md)
  - [PSOpenAPITools\Model.OptionDto](docs/OptionDto.md)
+ - [PSOpenAPITools\Model.OptionDtoCollectionQueryParameters](docs/OptionDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.OptionDtoEnvelope](docs/OptionDtoEnvelope.md)
  - [PSOpenAPITools\Model.OptionDtoListEnvelope](docs/OptionDtoListEnvelope.md)
  - [PSOpenAPITools\Model.OptionUpdateDto](docs/OptionUpdateDto.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
@@ -145,6 +148,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.SocialProfileDto](docs/SocialProfileDto.md)
  - [PSOpenAPITools\Model.SocialProfileDtoEnvelope](docs/SocialProfileDtoEnvelope.md)
  - [PSOpenAPITools\Model.TenantDto](docs/TenantDto.md)
+ - [PSOpenAPITools\Model.TenantDtoCollectionQueryParameters](docs/TenantDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.TenantDtoListEnvelope](docs/TenantDtoListEnvelope.md)
  - [PSOpenAPITools\Model.TenantEnrollmentDto](docs/TenantEnrollmentDto.md)
  - [PSOpenAPITools\Model.TenantEnrollmentDtoEnvelope](docs/TenantEnrollmentDtoEnvelope.md)

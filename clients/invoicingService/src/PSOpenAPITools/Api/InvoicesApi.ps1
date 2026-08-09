@@ -1936,6 +1936,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ExtendedInvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1954,6 +1957,9 @@ function Get-ExtendedInvoices {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedInvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1983,12 +1989,17 @@ function Get-ExtendedInvoices {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/Extended'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getExtendedInvoices."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ExtendedInvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2022,6 +2033,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ExtendedInvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2040,6 +2054,9 @@ function Get-ExtendedInvoicesCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedInvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2069,12 +2086,17 @@ function Get-ExtendedInvoicesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/Extended/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getExtendedInvoicesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ExtendedInvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2313,6 +2335,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER InvoiceAdjustmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2334,6 +2359,9 @@ function Get-InvoiceAdjustments {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceAdjustmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2363,6 +2391,9 @@ function Get-InvoiceAdjustments {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceAdjustments."
@@ -2373,6 +2404,8 @@ function Get-InvoiceAdjustments {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceAdjustments."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceAdjustmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2409,6 +2442,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER InvoiceAdjustmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2430,6 +2466,9 @@ function Get-InvoiceAdjustmentsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceAdjustmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2459,6 +2498,9 @@ function Get-InvoiceAdjustmentsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceAdjustmentsCount."
@@ -2469,6 +2511,8 @@ function Get-InvoiceAdjustmentsCount {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceAdjustmentsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceAdjustmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2614,6 +2658,9 @@ No description available.
 .PARAMETER InvoiceLineId
 No description available.
 
+.PARAMETER InvoiceLineAppliedTaxDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2638,6 +2685,9 @@ function Get-InvoiceLineTaxes {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceLineId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceLineAppliedTaxDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2667,6 +2717,9 @@ function Get-InvoiceLineTaxes {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceLineTaxes."
@@ -2681,6 +2734,8 @@ function Get-InvoiceLineTaxes {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceLineTaxes."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceLineAppliedTaxDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2720,6 +2775,9 @@ No description available.
 .PARAMETER InvoiceLineId
 No description available.
 
+.PARAMETER InvoiceLineAppliedTaxDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2744,6 +2802,9 @@ function Get-InvoiceLineTaxesCount {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceLineId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceLineAppliedTaxDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2773,6 +2834,9 @@ function Get-InvoiceLineTaxesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceLineTaxesCount."
@@ -2787,6 +2851,8 @@ function Get-InvoiceLineTaxesCount {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceLineTaxesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceLineAppliedTaxDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2826,6 +2892,9 @@ No description available.
 .PARAMETER ItemId
 No description available.
 
+.PARAMETER InvoiceLineDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2850,6 +2919,9 @@ function Get-InvoiceLines {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ItemId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceLineDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2879,6 +2951,9 @@ function Get-InvoiceLines {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceLines."
@@ -2893,6 +2968,8 @@ function Get-InvoiceLines {
         if ($ItemId) {
             $LocalVarQueryParameters['itemId'] = $ItemId
         }
+
+        $LocalVarBodyParameter = $InvoiceLineDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2929,6 +3006,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER InvoiceLineDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2950,6 +3030,9 @@ function Get-InvoiceLinesCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceLineDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2979,6 +3062,9 @@ function Get-InvoiceLinesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceLinesCount."
@@ -2989,6 +3075,8 @@ function Get-InvoiceLinesCount {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceLinesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceLineDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3025,6 +3113,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3046,6 +3137,9 @@ function Get-InvoicePayments {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3075,6 +3169,9 @@ function Get-InvoicePayments {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Payments'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoicePayments."
@@ -3085,6 +3182,8 @@ function Get-InvoicePayments {
             throw "Error! The required parameter `TenantId` missing when calling getInvoicePayments."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3121,6 +3220,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3142,6 +3244,9 @@ function Get-InvoicePaymentsCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3171,6 +3276,9 @@ function Get-InvoicePaymentsCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoicePaymentsCount."
@@ -3181,6 +3289,8 @@ function Get-InvoicePaymentsCount {
             throw "Error! The required parameter `TenantId` missing when calling getInvoicePaymentsCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3323,6 +3433,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER InvoiceReferenceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3344,6 +3457,9 @@ function Get-InvoiceReferences {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceReferenceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3373,6 +3489,9 @@ function Get-InvoiceReferences {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/References'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceReferences."
@@ -3383,6 +3502,8 @@ function Get-InvoiceReferences {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceReferences."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceReferenceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3419,6 +3540,9 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
+.PARAMETER InvoiceReferenceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3440,6 +3564,9 @@ function Get-InvoiceReferencesCount {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${InvoiceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceReferenceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3469,6 +3596,9 @@ function Get-InvoiceReferencesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/{invoiceId}/References/Count'
         if (!$InvoiceId) {
             throw "Error! The required parameter `InvoiceId` missing when calling getInvoiceReferencesCount."
@@ -3479,6 +3609,8 @@ function Get-InvoiceReferencesCount {
             throw "Error! The required parameter `TenantId` missing when calling getInvoiceReferencesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceReferenceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3512,6 +3644,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3530,6 +3665,9 @@ function Get-Invoices {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3559,12 +3697,17 @@ function Get-Invoices {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getInvoices."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3598,6 +3741,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3616,6 +3762,9 @@ function Get-InvoicesCount {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3645,12 +3794,17 @@ function Get-InvoicesCount {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getInvoicesCount."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3684,6 +3838,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3702,6 +3859,9 @@ function Get-PurchaseInvoicesSum {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3731,12 +3891,17 @@ function Get-PurchaseInvoicesSum {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getPurchaseInvoicesSum."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3770,6 +3935,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3788,6 +3956,9 @@ function Get-SalesInvoicesSum {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3817,12 +3988,17 @@ function Get-SalesInvoicesSum {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/InvoicingService/Invoices/SalesInvoices/Sum'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getSalesInvoicesSum."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3859,7 +4035,7 @@ No description available.
 .PARAMETER InvoiceId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3885,7 +4061,7 @@ function Invoke-PatchInvoice {
         ${InvoiceId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3929,7 +4105,7 @@ function Invoke-PatchInvoice {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -3969,7 +4145,7 @@ No description available.
 .PARAMETER InvoiceAdjustmentId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -3998,7 +4174,7 @@ function Invoke-PatchInvoiceAdjustment {
         ${InvoiceAdjustmentId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4046,7 +4222,7 @@ function Invoke-PatchInvoiceAdjustment {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -4086,7 +4262,7 @@ No description available.
 .PARAMETER InvoiceLineId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4115,7 +4291,7 @@ function Invoke-PatchInvoiceLine {
         ${InvoiceLineId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4163,7 +4339,7 @@ function Invoke-PatchInvoiceLine {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -4206,7 +4382,7 @@ No description available.
 .PARAMETER InvoiceLineTaxId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4238,7 +4414,7 @@ function Invoke-PatchInvoiceLineTax {
         ${InvoiceLineTaxId},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4290,7 +4466,7 @@ function Invoke-PatchInvoiceLineTax {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -4330,7 +4506,7 @@ No description available.
 .PARAMETER InvoiceReferenceId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4359,7 +4535,7 @@ function Invoke-PatchInvoiceReference {
         ${InvoiceReferenceId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4407,7 +4583,7 @@ function Invoke-PatchInvoiceReference {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

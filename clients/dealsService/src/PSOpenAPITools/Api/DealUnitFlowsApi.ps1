@@ -629,6 +629,9 @@ No description available.
 .PARAMETER DealUnitFlowId
 No description available.
 
+.PARAMETER DealUnitFlowStageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -650,6 +653,9 @@ function Get-DealUnitFlowStagesAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${DealUnitFlowId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DealUnitFlowStageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -679,6 +685,9 @@ function Get-DealUnitFlowStagesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages'
         if (!$DealUnitFlowId) {
             throw "Error! The required parameter `DealUnitFlowId` missing when calling getDealUnitFlowStagesAsync."
@@ -689,6 +698,8 @@ function Get-DealUnitFlowStagesAsync {
             throw "Error! The required parameter `TenantId` missing when calling getDealUnitFlowStagesAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DealUnitFlowStageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -725,6 +736,9 @@ No description available.
 .PARAMETER DealUnitFlowId
 No description available.
 
+.PARAMETER DealUnitFlowStageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -746,6 +760,9 @@ function Get-DealUnitFlowStagesCountAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${DealUnitFlowId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DealUnitFlowStageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -775,6 +792,9 @@ function Get-DealUnitFlowStagesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count'
         if (!$DealUnitFlowId) {
             throw "Error! The required parameter `DealUnitFlowId` missing when calling getDealUnitFlowStagesCountAsync."
@@ -785,6 +805,8 @@ function Get-DealUnitFlowStagesCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getDealUnitFlowStagesCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DealUnitFlowStageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -818,6 +840,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER DealUnitFlowDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -836,6 +861,9 @@ function Get-DealUnitFlowsAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DealUnitFlowDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -865,12 +893,17 @@ function Get-DealUnitFlowsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/DealsService/DealUnitFlows'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getDealUnitFlowsAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DealUnitFlowDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -904,6 +937,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER DealUnitFlowDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -922,6 +958,9 @@ function Get-DealUnitFlowsCountAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${DealUnitFlowDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -951,12 +990,17 @@ function Get-DealUnitFlowsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/DealsService/DealUnitFlows/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getDealUnitFlowsCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $DealUnitFlowDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -993,7 +1037,7 @@ No description available.
 .PARAMETER DealUnitFlowId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1019,7 +1063,7 @@ function Invoke-PatchDealUnitFlowAsync {
         ${DealUnitFlowId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1063,7 +1107,7 @@ function Invoke-PatchDealUnitFlowAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1103,7 +1147,7 @@ No description available.
 .PARAMETER DealUnitFlowStageId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1132,7 +1176,7 @@ function Invoke-PatchDealUnitFlowStageAsync {
         ${DealUnitFlowStageId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1180,7 +1224,7 @@ function Invoke-PatchDealUnitFlowStageAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

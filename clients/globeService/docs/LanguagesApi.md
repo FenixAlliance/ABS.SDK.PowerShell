@@ -14,6 +14,7 @@ Method | HTTP request | Description
 > Int32Envelope Invoke-CountLanguagesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryLanguageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count languages
 
@@ -23,10 +24,11 @@ Returns the total number of supported languages, with optional OData filtering.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryLanguageDtoCollectionQueryParameters = Initialize-CountryLanguageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryLanguageDtoCollectionQueryParameters |  (optional)
 
 # Count languages
 try {
-    $Result = Invoke-CountLanguagesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountLanguagesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryLanguageDtoCollectionQueryParameters $CountryLanguageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountLanguagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -39,6 +41,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -50,7 +53,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,6 +112,7 @@ No authorization required
 > CountryLanguageDtoListEnvelope Get-LanguagesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryLanguageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all languages
 
@@ -118,10 +122,11 @@ Retrieves the list of all supported languages with optional OData pagination and
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryLanguageDtoCollectionQueryParameters = Initialize-CountryLanguageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryLanguageDtoCollectionQueryParameters |  (optional)
 
 # Get all languages
 try {
-    $Result = Get-LanguagesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-LanguagesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryLanguageDtoCollectionQueryParameters $CountryLanguageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LanguagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -134,6 +139,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -145,7 +151,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

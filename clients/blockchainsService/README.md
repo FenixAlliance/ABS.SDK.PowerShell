@@ -71,7 +71,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -99,10 +98,12 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [PSOpenAPITools\Model.BlockchainBlockCreateDto](docs/BlockchainBlockCreateDto.md)
  - [PSOpenAPITools\Model.BlockchainBlockDto](docs/BlockchainBlockDto.md)
+ - [PSOpenAPITools\Model.BlockchainBlockDtoCollectionQueryParameters](docs/BlockchainBlockDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.BlockchainBlockDtoListEnvelope](docs/BlockchainBlockDtoListEnvelope.md)
  - [PSOpenAPITools\Model.BlockchainBlockUpdateDto](docs/BlockchainBlockUpdateDto.md)
  - [PSOpenAPITools\Model.BlockchainCreateDto](docs/BlockchainCreateDto.md)
  - [PSOpenAPITools\Model.BlockchainDto](docs/BlockchainDto.md)
+ - [PSOpenAPITools\Model.BlockchainDtoCollectionQueryParameters](docs/BlockchainDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.BlockchainDtoListEnvelope](docs/BlockchainDtoListEnvelope.md)
  - [PSOpenAPITools\Model.BlockchainUpdateDto](docs/BlockchainUpdateDto.md)
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
@@ -115,9 +116,10 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.NonFungibleTokenCreateDto](docs/NonFungibleTokenCreateDto.md)
  - [PSOpenAPITools\Model.NonFungibleTokenDto](docs/NonFungibleTokenDto.md)
+ - [PSOpenAPITools\Model.NonFungibleTokenDtoCollectionQueryParameters](docs/NonFungibleTokenDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.NonFungibleTokenDtoListEnvelope](docs/NonFungibleTokenDtoListEnvelope.md)
  - [PSOpenAPITools\Model.NonFungibleTokenUpdateDto](docs/NonFungibleTokenUpdateDto.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -9,6 +9,143 @@
 <#
 .SYNOPSIS
 
+Create a social comment reaction
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialReactionCreateDto
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SocialCommentReactionDtoEnvelope
+#>
+function New-SocialCommentReactionAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialReactionCreateDto},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-SocialCommentReactionAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling createSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling createSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling createSocialCommentReactionAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $SocialReactionCreateDto | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SocialCommentReactionDtoEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Create a social post
 
 .DESCRIPTION
@@ -411,7 +548,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SocialReactionDtoEnvelope
+SocialPostReactionDtoEnvelope
 #>
 function New-SocialPostReactionAsync {
     [CmdletBinding()]
@@ -493,7 +630,143 @@ function New-SocialPostReactionAsync {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SocialReactionDtoEnvelope" `
+                                -ReturnType "SocialPostReactionDtoEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Delete a social comment reaction
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER ReactionId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Invoke-DeleteSocialCommentReactionAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ReactionId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-DeleteSocialCommentReactionAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling deleteSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling deleteSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+        if (!$ReactionId) {
+            throw "Error! The required parameter `ReactionId` missing when calling deleteSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{reactionId}', [System.Web.HTTPUtility]::UrlEncode($ReactionId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling deleteSocialCommentReactionAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1001,6 +1274,405 @@ function Invoke-DeleteSocialPostReactionAsync {
 <#
 .SYNOPSIS
 
+Get social comment reaction by ID
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER ReactionId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SocialCommentReactionDtoEnvelope
+#>
+function Get-SocialCommentReactionAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ReactionId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-SocialCommentReactionAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling getSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling getSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+        if (!$ReactionId) {
+            throw "Error! The required parameter `ReactionId` missing when calling getSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{reactionId}', [System.Web.HTTPUtility]::UrlEncode($ReactionId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SocialCommentReactionDtoEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get social comment reactions
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialCommentReactionDtoCollectionQueryParameters
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SocialCommentReactionDtoListEnvelope
+#>
+function Get-SocialCommentReactionsAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialCommentReactionDtoCollectionQueryParameters},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-SocialCommentReactionsAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling getSocialCommentReactionsAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling getSocialCommentReactionsAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling getSocialCommentReactionsAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $SocialCommentReactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SocialCommentReactionDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Count social comment reactions
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialCommentReactionDtoCollectionQueryParameters
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Int32Envelope
+#>
+function Get-SocialCommentReactionsCountAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialCommentReactionDtoCollectionQueryParameters},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-SocialCommentReactionsCountAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling getSocialCommentReactionsCountAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling getSocialCommentReactionsCountAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling getSocialCommentReactionsCountAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $SocialCommentReactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Int32Envelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get social post by ID
 
 .DESCRIPTION
@@ -1247,6 +1919,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostAttachmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1271,6 +1946,9 @@ function Get-SocialPostAttachmentsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostAttachmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1300,6 +1978,9 @@ function Get-SocialPostAttachmentsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostAttachmentsAsync."
@@ -1313,6 +1994,8 @@ function Get-SocialPostAttachmentsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostAttachmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1352,6 +2035,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostAttachmentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1376,6 +2062,9 @@ function Get-SocialPostAttachmentsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostAttachmentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1405,6 +2094,9 @@ function Get-SocialPostAttachmentsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Count'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostAttachmentsCountAsync."
@@ -1418,6 +2110,8 @@ function Get-SocialPostAttachmentsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostAttachmentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1580,10 +2274,16 @@ No description available.
 .PARAMETER SocialPostId
 No description available.
 
+.PARAMETER ParentCommentId
+No description available.
+
 .PARAMETER ApiVersion
 No description available.
 
 .PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialPostCommentDtoCollectionQueryParameters
 No description available.
 
 .PARAMETER ReturnType
@@ -1609,10 +2309,16 @@ function Get-SocialPostCommentsAsync {
         ${SocialPostId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ApiVersion},
+        ${ParentCommentId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostCommentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1642,6 +2348,9 @@ function Get-SocialPostCommentsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostCommentsAsync."
@@ -1657,9 +2366,15 @@ function Get-SocialPostCommentsAsync {
         }
         $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
 
+        if ($ParentCommentId) {
+            $LocalVarQueryParameters['parentCommentId'] = $ParentCommentId
+        }
+
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostCommentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1696,10 +2411,16 @@ No description available.
 .PARAMETER SocialPostId
 No description available.
 
+.PARAMETER ParentCommentId
+No description available.
+
 .PARAMETER ApiVersion
 No description available.
 
 .PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialPostCommentDtoCollectionQueryParameters
 No description available.
 
 .PARAMETER ReturnType
@@ -1725,10 +2446,16 @@ function Get-SocialPostCommentsCountAsync {
         ${SocialPostId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ApiVersion},
+        ${ParentCommentId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
+        ${ApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostCommentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1758,6 +2485,9 @@ function Get-SocialPostCommentsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/Count'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostCommentsCountAsync."
@@ -1773,9 +2503,15 @@ function Get-SocialPostCommentsCountAsync {
         }
         $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
 
+        if ($ParentCommentId) {
+            $LocalVarQueryParameters['parentCommentId'] = $ParentCommentId
+        }
+
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostCommentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1933,6 +2669,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostReactionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1960,6 +2699,9 @@ function Get-SocialPostReactionsAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostReactionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1989,6 +2731,9 @@ function Get-SocialPostReactionsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostReactionsAsync."
@@ -2007,6 +2752,8 @@ function Get-SocialPostReactionsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostReactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2049,6 +2796,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostReactionDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2076,6 +2826,9 @@ function Get-SocialPostReactionsCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostReactionDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2105,6 +2858,9 @@ function Get-SocialPostReactionsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/Count'
         if (!$SocialPostId) {
             throw "Error! The required parameter `SocialPostId` missing when calling getSocialPostReactionsCountAsync."
@@ -2123,6 +2879,8 @@ function Get-SocialPostReactionsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostReactionDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2162,6 +2920,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2186,6 +2947,9 @@ function Get-SocialPostsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2215,6 +2979,9 @@ function Get-SocialPostsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts'
 
         if ($XApiVersion) {
@@ -2229,6 +2996,8 @@ function Get-SocialPostsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2268,6 +3037,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialPostDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2292,6 +3064,9 @@ function Get-SocialPostsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialPostDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2321,6 +3096,9 @@ function Get-SocialPostsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialPosts/Count'
 
         if ($XApiVersion) {
@@ -2335,6 +3113,8 @@ function Get-SocialPostsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialPostDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2377,7 +3157,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -2409,7 +3189,7 @@ function Invoke-PatchSocialPostAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2461,7 +3241,7 @@ function Invoke-PatchSocialPostAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -2473,6 +3253,153 @@ function Invoke-PatchSocialPostAsync {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "EmptyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update a social comment reaction
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER CommentId
+No description available.
+
+.PARAMETER ReactionId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER SocialReactionUpdateDto
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SocialCommentReactionDtoEnvelope
+#>
+function Update-SocialCommentReactionAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CommentId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ReactionId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialReactionUpdateDto},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-SocialCommentReactionAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling updateSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+        if (!$CommentId) {
+            throw "Error! The required parameter `CommentId` missing when calling updateSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{commentId}', [System.Web.HTTPUtility]::UrlEncode($CommentId))
+        if (!$ReactionId) {
+            throw "Error! The required parameter `ReactionId` missing when calling updateSocialCommentReactionAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{reactionId}', [System.Web.HTTPUtility]::UrlEncode($ReactionId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling updateSocialCommentReactionAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $SocialReactionUpdateDto | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SocialCommentReactionDtoEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2921,7 +3848,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-EmptyEnvelope
+SocialPostReactionDtoEnvelope
 #>
 function Update-SocialPostReactionAsync {
     [CmdletBinding()]
@@ -3010,7 +3937,136 @@ function Update-SocialPostReactionAsync {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "EmptyEnvelope" `
+                                -ReturnType "SocialPostReactionDtoEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Upload a social post image attachment
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialPostId
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER File
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SocialPostAttachmentDtoEnvelope
+#>
+function Invoke-UploadSocialPostImageAttachmentAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-UploadSocialPostImageAttachmentAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data', 'application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image'
+        if (!$SocialPostId) {
+            throw "Error! The required parameter `SocialPostId` missing when calling uploadSocialPostImageAttachmentAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialPostId}', [System.Web.HTTPUtility]::UrlEncode($SocialPostId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling uploadSocialPostImageAttachmentAsync."
+        }
+        $LocalVarQueryParameters['socialProfileId'] = $SocialProfileId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        if ($File) {
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SocialPostAttachmentDtoEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

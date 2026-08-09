@@ -12,12 +12,13 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LocationCreateDto.md
 docs/LocationDto.md
+docs/LocationDtoCollectionQueryParameters.md
 docs/LocationDtoEnvelope.md
 docs/LocationDtoIReadOnlyListEnvelope.md
 docs/LocationUpdateDto.md
 docs/LocationsApi.md
 docs/LoginRequest.md
-docs/Operation.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -37,11 +38,12 @@ src/PSOpenAPITools/Model/InfoResponse.ps1
 src/PSOpenAPITools/Model/Int32Envelope.ps1
 src/PSOpenAPITools/Model/LocationCreateDto.ps1
 src/PSOpenAPITools/Model/LocationDto.ps1
+src/PSOpenAPITools/Model/LocationDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/LocationDtoEnvelope.ps1
 src/PSOpenAPITools/Model/LocationDtoIReadOnlyListEnvelope.ps1
 src/PSOpenAPITools/Model/LocationUpdateDto.ps1
 src/PSOpenAPITools/Model/LoginRequest.ps1
-src/PSOpenAPITools/Model/Operation.ps1
+src/PSOpenAPITools/Model/PatchOperation.ps1
 src/PSOpenAPITools/Model/RefreshRequest.ps1
 src/PSOpenAPITools/Model/RegisterRequest.ps1
 src/PSOpenAPITools/Model/ResendConfirmationEmailRequest.ps1
@@ -55,3 +57,5 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Model/LocationDtoCollectionQueryParameters.Tests.ps1
+tests/Model/PatchOperation.Tests.ps1

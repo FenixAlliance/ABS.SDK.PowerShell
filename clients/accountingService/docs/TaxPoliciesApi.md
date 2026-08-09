@@ -413,6 +413,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppliedTaxPolicyRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get applied tax policy records
 
@@ -424,10 +425,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$AppliedTaxPolicyRecordDtoCollectionQueryParameters = Initialize-AppliedTaxPolicyRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AppliedTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 # Get applied tax policy records
 try {
-    $Result = Get-AppliedTaxPolicyRecords -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AppliedTaxPolicyRecords -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AppliedTaxPolicyRecordDtoCollectionQueryParameters $AppliedTaxPolicyRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AppliedTaxPolicyRecords: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -442,6 +444,7 @@ Name | Type | Description  | Notes
  **TaxPolicyId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **AppliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -453,7 +456,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -465,6 +468,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppliedTaxPolicyRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get applied tax policy records count
 
@@ -476,10 +480,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$AppliedTaxPolicyRecordDtoCollectionQueryParameters = Initialize-AppliedTaxPolicyRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AppliedTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 # Get applied tax policy records count
 try {
-    $Result = Get-AppliedTaxPolicyRecordsCount -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AppliedTaxPolicyRecordsCount -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AppliedTaxPolicyRecordDtoCollectionQueryParameters $AppliedTaxPolicyRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AppliedTaxPolicyRecordsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -494,6 +499,7 @@ Name | Type | Description  | Notes
  **TaxPolicyId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **AppliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -505,7 +511,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -572,6 +578,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTaxPolicyRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get item tax policy records
 
@@ -583,10 +590,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemTaxPolicyRecordDtoCollectionQueryParameters = Initialize-ItemTaxPolicyRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemTaxPolicyRecordDtoCollectionQueryParameters |  (optional)
 
 # Get item tax policy records
 try {
-    $Result = Get-ItemTaxPolicyRecords -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemTaxPolicyRecords -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemTaxPolicyRecordDtoCollectionQueryParameters $ItemTaxPolicyRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemTaxPolicyRecords: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -601,6 +609,7 @@ Name | Type | Description  | Notes
  **TaxPolicyId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemTaxPolicyRecordDtoCollectionQueryParameters** | [**ItemTaxPolicyRecordDtoCollectionQueryParameters**](ItemTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -612,7 +621,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -623,6 +632,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all tax policies for a tenant
 
@@ -633,10 +643,11 @@ Retrieves all tax policies for the specified tenant using OData query options.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TaxPolicyDtoCollectionQueryParameters = Initialize-TaxPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get all tax policies for a tenant
 try {
-    $Result = Get-TaxPolicies -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TaxPolicies -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TaxPolicyDtoCollectionQueryParameters $TaxPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TaxPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -650,6 +661,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TaxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -661,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -673,6 +685,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get tax policies by fiscal authority
 
@@ -684,10 +697,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TaxPolicyDtoCollectionQueryParameters = Initialize-TaxPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get tax policies by fiscal authority
 try {
-    $Result = Get-TaxPoliciesByAuthority -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TaxPoliciesByAuthority -TenantId $TenantId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TaxPolicyDtoCollectionQueryParameters $TaxPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TaxPoliciesByAuthority: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -702,6 +716,7 @@ Name | Type | Description  | Notes
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TaxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -713,7 +728,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -724,6 +739,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaxPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get tax policies count
 
@@ -734,10 +750,11 @@ Returns the count of tax policies for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TaxPolicyDtoCollectionQueryParameters = Initialize-TaxPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaxPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get tax policies count
 try {
-    $Result = Get-TaxPoliciesCount -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TaxPoliciesCount -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TaxPolicyDtoCollectionQueryParameters $TaxPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TaxPoliciesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -751,6 +768,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TaxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -762,7 +780,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -827,7 +845,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AppliedTaxPolicyRecordId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an applied tax policy record
 
@@ -840,11 +858,11 @@ $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AppliedTaxPolicyRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an applied tax policy record
 try {
-    $Result = Invoke-PatchAppliedTaxPolicyRecord -TenantId $TenantId -TaxPolicyId $TaxPolicyId -AppliedTaxPolicyRecordId $AppliedTaxPolicyRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchAppliedTaxPolicyRecord -TenantId $TenantId -TaxPolicyId $TaxPolicyId -AppliedTaxPolicyRecordId $AppliedTaxPolicyRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAppliedTaxPolicyRecord: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -860,7 +878,7 @@ Name | Type | Description  | Notes
  **AppliedTaxPolicyRecordId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -885,7 +903,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTaxPolicyRecordId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an item tax policy record
 
@@ -898,11 +916,11 @@ $TaxPolicyId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemTaxPolicyRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an item tax policy record
 try {
-    $Result = Invoke-PatchItemTaxPolicyRecord -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ItemTaxPolicyRecordId $ItemTaxPolicyRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchItemTaxPolicyRecord -TenantId $TenantId -TaxPolicyId $TaxPolicyId -ItemTaxPolicyRecordId $ItemTaxPolicyRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchItemTaxPolicyRecord: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -918,7 +936,7 @@ Name | Type | Description  | Notes
  **ItemTaxPolicyRecordId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -942,7 +960,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a tax policy
 
@@ -954,11 +972,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $Id = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a tax policy
 try {
-    $Result = Invoke-PatchTaxPolicy -TenantId $TenantId -Id $Id -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchTaxPolicy -TenantId $TenantId -Id $Id -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchTaxPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -973,7 +991,7 @@ Name | Type | Description  | Notes
  **Id** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

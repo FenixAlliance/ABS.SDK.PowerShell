@@ -33,7 +33,23 @@ No description available.
 No description available.
 .PARAMETER ReactionsCount
 No description available.
+.PARAMETER SocialProfileType
+No description available.
+.PARAMETER BodyHtml
+No description available.
+.PARAMETER BodyFormat
+No description available.
+.PARAMETER BackgroundStyle
+No description available.
 .PARAMETER SocialFeedId
+No description available.
+.PARAMETER Facepile
+No description available.
+.PARAMETER Attachments
+No description available.
+.PARAMETER MyReaction
+No description available.
+.PARAMETER MyReactionId
 No description available.
 .OUTPUTS
 
@@ -71,8 +87,35 @@ function Initialize-SocialFeedPostDto {
         [System.Nullable[Int32]]
         ${ReactionsCount},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("User", "Tenant", "Contact")]
         [String]
-        ${SocialFeedId}
+        ${SocialProfileType},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BodyHtml},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PlainText", "Html")]
+        [String]
+        ${BodyFormat},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BackgroundStyle},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SocialFeedId},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Facepile},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Attachments},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Like", "Happy", "HaHa", "Love", "Sad", "Angry", "Wow", "Afraid")]
+        [String]
+        ${MyReaction},
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${MyReactionId}
     )
 
     Process {
@@ -90,7 +133,15 @@ function Initialize-SocialFeedPostDto {
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
             "commentsCount" = ${CommentsCount}
             "reactionsCount" = ${ReactionsCount}
+            "socialProfileType" = ${SocialProfileType}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
             "socialFeedId" = ${SocialFeedId}
+            "facepile" = ${Facepile}
+            "attachments" = ${Attachments}
+            "myReaction" = ${MyReaction}
+            "myReactionId" = ${MyReactionId}
         }
 
 
@@ -128,7 +179,7 @@ function ConvertFrom-JsonToSocialFeedPostDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialFeedPostDto
-        $AllProperties = ("id", "timestamp", "title", "message", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl", "commentsCount", "reactionsCount", "socialFeedId")
+        $AllProperties = ("id", "timestamp", "title", "message", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl", "commentsCount", "reactionsCount", "socialProfileType", "bodyHtml", "bodyFormat", "backgroundStyle", "socialFeedId", "facepile", "attachments", "myReaction", "myReactionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -189,10 +240,58 @@ function ConvertFrom-JsonToSocialFeedPostDto {
             $ReactionsCount = $JsonParameters.PSobject.Properties["reactionsCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileType"))) { #optional property not found
+            $SocialProfileType = $null
+        } else {
+            $SocialProfileType = $JsonParameters.PSobject.Properties["socialProfileType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found
+            $BodyHtml = $null
+        } else {
+            $BodyHtml = $JsonParameters.PSobject.Properties["bodyHtml"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyFormat"))) { #optional property not found
+            $BodyFormat = $null
+        } else {
+            $BodyFormat = $JsonParameters.PSobject.Properties["bodyFormat"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "backgroundStyle"))) { #optional property not found
+            $BackgroundStyle = $null
+        } else {
+            $BackgroundStyle = $JsonParameters.PSobject.Properties["backgroundStyle"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialFeedId"))) { #optional property not found
             $SocialFeedId = $null
         } else {
             $SocialFeedId = $JsonParameters.PSobject.Properties["socialFeedId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "facepile"))) { #optional property not found
+            $Facepile = $null
+        } else {
+            $Facepile = $JsonParameters.PSobject.Properties["facepile"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attachments"))) { #optional property not found
+            $Attachments = $null
+        } else {
+            $Attachments = $JsonParameters.PSobject.Properties["attachments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "myReaction"))) { #optional property not found
+            $MyReaction = $null
+        } else {
+            $MyReaction = $JsonParameters.PSobject.Properties["myReaction"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "myReactionId"))) { #optional property not found
+            $MyReactionId = $null
+        } else {
+            $MyReactionId = $JsonParameters.PSobject.Properties["myReactionId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -205,7 +304,15 @@ function ConvertFrom-JsonToSocialFeedPostDto {
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
             "commentsCount" = ${CommentsCount}
             "reactionsCount" = ${ReactionsCount}
+            "socialProfileType" = ${SocialProfileType}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
             "socialFeedId" = ${SocialFeedId}
+            "facepile" = ${Facepile}
+            "attachments" = ${Attachments}
+            "myReaction" = ${MyReaction}
+            "myReactionId" = ${MyReactionId}
         }
 
         return $PSO

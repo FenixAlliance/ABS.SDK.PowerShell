@@ -35,6 +35,10 @@ No description available.
 No description available.
 .PARAMETER ParentJournalId
 No description available.
+.PARAMETER FinancialBookId
+No description available.
+.PARAMETER Code
+No description available.
 .OUTPUTS
 
 JournalDto<PSCustomObject>
@@ -72,7 +76,13 @@ function Initialize-JournalDto {
         ${JournalTypeId},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ParentJournalId}
+        ${ParentJournalId},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FinancialBookId},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Code}
     )
 
     Process {
@@ -91,6 +101,8 @@ function Initialize-JournalDto {
             "fiscalYearId" = ${FiscalYearId}
             "journalTypeId" = ${JournalTypeId}
             "parentJournalId" = ${ParentJournalId}
+            "financialBookId" = ${FinancialBookId}
+            "code" = ${Code}
         }
 
 
@@ -128,7 +140,7 @@ function ConvertFrom-JsonToJournalDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JournalDto
-        $AllProperties = ("id", "timestamp", "name", "description", "tenantId", "ledgerId", "enrollmentId", "fiscalYearId", "journalTypeId", "parentJournalId")
+        $AllProperties = ("id", "timestamp", "name", "description", "tenantId", "ledgerId", "enrollmentId", "fiscalYearId", "journalTypeId", "parentJournalId", "financialBookId", "code")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -195,6 +207,18 @@ function ConvertFrom-JsonToJournalDto {
             $ParentJournalId = $JsonParameters.PSobject.Properties["parentJournalId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "financialBookId"))) { #optional property not found
+            $FinancialBookId = $null
+        } else {
+            $FinancialBookId = $JsonParameters.PSobject.Properties["financialBookId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "code"))) { #optional property not found
+            $Code = $null
+        } else {
+            $Code = $JsonParameters.PSobject.Properties["code"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -206,6 +230,8 @@ function ConvertFrom-JsonToJournalDto {
             "fiscalYearId" = ${FiscalYearId}
             "journalTypeId" = ${JournalTypeId}
             "parentJournalId" = ${ParentJournalId}
+            "financialBookId" = ${FinancialBookId}
+            "code" = ${Code}
         }
 
         return $PSO

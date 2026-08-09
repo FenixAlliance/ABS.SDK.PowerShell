@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | **String** |  | [optional] 
 **CorrelationId** | **String** |  | [optional] 
 **Timestamp** | **System.DateTime** |  | [optional] [readonly] 
+**HttpStatus** | **Int32** |  | [optional] 
+**ErrorCode** | **String** |  | [optional] 
+**ValidationDetails** | [**System.Collections.Hashtable**](Array.md) |  | [optional] 
 **ActivityId** | **String** |  | [optional] [readonly] 
 **Result** | [**ServiceLevelDto**](ServiceLevelDto.md) |  | [optional] 
 
@@ -18,6 +21,9 @@ $ServiceLevelDtoEnvelope = Initialize-PSOpenAPIToolsServiceLevelDtoEnvelope  -Is
  -ErrorMessage null `
  -CorrelationId null `
  -Timestamp null `
+ -HttpStatus null `
+ -ErrorCode null `
+ -ValidationDetails null `
  -ActivityId null `
  -Result null
 ```

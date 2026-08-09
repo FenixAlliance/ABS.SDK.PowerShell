@@ -27,6 +27,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemWarrantyPolicyDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -54,6 +57,9 @@ function Invoke-CountItemWarrantyPoliciesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemWarrantyPolicyDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -83,6 +89,9 @@ function Invoke-CountItemWarrantyPoliciesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/CatalogService/ItemWarrantyPolicies/Count'
 
         if ($XApiVersion) {
@@ -100,6 +109,8 @@ function Invoke-CountItemWarrantyPoliciesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemWarrantyPolicyDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -142,6 +153,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ItemWarrantyPolicyDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -169,6 +183,9 @@ function Get-ItemWarrantyPoliciesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ItemWarrantyPolicyDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -198,6 +215,9 @@ function Get-ItemWarrantyPoliciesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/CatalogService/ItemWarrantyPolicies'
 
         if ($XApiVersion) {
@@ -215,6 +235,8 @@ function Get-ItemWarrantyPoliciesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ItemWarrantyPolicyDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

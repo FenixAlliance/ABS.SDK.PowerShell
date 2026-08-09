@@ -197,6 +197,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTagDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count tags for a stock item
 
@@ -208,10 +209,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemTagDtoCollectionQueryParameters = Initialize-ItemTagDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemTagDtoCollectionQueryParameters |  (optional)
 
 # Count tags for a stock item
 try {
-    $Result = Invoke-CountStockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountStockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemTagDtoCollectionQueryParameters $ItemTagDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountStockItemTagsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -226,6 +228,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -237,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -248,6 +251,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogItemDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count stock items by business
 
@@ -258,10 +262,11 @@ Counts the number of stock items for a business, optionally filtered by tenant a
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CatalogItemDtoCollectionQueryParameters = Initialize-CatalogItemDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CatalogItemDtoCollectionQueryParameters |  (optional)
 
 # Count stock items by business
 try {
-    $Result = Invoke-CountStockItemsByBusiness -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountStockItemsByBusiness -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CatalogItemDtoCollectionQueryParameters $CatalogItemDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountStockItemsByBusiness: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -275,6 +280,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CatalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -286,7 +292,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -551,6 +557,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemAttachmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get attachments for a stock item
 
@@ -561,10 +568,11 @@ Retrieves all attachments associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemAttachmentDtoCollectionQueryParameters = Initialize-ItemAttachmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemAttachmentDtoCollectionQueryParameters |  (optional)
 
 # Get attachments for a stock item
 try {
-    $Result = Get-StockItemAttachmentsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemAttachmentsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemAttachmentDtoCollectionQueryParameters $ItemAttachmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemAttachmentsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -578,6 +586,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -589,7 +598,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -753,6 +762,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemBrandDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get brands for a stock item
 
@@ -763,10 +773,11 @@ Retrieves all brands associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemBrandDtoCollectionQueryParameters = Initialize-ItemBrandDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemBrandDtoCollectionQueryParameters |  (optional)
 
 # Get brands for a stock item
 try {
-    $Result = Get-StockItemBrandsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemBrandsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemBrandDtoCollectionQueryParameters $ItemBrandDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemBrandsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -780,6 +791,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemBrandDtoCollectionQueryParameters** | [**ItemBrandDtoCollectionQueryParameters**](ItemBrandDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -791,7 +803,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -851,6 +863,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get categories for a stock item
 
@@ -861,10 +874,11 @@ Retrieves all categories associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemCategoryDtoCollectionQueryParameters = Initialize-ItemCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get categories for a stock item
 try {
-    $Result = Get-StockItemCategoriesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemCategoriesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemCategoryDtoCollectionQueryParameters $ItemCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemCategoriesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -878,6 +892,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -889,7 +904,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -952,6 +967,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemGoogleCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Google categories for a stock item
 
@@ -962,10 +978,11 @@ Retrieves all Google categories associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemGoogleCategoryDtoCollectionQueryParameters = Initialize-ItemGoogleCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemGoogleCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get Google categories for a stock item
 try {
-    $Result = Get-StockItemGoogleCategoriesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemGoogleCategoriesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemGoogleCategoryDtoCollectionQueryParameters $ItemGoogleCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemGoogleCategoriesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -979,6 +996,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -990,7 +1008,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1105,6 +1123,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemImageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get images for a stock item
 
@@ -1115,10 +1134,11 @@ Retrieves all images associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemImageDtoCollectionQueryParameters = Initialize-ItemImageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemImageDtoCollectionQueryParameters |  (optional)
 
 # Get images for a stock item
 try {
-    $Result = Get-StockItemImagesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemImagesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemImageDtoCollectionQueryParameters $ItemImageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemImagesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1132,6 +1152,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemImageDtoCollectionQueryParameters** | [**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1143,7 +1164,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1307,6 +1328,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemQuestionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get questions for a stock item
 
@@ -1317,10 +1339,11 @@ Retrieves all questions associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemQuestionDtoCollectionQueryParameters = Initialize-ItemQuestionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemQuestionDtoCollectionQueryParameters |  (optional)
 
 # Get questions for a stock item
 try {
-    $Result = Get-StockItemQuestionsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemQuestionsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemQuestionDtoCollectionQueryParameters $ItemQuestionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemQuestionsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1334,6 +1357,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemQuestionDtoCollectionQueryParameters** | [**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1345,7 +1369,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1356,6 +1380,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemRefundPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get refund policies for a stock item
 
@@ -1366,10 +1391,11 @@ Retrieves all refund policies associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemRefundPolicyDtoCollectionQueryParameters = Initialize-ItemRefundPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemRefundPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get refund policies for a stock item
 try {
-    $Result = Get-StockItemRefundPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemRefundPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemRefundPolicyDtoCollectionQueryParameters $ItemRefundPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemRefundPoliciesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1383,6 +1409,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemRefundPolicyDtoCollectionQueryParameters** | [**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1394,7 +1421,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1457,6 +1484,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemReturnPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get return policies for a stock item
 
@@ -1467,10 +1495,11 @@ Retrieves all return policies associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemReturnPolicyDtoCollectionQueryParameters = Initialize-ItemReturnPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemReturnPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get return policies for a stock item
 try {
-    $Result = Get-StockItemReturnPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemReturnPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemReturnPolicyDtoCollectionQueryParameters $ItemReturnPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemReturnPoliciesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1484,6 +1513,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1495,7 +1525,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1610,6 +1640,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemReviewDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get reviews for a stock item
 
@@ -1620,10 +1651,11 @@ Retrieves all reviews associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemReviewDtoCollectionQueryParameters = Initialize-ItemReviewDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemReviewDtoCollectionQueryParameters |  (optional)
 
 # Get reviews for a stock item
 try {
-    $Result = Get-StockItemReviewsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemReviewsByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemReviewDtoCollectionQueryParameters $ItemReviewDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemReviewsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1637,6 +1669,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1648,7 +1681,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1659,6 +1692,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemShippingPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get shipping policies for a stock item
 
@@ -1669,10 +1703,11 @@ Retrieves all shipping policies associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemShippingPolicyDtoCollectionQueryParameters = Initialize-ItemShippingPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemShippingPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get shipping policies for a stock item
 try {
-    $Result = Get-StockItemShippingPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemShippingPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemShippingPolicyDtoCollectionQueryParameters $ItemShippingPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemShippingPoliciesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1686,6 +1721,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1697,7 +1733,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1816,6 +1852,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTagDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get tags for a stock item
 
@@ -1827,10 +1864,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemTagDtoCollectionQueryParameters = Initialize-ItemTagDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemTagDtoCollectionQueryParameters |  (optional)
 
 # Get tags for a stock item
 try {
-    $Result = Get-StockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTagsByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemTagDtoCollectionQueryParameters $ItemTagDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTagsByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1845,6 +1883,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1856,7 +1895,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1867,6 +1906,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTaxPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get tax policies for a stock item
 
@@ -1877,10 +1917,11 @@ Retrieves all tax policies associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemTaxPolicyDtoCollectionQueryParameters = Initialize-ItemTaxPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemTaxPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get tax policies for a stock item
 try {
-    $Result = Get-StockItemTaxPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTaxPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemTaxPolicyDtoCollectionQueryParameters $ItemTaxPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTaxPoliciesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1894,6 +1935,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1905,7 +1947,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2024,6 +2066,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemTypeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get types for a stock item
 
@@ -2035,10 +2078,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemTypeDtoCollectionQueryParameters = Initialize-ItemTypeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemTypeDtoCollectionQueryParameters |  (optional)
 
 # Get types for a stock item
 try {
-    $Result = Get-StockItemTypesByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemTypesByItemId -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemTypeDtoCollectionQueryParameters $ItemTypeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemTypesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2053,6 +2097,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2064,7 +2109,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2075,6 +2120,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemWarrantyPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get warranty policies for a stock item
 
@@ -2085,10 +2131,11 @@ Retrieves all warranty policies associated with a specific stock item.
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemWarrantyPolicyDtoCollectionQueryParameters = Initialize-ItemWarrantyPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemWarrantyPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get warranty policies for a stock item
 try {
-    $Result = Get-StockItemWarrantyPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemWarrantyPoliciesByItemId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemWarrantyPolicyDtoCollectionQueryParameters $ItemWarrantyPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemWarrantyPoliciesByItemId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2102,6 +2149,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2113,7 +2161,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2176,6 +2224,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogItemDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get max price of stock items
 
@@ -2186,10 +2235,11 @@ Retrieves the maximum price among all stock items, optionally filtered by tenant
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CatalogItemDtoCollectionQueryParameters = Initialize-CatalogItemDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CatalogItemDtoCollectionQueryParameters |  (optional)
 
 # Get max price of stock items
 try {
-    $Result = Get-StockItemsOdataMaxPrice -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemsOdataMaxPrice -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CatalogItemDtoCollectionQueryParameters $CatalogItemDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemsOdataMaxPrice: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2203,6 +2253,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CatalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2214,7 +2265,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2225,6 +2276,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogItemDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get min price of stock items
 
@@ -2235,10 +2287,11 @@ Retrieves the minimum price among all stock items, optionally filtered by tenant
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CatalogItemDtoCollectionQueryParameters = Initialize-CatalogItemDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CatalogItemDtoCollectionQueryParameters |  (optional)
 
 # Get min price of stock items
 try {
-    $Result = Get-StockItemsOdataMinPrice -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemsOdataMinPrice -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CatalogItemDtoCollectionQueryParameters $CatalogItemDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemsOdataMinPrice: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2252,6 +2305,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CatalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2263,7 +2317,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2274,6 +2328,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogItemDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all stock items
 
@@ -2284,10 +2339,11 @@ Retrieves all stock items, optionally filtered by tenant and OData query options
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CatalogItemDtoCollectionQueryParameters = Initialize-CatalogItemDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CatalogItemDtoCollectionQueryParameters |  (optional)
 
 # Get all stock items
 try {
-    $Result = Get-StockItemsQuery -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-StockItemsQuery -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CatalogItemDtoCollectionQueryParameters $CatalogItemDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StockItemsQuery: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2301,6 +2357,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CatalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -2312,7 +2369,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2324,7 +2381,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a stock item
 
@@ -2336,11 +2393,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a stock item
 try {
-    $Result = Invoke-PatchStockItem -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchStockItem -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchStockItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2355,7 +2412,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **SentTimestamp** | **System.DateTime** |  | [optional] 
 **ReadTimestamp** | **System.DateTime** |  | [optional] 
 **ReceivedTimestamp** | **System.DateTime** |  | [optional] 
+**SocialProfileName** | **String** |  | [optional] 
+**SocialProfileAvatarUrl** | **String** |  | [optional] 
+**SocialProfileType** | **String** |  | [optional] 
 
 ## Examples
 
@@ -29,7 +32,10 @@ $PrivateMessageDto = Initialize-PSOpenAPIToolsPrivateMessageDto  -Id null `
  -ReceiverSocialProfileId null `
  -SentTimestamp null `
  -ReadTimestamp null `
- -ReceivedTimestamp null
+ -ReceivedTimestamp null `
+ -SocialProfileName null `
+ -SocialProfileAvatarUrl null `
+ -SocialProfileType null
 ```
 
 - Convert the resource to JSON

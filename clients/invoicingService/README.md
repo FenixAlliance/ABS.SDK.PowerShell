@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -132,6 +131,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Envelope](docs/Envelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ExtendedInvoiceDto](docs/ExtendedInvoiceDto.md)
+ - [PSOpenAPITools\Model.ExtendedInvoiceDtoCollectionQueryParameters](docs/ExtendedInvoiceDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ExtendedInvoiceDtoListEnvelope](docs/ExtendedInvoiceDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -140,25 +140,30 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.InvoiceAdjustmentCreateDto](docs/InvoiceAdjustmentCreateDto.md)
  - [PSOpenAPITools\Model.InvoiceAdjustmentDto](docs/InvoiceAdjustmentDto.md)
+ - [PSOpenAPITools\Model.InvoiceAdjustmentDtoCollectionQueryParameters](docs/InvoiceAdjustmentDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.InvoiceAdjustmentDtoEnvelope](docs/InvoiceAdjustmentDtoEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceAdjustmentDtoIReadOnlyListEnvelope](docs/InvoiceAdjustmentDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceAdjustmentUpdateDto](docs/InvoiceAdjustmentUpdateDto.md)
  - [PSOpenAPITools\Model.InvoiceCreateDto](docs/InvoiceCreateDto.md)
  - [PSOpenAPITools\Model.InvoiceDto](docs/InvoiceDto.md)
+ - [PSOpenAPITools\Model.InvoiceDtoCollectionQueryParameters](docs/InvoiceDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.InvoiceDtoEnvelope](docs/InvoiceDtoEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceDtoListEnvelope](docs/InvoiceDtoListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceLineAppliedTaxCreateDto](docs/InvoiceLineAppliedTaxCreateDto.md)
  - [PSOpenAPITools\Model.InvoiceLineAppliedTaxDto](docs/InvoiceLineAppliedTaxDto.md)
+ - [PSOpenAPITools\Model.InvoiceLineAppliedTaxDtoCollectionQueryParameters](docs/InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope](docs/InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceLineAppliedTaxUpdateDto](docs/InvoiceLineAppliedTaxUpdateDto.md)
  - [PSOpenAPITools\Model.InvoiceLineCreateDto](docs/InvoiceLineCreateDto.md)
  - [PSOpenAPITools\Model.InvoiceLineDto](docs/InvoiceLineDto.md)
+ - [PSOpenAPITools\Model.InvoiceLineDtoCollectionQueryParameters](docs/InvoiceLineDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.InvoiceLineDtoEnvelope](docs/InvoiceLineDtoEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceLineDtoIReadOnlyListEnvelope](docs/InvoiceLineDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceLineDtoListEnvelope](docs/InvoiceLineDtoListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceLineUpdateDto](docs/InvoiceLineUpdateDto.md)
  - [PSOpenAPITools\Model.InvoiceReferenceCreateDto](docs/InvoiceReferenceCreateDto.md)
  - [PSOpenAPITools\Model.InvoiceReferenceDto](docs/InvoiceReferenceDto.md)
+ - [PSOpenAPITools\Model.InvoiceReferenceDtoCollectionQueryParameters](docs/InvoiceReferenceDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.InvoiceReferenceDtoEnvelope](docs/InvoiceReferenceDtoEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceReferenceDtoIReadOnlyListEnvelope](docs/InvoiceReferenceDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.InvoiceReferenceUpdateDto](docs/InvoiceReferenceUpdateDto.md)
@@ -166,8 +171,9 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.Money](docs/Money.md)
  - [PSOpenAPITools\Model.MoneyEnvelope](docs/MoneyEnvelope.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.PaymentDto](docs/PaymentDto.md)
+ - [PSOpenAPITools\Model.PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PaymentDtoIReadOnlyListEnvelope](docs/PaymentDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)

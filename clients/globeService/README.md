@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -102,21 +101,28 @@ Class | Method | HTTP request | Description
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [PSOpenAPITools\Model.CityDto](docs/CityDto.md)
+ - [PSOpenAPITools\Model.CityDtoCollectionQueryParameters](docs/CityDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CityDtoListEnvelope](docs/CityDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CountryCallingCodeDto](docs/CountryCallingCodeDto.md)
+ - [PSOpenAPITools\Model.CountryCallingCodeDtoCollectionQueryParameters](docs/CountryCallingCodeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CountryCallingCodeDtoListEnvelope](docs/CountryCallingCodeDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CountryDto](docs/CountryDto.md)
+ - [PSOpenAPITools\Model.CountryDtoCollectionQueryParameters](docs/CountryDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CountryDtoEnvelope](docs/CountryDtoEnvelope.md)
  - [PSOpenAPITools\Model.CountryDtoListEnvelope](docs/CountryDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CountryLanguageDto](docs/CountryLanguageDto.md)
+ - [PSOpenAPITools\Model.CountryLanguageDtoCollectionQueryParameters](docs/CountryLanguageDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CountryLanguageDtoEnvelope](docs/CountryLanguageDtoEnvelope.md)
  - [PSOpenAPITools\Model.CountryLanguageDtoListEnvelope](docs/CountryLanguageDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CountryStateDto](docs/CountryStateDto.md)
+ - [PSOpenAPITools\Model.CountryStateDtoCollectionQueryParameters](docs/CountryStateDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CountryStateDtoEnvelope](docs/CountryStateDtoEnvelope.md)
  - [PSOpenAPITools\Model.CountryStateDtoListEnvelope](docs/CountryStateDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CountryTopLevelDomainDto](docs/CountryTopLevelDomainDto.md)
+ - [PSOpenAPITools\Model.CountryTopLevelDomainDtoCollectionQueryParameters](docs/CountryTopLevelDomainDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CountryTopLevelDomainDtoListEnvelope](docs/CountryTopLevelDomainDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CurrencyDto](docs/CurrencyDto.md)
+ - [PSOpenAPITools\Model.CurrencyDtoCollectionQueryParameters](docs/CurrencyDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CurrencyDtoEnvelope](docs/CurrencyDtoEnvelope.md)
  - [PSOpenAPITools\Model.CurrencyDtoListEnvelope](docs/CurrencyDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -131,6 +137,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.TimezoneDto](docs/TimezoneDto.md)
+ - [PSOpenAPITools\Model.TimezoneDtoCollectionQueryParameters](docs/TimezoneDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.TimezoneDtoEnvelope](docs/TimezoneDtoEnvelope.md)
  - [PSOpenAPITools\Model.TimezoneDtoListEnvelope](docs/TimezoneDtoListEnvelope.md)
  - [PSOpenAPITools\Model.TwoFactorRequest](docs/TwoFactorRequest.md)

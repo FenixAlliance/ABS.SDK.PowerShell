@@ -18,6 +18,7 @@ Method | HTTP request | Description
 # **Invoke-CountSalesLiteraturesAsync**
 > Int32Envelope Invoke-CountSalesLiteraturesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get sales literatures count
 
@@ -26,10 +27,11 @@ Returns the total count of sales literatures for the specified tenant with OData
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SalesLiteratureDtoCollectionQueryParameters = Initialize-SalesLiteratureDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 # Get sales literatures count
 try {
-    $Result = Invoke-CountSalesLiteraturesAsync -TenantId $TenantId
+    $Result = Invoke-CountSalesLiteraturesAsync -TenantId $TenantId -SalesLiteratureDtoCollectionQueryParameters $SalesLiteratureDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountSalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -41,6 +43,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **SalesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -52,7 +55,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,6 +156,7 @@ No authorization required
 # **Get-ExtendedSalesLiteraturesAsync**
 > ExtendedSalesLiteratureDtoListEnvelope Get-ExtendedSalesLiteraturesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedSalesLiteratureDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get extended sales literatures
 
@@ -161,10 +165,11 @@ Retrieves a list of sales literatures with extended details for the specified te
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ExtendedSalesLiteratureDtoCollectionQueryParameters = Initialize-ExtendedSalesLiteratureDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedSalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 # Get extended sales literatures
 try {
-    $Result = Get-ExtendedSalesLiteraturesAsync -TenantId $TenantId
+    $Result = Get-ExtendedSalesLiteraturesAsync -TenantId $TenantId -ExtendedSalesLiteratureDtoCollectionQueryParameters $ExtendedSalesLiteratureDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedSalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -176,6 +181,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **ExtendedSalesLiteratureDtoCollectionQueryParameters** | [**ExtendedSalesLiteratureDtoCollectionQueryParameters**](ExtendedSalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -187,7 +193,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,6 +248,7 @@ No authorization required
 # **Get-SalesLiteraturesAsync**
 > SalesLiteratureDtoListEnvelope Get-SalesLiteraturesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get sales literatures
 
@@ -250,10 +257,11 @@ Retrieves a list of sales literatures for the specified tenant with OData query 
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SalesLiteratureDtoCollectionQueryParameters = Initialize-SalesLiteratureDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SalesLiteratureDtoCollectionQueryParameters |  (optional)
 
 # Get sales literatures
 try {
-    $Result = Get-SalesLiteraturesAsync -TenantId $TenantId
+    $Result = Get-SalesLiteraturesAsync -TenantId $TenantId -SalesLiteratureDtoCollectionQueryParameters $SalesLiteratureDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SalesLiteraturesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -265,6 +273,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **SalesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -276,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,7 +295,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchSalesLiteratureAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SalesLiteratureId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a sales literature
 
@@ -296,11 +305,11 @@ Partially updates an existing sales literature using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SalesLiteratureId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a sales literature
 try {
-    $Result = Invoke-PatchSalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -Operation $Operation
+    $Result = Invoke-PatchSalesLiteratureAsync -TenantId $TenantId -SalesLiteratureId $SalesLiteratureId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSalesLiteratureAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -313,7 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **SalesLiteratureId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

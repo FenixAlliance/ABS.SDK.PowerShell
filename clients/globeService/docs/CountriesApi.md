@@ -28,6 +28,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryCallingCodeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count calling codes for a country
 
@@ -38,10 +39,11 @@ Returns the total number of calling codes for the specified country, with option
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryCallingCodeDtoCollectionQueryParameters = Initialize-CountryCallingCodeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryCallingCodeDtoCollectionQueryParameters |  (optional)
 
 # Count calling codes for a country
 try {
-    $Result = Invoke-CountCallingCodesByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCallingCodesByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryCallingCodeDtoCollectionQueryParameters $CountryCallingCodeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCallingCodesByCountryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -55,6 +57,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -66,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -78,6 +81,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CityDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count cities for a state
 
@@ -89,10 +93,11 @@ $CountryStateId = "MyCountryStateId" # String |
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CityDtoCollectionQueryParameters = Initialize-CityDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CityDtoCollectionQueryParameters |  (optional)
 
 # Count cities for a state
 try {
-    $Result = Invoke-CountCitiesByStateAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCitiesByStateAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CityDtoCollectionQueryParameters $CityDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCitiesByStateAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -107,6 +112,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -118,7 +124,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -128,6 +134,7 @@ No authorization required
 > Int32Envelope Invoke-CountCountries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count countries
 
@@ -137,10 +144,11 @@ Returns the total number of countries, with optional OData filtering.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryDtoCollectionQueryParameters = Initialize-CountryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryDtoCollectionQueryParameters |  (optional)
 
 # Count countries
 try {
-    $Result = Invoke-CountCountries -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCountries -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryDtoCollectionQueryParameters $CountryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCountries: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -153,6 +161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -164,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -175,6 +184,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryStateDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count states for a country
 
@@ -185,10 +195,11 @@ Returns the total number of states or provinces for the specified country, with 
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryStateDtoCollectionQueryParameters = Initialize-CountryStateDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryStateDtoCollectionQueryParameters |  (optional)
 
 # Count states for a country
 try {
-    $Result = Invoke-CountCountryStatesAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCountryStatesAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryStateDtoCollectionQueryParameters $CountryStateDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCountryStatesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -202,6 +213,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -213,7 +225,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -224,6 +236,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TimezoneDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count timezones for a country
 
@@ -234,10 +247,11 @@ Returns the total number of timezones for the specified country, with optional O
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TimezoneDtoCollectionQueryParameters = Initialize-TimezoneDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TimezoneDtoCollectionQueryParameters |  (optional)
 
 # Count timezones for a country
 try {
-    $Result = Invoke-CountTimezonesByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountTimezonesByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TimezoneDtoCollectionQueryParameters $TimezoneDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountTimezonesByCountryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -251,6 +265,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TimezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -262,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -273,6 +288,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryTopLevelDomainDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count top-level domains for a country
 
@@ -283,10 +299,11 @@ Returns the total number of top-level domains for the specified country, with op
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryTopLevelDomainDtoCollectionQueryParameters = Initialize-CountryTopLevelDomainDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryTopLevelDomainDtoCollectionQueryParameters |  (optional)
 
 # Count top-level domains for a country
 try {
-    $Result = Invoke-CountTopLevelDomainsByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountTopLevelDomainsByCountryAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryTopLevelDomainDtoCollectionQueryParameters $CountryTopLevelDomainDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountTopLevelDomainsByCountryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -300,6 +317,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -311,7 +329,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -321,6 +339,7 @@ No authorization required
 > CountryDtoListEnvelope Get-AllCountries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all countries
 
@@ -330,10 +349,11 @@ Retrieves a list of all countries with optional OData pagination and filtering.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryDtoCollectionQueryParameters = Initialize-CountryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryDtoCollectionQueryParameters |  (optional)
 
 # Get all countries
 try {
-    $Result = Get-AllCountries -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AllCountries -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryDtoCollectionQueryParameters $CountryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AllCountries: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -346,6 +366,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -357,7 +378,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -368,6 +389,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryCallingCodeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get calling codes for a country
 
@@ -378,10 +400,11 @@ Retrieves the list of international telephone calling codes associated with the 
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryCallingCodeDtoCollectionQueryParameters = Initialize-CountryCallingCodeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryCallingCodeDtoCollectionQueryParameters |  (optional)
 
 # Get calling codes for a country
 try {
-    $Result = Get-CallingCodesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CallingCodesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryCallingCodeDtoCollectionQueryParameters $CountryCallingCodeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CallingCodesByCountryIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -395,6 +418,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -406,7 +430,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -418,6 +442,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CityDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get cities for a state
 
@@ -429,10 +454,11 @@ $CountryStateId = "MyCountryStateId" # String |
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CityDtoCollectionQueryParameters = Initialize-CityDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CityDtoCollectionQueryParameters |  (optional)
 
 # Get cities for a state
 try {
-    $Result = Get-CitiesByCountryStateIdAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CitiesByCountryStateIdAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CityDtoCollectionQueryParameters $CityDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CitiesByCountryStateIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -447,6 +473,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -458,7 +485,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -519,6 +546,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryStateDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get state by ID
 
@@ -530,10 +558,11 @@ $CountryStateId = "MyCountryStateId" # String |
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryStateDtoCollectionQueryParameters = Initialize-CountryStateDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryStateDtoCollectionQueryParameters |  (optional)
 
 # Get state by ID
 try {
-    $Result = Get-CountryStateByIdAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CountryStateByIdAsync -CountryStateId $CountryStateId -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryStateDtoCollectionQueryParameters $CountryStateDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CountryStateByIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -548,6 +577,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -559,7 +589,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -570,6 +600,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryStateDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get states for a country
 
@@ -580,10 +611,11 @@ Retrieves the list of states or provinces belonging to the specified country.
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryStateDtoCollectionQueryParameters = Initialize-CountryStateDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryStateDtoCollectionQueryParameters |  (optional)
 
 # Get states for a country
 try {
-    $Result = Get-CountryStatesAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CountryStatesAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryStateDtoCollectionQueryParameters $CountryStateDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CountryStatesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -597,6 +629,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -608,7 +641,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -619,6 +652,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurrencyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get currencies for a country
 
@@ -629,10 +663,11 @@ Retrieves the list of enabled currencies for the specified country.
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CurrencyDtoCollectionQueryParameters = Initialize-CurrencyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CurrencyDtoCollectionQueryParameters |  (optional)
 
 # Get currencies for a country
 try {
-    $Result = Get-EnabledCurrenciesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-EnabledCurrenciesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CurrencyDtoCollectionQueryParameters $CurrencyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-EnabledCurrenciesByCountryIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -646,6 +681,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CurrencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -657,7 +693,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -668,6 +704,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TimezoneDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get timezones for a country
 
@@ -678,10 +715,11 @@ Retrieves the list of timezones associated with the specified country.
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TimezoneDtoCollectionQueryParameters = Initialize-TimezoneDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TimezoneDtoCollectionQueryParameters |  (optional)
 
 # Get timezones for a country
 try {
-    $Result = Get-TimeZonesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TimeZonesByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TimezoneDtoCollectionQueryParameters $TimezoneDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TimeZonesByCountryIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -695,6 +733,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TimezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -706,7 +745,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -717,6 +756,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CountryTopLevelDomainDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get top-level domains for a country
 
@@ -727,10 +767,11 @@ Retrieves the list of internet top-level domains (TLDs) associated with the spec
 $CountryId = "MyCountryId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CountryTopLevelDomainDtoCollectionQueryParameters = Initialize-CountryTopLevelDomainDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CountryTopLevelDomainDtoCollectionQueryParameters |  (optional)
 
 # Get top-level domains for a country
 try {
-    $Result = Get-TopLevelDomainsByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TopLevelDomainsByCountryIdAsync -CountryId $CountryId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CountryTopLevelDomainDtoCollectionQueryParameters $CountryTopLevelDomainDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TopLevelDomainsByCountryIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -744,6 +785,7 @@ Name | Type | Description  | Notes
  **CountryId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CountryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -755,7 +797,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

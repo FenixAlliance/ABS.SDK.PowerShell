@@ -454,6 +454,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityPermissionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all permissions
 
@@ -464,10 +465,11 @@ Retrieves all security permissions for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SecurityPermissionDtoCollectionQueryParameters = Initialize-SecurityPermissionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SecurityPermissionDtoCollectionQueryParameters |  (optional)
 
 # Get all permissions
 try {
-    $Result = Get-PermissionsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PermissionsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SecurityPermissionDtoCollectionQueryParameters $SecurityPermissionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PermissionsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -481,6 +483,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SecurityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -492,7 +495,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -555,6 +558,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityPermissionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get permissions count
 
@@ -565,10 +569,11 @@ Retrieves the count of security permissions for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SecurityPermissionDtoCollectionQueryParameters = Initialize-SecurityPermissionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SecurityPermissionDtoCollectionQueryParameters |  (optional)
 
 # Get permissions count
 try {
-    $Result = Get-PermissionsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-PermissionsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SecurityPermissionDtoCollectionQueryParameters $SecurityPermissionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PermissionsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -582,6 +587,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SecurityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -593,7 +599,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -655,7 +661,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchPermissionAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SecurityPermissionId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -667,13 +673,13 @@ Partially updates an existing security permission using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SecurityPermissionId = "MySecurityPermissionId" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] | 
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Patch an existing permission
 try {
-    $Result = Invoke-PatchPermissionAsync -TenantId $TenantId -SecurityPermissionId $SecurityPermissionId -Operation $Operation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-PatchPermissionAsync -TenantId $TenantId -SecurityPermissionId $SecurityPermissionId -PatchOperation $PatchOperation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchPermissionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -686,7 +692,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **SecurityPermissionId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 

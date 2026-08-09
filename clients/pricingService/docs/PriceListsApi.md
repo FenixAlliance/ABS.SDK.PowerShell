@@ -311,6 +311,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPriceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves prices in a price list
 
@@ -321,10 +322,11 @@ Gets all price entries for a specific price list with OData support.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+$ItemPriceDtoCollectionQueryParameters = Initialize-ItemPriceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPriceDtoCollectionQueryParameters |  (optional)
 
 # Retrieves prices in a price list
 try {
-    $Result = Get-PriceListPricesAsync -TenantId $TenantId -PriceListId $PriceListId -ItemId $ItemId
+    $Result = Get-PriceListPricesAsync -TenantId $TenantId -PriceListId $PriceListId -ItemId $ItemId -ItemPriceDtoCollectionQueryParameters $ItemPriceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListPricesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -338,6 +340,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
  **ItemId** | **String**|  | [optional] 
+ **ItemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -349,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -359,6 +362,7 @@ No authorization required
 > Int32Envelope Get-PriceListPricesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemPriceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts prices in a price list
 
@@ -368,10 +372,11 @@ Gets the count of price entries for a specific price list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ItemPriceDtoCollectionQueryParameters = Initialize-ItemPriceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemPriceDtoCollectionQueryParameters |  (optional)
 
 # Counts prices in a price list
 try {
-    $Result = Get-PriceListPricesCountAsync -TenantId $TenantId -PriceListId $PriceListId
+    $Result = Get-PriceListPricesCountAsync -TenantId $TenantId -PriceListId $PriceListId -ItemPriceDtoCollectionQueryParameters $ItemPriceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListPricesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -384,6 +389,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
+ **ItemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -395,7 +401,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -404,6 +410,7 @@ No authorization required
 # **Get-PriceListsAsync**
 > PriceListDtoListEnvelope Get-PriceListsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves all price lists
 
@@ -412,10 +419,11 @@ Gets all price lists for the current tenant with OData support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListDtoCollectionQueryParameters = Initialize-PriceListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PriceListDtoCollectionQueryParameters |  (optional)
 
 # Retrieves all price lists
 try {
-    $Result = Get-PriceListsAsync -TenantId $TenantId
+    $Result = Get-PriceListsAsync -TenantId $TenantId -PriceListDtoCollectionQueryParameters $PriceListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -427,6 +435,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **PriceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -438,7 +447,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -447,6 +456,7 @@ No authorization required
 # **Get-PriceListsCountAsync**
 > Int32Envelope Get-PriceListsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts price lists
 
@@ -455,10 +465,11 @@ Gets the count of price lists for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PriceListDtoCollectionQueryParameters = Initialize-PriceListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PriceListDtoCollectionQueryParameters |  (optional)
 
 # Counts price lists
 try {
-    $Result = Get-PriceListsCountAsync -TenantId $TenantId
+    $Result = Get-PriceListsCountAsync -TenantId $TenantId -PriceListDtoCollectionQueryParameters $PriceListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PriceListsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -470,6 +481,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **PriceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -481,7 +493,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -491,7 +503,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchPriceListAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a price list
 
@@ -501,11 +513,11 @@ Partially updates the specified price list using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a price list
 try {
-    $Result = Invoke-PatchPriceListAsync -TenantId $TenantId -PriceListId $PriceListId -Operation $Operation
+    $Result = Invoke-PatchPriceListAsync -TenantId $TenantId -PriceListId $PriceListId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchPriceListAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -518,7 +530,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -541,7 +553,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PriceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a price list entry
 
@@ -552,11 +564,11 @@ Partially updates the specified price entry in a price list using a JSON Patch d
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PriceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a price list entry
 try {
-    $Result = Invoke-PatchPriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -Operation $Operation
+    $Result = Invoke-PatchPriceListPriceAsync -TenantId $TenantId -PriceListId $PriceListId -PriceId $PriceId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchPriceListPriceAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -570,7 +582,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **PriceListId** | **String**|  | 
  **PriceId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

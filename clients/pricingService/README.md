@@ -71,7 +71,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -125,10 +124,12 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.CurrencyId](docs/CurrencyId.md)
  - [PSOpenAPITools\Model.DiscountCreateDto](docs/DiscountCreateDto.md)
  - [PSOpenAPITools\Model.DiscountDto](docs/DiscountDto.md)
+ - [PSOpenAPITools\Model.DiscountDtoCollectionQueryParameters](docs/DiscountDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.DiscountDtoEnvelope](docs/DiscountDtoEnvelope.md)
  - [PSOpenAPITools\Model.DiscountDtoListEnvelope](docs/DiscountDtoListEnvelope.md)
  - [PSOpenAPITools\Model.DiscountListCreateDto](docs/DiscountListCreateDto.md)
  - [PSOpenAPITools\Model.DiscountListDto](docs/DiscountListDto.md)
+ - [PSOpenAPITools\Model.DiscountListDtoCollectionQueryParameters](docs/DiscountListDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.DiscountListDtoEnvelope](docs/DiscountListDtoEnvelope.md)
  - [PSOpenAPITools\Model.DiscountListDtoListEnvelope](docs/DiscountListDtoListEnvelope.md)
  - [PSOpenAPITools\Model.DiscountListUpdateDto](docs/DiscountListUpdateDto.md)
@@ -144,20 +145,23 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ItemPriceCalculationEnvelope](docs/ItemPriceCalculationEnvelope.md)
  - [PSOpenAPITools\Model.ItemPriceCreateDto](docs/ItemPriceCreateDto.md)
  - [PSOpenAPITools\Model.ItemPriceDto](docs/ItemPriceDto.md)
+ - [PSOpenAPITools\Model.ItemPriceDtoCollectionQueryParameters](docs/ItemPriceDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ItemPriceDtoEnvelope](docs/ItemPriceDtoEnvelope.md)
  - [PSOpenAPITools\Model.ItemPriceDtoListEnvelope](docs/ItemPriceDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ItemPriceUpdateDto](docs/ItemPriceUpdateDto.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.Money](docs/Money.md)
  - [PSOpenAPITools\Model.MoneyEnvelope](docs/MoneyEnvelope.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.PriceListCreateDto](docs/PriceListCreateDto.md)
  - [PSOpenAPITools\Model.PriceListDto](docs/PriceListDto.md)
+ - [PSOpenAPITools\Model.PriceListDtoCollectionQueryParameters](docs/PriceListDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PriceListDtoEnvelope](docs/PriceListDtoEnvelope.md)
  - [PSOpenAPITools\Model.PriceListDtoListEnvelope](docs/PriceListDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PriceListUpdateDto](docs/PriceListUpdateDto.md)
  - [PSOpenAPITools\Model.PricingRuleCreateDto](docs/PricingRuleCreateDto.md)
  - [PSOpenAPITools\Model.PricingRuleDto](docs/PricingRuleDto.md)
+ - [PSOpenAPITools\Model.PricingRuleDtoCollectionQueryParameters](docs/PricingRuleDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PricingRuleDtoEnvelope](docs/PricingRuleDtoEnvelope.md)
  - [PSOpenAPITools\Model.PricingRuleDtoListEnvelope](docs/PricingRuleDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PricingRuleUpdateDto](docs/PricingRuleUpdateDto.md)
@@ -167,6 +171,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.RoundingPolicyCreateDto](docs/RoundingPolicyCreateDto.md)
  - [PSOpenAPITools\Model.RoundingPolicyDto](docs/RoundingPolicyDto.md)
+ - [PSOpenAPITools\Model.RoundingPolicyDtoCollectionQueryParameters](docs/RoundingPolicyDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.RoundingPolicyDtoEnvelope](docs/RoundingPolicyDtoEnvelope.md)
  - [PSOpenAPITools\Model.RoundingPolicyDtoListEnvelope](docs/RoundingPolicyDtoListEnvelope.md)
  - [PSOpenAPITools\Model.RoundingPolicyUpdateDto](docs/RoundingPolicyUpdateDto.md)

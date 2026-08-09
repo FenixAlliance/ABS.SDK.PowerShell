@@ -159,6 +159,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WikiId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseArticleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course articles by course wiki
 
@@ -170,10 +171,11 @@ $CourseId = "MyCourseId" # String |
 $WikiId = "MyWikiId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseArticleDtoCollectionQueryParameters = Initialize-CourseArticleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseArticleDtoCollectionQueryParameters |  (optional)
 
 # Get course articles by course wiki
 try {
-    $Result = Get-CourseArticlesByCourseWikiAsync -CourseId $CourseId -WikiId $WikiId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseArticlesByCourseWikiAsync -CourseId $CourseId -WikiId $WikiId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseArticleDtoCollectionQueryParameters $CourseArticleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseArticlesByCourseWikiAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -188,6 +190,7 @@ Name | Type | Description  | Notes
  **WikiId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -199,7 +202,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -211,6 +214,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WikiId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseArticleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course articles by course wiki count
 
@@ -222,10 +226,11 @@ $CourseId = "MyCourseId" # String |
 $WikiId = "MyWikiId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseArticleDtoCollectionQueryParameters = Initialize-CourseArticleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseArticleDtoCollectionQueryParameters |  (optional)
 
 # Get course articles by course wiki count
 try {
-    $Result = Get-CourseArticlesByCourseWikiCountAsync -CourseId $CourseId -WikiId $WikiId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseArticlesByCourseWikiCountAsync -CourseId $CourseId -WikiId $WikiId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseArticleDtoCollectionQueryParameters $CourseArticleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseArticlesByCourseWikiCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -240,6 +245,7 @@ Name | Type | Description  | Notes
  **WikiId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -251,7 +257,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -262,6 +268,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseAssignmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course assignments by course
 
@@ -272,10 +279,11 @@ Retrieves all course assignments for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseAssignmentDtoCollectionQueryParameters = Initialize-CourseAssignmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseAssignmentDtoCollectionQueryParameters |  (optional)
 
 # Get course assignments by course
 try {
-    $Result = Get-CourseAssignmentsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseAssignmentsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseAssignmentDtoCollectionQueryParameters $CourseAssignmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseAssignmentsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -289,6 +297,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -300,7 +309,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -311,6 +320,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseAssignmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course assignments by course count
 
@@ -321,10 +331,11 @@ Returns the count of course assignments for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseAssignmentDtoCollectionQueryParameters = Initialize-CourseAssignmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseAssignmentDtoCollectionQueryParameters |  (optional)
 
 # Get course assignments by course count
 try {
-    $Result = Get-CourseAssignmentsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseAssignmentsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseAssignmentDtoCollectionQueryParameters $CourseAssignmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseAssignmentsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -338,6 +349,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -349,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -412,6 +424,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course categories by course
 
@@ -422,10 +435,11 @@ Retrieves all course categories for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCategoryDtoCollectionQueryParameters = Initialize-CourseCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get course categories by course
 try {
-    $Result = Get-CourseCategoriesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseCategoriesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCategoryDtoCollectionQueryParameters $CourseCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseCategoriesByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -439,6 +453,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -450,7 +465,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -461,6 +476,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course categories by course count
 
@@ -471,10 +487,11 @@ Returns the count of course categories for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCategoryDtoCollectionQueryParameters = Initialize-CourseCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get course categories by course count
 try {
-    $Result = Get-CourseCategoriesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseCategoriesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCategoryDtoCollectionQueryParameters $CourseCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseCategoriesByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -488,6 +505,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -499,7 +517,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -510,6 +528,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCohortDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course cohorts by course
 
@@ -520,10 +539,11 @@ Retrieves all course cohorts for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCohortDtoCollectionQueryParameters = Initialize-CourseCohortDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCohortDtoCollectionQueryParameters |  (optional)
 
 # Get course cohorts by course
 try {
-    $Result = Get-CourseCohortsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseCohortsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCohortDtoCollectionQueryParameters $CourseCohortDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseCohortsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -537,6 +557,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -548,7 +569,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -559,6 +580,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseCohortDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course cohorts by course count
 
@@ -569,10 +591,11 @@ Returns the count of course cohorts for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseCohortDtoCollectionQueryParameters = Initialize-CourseCohortDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseCohortDtoCollectionQueryParameters |  (optional)
 
 # Get course cohorts by course count
 try {
-    $Result = Get-CourseCohortsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseCohortsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseCohortDtoCollectionQueryParameters $CourseCohortDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseCohortsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -586,6 +609,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -597,7 +621,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -609,6 +633,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseEnrollmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get enrollments by course
 
@@ -620,10 +645,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseEnrollmentDtoCollectionQueryParameters = Initialize-CourseEnrollmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseEnrollmentDtoCollectionQueryParameters |  (optional)
 
 # Get enrollments by course
 try {
-    $Result = Get-CourseEnrollmentsByCourseAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseEnrollmentsByCourseAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseEnrollmentDtoCollectionQueryParameters $CourseEnrollmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseEnrollmentsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -638,6 +664,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -649,7 +676,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -660,6 +687,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseFileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course files by course
 
@@ -670,10 +698,11 @@ Retrieves all course files for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseFileDtoCollectionQueryParameters = Initialize-CourseFileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseFileDtoCollectionQueryParameters |  (optional)
 
 # Get course files by course
 try {
-    $Result = Get-CourseFilesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseFilesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseFileDtoCollectionQueryParameters $CourseFileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseFilesByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -687,6 +716,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -698,7 +728,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -709,6 +739,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseFileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course files by course count
 
@@ -719,10 +750,11 @@ Returns the count of course files for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseFileDtoCollectionQueryParameters = Initialize-CourseFileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseFileDtoCollectionQueryParameters |  (optional)
 
 # Get course files by course count
 try {
-    $Result = Get-CourseFilesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseFilesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseFileDtoCollectionQueryParameters $CourseFileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseFilesByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -736,6 +768,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -747,7 +780,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -758,6 +791,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseForumDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course forums by course
 
@@ -768,10 +802,11 @@ Retrieves all course forums for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseForumDtoCollectionQueryParameters = Initialize-CourseForumDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseForumDtoCollectionQueryParameters |  (optional)
 
 # Get course forums by course
 try {
-    $Result = Get-CourseForumsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseForumsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseForumDtoCollectionQueryParameters $CourseForumDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseForumsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -785,6 +820,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -796,7 +832,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -807,6 +843,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseForumDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course forums by course count
 
@@ -817,10 +854,11 @@ Returns the count of course forums for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseForumDtoCollectionQueryParameters = Initialize-CourseForumDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseForumDtoCollectionQueryParameters |  (optional)
 
 # Get course forums by course count
 try {
-    $Result = Get-CourseForumsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseForumsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseForumDtoCollectionQueryParameters $CourseForumDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseForumsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -834,6 +872,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -845,7 +884,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -856,6 +895,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseHandoutDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course handouts by course
 
@@ -866,10 +906,11 @@ Retrieves all course handouts for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseHandoutDtoCollectionQueryParameters = Initialize-CourseHandoutDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseHandoutDtoCollectionQueryParameters |  (optional)
 
 # Get course handouts by course
 try {
-    $Result = Get-CourseHandoutsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseHandoutsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseHandoutDtoCollectionQueryParameters $CourseHandoutDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseHandoutsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -883,6 +924,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -894,7 +936,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -905,6 +947,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseHandoutDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course handouts by course count
 
@@ -915,10 +958,11 @@ Returns the count of course handouts for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseHandoutDtoCollectionQueryParameters = Initialize-CourseHandoutDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseHandoutDtoCollectionQueryParameters |  (optional)
 
 # Get course handouts by course count
 try {
-    $Result = Get-CourseHandoutsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseHandoutsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseHandoutDtoCollectionQueryParameters $CourseHandoutDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseHandoutsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -932,6 +976,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -943,7 +988,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -954,6 +999,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseLibraryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course libraries by course
 
@@ -964,10 +1010,11 @@ Retrieves all course libraries for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseLibraryDtoCollectionQueryParameters = Initialize-CourseLibraryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseLibraryDtoCollectionQueryParameters |  (optional)
 
 # Get course libraries by course
 try {
-    $Result = Get-CourseLibrariesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseLibrariesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseLibraryDtoCollectionQueryParameters $CourseLibraryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseLibrariesByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -981,6 +1028,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -992,7 +1040,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1003,6 +1051,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseLibraryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course libraries by course count
 
@@ -1013,10 +1062,11 @@ Returns the count of course libraries for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseLibraryDtoCollectionQueryParameters = Initialize-CourseLibraryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseLibraryDtoCollectionQueryParameters |  (optional)
 
 # Get course libraries by course count
 try {
-    $Result = Get-CourseLibrariesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseLibrariesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseLibraryDtoCollectionQueryParameters $CourseLibraryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseLibrariesByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1030,6 +1080,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1041,7 +1092,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1052,6 +1103,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CoursePageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course pages by course
 
@@ -1062,10 +1114,11 @@ Retrieves all course pages for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CoursePageDtoCollectionQueryParameters = Initialize-CoursePageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CoursePageDtoCollectionQueryParameters |  (optional)
 
 # Get course pages by course
 try {
-    $Result = Get-CoursePagesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CoursePagesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CoursePageDtoCollectionQueryParameters $CoursePageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CoursePagesByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1079,6 +1132,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CoursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1090,7 +1144,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1101,6 +1155,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CoursePageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course pages by course count
 
@@ -1111,10 +1166,11 @@ Returns the count of course pages for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CoursePageDtoCollectionQueryParameters = Initialize-CoursePageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CoursePageDtoCollectionQueryParameters |  (optional)
 
 # Get course pages by course count
 try {
-    $Result = Get-CoursePagesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CoursePagesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CoursePageDtoCollectionQueryParameters $CoursePageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CoursePagesByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1128,6 +1184,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CoursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1139,7 +1196,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1150,6 +1207,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseProblemSetDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course problem sets by course
 
@@ -1160,10 +1218,11 @@ Retrieves all course problem sets for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseProblemSetDtoCollectionQueryParameters = Initialize-CourseProblemSetDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseProblemSetDtoCollectionQueryParameters |  (optional)
 
 # Get course problem sets by course
 try {
-    $Result = Get-CourseProblemSetsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseProblemSetsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseProblemSetDtoCollectionQueryParameters $CourseProblemSetDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseProblemSetsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1177,6 +1236,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1188,7 +1248,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1199,6 +1259,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseProblemSetDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course problem sets by course count
 
@@ -1209,10 +1270,11 @@ Returns the count of course problem sets for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseProblemSetDtoCollectionQueryParameters = Initialize-CourseProblemSetDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseProblemSetDtoCollectionQueryParameters |  (optional)
 
 # Get course problem sets by course count
 try {
-    $Result = Get-CourseProblemSetsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseProblemSetsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseProblemSetDtoCollectionQueryParameters $CourseProblemSetDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseProblemSetsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1226,6 +1288,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1237,7 +1300,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1248,6 +1311,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseSectionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course sections by course
 
@@ -1258,10 +1322,11 @@ Retrieves all course sections for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseSectionDtoCollectionQueryParameters = Initialize-CourseSectionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseSectionDtoCollectionQueryParameters |  (optional)
 
 # Get course sections by course
 try {
-    $Result = Get-CourseSectionsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseSectionsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseSectionDtoCollectionQueryParameters $CourseSectionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseSectionsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1275,6 +1340,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1286,7 +1352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1297,6 +1363,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseSectionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course sections by course count
 
@@ -1307,10 +1374,11 @@ Returns the count of course sections for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseSectionDtoCollectionQueryParameters = Initialize-CourseSectionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseSectionDtoCollectionQueryParameters |  (optional)
 
 # Get course sections by course count
 try {
-    $Result = Get-CourseSectionsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseSectionsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseSectionDtoCollectionQueryParameters $CourseSectionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseSectionsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1324,6 +1392,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1335,7 +1404,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1346,6 +1415,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseUnitComponentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course unit components by course
 
@@ -1356,10 +1426,11 @@ Retrieves all course unit components for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseUnitComponentDtoCollectionQueryParameters = Initialize-CourseUnitComponentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseUnitComponentDtoCollectionQueryParameters |  (optional)
 
 # Get course unit components by course
 try {
-    $Result = Get-CourseUnitComponentsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUnitComponentsByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseUnitComponentDtoCollectionQueryParameters $CourseUnitComponentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUnitComponentsByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1373,6 +1444,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1384,7 +1456,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1395,6 +1467,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseUnitComponentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course unit components by course count
 
@@ -1405,10 +1478,11 @@ Returns the count of course unit components for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseUnitComponentDtoCollectionQueryParameters = Initialize-CourseUnitComponentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseUnitComponentDtoCollectionQueryParameters |  (optional)
 
 # Get course unit components by course count
 try {
-    $Result = Get-CourseUnitComponentsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUnitComponentsByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseUnitComponentDtoCollectionQueryParameters $CourseUnitComponentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUnitComponentsByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1422,6 +1496,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1433,7 +1508,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1445,6 +1520,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SectionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseUnitDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course units by section
 
@@ -1456,10 +1532,11 @@ $CourseId = "MyCourseId" # String |
 $SectionId = "MySectionId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseUnitDtoCollectionQueryParameters = Initialize-CourseUnitDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseUnitDtoCollectionQueryParameters |  (optional)
 
 # Get course units by section
 try {
-    $Result = Get-CourseUnitsBySectionAsync -CourseId $CourseId -SectionId $SectionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUnitsBySectionAsync -CourseId $CourseId -SectionId $SectionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseUnitDtoCollectionQueryParameters $CourseUnitDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUnitsBySectionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1474,6 +1551,7 @@ Name | Type | Description  | Notes
  **SectionId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1485,7 +1563,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1497,6 +1575,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SectionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseUnitDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course units by section count
 
@@ -1508,10 +1587,11 @@ $CourseId = "MyCourseId" # String |
 $SectionId = "MySectionId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseUnitDtoCollectionQueryParameters = Initialize-CourseUnitDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseUnitDtoCollectionQueryParameters |  (optional)
 
 # Get course units by section count
 try {
-    $Result = Get-CourseUnitsBySectionCountAsync -CourseId $CourseId -SectionId $SectionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUnitsBySectionCountAsync -CourseId $CourseId -SectionId $SectionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseUnitDtoCollectionQueryParameters $CourseUnitDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUnitsBySectionCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1526,6 +1606,7 @@ Name | Type | Description  | Notes
  **SectionId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1537,7 +1618,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1548,6 +1629,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseNewsDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course updates by course
 
@@ -1558,10 +1640,11 @@ Retrieves all course updates for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseNewsDtoCollectionQueryParameters = Initialize-CourseNewsDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseNewsDtoCollectionQueryParameters |  (optional)
 
 # Get course updates by course
 try {
-    $Result = Get-CourseUpdatesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUpdatesByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseNewsDtoCollectionQueryParameters $CourseNewsDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUpdatesByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1575,6 +1658,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1586,7 +1670,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1597,6 +1681,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseNewsDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course updates by course count
 
@@ -1607,10 +1692,11 @@ Returns the count of course updates for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseNewsDtoCollectionQueryParameters = Initialize-CourseNewsDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseNewsDtoCollectionQueryParameters |  (optional)
 
 # Get course updates by course count
 try {
-    $Result = Get-CourseUpdatesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseUpdatesByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseNewsDtoCollectionQueryParameters $CourseNewsDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseUpdatesByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1624,6 +1710,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1635,7 +1722,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1646,6 +1733,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseWikiDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course wikis by course
 
@@ -1656,10 +1744,11 @@ Retrieves all course wikis for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseWikiDtoCollectionQueryParameters = Initialize-CourseWikiDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseWikiDtoCollectionQueryParameters |  (optional)
 
 # Get course wikis by course
 try {
-    $Result = Get-CourseWikisByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseWikisByCourseAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseWikiDtoCollectionQueryParameters $CourseWikiDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseWikisByCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1673,6 +1762,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1684,7 +1774,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1695,6 +1785,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseWikiDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get course wikis by course count
 
@@ -1705,10 +1796,11 @@ Returns the count of course wikis for a specific course.
 $CourseId = "MyCourseId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseWikiDtoCollectionQueryParameters = Initialize-CourseWikiDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseWikiDtoCollectionQueryParameters |  (optional)
 
 # Get course wikis by course count
 try {
-    $Result = Get-CourseWikisByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CourseWikisByCourseCountAsync -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseWikiDtoCollectionQueryParameters $CourseWikiDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CourseWikisByCourseCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1722,6 +1814,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1733,7 +1826,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1744,6 +1837,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get courses
 
@@ -1754,10 +1848,11 @@ Retrieves courses. When tenantId is provided, returns tenant-scoped courses; oth
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get courses
 try {
-    $Result = Get-CoursesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CoursesAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CoursesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1771,6 +1866,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1782,7 +1878,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1793,6 +1889,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get courses count
 
@@ -1803,10 +1900,11 @@ Returns the count of courses. When tenantId is provided, returns tenant-scoped c
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CourseDtoCollectionQueryParameters = Initialize-CourseDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CourseDtoCollectionQueryParameters |  (optional)
 
 # Get courses count
 try {
-    $Result = Get-CoursesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CoursesCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CourseDtoCollectionQueryParameters $CourseDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CoursesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1820,6 +1918,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CourseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1831,7 +1930,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2039,7 +2138,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CourseId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a course
 
@@ -2051,11 +2150,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $CourseId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a course
 try {
-    $Result = Invoke-PatchCourseAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchCourseAsync -TenantId $TenantId -CourseId $CourseId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchCourseAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2070,7 +2169,7 @@ Name | Type | Description  | Notes
  **CourseId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

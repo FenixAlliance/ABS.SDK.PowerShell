@@ -154,7 +154,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchTaskTypeAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskTypeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a task type
 
@@ -164,11 +164,11 @@ Partially updates the specified task type.
 ```powershell
 $TaskTypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a task type
 try {
-    $Result = Invoke-PatchTaskTypeAsync -TaskTypeId $TaskTypeId -TenantId $TenantId -Operation $Operation
+    $Result = Invoke-PatchTaskTypeAsync -TaskTypeId $TaskTypeId -TenantId $TenantId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchTaskTypeAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TaskTypeId** | **String**|  | 
  **TenantId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

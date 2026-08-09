@@ -949,6 +949,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -973,6 +976,9 @@ function Get-IncomingPaymentsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1002,6 +1008,9 @@ function Get-IncomingPaymentsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getIncomingPaymentsAsync."
@@ -1015,6 +1024,8 @@ function Get-IncomingPaymentsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1054,6 +1065,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1078,6 +1092,9 @@ function Get-IncomingPaymentsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1107,6 +1124,9 @@ function Get-IncomingPaymentsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getIncomingPaymentsCountAsync."
@@ -1120,6 +1140,8 @@ function Get-IncomingPaymentsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1159,6 +1181,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1183,6 +1208,9 @@ function Get-IncomingWalletInvoicesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1212,6 +1240,9 @@ function Get-IncomingWalletInvoicesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getIncomingWalletInvoicesAsync."
@@ -1225,6 +1256,8 @@ function Get-IncomingWalletInvoicesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1264,6 +1297,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1288,6 +1324,9 @@ function Get-IncomingWalletInvoicesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1317,6 +1356,9 @@ function Get-IncomingWalletInvoicesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getIncomingWalletInvoicesCountAsync."
@@ -1330,6 +1372,8 @@ function Get-IncomingWalletInvoicesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1484,6 +1528,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER LocationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1508,6 +1555,9 @@ function Get-LocationsForWalletAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${LocationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1537,6 +1587,9 @@ function Get-LocationsForWalletAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getLocationsForWalletAsync."
@@ -1550,6 +1603,8 @@ function Get-LocationsForWalletAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $LocationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1589,6 +1644,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER LocationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1613,6 +1671,9 @@ function Get-LocationsForWalletCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${LocationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1642,6 +1703,9 @@ function Get-LocationsForWalletCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Locations/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getLocationsForWalletCountAsync."
@@ -1655,6 +1719,8 @@ function Get-LocationsForWalletCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $LocationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1694,6 +1760,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1718,6 +1787,9 @@ function Get-OutgoingPaymentsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1747,6 +1819,9 @@ function Get-OutgoingPaymentsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getOutgoingPaymentsAsync."
@@ -1760,6 +1835,8 @@ function Get-OutgoingPaymentsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1799,6 +1876,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1823,6 +1903,9 @@ function Get-OutgoingPaymentsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1852,6 +1935,9 @@ function Get-OutgoingPaymentsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getOutgoingPaymentsCountAsync."
@@ -1865,6 +1951,8 @@ function Get-OutgoingPaymentsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1904,6 +1992,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1928,6 +2019,9 @@ function Get-OutgoingWalletInvoicesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1957,6 +2051,9 @@ function Get-OutgoingWalletInvoicesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getOutgoingWalletInvoicesAsync."
@@ -1970,6 +2067,8 @@ function Get-OutgoingWalletInvoicesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2009,6 +2108,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2033,6 +2135,9 @@ function Get-OutgoingWalletInvoicesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2062,6 +2167,9 @@ function Get-OutgoingWalletInvoicesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getOutgoingWalletInvoicesCountAsync."
@@ -2075,6 +2183,8 @@ function Get-OutgoingWalletInvoicesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2229,6 +2339,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER BankAccountDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2253,6 +2366,9 @@ function Get-WalletBankAccountsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BankAccountDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2282,6 +2398,9 @@ function Get-WalletBankAccountsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/BankAccounts'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletBankAccountsAsync."
@@ -2295,6 +2414,8 @@ function Get-WalletBankAccountsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $BankAccountDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2334,6 +2455,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER BankAccountDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2358,6 +2482,9 @@ function Get-WalletBankAccountsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BankAccountDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2387,6 +2514,9 @@ function Get-WalletBankAccountsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/BankAccounts/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletBankAccountsCountAsync."
@@ -2400,6 +2530,8 @@ function Get-WalletBankAccountsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $BankAccountDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2439,6 +2571,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentChargebackDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2463,6 +2598,9 @@ function Get-WalletChargebacksAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentChargebackDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2492,6 +2630,9 @@ function Get-WalletChargebacksAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Chargebacks'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletChargebacksAsync."
@@ -2505,6 +2646,8 @@ function Get-WalletChargebacksAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentChargebackDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2544,6 +2687,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentChargebackDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2568,6 +2714,9 @@ function Get-WalletChargebacksCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentChargebackDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2597,6 +2746,9 @@ function Get-WalletChargebacksCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Chargebacks/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletChargebacksCountAsync."
@@ -2610,6 +2762,8 @@ function Get-WalletChargebacksCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentChargebackDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2754,6 +2908,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ExtendedOrderDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2778,6 +2935,9 @@ function Get-WalletExtendedOrdersAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ExtendedOrderDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2807,6 +2967,9 @@ function Get-WalletExtendedOrdersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Orders/Extended'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletExtendedOrdersAsync."
@@ -2820,6 +2983,8 @@ function Get-WalletExtendedOrdersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ExtendedOrderDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2859,6 +3024,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2883,6 +3051,9 @@ function Get-WalletInvoicesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2912,6 +3083,9 @@ function Get-WalletInvoicesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletInvoicesAsync."
@@ -2925,6 +3099,8 @@ function Get-WalletInvoicesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2964,6 +3140,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER InvoiceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2988,6 +3167,9 @@ function Get-WalletInvoicesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${InvoiceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3017,6 +3199,9 @@ function Get-WalletInvoicesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Invoices/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletInvoicesCountAsync."
@@ -3030,6 +3215,8 @@ function Get-WalletInvoicesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $InvoiceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3069,6 +3256,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER OrderDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3093,6 +3283,9 @@ function Get-WalletOrdersAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${OrderDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3122,6 +3315,9 @@ function Get-WalletOrdersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Orders'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletOrdersAsync."
@@ -3135,6 +3331,8 @@ function Get-WalletOrdersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $OrderDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3174,6 +3372,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER OrderDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3198,6 +3399,9 @@ function Get-WalletOrdersCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${OrderDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3227,6 +3431,9 @@ function Get-WalletOrdersCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Orders/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletOrdersCountAsync."
@@ -3240,6 +3447,8 @@ function Get-WalletOrdersCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $OrderDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3279,6 +3488,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3303,6 +3515,9 @@ function Get-WalletPaymentsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3332,6 +3547,9 @@ function Get-WalletPaymentsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletPaymentsAsync."
@@ -3345,6 +3563,8 @@ function Get-WalletPaymentsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3384,6 +3604,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3408,6 +3631,9 @@ function Get-WalletPaymentsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3437,6 +3663,9 @@ function Get-WalletPaymentsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Payments/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletPaymentsCountAsync."
@@ -3450,6 +3679,8 @@ function Get-WalletPaymentsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3489,6 +3720,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER QuoteDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3513,6 +3747,9 @@ function Get-WalletQuotesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3542,6 +3779,9 @@ function Get-WalletQuotesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Quotes'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletQuotesAsync."
@@ -3555,6 +3795,8 @@ function Get-WalletQuotesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $QuoteDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3594,6 +3836,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER QuoteDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3618,6 +3863,9 @@ function Get-WalletQuotesCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${QuoteDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3647,6 +3895,9 @@ function Get-WalletQuotesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Quotes/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletQuotesCountAsync."
@@ -3660,6 +3911,8 @@ function Get-WalletQuotesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $QuoteDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3699,6 +3952,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentRefundDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3723,6 +3979,9 @@ function Get-WalletRefundsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentRefundDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3752,6 +4011,9 @@ function Get-WalletRefundsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Refunds'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletRefundsAsync."
@@ -3765,6 +4027,8 @@ function Get-WalletRefundsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentRefundDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -3804,6 +4068,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentRefundDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -3828,6 +4095,9 @@ function Get-WalletRefundsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentRefundDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -3857,6 +4127,9 @@ function Get-WalletRefundsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Refunds/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletRefundsCountAsync."
@@ -3870,6 +4143,8 @@ function Get-WalletRefundsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentRefundDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4024,6 +4299,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentTokenDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4048,6 +4326,9 @@ function Get-WalletTokensAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentTokenDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4077,6 +4358,9 @@ function Get-WalletTokensAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Tokens'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletTokensAsync."
@@ -4090,6 +4374,8 @@ function Get-WalletTokensAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentTokenDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4129,6 +4415,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PaymentTokenDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4153,6 +4442,9 @@ function Get-WalletTokensCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PaymentTokenDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4182,6 +4474,9 @@ function Get-WalletTokensCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Tokens/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletTokensCountAsync."
@@ -4195,6 +4490,8 @@ function Get-WalletTokensCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PaymentTokenDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4234,6 +4531,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER WalletWithdrawRequestDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4258,6 +4558,9 @@ function Get-WalletWithdrawRequestsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${WalletWithdrawRequestDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4287,6 +4590,9 @@ function Get-WalletWithdrawRequestsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletWithdrawRequestsAsync."
@@ -4300,6 +4606,8 @@ function Get-WalletWithdrawRequestsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $WalletWithdrawRequestDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4339,6 +4647,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER WalletWithdrawRequestDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4363,6 +4674,9 @@ function Get-WalletWithdrawRequestsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${WalletWithdrawRequestDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4392,6 +4706,9 @@ function Get-WalletWithdrawRequestsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletWithdrawRequestsCountAsync."
@@ -4405,6 +4722,8 @@ function Get-WalletWithdrawRequestsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $WalletWithdrawRequestDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4444,6 +4763,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER WalletWithdrawDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4468,6 +4790,9 @@ function Get-WalletWithdrawsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${WalletWithdrawDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4497,6 +4822,9 @@ function Get-WalletWithdrawsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Withdraws'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletWithdrawsAsync."
@@ -4510,6 +4838,8 @@ function Get-WalletWithdrawsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $WalletWithdrawDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4549,6 +4879,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER WalletWithdrawDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -4573,6 +4906,9 @@ function Get-WalletWithdrawsCountAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${WalletWithdrawDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4602,6 +4938,9 @@ function Get-WalletWithdrawsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count'
         if (!$WalletId) {
             throw "Error! The required parameter `WalletId` missing when calling getWalletWithdrawsCountAsync."
@@ -4615,6 +4954,8 @@ function Get-WalletWithdrawsCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $WalletWithdrawDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -4657,7 +4998,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4689,7 +5030,7 @@ function Invoke-PatchWalletBankAccountAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4740,7 +5081,7 @@ function Invoke-PatchWalletBankAccountAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -4783,7 +5124,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -4815,7 +5156,7 @@ function Invoke-PatchWalletTokenAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -4866,7 +5207,7 @@ function Invoke-PatchWalletTokenAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

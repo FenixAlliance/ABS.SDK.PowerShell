@@ -11,10 +11,13 @@ Method | HTTP request | Description
 [**Get-ExtendedAccountHolderAsync**](UsersApi.md#Get-ExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID
 [**Get-ExtendedUsersAsync**](UsersApi.md#Get-ExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users
 [**Get-ExtendedUsersCountAsync**](UsersApi.md#Get-ExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users
+[**Get-UserAdminDetailAsync**](UsersApi.md#Get-UserAdminDetailAsync) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user
 [**Get-UserAsync**](UsersApi.md#Get-UserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 [**Get-UsersAsync**](UsersApi.md#Get-UsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users
 [**Get-UsersCountAsync**](UsersApi.md#Get-UsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users
 [**Invoke-PatchAccountHolderAsync**](UsersApi.md#Invoke-PatchAccountHolderAsync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user
+[**Set-UserPasswordAsync**](UsersApi.md#Set-UserPasswordAsync) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user&#39;s password
+[**Update-AccountHolderAdminProfileAsync**](UsersApi.md#Update-AccountHolderAdminProfileAsync) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user&#39;s admin-managed profile
 [**Update-AccountHolderAsync**](UsersApi.md#Update-AccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user
 
 
@@ -274,6 +277,7 @@ No authorization required
 > ExtendedUserDtoListEnvelope Get-ExtendedUsersAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedUserDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of extended users
 
@@ -283,10 +287,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ExtendedUserDtoCollectionQueryParameters = Initialize-ExtendedUserDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedUserDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of extended users
 try {
-    $Result = Get-ExtendedUsersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ExtendedUsersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ExtendedUserDtoCollectionQueryParameters $ExtendedUserDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedUsersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -299,6 +304,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ExtendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -310,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -320,6 +326,7 @@ No authorization required
 > Int32Envelope Get-ExtendedUsersCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedUserDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of extended users
 
@@ -329,10 +336,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ExtendedUserDtoCollectionQueryParameters = Initialize-ExtendedUserDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedUserDtoCollectionQueryParameters |  (optional)
 
 # Get the count of extended users
 try {
-    $Result = Get-ExtendedUsersCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ExtendedUsersCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ExtendedUserDtoCollectionQueryParameters $ExtendedUserDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedUsersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -345,10 +353,63 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ExtendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-UserAdminDetailAsync"></a>
+# **Get-UserAdminDetailAsync**
+> UserAdminDetailDtoEnvelope Get-UserAdminDetailAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Retrieve the admin detail aggregate for a user
+
+Returns the user's orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+### Example
+```powershell
+$UserId = "MyUserId" # String | 
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Retrieve the admin detail aggregate for a user
+try {
+    $Result = Get-UserAdminDetailAsync -UserId $UserId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-UserAdminDetailAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UserId** | **String**|  | 
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**UserAdminDetailDtoEnvelope**](UserAdminDetailDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -415,6 +476,7 @@ No authorization required
 > UserDtoListEnvelope Get-UsersAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of users
 
@@ -424,10 +486,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$UserDtoCollectionQueryParameters = Initialize-UserDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # UserDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of users
 try {
-    $Result = Get-UsersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-UsersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -UserDtoCollectionQueryParameters $UserDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-UsersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -440,6 +503,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **UserDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -451,7 +515,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -461,6 +525,7 @@ No authorization required
 > Int32Envelope Get-UsersCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of users
 
@@ -470,10 +535,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$UserDtoCollectionQueryParameters = Initialize-UserDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # UserDtoCollectionQueryParameters |  (optional)
 
 # Get the count of users
 try {
-    $Result = Get-UsersCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-UsersCountAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -UserDtoCollectionQueryParameters $UserDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-UsersCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -486,6 +552,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **UserDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -497,7 +564,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -508,7 +575,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially update a user
 
@@ -519,11 +586,11 @@ This action is only available for global administrators.
 $UserId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially update a user
 try {
-    $Result = Invoke-PatchAccountHolderAsync -UserId $UserId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchAccountHolderAsync -UserId $UserId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAccountHolderAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -537,7 +604,111 @@ Name | Type | Description  | Notes
  **UserId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Set-UserPasswordAsync"></a>
+# **Set-UserPasswordAsync**
+> EmptyEnvelope Set-UserPasswordAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SetUserPasswordDto] <PSCustomObject><br>
+
+Set a user's password
+
+Replaces the user's password with the supplied value. Global administrators only.
+
+### Example
+```powershell
+$UserId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SetUserPasswordDto = Initialize-SetUserPasswordDto -NewPassword "MyNewPassword" # SetUserPasswordDto |  (optional)
+
+# Set a user's password
+try {
+    $Result = Set-UserPasswordAsync -UserId $UserId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SetUserPasswordDto $SetUserPasswordDto
+} catch {
+    Write-Host ("Exception occurred when calling Set-UserPasswordAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UserId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SetUserPasswordDto** | [**SetUserPasswordDto**](SetUserPasswordDto.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-AccountHolderAdminProfileAsync"></a>
+# **Update-AccountHolderAdminProfileAsync**
+> EmptyEnvelope Update-AccountHolderAdminProfileAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UserAdminUpdateDto] <PSCustomObject><br>
+
+Update a user's admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+### Example
+```powershell
+$UserId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$UserAdminUpdateDto = Initialize-UserAdminUpdateDto -Email "MyEmail" -UserName "MyUserName" -Handler "MyHandler" -Name "MyName" -LastName "MyLastName" -PublicName "MyPublicName" -About "MyAbout" -TwoFactorEnabled $false -LockoutEnabled $false -LockoutEnd (Get-Date) # UserAdminUpdateDto |  (optional)
+
+# Update a user's admin-managed profile
+try {
+    $Result = Update-AccountHolderAdminProfileAsync -UserId $UserId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -UserAdminUpdateDto $UserAdminUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-AccountHolderAdminProfileAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UserId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **UserAdminUpdateDto** | [**UserAdminUpdateDto**](UserAdminUpdateDto.md)|  | [optional] 
 
 ### Return type
 

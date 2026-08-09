@@ -31,6 +31,12 @@ No description available.
 No description available.
 .PARAMETER VarError
 No description available.
+.PARAMETER RunAs
+No description available.
+.PARAMETER PrincipalKind
+No description available.
+.PARAMETER Provenance
+No description available.
 .OUTPUTS
 
 AuthResult<PSCustomObject>
@@ -62,7 +68,18 @@ function Initialize-AuthResult {
         ${Scopes},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${VarError}
+        ${VarError},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Invoker", "Application", "System", "Service")]
+        [String]
+        ${RunAs},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Human", "Agent", "Application", "Service", "System")]
+        [String]
+        ${PrincipalKind},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Provenance}
     )
 
     Process {
@@ -79,6 +96,9 @@ function Initialize-AuthResult {
             "correlationId" = ${CorrelationId}
             "scopes" = ${Scopes}
             "error" = ${VarError}
+            "runAs" = ${RunAs}
+            "principalKind" = ${PrincipalKind}
+            "provenance" = ${Provenance}
         }
 
 
@@ -116,7 +136,7 @@ function ConvertFrom-JsonToAuthResult {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AuthResult
-        $AllProperties = ("userId", "tenantId", "portalId", "applicationId", "enrollmentId", "correlationId", "scopes", "error")
+        $AllProperties = ("userId", "tenantId", "portalId", "applicationId", "enrollmentId", "correlationId", "scopes", "error", "runAs", "principalKind", "provenance")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -171,6 +191,24 @@ function ConvertFrom-JsonToAuthResult {
             $VarError = $JsonParameters.PSobject.Properties["error"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "runAs"))) { #optional property not found
+            $RunAs = $null
+        } else {
+            $RunAs = $JsonParameters.PSobject.Properties["runAs"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "principalKind"))) { #optional property not found
+            $PrincipalKind = $null
+        } else {
+            $PrincipalKind = $JsonParameters.PSobject.Properties["principalKind"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provenance"))) { #optional property not found
+            $Provenance = $null
+        } else {
+            $Provenance = $JsonParameters.PSobject.Properties["provenance"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "userId" = ${UserId}
             "tenantId" = ${TenantId}
@@ -180,6 +218,9 @@ function ConvertFrom-JsonToAuthResult {
             "correlationId" = ${CorrelationId}
             "scopes" = ${Scopes}
             "error" = ${VarError}
+            "runAs" = ${RunAs}
+            "principalKind" = ${PrincipalKind}
+            "provenance" = ${Provenance}
         }
 
         return $PSO

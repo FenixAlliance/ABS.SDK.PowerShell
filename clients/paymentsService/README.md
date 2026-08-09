@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -85,6 +84,10 @@ Class | Method | HTTP request | Description
 *PaymentModesApi* | [**Get-PaymentModesCountAsync**](docs/PaymentModesApi.md#Get-PaymentModesCountAsync) | **GET** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes
 *PaymentModesApi* | [**Invoke-PatchPaymentModeAsync**](docs/PaymentModesApi.md#Invoke-PatchPaymentModeAsync) | **PATCH** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Patch a payment mode
 *PaymentModesApi* | [**Update-PaymentModeAsync**](docs/PaymentModesApi.md#Update-PaymentModeAsync) | **PUT** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode
+*PaymentProviderRegistrationsApi* | [**New-Async**](docs/PaymentProviderRegistrationsApi.md#New-Async) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations | Provisions a provider webhook registration
+*PaymentProviderRegistrationsApi* | [**Get-Async**](docs/PaymentProviderRegistrationsApi.md#Get-Async) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations | Lists the tenant's provider registrations
+*PaymentProviderRegistrationsApi* | [**Get-CountAsync**](docs/PaymentProviderRegistrationsApi.md#Get-CountAsync) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations/Count | Counts the tenant's provider registrations
+*PaymentProviderRegistrationsApi* | [**Invoke-RotateKeyAsync**](docs/PaymentProviderRegistrationsApi.md#Invoke-RotateKeyAsync) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations/{registrationId}/RotateKey | Rotates a registration's webhook key
 *PaymentTermsApi* | [**New-PaymentTermAsync**](docs/PaymentTermsApi.md#New-PaymentTermAsync) | **POST** /api/v2/PaymentsService/PaymentTerms | Creates a new payment term
 *PaymentTermsApi* | [**Invoke-DeletePaymentTermAsync**](docs/PaymentTermsApi.md#Invoke-DeletePaymentTermAsync) | **DELETE** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Deletes a payment term
 *PaymentTermsApi* | [**Get-PaymentTermDetailsAsync**](docs/PaymentTermsApi.md#Get-PaymentTermDetailsAsync) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID
@@ -104,6 +107,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [PSOpenAPITools\Model.CreateProviderWebhookRegistrationRequest](docs/CreateProviderWebhookRegistrationRequest.md)
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -112,26 +116,35 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.PaymentCreateDto](docs/PaymentCreateDto.md)
  - [PSOpenAPITools\Model.PaymentDto](docs/PaymentDto.md)
+ - [PSOpenAPITools\Model.PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PaymentDtoListEnvelope](docs/PaymentDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PaymentMethodCreateDto](docs/PaymentMethodCreateDto.md)
  - [PSOpenAPITools\Model.PaymentMethodDto](docs/PaymentMethodDto.md)
+ - [PSOpenAPITools\Model.PaymentMethodDtoCollectionQueryParameters](docs/PaymentMethodDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PaymentMethodDtoEnvelope](docs/PaymentMethodDtoEnvelope.md)
  - [PSOpenAPITools\Model.PaymentMethodDtoIReadOnlyListEnvelope](docs/PaymentMethodDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.PaymentMethodUpdateDto](docs/PaymentMethodUpdateDto.md)
  - [PSOpenAPITools\Model.PaymentModeCreateDto](docs/PaymentModeCreateDto.md)
  - [PSOpenAPITools\Model.PaymentModeDto](docs/PaymentModeDto.md)
+ - [PSOpenAPITools\Model.PaymentModeDtoCollectionQueryParameters](docs/PaymentModeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PaymentModeDtoEnvelope](docs/PaymentModeDtoEnvelope.md)
  - [PSOpenAPITools\Model.PaymentModeDtoIReadOnlyListEnvelope](docs/PaymentModeDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.PaymentModeUpdateDto](docs/PaymentModeUpdateDto.md)
+ - [PSOpenAPITools\Model.PaymentProviderRegistrationDto](docs/PaymentProviderRegistrationDto.md)
+ - [PSOpenAPITools\Model.PaymentProviderRegistrationDtoCollectionQueryParameters](docs/PaymentProviderRegistrationDtoCollectionQueryParameters.md)
+ - [PSOpenAPITools\Model.PaymentProviderRegistrationDtoListEnvelope](docs/PaymentProviderRegistrationDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PaymentTermCreateDto](docs/PaymentTermCreateDto.md)
  - [PSOpenAPITools\Model.PaymentTermDto](docs/PaymentTermDto.md)
+ - [PSOpenAPITools\Model.PaymentTermDtoCollectionQueryParameters](docs/PaymentTermDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PaymentTermDtoEnvelope](docs/PaymentTermDtoEnvelope.md)
  - [PSOpenAPITools\Model.PaymentTermDtoIReadOnlyListEnvelope](docs/PaymentTermDtoIReadOnlyListEnvelope.md)
  - [PSOpenAPITools\Model.PaymentTermUpdateDto](docs/PaymentTermUpdateDto.md)
  - [PSOpenAPITools\Model.PaymentUpdateDto](docs/PaymentUpdateDto.md)
+ - [PSOpenAPITools\Model.ProviderWebhookRegistrationCreatedDto](docs/ProviderWebhookRegistrationCreatedDto.md)
+ - [PSOpenAPITools\Model.ProviderWebhookRegistrationCreatedDtoEnvelope](docs/ProviderWebhookRegistrationCreatedDtoEnvelope.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -18,6 +18,7 @@ Method | HTTP request | Description
 # **Invoke-CountTenantTaskCategoriesAsync**
 > Int32Envelope Invoke-CountTenantTaskCategoriesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts task categories
 
@@ -26,10 +27,11 @@ Gets the count of task categories for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TaskCategoryDtoCollectionQueryParameters = Initialize-TaskCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 # Counts task categories
 try {
-    $Result = Invoke-CountTenantTaskCategoriesAsync -TenantId $TenantId
+    $Result = Invoke-CountTenantTaskCategoriesAsync -TenantId $TenantId -TaskCategoryDtoCollectionQueryParameters $TaskCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountTenantTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -41,6 +43,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **TaskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -52,7 +55,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -245,6 +248,7 @@ No authorization required
 # **Get-TenantTaskCategoriesAsync**
 > TaskCategoryDtoListEnvelope Get-TenantTaskCategoriesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves all task categories
 
@@ -253,10 +257,11 @@ Gets all task categories for the current tenant with OData support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TaskCategoryDtoCollectionQueryParameters = Initialize-TaskCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 # Retrieves all task categories
 try {
-    $Result = Get-TenantTaskCategoriesAsync -TenantId $TenantId
+    $Result = Get-TenantTaskCategoriesAsync -TenantId $TenantId -TaskCategoryDtoCollectionQueryParameters $TaskCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TenantTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -268,6 +273,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **TaskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -279,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,7 +295,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchTaskCategoryAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a task category
 
@@ -299,11 +305,11 @@ Partially updates the specified task category.
 ```powershell
 $TaskCategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a task category
 try {
-    $Result = Invoke-PatchTaskCategoryAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId -Operation $Operation
+    $Result = Invoke-PatchTaskCategoryAsync -TaskCategoryId $TaskCategoryId -TenantId $TenantId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchTaskCategoryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -316,7 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TaskCategoryId** | **String**|  | 
  **TenantId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

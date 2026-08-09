@@ -17,6 +17,7 @@ Method | HTTP request | Description
 # **Invoke-CountPointOfSalesAsync**
 > Int32Envelope Invoke-CountPointOfSalesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PointOfSaleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get point of sales count
 
@@ -25,10 +26,11 @@ Returns the total count of point of sales for the specified tenant with OData fi
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PointOfSaleDtoCollectionQueryParameters = Initialize-PointOfSaleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PointOfSaleDtoCollectionQueryParameters |  (optional)
 
 # Get point of sales count
 try {
-    $Result = Invoke-CountPointOfSalesAsync -TenantId $TenantId
+    $Result = Invoke-CountPointOfSalesAsync -TenantId $TenantId -PointOfSaleDtoCollectionQueryParameters $PointOfSaleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountPointOfSalesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -40,6 +42,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **PointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -51,7 +54,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,6 +201,7 @@ No authorization required
 # **Get-PointOfSalesAsync**
 > PointOfSaleDtoListEnvelope Get-PointOfSalesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PointOfSaleDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get point of sales
 
@@ -206,10 +210,11 @@ Retrieves a list of point of sales for the specified tenant with OData query sup
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PointOfSaleDtoCollectionQueryParameters = Initialize-PointOfSaleDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PointOfSaleDtoCollectionQueryParameters |  (optional)
 
 # Get point of sales
 try {
-    $Result = Get-PointOfSalesAsync -TenantId $TenantId
+    $Result = Get-PointOfSalesAsync -TenantId $TenantId -PointOfSaleDtoCollectionQueryParameters $PointOfSaleDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PointOfSalesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -221,6 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **PointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -232,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,7 +248,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchPointOfSaleAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PointOfSaleId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a point of sale
 
@@ -252,11 +258,11 @@ Partially updates an existing point of sale using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $PointOfSaleId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a point of sale
 try {
-    $Result = Invoke-PatchPointOfSaleAsync -TenantId $TenantId -PointOfSaleId $PointOfSaleId -Operation $Operation
+    $Result = Invoke-PatchPointOfSaleAsync -TenantId $TenantId -PointOfSaleId $PointOfSaleId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchPointOfSaleAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **PointOfSaleId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 # **Invoke-CountLoyaltyProgramsAsync**
 > Int32Envelope Invoke-CountLoyaltyProgramsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoyaltyProgramDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get loyalty programs count
 
@@ -25,10 +26,11 @@ Returns the total count of loyalty programs for the specified tenant with OData 
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoyaltyProgramDtoCollectionQueryParameters = Initialize-LoyaltyProgramDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LoyaltyProgramDtoCollectionQueryParameters |  (optional)
 
 # Get loyalty programs count
 try {
-    $Result = Invoke-CountLoyaltyProgramsAsync -TenantId $TenantId
+    $Result = Invoke-CountLoyaltyProgramsAsync -TenantId $TenantId -LoyaltyProgramDtoCollectionQueryParameters $LoyaltyProgramDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountLoyaltyProgramsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -40,6 +42,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **LoyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -51,7 +54,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,6 +201,7 @@ No authorization required
 # **Get-LoyaltyProgramsAsync**
 > LoyaltyProgramDtoListEnvelope Get-LoyaltyProgramsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoyaltyProgramDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get loyalty programs
 
@@ -206,10 +210,11 @@ Retrieves a list of loyalty programs for the specified tenant with OData query s
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LoyaltyProgramDtoCollectionQueryParameters = Initialize-LoyaltyProgramDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LoyaltyProgramDtoCollectionQueryParameters |  (optional)
 
 # Get loyalty programs
 try {
-    $Result = Get-LoyaltyProgramsAsync -TenantId $TenantId
+    $Result = Get-LoyaltyProgramsAsync -TenantId $TenantId -LoyaltyProgramDtoCollectionQueryParameters $LoyaltyProgramDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LoyaltyProgramsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -221,6 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **LoyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -232,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,7 +248,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchLoyaltyProgramAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LoyaltyProgramId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a loyalty program
 
@@ -252,11 +258,11 @@ Partially updates an existing loyalty program using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LoyaltyProgramId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a loyalty program
 try {
-    $Result = Invoke-PatchLoyaltyProgramAsync -TenantId $TenantId -LoyaltyProgramId $LoyaltyProgramId -Operation $Operation
+    $Result = Invoke-PatchLoyaltyProgramAsync -TenantId $TenantId -LoyaltyProgramId $LoyaltyProgramId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchLoyaltyProgramAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **LoyaltyProgramId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -109,6 +108,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ExtendedSalesLiteratureDto](docs/ExtendedSalesLiteratureDto.md)
+ - [PSOpenAPITools\Model.ExtendedSalesLiteratureDtoCollectionQueryParameters](docs/ExtendedSalesLiteratureDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ExtendedSalesLiteratureDtoListEnvelope](docs/ExtendedSalesLiteratureDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -118,12 +118,14 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.LoyaltyProgramCreateDto](docs/LoyaltyProgramCreateDto.md)
  - [PSOpenAPITools\Model.LoyaltyProgramDto](docs/LoyaltyProgramDto.md)
+ - [PSOpenAPITools\Model.LoyaltyProgramDtoCollectionQueryParameters](docs/LoyaltyProgramDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LoyaltyProgramDtoEnvelope](docs/LoyaltyProgramDtoEnvelope.md)
  - [PSOpenAPITools\Model.LoyaltyProgramDtoListEnvelope](docs/LoyaltyProgramDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LoyaltyProgramUpdateDto](docs/LoyaltyProgramUpdateDto.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.PointOfSaleCreateDto](docs/PointOfSaleCreateDto.md)
  - [PSOpenAPITools\Model.PointOfSaleDto](docs/PointOfSaleDto.md)
+ - [PSOpenAPITools\Model.PointOfSaleDtoCollectionQueryParameters](docs/PointOfSaleDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PointOfSaleDtoEnvelope](docs/PointOfSaleDtoEnvelope.md)
  - [PSOpenAPITools\Model.PointOfSaleDtoListEnvelope](docs/PointOfSaleDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PointOfSaleUpdateDto](docs/PointOfSaleUpdateDto.md)
@@ -133,12 +135,14 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.SalesLiteratureCreateDto](docs/SalesLiteratureCreateDto.md)
  - [PSOpenAPITools\Model.SalesLiteratureDto](docs/SalesLiteratureDto.md)
+ - [PSOpenAPITools\Model.SalesLiteratureDtoCollectionQueryParameters](docs/SalesLiteratureDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SalesLiteratureDtoEnvelope](docs/SalesLiteratureDtoEnvelope.md)
  - [PSOpenAPITools\Model.SalesLiteratureDtoListEnvelope](docs/SalesLiteratureDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SalesLiteratureTypeDto](docs/SalesLiteratureTypeDto.md)
  - [PSOpenAPITools\Model.SalesLiteratureUpdateDto](docs/SalesLiteratureUpdateDto.md)
  - [PSOpenAPITools\Model.StoreCreateDto](docs/StoreCreateDto.md)
  - [PSOpenAPITools\Model.StoreDto](docs/StoreDto.md)
+ - [PSOpenAPITools\Model.StoreDtoCollectionQueryParameters](docs/StoreDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.StoreDtoEnvelope](docs/StoreDtoEnvelope.md)
  - [PSOpenAPITools\Model.StoreDtoListEnvelope](docs/StoreDtoListEnvelope.md)
  - [PSOpenAPITools\Model.StoreUpdateDto](docs/StoreUpdateDto.md)

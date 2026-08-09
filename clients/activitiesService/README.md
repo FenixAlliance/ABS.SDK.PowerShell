@@ -75,7 +75,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -95,15 +94,18 @@ Class | Method | HTTP request | Description
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [PSOpenAPITools\Model.ActivityFeedDto](docs/ActivityFeedDto.md)
+ - [PSOpenAPITools\Model.ActivityFeedDtoCollectionQueryParameters](docs/ActivityFeedDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ActivityFeedDtoEnvelope](docs/ActivityFeedDtoEnvelope.md)
  - [PSOpenAPITools\Model.ActivityFeedDtoListEnvelope](docs/ActivityFeedDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ActivityRecordCreateDto](docs/ActivityRecordCreateDto.md)
  - [PSOpenAPITools\Model.ActivityRecordDto](docs/ActivityRecordDto.md)
+ - [PSOpenAPITools\Model.ActivityRecordDtoCollectionQueryParameters](docs/ActivityRecordDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ActivityRecordDtoEnvelope](docs/ActivityRecordDtoEnvelope.md)
  - [PSOpenAPITools\Model.ActivityRecordDtoListEnvelope](docs/ActivityRecordDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ActivityRecordUpdateDto](docs/ActivityRecordUpdateDto.md)
  - [PSOpenAPITools\Model.ActivityTypeCreateDto](docs/ActivityTypeCreateDto.md)
  - [PSOpenAPITools\Model.ActivityTypeDto](docs/ActivityTypeDto.md)
+ - [PSOpenAPITools\Model.ActivityTypeDtoCollectionQueryParameters](docs/ActivityTypeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ActivityTypeDtoEnvelope](docs/ActivityTypeDtoEnvelope.md)
  - [PSOpenAPITools\Model.ActivityTypeDtoListEnvelope](docs/ActivityTypeDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ActivityTypeUpdateDto](docs/ActivityTypeUpdateDto.md)
@@ -116,7 +118,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

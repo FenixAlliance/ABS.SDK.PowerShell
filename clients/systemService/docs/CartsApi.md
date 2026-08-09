@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**Get-SystemCartById**](CartsApi.md#Get-SystemCartById) | **GET** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID
 [**Get-SystemCarts**](CartsApi.md#Get-SystemCarts) | **GET** /api/v2/SystemService/Carts | Retrieve a list of system carts
 [**Get-SystemCartsCount**](CartsApi.md#Get-SystemCartsCount) | **GET** /api/v2/SystemService/Carts/Count | Get the count of system carts
+[**Invoke-PurgeSystemGuestCarts**](CartsApi.md#Invoke-PurgeSystemGuestCarts) | **DELETE** /api/v2/SystemService/Carts/Guests | Purge all guest carts
 
 
 <a id="Invoke-DeleteSystemCart"></a>
@@ -113,6 +114,7 @@ No authorization required
 > CartDtoListEnvelope Get-SystemCarts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CartDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of system carts
 
@@ -122,10 +124,11 @@ Retrieve a list of all carts in the system
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CartDtoCollectionQueryParameters = Initialize-CartDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CartDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of system carts
 try {
-    $Result = Get-SystemCarts -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemCarts -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CartDtoCollectionQueryParameters $CartDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemCarts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -138,6 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -149,7 +153,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -159,6 +163,7 @@ No authorization required
 > Int32Envelope Get-SystemCartsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CartDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of system carts
 
@@ -168,12 +173,60 @@ Get the count of all carts in the system
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CartDtoCollectionQueryParameters = Initialize-CartDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CartDtoCollectionQueryParameters |  (optional)
 
 # Get the count of system carts
 try {
-    $Result = Get-SystemCartsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemCartsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CartDtoCollectionQueryParameters $CartDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemCartsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **CartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-PurgeSystemGuestCarts"></a>
+# **Invoke-PurgeSystemGuestCarts**
+> GuestCartPurgeResultDtoEnvelope Invoke-PurgeSystemGuestCarts<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Purge all guest carts
+
+Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+
+### Example
+```powershell
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Purge all guest carts
+try {
+    $Result = Invoke-PurgeSystemGuestCarts -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-PurgeSystemGuestCarts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -187,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+[**GuestCartPurgeResultDtoEnvelope**](GuestCartPurgeResultDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 

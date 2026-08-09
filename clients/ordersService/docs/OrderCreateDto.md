@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IndividualId** | **String** |  | [optional] 
 **PaymentTermId** | **String** |  | [optional] 
 **OrganizationId** | **String** |  | [optional] 
+**ReceiverTenantId** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **CompanyName** | **String** |  | [optional] 
@@ -60,7 +61,6 @@ Name | Type | Description | Notes
 **OrderStatus** | **String** |  | [optional] 
 **QuoteStatus** | **String** |  | [optional] 
 **FreightTerms** | **String** |  | [optional] 
-**ReceiverTenantId** | **String** |  | [optional] 
 **ShippingLocationId** | **String** |  | [optional] 
 **QualifiedIdentifier** | **String** |  | [optional] 
 **TotalTaxesInUsd** | **Double** |  | [optional] 
@@ -86,6 +86,7 @@ $OrderCreateDto = Initialize-PSOpenAPIToolsOrderCreateDto  -Id null `
  -IndividualId null `
  -PaymentTermId null `
  -OrganizationId null `
+ -ReceiverTenantId null `
  -FirstName null `
  -LastName null `
  -CompanyName null `
@@ -134,7 +135,6 @@ $OrderCreateDto = Initialize-PSOpenAPIToolsOrderCreateDto  -Id null `
  -OrderStatus null `
  -QuoteStatus null `
  -FreightTerms null `
- -ReceiverTenantId null `
  -ShippingLocationId null `
  -QualifiedIdentifier null `
  -TotalTaxesInUsd null `

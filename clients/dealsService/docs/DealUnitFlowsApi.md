@@ -310,6 +310,7 @@ No authorization required
 > DealUnitFlowStageDtoListEnvelope Get-DealUnitFlowStagesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowStageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get stages for a deal unit flow
 
@@ -319,10 +320,11 @@ Retrieves a list of stages for a specific deal unit flow with OData query suppor
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowStageDtoCollectionQueryParameters = Initialize-DealUnitFlowStageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DealUnitFlowStageDtoCollectionQueryParameters |  (optional)
 
 # Get stages for a deal unit flow
 try {
-    $Result = Get-DealUnitFlowStagesAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId
+    $Result = Get-DealUnitFlowStagesAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -DealUnitFlowStageDtoCollectionQueryParameters $DealUnitFlowStageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DealUnitFlowStagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -335,6 +337,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DealUnitFlowId** | **String**|  | 
+ **DealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -346,7 +349,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -356,6 +359,7 @@ No authorization required
 > Int32Envelope Get-DealUnitFlowStagesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowStageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get stages count for a deal unit flow
 
@@ -365,10 +369,11 @@ Returns the total count of stages for a specific deal unit flow with OData filte
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowStageDtoCollectionQueryParameters = Initialize-DealUnitFlowStageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DealUnitFlowStageDtoCollectionQueryParameters |  (optional)
 
 # Get stages count for a deal unit flow
 try {
-    $Result = Get-DealUnitFlowStagesCountAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId
+    $Result = Get-DealUnitFlowStagesCountAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -DealUnitFlowStageDtoCollectionQueryParameters $DealUnitFlowStageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DealUnitFlowStagesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -381,6 +386,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DealUnitFlowId** | **String**|  | 
+ **DealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -392,7 +398,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,6 +407,7 @@ No authorization required
 # **Get-DealUnitFlowsAsync**
 > DealUnitFlowDtoListEnvelope Get-DealUnitFlowsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get deal unit flows
 
@@ -409,10 +416,11 @@ Retrieves a list of deal unit flows for the specified tenant with OData query su
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowDtoCollectionQueryParameters = Initialize-DealUnitFlowDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DealUnitFlowDtoCollectionQueryParameters |  (optional)
 
 # Get deal unit flows
 try {
-    $Result = Get-DealUnitFlowsAsync -TenantId $TenantId
+    $Result = Get-DealUnitFlowsAsync -TenantId $TenantId -DealUnitFlowDtoCollectionQueryParameters $DealUnitFlowDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DealUnitFlowsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -424,6 +432,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **DealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -435,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -444,6 +453,7 @@ No authorization required
 # **Get-DealUnitFlowsCountAsync**
 > Int32Envelope Get-DealUnitFlowsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get deal unit flows count
 
@@ -452,10 +462,11 @@ Returns the total count of deal unit flows for the specified tenant with OData f
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DealUnitFlowDtoCollectionQueryParameters = Initialize-DealUnitFlowDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DealUnitFlowDtoCollectionQueryParameters |  (optional)
 
 # Get deal unit flows count
 try {
-    $Result = Get-DealUnitFlowsCountAsync -TenantId $TenantId
+    $Result = Get-DealUnitFlowsCountAsync -TenantId $TenantId -DealUnitFlowDtoCollectionQueryParameters $DealUnitFlowDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DealUnitFlowsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -467,6 +478,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **DealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -478,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -488,7 +500,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchDealUnitFlowAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a deal unit flow
 
@@ -498,11 +510,11 @@ Partially updates an existing deal unit flow by its unique identifier using a JS
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a deal unit flow
 try {
-    $Result = Invoke-PatchDealUnitFlowAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -Operation $Operation
+    $Result = Invoke-PatchDealUnitFlowAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchDealUnitFlowAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -515,7 +527,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DealUnitFlowId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -538,7 +550,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DealUnitFlowStageId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a deal unit flow stage
 
@@ -549,11 +561,11 @@ Partially updates an existing stage within a specific deal unit flow using a JSO
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DealUnitFlowStageId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a deal unit flow stage
 try {
-    $Result = Invoke-PatchDealUnitFlowStageAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -DealUnitFlowStageId $DealUnitFlowStageId -Operation $Operation
+    $Result = Invoke-PatchDealUnitFlowStageAsync -TenantId $TenantId -DealUnitFlowId $DealUnitFlowId -DealUnitFlowStageId $DealUnitFlowStageId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchDealUnitFlowStageAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -567,7 +579,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **DealUnitFlowId** | **String**|  | 
  **DealUnitFlowStageId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

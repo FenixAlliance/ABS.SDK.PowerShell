@@ -431,7 +431,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchOAuthApplicationAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApplicationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
@@ -443,13 +443,13 @@ Partially updates an existing OAuth application using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApplicationId = "MyApplicationId" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] | 
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
 # Patch an existing OAuth application
 try {
-    $Result = Invoke-PatchOAuthApplicationAsync -TenantId $TenantId -ApplicationId $ApplicationId -Operation $Operation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-PatchOAuthApplicationAsync -TenantId $TenantId -ApplicationId $ApplicationId -PatchOperation $PatchOperation -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchOAuthApplicationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **ApplicationId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
+**Timestamp** | **System.DateTime** |  | [optional] 
 **TenantId** | **String** |  | [optional] 
 **EnrollmentId** | **String** |  | [optional] 
 **JournalId** | **String** |  | [optional] 
@@ -24,7 +25,6 @@ Name | Type | Description | Notes
 **PostedBy** | **String** |  | [optional] 
 **ForexRate** | **Double** |  | [optional] 
 **ForexRatesSnapshot** | **String** |  | [optional] 
-**Timestamp** | **System.DateTime** |  | [optional] 
 **DebitInUsd** | **Double** |  | [optional] 
 **CreditInUsd** | **Double** |  | [optional] 
 **AccountingEntries** | [**AccountingEntryDto[]**](AccountingEntryDto.md) |  | [optional] 
@@ -32,12 +32,15 @@ Name | Type | Description | Notes
 **TotalCredit** | **Double** |  | [optional] [readonly] 
 **TotalDebitAmount** | [**Money**](Money.md) |  | [optional] 
 **TotalCreditAmount** | [**Money**](Money.md) |  | [optional] 
+**DebitInUsdAmount** | [**Money**](Money.md) |  | [optional] 
+**CreditInUsdAmount** | [**Money**](Money.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $JournalEntryDto = Initialize-PSOpenAPIToolsJournalEntryDto  -Id null `
+ -Timestamp null `
  -TenantId null `
  -EnrollmentId null `
  -JournalId null `
@@ -58,14 +61,15 @@ $JournalEntryDto = Initialize-PSOpenAPIToolsJournalEntryDto  -Id null `
  -PostedBy null `
  -ForexRate null `
  -ForexRatesSnapshot null `
- -Timestamp null `
  -DebitInUsd null `
  -CreditInUsd null `
  -AccountingEntries null `
  -TotalDebit null `
  -TotalCredit null `
  -TotalDebitAmount null `
- -TotalCreditAmount null
+ -TotalCreditAmount null `
+ -DebitInUsdAmount null `
+ -CreditInUsdAmount null
 ```
 
 - Convert the resource to JSON

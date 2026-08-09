@@ -361,6 +361,7 @@ No authorization required
 # **Get-BlogPostsAsync**
 > BlogPostDtoListEnvelope Get-BlogPostsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of blog posts
 
@@ -369,10 +370,11 @@ Retrieves all blog posts, optionally filtered by tenant using OData query option
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+$BlogPostDtoCollectionQueryParameters = Initialize-BlogPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of blog posts
 try {
-    $Result = Get-BlogPostsAsync -TenantId $TenantId
+    $Result = Get-BlogPostsAsync -TenantId $TenantId -BlogPostDtoCollectionQueryParameters $BlogPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BlogPostsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -384,6 +386,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | [optional] 
+ **BlogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -395,7 +398,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -404,6 +407,7 @@ No authorization required
 # **Get-BlogPostsCountAsync**
 > Int32Envelope Get-BlogPostsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of blog posts
 
@@ -412,10 +416,11 @@ Returns the total count of blog posts, optionally filtered by tenant using OData
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+$BlogPostDtoCollectionQueryParameters = Initialize-BlogPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostDtoCollectionQueryParameters |  (optional)
 
 # Get the count of blog posts
 try {
-    $Result = Get-BlogPostsCountAsync -TenantId $TenantId
+    $Result = Get-BlogPostsCountAsync -TenantId $TenantId -BlogPostDtoCollectionQueryParameters $BlogPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-BlogPostsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -427,6 +432,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | [optional] 
+ **BlogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -438,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -447,6 +453,7 @@ No authorization required
 # **Get-CategoriesForBlogPostAsync**
 > BlogPostCategoryDtoListEnvelope Get-CategoriesForBlogPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get categories for a blog post
 
@@ -455,10 +462,11 @@ Retrieves all categories related to a specific blog post.
 ### Example
 ```powershell
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BlogPostCategoryDtoCollectionQueryParameters = Initialize-BlogPostCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostCategoryDtoCollectionQueryParameters |  (optional)
 
 # Get categories for a blog post
 try {
-    $Result = Get-CategoriesForBlogPostAsync -BlogPostId $BlogPostId
+    $Result = Get-CategoriesForBlogPostAsync -BlogPostId $BlogPostId -BlogPostCategoryDtoCollectionQueryParameters $BlogPostCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CategoriesForBlogPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -470,6 +478,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **BlogPostId** | **String**|  | 
+ **BlogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -481,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -490,6 +499,7 @@ No authorization required
 # **Get-CommentsForBlogPostAsync**
 > BlogPostCommentDtoListEnvelope Get-CommentsForBlogPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostCommentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get comments for a blog post
 
@@ -498,10 +508,11 @@ Retrieves all comments for a specific blog post.
 ### Example
 ```powershell
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BlogPostCommentDtoCollectionQueryParameters = Initialize-BlogPostCommentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostCommentDtoCollectionQueryParameters |  (optional)
 
 # Get comments for a blog post
 try {
-    $Result = Get-CommentsForBlogPostAsync -BlogPostId $BlogPostId
+    $Result = Get-CommentsForBlogPostAsync -BlogPostId $BlogPostId -BlogPostCommentDtoCollectionQueryParameters $BlogPostCommentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CommentsForBlogPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -513,6 +524,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **BlogPostId** | **String**|  | 
+ **BlogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -524,7 +536,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -534,6 +546,7 @@ No authorization required
 > BlogPostCommentDtoListEnvelope Get-RepliesForCommentAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostCommentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get replies for a comment
 
@@ -543,10 +556,11 @@ Retrieves all replies for a specific blog post comment.
 ```powershell
 $CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "MyBlogPostId" # String | 
+$BlogPostCommentDtoCollectionQueryParameters = Initialize-BlogPostCommentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostCommentDtoCollectionQueryParameters |  (optional)
 
 # Get replies for a comment
 try {
-    $Result = Get-RepliesForCommentAsync -CommentId $CommentId -BlogPostId $BlogPostId
+    $Result = Get-RepliesForCommentAsync -CommentId $CommentId -BlogPostId $BlogPostId -BlogPostCommentDtoCollectionQueryParameters $BlogPostCommentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-RepliesForCommentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -559,6 +573,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **CommentId** | **String**|  | 
  **BlogPostId** | **String**|  | 
+ **BlogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -570,7 +585,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -579,6 +594,7 @@ No authorization required
 # **Get-TagsForBlogPostAsync**
 > BlogPostTagDtoListEnvelope Get-TagsForBlogPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostTagDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get tags for a blog post
 
@@ -587,10 +603,11 @@ Retrieves all tags related to a specific blog post.
 ### Example
 ```powershell
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$BlogPostTagDtoCollectionQueryParameters = Initialize-BlogPostTagDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BlogPostTagDtoCollectionQueryParameters |  (optional)
 
 # Get tags for a blog post
 try {
-    $Result = Get-TagsForBlogPostAsync -BlogPostId $BlogPostId
+    $Result = Get-TagsForBlogPostAsync -BlogPostId $BlogPostId -BlogPostTagDtoCollectionQueryParameters $BlogPostTagDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TagsForBlogPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -602,6 +619,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **BlogPostId** | **String**|  | 
+ **BlogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -613,7 +631,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -623,7 +641,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchBlogPostAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BlogPostId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a blog post
 
@@ -633,11 +651,11 @@ Partially updates an existing blog post for the specified tenant.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $BlogPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a blog post
 try {
-    $Result = Invoke-PatchBlogPostAsync -TenantId $TenantId -BlogPostId $BlogPostId -Operation $Operation
+    $Result = Invoke-PatchBlogPostAsync -TenantId $TenantId -BlogPostId $BlogPostId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchBlogPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -650,7 +668,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **BlogPostId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

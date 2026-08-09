@@ -723,6 +723,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER BlogPostDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -741,6 +744,9 @@ function Get-BlogPostsAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -770,11 +776,16 @@ function Get-BlogPostsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts'
 
         if ($TenantId) {
             $LocalVarQueryParameters['tenantId'] = $TenantId
         }
+
+        $LocalVarBodyParameter = $BlogPostDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -808,6 +819,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER BlogPostDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -826,6 +840,9 @@ function Get-BlogPostsCountAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -855,11 +872,16 @@ function Get-BlogPostsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts/Count'
 
         if ($TenantId) {
             $LocalVarQueryParameters['tenantId'] = $TenantId
         }
+
+        $LocalVarBodyParameter = $BlogPostDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -893,6 +915,9 @@ No description available.
 .PARAMETER BlogPostId
 No description available.
 
+.PARAMETER BlogPostCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -911,6 +936,9 @@ function Get-CategoriesForBlogPostAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${BlogPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -940,11 +968,16 @@ function Get-CategoriesForBlogPostAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts/{blogPostId}/Categories'
         if (!$BlogPostId) {
             throw "Error! The required parameter `BlogPostId` missing when calling getCategoriesForBlogPostAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{blogPostId}', [System.Web.HTTPUtility]::UrlEncode($BlogPostId))
+
+        $LocalVarBodyParameter = $BlogPostCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -978,6 +1011,9 @@ No description available.
 .PARAMETER BlogPostId
 No description available.
 
+.PARAMETER BlogPostCommentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -996,6 +1032,9 @@ function Get-CommentsForBlogPostAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${BlogPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostCommentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1025,11 +1064,16 @@ function Get-CommentsForBlogPostAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts/{blogPostId}/Comments'
         if (!$BlogPostId) {
             throw "Error! The required parameter `BlogPostId` missing when calling getCommentsForBlogPostAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{blogPostId}', [System.Web.HTTPUtility]::UrlEncode($BlogPostId))
+
+        $LocalVarBodyParameter = $BlogPostCommentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1066,6 +1110,9 @@ No description available.
 .PARAMETER BlogPostId
 No description available.
 
+.PARAMETER BlogPostCommentDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1087,6 +1134,9 @@ function Get-RepliesForCommentAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${BlogPostId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostCommentDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1116,6 +1166,9 @@ function Get-RepliesForCommentAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies'
         if (!$CommentId) {
             throw "Error! The required parameter `CommentId` missing when calling getRepliesForCommentAsync."
@@ -1125,6 +1178,8 @@ function Get-RepliesForCommentAsync {
             throw "Error! The required parameter `BlogPostId` missing when calling getRepliesForCommentAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{blogPostId}', [System.Web.HTTPUtility]::UrlEncode($BlogPostId))
+
+        $LocalVarBodyParameter = $BlogPostCommentDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1158,6 +1213,9 @@ No description available.
 .PARAMETER BlogPostId
 No description available.
 
+.PARAMETER BlogPostTagDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1176,6 +1234,9 @@ function Get-TagsForBlogPostAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${BlogPostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BlogPostTagDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1205,11 +1266,16 @@ function Get-TagsForBlogPostAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ContentService/BlogPosts/{blogPostId}/Tags'
         if (!$BlogPostId) {
             throw "Error! The required parameter `BlogPostId` missing when calling getTagsForBlogPostAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{blogPostId}', [System.Web.HTTPUtility]::UrlEncode($BlogPostId))
+
+        $LocalVarBodyParameter = $BlogPostTagDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1246,7 +1312,7 @@ No description available.
 .PARAMETER BlogPostId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1272,7 +1338,7 @@ function Invoke-PatchBlogPostAsync {
         ${BlogPostId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1316,7 +1382,7 @@ function Invoke-PatchBlogPostAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

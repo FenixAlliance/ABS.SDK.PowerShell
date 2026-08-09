@@ -37,6 +37,12 @@ No description available.
 No description available.
 .PARAMETER ReceivedTimestamp
 No description available.
+.PARAMETER SocialProfileName
+No description available.
+.PARAMETER SocialProfileAvatarUrl
+No description available.
+.PARAMETER SocialProfileType
+No description available.
 .OUTPUTS
 
 PrivateMessageDto<PSCustomObject>
@@ -77,7 +83,17 @@ function Initialize-PrivateMessageDto {
         ${ReadTimestamp},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${ReceivedTimestamp}
+        ${ReceivedTimestamp},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SocialProfileName},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SocialProfileAvatarUrl},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("User", "Tenant", "Contact")]
+        [String]
+        ${SocialProfileType}
     )
 
     Process {
@@ -97,6 +113,9 @@ function Initialize-PrivateMessageDto {
             "sentTimestamp" = ${SentTimestamp}
             "readTimestamp" = ${ReadTimestamp}
             "receivedTimestamp" = ${ReceivedTimestamp}
+            "socialProfileName" = ${SocialProfileName}
+            "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
         }
 
 
@@ -134,7 +153,7 @@ function ConvertFrom-JsonToPrivateMessageDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PrivateMessageDto
-        $AllProperties = ("id", "timestamp", "read", "title", "message", "conversationId", "senderSocialProfileId", "receiverSocialProfileId", "sentTimestamp", "readTimestamp", "receivedTimestamp")
+        $AllProperties = ("id", "timestamp", "read", "title", "message", "conversationId", "senderSocialProfileId", "receiverSocialProfileId", "sentTimestamp", "readTimestamp", "receivedTimestamp", "socialProfileName", "socialProfileAvatarUrl", "socialProfileType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -207,6 +226,24 @@ function ConvertFrom-JsonToPrivateMessageDto {
             $ReceivedTimestamp = $JsonParameters.PSobject.Properties["receivedTimestamp"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileName"))) { #optional property not found
+            $SocialProfileName = $null
+        } else {
+            $SocialProfileName = $JsonParameters.PSobject.Properties["socialProfileName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileAvatarUrl"))) { #optional property not found
+            $SocialProfileAvatarUrl = $null
+        } else {
+            $SocialProfileAvatarUrl = $JsonParameters.PSobject.Properties["socialProfileAvatarUrl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileType"))) { #optional property not found
+            $SocialProfileType = $null
+        } else {
+            $SocialProfileType = $JsonParameters.PSobject.Properties["socialProfileType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -219,6 +256,9 @@ function ConvertFrom-JsonToPrivateMessageDto {
             "sentTimestamp" = ${SentTimestamp}
             "readTimestamp" = ${ReadTimestamp}
             "receivedTimestamp" = ${ReceivedTimestamp}
+            "socialProfileName" = ${SocialProfileName}
+            "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
         }
 
         return $PSO

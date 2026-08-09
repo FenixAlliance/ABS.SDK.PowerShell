@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -112,9 +111,10 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.ProductionPlanCreateDto](docs/ProductionPlanCreateDto.md)
  - [PSOpenAPITools\Model.ProductionPlanDto](docs/ProductionPlanDto.md)
+ - [PSOpenAPITools\Model.ProductionPlanDtoCollectionQueryParameters](docs/ProductionPlanDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ProductionPlanDtoListEnvelope](docs/ProductionPlanDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ProductionPlanUpdateDto](docs/ProductionPlanUpdateDto.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
@@ -125,14 +125,17 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.TwoFactorResponse](docs/TwoFactorResponse.md)
  - [PSOpenAPITools\Model.WorkOrderCreateDto](docs/WorkOrderCreateDto.md)
  - [PSOpenAPITools\Model.WorkOrderDto](docs/WorkOrderDto.md)
+ - [PSOpenAPITools\Model.WorkOrderDtoCollectionQueryParameters](docs/WorkOrderDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.WorkOrderDtoListEnvelope](docs/WorkOrderDtoListEnvelope.md)
  - [PSOpenAPITools\Model.WorkOrderTypeCreateDto](docs/WorkOrderTypeCreateDto.md)
  - [PSOpenAPITools\Model.WorkOrderTypeDto](docs/WorkOrderTypeDto.md)
+ - [PSOpenAPITools\Model.WorkOrderTypeDtoCollectionQueryParameters](docs/WorkOrderTypeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.WorkOrderTypeDtoListEnvelope](docs/WorkOrderTypeDtoListEnvelope.md)
  - [PSOpenAPITools\Model.WorkOrderTypeUpdateDto](docs/WorkOrderTypeUpdateDto.md)
  - [PSOpenAPITools\Model.WorkOrderUpdateDto](docs/WorkOrderUpdateDto.md)
  - [PSOpenAPITools\Model.WorkstationCreateDto](docs/WorkstationCreateDto.md)
  - [PSOpenAPITools\Model.WorkstationDto](docs/WorkstationDto.md)
+ - [PSOpenAPITools\Model.WorkstationDtoCollectionQueryParameters](docs/WorkstationDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.WorkstationDtoListEnvelope](docs/WorkstationDtoListEnvelope.md)
  - [PSOpenAPITools\Model.WorkstationUpdateDto](docs/WorkstationUpdateDto.md)
 

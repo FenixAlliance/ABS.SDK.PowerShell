@@ -939,6 +939,7 @@ No authorization required
 # **Get-ExtendedInvoices**
 > ExtendedInvoiceDtoListEnvelope Get-ExtendedInvoices<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedInvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get a list of extended invoices.
 
@@ -947,10 +948,11 @@ Retrieves a list of extended invoice details for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ExtendedInvoiceDtoCollectionQueryParameters = Initialize-ExtendedInvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedInvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get a list of extended invoices.
 try {
-    $Result = Get-ExtendedInvoices -TenantId $TenantId
+    $Result = Get-ExtendedInvoices -TenantId $TenantId -ExtendedInvoiceDtoCollectionQueryParameters $ExtendedInvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedInvoices: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -962,6 +964,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **ExtendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -973,7 +976,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -982,6 +985,7 @@ No authorization required
 # **Get-ExtendedInvoicesCount**
 > Int32Envelope Get-ExtendedInvoicesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedInvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of extended invoices.
 
@@ -990,10 +994,11 @@ Retrieves the total count of extended invoices for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ExtendedInvoiceDtoCollectionQueryParameters = Initialize-ExtendedInvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedInvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get the count of extended invoices.
 try {
-    $Result = Get-ExtendedInvoicesCount -TenantId $TenantId
+    $Result = Get-ExtendedInvoicesCount -TenantId $TenantId -ExtendedInvoiceDtoCollectionQueryParameters $ExtendedInvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedInvoicesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1005,6 +1010,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **ExtendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1016,7 +1022,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1121,6 +1127,7 @@ No authorization required
 > InvoiceAdjustmentDtoIReadOnlyListEnvelope Get-InvoiceAdjustments<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceAdjustmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get invoice adjustments.
 
@@ -1130,10 +1137,11 @@ Retrieves the adjustments for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceAdjustmentDtoCollectionQueryParameters = Initialize-InvoiceAdjustmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceAdjustmentDtoCollectionQueryParameters |  (optional)
 
 # Get invoice adjustments.
 try {
-    $Result = Get-InvoiceAdjustments -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoiceAdjustments -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceAdjustmentDtoCollectionQueryParameters $InvoiceAdjustmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceAdjustments: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1146,6 +1154,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **InvoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1157,7 +1166,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1167,6 +1176,7 @@ No authorization required
 > Int32Envelope Get-InvoiceAdjustmentsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceAdjustmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of invoice adjustments.
 
@@ -1176,10 +1186,11 @@ Retrieves the total count of adjustments for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceAdjustmentDtoCollectionQueryParameters = Initialize-InvoiceAdjustmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceAdjustmentDtoCollectionQueryParameters |  (optional)
 
 # Get the count of invoice adjustments.
 try {
-    $Result = Get-InvoiceAdjustmentsCount -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoiceAdjustmentsCount -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceAdjustmentDtoCollectionQueryParameters $InvoiceAdjustmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceAdjustmentsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1192,6 +1203,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **InvoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1203,7 +1215,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1263,6 +1275,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineAppliedTaxDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get taxes for an invoice line.
 
@@ -1273,10 +1286,11 @@ Retrieves the taxes applied to the specified invoice line.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineAppliedTaxDtoCollectionQueryParameters = Initialize-InvoiceLineAppliedTaxDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceLineAppliedTaxDtoCollectionQueryParameters |  (optional)
 
 # Get taxes for an invoice line.
 try {
-    $Result = Get-InvoiceLineTaxes -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId
+    $Result = Get-InvoiceLineTaxes -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -InvoiceLineAppliedTaxDtoCollectionQueryParameters $InvoiceLineAppliedTaxDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceLineTaxes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1290,6 +1304,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **InvoiceLineId** | **String**|  | 
+ **InvoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1301,7 +1316,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1312,6 +1327,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineAppliedTaxDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of taxes for an invoice line.
 
@@ -1322,10 +1338,11 @@ Retrieves the total count of taxes applied to the specified invoice line.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineAppliedTaxDtoCollectionQueryParameters = Initialize-InvoiceLineAppliedTaxDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceLineAppliedTaxDtoCollectionQueryParameters |  (optional)
 
 # Get the count of taxes for an invoice line.
 try {
-    $Result = Get-InvoiceLineTaxesCount -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId
+    $Result = Get-InvoiceLineTaxesCount -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -InvoiceLineAppliedTaxDtoCollectionQueryParameters $InvoiceLineAppliedTaxDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceLineTaxesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1339,6 +1356,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **InvoiceLineId** | **String**|  | 
+ **InvoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1350,7 +1368,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1361,6 +1379,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get invoice lines.
 
@@ -1371,10 +1390,11 @@ Retrieves the invoice lines for the specified invoice.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+$InvoiceLineDtoCollectionQueryParameters = Initialize-InvoiceLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceLineDtoCollectionQueryParameters |  (optional)
 
 # Get invoice lines.
 try {
-    $Result = Get-InvoiceLines -TenantId $TenantId -InvoiceId $InvoiceId -ItemId $ItemId
+    $Result = Get-InvoiceLines -TenantId $TenantId -InvoiceId $InvoiceId -ItemId $ItemId -InvoiceLineDtoCollectionQueryParameters $InvoiceLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceLines: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1388,6 +1408,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **ItemId** | **String**|  | [optional] 
+ **InvoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1399,7 +1420,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1409,6 +1430,7 @@ No authorization required
 > Int32Envelope Get-InvoiceLinesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of invoice lines.
 
@@ -1418,10 +1440,11 @@ Retrieves the total count of invoice lines for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceLineDtoCollectionQueryParameters = Initialize-InvoiceLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceLineDtoCollectionQueryParameters |  (optional)
 
 # Get the count of invoice lines.
 try {
-    $Result = Get-InvoiceLinesCount -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoiceLinesCount -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineDtoCollectionQueryParameters $InvoiceLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceLinesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1434,6 +1457,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **InvoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1445,7 +1469,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1455,6 +1479,7 @@ No authorization required
 > PaymentDtoIReadOnlyListEnvelope Get-InvoicePayments<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get payments for an invoice.
 
@@ -1464,10 +1489,11 @@ Retrieves the list of payments related to the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get payments for an invoice.
 try {
-    $Result = Get-InvoicePayments -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoicePayments -TenantId $TenantId -InvoiceId $InvoiceId -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoicePayments: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1480,6 +1506,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1491,7 +1518,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1501,6 +1528,7 @@ No authorization required
 > Int32Envelope Get-InvoicePaymentsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PaymentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of payments for an invoice.
 
@@ -1510,10 +1538,11 @@ Retrieves the total count of payments for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$PaymentDtoCollectionQueryParameters = Initialize-PaymentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PaymentDtoCollectionQueryParameters |  (optional)
 
 # Get the count of payments for an invoice.
 try {
-    $Result = Get-InvoicePaymentsCount -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoicePaymentsCount -TenantId $TenantId -InvoiceId $InvoiceId -PaymentDtoCollectionQueryParameters $PaymentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoicePaymentsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1526,6 +1555,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **PaymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1537,7 +1567,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1596,6 +1626,7 @@ No authorization required
 > InvoiceReferenceDtoIReadOnlyListEnvelope Get-InvoiceReferences<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceReferenceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get invoice references.
 
@@ -1605,10 +1636,11 @@ Retrieves the references for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceReferenceDtoCollectionQueryParameters = Initialize-InvoiceReferenceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceReferenceDtoCollectionQueryParameters |  (optional)
 
 # Get invoice references.
 try {
-    $Result = Get-InvoiceReferences -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoiceReferences -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceReferenceDtoCollectionQueryParameters $InvoiceReferenceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceReferences: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1621,6 +1653,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **InvoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1632,7 +1665,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1642,6 +1675,7 @@ No authorization required
 > Int32Envelope Get-InvoiceReferencesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceReferenceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of invoice references.
 
@@ -1651,10 +1685,11 @@ Retrieves the total count of references for the specified invoice.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceReferenceDtoCollectionQueryParameters = Initialize-InvoiceReferenceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceReferenceDtoCollectionQueryParameters |  (optional)
 
 # Get the count of invoice references.
 try {
-    $Result = Get-InvoiceReferencesCount -TenantId $TenantId -InvoiceId $InvoiceId
+    $Result = Get-InvoiceReferencesCount -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceReferenceDtoCollectionQueryParameters $InvoiceReferenceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoiceReferencesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1667,6 +1702,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
+ **InvoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1678,7 +1714,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1687,6 +1723,7 @@ No authorization required
 # **Get-Invoices**
 > InvoiceDtoListEnvelope Get-Invoices<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get a list of invoices.
 
@@ -1695,10 +1732,11 @@ Retrieves a list of invoices for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get a list of invoices.
 try {
-    $Result = Get-Invoices -TenantId $TenantId
+    $Result = Get-Invoices -TenantId $TenantId -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-Invoices: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1710,6 +1748,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1721,7 +1760,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1730,6 +1769,7 @@ No authorization required
 # **Get-InvoicesCount**
 > Int32Envelope Get-InvoicesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of invoices.
 
@@ -1738,10 +1778,11 @@ Retrieves the total count of invoices for the specified tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Get the count of invoices.
 try {
-    $Result = Get-InvoicesCount -TenantId $TenantId
+    $Result = Get-InvoicesCount -TenantId $TenantId -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-InvoicesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1753,6 +1794,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1764,7 +1806,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1773,6 +1815,7 @@ No authorization required
 # **Get-PurchaseInvoicesSum**
 > MoneyEnvelope Get-PurchaseInvoicesSum<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Sum tenant purchase-invoice totals.
 
@@ -1781,10 +1824,11 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseI
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Sum tenant purchase-invoice totals.
 try {
-    $Result = Get-PurchaseInvoicesSum -TenantId $TenantId
+    $Result = Get-PurchaseInvoicesSum -TenantId $TenantId -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-PurchaseInvoicesSum: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1796,6 +1840,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1807,7 +1852,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1816,6 +1861,7 @@ No authorization required
 # **Get-SalesInvoicesSum**
 > MoneyEnvelope Get-SalesInvoicesSum<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Sum tenant sales-invoice totals.
 
@@ -1824,10 +1870,11 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvo
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$InvoiceDtoCollectionQueryParameters = Initialize-InvoiceDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # InvoiceDtoCollectionQueryParameters |  (optional)
 
 # Sum tenant sales-invoice totals.
 try {
-    $Result = Get-SalesInvoicesSum -TenantId $TenantId
+    $Result = Get-SalesInvoicesSum -TenantId $TenantId -InvoiceDtoCollectionQueryParameters $InvoiceDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SalesInvoicesSum: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1839,6 +1886,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **InvoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1850,7 +1898,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1860,7 +1908,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchInvoice<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an invoice.
 
@@ -1870,11 +1918,11 @@ Partially updates the specified invoice for the tenant.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an invoice.
 try {
-    $Result = Invoke-PatchInvoice -TenantId $TenantId -InvoiceId $InvoiceId -Operation $Operation
+    $Result = Invoke-PatchInvoice -TenantId $TenantId -InvoiceId $InvoiceId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchInvoice: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1887,7 +1935,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1910,7 +1958,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceAdjustmentId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an invoice adjustment.
 
@@ -1921,11 +1969,11 @@ Partially updates the specified adjustment for the invoice.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceAdjustmentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an invoice adjustment.
 try {
-    $Result = Invoke-PatchInvoiceAdjustment -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceAdjustmentId $InvoiceAdjustmentId -Operation $Operation
+    $Result = Invoke-PatchInvoiceAdjustment -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceAdjustmentId $InvoiceAdjustmentId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchInvoiceAdjustment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1939,7 +1987,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **InvoiceAdjustmentId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -1962,7 +2010,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an invoice line.
 
@@ -1973,11 +2021,11 @@ Partially updates the specified invoice line.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an invoice line.
 try {
-    $Result = Invoke-PatchInvoiceLine -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -Operation $Operation
+    $Result = Invoke-PatchInvoiceLine -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchInvoiceLine: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1991,7 +2039,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **InvoiceLineId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -2015,7 +2063,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceLineTaxId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a tax for an invoice line.
 
@@ -2027,11 +2075,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceLineTaxId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a tax for an invoice line.
 try {
-    $Result = Invoke-PatchInvoiceLineTax -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -InvoiceLineTaxId $InvoiceLineTaxId -Operation $Operation
+    $Result = Invoke-PatchInvoiceLineTax -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceLineId $InvoiceLineId -InvoiceLineTaxId $InvoiceLineTaxId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchInvoiceLineTax: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2046,7 +2094,7 @@ Name | Type | Description  | Notes
  **InvoiceId** | **String**|  | 
  **InvoiceLineId** | **String**|  | 
  **InvoiceLineTaxId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -2069,7 +2117,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InvoiceReferenceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch an invoice reference.
 
@@ -2080,11 +2128,11 @@ Partially updates the specified reference for the invoice.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $InvoiceReferenceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch an invoice reference.
 try {
-    $Result = Invoke-PatchInvoiceReference -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceReferenceId $InvoiceReferenceId -Operation $Operation
+    $Result = Invoke-PatchInvoiceReference -TenantId $TenantId -InvoiceId $InvoiceId -InvoiceReferenceId $InvoiceReferenceId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchInvoiceReference: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2098,7 +2146,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **InvoiceId** | **String**|  | 
  **InvoiceReferenceId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

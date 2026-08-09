@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -101,6 +100,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ExtendedOrderDto](docs/ExtendedOrderDto.md)
+ - [PSOpenAPITools\Model.ExtendedOrderDtoCollectionQueryParameters](docs/ExtendedOrderDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ExtendedOrderDtoListEnvelope](docs/ExtendedOrderDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -108,17 +108,19 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
  - [PSOpenAPITools\Model.OrderCreateDto](docs/OrderCreateDto.md)
  - [PSOpenAPITools\Model.OrderDto](docs/OrderDto.md)
+ - [PSOpenAPITools\Model.OrderDtoCollectionQueryParameters](docs/OrderDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.OrderDtoEnvelope](docs/OrderDtoEnvelope.md)
  - [PSOpenAPITools\Model.OrderDtoListEnvelope](docs/OrderDtoListEnvelope.md)
  - [PSOpenAPITools\Model.OrderLineCreateDto](docs/OrderLineCreateDto.md)
  - [PSOpenAPITools\Model.OrderLineDto](docs/OrderLineDto.md)
+ - [PSOpenAPITools\Model.OrderLineDtoCollectionQueryParameters](docs/OrderLineDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.OrderLineDtoEnvelope](docs/OrderLineDtoEnvelope.md)
  - [PSOpenAPITools\Model.OrderLineDtoListEnvelope](docs/OrderLineDtoListEnvelope.md)
  - [PSOpenAPITools\Model.OrderLineUpdateDto](docs/OrderLineUpdateDto.md)
  - [PSOpenAPITools\Model.OrderUpdateDto](docs/OrderUpdateDto.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

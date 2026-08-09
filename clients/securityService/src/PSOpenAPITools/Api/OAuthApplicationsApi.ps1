@@ -934,7 +934,7 @@ No description available.
 .PARAMETER ApplicationId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ApiVersion
@@ -966,7 +966,7 @@ function Invoke-PatchOAuthApplicationAsync {
         ${ApplicationId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ApiVersion},
@@ -1024,11 +1024,11 @@ function Invoke-PatchOAuthApplicationAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        if (!$Operation) {
-            throw "Error! The required parameter `Operation` missing when calling patchOAuthApplicationAsync."
+        if (!$PatchOperation) {
+            throw "Error! The required parameter `PatchOperation` missing when calling patchOAuthApplicationAsync."
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

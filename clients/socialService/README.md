@@ -108,14 +108,19 @@ Class | Method | HTTP request | Description
 *SocialGroupsApi* | [**Get-SocialGroupsAsync**](docs/SocialGroupsApi.md#Get-SocialGroupsAsync) | **GET** /api/v2/SocialService/SocialGroups | Get social groups
 *SocialGroupsApi* | [**Invoke-PatchSocialGroupAsync**](docs/SocialGroupsApi.md#Invoke-PatchSocialGroupAsync) | **PATCH** /api/v2/SocialService/SocialGroups/{socialGroupId} | Patch a social group
 *SocialGroupsApi* | [**Update-SocialGroupAsync**](docs/SocialGroupsApi.md#Update-SocialGroupAsync) | **PUT** /api/v2/SocialService/SocialGroups/{socialGroupId} | Update a social group
+*SocialPostsApi* | [**New-SocialCommentReactionAsync**](docs/SocialPostsApi.md#New-SocialCommentReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction
 *SocialPostsApi* | [**New-SocialPostAsync**](docs/SocialPostsApi.md#New-SocialPostAsync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post
 *SocialPostsApi* | [**New-SocialPostAttachmentAsync**](docs/SocialPostsApi.md#New-SocialPostAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment
 *SocialPostsApi* | [**New-SocialPostCommentAsync**](docs/SocialPostsApi.md#New-SocialPostCommentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment
 *SocialPostsApi* | [**New-SocialPostReactionAsync**](docs/SocialPostsApi.md#New-SocialPostReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction
+*SocialPostsApi* | [**Invoke-DeleteSocialCommentReactionAsync**](docs/SocialPostsApi.md#Invoke-DeleteSocialCommentReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction
 *SocialPostsApi* | [**Invoke-DeleteSocialPostAsync**](docs/SocialPostsApi.md#Invoke-DeleteSocialPostAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post
 *SocialPostsApi* | [**Invoke-DeleteSocialPostAttachmentAsync**](docs/SocialPostsApi.md#Invoke-DeleteSocialPostAttachmentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment
 *SocialPostsApi* | [**Invoke-DeleteSocialPostCommentAsync**](docs/SocialPostsApi.md#Invoke-DeleteSocialPostCommentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment
 *SocialPostsApi* | [**Invoke-DeleteSocialPostReactionAsync**](docs/SocialPostsApi.md#Invoke-DeleteSocialPostReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction
+*SocialPostsApi* | [**Get-SocialCommentReactionAsync**](docs/SocialPostsApi.md#Get-SocialCommentReactionAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID
+*SocialPostsApi* | [**Get-SocialCommentReactionsAsync**](docs/SocialPostsApi.md#Get-SocialCommentReactionsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions
+*SocialPostsApi* | [**Get-SocialCommentReactionsCountAsync**](docs/SocialPostsApi.md#Get-SocialCommentReactionsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions
 *SocialPostsApi* | [**Get-SocialPostAsync**](docs/SocialPostsApi.md#Get-SocialPostAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID
 *SocialPostsApi* | [**Get-SocialPostAttachmentAsync**](docs/SocialPostsApi.md#Get-SocialPostAttachmentAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID
 *SocialPostsApi* | [**Get-SocialPostAttachmentsAsync**](docs/SocialPostsApi.md#Get-SocialPostAttachmentsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments
@@ -129,10 +134,12 @@ Class | Method | HTTP request | Description
 *SocialPostsApi* | [**Get-SocialPostsAsync**](docs/SocialPostsApi.md#Get-SocialPostsAsync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts
 *SocialPostsApi* | [**Get-SocialPostsCountAsync**](docs/SocialPostsApi.md#Get-SocialPostsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts
 *SocialPostsApi* | [**Invoke-PatchSocialPostAsync**](docs/SocialPostsApi.md#Invoke-PatchSocialPostAsync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post
+*SocialPostsApi* | [**Update-SocialCommentReactionAsync**](docs/SocialPostsApi.md#Update-SocialCommentReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction
 *SocialPostsApi* | [**Update-SocialPostAsync**](docs/SocialPostsApi.md#Update-SocialPostAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post
 *SocialPostsApi* | [**Update-SocialPostAttachmentAsync**](docs/SocialPostsApi.md#Update-SocialPostAttachmentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment
 *SocialPostsApi* | [**Update-SocialPostCommentAsync**](docs/SocialPostsApi.md#Update-SocialPostCommentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment
 *SocialPostsApi* | [**Update-SocialPostReactionAsync**](docs/SocialPostsApi.md#Update-SocialPostReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction
+*SocialPostsApi* | [**Invoke-UploadSocialPostImageAttachmentAsync**](docs/SocialPostsApi.md#Invoke-UploadSocialPostImageAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment
 *SocialProfilesApi* | [**Invoke-CountConversationsAsync**](docs/SocialProfilesApi.md#Invoke-CountConversationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Count | Count Conversations
 *SocialProfilesApi* | [**Invoke-CountFollowedProfilesAsync**](docs/SocialProfilesApi.md#Invoke-CountFollowedProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles/Count | Count Followed Profiles
 *SocialProfilesApi* | [**Invoke-CountFollowerProfilesAsync**](docs/SocialProfilesApi.md#Invoke-CountFollowerProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles/Count | Count Follower Profiles
@@ -154,6 +161,7 @@ Class | Method | HTTP request | Description
 *SocialProfilesApi* | [**Get-MessagesAsync**](docs/SocialProfilesApi.md#Get-MessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
 *SocialProfilesApi* | [**Get-NotificationByIdAsync**](docs/SocialProfilesApi.md#Get-NotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 *SocialProfilesApi* | [**Get-NotificationsAsync**](docs/SocialProfilesApi.md#Get-NotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
+*SocialProfilesApi* | [**Get-OrCreateDirectConversationAsync**](docs/SocialProfilesApi.md#Get-OrCreateDirectConversationAsync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation
 *SocialProfilesApi* | [**Get-SocialProfileAsync**](docs/SocialProfilesApi.md#Get-SocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 *SocialProfilesApi* | [**Get-SocialProfilesAsync**](docs/SocialProfilesApi.md#Get-SocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles
 *SocialProfilesApi* | [**Invoke-UnfollowAsync**](docs/SocialProfilesApi.md#Invoke-UnfollowAsync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow
@@ -166,13 +174,17 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.BooleanEnvelope](docs/BooleanEnvelope.md)
  - [PSOpenAPITools\Model.ConversationCreateDto](docs/ConversationCreateDto.md)
  - [PSOpenAPITools\Model.ConversationDto](docs/ConversationDto.md)
+ - [PSOpenAPITools\Model.ConversationDtoCollectionQueryParameters](docs/ConversationDtoCollectionQueryParameters.md)
+ - [PSOpenAPITools\Model.ConversationDtoEnvelope](docs/ConversationDtoEnvelope.md)
  - [PSOpenAPITools\Model.ConversationDtoListEnvelope](docs/ConversationDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CurriculumCreateDto](docs/CurriculumCreateDto.md)
  - [PSOpenAPITools\Model.CurriculumDto](docs/CurriculumDto.md)
+ - [PSOpenAPITools\Model.CurriculumDtoCollectionQueryParameters](docs/CurriculumDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CurriculumDtoEnvelope](docs/CurriculumDtoEnvelope.md)
  - [PSOpenAPITools\Model.CurriculumDtoListEnvelope](docs/CurriculumDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CurriculumExperienceCreateDto](docs/CurriculumExperienceCreateDto.md)
  - [PSOpenAPITools\Model.CurriculumExperienceDto](docs/CurriculumExperienceDto.md)
+ - [PSOpenAPITools\Model.CurriculumExperienceDtoCollectionQueryParameters](docs/CurriculumExperienceDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.CurriculumExperienceDtoEnvelope](docs/CurriculumExperienceDtoEnvelope.md)
  - [PSOpenAPITools\Model.CurriculumExperienceDtoListEnvelope](docs/CurriculumExperienceDtoListEnvelope.md)
  - [PSOpenAPITools\Model.CurriculumExperienceUpdateDto](docs/CurriculumExperienceUpdateDto.md)
@@ -180,6 +192,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.FollowRecordDto](docs/FollowRecordDto.md)
+ - [PSOpenAPITools\Model.FollowRecordDtoCollectionQueryParameters](docs/FollowRecordDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.FollowRecordDtoListEnvelope](docs/FollowRecordDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -188,11 +201,13 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.NotificationDto](docs/NotificationDto.md)
+ - [PSOpenAPITools\Model.NotificationDtoCollectionQueryParameters](docs/NotificationDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.NotificationDtoEnvelope](docs/NotificationDtoEnvelope.md)
  - [PSOpenAPITools\Model.NotificationDtoListEnvelope](docs/NotificationDtoListEnvelope.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.PrivateMessageCreateDto](docs/PrivateMessageCreateDto.md)
  - [PSOpenAPITools\Model.PrivateMessageDto](docs/PrivateMessageDto.md)
+ - [PSOpenAPITools\Model.PrivateMessageDtoCollectionQueryParameters](docs/PrivateMessageDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.PrivateMessageDtoListEnvelope](docs/PrivateMessageDtoListEnvelope.md)
  - [PSOpenAPITools\Model.PrivateMessageUpdateDto](docs/PrivateMessageUpdateDto.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
@@ -201,38 +216,55 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.SkillCreateDto](docs/SkillCreateDto.md)
  - [PSOpenAPITools\Model.SkillDto](docs/SkillDto.md)
+ - [PSOpenAPITools\Model.SkillDtoCollectionQueryParameters](docs/SkillDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SkillDtoEnvelope](docs/SkillDtoEnvelope.md)
  - [PSOpenAPITools\Model.SkillDtoListEnvelope](docs/SkillDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SkillUpdateDto](docs/SkillUpdateDto.md)
+ - [PSOpenAPITools\Model.SocialCommentReactionDto](docs/SocialCommentReactionDto.md)
+ - [PSOpenAPITools\Model.SocialCommentReactionDtoCollectionQueryParameters](docs/SocialCommentReactionDtoCollectionQueryParameters.md)
+ - [PSOpenAPITools\Model.SocialCommentReactionDtoEnvelope](docs/SocialCommentReactionDtoEnvelope.md)
+ - [PSOpenAPITools\Model.SocialCommentReactionDtoListEnvelope](docs/SocialCommentReactionDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialFeedDto](docs/SocialFeedDto.md)
+ - [PSOpenAPITools\Model.SocialFeedDtoCollectionQueryParameters](docs/SocialFeedDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialFeedDtoEnvelope](docs/SocialFeedDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialFeedDtoListEnvelope](docs/SocialFeedDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialFeedPostCreateDto](docs/SocialFeedPostCreateDto.md)
  - [PSOpenAPITools\Model.SocialFeedPostDto](docs/SocialFeedPostDto.md)
+ - [PSOpenAPITools\Model.SocialFeedPostDtoCollectionQueryParameters](docs/SocialFeedPostDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialFeedPostDtoEnvelope](docs/SocialFeedPostDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialFeedPostDtoListEnvelope](docs/SocialFeedPostDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialFeedPostUpdateDto](docs/SocialFeedPostUpdateDto.md)
  - [PSOpenAPITools\Model.SocialGroupCreateDto](docs/SocialGroupCreateDto.md)
  - [PSOpenAPITools\Model.SocialGroupDto](docs/SocialGroupDto.md)
+ - [PSOpenAPITools\Model.SocialGroupDtoCollectionQueryParameters](docs/SocialGroupDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialGroupDtoEnvelope](docs/SocialGroupDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialGroupDtoListEnvelope](docs/SocialGroupDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialGroupUpdateDto](docs/SocialGroupUpdateDto.md)
  - [PSOpenAPITools\Model.SocialPostAttachmentCreateDto](docs/SocialPostAttachmentCreateDto.md)
  - [PSOpenAPITools\Model.SocialPostAttachmentDto](docs/SocialPostAttachmentDto.md)
+ - [PSOpenAPITools\Model.SocialPostAttachmentDtoCollectionQueryParameters](docs/SocialPostAttachmentDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialPostAttachmentDtoEnvelope](docs/SocialPostAttachmentDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialPostAttachmentDtoListEnvelope](docs/SocialPostAttachmentDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.SocialPostAttachmentRefDto](docs/SocialPostAttachmentRefDto.md)
  - [PSOpenAPITools\Model.SocialPostAttachmentUpdateDto](docs/SocialPostAttachmentUpdateDto.md)
  - [PSOpenAPITools\Model.SocialPostCommentCreateDto](docs/SocialPostCommentCreateDto.md)
  - [PSOpenAPITools\Model.SocialPostCommentDto](docs/SocialPostCommentDto.md)
+ - [PSOpenAPITools\Model.SocialPostCommentDtoCollectionQueryParameters](docs/SocialPostCommentDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialPostCommentDtoEnvelope](docs/SocialPostCommentDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialPostCommentDtoListEnvelope](docs/SocialPostCommentDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialPostCommentUpdateDto](docs/SocialPostCommentUpdateDto.md)
  - [PSOpenAPITools\Model.SocialPostCreateDto](docs/SocialPostCreateDto.md)
  - [PSOpenAPITools\Model.SocialPostDto](docs/SocialPostDto.md)
+ - [PSOpenAPITools\Model.SocialPostDtoCollectionQueryParameters](docs/SocialPostDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialPostDtoEnvelope](docs/SocialPostDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialPostDtoListEnvelope](docs/SocialPostDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.SocialPostReactionDto](docs/SocialPostReactionDto.md)
+ - [PSOpenAPITools\Model.SocialPostReactionDtoCollectionQueryParameters](docs/SocialPostReactionDtoCollectionQueryParameters.md)
+ - [PSOpenAPITools\Model.SocialPostReactionDtoEnvelope](docs/SocialPostReactionDtoEnvelope.md)
+ - [PSOpenAPITools\Model.SocialPostReactionFacepileDto](docs/SocialPostReactionFacepileDto.md)
  - [PSOpenAPITools\Model.SocialPostUpdateDto](docs/SocialPostUpdateDto.md)
  - [PSOpenAPITools\Model.SocialProfileDto](docs/SocialProfileDto.md)
+ - [PSOpenAPITools\Model.SocialProfileDtoCollectionQueryParameters](docs/SocialProfileDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SocialProfileDtoEnvelope](docs/SocialProfileDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialProfileDtoListEnvelope](docs/SocialProfileDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialReactionCreateDto](docs/SocialReactionCreateDto.md)
@@ -240,8 +272,10 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.SocialReactionDtoEnvelope](docs/SocialReactionDtoEnvelope.md)
  - [PSOpenAPITools\Model.SocialReactionDtoListEnvelope](docs/SocialReactionDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SocialReactionUpdateDto](docs/SocialReactionUpdateDto.md)
+ - [PSOpenAPITools\Model.StringEnvelope](docs/StringEnvelope.md)
  - [PSOpenAPITools\Model.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [PSOpenAPITools\Model.TwoFactorResponse](docs/TwoFactorResponse.md)
+ - [PSOpenAPITools\Model.UploadSocialPostImageAttachmentAsyncRequest](docs/UploadSocialPostImageAttachmentAsyncRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

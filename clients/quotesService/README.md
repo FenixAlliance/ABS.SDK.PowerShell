@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -106,6 +105,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [PSOpenAPITools\Model.ExtendedQuoteDto](docs/ExtendedQuoteDto.md)
+ - [PSOpenAPITools\Model.ExtendedQuoteDtoCollectionQueryParameters](docs/ExtendedQuoteDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.ExtendedQuoteDtoListEnvelope](docs/ExtendedQuoteDtoListEnvelope.md)
  - [PSOpenAPITools\Model.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [PSOpenAPITools\Model.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -113,13 +113,15 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.QuoteCreateDto](docs/QuoteCreateDto.md)
  - [PSOpenAPITools\Model.QuoteDto](docs/QuoteDto.md)
+ - [PSOpenAPITools\Model.QuoteDtoCollectionQueryParameters](docs/QuoteDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.QuoteDtoEnvelope](docs/QuoteDtoEnvelope.md)
  - [PSOpenAPITools\Model.QuoteDtoListEnvelope](docs/QuoteDtoListEnvelope.md)
  - [PSOpenAPITools\Model.QuoteLineCreateDto](docs/QuoteLineCreateDto.md)
  - [PSOpenAPITools\Model.QuoteLineDto](docs/QuoteLineDto.md)
+ - [PSOpenAPITools\Model.QuoteLineDtoCollectionQueryParameters](docs/QuoteLineDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.QuoteLineDtoEnvelope](docs/QuoteLineDtoEnvelope.md)
  - [PSOpenAPITools\Model.QuoteLineDtoListEnvelope](docs/QuoteLineDtoListEnvelope.md)
  - [PSOpenAPITools\Model.QuoteLineUpdateDto](docs/QuoteLineUpdateDto.md)

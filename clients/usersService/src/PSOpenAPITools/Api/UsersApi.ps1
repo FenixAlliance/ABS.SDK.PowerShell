@@ -21,6 +21,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -42,6 +45,9 @@ function Invoke-CountCurrentUserFollowersAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -71,6 +77,9 @@ function Invoke-CountCurrentUserFollowersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Followers/Count'
 
         if ($XApiVersion) {
@@ -80,6 +89,8 @@ function Invoke-CountCurrentUserFollowersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -116,6 +127,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -137,6 +151,9 @@ function Invoke-CountCurrentUserFollowsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -166,6 +183,9 @@ function Invoke-CountCurrentUserFollowsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Follows/Count'
 
         if ($XApiVersion) {
@@ -175,6 +195,8 @@ function Invoke-CountCurrentUserFollowsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -211,6 +233,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER NotificationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -232,6 +257,9 @@ function Invoke-CountCurrentUserNotificationsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${NotificationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -261,6 +289,9 @@ function Invoke-CountCurrentUserNotificationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Notifications/Count'
 
         if ($XApiVersion) {
@@ -270,6 +301,8 @@ function Invoke-CountCurrentUserNotificationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $NotificationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -306,6 +339,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TenantDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -327,6 +363,9 @@ function Invoke-CountCurrentUserTenantsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -356,6 +395,9 @@ function Invoke-CountCurrentUserTenantsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Tenants/Count'
 
         if ($XApiVersion) {
@@ -365,6 +407,8 @@ function Invoke-CountCurrentUserTenantsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -401,6 +445,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER AddressDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -422,6 +469,9 @@ function Get-CurrentUserAddressesAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AddressDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -451,6 +501,9 @@ function Get-CurrentUserAddressesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Addresses'
 
         if ($XApiVersion) {
@@ -460,6 +513,8 @@ function Get-CurrentUserAddressesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $AddressDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -971,6 +1026,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -992,6 +1050,9 @@ function Get-CurrentUserFollowersAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -1021,6 +1082,9 @@ function Get-CurrentUserFollowersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Followers'
 
         if ($XApiVersion) {
@@ -1030,6 +1094,8 @@ function Get-CurrentUserFollowersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1066,6 +1132,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -1087,6 +1156,9 @@ function Get-CurrentUserFollowsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -1116,6 +1188,9 @@ function Get-CurrentUserFollowsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Follows'
 
         if ($XApiVersion) {
@@ -1125,6 +1200,8 @@ function Get-CurrentUserFollowsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1256,6 +1333,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER NotificationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -1277,6 +1357,9 @@ function Get-CurrentUserNotificationsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${NotificationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -1306,6 +1389,9 @@ function Get-CurrentUserNotificationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Notifications'
 
         if ($XApiVersion) {
@@ -1315,6 +1401,8 @@ function Get-CurrentUserNotificationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $NotificationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1541,6 +1629,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER TenantDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml, multipart/form-data
@@ -1562,6 +1653,9 @@ function Get-CurrentUserTenantsAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TenantDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -1591,6 +1685,9 @@ function Get-CurrentUserTenantsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml', 'multipart/form-data')
+
         $LocalVarUri = '/api/v2/Me/Tenants'
 
         if ($XApiVersion) {
@@ -1600,6 +1697,8 @@ function Get-CurrentUserTenantsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $TenantDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2026,7 +2125,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -2052,7 +2151,7 @@ function Invoke-PatchCurrentUserAsync {
         ${XApiVersion},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml", "multipart/form-data")]
         $ReturnType,
@@ -2095,7 +2194,7 @@ function Invoke-PatchCurrentUserAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

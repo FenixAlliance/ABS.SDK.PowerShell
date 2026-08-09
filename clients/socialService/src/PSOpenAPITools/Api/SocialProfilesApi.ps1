@@ -24,6 +24,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ConversationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -48,6 +51,9 @@ function Invoke-CountConversationsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ConversationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -77,6 +83,9 @@ function Invoke-CountConversationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countConversationsAsync."
@@ -90,6 +99,8 @@ function Invoke-CountConversationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ConversationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -129,6 +140,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -153,6 +167,9 @@ function Invoke-CountFollowedProfilesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -182,6 +199,9 @@ function Invoke-CountFollowedProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countFollowedProfilesAsync."
@@ -195,6 +215,8 @@ function Invoke-CountFollowedProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -234,6 +256,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -258,6 +283,9 @@ function Invoke-CountFollowerProfilesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -287,6 +315,9 @@ function Invoke-CountFollowerProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countFollowerProfilesAsync."
@@ -300,6 +331,8 @@ function Invoke-CountFollowerProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -339,6 +372,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -363,6 +399,9 @@ function Invoke-CountFollowersAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -392,6 +431,9 @@ function Invoke-CountFollowersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countFollowersAsync."
@@ -405,6 +447,8 @@ function Invoke-CountFollowersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -444,6 +488,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -468,6 +515,9 @@ function Invoke-CountFollowsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -497,6 +547,9 @@ function Invoke-CountFollowsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countFollowsAsync."
@@ -510,6 +563,8 @@ function Invoke-CountFollowsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -552,6 +607,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PrivateMessageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -579,6 +637,9 @@ function Invoke-CountMessagesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PrivateMessageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -608,6 +669,9 @@ function Invoke-CountMessagesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{conversationId}/Messages/Count'
         if (!$ConversationId) {
             throw "Error! The required parameter `ConversationId` missing when calling countMessagesAsync."
@@ -626,6 +690,8 @@ function Invoke-CountMessagesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PrivateMessageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -665,6 +731,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER NotificationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -689,6 +758,9 @@ function Invoke-CountNotificationsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${NotificationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -718,6 +790,9 @@ function Invoke-CountNotificationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/Count'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling countNotificationsAsync."
@@ -731,6 +806,8 @@ function Invoke-CountNotificationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $NotificationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -767,6 +844,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -788,6 +868,9 @@ function Invoke-CountSocialProfilesAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -817,6 +900,9 @@ function Invoke-CountSocialProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/Count'
 
         if ($XApiVersion) {
@@ -826,6 +912,8 @@ function Invoke-CountSocialProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1464,6 +1552,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER ConversationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1488,6 +1579,9 @@ function Get-ConversationsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ConversationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1517,6 +1611,9 @@ function Get-ConversationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getConversationsAsync."
@@ -1530,6 +1627,8 @@ function Get-ConversationsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $ConversationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1569,6 +1668,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1593,6 +1695,9 @@ function Get-FollowedProfilesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1622,6 +1727,9 @@ function Get-FollowedProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getFollowedProfilesAsync."
@@ -1635,6 +1743,8 @@ function Get-FollowedProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1674,6 +1784,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1698,6 +1811,9 @@ function Get-FollowerProfilesAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1727,6 +1843,9 @@ function Get-FollowerProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getFollowerProfilesAsync."
@@ -1740,6 +1859,8 @@ function Get-FollowerProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1779,6 +1900,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1803,6 +1927,9 @@ function Get-FollowersAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1832,6 +1959,9 @@ function Get-FollowersAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getFollowersAsync."
@@ -1845,6 +1975,8 @@ function Get-FollowersAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1884,6 +2016,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER FollowRecordDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1908,6 +2043,9 @@ function Get-FollowsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${FollowRecordDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1937,6 +2075,9 @@ function Get-FollowsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getFollowsAsync."
@@ -1950,6 +2091,8 @@ function Get-FollowsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $FollowRecordDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1992,6 +2135,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER PrivateMessageDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2019,6 +2165,9 @@ function Get-MessagesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${PrivateMessageDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2048,6 +2197,9 @@ function Get-MessagesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{conversationId}/Messages'
         if (!$ConversationId) {
             throw "Error! The required parameter `ConversationId` missing when calling getMessagesAsync."
@@ -2066,6 +2218,8 @@ function Get-MessagesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $PrivateMessageDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -2220,6 +2374,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER NotificationDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2244,6 +2401,9 @@ function Get-NotificationsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${NotificationDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2273,6 +2433,9 @@ function Get-NotificationsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications'
         if (!$SocialProfileId) {
             throw "Error! The required parameter `SocialProfileId` missing when calling getNotificationsAsync."
@@ -2287,6 +2450,8 @@ function Get-NotificationsAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
+        $LocalVarBodyParameter = $NotificationDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2297,6 +2462,122 @@ function Get-NotificationsAsync {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "NotificationDtoListEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get or Create Direct Conversation
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SocialProfileId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER Body
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ConversationDtoEnvelope
+#>
+function Get-OrCreateDirectConversationAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SocialProfileId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Body},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-OrCreateDirectConversationAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct'
+        if (!$SocialProfileId) {
+            throw "Error! The required parameter `SocialProfileId` missing when calling getOrCreateDirectConversationAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{socialProfileId}', [System.Web.HTTPUtility]::UrlEncode($SocialProfileId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $Body | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ConversationDtoEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2427,6 +2708,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER SocialProfileDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -2448,6 +2732,9 @@ function Get-SocialProfilesAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SocialProfileDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -2477,6 +2764,9 @@ function Get-SocialProfilesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/SocialProfiles'
 
         if ($XApiVersion) {
@@ -2486,6 +2776,8 @@ function Get-SocialProfilesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $SocialProfileDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

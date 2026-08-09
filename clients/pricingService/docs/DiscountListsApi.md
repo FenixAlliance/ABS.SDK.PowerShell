@@ -261,6 +261,7 @@ No authorization required
 > DiscountDtoListEnvelope Get-DiscountListEntries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves discounts in a discount list
 
@@ -270,10 +271,11 @@ Gets all discount entries for a specific discount list with OData support.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountDtoCollectionQueryParameters = Initialize-DiscountDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DiscountDtoCollectionQueryParameters |  (optional)
 
 # Retrieves discounts in a discount list
 try {
-    $Result = Get-DiscountListEntries -TenantId $TenantId -DiscountListId $DiscountListId
+    $Result = Get-DiscountListEntries -TenantId $TenantId -DiscountListId $DiscountListId -DiscountDtoCollectionQueryParameters $DiscountDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DiscountListEntries: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -286,6 +288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DiscountListId** | **String**|  | 
+ **DiscountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -297,7 +300,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -307,6 +310,7 @@ No authorization required
 > Int32Envelope Get-DiscountListEntriesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts discounts in a discount list
 
@@ -316,10 +320,11 @@ Gets the count of discount entries for a specific discount list.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountDtoCollectionQueryParameters = Initialize-DiscountDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DiscountDtoCollectionQueryParameters |  (optional)
 
 # Counts discounts in a discount list
 try {
-    $Result = Get-DiscountListEntriesCount -TenantId $TenantId -DiscountListId $DiscountListId
+    $Result = Get-DiscountListEntriesCount -TenantId $TenantId -DiscountListId $DiscountListId -DiscountDtoCollectionQueryParameters $DiscountDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DiscountListEntriesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -332,6 +337,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DiscountListId** | **String**|  | 
+ **DiscountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -343,7 +349,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,6 +407,7 @@ No authorization required
 # **Get-DiscountLists**
 > DiscountListDtoListEnvelope Get-DiscountLists<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves all discount lists
 
@@ -409,10 +416,11 @@ Gets all discount lists for the current tenant with OData support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountListDtoCollectionQueryParameters = Initialize-DiscountListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DiscountListDtoCollectionQueryParameters |  (optional)
 
 # Retrieves all discount lists
 try {
-    $Result = Get-DiscountLists -TenantId $TenantId
+    $Result = Get-DiscountLists -TenantId $TenantId -DiscountListDtoCollectionQueryParameters $DiscountListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DiscountLists: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -424,6 +432,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **DiscountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -435,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -444,6 +453,7 @@ No authorization required
 # **Get-DiscountListsCount**
 > Int32Envelope Get-DiscountListsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts discount lists
 
@@ -452,10 +462,11 @@ Gets the count of discount lists for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$DiscountListDtoCollectionQueryParameters = Initialize-DiscountListDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # DiscountListDtoCollectionQueryParameters |  (optional)
 
 # Counts discount lists
 try {
-    $Result = Get-DiscountListsCount -TenantId $TenantId
+    $Result = Get-DiscountListsCount -TenantId $TenantId -DiscountListDtoCollectionQueryParameters $DiscountListDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-DiscountListsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -467,6 +478,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **DiscountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -478,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -488,7 +500,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchDiscountList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a discount list
 
@@ -498,11 +510,11 @@ Partially updates the specified discount list using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a discount list
 try {
-    $Result = Invoke-PatchDiscountList -TenantId $TenantId -DiscountListId $DiscountListId -Operation $Operation
+    $Result = Invoke-PatchDiscountList -TenantId $TenantId -DiscountListId $DiscountListId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchDiscountList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -515,7 +527,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **DiscountListId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -538,7 +550,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DiscountListEntryId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a discount list entry
 
@@ -549,11 +561,11 @@ Partially updates the specified discount entry using a JSON Patch document.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $DiscountListEntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a discount list entry
 try {
-    $Result = Invoke-PatchDiscountListEntry -TenantId $TenantId -DiscountListId $DiscountListId -DiscountListEntryId $DiscountListEntryId -Operation $Operation
+    $Result = Invoke-PatchDiscountListEntry -TenantId $TenantId -DiscountListId $DiscountListId -DiscountListEntryId $DiscountListEntryId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchDiscountListEntry: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -567,7 +579,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **DiscountListId** | **String**|  | 
  **DiscountListEntryId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

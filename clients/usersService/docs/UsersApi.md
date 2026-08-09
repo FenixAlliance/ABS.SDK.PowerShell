@@ -36,6 +36,7 @@ Method | HTTP request | Description
 > Int32Envelope Invoke-CountCurrentUserFollowersAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count the social profiles that follow the current user
 
@@ -45,10 +46,11 @@ Count the social profiles that follow the current user
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Count the social profiles that follow the current user
 try {
-    $Result = Invoke-CountCurrentUserFollowersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCurrentUserFollowersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCurrentUserFollowersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -61,6 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -72,7 +75,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -82,6 +85,7 @@ No authorization required
 > Int32Envelope Invoke-CountCurrentUserFollowsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count the social profiles that the current user follows
 
@@ -91,10 +95,11 @@ Count the social profiles that the current user follows
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Count the social profiles that the current user follows
 try {
-    $Result = Invoke-CountCurrentUserFollowsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCurrentUserFollowsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCurrentUserFollowsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -107,6 +112,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -118,7 +124,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -128,6 +134,7 @@ No authorization required
 > Int32Envelope Invoke-CountCurrentUserNotificationsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NotificationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count the notifications for the current user
 
@@ -137,10 +144,11 @@ Count the notifications for the current user
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$NotificationDtoCollectionQueryParameters = Initialize-NotificationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # NotificationDtoCollectionQueryParameters |  (optional)
 
 # Count the notifications for the current user
 try {
-    $Result = Invoke-CountCurrentUserNotificationsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCurrentUserNotificationsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -NotificationDtoCollectionQueryParameters $NotificationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCurrentUserNotificationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -153,6 +161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **NotificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -164,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -174,6 +183,7 @@ No authorization required
 > Int32Envelope Invoke-CountCurrentUserTenantsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count the tenants that the current user is enrolled in
 
@@ -183,10 +193,11 @@ Count the tenants that the current user is enrolled in
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TenantDtoCollectionQueryParameters = Initialize-TenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TenantDtoCollectionQueryParameters |  (optional)
 
 # Count the tenants that the current user is enrolled in
 try {
-    $Result = Invoke-CountCurrentUserTenantsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountCurrentUserTenantsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TenantDtoCollectionQueryParameters $TenantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountCurrentUserTenantsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -199,6 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -210,7 +222,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,6 +232,7 @@ No authorization required
 > AddressDtoListEnvelope Get-CurrentUserAddressesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AddressDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the list of addresses for the current user
 
@@ -229,10 +242,11 @@ Get the list of addresses for the current user
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$AddressDtoCollectionQueryParameters = Initialize-AddressDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AddressDtoCollectionQueryParameters |  (optional)
 
 # Get the list of addresses for the current user
 try {
-    $Result = Get-CurrentUserAddressesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrentUserAddressesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -AddressDtoCollectionQueryParameters $AddressDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurrentUserAddressesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -245,6 +259,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **AddressDtoCollectionQueryParameters** | [**AddressDtoCollectionQueryParameters**](AddressDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -256,7 +271,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -496,6 +511,7 @@ No authorization required
 > FollowRecordDtoListEnvelope Get-CurrentUserFollowersAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the social profiles that follow the current user
 
@@ -505,10 +521,11 @@ Get the social profiles that follow the current user
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Get the social profiles that follow the current user
 try {
-    $Result = Get-CurrentUserFollowersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrentUserFollowersAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurrentUserFollowersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -521,6 +538,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -532,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -542,6 +560,7 @@ No authorization required
 > FollowRecordDtoListEnvelope Get-CurrentUserFollowsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the social profiles that the current user follows
 
@@ -551,10 +570,11 @@ Get the social profiles that the current user follows
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Get the social profiles that the current user follows
 try {
-    $Result = Get-CurrentUserFollowsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrentUserFollowsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurrentUserFollowsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -567,6 +587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -578,7 +599,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -634,6 +655,7 @@ No authorization required
 > NotificationDtoListEnvelope Get-CurrentUserNotificationsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NotificationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the list of notifications for the current user
 
@@ -643,10 +665,11 @@ Get the list of notifications for the current user
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$NotificationDtoCollectionQueryParameters = Initialize-NotificationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # NotificationDtoCollectionQueryParameters |  (optional)
 
 # Get the list of notifications for the current user
 try {
-    $Result = Get-CurrentUserNotificationsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrentUserNotificationsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -NotificationDtoCollectionQueryParameters $NotificationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurrentUserNotificationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -659,6 +682,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **NotificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -670,7 +694,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -772,6 +796,7 @@ No authorization required
 > TenantDtoListEnvelope Get-CurrentUserTenantsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the tenants that the current user is enrolled in
 
@@ -781,10 +806,11 @@ Get the tenants that the current user is enrolled in
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TenantDtoCollectionQueryParameters = Initialize-TenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TenantDtoCollectionQueryParameters |  (optional)
 
 # Get the tenants that the current user is enrolled in
 try {
-    $Result = Get-CurrentUserTenantsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurrentUserTenantsAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TenantDtoCollectionQueryParameters $TenantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurrentUserTenantsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -797,6 +823,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -808,7 +835,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1005,7 +1032,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchCurrentUserAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially update the current user's profile
 
@@ -1015,11 +1042,11 @@ Partially update the current user's profile
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially update the current user's profile
 try {
-    $Result = Invoke-PatchCurrentUserAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchCurrentUserAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchCurrentUserAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1032,7 +1059,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

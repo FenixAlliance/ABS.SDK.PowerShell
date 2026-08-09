@@ -114,6 +114,7 @@ No authorization required
 > BusinessDomainDtoListEnvelope Get-SystemBusinessDomains<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BusinessDomainDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve all business domains in the system
 
@@ -123,10 +124,11 @@ Retrieve all registered business domains across every tenant (global administrat
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BusinessDomainDtoCollectionQueryParameters = Initialize-BusinessDomainDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BusinessDomainDtoCollectionQueryParameters |  (optional)
 
 # Retrieve all business domains in the system
 try {
-    $Result = Get-SystemBusinessDomains -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemBusinessDomains -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BusinessDomainDtoCollectionQueryParameters $BusinessDomainDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemBusinessDomains: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -139,6 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BusinessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -150,7 +153,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -160,6 +163,7 @@ No authorization required
 > Int32Envelope Get-SystemBusinessDomainsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BusinessDomainDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of all business domains in the system
 
@@ -169,10 +173,11 @@ Get the count of all registered business domains across every tenant.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BusinessDomainDtoCollectionQueryParameters = Initialize-BusinessDomainDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BusinessDomainDtoCollectionQueryParameters |  (optional)
 
 # Get the count of all business domains in the system
 try {
-    $Result = Get-SystemBusinessDomainsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemBusinessDomainsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BusinessDomainDtoCollectionQueryParameters $BusinessDomainDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemBusinessDomainsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -185,6 +190,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BusinessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -196,7 +202,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

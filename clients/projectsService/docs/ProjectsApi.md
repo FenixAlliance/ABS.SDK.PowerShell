@@ -413,6 +413,7 @@ No authorization required
 > TaskCategoryDtoListEnvelope Get-ProjectTaskCategoriesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves project task categories
 
@@ -422,10 +423,11 @@ Gets all task categories for a specific project with OData support.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TaskCategoryDtoCollectionQueryParameters = Initialize-TaskCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 # Retrieves project task categories
 try {
-    $Result = Get-ProjectTaskCategoriesAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-ProjectTaskCategoriesAsync -ProjectId $ProjectId -TenantId $TenantId -TaskCategoryDtoCollectionQueryParameters $TaskCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProjectTaskCategoriesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -438,6 +440,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **TaskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -449,7 +452,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -459,6 +462,7 @@ No authorization required
 > Int32Envelope Get-ProjectTaskCategoriesCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts project task categories
 
@@ -468,10 +472,11 @@ Gets the count of task categories for a specific project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$TaskCategoryDtoCollectionQueryParameters = Initialize-TaskCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TaskCategoryDtoCollectionQueryParameters |  (optional)
 
 # Counts project task categories
 try {
-    $Result = Get-ProjectTaskCategoriesCountAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-ProjectTaskCategoriesCountAsync -ProjectId $ProjectId -TenantId $TenantId -TaskCategoryDtoCollectionQueryParameters $TaskCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProjectTaskCategoriesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -484,6 +489,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **TaskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -495,7 +501,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -505,6 +511,7 @@ No authorization required
 > Int32Envelope Get-ProjectTimeLogsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTimeLogDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts project time logs
 
@@ -514,10 +521,11 @@ Gets the count of time log entries for a specific project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTimeLogDtoCollectionQueryParameters = Initialize-ProjectTimeLogDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectTimeLogDtoCollectionQueryParameters |  (optional)
 
 # Counts project time logs
 try {
-    $Result = Get-ProjectTimeLogsCountAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-ProjectTimeLogsCountAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTimeLogDtoCollectionQueryParameters $ProjectTimeLogDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProjectTimeLogsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -530,6 +538,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **ProjectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -541,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -550,6 +559,7 @@ No authorization required
 # **Get-ProjectsByTenantIdAsync**
 > ProjectDtoListEnvelope Get-ProjectsByTenantIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves all projects
 
@@ -558,10 +568,11 @@ Gets all projects for the current tenant with OData support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectDtoCollectionQueryParameters = Initialize-ProjectDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectDtoCollectionQueryParameters |  (optional)
 
 # Retrieves all projects
 try {
-    $Result = Get-ProjectsByTenantIdAsync -TenantId $TenantId
+    $Result = Get-ProjectsByTenantIdAsync -TenantId $TenantId -ProjectDtoCollectionQueryParameters $ProjectDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProjectsByTenantIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -573,6 +584,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **ProjectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -584,7 +596,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -593,6 +605,7 @@ No authorization required
 # **Get-ProjectsCountByTenantIdAsync**
 > Int32Envelope Get-ProjectsCountByTenantIdAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts projects
 
@@ -601,10 +614,11 @@ Gets the count of projects for the current tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectDtoCollectionQueryParameters = Initialize-ProjectDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectDtoCollectionQueryParameters |  (optional)
 
 # Counts projects
 try {
-    $Result = Get-ProjectsCountByTenantIdAsync -TenantId $TenantId
+    $Result = Get-ProjectsCountByTenantIdAsync -TenantId $TenantId -ProjectDtoCollectionQueryParameters $ProjectDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProjectsCountByTenantIdAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -616,6 +630,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **ProjectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -627,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -637,6 +652,7 @@ No authorization required
 > ProjectTaskDtoListEnvelope Get-TasksForProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves project tasks
 
@@ -646,10 +662,11 @@ Gets all tasks for a specific project with OData support.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTaskDtoCollectionQueryParameters = Initialize-ProjectTaskDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectTaskDtoCollectionQueryParameters |  (optional)
 
 # Retrieves project tasks
 try {
-    $Result = Get-TasksForProjectAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-TasksForProjectAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTaskDtoCollectionQueryParameters $ProjectTaskDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TasksForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -662,6 +679,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **ProjectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -673,7 +691,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -683,6 +701,7 @@ No authorization required
 > Int32Envelope Get-TasksForProjectCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Counts project tasks
 
@@ -692,10 +711,11 @@ Gets the count of tasks for a specific project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTaskDtoCollectionQueryParameters = Initialize-ProjectTaskDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectTaskDtoCollectionQueryParameters |  (optional)
 
 # Counts project tasks
 try {
-    $Result = Get-TasksForProjectCountAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-TasksForProjectCountAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTaskDtoCollectionQueryParameters $ProjectTaskDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TasksForProjectCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -708,6 +728,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **ProjectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -719,7 +740,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -729,6 +750,7 @@ No authorization required
 > ProjectTimeLogDtoListEnvelope Get-TimeLogsForProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTimeLogDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieves project time logs
 
@@ -738,10 +760,11 @@ Gets all time log entries for a specific project with OData support.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ProjectTimeLogDtoCollectionQueryParameters = Initialize-ProjectTimeLogDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProjectTimeLogDtoCollectionQueryParameters |  (optional)
 
 # Retrieves project time logs
 try {
-    $Result = Get-TimeLogsForProjectAsync -ProjectId $ProjectId -TenantId $TenantId
+    $Result = Get-TimeLogsForProjectAsync -ProjectId $ProjectId -TenantId $TenantId -ProjectTimeLogDtoCollectionQueryParameters $ProjectTimeLogDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TimeLogsForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -754,6 +777,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
+ **ProjectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -765,7 +789,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -775,7 +799,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchProjectAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a project
 
@@ -785,11 +809,11 @@ Partially updates the specified project.
 ```powershell
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a project
 try {
-    $Result = Invoke-PatchProjectAsync -ProjectId $ProjectId -TenantId $TenantId -Operation $Operation
+    $Result = Invoke-PatchProjectAsync -ProjectId $ProjectId -TenantId $TenantId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -802,7 +826,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ProjectId** | **String**|  | 
  **TenantId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -825,7 +849,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectPeriodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a project period
 
@@ -836,11 +860,11 @@ Partially updates the specified period for a project.
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ProjectPeriodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a project period
 try {
-    $Result = Invoke-PatchProjectPeriodAsync -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -Operation $Operation
+    $Result = Invoke-PatchProjectPeriodAsync -ProjectId $ProjectId -ProjectPeriodId $ProjectPeriodId -TenantId $TenantId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchProjectPeriodAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -854,7 +878,7 @@ Name | Type | Description  | Notes
  **ProjectId** | **String**|  | 
  **ProjectPeriodId** | **String**|  | 
  **TenantId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -877,7 +901,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProjectTaskId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patches a project task
 
@@ -888,11 +912,11 @@ Partially updates the specified task in a project.
 $ProjectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ProjectTaskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patches a project task
 try {
-    $Result = Invoke-PatchTaskForProjectAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -Operation $Operation
+    $Result = Invoke-PatchTaskForProjectAsync -ProjectId $ProjectId -ProjectTaskId $ProjectTaskId -TenantId $TenantId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchTaskForProjectAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -906,7 +930,7 @@ Name | Type | Description  | Notes
  **ProjectId** | **String**|  | 
  **ProjectTaskId** | **String**|  | 
  **TenantId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -86,7 +86,6 @@ Name | Type | Description | Notes
 **PriceListItemId** | **String** |  | [optional] 
 **UnitId** | **String** |  | [optional] 
 **UnitGroupId** | **String** |  | [optional] 
-**ForexRatesSnapshot** | **String** |  | [optional] 
 **TotalBaseAmountInUsd** | **Double** |  | [optional] 
 **TotalProfitInUsd** | **Double** |  | [optional] 
 **TotalDetailAmountInUsd** | **Double** |  | [optional] 
@@ -202,7 +201,6 @@ $DealUnitLineUpdateDto = Initialize-PSOpenAPIToolsDealUnitLineUpdateDto  -Closed
  -PriceListItemId null `
  -UnitId null `
  -UnitGroupId null `
- -ForexRatesSnapshot null `
  -TotalBaseAmountInUsd null `
  -TotalProfitInUsd null `
  -TotalDetailAmountInUsd null `

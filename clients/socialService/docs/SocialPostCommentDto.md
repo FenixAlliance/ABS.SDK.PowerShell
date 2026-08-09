@@ -11,9 +11,15 @@ Name | Type | Description | Notes
 **SocialFeedPostId** | **String** |  | [optional] 
 **SocialProfileName** | **String** |  | [optional] 
 **SocialProfileAvatarUrl** | **String** |  | [optional] 
+**SocialProfileType** | **String** |  | [optional] 
 **BodyHtml** | **String** |  | [optional] 
 **BodyFormat** | **String** |  | [optional] 
+**ReplyCount** | **Int32** |  | [optional] 
+**ReactionsCount** | **Int32** |  | [optional] 
 **SocialPostId** | **String** |  | [optional] 
+**Facepile** | [**SocialPostReactionFacepileDto[]**](SocialPostReactionFacepileDto.md) |  | [optional] 
+**MyReaction** | **String** |  | [optional] 
+**MyReactionId** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,9 +33,15 @@ $SocialPostCommentDto = Initialize-PSOpenAPIToolsSocialPostCommentDto  -Id null 
  -SocialFeedPostId null `
  -SocialProfileName null `
  -SocialProfileAvatarUrl null `
+ -SocialProfileType null `
  -BodyHtml null `
  -BodyFormat null `
- -SocialPostId null
+ -ReplyCount null `
+ -ReactionsCount null `
+ -SocialPostId null `
+ -Facepile null `
+ -MyReaction null `
+ -MyReactionId null
 ```
 
 - Convert the resource to JSON

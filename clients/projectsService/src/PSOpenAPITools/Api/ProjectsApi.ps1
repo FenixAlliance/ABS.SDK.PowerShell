@@ -832,6 +832,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER TaskCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -853,6 +856,9 @@ function Get-ProjectTaskCategoriesAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TaskCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -882,6 +888,9 @@ function Get-ProjectTaskCategoriesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TaskCategories'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getProjectTaskCategoriesAsync."
@@ -892,6 +901,8 @@ function Get-ProjectTaskCategoriesAsync {
             throw "Error! The required parameter `TenantId` missing when calling getProjectTaskCategoriesAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $TaskCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -928,6 +939,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER TaskCategoryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -949,6 +963,9 @@ function Get-ProjectTaskCategoriesCountAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${TaskCategoryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -978,6 +995,9 @@ function Get-ProjectTaskCategoriesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getProjectTaskCategoriesCountAsync."
@@ -988,6 +1008,8 @@ function Get-ProjectTaskCategoriesCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getProjectTaskCategoriesCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $TaskCategoryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1024,6 +1046,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectTimeLogDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1045,6 +1070,9 @@ function Get-ProjectTimeLogsCountAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectTimeLogDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1074,6 +1102,9 @@ function Get-ProjectTimeLogsCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getProjectTimeLogsCountAsync."
@@ -1084,6 +1115,8 @@ function Get-ProjectTimeLogsCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getProjectTimeLogsCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectTimeLogDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1117,6 +1150,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1135,6 +1171,9 @@ function Get-ProjectsByTenantIdAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1164,12 +1203,17 @@ function Get-ProjectsByTenantIdAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getProjectsByTenantIdAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1203,6 +1247,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1221,6 +1268,9 @@ function Get-ProjectsCountByTenantIdAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1250,12 +1300,17 @@ function Get-ProjectsCountByTenantIdAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/Count'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling getProjectsCountByTenantIdAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1292,6 +1347,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectTaskDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1313,6 +1371,9 @@ function Get-TasksForProjectAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectTaskDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1342,6 +1403,9 @@ function Get-TasksForProjectAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getTasksForProjectAsync."
@@ -1352,6 +1416,8 @@ function Get-TasksForProjectAsync {
             throw "Error! The required parameter `TenantId` missing when calling getTasksForProjectAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectTaskDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1388,6 +1454,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectTaskDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1409,6 +1478,9 @@ function Get-TasksForProjectCountAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectTaskDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1438,6 +1510,9 @@ function Get-TasksForProjectCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getTasksForProjectCountAsync."
@@ -1448,6 +1523,8 @@ function Get-TasksForProjectCountAsync {
             throw "Error! The required parameter `TenantId` missing when calling getTasksForProjectCountAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectTaskDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1484,6 +1561,9 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
+.PARAMETER ProjectTimeLogDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1505,6 +1585,9 @@ function Get-TimeLogsForProjectAsync {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TenantId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ProjectTimeLogDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1534,6 +1617,9 @@ function Get-TimeLogsForProjectAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs'
         if (!$ProjectId) {
             throw "Error! The required parameter `ProjectId` missing when calling getTimeLogsForProjectAsync."
@@ -1544,6 +1630,8 @@ function Get-TimeLogsForProjectAsync {
             throw "Error! The required parameter `TenantId` missing when calling getTimeLogsForProjectAsync."
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        $LocalVarBodyParameter = $ProjectTimeLogDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1580,7 +1668,7 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1606,7 +1694,7 @@ function Invoke-PatchProjectAsync {
         ${TenantId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1650,7 +1738,7 @@ function Invoke-PatchProjectAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1690,7 +1778,7 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1719,7 +1807,7 @@ function Invoke-PatchProjectPeriodAsync {
         ${TenantId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1767,7 +1855,7 @@ function Invoke-PatchProjectPeriodAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1807,7 +1895,7 @@ No description available.
 .PARAMETER TenantId
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1836,7 +1924,7 @@ function Invoke-PatchTaskForProjectAsync {
         ${TenantId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1884,7 +1972,7 @@ function Invoke-PatchTaskForProjectAsync {
         }
         $LocalVarQueryParameters['tenantId'] = $TenantId
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

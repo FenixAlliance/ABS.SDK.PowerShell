@@ -12,8 +12,10 @@ Method | HTTP request | Description
 [**Get-AllTenants**](TenantsApi.md#Get-AllTenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance.
 [**Get-ExtendedTenantsCount**](TenantsApi.md#Get-ExtendedTenantsCount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance.
 [**Get-Tenant**](TenantsApi.md#Get-Tenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID.
+[**Get-TenantModuleGrants**](TenantsApi.md#Get-TenantModuleGrants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant.
 [**Get-TenantsCount**](TenantsApi.md#Get-TenantsCount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
 [**Invoke-PatchTenant**](TenantsApi.md#Invoke-PatchTenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID.
+[**Set-TenantModuleGrants**](TenantsApi.md#Set-TenantModuleGrants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant.
 [**Update-Tenant**](TenantsApi.md#Update-Tenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
 
 
@@ -224,6 +226,7 @@ No authorization required
 > ExtendedTenantDtoListEnvelope Get-AllExtendedTenants<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedTenantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all extended tenants available on this suite server instance.
 
@@ -233,10 +236,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ExtendedTenantDtoCollectionQueryParameters = Initialize-ExtendedTenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedTenantDtoCollectionQueryParameters |  (optional)
 
 # Get all extended tenants available on this suite server instance.
 try {
-    $Result = Get-AllExtendedTenants -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AllExtendedTenants -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ExtendedTenantDtoCollectionQueryParameters $ExtendedTenantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AllExtendedTenants: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -249,6 +253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ExtendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -260,7 +265,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -270,6 +275,7 @@ No authorization required
 > TenantDtoListEnvelope Get-AllTenants<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all tenants available on this suite server instance.
 
@@ -279,10 +285,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TenantDtoCollectionQueryParameters = Initialize-TenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TenantDtoCollectionQueryParameters |  (optional)
 
 # Get all tenants available on this suite server instance.
 try {
-    $Result = Get-AllTenants -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AllTenants -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TenantDtoCollectionQueryParameters $TenantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AllTenants: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -295,6 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -306,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -316,6 +324,7 @@ No authorization required
 > Int32Envelope Get-ExtendedTenantsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExtendedTenantDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the total count of extended tenants available on this suite server instance.
 
@@ -325,10 +334,11 @@ This action is only available for global administrators.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ExtendedTenantDtoCollectionQueryParameters = Initialize-ExtendedTenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ExtendedTenantDtoCollectionQueryParameters |  (optional)
 
 # Get the total count of extended tenants available on this suite server instance.
 try {
-    $Result = Get-ExtendedTenantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ExtendedTenantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ExtendedTenantDtoCollectionQueryParameters $ExtendedTenantDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ExtendedTenantsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -341,6 +351,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ExtendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -352,7 +363,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -406,26 +417,28 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-TenantsCount"></a>
-# **Get-TenantsCount**
-> Int32Envelope Get-TenantsCount<br>
+<a id="Get-TenantModuleGrants"></a>
+# **Get-TenantModuleGrants**
+> ModuleGrantDtoListEnvelope Get-TenantModuleGrants<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
 
-Get the total count of tenants available on this suite server instance.
+Get the per-tenant admin module grants for a specific tenant.
 
 This action is only available for global administrators.
 
 ### Example
 ```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
 
-# Get the total count of tenants available on this suite server instance.
+# Get the per-tenant admin module grants for a specific tenant.
 try {
-    $Result = Get-TenantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TenantModuleGrants -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
 } catch {
-    Write-Host ("Exception occurred when calling Get-TenantsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-TenantModuleGrants: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -434,12 +447,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+[**ModuleGrantDtoListEnvelope**](ModuleGrantDtoListEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -452,13 +466,62 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-TenantsCount"></a>
+# **Get-TenantsCount**
+> Int32Envelope Get-TenantsCount<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantDtoCollectionQueryParameters] <PSCustomObject><br>
+
+Get the total count of tenants available on this suite server instance.
+
+This action is only available for global administrators.
+
+### Example
+```powershell
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$TenantDtoCollectionQueryParameters = Initialize-TenantDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TenantDtoCollectionQueryParameters |  (optional)
+
+# Get the total count of tenants available on this suite server instance.
+try {
+    $Result = Get-TenantsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TenantDtoCollectionQueryParameters $TenantDtoCollectionQueryParameters
+} catch {
+    Write-Host ("Exception occurred when calling Get-TenantsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **TenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Invoke-PatchTenant"></a>
 # **Invoke-PatchTenant**
 > EmptyEnvelope Invoke-PatchTenant<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially update a specific tenant by ID.
 
@@ -469,11 +532,11 @@ This action is only available for global administrators.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially update a specific tenant by ID.
 try {
-    $Result = Invoke-PatchTenant -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchTenant -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchTenant: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -487,7 +550,59 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Set-TenantModuleGrants"></a>
+# **Set-TenantModuleGrants**
+> EmptyEnvelope Set-TenantModuleGrants<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ModuleGrantDto] <PSCustomObject[]><br>
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+### Example
+```powershell
+$TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$ModuleGrantDto = Initialize-ModuleGrantDto -Module "MyModule" -ExpiresAt (Get-Date) -GrantedAtUtc (Get-Date) -GrantedBy "MyGrantedBy" -Note "MyNote" # ModuleGrantDto[] |  (optional)
+
+# Replace the per-tenant admin module grants for a specific tenant.
+try {
+    $Result = Set-TenantModuleGrants -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ModuleGrantDto $ModuleGrantDto
+} catch {
+    Write-Host ("Exception occurred when calling Set-TenantModuleGrants: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TenantId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **ModuleGrantDto** | [**ModuleGrantDto[]**](ModuleGrantDto.md)|  | [optional] 
 
 ### Return type
 

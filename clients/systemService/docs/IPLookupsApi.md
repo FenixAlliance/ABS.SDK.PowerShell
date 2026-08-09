@@ -113,6 +113,7 @@ No authorization required
 > IPLookupDtoListEnvelope Get-SystemIPLookups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IPLookupDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of system IP lookups
 
@@ -122,10 +123,11 @@ Retrieve a list of all IP lookups in the system
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$IPLookupDtoCollectionQueryParameters = Initialize-IPLookupDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # IPLookupDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of system IP lookups
 try {
-    $Result = Get-SystemIPLookups -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemIPLookups -ApiVersion $ApiVersion -XApiVersion $XApiVersion -IPLookupDtoCollectionQueryParameters $IPLookupDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemIPLookups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -138,6 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **IPLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -149,7 +152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -159,6 +162,7 @@ No authorization required
 > Int32Envelope Get-SystemIPLookupsCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IPLookupDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of system IP lookups
 
@@ -168,10 +172,11 @@ Get the count of all IP lookups in the system
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$IPLookupDtoCollectionQueryParameters = Initialize-IPLookupDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # IPLookupDtoCollectionQueryParameters |  (optional)
 
 # Get the count of system IP lookups
 try {
-    $Result = Get-SystemIPLookupsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemIPLookupsCount -ApiVersion $ApiVersion -XApiVersion $XApiVersion -IPLookupDtoCollectionQueryParameters $IPLookupDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemIPLookupsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -184,6 +189,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **IPLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -195,7 +201,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

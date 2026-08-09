@@ -4,14 +4,19 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-SocialCommentReactionAsync**](SocialPostsApi.md#New-SocialCommentReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction
 [**New-SocialPostAsync**](SocialPostsApi.md#New-SocialPostAsync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post
 [**New-SocialPostAttachmentAsync**](SocialPostsApi.md#New-SocialPostAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment
 [**New-SocialPostCommentAsync**](SocialPostsApi.md#New-SocialPostCommentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment
 [**New-SocialPostReactionAsync**](SocialPostsApi.md#New-SocialPostReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction
+[**Invoke-DeleteSocialCommentReactionAsync**](SocialPostsApi.md#Invoke-DeleteSocialCommentReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction
 [**Invoke-DeleteSocialPostAsync**](SocialPostsApi.md#Invoke-DeleteSocialPostAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post
 [**Invoke-DeleteSocialPostAttachmentAsync**](SocialPostsApi.md#Invoke-DeleteSocialPostAttachmentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment
 [**Invoke-DeleteSocialPostCommentAsync**](SocialPostsApi.md#Invoke-DeleteSocialPostCommentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment
 [**Invoke-DeleteSocialPostReactionAsync**](SocialPostsApi.md#Invoke-DeleteSocialPostReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction
+[**Get-SocialCommentReactionAsync**](SocialPostsApi.md#Get-SocialCommentReactionAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID
+[**Get-SocialCommentReactionsAsync**](SocialPostsApi.md#Get-SocialCommentReactionsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions
+[**Get-SocialCommentReactionsCountAsync**](SocialPostsApi.md#Get-SocialCommentReactionsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions
 [**Get-SocialPostAsync**](SocialPostsApi.md#Get-SocialPostAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID
 [**Get-SocialPostAttachmentAsync**](SocialPostsApi.md#Get-SocialPostAttachmentAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID
 [**Get-SocialPostAttachmentsAsync**](SocialPostsApi.md#Get-SocialPostAttachmentsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments
@@ -25,11 +30,71 @@ Method | HTTP request | Description
 [**Get-SocialPostsAsync**](SocialPostsApi.md#Get-SocialPostsAsync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts
 [**Get-SocialPostsCountAsync**](SocialPostsApi.md#Get-SocialPostsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts
 [**Invoke-PatchSocialPostAsync**](SocialPostsApi.md#Invoke-PatchSocialPostAsync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post
+[**Update-SocialCommentReactionAsync**](SocialPostsApi.md#Update-SocialCommentReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction
 [**Update-SocialPostAsync**](SocialPostsApi.md#Update-SocialPostAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post
 [**Update-SocialPostAttachmentAsync**](SocialPostsApi.md#Update-SocialPostAttachmentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment
 [**Update-SocialPostCommentAsync**](SocialPostsApi.md#Update-SocialPostCommentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment
 [**Update-SocialPostReactionAsync**](SocialPostsApi.md#Update-SocialPostReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction
+[**Invoke-UploadSocialPostImageAttachmentAsync**](SocialPostsApi.md#Invoke-UploadSocialPostImageAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment
 
+
+<a id="New-SocialCommentReactionAsync"></a>
+# **New-SocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope New-SocialCommentReactionAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialReactionCreateDto] <PSCustomObject><br>
+
+Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialReactionCreateDto = Initialize-SocialReactionCreateDto -Id "MyId" -Timestamp (Get-Date) -Reaction "Like" -ReactionValue "MyReactionValue" -SocialProfileId "MySocialProfileId" # SocialReactionCreateDto |  (optional)
+
+# Create a social comment reaction
+try {
+    $Result = New-SocialCommentReactionAsync -SocialPostId $SocialPostId -CommentId $CommentId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialReactionCreateDto $SocialReactionCreateDto
+} catch {
+    Write-Host ("Exception occurred when calling New-SocialCommentReactionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SocialReactionCreateDto** | [**SocialReactionCreateDto**](SocialReactionCreateDto.md)|  | [optional] 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-SocialPostAsync"></a>
 # **New-SocialPostAsync**
@@ -195,7 +260,7 @@ No authorization required
 
 <a id="New-SocialPostReactionAsync"></a>
 # **New-SocialPostReactionAsync**
-> SocialReactionDtoEnvelope New-SocialPostReactionAsync<br>
+> SocialPostReactionDtoEnvelope New-SocialPostReactionAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
@@ -235,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SocialReactionDtoEnvelope**](SocialReactionDtoEnvelope.md) (PSCustomObject)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -244,6 +309,64 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-DeleteSocialCommentReactionAsync"></a>
+# **Invoke-DeleteSocialCommentReactionAsync**
+> EmptyEnvelope Invoke-DeleteSocialCommentReactionAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReactionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ReactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Delete a social comment reaction
+try {
+    $Result = Invoke-DeleteSocialCommentReactionAsync -SocialPostId $SocialPostId -CommentId $CommentId -ReactionId $ReactionId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-DeleteSocialCommentReactionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **ReactionId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -465,6 +588,177 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-SocialCommentReactionAsync"></a>
+# **Get-SocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope Get-SocialCommentReactionAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReactionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+
+Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ReactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+
+# Get social comment reaction by ID
+try {
+    $Result = Get-SocialCommentReactionAsync -SocialPostId $SocialPostId -CommentId $CommentId -ReactionId $ReactionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+} catch {
+    Write-Host ("Exception occurred when calling Get-SocialCommentReactionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **ReactionId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SocialCommentReactionsAsync"></a>
+# **Get-SocialCommentReactionsAsync**
+> SocialCommentReactionDtoListEnvelope Get-SocialCommentReactionsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialCommentReactionDtoCollectionQueryParameters] <PSCustomObject><br>
+
+Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialCommentReactionDtoCollectionQueryParameters = Initialize-SocialCommentReactionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialCommentReactionDtoCollectionQueryParameters |  (optional)
+
+# Get social comment reactions
+try {
+    $Result = Get-SocialCommentReactionsAsync -SocialPostId $SocialPostId -CommentId $CommentId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialCommentReactionDtoCollectionQueryParameters $SocialCommentReactionDtoCollectionQueryParameters
+} catch {
+    Write-Host ("Exception occurred when calling Get-SocialCommentReactionsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SocialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] 
+
+### Return type
+
+[**SocialCommentReactionDtoListEnvelope**](SocialCommentReactionDtoListEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SocialCommentReactionsCountAsync"></a>
+# **Get-SocialCommentReactionsCountAsync**
+> Int32Envelope Get-SocialCommentReactionsCountAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialCommentReactionDtoCollectionQueryParameters] <PSCustomObject><br>
+
+Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialCommentReactionDtoCollectionQueryParameters = Initialize-SocialCommentReactionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialCommentReactionDtoCollectionQueryParameters |  (optional)
+
+# Count social comment reactions
+try {
+    $Result = Get-SocialCommentReactionsCountAsync -SocialPostId $SocialPostId -CommentId $CommentId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialCommentReactionDtoCollectionQueryParameters $SocialCommentReactionDtoCollectionQueryParameters
+} catch {
+    Write-Host ("Exception occurred when calling Get-SocialCommentReactionsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SocialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] 
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-SocialPostAsync"></a>
 # **Get-SocialPostAsync**
 > SocialPostDtoEnvelope Get-SocialPostAsync<br>
@@ -575,6 +869,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostAttachmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social post attachments
 
@@ -585,10 +880,11 @@ Retrieves a list of attachments for a specific social post.
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostAttachmentDtoCollectionQueryParameters = Initialize-SocialPostAttachmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostAttachmentDtoCollectionQueryParameters |  (optional)
 
 # Get social post attachments
 try {
-    $Result = Get-SocialPostAttachmentsAsync -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostAttachmentsAsync -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostAttachmentDtoCollectionQueryParameters $SocialPostAttachmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostAttachmentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -602,6 +898,7 @@ Name | Type | Description  | Notes
  **SocialPostId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -613,7 +910,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -624,6 +921,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostAttachmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social post attachments
 
@@ -634,10 +932,11 @@ Returns the count of attachments for a specific social post.
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostAttachmentDtoCollectionQueryParameters = Initialize-SocialPostAttachmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostAttachmentDtoCollectionQueryParameters |  (optional)
 
 # Count social post attachments
 try {
-    $Result = Get-SocialPostAttachmentsCountAsync -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostAttachmentsCountAsync -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostAttachmentDtoCollectionQueryParameters $SocialPostAttachmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostAttachmentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -651,6 +950,7 @@ Name | Type | Description  | Notes
  **SocialPostId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -662,7 +962,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -727,8 +1027,10 @@ No authorization required
 > SocialPostCommentDtoListEnvelope Get-SocialPostCommentsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ParentCommentId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostCommentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social post comments
 
@@ -738,12 +1040,14 @@ Retrieves a list of comments for a specific social post.
 ```powershell
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ParentCommentId = "MyParentCommentId" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostCommentDtoCollectionQueryParameters = Initialize-SocialPostCommentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostCommentDtoCollectionQueryParameters |  (optional)
 
 # Get social post comments
 try {
-    $Result = Get-SocialPostCommentsAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostCommentsAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ParentCommentId $ParentCommentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostCommentDtoCollectionQueryParameters $SocialPostCommentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostCommentsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -756,8 +1060,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SocialProfileId** | **String**|  | 
  **SocialPostId** | **String**|  | 
+ **ParentCommentId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -769,7 +1075,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -779,8 +1085,10 @@ No authorization required
 > Int32Envelope Get-SocialPostCommentsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ParentCommentId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostCommentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social post comments
 
@@ -790,12 +1098,14 @@ Returns the count of comments for a specific social post.
 ```powershell
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ParentCommentId = "MyParentCommentId" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostCommentDtoCollectionQueryParameters = Initialize-SocialPostCommentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostCommentDtoCollectionQueryParameters |  (optional)
 
 # Count social post comments
 try {
-    $Result = Get-SocialPostCommentsCountAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostCommentsCountAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ParentCommentId $ParentCommentId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostCommentDtoCollectionQueryParameters $SocialPostCommentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostCommentsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -808,8 +1118,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SocialProfileId** | **String**|  | 
  **SocialPostId** | **String**|  | 
+ **ParentCommentId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -821,7 +1133,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -885,6 +1197,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostReactionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social post reactions
 
@@ -896,10 +1209,11 @@ $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostReactionDtoCollectionQueryParameters = Initialize-SocialPostReactionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostReactionDtoCollectionQueryParameters |  (optional)
 
 # Get social post reactions
 try {
-    $Result = Get-SocialPostReactionsAsync -SocialPostId $SocialPostId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostReactionsAsync -SocialPostId $SocialPostId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostReactionDtoCollectionQueryParameters $SocialPostReactionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostReactionsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -914,6 +1228,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -925,7 +1240,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -937,6 +1252,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostReactionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social post reactions
 
@@ -948,10 +1264,11 @@ $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostReactionDtoCollectionQueryParameters = Initialize-SocialPostReactionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostReactionDtoCollectionQueryParameters |  (optional)
 
 # Count social post reactions
 try {
-    $Result = Get-SocialPostReactionsCountAsync -SocialPostId $SocialPostId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostReactionsCountAsync -SocialPostId $SocialPostId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostReactionDtoCollectionQueryParameters $SocialPostReactionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostReactionsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -966,6 +1283,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -977,7 +1295,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -988,6 +1306,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get social posts
 
@@ -998,10 +1317,11 @@ Retrieves a list of social posts for the specified social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostDtoCollectionQueryParameters = Initialize-SocialPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostDtoCollectionQueryParameters |  (optional)
 
 # Get social posts
 try {
-    $Result = Get-SocialPostsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostDtoCollectionQueryParameters $SocialPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1015,6 +1335,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1026,7 +1347,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1037,6 +1358,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count social posts
 
@@ -1047,10 +1369,11 @@ Returns the count of social posts for the specified social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialPostDtoCollectionQueryParameters = Initialize-SocialPostDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialPostDtoCollectionQueryParameters |  (optional)
 
 # Count social posts
 try {
-    $Result = Get-SocialPostsCountAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialPostsCountAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialPostDtoCollectionQueryParameters $SocialPostDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialPostsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1064,6 +1387,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1075,7 +1399,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1087,7 +1411,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a social post
 
@@ -1099,11 +1423,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a social post
 try {
-    $Result = Invoke-PatchSocialPostAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchSocialPostAsync -SocialProfileId $SocialProfileId -SocialPostId $SocialPostId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSocialPostAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1118,11 +1442,72 @@ Name | Type | Description  | Notes
  **SocialPostId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-SocialCommentReactionAsync"></a>
+# **Update-SocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope Update-SocialCommentReactionAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReactionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialReactionUpdateDto] <PSCustomObject><br>
+
+Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$CommentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ReactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialReactionUpdateDto = Initialize-SocialReactionUpdateDto -Id "MyId" -Timestamp (Get-Date) -Reaction "Like" -ReactionValue "MyReactionValue" # SocialReactionUpdateDto |  (optional)
+
+# Update a social comment reaction
+try {
+    $Result = Update-SocialCommentReactionAsync -SocialPostId $SocialPostId -CommentId $CommentId -ReactionId $ReactionId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialReactionUpdateDto $SocialReactionUpdateDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-SocialCommentReactionAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **CommentId** | **String**|  | 
+ **ReactionId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **SocialReactionUpdateDto** | [**SocialReactionUpdateDto**](SocialReactionUpdateDto.md)|  | [optional] 
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1308,7 +1693,7 @@ No authorization required
 
 <a id="Update-SocialPostReactionAsync"></a>
 # **Update-SocialPostReactionAsync**
-> EmptyEnvelope Update-SocialPostReactionAsync<br>
+> SocialPostReactionDtoEnvelope Update-SocialPostReactionAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReactionId] <String><br>
@@ -1351,7 +1736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md) (PSCustomObject)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1360,6 +1745,61 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-UploadSocialPostImageAttachmentAsync"></a>
+# **Invoke-UploadSocialPostImageAttachmentAsync**
+> SocialPostAttachmentDtoEnvelope Invoke-UploadSocialPostImageAttachmentAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialPostId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+### Example
+```powershell
+$SocialPostId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$File =  # System.IO.FileInfo |  (optional)
+
+# Upload a social post image attachment
+try {
+    $Result = Invoke-UploadSocialPostImageAttachmentAsync -SocialPostId $SocialPostId -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-UploadSocialPostImageAttachmentAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialPostId** | **String**|  | 
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**SocialPostAttachmentDtoEnvelope**](SocialPostAttachmentDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

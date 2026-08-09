@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IndividualId** | **String** |  | [optional] 
 **PaymentTermId** | **String** |  | [optional] 
 **OrganizationId** | **String** |  | [optional] 
+**ReceiverTenantId** | **String** |  | [optional] 
 **FirstName** | **String** |  | [optional] 
 **LastName** | **String** |  | [optional] 
 **CompanyName** | **String** |  | [optional] 
@@ -52,7 +53,6 @@ Name | Type | Description | Notes
 **TaxCalculationMethod** | **String** |  | [optional] 
 **CartId** | **String** |  | [optional] 
 **DealUnitId** | **String** |  | [optional] 
-**ReceiverTenantId** | **String** |  | [optional] 
 **EffectiveTo** | **System.DateTime** |  | [optional] 
 **EffectiveFrom** | **System.DateTime** |  | [optional] 
 **QuoteStatus** | **String** |  | [optional] 
@@ -71,6 +71,7 @@ $QuoteCreateDto = Initialize-PSOpenAPIToolsQuoteCreateDto  -Id null `
  -IndividualId null `
  -PaymentTermId null `
  -OrganizationId null `
+ -ReceiverTenantId null `
  -FirstName null `
  -LastName null `
  -CompanyName null `
@@ -111,7 +112,6 @@ $QuoteCreateDto = Initialize-PSOpenAPIToolsQuoteCreateDto  -Id null `
  -TaxCalculationMethod null `
  -CartId null `
  -DealUnitId null `
- -ReceiverTenantId null `
  -EffectiveTo null `
  -EffectiveFrom null `
  -QuoteStatus null `

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **SocialProfileId** | **String** |  | [optional] 
 **SocialProfileName** | **String** |  | [optional] 
 **SocialProfileAvatarUrl** | **String** |  | [optional] 
+**SocialProfileType** | **String** |  | [optional] 
 
 ## Examples
 
@@ -21,7 +22,8 @@ $SocialReactionDto = Initialize-PSOpenAPIToolsSocialReactionDto  -Id null `
  -ReactionValue null `
  -SocialProfileId null `
  -SocialProfileName null `
- -SocialProfileAvatarUrl null
+ -SocialProfileAvatarUrl null `
+ -SocialProfileType null
 ```
 
 - Convert the resource to JSON

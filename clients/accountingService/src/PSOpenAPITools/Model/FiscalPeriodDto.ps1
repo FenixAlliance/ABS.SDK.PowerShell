@@ -31,6 +31,8 @@ No description available.
 No description available.
 .PARAMETER FiscalYearId
 No description available.
+.PARAMETER Status
+No description available.
 .OUTPUTS
 
 FiscalPeriodDto<PSCustomObject>
@@ -62,7 +64,11 @@ function Initialize-FiscalPeriodDto {
         ${EnrollmentId},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${FiscalYearId}
+        ${FiscalYearId},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Open", "Closed", "Locked")]
+        [String]
+        ${Status}
     )
 
     Process {
@@ -79,6 +85,7 @@ function Initialize-FiscalPeriodDto {
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "fiscalYearId" = ${FiscalYearId}
+            "status" = ${Status}
         }
 
 
@@ -116,7 +123,7 @@ function ConvertFrom-JsonToFiscalPeriodDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in FiscalPeriodDto
-        $AllProperties = ("id", "timestamp", "name", "fromDate", "toDate", "tenantId", "enrollmentId", "fiscalYearId")
+        $AllProperties = ("id", "timestamp", "name", "fromDate", "toDate", "tenantId", "enrollmentId", "fiscalYearId", "status")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -171,6 +178,12 @@ function ConvertFrom-JsonToFiscalPeriodDto {
             $FiscalYearId = $JsonParameters.PSobject.Properties["fiscalYearId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
+            $Status = $null
+        } else {
+            $Status = $JsonParameters.PSobject.Properties["status"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -180,6 +193,7 @@ function ConvertFrom-JsonToFiscalPeriodDto {
             "tenantId" = ${TenantId}
             "enrollmentId" = ${EnrollmentId}
             "fiscalYearId" = ${FiscalYearId}
+            "status" = ${Status}
         }
 
         return $PSO

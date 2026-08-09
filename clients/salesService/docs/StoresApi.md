@@ -17,6 +17,7 @@ Method | HTTP request | Description
 # **Invoke-CountStoresAsync**
 > Int32Envelope Invoke-CountStoresAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StoreDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get stores count
 
@@ -25,10 +26,11 @@ Returns the total count of stores for the specified tenant with OData filter sup
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$StoreDtoCollectionQueryParameters = Initialize-StoreDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # StoreDtoCollectionQueryParameters |  (optional)
 
 # Get stores count
 try {
-    $Result = Invoke-CountStoresAsync -TenantId $TenantId
+    $Result = Invoke-CountStoresAsync -TenantId $TenantId -StoreDtoCollectionQueryParameters $StoreDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountStoresAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -40,6 +42,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **StoreDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -51,7 +54,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,6 +201,7 @@ No authorization required
 # **Get-StoresAsync**
 > StoreDtoListEnvelope Get-StoresAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StoreDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get stores
 
@@ -206,10 +210,11 @@ Retrieves a list of stores for the specified tenant with OData query support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$StoreDtoCollectionQueryParameters = Initialize-StoreDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # StoreDtoCollectionQueryParameters |  (optional)
 
 # Get stores
 try {
-    $Result = Get-StoresAsync -TenantId $TenantId
+    $Result = Get-StoresAsync -TenantId $TenantId -StoreDtoCollectionQueryParameters $StoreDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-StoresAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -221,6 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **StoreDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -232,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,7 +248,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchStoreAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StoreId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a store
 
@@ -252,11 +258,11 @@ Partially updates an existing store using a JSON Patch document.
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $StoreId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a store
 try {
-    $Result = Invoke-PatchStoreAsync -TenantId $TenantId -StoreId $StoreId -Operation $Operation
+    $Result = Invoke-PatchStoreAsync -TenantId $TenantId -StoreId $StoreId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchStoreAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **StoreId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

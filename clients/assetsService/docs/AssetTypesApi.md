@@ -155,6 +155,7 @@ No authorization required
 # **Get-AssetTypes**
 > AssetTypeDtoListEnvelope Get-AssetTypes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetTypeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets all asset types for the current tenant
 
@@ -163,10 +164,11 @@ Retrieves all asset types for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetTypeDtoCollectionQueryParameters = Initialize-AssetTypeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetTypeDtoCollectionQueryParameters |  (optional)
 
 # Gets all asset types for the current tenant
 try {
-    $Result = Get-AssetTypes -TenantId $TenantId
+    $Result = Get-AssetTypes -TenantId $TenantId -AssetTypeDtoCollectionQueryParameters $AssetTypeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetTypes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -178,6 +180,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -189,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,6 +201,7 @@ No authorization required
 # **Get-AssetTypesCount**
 > Int32Envelope Get-AssetTypesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetTypeDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets the count of asset types
 
@@ -206,10 +210,11 @@ Returns the total number of asset types for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetTypeDtoCollectionQueryParameters = Initialize-AssetTypeDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetTypeDtoCollectionQueryParameters |  (optional)
 
 # Gets the count of asset types
 try {
-    $Result = Get-AssetTypesCount -TenantId $TenantId
+    $Result = Get-AssetTypesCount -TenantId $TenantId -AssetTypeDtoCollectionQueryParameters $AssetTypeDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetTypesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -221,6 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -232,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,7 +248,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchAssetType<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TypeId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates an existing asset type
 
@@ -252,11 +258,11 @@ Applies a JSON Patch document to an existing asset type for the authenticated te
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $TypeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates an existing asset type
 try {
-    $Result = Invoke-PatchAssetType -TenantId $TenantId -TypeId $TypeId -Operation $Operation
+    $Result = Invoke-PatchAssetType -TenantId $TenantId -TypeId $TypeId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetType: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **TypeId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

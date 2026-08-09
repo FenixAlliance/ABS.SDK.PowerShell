@@ -513,6 +513,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProofOfDeliveryLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get proof of delivery lines
 
@@ -524,10 +525,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ProofOfDeliveryLineDtoCollectionQueryParameters = Initialize-ProofOfDeliveryLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProofOfDeliveryLineDtoCollectionQueryParameters |  (optional)
 
 # Get proof of delivery lines
 try {
-    $Result = Get-ProofOfDeliveryLinesAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProofOfDeliveryLinesAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProofOfDeliveryLineDtoCollectionQueryParameters $ProofOfDeliveryLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProofOfDeliveryLinesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -542,6 +544,7 @@ Name | Type | Description  | Notes
  **PodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ProofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -553,7 +556,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -565,6 +568,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProofOfDeliveryLineDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get proof of delivery lines count
 
@@ -576,10 +580,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ProofOfDeliveryLineDtoCollectionQueryParameters = Initialize-ProofOfDeliveryLineDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProofOfDeliveryLineDtoCollectionQueryParameters |  (optional)
 
 # Get proof of delivery lines count
 try {
-    $Result = Get-ProofOfDeliveryLinesCountAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProofOfDeliveryLinesCountAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProofOfDeliveryLineDtoCollectionQueryParameters $ProofOfDeliveryLineDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProofOfDeliveryLinesCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -594,6 +599,7 @@ Name | Type | Description  | Notes
  **PodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ProofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -605,7 +611,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -616,6 +622,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProofOfDeliveryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all proofs of delivery
 
@@ -626,10 +633,11 @@ Retrieves all proofs of delivery for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ProofOfDeliveryDtoCollectionQueryParameters = Initialize-ProofOfDeliveryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProofOfDeliveryDtoCollectionQueryParameters |  (optional)
 
 # Get all proofs of delivery
 try {
-    $Result = Get-ProofsOfDeliveryAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProofsOfDeliveryAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProofOfDeliveryDtoCollectionQueryParameters $ProofOfDeliveryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProofsOfDeliveryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -643,6 +651,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ProofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -654,7 +663,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -665,6 +674,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProofOfDeliveryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get proofs of delivery count
 
@@ -675,10 +685,11 @@ Returns the count of proofs of delivery for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ProofOfDeliveryDtoCollectionQueryParameters = Initialize-ProofOfDeliveryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ProofOfDeliveryDtoCollectionQueryParameters |  (optional)
 
 # Get proofs of delivery count
 try {
-    $Result = Get-ProofsOfDeliveryCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ProofsOfDeliveryCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ProofOfDeliveryDtoCollectionQueryParameters $ProofOfDeliveryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ProofsOfDeliveryCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -692,6 +703,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ProofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -703,7 +715,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -715,7 +727,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PodId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a proof of delivery
 
@@ -727,11 +739,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a proof of delivery
 try {
-    $Result = Invoke-PatchProofOfDeliveryAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchProofOfDeliveryAsync -TenantId $TenantId -PodId $PodId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchProofOfDeliveryAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -746,7 +758,7 @@ Name | Type | Description  | Notes
  **PodId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -771,7 +783,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LineId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a proof of delivery line
 
@@ -784,11 +796,11 @@ $PodId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $LineId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a proof of delivery line
 try {
-    $Result = Invoke-PatchProofOfDeliveryLineAsync -TenantId $TenantId -PodId $PodId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchProofOfDeliveryLineAsync -TenantId $TenantId -PodId $PodId -LineId $LineId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchProofOfDeliveryLineAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -804,7 +816,7 @@ Name | Type | Description  | Notes
  **LineId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

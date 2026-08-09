@@ -31,11 +31,23 @@ No description available.
 No description available.
 .PARAMETER SocialProfileAvatarUrl
 No description available.
+.PARAMETER SocialProfileType
+No description available.
 .PARAMETER BodyHtml
 No description available.
 .PARAMETER BodyFormat
 No description available.
+.PARAMETER ReplyCount
+No description available.
+.PARAMETER ReactionsCount
+No description available.
 .PARAMETER SocialPostId
+No description available.
+.PARAMETER Facepile
+No description available.
+.PARAMETER MyReaction
+No description available.
+.PARAMETER MyReactionId
 No description available.
 .OUTPUTS
 
@@ -70,15 +82,35 @@ function Initialize-SocialPostCommentDto {
         [String]
         ${SocialProfileAvatarUrl},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("User", "Tenant", "Contact")]
+        [String]
+        ${SocialProfileType},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BodyHtml},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PlainText", "Html")]
         [String]
         ${BodyFormat},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ReplyCount},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ReactionsCount},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SocialPostId}
+        ${SocialPostId},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Facepile},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Like", "Happy", "HaHa", "Love", "Sad", "Angry", "Wow", "Afraid")]
+        [String]
+        ${MyReaction},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${MyReactionId}
     )
 
     Process {
@@ -95,9 +127,15 @@ function Initialize-SocialPostCommentDto {
             "socialFeedPostId" = ${SocialFeedPostId}
             "socialProfileName" = ${SocialProfileName}
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
             "bodyHtml" = ${BodyHtml}
             "bodyFormat" = ${BodyFormat}
+            "replyCount" = ${ReplyCount}
+            "reactionsCount" = ${ReactionsCount}
             "socialPostId" = ${SocialPostId}
+            "facepile" = ${Facepile}
+            "myReaction" = ${MyReaction}
+            "myReactionId" = ${MyReactionId}
         }
 
 
@@ -135,7 +173,7 @@ function ConvertFrom-JsonToSocialPostCommentDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialPostCommentDto
-        $AllProperties = ("id", "timestamp", "message", "parentCommentId", "socialProfileId", "socialFeedPostId", "socialProfileName", "socialProfileAvatarUrl", "bodyHtml", "bodyFormat", "socialPostId")
+        $AllProperties = ("id", "timestamp", "message", "parentCommentId", "socialProfileId", "socialFeedPostId", "socialProfileName", "socialProfileAvatarUrl", "socialProfileType", "bodyHtml", "bodyFormat", "replyCount", "reactionsCount", "socialPostId", "facepile", "myReaction", "myReactionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -190,6 +228,12 @@ function ConvertFrom-JsonToSocialPostCommentDto {
             $SocialProfileAvatarUrl = $JsonParameters.PSobject.Properties["socialProfileAvatarUrl"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileType"))) { #optional property not found
+            $SocialProfileType = $null
+        } else {
+            $SocialProfileType = $JsonParameters.PSobject.Properties["socialProfileType"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found
             $BodyHtml = $null
         } else {
@@ -202,10 +246,40 @@ function ConvertFrom-JsonToSocialPostCommentDto {
             $BodyFormat = $JsonParameters.PSobject.Properties["bodyFormat"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "replyCount"))) { #optional property not found
+            $ReplyCount = $null
+        } else {
+            $ReplyCount = $JsonParameters.PSobject.Properties["replyCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reactionsCount"))) { #optional property not found
+            $ReactionsCount = $null
+        } else {
+            $ReactionsCount = $JsonParameters.PSobject.Properties["reactionsCount"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialPostId"))) { #optional property not found
             $SocialPostId = $null
         } else {
             $SocialPostId = $JsonParameters.PSobject.Properties["socialPostId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "facepile"))) { #optional property not found
+            $Facepile = $null
+        } else {
+            $Facepile = $JsonParameters.PSobject.Properties["facepile"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "myReaction"))) { #optional property not found
+            $MyReaction = $null
+        } else {
+            $MyReaction = $JsonParameters.PSobject.Properties["myReaction"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "myReactionId"))) { #optional property not found
+            $MyReactionId = $null
+        } else {
+            $MyReactionId = $JsonParameters.PSobject.Properties["myReactionId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -217,9 +291,15 @@ function ConvertFrom-JsonToSocialPostCommentDto {
             "socialFeedPostId" = ${SocialFeedPostId}
             "socialProfileName" = ${SocialProfileName}
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
+            "socialProfileType" = ${SocialProfileType}
             "bodyHtml" = ${BodyHtml}
             "bodyFormat" = ${BodyFormat}
+            "replyCount" = ${ReplyCount}
+            "reactionsCount" = ${ReactionsCount}
             "socialPostId" = ${SocialPostId}
+            "facepile" = ${Facepile}
+            "myReaction" = ${MyReaction}
+            "myReactionId" = ${MyReactionId}
         }
 
         return $PSO

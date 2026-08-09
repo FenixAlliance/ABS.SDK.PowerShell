@@ -439,6 +439,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CurriculumExperienceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -469,6 +472,9 @@ function Get-CurriculumExperiencesAsync {
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CurriculumExperienceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -498,6 +504,9 @@ function Get-CurriculumExperiencesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/Curriculums/{curriculumId}/Experiences'
         if (!$CurriculumId) {
             throw "Error! The required parameter `CurriculumId` missing when calling getCurriculumExperiencesAsync."
@@ -520,6 +529,8 @@ function Get-CurriculumExperiencesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CurriculumExperienceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -565,6 +576,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER CurriculumExperienceDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -595,6 +609,9 @@ function Get-CurriculumExperiencesCountAsync {
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CurriculumExperienceDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -624,6 +641,9 @@ function Get-CurriculumExperiencesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/SocialService/Curriculums/{curriculumId}/Experiences/Count'
         if (!$CurriculumId) {
             throw "Error! The required parameter `CurriculumId` missing when calling getCurriculumExperiencesCountAsync."
@@ -646,6 +666,8 @@ function Get-CurriculumExperiencesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $CurriculumExperienceDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -694,7 +716,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -732,7 +754,7 @@ function Invoke-PatchCurriculumExperienceAsync {
         ${XApiVersion},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -792,7 +814,7 @@ function Invoke-PatchCurriculumExperienceAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

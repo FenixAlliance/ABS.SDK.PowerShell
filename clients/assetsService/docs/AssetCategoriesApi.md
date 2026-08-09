@@ -109,6 +109,7 @@ No authorization required
 # **Get-AssetCategories**
 > AssetCategoryDtoListEnvelope Get-AssetCategories<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets all asset categories for the current tenant
 
@@ -117,10 +118,11 @@ Retrieves all asset categories for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetCategoryDtoCollectionQueryParameters = Initialize-AssetCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 # Gets all asset categories for the current tenant
 try {
-    $Result = Get-AssetCategories -TenantId $TenantId
+    $Result = Get-AssetCategories -TenantId $TenantId -AssetCategoryDtoCollectionQueryParameters $AssetCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetCategories: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -132,6 +134,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -143,7 +146,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -152,6 +155,7 @@ No authorization required
 # **Get-AssetCategoriesCount**
 > Int32Envelope Get-AssetCategoriesCount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssetCategoryDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Gets the count of asset categories
 
@@ -160,10 +164,11 @@ Returns the total number of asset categories for the authenticated tenant.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$AssetCategoryDtoCollectionQueryParameters = Initialize-AssetCategoryDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # AssetCategoryDtoCollectionQueryParameters |  (optional)
 
 # Gets the count of asset categories
 try {
-    $Result = Get-AssetCategoriesCount -TenantId $TenantId
+    $Result = Get-AssetCategoriesCount -TenantId $TenantId -AssetCategoryDtoCollectionQueryParameters $AssetCategoryDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AssetCategoriesCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -175,6 +180,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **AssetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -186,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,7 +248,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchAssetCategory<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CategoryId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially updates an existing asset category
 
@@ -252,11 +258,11 @@ Applies a JSON Patch document to an existing asset category for the authenticate
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $CategoryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially updates an existing asset category
 try {
-    $Result = Invoke-PatchAssetCategory -TenantId $TenantId -CategoryId $CategoryId -Operation $Operation
+    $Result = Invoke-PatchAssetCategory -TenantId $TenantId -CategoryId $CategoryId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchAssetCategory: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **CategoryId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

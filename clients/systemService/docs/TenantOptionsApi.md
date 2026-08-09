@@ -182,6 +182,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PortalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of tenant options (admin)
 
@@ -193,10 +194,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OptionDtoCollectionQueryParameters = Initialize-OptionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OptionDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of tenant options (admin)
 try {
-    $Result = Get-SystemTenantOptions -TenantId $TenantId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemTenantOptions -TenantId $TenantId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OptionDtoCollectionQueryParameters $OptionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemTenantOptions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
  **PortalId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OptionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -222,7 +225,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,6 +237,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PortalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of tenant options (admin)
 
@@ -245,10 +249,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OptionDtoCollectionQueryParameters = Initialize-OptionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OptionDtoCollectionQueryParameters |  (optional)
 
 # Get the count of tenant options (admin)
 try {
-    $Result = Get-SystemTenantOptionsCount -TenantId $TenantId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemTenantOptionsCount -TenantId $TenantId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OptionDtoCollectionQueryParameters $OptionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemTenantOptionsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -263,6 +268,7 @@ Name | Type | Description  | Notes
  **PortalId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OptionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -274,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,7 +292,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially update a tenant option (admin)
 
@@ -298,11 +304,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $OptionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially update a tenant option (admin)
 try {
-    $Result = Invoke-PatchSystemTenantOption -TenantId $TenantId -OptionId $OptionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchSystemTenantOption -TenantId $TenantId -OptionId $OptionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSystemTenantOption: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -317,7 +323,7 @@ Name | Type | Description  | Notes
  **OptionId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

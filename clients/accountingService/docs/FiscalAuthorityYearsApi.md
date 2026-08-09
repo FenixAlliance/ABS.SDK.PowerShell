@@ -180,6 +180,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal years for an authority
 
@@ -192,10 +193,11 @@ $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $AuthorityId = "MyAuthorityId" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalYearDtoCollectionQueryParameters = Initialize-FiscalYearDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalYearDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal years for an authority
 try {
-    $Result = Get-FiscalYears -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalYears -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -AuthorityId $AuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalYearDtoCollectionQueryParameters $FiscalYearDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalYears: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
  **AuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -222,7 +225,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,6 +237,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalAuthorityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal years count for an authority
 
@@ -245,10 +249,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalYearDtoCollectionQueryParameters = Initialize-FiscalYearDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalYearDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal years count for an authority
 try {
-    $Result = Get-FiscalYearsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalYearsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalYearDtoCollectionQueryParameters $FiscalYearDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalYearsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -263,6 +268,7 @@ Name | Type | Description  | Notes
  **FiscalAuthorityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -274,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,7 +292,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalYearId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a fiscal authority year
 
@@ -298,11 +304,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalYearId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a fiscal authority year
 try {
-    $Result = Invoke-PatchFiscalAuthorityYearAsync -TenantId $TenantId -FiscalYearId $FiscalYearId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchFiscalAuthorityYearAsync -TenantId $TenantId -FiscalYearId $FiscalYearId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchFiscalAuthorityYearAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -317,7 +323,7 @@ Name | Type | Description  | Notes
  **FiscalYearId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

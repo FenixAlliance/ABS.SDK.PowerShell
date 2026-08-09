@@ -254,6 +254,7 @@ No authorization required
 # **Get-LocationsAsync**
 > LocationDtoIReadOnlyListEnvelope Get-LocationsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Locations
 
@@ -262,10 +263,11 @@ Get all locations with OData query support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Locations
 try {
-    $Result = Get-LocationsAsync -TenantId $TenantId
+    $Result = Get-LocationsAsync -TenantId $TenantId -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LocationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -277,6 +279,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -288,7 +291,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -297,6 +300,7 @@ No authorization required
 # **Get-LocationsCountAsync**
 > Int32Envelope Get-LocationsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Locations Count
 
@@ -305,10 +309,11 @@ Get the count of locations with OData query support.
 ### Example
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Locations Count
 try {
-    $Result = Get-LocationsCountAsync -TenantId $TenantId
+    $Result = Get-LocationsCountAsync -TenantId $TenantId -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-LocationsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -320,6 +325,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -331,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -386,6 +392,7 @@ No authorization required
 # **Get-WalletLocationsAsync**
 > LocationDtoIReadOnlyListEnvelope Get-WalletLocationsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Locations
 
@@ -394,10 +401,11 @@ Get locations for a specific wallet by ID.
 ### Example
 ```powershell
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Locations
 try {
-    $Result = Get-WalletLocationsAsync -WalletId $WalletId
+    $Result = Get-WalletLocationsAsync -WalletId $WalletId -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletLocationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -409,6 +417,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WalletId** | **String**|  | 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -420,7 +429,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -429,6 +438,7 @@ No authorization required
 # **Get-WalletLocationsCountAsync**
 > Int32Envelope Get-WalletLocationsCountAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Wallet Locations Count
 
@@ -437,10 +447,11 @@ Get the count of locations for a specific wallet by ID.
 ### Example
 ```powershell
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$LocationDtoCollectionQueryParameters = Initialize-LocationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # LocationDtoCollectionQueryParameters |  (optional)
 
 # Get Wallet Locations Count
 try {
-    $Result = Get-WalletLocationsCountAsync -WalletId $WalletId
+    $Result = Get-WalletLocationsCountAsync -WalletId $WalletId -LocationDtoCollectionQueryParameters $LocationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-WalletLocationsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -452,6 +463,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WalletId** | **String**|  | 
+ **LocationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -463,7 +475,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -473,7 +485,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchLocationAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a location
 
@@ -483,11 +495,11 @@ Patch a location
 ```powershell
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a location
 try {
-    $Result = Invoke-PatchLocationAsync -TenantId $TenantId -LocationId $LocationId -Operation $Operation
+    $Result = Invoke-PatchLocationAsync -TenantId $TenantId -LocationId $LocationId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -500,7 +512,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **TenantId** | **String**|  | 
  **LocationId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -522,7 +534,7 @@ No authorization required
 > EmptyEnvelope Invoke-PatchWalletLocationAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WalletId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LocationId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a wallet location
 
@@ -532,11 +544,11 @@ Patch a wallet location
 ```powershell
 $WalletId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $LocationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a wallet location
 try {
-    $Result = Invoke-PatchWalletLocationAsync -WalletId $WalletId -LocationId $LocationId -Operation $Operation
+    $Result = Invoke-PatchWalletLocationAsync -WalletId $WalletId -LocationId $LocationId -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchWalletLocationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -549,7 +561,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WalletId** | **String**|  | 
  **LocationId** | **String**|  | 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

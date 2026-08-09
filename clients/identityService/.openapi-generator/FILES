@@ -7,6 +7,7 @@ docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
+docs/ExecutionProvenance.md
 docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -47,6 +48,7 @@ src/PSOpenAPITools/Model/AccessTokenResponse.ps1
 src/PSOpenAPITools/Model/AuthResult.ps1
 src/PSOpenAPITools/Model/AuthResultEnvelope.ps1
 src/PSOpenAPITools/Model/ErrorEnvelope.ps1
+src/PSOpenAPITools/Model/ExecutionProvenance.ps1
 src/PSOpenAPITools/Model/ForgotPasswordRequest.ps1
 src/PSOpenAPITools/Model/HttpValidationProblemDetails.ps1
 src/PSOpenAPITools/Model/InfoRequest.ps1
@@ -79,3 +81,4 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Model/ExecutionProvenance.Tests.ps1

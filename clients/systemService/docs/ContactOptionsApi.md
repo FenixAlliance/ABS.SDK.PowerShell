@@ -182,6 +182,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PortalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of contact options (admin)
 
@@ -193,10 +194,11 @@ $ContactId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OptionDtoCollectionQueryParameters = Initialize-OptionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OptionDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of contact options (admin)
 try {
-    $Result = Get-SystemContactOptions -ContactId $ContactId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemContactOptions -ContactId $ContactId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OptionDtoCollectionQueryParameters $OptionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemContactOptions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
  **PortalId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OptionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -222,7 +225,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,6 +237,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PortalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of contact options (admin)
 
@@ -245,10 +249,11 @@ $ContactId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $PortalId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$OptionDtoCollectionQueryParameters = Initialize-OptionDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # OptionDtoCollectionQueryParameters |  (optional)
 
 # Get the count of contact options (admin)
 try {
-    $Result = Get-SystemContactOptionsCount -ContactId $ContactId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SystemContactOptionsCount -ContactId $ContactId -PortalId $PortalId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -OptionDtoCollectionQueryParameters $OptionDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SystemContactOptionsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -263,6 +268,7 @@ Name | Type | Description  | Notes
  **PortalId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **OptionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -274,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,7 +292,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OptionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Partially update a contact option (admin)
 
@@ -298,11 +304,11 @@ $ContactId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $OptionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Partially update a contact option (admin)
 try {
-    $Result = Invoke-PatchSystemContactOption -ContactId $ContactId -OptionId $OptionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchSystemContactOption -ContactId $ContactId -OptionId $OptionId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSystemContactOption: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -317,7 +323,7 @@ Name | Type | Description  | Notes
  **OptionId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **SiteKey** | **String** |  | [optional] 
 **SecretKey** | **String** |  | [optional] 
 **Version** | **String** |  | [optional] 
+**ProjectId** | **String** |  | [optional] 
+**ApiKey** | **String** |  | [optional] 
+**ScoreThreshold** | **Double** |  | [optional] 
 
 ## Examples
 
@@ -17,7 +20,10 @@ $GoogleRecaptchaIntegrationOptions = Initialize-PSOpenAPIToolsGoogleRecaptchaInt
  -Site null `
  -SiteKey null `
  -SecretKey null `
- -Version null
+ -Version null `
+ -ProjectId null `
+ -ApiKey null `
+ -ScoreThreshold null
 ```
 
 - Convert the resource to JSON

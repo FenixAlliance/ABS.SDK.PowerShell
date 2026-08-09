@@ -183,6 +183,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal responsibility records
 
@@ -195,10 +196,11 @@ $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalResponsibilityRecordDtoCollectionQueryParameters = Initialize-FiscalResponsibilityRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalResponsibilityRecordDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal responsibility records
 try {
-    $Result = Get-FiscalResponsibilityRecords -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalResponsibilityId $FiscalResponsibilityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalResponsibilityRecords -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalResponsibilityId $FiscalResponsibilityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalResponsibilityRecordDtoCollectionQueryParameters $FiscalResponsibilityRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalResponsibilityRecords: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -214,6 +216,7 @@ Name | Type | Description  | Notes
  **FiscalResponsibilityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalResponsibilityRecordDtoCollectionQueryParameters** | [**FiscalResponsibilityRecordDtoCollectionQueryParameters**](FiscalResponsibilityRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -225,7 +228,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -238,6 +241,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get fiscal responsibility records count
 
@@ -250,10 +254,11 @@ $FiscalAuthorityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalResponsibilityId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FiscalResponsibilityRecordDtoCollectionQueryParameters = Initialize-FiscalResponsibilityRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FiscalResponsibilityRecordDtoCollectionQueryParameters |  (optional)
 
 # Get fiscal responsibility records count
 try {
-    $Result = Get-FiscalResponsibilityRecordsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalResponsibilityId $FiscalResponsibilityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FiscalResponsibilityRecordsCount -TenantId $TenantId -FiscalAuthorityId $FiscalAuthorityId -FiscalResponsibilityId $FiscalResponsibilityId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FiscalResponsibilityRecordDtoCollectionQueryParameters $FiscalResponsibilityRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FiscalResponsibilityRecordsCount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -269,6 +274,7 @@ Name | Type | Description  | Notes
  **FiscalResponsibilityId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FiscalResponsibilityRecordDtoCollectionQueryParameters** | [**FiscalResponsibilityRecordDtoCollectionQueryParameters**](FiscalResponsibilityRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -280,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -292,7 +298,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FiscalResponsibilityRecordId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a fiscal responsibility record
 
@@ -304,11 +310,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $FiscalResponsibilityRecordId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a fiscal responsibility record
 try {
-    $Result = Invoke-PatchFiscalResponsibilityRecordAsync -TenantId $TenantId -FiscalResponsibilityRecordId $FiscalResponsibilityRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchFiscalResponsibilityRecordAsync -TenantId $TenantId -FiscalResponsibilityRecordId $FiscalResponsibilityRecordId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchFiscalResponsibilityRecordAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -323,7 +329,7 @@ Name | Type | Description  | Notes
  **FiscalResponsibilityRecordId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

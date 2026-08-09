@@ -25,6 +25,12 @@ No description available.
 No description available.
 .PARAMETER Version
 No description available.
+.PARAMETER ProjectId
+No description available.
+.PARAMETER ApiKey
+No description available.
+.PARAMETER ScoreThreshold
+No description available.
 .OUTPUTS
 
 GoogleRecaptchaIntegrationOptions<PSCustomObject>
@@ -47,7 +53,16 @@ function Initialize-GoogleRecaptchaIntegrationOptions {
         ${SecretKey},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Version}
+        ${Version},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ProjectId},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ApiKey},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Double]]
+        ${ScoreThreshold}
     )
 
     Process {
@@ -61,6 +76,9 @@ function Initialize-GoogleRecaptchaIntegrationOptions {
             "siteKey" = ${SiteKey}
             "secretKey" = ${SecretKey}
             "version" = ${Version}
+            "projectId" = ${ProjectId}
+            "apiKey" = ${ApiKey}
+            "scoreThreshold" = ${ScoreThreshold}
         }
 
 
@@ -98,7 +116,7 @@ function ConvertFrom-JsonToGoogleRecaptchaIntegrationOptions {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GoogleRecaptchaIntegrationOptions
-        $AllProperties = ("enable", "site", "siteKey", "secretKey", "version")
+        $AllProperties = ("enable", "site", "siteKey", "secretKey", "version", "projectId", "apiKey", "scoreThreshold")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,12 +153,33 @@ function ConvertFrom-JsonToGoogleRecaptchaIntegrationOptions {
             $Version = $JsonParameters.PSobject.Properties["version"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "projectId"))) { #optional property not found
+            $ProjectId = $null
+        } else {
+            $ProjectId = $JsonParameters.PSobject.Properties["projectId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "apiKey"))) { #optional property not found
+            $ApiKey = $null
+        } else {
+            $ApiKey = $JsonParameters.PSobject.Properties["apiKey"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scoreThreshold"))) { #optional property not found
+            $ScoreThreshold = $null
+        } else {
+            $ScoreThreshold = $JsonParameters.PSobject.Properties["scoreThreshold"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "enable" = ${Enable}
             "site" = ${Site}
             "siteKey" = ${SiteKey}
             "secretKey" = ${SecretKey}
             "version" = ${Version}
+            "projectId" = ${ProjectId}
+            "apiKey" = ${ApiKey}
+            "scoreThreshold" = ${ScoreThreshold}
         }
 
         return $PSO

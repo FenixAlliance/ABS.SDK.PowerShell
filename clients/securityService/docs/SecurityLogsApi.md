@@ -14,6 +14,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BusinessSecurityLogDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get business security logs
 
@@ -24,10 +25,11 @@ Retrieves security logs for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BusinessSecurityLogDtoCollectionQueryParameters = Initialize-BusinessSecurityLogDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BusinessSecurityLogDtoCollectionQueryParameters |  (optional)
 
 # Get business security logs
 try {
-    $Result = Get-SecurityLogsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SecurityLogsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BusinessSecurityLogDtoCollectionQueryParameters $BusinessSecurityLogDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SecurityLogsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -41,6 +43,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BusinessSecurityLogDtoCollectionQueryParameters** | [**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -52,7 +55,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -63,6 +66,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BusinessSecurityLogDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get business security logs count
 
@@ -73,10 +77,11 @@ Retrieves the count of security logs for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$BusinessSecurityLogDtoCollectionQueryParameters = Initialize-BusinessSecurityLogDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # BusinessSecurityLogDtoCollectionQueryParameters |  (optional)
 
 # Get business security logs count
 try {
-    $Result = Get-SecurityLogsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SecurityLogsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -BusinessSecurityLogDtoCollectionQueryParameters $BusinessSecurityLogDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SecurityLogsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -90,6 +95,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **BusinessSecurityLogDtoCollectionQueryParameters** | [**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -101,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

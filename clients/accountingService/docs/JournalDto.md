@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **FiscalYearId** | **String** |  | [optional] 
 **JournalTypeId** | **String** |  | [optional] 
 **ParentJournalId** | **String** |  | [optional] 
+**FinancialBookId** | **String** |  | [optional] 
+**Code** | **String** |  | [optional] 
 
 ## Examples
 
@@ -27,7 +29,9 @@ $JournalDto = Initialize-PSOpenAPIToolsJournalDto  -Id null `
  -EnrollmentId null `
  -FiscalYearId null `
  -JournalTypeId null `
- -ParentJournalId null
+ -ParentJournalId null `
+ -FinancialBookId null `
+ -Code null
 ```
 
 - Convert the resource to JSON

@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -119,26 +118,31 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LicenseAttributeCreateDto](docs/LicenseAttributeCreateDto.md)
  - [PSOpenAPITools\Model.LicenseAttributeDto](docs/LicenseAttributeDto.md)
+ - [PSOpenAPITools\Model.LicenseAttributeDtoCollectionQueryParameters](docs/LicenseAttributeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LicenseAttributeDtoListEnvelope](docs/LicenseAttributeDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LicenseAttributeUpdateDto](docs/LicenseAttributeUpdateDto.md)
  - [PSOpenAPITools\Model.LicenseCreateDto](docs/LicenseCreateDto.md)
  - [PSOpenAPITools\Model.LicenseDto](docs/LicenseDto.md)
+ - [PSOpenAPITools\Model.LicenseDtoCollectionQueryParameters](docs/LicenseDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LicenseDtoListEnvelope](docs/LicenseDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LicenseFeatureCreateDto](docs/LicenseFeatureCreateDto.md)
  - [PSOpenAPITools\Model.LicenseFeatureDto](docs/LicenseFeatureDto.md)
+ - [PSOpenAPITools\Model.LicenseFeatureDtoCollectionQueryParameters](docs/LicenseFeatureDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LicenseFeatureDtoListEnvelope](docs/LicenseFeatureDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LicenseFeatureUpdateDto](docs/LicenseFeatureUpdateDto.md)
  - [PSOpenAPITools\Model.LicenseTypeCreateDto](docs/LicenseTypeCreateDto.md)
  - [PSOpenAPITools\Model.LicenseTypeDto](docs/LicenseTypeDto.md)
+ - [PSOpenAPITools\Model.LicenseTypeDtoCollectionQueryParameters](docs/LicenseTypeDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LicenseTypeDtoListEnvelope](docs/LicenseTypeDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LicenseTypeUpdateDto](docs/LicenseTypeUpdateDto.md)
  - [PSOpenAPITools\Model.LicenseUpdateDto](docs/LicenseUpdateDto.md)
  - [PSOpenAPITools\Model.LicensingCertificateCreateDto](docs/LicensingCertificateCreateDto.md)
  - [PSOpenAPITools\Model.LicensingCertificateDto](docs/LicensingCertificateDto.md)
+ - [PSOpenAPITools\Model.LicensingCertificateDtoCollectionQueryParameters](docs/LicensingCertificateDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LicensingCertificateDtoListEnvelope](docs/LicensingCertificateDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LicensingCertificateUpdateDto](docs/LicensingCertificateUpdateDto.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -30,6 +30,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -60,6 +63,9 @@ function Invoke-AggregateJournalEntryCreditsAsync {
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -89,6 +95,9 @@ function Invoke-AggregateJournalEntryCreditsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits'
         if (!$JournalId) {
             throw "Error! The required parameter `JournalId` missing when calling aggregateJournalEntryCreditsAsync."
@@ -111,6 +120,8 @@ function Invoke-AggregateJournalEntryCreditsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $JournalEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -156,6 +167,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -186,6 +200,9 @@ function Invoke-AggregateJournalEntryDebitsAsync {
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -215,6 +232,9 @@ function Invoke-AggregateJournalEntryDebitsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits'
         if (!$JournalId) {
             throw "Error! The required parameter `JournalId` missing when calling aggregateJournalEntryDebitsAsync."
@@ -238,6 +258,8 @@ function Invoke-AggregateJournalEntryDebitsAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
+        $LocalVarBodyParameter = $JournalEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -248,6 +270,133 @@ function Invoke-AggregateJournalEntryDebitsAsync {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "MoneyEnvelope" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bind a journal to a financial book
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER TenantId
+No description available.
+
+.PARAMETER JournalId
+No description available.
+
+.PARAMETER ApiVersion
+No description available.
+
+.PARAMETER XApiVersion
+No description available.
+
+.PARAMETER AssignJournalToBookRequest
+No description available.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, application/xml
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EmptyEnvelope
+#>
+function Set-JournalToBookAsync {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TenantId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${JournalId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AssignJournalToBookRequest},
+        [String]
+        [ValidateSet("application/json", "application/xml")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Set-JournalToBookAsync' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'application/xml')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
+        $LocalVarUri = '/api/v2/AccountingService/Journals/{journalId}/AssignToBook'
+        if (!$JournalId) {
+            throw "Error! The required parameter `JournalId` missing when calling assignJournalToBookAsync."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{journalId}', [System.Web.HTTPUtility]::UrlEncode($JournalId))
+
+        if ($XApiVersion) {
+            $LocalVarHeaderParameters['x-api-version'] = $XApiVersion
+        }
+
+        if (!$TenantId) {
+            throw "Error! The required parameter `TenantId` missing when calling assignJournalToBookAsync."
+        }
+        $LocalVarQueryParameters['tenantId'] = $TenantId
+
+        if ($ApiVersion) {
+            $LocalVarQueryParameters['api-version'] = $ApiVersion
+        }
+
+        $LocalVarBodyParameter = $AssignJournalToBookRequest | ConvertTo-Json -Depth 100
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EmptyEnvelope" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -276,6 +425,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -300,6 +452,9 @@ function Invoke-CountJournalsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -329,6 +484,9 @@ function Invoke-CountJournalsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals/Count'
 
         if ($XApiVersion) {
@@ -343,6 +501,8 @@ function Invoke-CountJournalsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $JournalDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -987,6 +1147,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1014,6 +1177,9 @@ function Get-JournalEntriesAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1043,6 +1209,9 @@ function Get-JournalEntriesAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals/{journalId}/Entries'
         if (!$JournalId) {
             throw "Error! The required parameter `JournalId` missing when calling getJournalEntriesAsync."
@@ -1061,6 +1230,8 @@ function Get-JournalEntriesAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $JournalEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1103,6 +1274,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalEntryDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1130,6 +1304,9 @@ function Get-JournalEntriesCountAsync {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalEntryDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1159,6 +1336,9 @@ function Get-JournalEntriesCountAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals/{journalId}/Entries/Count'
         if (!$JournalId) {
             throw "Error! The required parameter `JournalId` missing when calling getJournalEntriesCountAsync."
@@ -1177,6 +1357,8 @@ function Get-JournalEntriesCountAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $JournalEntryDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1342,6 +1524,9 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
+.PARAMETER JournalDtoCollectionQueryParameters
+No description available.
+
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, application/xml
@@ -1366,6 +1551,9 @@ function Get-JournalsAsync {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${XApiVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JournalDtoCollectionQueryParameters},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1395,6 +1583,9 @@ function Get-JournalsAsync {
             $LocalVarAccepts = @($ReturnType)
         }
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json', 'application/xml')
+
         $LocalVarUri = '/api/v2/AccountingService/Journals'
 
         if ($XApiVersion) {
@@ -1409,6 +1600,8 @@ function Get-JournalsAsync {
         if ($ApiVersion) {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
+
+        $LocalVarBodyParameter = $JournalDtoCollectionQueryParameters | ConvertTo-Json -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1451,7 +1644,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1483,7 +1676,7 @@ function Invoke-PatchJournalAsync {
         ${XApiVersion},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1535,7 +1728,7 @@ function Invoke-PatchJournalAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -1581,7 +1774,7 @@ No description available.
 .PARAMETER XApiVersion
 No description available.
 
-.PARAMETER Operation
+.PARAMETER PatchOperation
 No description available.
 
 .PARAMETER ReturnType
@@ -1616,7 +1809,7 @@ function Invoke-PatchJournalEntryAsync {
         ${XApiVersion},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Operation},
+        ${PatchOperation},
         [String]
         [ValidateSet("application/json", "application/xml")]
         $ReturnType,
@@ -1672,7 +1865,7 @@ function Invoke-PatchJournalEntryAsync {
             $LocalVarQueryParameters['api-version'] = $ApiVersion
         }
 
-        $LocalVarBodyParameter = ConvertTo-Json @($Operation) -Depth 100
+        $LocalVarBodyParameter = ConvertTo-Json @($PatchOperation) -Depth 100
 
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `

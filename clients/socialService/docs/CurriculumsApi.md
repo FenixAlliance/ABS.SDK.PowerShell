@@ -185,6 +185,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurriculumDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get curricula
 
@@ -196,10 +197,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CurriculumDtoCollectionQueryParameters = Initialize-CurriculumDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CurriculumDtoCollectionQueryParameters |  (optional)
 
 # Get curricula
 try {
-    $Result = Get-CurriculumsAsync -SocialProfileId $SocialProfileId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurriculumsAsync -SocialProfileId $SocialProfileId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CurriculumDtoCollectionQueryParameters $CurriculumDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurriculumsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -214,6 +216,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CurriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -225,7 +228,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -237,6 +240,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CurriculumDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count curricula
 
@@ -248,10 +252,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$CurriculumDtoCollectionQueryParameters = Initialize-CurriculumDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # CurriculumDtoCollectionQueryParameters |  (optional)
 
 # Count curricula
 try {
-    $Result = Get-CurriculumsCountAsync -SocialProfileId $SocialProfileId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-CurriculumsCountAsync -SocialProfileId $SocialProfileId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -CurriculumDtoCollectionQueryParameters $CurriculumDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-CurriculumsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -266,6 +271,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **CurriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -277,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,7 +296,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a curriculum
 
@@ -303,11 +309,11 @@ $CurriculumId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a curriculum
 try {
-    $Result = Invoke-PatchCurriculumAsync -SocialProfileId $SocialProfileId -CurriculumId $CurriculumId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchCurriculumAsync -SocialProfileId $SocialProfileId -CurriculumId $CurriculumId -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchCurriculumAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -323,7 +329,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

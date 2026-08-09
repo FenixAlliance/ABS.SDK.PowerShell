@@ -21,6 +21,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceLevelDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all service levels count
 
@@ -31,10 +32,11 @@ Returns the count of all service levels for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ServiceLevelDtoCollectionQueryParameters = Initialize-ServiceLevelDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 # Get all service levels count
 try {
-    $Result = Invoke-CountAllServiceLevelsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountAllServiceLevelsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ServiceLevelDtoCollectionQueryParameters $ServiceLevelDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountAllServiceLevelsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -48,6 +50,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ServiceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -59,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,6 +183,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceLevelDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all service levels
 
@@ -190,10 +194,11 @@ Retrieves all service levels for the specified tenant.
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ServiceLevelDtoCollectionQueryParameters = Initialize-ServiceLevelDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 # Get all service levels
 try {
-    $Result = Get-AllServiceLevelsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-AllServiceLevelsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ServiceLevelDtoCollectionQueryParameters $ServiceLevelDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-AllServiceLevelsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -207,6 +212,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ServiceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -218,7 +224,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -285,6 +291,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceLevelDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all service levels
 
@@ -296,10 +303,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ServiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ServiceLevelDtoCollectionQueryParameters = Initialize-ServiceLevelDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 # Get all service levels
 try {
-    $Result = Get-ServiceLevelsAsync -TenantId $TenantId -ServiceId $ServiceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ServiceLevelsAsync -TenantId $TenantId -ServiceId $ServiceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ServiceLevelDtoCollectionQueryParameters $ServiceLevelDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ServiceLevelsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -314,6 +322,7 @@ Name | Type | Description  | Notes
  **ServiceId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ServiceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -325,7 +334,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -337,6 +346,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceLevelDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get service levels count
 
@@ -348,10 +358,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ServiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ServiceLevelDtoCollectionQueryParameters = Initialize-ServiceLevelDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ServiceLevelDtoCollectionQueryParameters |  (optional)
 
 # Get service levels count
 try {
-    $Result = Get-ServiceLevelsCountAsync -TenantId $TenantId -ServiceId $ServiceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ServiceLevelsCountAsync -TenantId $TenantId -ServiceId $ServiceId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ServiceLevelDtoCollectionQueryParameters $ServiceLevelDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ServiceLevelsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -366,6 +377,7 @@ Name | Type | Description  | Notes
  **ServiceId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ServiceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -377,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -390,7 +402,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceLevelId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a service level
 
@@ -403,11 +415,11 @@ $ServiceId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ServiceLevelId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a service level
 try {
-    $Result = Invoke-PatchServiceLevelAsync -TenantId $TenantId -ServiceId $ServiceId -ServiceLevelId $ServiceLevelId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchServiceLevelAsync -TenantId $TenantId -ServiceId $ServiceId -ServiceLevelId $ServiceLevelId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchServiceLevelAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -423,7 +435,7 @@ Name | Type | Description  | Notes
  **ServiceLevelId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

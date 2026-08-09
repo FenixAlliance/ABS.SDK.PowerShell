@@ -18,6 +18,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemReturnPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count item return policies
 
@@ -29,10 +30,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemReturnPolicyDtoCollectionQueryParameters = Initialize-ItemReturnPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemReturnPolicyDtoCollectionQueryParameters |  (optional)
 
 # Count item return policies
 try {
-    $Result = Invoke-CountItemReturnPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountItemReturnPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemReturnPolicyDtoCollectionQueryParameters $ItemReturnPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountItemReturnPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -47,6 +49,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -58,7 +61,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -70,6 +73,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ItemReturnPolicyDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get item return policies
 
@@ -81,10 +85,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ItemReturnPolicyDtoCollectionQueryParameters = Initialize-ItemReturnPolicyDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ItemReturnPolicyDtoCollectionQueryParameters |  (optional)
 
 # Get item return policies
 try {
-    $Result = Get-ItemReturnPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ItemReturnPoliciesAsync -TenantId $TenantId -ItemId $ItemId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ItemReturnPolicyDtoCollectionQueryParameters $ItemReturnPolicyDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ItemReturnPoliciesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -99,6 +104,7 @@ Name | Type | Description  | Notes
  **ItemId** | **String**|  | [optional] 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ItemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -110,7 +116,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -14,6 +14,7 @@ Method | HTTP request | Description
 > Int32Envelope Invoke-CountTimezonesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TimezoneDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count timezones
 
@@ -23,10 +24,11 @@ Returns the total number of supported timezones, with optional OData filtering.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TimezoneDtoCollectionQueryParameters = Initialize-TimezoneDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TimezoneDtoCollectionQueryParameters |  (optional)
 
 # Count timezones
 try {
-    $Result = Invoke-CountTimezonesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountTimezonesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TimezoneDtoCollectionQueryParameters $TimezoneDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountTimezonesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -39,6 +41,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TimezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -50,7 +53,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,6 +112,7 @@ No authorization required
 > TimezoneDtoListEnvelope Get-TimeZonesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TimezoneDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get all timezones
 
@@ -118,10 +122,11 @@ Retrieves the list of all supported timezones with optional OData pagination and
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$TimezoneDtoCollectionQueryParameters = Initialize-TimezoneDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # TimezoneDtoCollectionQueryParameters |  (optional)
 
 # Get all timezones
 try {
-    $Result = Get-TimeZonesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-TimeZonesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -TimezoneDtoCollectionQueryParameters $TimezoneDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-TimeZonesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -134,6 +139,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **TimezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -145,7 +151,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

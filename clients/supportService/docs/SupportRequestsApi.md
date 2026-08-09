@@ -236,6 +236,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestAttachmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve attachments for a support request
 
@@ -247,10 +248,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SupportRequestAttachmentDtoCollectionQueryParameters = Initialize-SupportRequestAttachmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SupportRequestAttachmentDtoCollectionQueryParameters |  (optional)
 
 # Retrieve attachments for a support request
 try {
-    $Result = Get-SupportRequestAttachmentsByRequest -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SupportRequestAttachmentsByRequest -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SupportRequestAttachmentDtoCollectionQueryParameters $SupportRequestAttachmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SupportRequestAttachmentsByRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -265,6 +267,7 @@ Name | Type | Description  | Notes
  **SupportRequestId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SupportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -276,7 +279,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -288,6 +291,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestAttachmentDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of attachments for a support request
 
@@ -299,10 +303,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SupportRequestAttachmentDtoCollectionQueryParameters = Initialize-SupportRequestAttachmentDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SupportRequestAttachmentDtoCollectionQueryParameters |  (optional)
 
 # Get the count of attachments for a support request
 try {
-    $Result = Get-SupportRequestAttachmentsCountByRequest -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SupportRequestAttachmentsCountByRequest -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SupportRequestAttachmentDtoCollectionQueryParameters $SupportRequestAttachmentDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SupportRequestAttachmentsCountByRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -317,6 +322,7 @@ Name | Type | Description  | Notes
  **SupportRequestId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SupportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -328,7 +334,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -340,6 +346,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportTicketDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve tickets for a support request
 
@@ -351,10 +358,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SupportTicketDtoCollectionQueryParameters = Initialize-SupportTicketDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SupportTicketDtoCollectionQueryParameters |  (optional)
 
 # Retrieve tickets for a support request
 try {
-    $Result = Get-SupportRequestTicketsAsync -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SupportRequestTicketsAsync -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SupportTicketDtoCollectionQueryParameters $SupportTicketDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SupportRequestTicketsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -369,6 +377,7 @@ Name | Type | Description  | Notes
  **SupportRequestId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SupportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -380,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -391,6 +400,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Retrieve a list of support requests
 
@@ -401,10 +411,11 @@ Retrieves a list of support requests for the specified tenant with OData query s
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SupportRequestDtoCollectionQueryParameters = Initialize-SupportRequestDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SupportRequestDtoCollectionQueryParameters |  (optional)
 
 # Retrieve a list of support requests
 try {
-    $Result = Get-SupportRequestsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SupportRequestsAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SupportRequestDtoCollectionQueryParameters $SupportRequestDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SupportRequestsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -418,6 +429,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SupportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -429,7 +441,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -440,6 +452,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TenantId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get the count of support requests
 
@@ -450,10 +463,11 @@ Returns the total count of support requests for the specified tenant with OData 
 $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SupportRequestDtoCollectionQueryParameters = Initialize-SupportRequestDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SupportRequestDtoCollectionQueryParameters |  (optional)
 
 # Get the count of support requests
 try {
-    $Result = Get-SupportRequestsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SupportRequestsCountAsync -TenantId $TenantId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SupportRequestDtoCollectionQueryParameters $SupportRequestDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SupportRequestsCountAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -467,6 +481,7 @@ Name | Type | Description  | Notes
  **TenantId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SupportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -478,7 +493,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -490,7 +505,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SupportRequestId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Operation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchOperation] <PSCustomObject[]><br>
 
 Patch a support request
 
@@ -502,11 +517,11 @@ $TenantId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $SupportRequestId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
-$Operation = Initialize-Operation -OperationType "Add" -Path "MyPath" -Op "MyOp" -VarFrom "MyVarFrom" -Value # Operation[] |  (optional)
+$PatchOperation = Initialize-PatchOperation -Op "MyOp" -Path "MyPath" -VarFrom "MyVarFrom" -Value # PatchOperation[] |  (optional)
 
 # Patch a support request
 try {
-    $Result = Invoke-PatchSupportRequestAsync -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Operation $Operation
+    $Result = Invoke-PatchSupportRequestAsync -TenantId $TenantId -SupportRequestId $SupportRequestId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PatchOperation $PatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Invoke-PatchSupportRequestAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -521,7 +536,7 @@ Name | Type | Description  | Notes
  **SupportRequestId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
- **Operation** | [**Operation[]**](Operation.md)|  | [optional] 
+ **PatchOperation** | [**PatchOperation[]**](PatchOperation.md)|  | [optional] 
 
 ### Return type
 

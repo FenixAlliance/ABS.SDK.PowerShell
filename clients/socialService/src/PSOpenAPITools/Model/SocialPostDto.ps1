@@ -33,6 +33,14 @@ No description available.
 No description available.
 .PARAMETER ReactionsCount
 No description available.
+.PARAMETER SocialProfileType
+No description available.
+.PARAMETER BodyHtml
+No description available.
+.PARAMETER BodyFormat
+No description available.
+.PARAMETER BackgroundStyle
+No description available.
 .OUTPUTS
 
 SocialPostDto<PSCustomObject>
@@ -67,7 +75,21 @@ function Initialize-SocialPostDto {
         ${CommentsCount},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${ReactionsCount}
+        ${ReactionsCount},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("User", "Tenant", "Contact")]
+        [String]
+        ${SocialProfileType},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BodyHtml},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PlainText", "Html")]
+        [String]
+        ${BodyFormat},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BackgroundStyle}
     )
 
     Process {
@@ -85,6 +107,10 @@ function Initialize-SocialPostDto {
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
             "commentsCount" = ${CommentsCount}
             "reactionsCount" = ${ReactionsCount}
+            "socialProfileType" = ${SocialProfileType}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
 
@@ -122,7 +148,7 @@ function ConvertFrom-JsonToSocialPostDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SocialPostDto
-        $AllProperties = ("id", "timestamp", "title", "message", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl", "commentsCount", "reactionsCount")
+        $AllProperties = ("id", "timestamp", "title", "message", "socialProfileId", "socialProfileName", "socialProfileAvatarUrl", "commentsCount", "reactionsCount", "socialProfileType", "bodyHtml", "bodyFormat", "backgroundStyle")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -183,6 +209,30 @@ function ConvertFrom-JsonToSocialPostDto {
             $ReactionsCount = $JsonParameters.PSobject.Properties["reactionsCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "socialProfileType"))) { #optional property not found
+            $SocialProfileType = $null
+        } else {
+            $SocialProfileType = $JsonParameters.PSobject.Properties["socialProfileType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyHtml"))) { #optional property not found
+            $BodyHtml = $null
+        } else {
+            $BodyHtml = $JsonParameters.PSobject.Properties["bodyHtml"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bodyFormat"))) { #optional property not found
+            $BodyFormat = $null
+        } else {
+            $BodyFormat = $JsonParameters.PSobject.Properties["bodyFormat"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "backgroundStyle"))) { #optional property not found
+            $BackgroundStyle = $null
+        } else {
+            $BackgroundStyle = $JsonParameters.PSobject.Properties["backgroundStyle"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "timestamp" = ${Timestamp}
@@ -193,6 +243,10 @@ function ConvertFrom-JsonToSocialPostDto {
             "socialProfileAvatarUrl" = ${SocialProfileAvatarUrl}
             "commentsCount" = ${CommentsCount}
             "reactionsCount" = ${ReactionsCount}
+            "socialProfileType" = ${SocialProfileType}
+            "bodyHtml" = ${BodyHtml}
+            "bodyFormat" = ${BodyFormat}
+            "backgroundStyle" = ${BackgroundStyle}
         }
 
         return $PSO

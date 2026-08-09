@@ -3,6 +3,7 @@ README.md
 appveyor.yml
 docs/AccessTokenResponse.md
 docs/AddressDto.md
+docs/AddressDtoCollectionQueryParameters.md
 docs/AddressDtoListEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -16,6 +17,7 @@ docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/FenixAllianceABSWebApi.md
 docs/FollowRecordDto.md
+docs/FollowRecordDtoCollectionQueryParameters.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -24,14 +26,16 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoCollectionQueryParameters.md
 docs/NotificationDtoListEnvelope.md
-docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
+docs/OptionDtoCollectionQueryParameters.md
 docs/OptionDtoEnvelope.md
 docs/OptionDtoListEnvelope.md
 docs/OptionUpdateDto.md
 docs/OptionsApi.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -39,6 +43,7 @@ docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
 docs/SocialProfileDtoEnvelope.md
 docs/TenantDto.md
+docs/TenantDtoCollectionQueryParameters.md
 docs/TenantDtoListEnvelope.md
 docs/TenantEnrollmentDto.md
 docs/TenantEnrollmentDtoEnvelope.md
@@ -63,6 +68,7 @@ src/PSOpenAPITools/Api/UsersApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/AccessTokenResponse.ps1
 src/PSOpenAPITools/Model/AddressDto.ps1
+src/PSOpenAPITools/Model/AddressDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/AddressDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/CartDto.ps1
 src/PSOpenAPITools/Model/CartDtoEnvelope.ps1
@@ -75,6 +81,7 @@ src/PSOpenAPITools/Model/ExtendedTenantEnrollmentDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/ExtendedUserDto.ps1
 src/PSOpenAPITools/Model/ExtendedUserDtoEnvelope.ps1
 src/PSOpenAPITools/Model/FollowRecordDto.ps1
+src/PSOpenAPITools/Model/FollowRecordDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/FollowRecordDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/ForgotPasswordRequest.ps1
 src/PSOpenAPITools/Model/HttpValidationProblemDetails.ps1
@@ -83,13 +90,15 @@ src/PSOpenAPITools/Model/InfoResponse.ps1
 src/PSOpenAPITools/Model/Int32Envelope.ps1
 src/PSOpenAPITools/Model/LoginRequest.ps1
 src/PSOpenAPITools/Model/NotificationDto.ps1
+src/PSOpenAPITools/Model/NotificationDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/NotificationDtoListEnvelope.ps1
-src/PSOpenAPITools/Model/Operation.ps1
 src/PSOpenAPITools/Model/OptionCreateDto.ps1
 src/PSOpenAPITools/Model/OptionDto.ps1
+src/PSOpenAPITools/Model/OptionDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/OptionDtoEnvelope.ps1
 src/PSOpenAPITools/Model/OptionDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/OptionUpdateDto.ps1
+src/PSOpenAPITools/Model/PatchOperation.ps1
 src/PSOpenAPITools/Model/RefreshRequest.ps1
 src/PSOpenAPITools/Model/RegisterRequest.ps1
 src/PSOpenAPITools/Model/ResendConfirmationEmailRequest.ps1
@@ -97,6 +106,7 @@ src/PSOpenAPITools/Model/ResetPasswordRequest.ps1
 src/PSOpenAPITools/Model/SocialProfileDto.ps1
 src/PSOpenAPITools/Model/SocialProfileDtoEnvelope.ps1
 src/PSOpenAPITools/Model/TenantDto.ps1
+src/PSOpenAPITools/Model/TenantDtoCollectionQueryParameters.ps1
 src/PSOpenAPITools/Model/TenantDtoListEnvelope.ps1
 src/PSOpenAPITools/Model/TenantEnrollmentDto.ps1
 src/PSOpenAPITools/Model/TenantEnrollmentDtoEnvelope.ps1
@@ -121,3 +131,9 @@ src/PSOpenAPITools/Private/HttpSignatureAuth.ps1
 src/PSOpenAPITools/Private/Out-DebugParameter.ps1
 src/PSOpenAPITools/Private/RSAEncryptionProvider.cs
 src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
+tests/Model/AddressDtoCollectionQueryParameters.Tests.ps1
+tests/Model/FollowRecordDtoCollectionQueryParameters.Tests.ps1
+tests/Model/NotificationDtoCollectionQueryParameters.Tests.ps1
+tests/Model/OptionDtoCollectionQueryParameters.Tests.ps1
+tests/Model/PatchOperation.Tests.ps1
+tests/Model/TenantDtoCollectionQueryParameters.Tests.ps1

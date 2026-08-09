@@ -53,6 +53,15 @@ All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationPrincipalsApi* | [**Disable-ApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#Disable-ApplicationPrincipalAsync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Disable | Disable an application principal
+*ApplicationPrincipalsApi* | [**Enable-ApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#Enable-ApplicationPrincipalAsync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Enable | Enable an application principal
+*ApplicationPrincipalsApi* | [**Get-ApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#Get-ApplicationPrincipalAsync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/{principalId} | Get application principal by ID
+*ApplicationPrincipalsApi* | [**Get-ApplicationPrincipalsAsync**](docs/ApplicationPrincipalsApi.md#Get-ApplicationPrincipalsAsync) | **GET** /api/v2/SecurityService/ApplicationPrincipals | Get all application principals
+*ApplicationPrincipalsApi* | [**Get-ApplicationPrincipalsCountAsync**](docs/ApplicationPrincipalsApi.md#Get-ApplicationPrincipalsCountAsync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/Count | Get application principals count
+*ApplicationPrincipalsApi* | [**Grant-PermissionAsync**](docs/ApplicationPrincipalsApi.md#Grant-PermissionAsync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions | Grant a permission to an application principal
+*ApplicationPrincipalsApi* | [**Invoke-ProvisionApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#Invoke-ProvisionApplicationPrincipalAsync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/Provision | Provision an application principal
+*ApplicationPrincipalsApi* | [**Revoke-PermissionAsync**](docs/ApplicationPrincipalsApi.md#Revoke-PermissionAsync) | **DELETE** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions/{permission} | Revoke a permission from an application principal
+*ApplicationPrincipalsApi* | [**Suspend-ApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#Suspend-ApplicationPrincipalAsync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Suspend | Suspend an application principal
 *ApplicationsApi* | [**New-BusinessApplicationAsync**](docs/ApplicationsApi.md#New-BusinessApplicationAsync) | **POST** /api/v2/SecurityService/Applications | Create a new business application
 *ApplicationsApi* | [**Invoke-DeleteBusinessApplicationAsync**](docs/ApplicationsApi.md#Invoke-DeleteBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Applications/{applicationId} | Delete a business application
 *ApplicationsApi* | [**Get-BusinessApplicationByIdAsync**](docs/ApplicationsApi.md#Get-BusinessApplicationByIdAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID
@@ -66,7 +75,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**Invoke-AccountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#Invoke-AccountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**Invoke-ApiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#Invoke-ApiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**Invoke-ForgotPasswordPost**](docs/FenixAllianceABSWebApi.md#Invoke-ForgotPasswordPost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**Invoke-HealthGet**](docs/FenixAllianceABSWebApi.md#Invoke-HealthGet) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**Invoke-HelloGet**](docs/FenixAllianceABSWebApi.md#Invoke-HelloGet) | **GET** /hello | 
@@ -137,14 +145,25 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PSOpenAPITools\Model.AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalDetailDto](docs/ApplicationPrincipalDetailDto.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalDetailDtoEnvelope](docs/ApplicationPrincipalDetailDtoEnvelope.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalDto](docs/ApplicationPrincipalDto.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalDtoCollectionQueryParameters](docs/ApplicationPrincipalDtoCollectionQueryParameters.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalDtoListEnvelope](docs/ApplicationPrincipalDtoListEnvelope.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalPermissionRequestDto](docs/ApplicationPrincipalPermissionRequestDto.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalProvisionRequestDto](docs/ApplicationPrincipalProvisionRequestDto.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalProvisioningResultDto](docs/ApplicationPrincipalProvisioningResultDto.md)
+ - [PSOpenAPITools\Model.ApplicationPrincipalProvisioningResultDtoEnvelope](docs/ApplicationPrincipalProvisioningResultDtoEnvelope.md)
  - [PSOpenAPITools\Model.BusinessApplicationCreateDto](docs/BusinessApplicationCreateDto.md)
  - [PSOpenAPITools\Model.BusinessApplicationDto](docs/BusinessApplicationDto.md)
+ - [PSOpenAPITools\Model.BusinessApplicationDtoCollectionQueryParameters](docs/BusinessApplicationDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.BusinessApplicationDtoEnvelope](docs/BusinessApplicationDtoEnvelope.md)
  - [PSOpenAPITools\Model.BusinessApplicationDtoListEnvelope](docs/BusinessApplicationDtoListEnvelope.md)
  - [PSOpenAPITools\Model.BusinessApplicationSimpleDto](docs/BusinessApplicationSimpleDto.md)
  - [PSOpenAPITools\Model.BusinessApplicationSimpleDtoListEnvelope](docs/BusinessApplicationSimpleDtoListEnvelope.md)
  - [PSOpenAPITools\Model.BusinessApplicationUpdateDto](docs/BusinessApplicationUpdateDto.md)
  - [PSOpenAPITools\Model.BusinessSecurityLogDto](docs/BusinessSecurityLogDto.md)
+ - [PSOpenAPITools\Model.BusinessSecurityLogDtoCollectionQueryParameters](docs/BusinessSecurityLogDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.BusinessSecurityLogDtoListEnvelope](docs/BusinessSecurityLogDtoListEnvelope.md)
  - [PSOpenAPITools\Model.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [PSOpenAPITools\Model.ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -154,6 +173,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.InfoResponse](docs/InfoResponse.md)
  - [PSOpenAPITools\Model.Int32Envelope](docs/Int32Envelope.md)
  - [PSOpenAPITools\Model.LogDto](docs/LogDto.md)
+ - [PSOpenAPITools\Model.LogDtoCollectionQueryParameters](docs/LogDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.LogDtoListEnvelope](docs/LogDtoListEnvelope.md)
  - [PSOpenAPITools\Model.LoginRequest](docs/LoginRequest.md)
  - [PSOpenAPITools\Model.OAuthApplicationCreateDto](docs/OAuthApplicationCreateDto.md)
@@ -164,20 +184,23 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.OAuthAuthorizationDto](docs/OAuthAuthorizationDto.md)
  - [PSOpenAPITools\Model.OAuthAuthorizationDtoEnvelope](docs/OAuthAuthorizationDtoEnvelope.md)
  - [PSOpenAPITools\Model.OAuthAuthorizationDtoListEnvelope](docs/OAuthAuthorizationDtoListEnvelope.md)
- - [PSOpenAPITools\Model.Operation](docs/Operation.md)
+ - [PSOpenAPITools\Model.PatchOperation](docs/PatchOperation.md)
  - [PSOpenAPITools\Model.RefreshRequest](docs/RefreshRequest.md)
  - [PSOpenAPITools\Model.RegisterRequest](docs/RegisterRequest.md)
  - [PSOpenAPITools\Model.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [PSOpenAPITools\Model.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [PSOpenAPITools\Model.SecurityCertificateDto](docs/SecurityCertificateDto.md)
+ - [PSOpenAPITools\Model.SecurityCertificateDtoCollectionQueryParameters](docs/SecurityCertificateDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SecurityCertificateDtoListEnvelope](docs/SecurityCertificateDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SecurityPermissionCreateDto](docs/SecurityPermissionCreateDto.md)
  - [PSOpenAPITools\Model.SecurityPermissionDto](docs/SecurityPermissionDto.md)
+ - [PSOpenAPITools\Model.SecurityPermissionDtoCollectionQueryParameters](docs/SecurityPermissionDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SecurityPermissionDtoEnvelope](docs/SecurityPermissionDtoEnvelope.md)
  - [PSOpenAPITools\Model.SecurityPermissionDtoListEnvelope](docs/SecurityPermissionDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SecurityPermissionUpdateDto](docs/SecurityPermissionUpdateDto.md)
  - [PSOpenAPITools\Model.SecurityRoleCreateDto](docs/SecurityRoleCreateDto.md)
  - [PSOpenAPITools\Model.SecurityRoleDto](docs/SecurityRoleDto.md)
+ - [PSOpenAPITools\Model.SecurityRoleDtoCollectionQueryParameters](docs/SecurityRoleDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.SecurityRoleDtoEnvelope](docs/SecurityRoleDtoEnvelope.md)
  - [PSOpenAPITools\Model.SecurityRoleDtoListEnvelope](docs/SecurityRoleDtoListEnvelope.md)
  - [PSOpenAPITools\Model.SecurityRoleUpdateDto](docs/SecurityRoleUpdateDto.md)
@@ -186,6 +209,7 @@ Class | Method | HTTP request | Description
  - [PSOpenAPITools\Model.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [PSOpenAPITools\Model.TwoFactorResponse](docs/TwoFactorResponse.md)
  - [PSOpenAPITools\Model.WebhookRequestDto](docs/WebhookRequestDto.md)
+ - [PSOpenAPITools\Model.WebhookRequestDtoCollectionQueryParameters](docs/WebhookRequestDtoCollectionQueryParameters.md)
  - [PSOpenAPITools\Model.WebhookRequestDtoListEnvelope](docs/WebhookRequestDtoListEnvelope.md)
 
 

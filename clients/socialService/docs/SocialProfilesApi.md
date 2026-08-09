@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**Get-MessagesAsync**](SocialProfilesApi.md#Get-MessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
 [**Get-NotificationByIdAsync**](SocialProfilesApi.md#Get-NotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**Get-NotificationsAsync**](SocialProfilesApi.md#Get-NotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
+[**Get-OrCreateDirectConversationAsync**](SocialProfilesApi.md#Get-OrCreateDirectConversationAsync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation
 [**Get-SocialProfileAsync**](SocialProfilesApi.md#Get-SocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**Get-SocialProfilesAsync**](SocialProfilesApi.md#Get-SocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles
 [**Invoke-UnfollowAsync**](SocialProfilesApi.md#Invoke-UnfollowAsync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow
@@ -37,6 +38,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Conversations
 
@@ -47,10 +49,11 @@ Count conversations for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ConversationDtoCollectionQueryParameters = Initialize-ConversationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ConversationDtoCollectionQueryParameters |  (optional)
 
 # Count Conversations
 try {
-    $Result = Invoke-CountConversationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountConversationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ConversationDtoCollectionQueryParameters $ConversationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountConversationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -64,6 +67,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ConversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -75,7 +79,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -86,6 +90,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Followed Profiles
 
@@ -96,10 +101,11 @@ Count followed profiles for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Count Followed Profiles
 try {
-    $Result = Invoke-CountFollowedProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountFollowedProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountFollowedProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -113,6 +119,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -124,7 +131,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -135,6 +142,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Follower Profiles
 
@@ -145,10 +153,11 @@ Count follower profiles for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Count Follower Profiles
 try {
-    $Result = Invoke-CountFollowerProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountFollowerProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountFollowerProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -162,6 +171,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -173,7 +183,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -184,6 +194,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Followers
 
@@ -194,10 +205,11 @@ Count followers for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Count Followers
 try {
-    $Result = Invoke-CountFollowersAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountFollowersAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountFollowersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -211,6 +223,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -222,7 +235,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -233,6 +246,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Follows
 
@@ -243,10 +257,11 @@ Count follows for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Count Follows
 try {
-    $Result = Invoke-CountFollowsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountFollowsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountFollowsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -260,6 +275,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -271,7 +287,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -283,6 +299,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PrivateMessageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Messages
 
@@ -294,10 +311,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ConversationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PrivateMessageDtoCollectionQueryParameters = Initialize-PrivateMessageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PrivateMessageDtoCollectionQueryParameters |  (optional)
 
 # Count Messages
 try {
-    $Result = Invoke-CountMessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountMessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PrivateMessageDtoCollectionQueryParameters $PrivateMessageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountMessagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -312,6 +330,7 @@ Name | Type | Description  | Notes
  **ConversationId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PrivateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -323,7 +342,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -334,6 +353,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NotificationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Notifications
 
@@ -344,10 +364,11 @@ Count notifications for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$NotificationDtoCollectionQueryParameters = Initialize-NotificationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # NotificationDtoCollectionQueryParameters |  (optional)
 
 # Count Notifications
 try {
-    $Result = Invoke-CountNotificationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountNotificationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -NotificationDtoCollectionQueryParameters $NotificationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountNotificationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -361,6 +382,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **NotificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -372,7 +394,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -382,6 +404,7 @@ No authorization required
 > Int32Envelope Invoke-CountSocialProfilesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Count Social Profiles
 
@@ -391,10 +414,11 @@ Count social profiles.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Count Social Profiles
 try {
-    $Result = Invoke-CountSocialProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Invoke-CountSocialProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CountSocialProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -407,6 +431,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -418,7 +443,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -695,6 +720,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Conversations
 
@@ -705,10 +731,11 @@ Get a list of conversations for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$ConversationDtoCollectionQueryParameters = Initialize-ConversationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # ConversationDtoCollectionQueryParameters |  (optional)
 
 # Get Conversations
 try {
-    $Result = Get-ConversationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-ConversationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -ConversationDtoCollectionQueryParameters $ConversationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-ConversationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -722,6 +749,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **ConversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -733,7 +761,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -744,6 +772,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Followed Profiles
 
@@ -754,10 +783,11 @@ Get a list of followed profiles for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Get Followed Profiles
 try {
-    $Result = Get-FollowedProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FollowedProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FollowedProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -771,6 +801,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -782,7 +813,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -793,6 +824,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Follower Profiles
 
@@ -803,10 +835,11 @@ Get a list of follower profiles for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Get Follower Profiles
 try {
-    $Result = Get-FollowerProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FollowerProfilesAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FollowerProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -820,6 +853,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -831,7 +865,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -842,6 +876,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Followers
 
@@ -852,10 +887,11 @@ Get a list of followers for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Get Followers
 try {
-    $Result = Get-FollowersAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FollowersAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FollowersAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -869,6 +905,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -880,7 +917,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -891,6 +928,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FollowRecordDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Follows
 
@@ -901,10 +939,11 @@ Get a list of follows for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$FollowRecordDtoCollectionQueryParameters = Initialize-FollowRecordDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # FollowRecordDtoCollectionQueryParameters |  (optional)
 
 # Get Follows
 try {
-    $Result = Get-FollowsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-FollowsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -FollowRecordDtoCollectionQueryParameters $FollowRecordDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-FollowsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -918,6 +957,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **FollowRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -929,7 +969,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -941,6 +981,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConversationId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PrivateMessageDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Messages
 
@@ -952,10 +993,11 @@ $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |
 $ConversationId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$PrivateMessageDtoCollectionQueryParameters = Initialize-PrivateMessageDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # PrivateMessageDtoCollectionQueryParameters |  (optional)
 
 # Get Messages
 try {
-    $Result = Get-MessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-MessagesAsync -SocialProfileId $SocialProfileId -ConversationId $ConversationId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -PrivateMessageDtoCollectionQueryParameters $PrivateMessageDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-MessagesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -970,6 +1012,7 @@ Name | Type | Description  | Notes
  **ConversationId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **PrivateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -981,7 +1024,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1044,6 +1087,7 @@ No authorization required
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NotificationDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Notifications
 
@@ -1054,10 +1098,11 @@ Get a list of notifications for a social profile.
 $SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$NotificationDtoCollectionQueryParameters = Initialize-NotificationDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # NotificationDtoCollectionQueryParameters |  (optional)
 
 # Get Notifications
 try {
-    $Result = Get-NotificationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-NotificationsAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -NotificationDtoCollectionQueryParameters $NotificationDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-NotificationsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1071,6 +1116,7 @@ Name | Type | Description  | Notes
  **SocialProfileId** | **String**|  | 
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **NotificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1082,7 +1128,59 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-OrCreateDirectConversationAsync"></a>
+# **Get-OrCreateDirectConversationAsync**
+> ConversationDtoEnvelope Get-OrCreateDirectConversationAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <String><br>
+
+Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+### Example
+```powershell
+$SocialProfileId = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | 
+$ApiVersion = "MyApiVersion" # String |  (optional)
+$XApiVersion = "MyXApiVersion" # String |  (optional)
+$Body = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String |  (optional)
+
+# Get or Create Direct Conversation
+try {
+    $Result = Get-OrCreateDirectConversationAsync -SocialProfileId $SocialProfileId -ApiVersion $ApiVersion -XApiVersion $XApiVersion -Body $Body
+} catch {
+    Write-Host ("Exception occurred when calling Get-OrCreateDirectConversationAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SocialProfileId** | **String**|  | 
+ **ApiVersion** | **String**|  | [optional] 
+ **XApiVersion** | **String**|  | [optional] 
+ **Body** | **String**|  | [optional] 
+
+### Return type
+
+[**ConversationDtoEnvelope**](ConversationDtoEnvelope.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1141,6 +1239,7 @@ No authorization required
 > SocialProfileDtoListEnvelope Get-SocialProfilesAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApiVersion] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XApiVersion] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SocialProfileDtoCollectionQueryParameters] <PSCustomObject><br>
 
 Get Social Profiles
 
@@ -1150,10 +1249,11 @@ Get a list of social profiles.
 ```powershell
 $ApiVersion = "MyApiVersion" # String |  (optional)
 $XApiVersion = "MyXApiVersion" # String |  (optional)
+$SocialProfileDtoCollectionQueryParameters = Initialize-SocialProfileDtoCollectionQueryParameters -Top 0 -Skip 0 -Count $false -VarFilter "MyVarFilter" -OrderBy "MyOrderBy" -Search "MySearch" -Select "MySelect" -Expand "MyExpand" -IsEmpty $false # SocialProfileDtoCollectionQueryParameters |  (optional)
 
 # Get Social Profiles
 try {
-    $Result = Get-SocialProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion
+    $Result = Get-SocialProfilesAsync -ApiVersion $ApiVersion -XApiVersion $XApiVersion -SocialProfileDtoCollectionQueryParameters $SocialProfileDtoCollectionQueryParameters
 } catch {
     Write-Host ("Exception occurred when calling Get-SocialProfilesAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1166,6 +1266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApiVersion** | **String**|  | [optional] 
  **XApiVersion** | **String**|  | [optional] 
+ **SocialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] 
 
 ### Return type
 
@@ -1177,7 +1278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

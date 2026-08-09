@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **ParentJournalId** | **String** |  | [optional] 
 **JournalTypeId** | **String** |  | [optional] 
 **LedgerId** | **String** |  | [optional] 
+**FinancialBookId** | **String** |  | [optional] 
+**Code** | **String** |  | [optional] 
 
 ## Examples
 
@@ -23,7 +25,9 @@ $JournalCreateDto = Initialize-PSOpenAPIToolsJournalCreateDto  -Id null `
  -DateTime null `
  -ParentJournalId null `
  -JournalTypeId null `
- -LedgerId null
+ -LedgerId null `
+ -FinancialBookId null `
+ -Code null
 ```
 
 - Convert the resource to JSON
