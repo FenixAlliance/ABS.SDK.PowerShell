@@ -77,7 +77,7 @@ function Invoke-ApiV2AiServiceCompletionsCompleteGet {
             $LocalVarAccepts = @($ReturnType)
         }
 
-        $LocalVarUri = '/api/v2/AiService/Completions/Complete'
+        $LocalVarUri = '/api/v2/IntelligenceService/Completions/Complete'
 
         if (!$TenantId) {
             throw "Error! The required parameter `TenantId` missing when calling apiV2AiServiceCompletionsCompleteGet."
